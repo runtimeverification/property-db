@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This exception is thrown when a particular cryptographic algorithm is
  * requested but is not available in the environment.
  *
@@ -36,7 +36,7 @@ public class NoSuchAlgorithmException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -7443947487218346562L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a NoSuchAlgorithmException with no detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -45,7 +45,7 @@ public class NoSuchAlgorithmException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a NoSuchAlgorithmException with the specified
      * detail message. A detail message is a String that describes
      * this particular exception, which may, for example, specify which
@@ -57,7 +57,7 @@ public class NoSuchAlgorithmException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>NoSuchAlgorithmException</code> with the specified
      * detail message and cause.
      *
@@ -72,7 +72,7 @@ public class NoSuchAlgorithmException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>NoSuchAlgorithmException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

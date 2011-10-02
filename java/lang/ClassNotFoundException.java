@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when an application tries to load in a class through its
  * string name using:
  * <ul>
@@ -51,12 +51,12 @@ package java.lang;
  * @since   JDK1.0
  */
 public class ClassNotFoundException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * use serialVersionUID from JDK 1.1.X for interoperability
      */
      private static final long serialVersionUID = 9176873029745254542L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field holds the exception ex if the
      * ClassNotFoundException(String s, Throwable ex) constructor was
      * used to instantiate the object
@@ -65,14 +65,14 @@ public class ClassNotFoundException extends Exception {
      */
     private Throwable ex;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassNotFoundException</code> with no detail message.
      */
     public ClassNotFoundException() {
         super((Throwable)null);  // Disallow initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassNotFoundException</code> with the
      * specified detail message.
      *
@@ -82,7 +82,7 @@ public class ClassNotFoundException extends Exception {
         super(s, null);  //  Disallow initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassNotFoundException</code> with the
      * specified detail message and optional exception that was
      * raised while loading the class.
@@ -96,7 +96,7 @@ public class ClassNotFoundException extends Exception {
         this.ex = ex;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the exception that was raised if an error occurred while
      * attempting to load the class. Otherwise, returns <tt>null</tt>.
      *
@@ -111,7 +111,7 @@ public class ClassNotFoundException extends Exception {
         return ex;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this exception (the exception that was raised
      * if an error occurred while attempting to load the class; otherwise
      * <tt>null</tt>).

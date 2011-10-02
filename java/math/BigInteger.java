@@ -32,7 +32,7 @@ package java.math;
 import java.util.Random;
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Immutable arbitrary-precision integers.  All operations behave as if
  * BigIntegers were represented in two's-complement notation (like Java's
  * primitive integer types).  BigInteger provides analogues to all of Java's
@@ -97,7 +97,7 @@ import java.io.*;
  */
 
 public class BigInteger extends Number implements Comparable<BigInteger> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The signum of this BigInteger: -1 for negative, 0 for zero, or
      * 1 for positive.  Note that the BigInteger zero <i>must</i> have
      * a signum of 0.  This is necessary to ensures that there is exactly one
@@ -107,7 +107,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
      */
     final int signum;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The magnitude of this BigInteger, in <i>big-endian</i> order: the
      * zeroth element of this array is the most-significant int of the
      * magnitude.  The magnitude must be "minimal" in that the most-significant
@@ -122,7 +122,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     // values, and cached the first time they are needed (or never, if they
     // aren't needed).
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
      * One plus the bitCount of this BigInteger. Zeros means unitialized.
      *
      * @serial
@@ -133,7 +133,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     @Deprecated
     private int bitCount;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * One plus the bitLength of this BigInteger. Zeros means unitialized.
      * (either value is acceptable).
      *
@@ -145,7 +145,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     @Deprecated
     private int bitLength;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Two plus the lowest set bit of this BigInteger, as returned by
      * getLowestSetBit().
      *
@@ -157,7 +157,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     @Deprecated
     private int lowestSetBit;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Two plus the index of the lowest-order int in the magnitude of this
      * BigInteger that contains a nonzero int, or -2 (either value is acceptable).
      * The least significant int has int-number 0, the next int in order of
@@ -168,14 +168,14 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     @Deprecated
     private int firstNonzeroIntNum;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This mask is used to obtain the value of an int as if it were unsigned.
      */
     final static long LONG_MASK = 0xffffffffL;
 
     //Constructors
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a byte array containing the two's-complement binary
      * representation of a BigInteger into a BigInteger.  The input array is
      * assumed to be in <i>big-endian</i> byte-order: the most significant
@@ -198,7 +198,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This private constructor translates an int array containing the
      * two's-complement binary representation of a BigInteger into a
      * BigInteger. The input array is assumed to be in <i>big-endian</i>
@@ -217,7 +217,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the sign-magnitude representation of a BigInteger into a
      * BigInteger.  The sign is represented as an integer signum value: -1 for
      * negative, 0 for zero, or 1 for positive.  The magnitude is a byte array
@@ -248,7 +248,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constructor for internal use that translates the sign-magnitude
      * representation of a BigInteger into a BigInteger. It checks the
      * arguments and copies the magnitude so this constructor would be
@@ -269,7 +269,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the String representation of a BigInteger in the
      * specified radix into a BigInteger.  The String representation
      * consists of an optional minus followed by a sequence of one or
@@ -453,7 +453,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the decimal String representation of a BigInteger into a
      * BigInteger.  The String representation consists of an optional minus
      * sign followed by a sequence of one or more decimal digits.  The
@@ -470,7 +470,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         this(val, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a randomly generated BigInteger, uniformly distributed over
      * the range {@code 0} to (2<sup>{@code numBits}</sup> - 1), inclusive.
      * The uniformity of the distribution assumes that a fair source of random
@@ -502,7 +502,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return randomBits;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a randomly generated positive BigInteger that is probably
      * prime, with the specified bitLength.
      *
@@ -540,7 +540,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     // Certainty required to meet the spec of probablePrime
     private static final int DEFAULT_PRIME_CERTAINTY = 100;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a positive BigInteger that is probably prime, with the
      * specified bitLength. The probability that a BigInteger returned
      * by this method is composite does not exceed 2<sup>-100</sup>.
@@ -563,7 +563,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
                 largePrime(bitLength, DEFAULT_PRIME_CERTAINTY, rnd));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find a random number of the specified bitLength that is probably prime.
      * This method is used for smaller primes, its performance degrades on
      * larger bitlengths.
@@ -608,7 +608,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     private static final BigInteger SMALL_PRIME_PRODUCT
                        = valueOf(3L*5*7*11*13*17*19*23*29*31*37*41);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find a random number of the specified bitLength that is probably prime.
      * This method is more appropriate for larger bitlengths since it uses
      * a sieve to eliminate most composites before using a more expensive
@@ -635,7 +635,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return candidate;
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns the first integer greater than this {@code BigInteger} that
     * is probably prime.  The probability that the number returned by this
     * method is composite does not exceed 2<sup>-100</sup>. This method will
@@ -705,7 +705,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this BigInteger is probably prime,
      * {@code false} if it's definitely composite.
      *
@@ -749,7 +749,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return passesMillerRabin(rounds, random) && passesLucasLehmer();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true iff this BigInteger is a Lucas-Lehmer probable prime.
      *
      * The following assumptions are made:
@@ -772,7 +772,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return u.mod(this).equals(ZERO);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes Jacobi(p,n).
      * Assumes n positive, odd, n>=3.
      */
@@ -871,7 +871,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return staticRandom;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true iff this BigInteger passes the specified number of
      * Miller-Rabin tests. This test is taken from the DSA spec (NIST FIPS
      * 186-2).
@@ -909,7 +909,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This internal constructor differs from its public cousin
      * with the arguments reversed in two ways: it assumes that its
      * arguments are correct, and it doesn't copy the magnitude array.
@@ -919,7 +919,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         this.mag = magnitude;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This private constructor is for internal use and assumes that its
      * arguments are correct.
      */
@@ -930,7 +930,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     //Static Factory Methods
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is equal to that of the
      * specified {@code long}.  This "static factory method" is
      * provided in preference to a ({@code long}) constructor
@@ -951,7 +951,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(val);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a BigInteger with the specified value, which may not be zero.
      */
     private BigInteger(long val) {
@@ -973,7 +973,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger with the given two's complement representation.
      * Assumes that the input array will not be modified (the returned
      * BigInteger will reference the input array if feasible).
@@ -984,7 +984,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Constants
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize static constant array when class is loaded.
      */
     private final static int MAX_CONSTANT = 16;
@@ -999,26 +999,26 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The BigInteger constant zero.
      *
      * @since   1.2
      */
     public static final BigInteger ZERO = new BigInteger(new int[0], 0);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The BigInteger constant one.
      *
      * @since   1.2
      */
     public static final BigInteger ONE = valueOf(1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The BigInteger constant two.  (Not exported.)
      */
     private static final BigInteger TWO = valueOf(2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The BigInteger constant ten.
      *
      * @since   1.5
@@ -1027,7 +1027,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Arithmetic Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this + val)}.
      *
      * @param  val value to be added to this BigInteger.
@@ -1051,7 +1051,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(resultMag, cmp == signum ? 1 : -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the contents of the int arrays x and y. This method allocates
      * a new int array to hold the answer and returns a reference to that
      * array.
@@ -1095,7 +1095,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this - val)}.
      *
      * @param  val value to be subtracted from this BigInteger.
@@ -1118,7 +1118,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(resultMag, cmp == signum ? 1 : -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subtracts the contents of the second int arrays (little) from the
      * first (big).  The first int array (big) must represent a larger number
      * than the second.  This method allocates the space necessary to hold the
@@ -1150,7 +1150,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this * val)}.
      *
      * @param  val value to be multiplied by this BigInteger.
@@ -1166,7 +1166,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(result, signum == val.signum ? 1 : -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package private methods used by BigDecimal code to multiply a BigInteger
      * with a long. Assumes v is not equal to INFLATED.
      */
@@ -1208,7 +1208,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(rmag, rsign);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Multiplies int arrays x and y to the specified lengths and places
      * the result into z. There will be no leading zeros in the resultant array.
      */
@@ -1242,7 +1242,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return z;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this<sup>2</sup>)}.
      *
      * @return {@code this<sup>2</sup>}
@@ -1254,7 +1254,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(trustedStripLeadingZeroInts(z), 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Squares the contents of the int array x. The result is placed into the
      * int array z.  The contents of x are not changed.
      */
@@ -1321,7 +1321,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return z;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this / val)}.
      *
      * @param  val value by which this BigInteger is to be divided.
@@ -1337,7 +1337,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return q.toBigInteger(this.signum == val.signum ? 1 : -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of two BigIntegers containing {@code (this / val)}
      * followed by {@code (this % val)}.
      *
@@ -1359,7 +1359,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this % val)}.
      *
      * @param  val value by which this BigInteger is to be divided, and the
@@ -1375,7 +1375,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return a.divide(b, q).toBigInteger(this.signum);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is <tt>(this<sup>exponent</sup>)</tt>.
      * Note that {@code exponent} is an integer rather than a BigInteger.
      *
@@ -1409,7 +1409,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(result, newSign);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is the greatest common divisor of
      * {@code abs(this)} and {@code abs(val)}.  Returns 0 if
      * {@code this==0 && val==0}.
@@ -1431,14 +1431,14 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result.toBigInteger(1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package private method to return bit length for an integer.
      */
     static int bitLengthForInt(int n) {
         return 32 - Integer.numberOfLeadingZeros(n);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Left shift int array a up to len by n bits. Returns the array that
      * results from the shift since space may have to be reallocated.
      */
@@ -1493,7 +1493,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         a[len-1] <<= n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calculate bitlength of contents of the first len elements an int array,
      * assuming there are no leading zero ints.
      */
@@ -1503,7 +1503,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return ((len - 1) << 5) + bitLengthForInt(val[0]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is the absolute value of this
      * BigInteger.
      *
@@ -1513,7 +1513,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (signum >= 0 ? this : this.negate());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (-this)}.
      *
      * @return {@code -this}
@@ -1522,7 +1522,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(this.mag, -this.signum);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the signum function of this BigInteger.
      *
      * @return -1, 0 or 1 as the value of this BigInteger is negative, zero or
@@ -1534,7 +1534,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Modular Arithmetic Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this mod m}).  This method
      * differs from {@code remainder} in that it always returns a
      * <i>non-negative</i> BigInteger.
@@ -1552,7 +1552,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (result.signum >= 0 ? result : result.add(m));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is
      * <tt>(this<sup>exponent</sup> mod m)</tt>.  (Unlike {@code pow}, this
      * method permits negative exponents.)
@@ -1627,7 +1627,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
     static int[] bnExpModThreshTable = {7, 25, 81, 241, 673, 1793,
                                                 Integer.MAX_VALUE}; // Sentinel
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is x to the power of y mod z.
      * Assumes: z is odd && x < z.
      */
@@ -1858,7 +1858,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(1, t2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Montgomery reduce n, modulo mod.  This reduces modulo mod and divides
      * by 2^(32*mlen). Adapted from Colin Plumb's C library.
      */
@@ -1900,7 +1900,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subtracts two numbers of same length, returning borrow.
      */
     private static int subN(int[] a, int[] b, int len) {
@@ -1915,7 +1915,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (int)(sum >> 32);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Multiply an array by one word k and add to result, return the carry
      */
     static int mulAdd(int[] out, int[] in, int offset, int len, int k) {
@@ -1932,7 +1932,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (int)carry;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add one word to the number a mlen words into a. Return the resulting
      * carry.
      */
@@ -1955,7 +1955,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return 1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is (this ** exponent) mod (2**p)
      */
     private BigInteger modPow2(BigInteger exponent, int p) {
@@ -1983,7 +1983,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is this mod(2**p).
      * Assumes that this {@code BigInteger >= 0} and {@code p > 0}.
      */
@@ -2004,7 +2004,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (mag[0]==0 ? new BigInteger(1, mag) : new BigInteger(mag, 1));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this}<sup>-1</sup> {@code mod m)}.
      *
      * @param  m the modulus.
@@ -2037,7 +2037,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Shift Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this << n)}.
      * The shift distance, {@code n}, may be negative, in which case
      * this method performs a right shift.
@@ -2083,7 +2083,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return new BigInteger(newMag, signum);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this >> n)}.  Sign
      * extension is performed.  The shift distance, {@code n}, may be
      * negative, in which case this method performs a left shift.
@@ -2157,7 +2157,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Bitwise Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this & val)}.  (This
      * method returns a negative BigInteger if and only if this and val are
      * both negative.)
@@ -2174,7 +2174,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this | val)}.  (This method
      * returns a negative BigInteger if and only if either this or val is
      * negative.)
@@ -2191,7 +2191,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this ^ val)}.  (This method
      * returns a negative BigInteger if and only if exactly one of this and
      * val are negative.)
@@ -2208,7 +2208,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (~this)}.  (This method
      * returns a negative value if and only if this BigInteger is
      * non-negative.)
@@ -2223,7 +2223,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is {@code (this & ~val)}.  This
      * method, which is equivalent to {@code and(val.not())}, is provided as
      * a convenience for masking operations.  (This method returns a negative
@@ -2245,7 +2245,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Single Bit Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if and only if the designated bit is set.
      * (Computes {@code ((this & (1<<n)) != 0)}.)
      *
@@ -2260,7 +2260,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (getInt(n >>> 5) & (1 << (n & 31))) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is equivalent to this BigInteger
      * with the designated bit set.  (Computes {@code (this | (1<<n))}.)
      *
@@ -2283,7 +2283,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is equivalent to this BigInteger
      * with the designated bit cleared.
      * (Computes {@code (this & ~(1<<n))}.)
@@ -2307,7 +2307,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose value is equivalent to this BigInteger
      * with the designated bit flipped.
      * (Computes {@code (this ^ (1<<n))}.)
@@ -2331,7 +2331,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return valueOf(result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the rightmost (lowest-order) one bit in this
      * BigInteger (the number of zero bits to the right of the rightmost
      * one bit).  Returns -1 if this BigInteger contains no one bits.
@@ -2360,7 +2360,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Miscellaneous Bit Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bits in the minimal two's-complement
      * representation of this BigInteger, <i>excluding</i> a sign bit.
      * For positive BigIntegers, this is equivalent to the number of bits in
@@ -2396,7 +2396,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bits in the two's complement representation
      * of this BigInteger that differ from its sign bit.  This method is
      * useful when implementing bit-vector style sets atop BigIntegers.
@@ -2426,7 +2426,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Primality Testing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this BigInteger is probably prime,
      * {@code false} if it's definitely composite.  If
      * {@code certainty} is {@code  <= 0}, {@code true} is
@@ -2454,7 +2454,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Comparison Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this BigInteger with the specified BigInteger.  This
      * method is provided in preference to individual methods for each
      * of the six boolean comparison operators ({@literal <}, ==,
@@ -2481,7 +2481,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return signum > val.signum ? 1 : -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the magnitude array of this BigInteger with the specified
      * BigInteger's. This is the version of compareTo ignoring sign.
      *
@@ -2507,7 +2507,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this BigInteger with the specified Object for equality.
      *
      * @param  x Object to which this BigInteger is to be compared.
@@ -2539,7 +2539,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum of this BigInteger and {@code val}.
      *
      * @param  val value with which the minimum is to be computed.
@@ -2550,7 +2550,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return (compareTo(val)<0 ? this : val);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum of this BigInteger and {@code val}.
      *
      * @param  val value with which the maximum is to be computed.
@@ -2564,7 +2564,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
 
     // Hash Function
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code for this BigInteger.
      *
      * @return hash code for this BigInteger.
@@ -2578,7 +2578,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return hashCode * signum;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String representation of this BigInteger in the
      * given radix.  If the radix is outside the range from {@link
      * Character#MIN_RADIX} to {@link Character#MAX_RADIX} inclusive,
@@ -2648,7 +2648,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
             zeros[i] = zeros[63].substring(0, i);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decimal String representation of this BigInteger.
      * The digit-to-character mapping provided by
      * {@code Character.forDigit} is used, and a minus sign is
@@ -2664,7 +2664,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return toString(10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a byte array containing the two's-complement
      * representation of this BigInteger.  The byte array will be in
      * <i>big-endian</i> byte-order: the most significant byte is in
@@ -2695,7 +2695,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return byteArray;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts this BigInteger to an {@code int}.  This
      * conversion is analogous to a <a
      * href="http://java.sun.com/docs/books/jls/second_edition/html/conversions.doc.html#25363"><i>narrowing
@@ -2716,7 +2716,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts this BigInteger to a {@code long}.  This
      * conversion is analogous to a <a
      * href="http://java.sun.com/docs/books/jls/second_edition/html/conversions.doc.html#25363"><i>narrowing
@@ -2739,7 +2739,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts this BigInteger to a {@code float}.  This
      * conversion is similar to the <a
      * href="http://java.sun.com/docs/books/jls/second_edition/html/conversions.doc.html#25363"><i>narrowing
@@ -2760,7 +2760,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return Float.parseFloat(this.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts this BigInteger to a {@code double}.  This
      * conversion is similar to the <a
      * href="http://java.sun.com/docs/books/jls/second_edition/html/conversions.doc.html#25363"><i>narrowing
@@ -2781,7 +2781,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return Double.parseDouble(this.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the input array stripped of any leading zero bytes.
      */
     private static int[] stripLeadingZeroInts(int val[]) {
@@ -2794,7 +2794,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return java.util.Arrays.copyOfRange(val, keep, vlen);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the input array stripped of any leading zero bytes.
      * Since the source is trusted the copying may be skipped.
      */
@@ -2808,7 +2808,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return keep == 0 ? val : java.util.Arrays.copyOfRange(val, keep, vlen);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the input array stripped of any leading zero bytes.
      */
     private static int[] stripLeadingZeroBytes(byte a[]) {
@@ -2833,7 +2833,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Takes an array a representing a negative 2's-complement number and
      * returns the minimal (no leading zero bytes) unsigned whose value is -a.
      */
@@ -2881,7 +2881,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Takes an array a representing a negative 2's-complement number and
      * returns the minimal (no leading zero ints) unsigned whose value is -a.
      */
@@ -2963,12 +2963,12 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         0x40000000, 0x4cfa3cc1, 0x5c13d840, 0x6d91b519, 0x39aa400
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * These routines provide access to the two's complement representation
      * of BigIntegers.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the two's complement representation in ints,
      * including space for at least one sign bit.
      */
@@ -2986,7 +2986,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         return signum < 0 ? -1 : 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the specified int of the little-endian two's complement
      * representation (int 0 is the least significant).  The int number can
      * be arbitrarily high (values are logically preceded by infinitely many
@@ -3004,7 +3004,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
                 (n <= firstNonzeroIntNum() ? -magInt : ~magInt));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the int that contains the first nonzero int in the
      * little-endian binary representation of the magnitude (int 0 is the
      * least significant). If the magnitude is zero, return value is undefined.
@@ -3025,10 +3025,10 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
          return fn;
      }
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.1. for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.1. for interoperability */
     private static final long serialVersionUID = -8287574255936472291L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializable fields for BigInteger.
      *
      * @serialField signum  int
@@ -3052,7 +3052,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         new ObjectStreamField("lowestSetBit", Integer.TYPE)
         };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the {@code BigInteger} instance from a stream (that is,
      * deserialize it). The magnitude is read in as an array of bytes
      * for historical reasons, but it is converted to an array of ints
@@ -3118,7 +3118,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the {@code BigInteger} instance to a stream.
      * The magnitude of a BigInteger is serialized as a byte array for
      * historical reasons.
@@ -3142,7 +3142,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
         s.writeFields();
 }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mag array as an array of bytes.
      */
     private byte[] magSerializedForm() {

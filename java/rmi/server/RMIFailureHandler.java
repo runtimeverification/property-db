@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>RMIFailureHandler</code> can be registered via the
  * <code>RMISocketFactory.setFailureHandler</code> call. The
  * <code>failure</code> method of the handler is invoked when the RMI
@@ -39,7 +39,7 @@ package java.rmi.server;
  */
 public interface RMIFailureHandler {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>failure</code> callback is invoked when the RMI
      * runtime is unable to create a <code>ServerSocket</code> via the
      * <code>RMISocketFactory</code>. An <code>RMIFailureHandler</code>

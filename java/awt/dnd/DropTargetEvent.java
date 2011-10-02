@@ -28,7 +28,7 @@ package java.awt.dnd;
 import java.util.EventObject;
 import java.awt.dnd.DropTargetContext;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DropTargetEvent</code> is the base
  * class for both the <code>DropTargetDragEvent</code>
  * and the <code>DropTargetDropEvent</code>.
@@ -44,7 +44,7 @@ public class DropTargetEvent extends java.util.EventObject {
 
     private static final long serialVersionUID = 2821229066521922993L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DropTargetEvent</code> with
      * a specified <code>DropTargetContext</code>.
      * <P>
@@ -57,7 +57,7 @@ public class DropTargetEvent extends java.util.EventObject {
         context  = dtc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the <code>DropTargetContext</code>
      * associated with this <code>DropTargetEvent</code>.
      * <P>
@@ -68,7 +68,7 @@ public class DropTargetEvent extends java.util.EventObject {
         return context;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DropTargetContext</code> associated with this
      * <code>DropTargetEvent</code>.
      *

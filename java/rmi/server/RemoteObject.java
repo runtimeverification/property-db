@@ -30,7 +30,7 @@ import java.rmi.NoSuchObjectException;
 import java.lang.reflect.Proxy;
 import sun.rmi.server.Util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>RemoteObject</code> class implements the
  * <code>java.lang.Object</code> behavior for remote objects.
  * <code>RemoteObject</code> provides the remote semantics of Object by
@@ -43,20 +43,20 @@ import sun.rmi.server.Util;
  */
 public abstract class RemoteObject implements Remote, java.io.Serializable {
 
-    /** {@collect.stats} The object's remote reference. */
+    /** {@collect.stats}  The object's remote reference. */
     transient protected RemoteRef ref;
 
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -3215090123894869218L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a remote object.
      */
     protected RemoteObject() {
         ref = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a remote object, initialized with the specified remote
      * reference.
      * @param newref remote reference
@@ -65,7 +65,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         ref = newref;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the remote reference for the remote object.
      *
      * <p>Note: The object returned from this method may be an instance of
@@ -84,7 +84,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         return ref;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the stub for the remote object <code>obj</code> passed
      * as a parameter. This operation is only valid <i>after</i>
      * the object has been exported.
@@ -107,7 +107,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for a remote object.  Two remote object stubs
      * that refer to the same remote object will have the same hash code
      * (in order to support remote objects as keys in hash tables).
@@ -118,7 +118,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         return (ref == null) ? super.hashCode() : ref.remoteHashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two remote objects for equality.
      * Returns a boolean that indicates whether this remote object is
      * equivalent to the specified Object. This method is used when a
@@ -151,7 +151,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a String that represents the value of this remote object.
      */
     public String toString() {
@@ -160,7 +160,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
             classname + "[" + ref.remoteToString() + "]";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>writeObject</code> for custom serialization.
      *
      * <p>This method writes this object's serialized form for this class
@@ -382,7 +382,7 @@ public abstract class RemoteObject implements Remote, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>readObject</code> for custom serialization.
      *
      * <p>This method reads this object's serialized form for this class

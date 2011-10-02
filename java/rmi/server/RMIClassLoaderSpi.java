@@ -28,7 +28,7 @@ package java.rmi.server;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>RMIClassLoaderSpi</code> is the service provider interface for
  * <code>RMIClassLoader</code>.
  *
@@ -61,7 +61,7 @@ import java.net.URL;
  */
 public abstract class RMIClassLoaderSpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Provides the implementation for
      * {@link RMIClassLoader#loadClass(URL,String)},
      * {@link RMIClassLoader#loadClass(String,String)}, and
@@ -100,7 +100,7 @@ public abstract class RMIClassLoaderSpi {
                                        ClassLoader defaultLoader)
         throws MalformedURLException, ClassNotFoundException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Provides the implementation for
      * {@link RMIClassLoader#loadProxyClass(String,String[],ClassLoader)}.
      *
@@ -139,7 +139,7 @@ public abstract class RMIClassLoaderSpi {
                                             ClassLoader defaultLoader)
         throws MalformedURLException, ClassNotFoundException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Provides the implementation for
      * {@link RMIClassLoader#getClassLoader(String)}.
      *
@@ -173,7 +173,7 @@ public abstract class RMIClassLoaderSpi {
     public abstract ClassLoader getClassLoader(String codebase)
         throws MalformedURLException; // SecurityException
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Provides the implementation for
      * {@link RMIClassLoader#getClassAnnotation(Class)}.
      *

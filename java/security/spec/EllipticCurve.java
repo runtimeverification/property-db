@@ -28,7 +28,7 @@ package java.security.spec;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class holds the necessary values needed to represent
  * an elliptic curve.
  *
@@ -66,7 +66,7 @@ public class EllipticCurve {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve with the specified elliptic field
      * <code>field</code> and the coefficients <code>a</code> and
      * <code>b</code>.
@@ -83,7 +83,7 @@ public class EllipticCurve {
         this(field, a, b, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve with the specified elliptic field
      * <code>field</code>, the coefficients <code>a</code> and
      * <code>b</code>, and the <code>seed</code> used for curve generation.
@@ -121,7 +121,7 @@ public class EllipticCurve {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the finite field <code>field</code> that this
      * elliptic curve is over.
      * @return the field <code>field</code> that this curve
@@ -131,7 +131,7 @@ public class EllipticCurve {
         return field;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first coefficient <code>a</code> of the
      * elliptic curve.
      * @return the first coefficient <code>a</code>.
@@ -140,7 +140,7 @@ public class EllipticCurve {
         return a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the second coefficient <code>b</code> of the
      * elliptic curve.
      * @return the second coefficient <code>b</code>.
@@ -149,7 +149,7 @@ public class EllipticCurve {
         return b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the seeding bytes <code>seed</code> used
      * during curve generation. May be null if not specified.
      * @return the seeding bytes <code>seed</code>. A new
@@ -160,7 +160,7 @@ public class EllipticCurve {
         else return seed.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this elliptic curve for equality with the
      * specified object.
      * @param obj the object to be compared.
@@ -182,7 +182,7 @@ public class EllipticCurve {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this elliptic curve.
      * @return a hash code value.
      */

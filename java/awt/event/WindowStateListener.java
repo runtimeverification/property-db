@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving window state events.
  * <p>
  * The class that is interested in processing a window state event
@@ -48,7 +48,7 @@ import java.util.EventListener;
  * @since 1.4
  */
 public interface WindowStateListener extends EventListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when window state is changed.
      */
     public void windowStateChanged(WindowEvent e);

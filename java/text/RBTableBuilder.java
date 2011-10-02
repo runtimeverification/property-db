@@ -45,7 +45,7 @@ import sun.text.ComposedCharIter;
 import sun.text.CollatorUtilities;
 import sun.text.normalizer.NormalizerImpl;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class contains all the code to parse a RuleBasedCollator pattern
  * and build a RBCollationTables object from it.  A particular instance
  * of tis class exists only during the actual build process-- once an
@@ -66,7 +66,7 @@ final class RBTableBuilder {
         this.tables = tables;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a table-based collation object with the given rules.
      * This is the main function that actually builds the tables and
      * stores them back in the RBCollationTables object.  It is called
@@ -172,7 +172,7 @@ final class RBTableBuilder {
                     contractFlags, maxSecOrder, maxTerOrder);
     }
 
-    /** {@collect.stats} Add expanding entries for pre-composed unicode characters so that this
+    /** {@collect.stats}  Add expanding entries for pre-composed unicode characters so that this
      * collator can be used reasonably well with decomposition turned off.
      */
     private void addComposedChars() throws ParseException {
@@ -247,7 +247,7 @@ final class RBTableBuilder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Look up for unmapped values in the expanded character table.
      *
      * When the expanding character tables are built by addExpandOrder,
@@ -285,7 +285,7 @@ final class RBTableBuilder {
             }
         }
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Increment of the last order based on the comparison level.
      */
     private final int increment(int aStrength, int lastValue)
@@ -317,7 +317,7 @@ final class RBTableBuilder {
         return lastValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Adds a character and its designated order into the collation table.
      */
     private final void addOrder(int ch, int anOrder)
@@ -347,7 +347,7 @@ final class RBTableBuilder {
         addContractOrder(groupChars, anOrder, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Adds the contracting string into the collation table.
      */
     private final void addContractOrder(String groupChars, int anOrder,
@@ -411,7 +411,7 @@ final class RBTableBuilder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the given string has been specified as a contracting string
      * in this collation table, return its ordering.
      * Otherwise return UNMAPPED.
@@ -449,7 +449,7 @@ final class RBTableBuilder {
         return order;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Get the entry of hash table of the contracting string in the collation
      *  table.
      *  @param ch the starting character of the contracting string
@@ -472,7 +472,7 @@ final class RBTableBuilder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Adds the expanding string into the collation table.
      */
     private final void addExpandOrder(String contractChars,
@@ -506,7 +506,7 @@ final class RBTableBuilder {
         addOrder(ch, tableIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new entry in the expansion table that contains the orderings
      * for the given characers.  If anOrder is valid, it is added to the
      * beginning of the expanded list of orders.

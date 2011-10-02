@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.util.Set;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interface for an X.509 extension.
  *
  * <p>The extensions defined for X.509 v3
@@ -69,7 +69,7 @@ import java.util.Set;
 
 public interface X509Extension {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if there is a critical extension that is not supported.
      *
      * @return <tt>true</tt> if a critical extension is found that is
@@ -77,7 +77,7 @@ public interface X509Extension {
      */
     public boolean hasUnsupportedCriticalExtension();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a Set of the OID strings for the extension(s) marked
      * CRITICAL in the certificate/CRL managed by the object
      * implementing this interface.
@@ -112,7 +112,7 @@ public interface X509Extension {
      */
     public Set<String> getCriticalExtensionOIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a Set of the OID strings for the extension(s) marked
      * NON-CRITICAL in the certificate/CRL managed by the object
      * implementing this interface.
@@ -156,7 +156,7 @@ public interface X509Extension {
      */
     public Set<String> getNonCriticalExtensionOIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the DER-encoded OCTET string for the extension value
      * (<em>extnValue</em>) identified by the passed-in <code>oid</code>
      * String.

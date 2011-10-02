@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * The <code>DataOutput</code> interface provides
  * for converting data from any of the Java
@@ -50,7 +50,7 @@ package java.io;
  */
 public
 interface DataOutput {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes to the output stream the eight
      * low-order bits of the argument <code>b</code>.
@@ -63,7 +63,7 @@ interface DataOutput {
      */
     void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes to the output stream all the bytes in array <code>b</code>.
      * If <code>b</code> is <code>null</code>,
@@ -80,7 +80,7 @@ interface DataOutput {
      */
     void write(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from array
      * <code>b</code>, in order,  to
@@ -104,7 +104,7 @@ interface DataOutput {
      */
     void write(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>boolean</code> value to this output stream.
      * If the argument <code>v</code>
@@ -123,7 +123,7 @@ interface DataOutput {
      */
     void writeBoolean(boolean v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes to the output stream the eight low-
      * order bits of the argument <code>v</code>.
@@ -142,7 +142,7 @@ interface DataOutput {
      */
     void writeByte(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes two bytes to the output
      * stream to represent the value of the argument.
@@ -164,7 +164,7 @@ interface DataOutput {
      */
     void writeShort(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>char</code> value, which
      * is comprised of two bytes, to the
@@ -187,7 +187,7 @@ interface DataOutput {
      */
     void writeChar(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes an <code>int</code> value, which is
      * comprised of four bytes, to the output stream.
@@ -210,7 +210,7 @@ interface DataOutput {
      */
     void writeInt(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>long</code> value, which is
      * comprised of eight bytes, to the output stream.
@@ -238,7 +238,7 @@ interface DataOutput {
      */
     void writeLong(long v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>float</code> value,
      * which is comprised of four bytes, to the output stream.
@@ -259,7 +259,7 @@ interface DataOutput {
      */
     void writeFloat(float v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>double</code> value,
      * which is comprised of eight bytes, to the output stream.
@@ -280,7 +280,7 @@ interface DataOutput {
      */
     void writeDouble(double v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the output stream.
      * For every character in the string
@@ -304,7 +304,7 @@ interface DataOutput {
      */
     void writeBytes(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes every character in the string <code>s</code>,
      * to the output stream, in order,
@@ -326,7 +326,7 @@ interface DataOutput {
      */
     void writeChars(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes two bytes of length information
      * to the output stream, followed

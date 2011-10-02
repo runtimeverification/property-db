@@ -33,7 +33,7 @@
  * http://creativecommons.org/licenses/publicdomain
  */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interfaces and classes providing a framework for locking and waiting
  * for conditions that is distinct from built-in synchronization and
  * monitors.  The framework permits much greater flexibility in the use of

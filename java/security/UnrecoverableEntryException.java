@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This exception is thrown if an entry in the keystore cannot be recovered.
  *
  *
@@ -36,14 +36,14 @@ public class UnrecoverableEntryException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -4527142945246286535L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an UnrecoverableEntryException with no detail message.
      */
     public UnrecoverableEntryException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an UnrecoverableEntryException with the specified detail
      * message, which provides more information about why this exception
      * has been thrown.

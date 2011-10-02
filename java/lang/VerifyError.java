@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when the "verifier" detects that a class file,
  * though well formed, contains some sort of internal inconsistency
  * or security problem.
@@ -35,14 +35,14 @@ package java.lang;
  */
 public
 class VerifyError extends LinkageError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>VerifyError</code> with no detail message.
      */
     public VerifyError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>VerifyError</code> with the specified detail message.
      *
      * @param   s   the detail message.

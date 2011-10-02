@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.io.Serializable;
 import sun.awt.geom.Curve;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>QuadCurve2D</code> class defines a quadratic parametric curve
  * segment in {@code (x,y)} coordinate space.
  * <p>
@@ -44,14 +44,14 @@ import sun.awt.geom.Curve;
  */
 public abstract class QuadCurve2D implements Shape, Cloneable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A quadratic parametric curve segment specified with
      * {@code float} coordinates.
      *
      * @since 1.2
      */
     public static class Float extends QuadCurve2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the start point of the quadratic curve
          * segment.
          * @since 1.2
@@ -59,7 +59,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float x1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the start point of the quadratic curve
          * segment.
          * @since 1.2
@@ -67,7 +67,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float y1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the control point of the quadratic curve
          * segment.
          * @since 1.2
@@ -75,7 +75,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float ctrlx;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the control point of the quadratic curve
          * segment.
          * @since 1.2
@@ -83,7 +83,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float ctrly;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the end point of the quadratic curve
          * segment.
          * @since 1.2
@@ -91,7 +91,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float x2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the end point of the quadratic curve
          * segment.
          * @since 1.2
@@ -99,7 +99,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public float y2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a <code>QuadCurve2D</code> with
          * coordinates (0, 0, 0, 0, 0, 0).
          * @since 1.2
@@ -107,7 +107,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         public Float() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a <code>QuadCurve2D</code> from the
          * specified {@code float} coordinates.
          *
@@ -126,7 +126,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             setCurve(x1, y1, ctrlx, ctrly, x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -134,7 +134,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) x1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -142,7 +142,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) y1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -150,7 +150,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Float(x1, y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -158,7 +158,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) ctrlx;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -166,7 +166,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) ctrly;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -174,7 +174,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Float(ctrlx, ctrly);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -182,7 +182,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) x2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -190,7 +190,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return (double) y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -198,7 +198,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Float(x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -214,7 +214,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             this.y2    = (float) y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sets the location of the end points and control point of this curve
          * to the specified {@code float} coordinates.
          *
@@ -238,7 +238,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             this.y2    = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -257,14 +257,14 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         private static final long serialVersionUID = -8511188402130719609L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A quadratic parametric curve segment specified with
      * {@code double} coordinates.
      *
      * @since 1.2
      */
     public static class Double extends QuadCurve2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the start point of the quadratic curve
          * segment.
          * @since 1.2
@@ -272,7 +272,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double x1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the start point of the quadratic curve
          * segment.
          * @since 1.2
@@ -280,7 +280,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double y1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the control point of the quadratic curve
          * segment.
          * @since 1.2
@@ -288,7 +288,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double ctrlx;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the control point of the quadratic curve
          * segment.
          * @since 1.2
@@ -296,7 +296,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double ctrly;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the end point of the quadratic curve
          * segment.
          * @since 1.2
@@ -304,7 +304,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double x2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the end point of the quadratic curve
          * segment.
          * @since 1.2
@@ -312,7 +312,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
          */
         public double y2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a <code>QuadCurve2D</code> with
          * coordinates (0, 0, 0, 0, 0, 0).
          * @since 1.2
@@ -320,7 +320,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         public Double() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a <code>QuadCurve2D</code> from the
          * specified {@code double} coordinates.
          *
@@ -339,7 +339,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             setCurve(x1, y1, ctrlx, ctrly, x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -347,7 +347,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return x1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -355,7 +355,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return y1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -363,7 +363,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Double(x1, y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -371,7 +371,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return ctrlx;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -379,7 +379,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return ctrly;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -387,7 +387,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Double(ctrlx, ctrly);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -395,7 +395,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return x2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -403,7 +403,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -411,7 +411,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             return new Point2D.Double(x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -427,7 +427,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
             this.y2    = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -446,7 +446,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         private static final long serialVersionUID = 4217149928428559721L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class that cannot be instantiated directly.
      * Type-specific implementation subclasses are available for
      * instantiation and provide a number of formats for storing
@@ -460,7 +460,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
     protected QuadCurve2D() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the start point in
      * <code>double</code> in precision.
      * @return the X coordinate of the start point.
@@ -468,7 +468,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getX1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the start point in
      * <code>double</code> precision.
      * @return the Y coordinate of the start point.
@@ -476,7 +476,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getY1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the start point.
      * @return a <code>Point2D</code> that is the start point of this
      *          <code>QuadCurve2D</code>.
@@ -484,7 +484,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getP1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the control point in
      * <code>double</code> precision.
      * @return X coordinate the control point
@@ -492,7 +492,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlX();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the control point in
      * <code>double</code> precision.
      * @return the Y coordinate of the control point.
@@ -500,7 +500,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlY();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the control point.
      * @return a <code>Point2D</code> that is the control point of this
      *          <code>Point2D</code>.
@@ -508,7 +508,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getCtrlPt();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the end point in
      * <code>double</code> precision.
      * @return the x coordiante of the end point.
@@ -516,7 +516,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getX2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the end point in
      * <code>double</code> precision.
      * @return the Y coordinate of the end point.
@@ -524,7 +524,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract double getY2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the end point.
      * @return a <code>Point</code> object that is the end point
      *          of this <code>Point2D</code>.
@@ -532,7 +532,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getP2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control point of this curve
      * to the specified <code>double</code> coordinates.
      *
@@ -548,7 +548,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                                   double ctrlx, double ctrly,
                                   double x2, double y2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this
      * <code>QuadCurve2D</code> to the <code>double</code> coordinates at
      * the specified offset in the specified array.
@@ -564,7 +564,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                  coords[offset + 4], coords[offset + 5]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control point of this
      * <code>QuadCurve2D</code> to the specified <code>Point2D</code>
      * coordinates.
@@ -579,7 +579,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                  p2.getX(), p2.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this
      * <code>QuadCurve2D</code> to the coordinates of the
      * <code>Point2D</code> objects at the specified offset in
@@ -597,7 +597,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                  pts[offset + 2].getX(), pts[offset + 2].getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control point of this
      * <code>QuadCurve2D</code> to the same as those in the specified
      * <code>QuadCurve2D</code>.
@@ -610,7 +610,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                  c.getX2(), c.getY2());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness, or maximum distance of a
      * control point from the line connecting the end points, of the
      * quadratic curve specified by the indicated control points.
@@ -631,7 +631,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return Line2D.ptSegDistSq(x1, y1, x2, y2, ctrlx, ctrly);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness, or maximum distance of a
      * control point from the line connecting the end points, of the
      * quadratic curve specified by the indicated control points.
@@ -652,7 +652,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return Line2D.ptSegDist(x1, y1, x2, y2, ctrlx, ctrly);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness, or maximum distance of a
      * control point from the line connecting the end points, of the
      * quadratic curve specified by the control points stored in the
@@ -670,7 +670,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                                   coords[offset + 2], coords[offset + 3]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness, or maximum distance of a
      * control point from the line connecting the end points, of the
      * quadratic curve specified by the control points stored in the
@@ -688,7 +688,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                                 coords[offset + 2], coords[offset + 3]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness, or maximum distance of a
      * control point from the line connecting the end points, of this
      * <code>QuadCurve2D</code>.
@@ -702,7 +702,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                                   getCtrlX(), getCtrlY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness, or maximum distance of a
      * control point from the line connecting the end points, of this
      * <code>QuadCurve2D</code>.
@@ -715,7 +715,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                                 getCtrlX(), getCtrlY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides this <code>QuadCurve2D</code> and stores the resulting
      * two subdivided curves into the <code>left</code> and
      * <code>right</code> curve parameters.
@@ -732,7 +732,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         subdivide(this, left, right);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides the quadratic curve specified by the <code>src</code>
      * parameter and stores the resulting two subdivided curves into the
      * <code>left</code> and <code>right</code> curve parameters.
@@ -769,7 +769,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides the quadratic curve specified by the coordinates
      * stored in the <code>src</code> array at indices
      * <code>srcoff</code> through <code>srcoff</code>&nbsp;+&nbsp;5
@@ -834,7 +834,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Solves the quadratic whose coefficients are in the <code>eqn</code>
      * array and places the non-complex roots back into the same array,
      * returning the number of roots.  The quadratic solved is represented
@@ -855,7 +855,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return solveQuadratic(eqn, eqn);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Solves the quadratic whose coefficients are in the <code>eqn</code>
      * array and places the non-complex roots into the <code>res</code>
      * array, returning the number of roots.
@@ -913,7 +913,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return roots;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1015,7 +1015,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                (y >= yl && y < yb);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1023,7 +1023,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return contains(p.getX(), p.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fill an array with the coefficients of the parametric equation
      * in t, ready for solving against val with solveQuadratic.
      * We currently have:
@@ -1044,7 +1044,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Evaluate the t values in the first num slots of the vals[] array
      * and place the evaluated values back into the same array.  Only
      * evaluate t values that are within the range <0, 1>, including
@@ -1079,7 +1079,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
     private static final int HIGHEDGE = 1;
     private static final int ABOVE = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine where coord lies with respect to the range from
      * low to high.  It is assumed that low <= high.  The return
      * value is one of the 5 values BELOW, LOWEDGE, INSIDE, HIGHEDGE,
@@ -1095,7 +1095,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return INSIDE;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine if the pttag represents a coordinate that is already
      * in its test range, or is on the border with either of the two
      * opttags representing another coordinate that is "towards the
@@ -1117,7 +1117,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1301,7 +1301,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return (c1tag * c2tag <= 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1309,7 +1309,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1325,7 +1325,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
                 contains(x, y + h));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1333,7 +1333,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1341,7 +1341,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return getBounds2D().getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration object that defines the boundary of the
      * shape of this <code>QuadCurve2D</code>.
      * The iterator for this class is not multi-threaded safe,
@@ -1359,7 +1359,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return new QuadIterator(this, at);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration object that defines the boundary of the
      * flattened shape of this <code>QuadCurve2D</code>.
      * The iterator for this class is not multi-threaded safe,
@@ -1381,7 +1381,7 @@ public abstract class QuadCurve2D implements Shape, Cloneable {
         return new FlatteningPathIterator(getPathIterator(at), flatness);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new object of the same class and with the same contents
      * as this object.
      *

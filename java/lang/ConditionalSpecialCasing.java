@@ -33,7 +33,7 @@ import java.util.Locale;
 import sun.text.Normalizer;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is a utility class for <code>String.toLowerCase()</code> and
  * <code>String.toUpperCase()</code>, that handles special casing with
  * conditions.  In other words, it handles the mappings with conditions
@@ -187,7 +187,7 @@ final class ConditionalSpecialCasing {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the "Final_Cased" condition
      *
      * Specification: Within the closest word boundaries containing C, there is a cased
@@ -228,7 +228,7 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the "After_I" condition
      *
      * Specification: The last preceding base character was an uppercase I,
@@ -259,7 +259,7 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the "After_Soft_Dotted" condition
      *
      * Specification: The last preceding character with combining class
@@ -291,7 +291,7 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the "More_Above" condition
      *
      * Specification: C is followed by one or more characters of combining
@@ -322,7 +322,7 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the "Before_Dot" condition
      *
      * Specification: C is followed by <code>U+0307 COMBINING DOT ABOVE</code>.
@@ -357,7 +357,7 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Examines whether a character is 'cased'.
      *
      * A character C is defined to be 'cased' if and only if at least one of
@@ -426,7 +426,7 @@ final class ConditionalSpecialCasing {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An internal class that represents an entry in the Special Casing Properties.
      */
     static class Entry {

@@ -29,7 +29,7 @@ import java.text.DateFormatSymbols;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide instances of the
  * {@link java.text.DateFormatSymbols DateFormatSymbols} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class DateFormatSymbolsProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected DateFormatSymbolsProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>DateFormatSymbols</code> instance for the
      * specified locale.
      *

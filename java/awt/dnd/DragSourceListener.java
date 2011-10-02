@@ -27,7 +27,7 @@ package java.awt.dnd;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DragSourceListener</code> defines the
  * event interface for originators of
  * Drag and Drop operations to track the state of the user's gesture, and to
@@ -48,7 +48,7 @@ import java.util.EventListener;
 
 public interface DragSourceListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot enters a platform-dependent drop site.
      * This method is invoked when all the following conditions are true:
      * <UL>
@@ -62,7 +62,7 @@ public interface DragSourceListener extends EventListener {
      */
     void dragEnter(DragSourceDragEvent dsde);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot moves over a platform-dependent drop site.
      * This method is invoked when all the following conditions are true:
      * <UL>
@@ -77,7 +77,7 @@ public interface DragSourceListener extends EventListener {
      */
     void dragOver(DragSourceDragEvent dsde);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called when the user has modified the drop gesture.
      * This method is invoked when the state of the input
      * device(s) that the user is interacting with changes.
@@ -88,7 +88,7 @@ public interface DragSourceListener extends EventListener {
      */
     void dropActionChanged(DragSourceDragEvent dsde);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot exits a platform-dependent drop site.
      * This method is invoked when any of the following conditions are true:
      * <UL>
@@ -110,7 +110,7 @@ public interface DragSourceListener extends EventListener {
      */
     void dragExit(DragSourceEvent dse);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is invoked to signify that the Drag and Drop
      * operation is complete. The getDropSuccess() method of
      * the <code>DragSourceDropEvent</code> can be used to

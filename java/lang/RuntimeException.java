@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>RuntimeException</code> is the superclass of those
  * exceptions that can be thrown during the normal operation of the
  * Java Virtual Machine.
@@ -41,7 +41,7 @@ package java.lang;
 public class RuntimeException extends Exception {
     static final long serialVersionUID = -7034897190745766939L;
 
-    /** {@collect.stats} Constructs a new runtime exception with <code>null</code> as its
+    /** {@collect.stats}  Constructs a new runtime exception with <code>null</code> as its
      * detail message.  The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause}.
      */
@@ -49,7 +49,7 @@ public class RuntimeException extends Exception {
         super();
     }
 
-    /** {@collect.stats} Constructs a new runtime exception with the specified detail message.
+    /** {@collect.stats}  Constructs a new runtime exception with the specified detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
      *
@@ -60,7 +60,7 @@ public class RuntimeException extends Exception {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new runtime exception with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
@@ -78,7 +78,7 @@ public class RuntimeException extends Exception {
         super(message, cause);
     }
 
-    /** {@collect.stats} Constructs a new runtime exception with the specified cause and a
+    /** {@collect.stats}  Constructs a new runtime exception with the specified cause and a
      * detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of
      * <tt>cause</tt>).  This constructor is useful for runtime exceptions

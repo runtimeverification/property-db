@@ -33,7 +33,7 @@ import java.security.Provider;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>CertificateFactory</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -65,7 +65,7 @@ import java.security.NoSuchProviderException;
 
 public abstract class CertificateFactorySpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a certificate object and initializes it with
      * the data read from the input stream <code>inStream</code>.
      *
@@ -104,7 +104,7 @@ public abstract class CertificateFactorySpi {
     public abstract Certificate engineGenerateCertificate(InputStream inStream)
         throws CertificateException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a <code>CertPath</code> object and initializes it with
      * the data read from the <code>InputStream</code> inStream. The data
      * is assumed to be in the default encoding.
@@ -127,7 +127,7 @@ public abstract class CertificateFactorySpi {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a <code>CertPath</code> object and initializes it with
      * the data read from the <code>InputStream</code> inStream. The data
      * is assumed to be in the specified encoding.
@@ -152,7 +152,7 @@ public abstract class CertificateFactorySpi {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a <code>CertPath</code> object and initializes it with
      * a <code>List</code> of <code>Certificate</code>s.
      * <p>
@@ -179,7 +179,7 @@ public abstract class CertificateFactorySpi {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration of the <code>CertPath</code> encodings supported
      * by this certificate factory, with the default encoding first. See
      * Appendix A in the
@@ -205,7 +205,7 @@ public abstract class CertificateFactorySpi {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a (possibly empty) collection view of the certificates read
      * from the given input stream <code>inStream</code>.
      *
@@ -245,7 +245,7 @@ public abstract class CertificateFactorySpi {
             engineGenerateCertificates(InputStream inStream)
             throws CertificateException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a certificate revocation list (CRL) object and initializes it
      * with the data read from the input stream <code>inStream</code>.
      *
@@ -277,7 +277,7 @@ public abstract class CertificateFactorySpi {
     public abstract CRL engineGenerateCRL(InputStream inStream)
         throws CRLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a (possibly empty) collection view of the CRLs read
      * from the given input stream <code>inStream</code>.
      *

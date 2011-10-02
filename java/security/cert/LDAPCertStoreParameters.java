@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Parameters used as input for the LDAP <code>CertStore</code> algorithm.
  * <p>
  * This class is used to provide necessary configuration parameters (server
@@ -48,17 +48,17 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
 
     private static final int LDAP_DEFAULT_PORT = 389;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * the port number of the LDAP server
      */
     private int port;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * the DNS name of the LDAP server
      */
     private String serverName;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>LDAPCertStoreParameters</code> with the
      * specified parameter values.
      *
@@ -74,7 +74,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         this.port = port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>LDAPCertStoreParameters</code> with the
      * specified server name and a default port of 389.
      *
@@ -86,7 +86,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         this(serverName, LDAP_DEFAULT_PORT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>LDAPCertStoreParameters</code> with the
      * default parameter values (server name "localhost", port 389).
      */
@@ -94,7 +94,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         this("localhost", LDAP_DEFAULT_PORT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the DNS name of the LDAP server.
      *
      * @return the name (not <code>null</code>)
@@ -103,7 +103,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         return serverName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the port number of the LDAP server.
      *
      * @return the port number
@@ -112,7 +112,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         return port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of this object. Changes to the copy will not affect
      * the original and vice versa.
      * <p>
@@ -132,7 +132,7 @@ public class LDAPCertStoreParameters implements CertStoreParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters

@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Signals that a malformed string in
  * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
@@ -46,7 +46,7 @@ package java.io;
  */
 public
 class UTFDataFormatException extends IOException {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a <code>UTFDataFormatException</code> with
      * <code>null</code> as its error detail message.
@@ -56,7 +56,7 @@ class UTFDataFormatException extends IOException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a <code>UTFDataFormatException</code> with the
      * specified detail message. The string <code>s</code> can be

@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A GuardedObject is an object that is used to protect access to
  * another object.
  *
@@ -53,7 +53,7 @@ public class GuardedObject implements java.io.Serializable {
     private Object object; // the object we are guarding
     private Guard guard;   // the guard
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a GuardedObject using the specified object and guard.
      * If the Guard object is null, then no restrictions will
      * be placed on who can access the object.
@@ -69,7 +69,7 @@ public class GuardedObject implements java.io.Serializable {
         this.object = object;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the guarded object, or throws an exception if access
      * to the guarded object is denied by the guard.
      *
@@ -87,7 +87,7 @@ public class GuardedObject implements java.io.Serializable {
         return object;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes this object out to a stream (i.e., serializes it).
      * We check the guard if there is one.
      */

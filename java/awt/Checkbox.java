@@ -33,7 +33,7 @@ import java.io.IOException;
 import javax.accessibility.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A check box is a graphical component that can be in either an
  * "on" (<code>true</code>) or "off" (<code>false</code>) state.
  * Clicking on a check box changes its state from
@@ -83,7 +83,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The label of the Checkbox.
      * This field can be null.
      * @serial
@@ -92,7 +92,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
      */
     String label;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The state of the <code>Checkbox</code>.
      * @serial
      * @see #getState()
@@ -100,7 +100,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
      */
     boolean state;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The check box group.
          * This field can be null indicating that the checkbox
          * is not a group checkbox.
@@ -120,7 +120,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
      */
     private static final long serialVersionUID = 7270714317450821763L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Helper function for setState and CheckboxGroup.setSelectedCheckbox
      * Should remain package-private.
      */
@@ -132,7 +132,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a check box with an empty string for its label.
      * The state of this check box is set to "off," and it is not
      * part of any check box group.
@@ -144,7 +144,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         this("", false, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a check box with the specified label.  The state
      * of this check box is set to "off," and it is not part of
      * any check box group.
@@ -160,7 +160,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         this(label, false, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a check box with the specified label
      * and sets the specified state.
      * This check box is not part of any check box group.
@@ -177,7 +177,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         this(label, state, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a Checkbox with the specified label, set to the
      * specified state, and in the specified check box group.
      *
@@ -203,7 +203,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a check box with the specified label, in the specified
      * check box group, and set to the specified state.
      *
@@ -223,7 +223,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         this(label, state, group);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a name for this component.  Called by
      * <code>getName</code> when the name is <code>null</code>.
      *
@@ -235,7 +235,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the peer of the Checkbox. The peer allows you to change the
      * look of the Checkbox without changing its functionality.
      *
@@ -250,7 +250,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the label of this check box.
      *
      * @return   the label of this check box, or <code>null</code>
@@ -261,7 +261,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return label;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this check box's label to be the string argument.
      *
      * @param    label   a string to set as the new label, or
@@ -289,7 +289,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether this check box is in the "on" or "off" state.
      * The boolean value <code>true</code> indicates the "on" state,
      * and <code>false</code> indicates the "off" state.
@@ -301,7 +301,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return state;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the state of this check box to the specified state.
      * The boolean value <code>true</code> indicates the "on" state,
      * and <code>false</code> indicates the "off" state.
@@ -328,7 +328,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         setStateInternal(state);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array (length 1) containing the checkbox
      * label or null if the checkbox is not selected.
      * @see ItemSelectable
@@ -342,7 +342,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines this check box's group.
      * @return     this check box's group, or <code>null</code>
      *               if the check box is not part of a check box group.
@@ -352,7 +352,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return group;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this check box's group to the specified check box group.
      * If this check box is already in a different check box group,
      * it is first taken out of that group.
@@ -410,7 +410,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified item listener to receive item events from
      * this check box.  Item events are sent to listeners in response
      * to user input, but not in response to calls to setState().
@@ -434,7 +434,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         newEventsOnly = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified item listener so that the item listener
      * no longer receives item events from this check box.
      * If l is null, no exception is thrown and no action is performed.
@@ -455,7 +455,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         itemListener = AWTEventMulticaster.remove(itemListener, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the item listeners
      * registered on this checkbox.
      *
@@ -473,7 +473,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return (ItemListener[]) (getListeners(ItemListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>Checkbox</code>.
@@ -528,7 +528,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return super.eventEnabled(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes events on this check box.
      * If the event is an instance of <code>ItemEvent</code>,
      * this method invokes the <code>processItemEvent</code> method.
@@ -550,7 +550,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         super.processEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes item events occurring on this check box by
      * dispatching them to any registered
      * <code>ItemListener</code> objects.
@@ -581,7 +581,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>Checkbox</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -609,7 +609,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
      */
     private int checkboxSerializedDataVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to stream.  Writes
      * a list of serializable <code>ItemListeners</code>
      * as optional data.  The non-serializable
@@ -637,7 +637,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
       s.writeObject(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the <code>ObjectInputStream</code> and if it
      * isn't <code>null</code> adds a listener to receive
      * item events fired by the <code>Checkbox</code>.
@@ -671,7 +671,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method ids
      */
     private static native void initIDs();
@@ -682,7 +682,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
 ////////////////
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the AccessibleContext associated with this Checkbox.
      * For checkboxes, the AccessibleContext takes the form of an
      * AccessibleAWTCheckbox.
@@ -699,7 +699,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class implements accessibility support for the
      * <code>Checkbox</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to checkbox user-interface elements.
@@ -718,7 +718,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             Checkbox.this.addItemListener(this);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Fire accessible property change events when the state of the
          * toggle button changes.
          */
@@ -737,7 +737,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the AccessibleAction associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -749,7 +749,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return this;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the AccessibleValue associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -761,7 +761,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return this;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the number of Actions available in this object.
          * If there is more than one, the first one is the "default"
          * action.
@@ -772,7 +772,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return 0;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Return a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -781,7 +781,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return null;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Perform the specified Action on the object
          *
          * @param i zero-based index of actions
@@ -791,7 +791,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return false;    //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the value of this object as a Number.  If the value has not been
          * set, the return value will be null.
          *
@@ -802,7 +802,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return null;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Set the value of this object as a Number.
          *
          * @return True if the value was set; else False
@@ -812,7 +812,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return false;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the minimum value of this object as a Number.
          *
          * @return Minimum value of the object; null if this object does not
@@ -823,7 +823,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return null;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the maximum value of this object as a Number.
          *
          * @return Maximum value of the object; null if this object does not
@@ -834,7 +834,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return null;  //  To be fully implemented in a future release
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of
@@ -845,7 +845,7 @@ public class Checkbox extends Component implements ItemSelectable, Accessible {
             return AccessibleRole.CHECK_BOX;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the state set of this object.
          *
          * @return an instance of AccessibleState containing the current state

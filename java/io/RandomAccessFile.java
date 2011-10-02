@@ -29,7 +29,7 @@ import java.nio.channels.FileChannel;
 import sun.nio.ch.FileChannelImpl;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Instances of this class support both reading and writing to a
  * random access file. A random access file behaves like a large
@@ -72,7 +72,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
     private static final int O_SYNC =   4;
     private static final int O_DSYNC =  8;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a random access file stream to read from, and optionally
      * to write to, a file with the specified name. A new
@@ -122,7 +122,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         this(name != null ? new File(name) : null, mode);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a random access file stream to read from, and optionally to
      * write to, the file specified by the {@link File} argument.  A new {@link
@@ -239,7 +239,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         open(name, imode);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the opaque file descriptor object associated with this
      * stream. </p>
@@ -254,7 +254,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         throw new IOException();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file.
@@ -294,7 +294,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Opens a file and returns the file descriptor.  The file is
      * opened in read-write mode if the O_RDWR bit in <code>mode</code>
@@ -312,7 +312,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
 
     // 'Read' primitives
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a byte of data from this file. The byte is returned as an
      * integer in the range 0 to 255 (<code>0x00-0x0ff</code>).
@@ -336,7 +336,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a sub array as a sequence of bytes.
      * {@description.close}
@@ -347,7 +347,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     private native int readBytes(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this file into an
      * array of bytes.
@@ -383,7 +383,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return readBytes(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>b.length</code> bytes of data from this file
      * into an array of bytes.
@@ -413,7 +413,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return readBytes(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads <code>b.length</code> bytes from this file into the byte
      * array, starting at the current file pointer. This method reads
@@ -434,7 +434,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         readFully(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads exactly <code>len</code> bytes from this file into the byte
      * array, starting at the current file pointer. This method reads
@@ -463,7 +463,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         } while (n < len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Attempts to skip over <code>n</code> bytes of input discarding the
      * skipped bytes.
@@ -503,7 +503,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
 
     // 'Write' primitives
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified byte to this file. The write starts at
      * the current file pointer.
@@ -514,7 +514,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a sub array as a sequence of bytes.
      * {@description.close}
@@ -526,7 +526,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     private native void writeBytes(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this file, starting at the current file pointer.
@@ -539,7 +539,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         writeBytes(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this file.
@@ -556,7 +556,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
 
     // 'Random access' stuff
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the current offset in this file.
      * {@description.close}
@@ -567,7 +567,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native long getFilePointer() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Sets the file-pointer offset, measured from the beginning of this
      * file, at which the next read or write occurs.  The offset may be
@@ -585,7 +585,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native void seek(long pos) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the length of this file.
      * {@description.close}
@@ -595,7 +595,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native long length() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Sets the length of this file.
      *
@@ -618,7 +618,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      */
     public native void setLength(long newLength) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this random access file stream and releases any system
      * resources associated with the stream.
@@ -669,7 +669,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
     //  DataInputStream and DataOutputStream.
     //
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a <code>boolean</code> from this file. This method reads a
      * single byte from the file, starting at the current file pointer.
@@ -692,7 +692,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return (ch != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a signed eight-bit value from this file. This method reads a
      * byte from the file, starting from the current file pointer.
@@ -721,7 +721,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return (byte)(ch);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads an unsigned eight-bit number from this file. This method reads
      * a byte from this file, starting at the current file pointer,
@@ -745,7 +745,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return ch;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a signed 16-bit number from this file. The method reads two
      * bytes from this file, starting at the current file pointer.
@@ -777,7 +777,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return (short)((ch1 << 8) + (ch2 << 0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads an unsigned 16-bit number from this file. This method reads
      * two bytes from the file, starting at the current file pointer.
@@ -809,7 +809,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return (ch1 << 8) + (ch2 << 0);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a character from this file. This method reads two
      * bytes from the file, starting at the current file pointer.
@@ -841,7 +841,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return (char)((ch1 << 8) + (ch2 << 0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a signed 32-bit integer from this file. This method reads 4
      * bytes from the file, starting at the current file pointer.
@@ -875,7 +875,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a signed 64-bit integer from this file. This method reads eight
      * bytes from the file, starting at the current file pointer.
@@ -911,7 +911,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return ((long)(readInt()) << 32) + (readInt() & 0xFFFFFFFFL);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a <code>float</code> from this file. This method reads an
      * <code>int</code> value, starting at the current file pointer,
@@ -938,7 +938,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return Float.intBitsToFloat(readInt());
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a <code>double</code> from this file. This method reads a
      * <code>long</code> value, starting at the current file pointer,
@@ -965,7 +965,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return Double.longBitsToDouble(readLong());
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next line of text from this file.  This method successively
      * reads bytes from the file, starting at the current file pointer,
@@ -1023,7 +1023,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return input.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads in a string from this file. The string has been encoded
      * using a
@@ -1056,7 +1056,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         return DataInputStream.readUTF(this);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>boolean</code> to the file as a one-byte value. The
      * value <code>true</code> is written out as the value
@@ -1073,7 +1073,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written++;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>byte</code> to the file as a one-byte value. The
      * write starts at the current position of the file pointer.
@@ -1087,7 +1087,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written++;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>short</code> to the file as two bytes, high byte first.
      * The write starts at the current position of the file pointer.
@@ -1102,7 +1102,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written += 2;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>char</code> to the file as a two-byte value, high
      * byte first. The write starts at the current position of the
@@ -1118,7 +1118,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written += 2;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes an <code>int</code> to the file as four bytes, high byte first.
      * The write starts at the current position of the file pointer.
@@ -1135,7 +1135,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written += 4;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>long</code> to the file as eight bytes, high byte first.
      * The write starts at the current position of the file pointer.
@@ -1156,7 +1156,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         //written += 8;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the float argument to an <code>int</code> using the
      * <code>floatToIntBits</code> method in class <code>Float</code>,
@@ -1173,7 +1173,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         writeInt(Float.floatToIntBits(v));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the double argument to a <code>long</code> using the
      * <code>doubleToLongBits</code> method in class <code>Double</code>,
@@ -1190,7 +1190,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         writeLong(Double.doubleToLongBits(v));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the string to the file as a sequence of bytes. Each
      * character in the string is written out, in sequence, by discarding
@@ -1208,7 +1208,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         writeBytes(b, 0, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the file as a sequence of characters. Each
      * character is written to the data output stream as if by the
@@ -1233,7 +1233,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
         writeBytes(b, 0, blen);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the file using
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>

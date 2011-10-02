@@ -37,7 +37,7 @@ package java.util.concurrent;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A mix-in style interface for marking objects that should be
  * acted upon after a given delay.
  *
@@ -50,7 +50,7 @@ import java.util.*;
  */
 public interface Delayed extends Comparable<Delayed> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the remaining delay associated with this object, in the
      * given time unit.
      *

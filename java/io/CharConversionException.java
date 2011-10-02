@@ -24,7 +24,7 @@
  */
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Base class for character conversion exceptions.
  * {@description.close}
@@ -35,14 +35,14 @@ package java.io;
 public class CharConversionException
     extends java.io.IOException
 {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * This provides no detailed message.
      * {@description.close}
      */
     public CharConversionException() {
     }
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * This provides a detailed message.
      * {@description.close}

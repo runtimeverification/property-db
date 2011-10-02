@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>Encoder</code> is a class which can be used to create
  * files or streams that encode the state of a collection of
  * JavaBeans in terms of their public APIs. The <code>Encoder</code>,
@@ -52,7 +52,7 @@ public class Encoder {
     boolean executeStatements = true;
     private Map attributes;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Write the specified object to the output stream.
      * The serialized form will denote a series of
      * expressions, the combined effect of which will create
@@ -74,7 +74,7 @@ public class Encoder {
         info.writeObject(o, this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the exception handler for this stream to <code>exceptionListener</code>.
      * The exception handler is notified when this stream catches recoverable
      * exceptions.
@@ -88,7 +88,7 @@ public class Encoder {
         this.exceptionListener = exceptionListener;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the exception handler for this stream.
      *
      * @return The exception handler for this stream;
@@ -110,7 +110,7 @@ public class Encoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the persistence delegate for the given type.
      * The persistence delegate is calculated
      * by applying the following of rules in order:
@@ -170,7 +170,7 @@ public class Encoder {
         return (pd != null) ? pd : MetaData.getPersistenceDelegate(type);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the persistence delegate associated with this <code>type</code> to
      * <code>persistenceDelegate</code>.
      *
@@ -191,7 +191,7 @@ public class Encoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the entry for this instance, returning the old entry.
      *
      * @param oldInstance The entry that should be removed.
@@ -204,7 +204,7 @@ public class Encoder {
         return getValue(exp);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a tentative value for <code>oldInstance</code> in
      * the environment created by this stream. A persistence
      * delegate can use its <code>mutatesTo</code> method to
@@ -251,7 +251,7 @@ public class Encoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes statement <code>oldStm</code> to the stream.
      * The <code>oldStm</code> should be written entirely
      * in terms of the callers environment, i.e. the
@@ -283,7 +283,7 @@ public class Encoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The implementation first checks to see if an
      * expression with this value has already been written.
      * If not, the expression is cloned, using

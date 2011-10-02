@@ -41,7 +41,7 @@ import sun.security.jca.GetInstance;
 import sun.security.util.Debug;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A Policy object is responsible for determining whether code executing
  * in the Java runtime environment has permission to perform a
  * security-sensitive operation.
@@ -98,14 +98,14 @@ import sun.security.util.SecurityConstants;
 
 public abstract class Policy {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A read-only empty PermissionCollection instance.
      * @since 1.6
      */
     public static final PermissionCollection UNSUPPORTED_EMPTY_COLLECTION =
                         new UnsupportedEmptyCollection();
 
-    /** {@collect.stats} the system-wide policy. */
+    /** {@collect.stats}  the system-wide policy. */
     private static Policy policy; // package private for AccessControlContext
 
     private static final Debug debug = Debug.getInstance("policy");
@@ -113,7 +113,7 @@ public abstract class Policy {
     // Cache mapping ProtectionDomain.Key to PermissionCollection
     private WeakHashMap<ProtectionDomain.Key, PermissionCollection> pdMapping;
 
-    /** {@collect.stats} package private for AccessControlContext */
+    /** {@collect.stats}  package private for AccessControlContext */
     static boolean isSet()
     {
         return policy != null;
@@ -126,7 +126,7 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the installed Policy object. This value should not be cached,
      * as it may be changed by a call to <code>setPolicy</code>.
      * This method first calls
@@ -152,7 +152,7 @@ public abstract class Policy {
         return getPolicyNoCheck();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the installed Policy object, skipping the security check.
      * Used by SecureClassLoader and getPolicy.
      *
@@ -230,7 +230,7 @@ public abstract class Policy {
         return policy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the system-wide Policy object. This method first calls
      * <code>SecurityManager.checkPermission</code> with a
      * <code>SecurityPermission("setPolicy")</code>
@@ -260,7 +260,7 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize superclass state such that a legacy provider can
      * handle queries for itself.
      *
@@ -327,7 +327,7 @@ public abstract class Policy {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a Policy object of the specified type.
      *
      * <p> This method traverses the list of registered security providers,
@@ -381,7 +381,7 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a Policy object of the specified type.
      *
      * <p> A new Policy object encapsulating the
@@ -447,7 +447,7 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a Policy object of the specified type.
      *
      * <p> A new Policy object encapsulating the
@@ -515,7 +515,7 @@ public abstract class Policy {
         throw nsae;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the Provider of this Policy.
      *
      * <p> This Policy instance will only have a Provider if it
@@ -530,7 +530,7 @@ public abstract class Policy {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the type of this Policy.
      *
      * <p> This Policy instance will only have a type if it
@@ -545,7 +545,7 @@ public abstract class Policy {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return Policy parameters.
      *
      * <p> This Policy instance will only have parameters if it
@@ -560,7 +560,7 @@ public abstract class Policy {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a PermissionCollection object containing the set of
      * permissions granted to the specified CodeSource.
      *
@@ -590,7 +590,7 @@ public abstract class Policy {
         return Policy.UNSUPPORTED_EMPTY_COLLECTION;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a PermissionCollection object containing the set of
      * permissions granted to the specified ProtectionDomain.
      *
@@ -657,7 +657,7 @@ public abstract class Policy {
         return pc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * add static permissions to provided permission collection
      */
     private void addStaticPerms(PermissionCollection perms,
@@ -672,7 +672,7 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Evaluates the global policy for the permissions granted to
      * the ProtectionDomain and tests whether the permission is
      * granted.
@@ -714,7 +714,7 @@ public abstract class Policy {
         return pc.implies(permission);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Refreshes/reloads the policy configuration. The behavior of this method
      * depends on the implementation. For example, calling <code>refresh</code>
      * on a file-based policy will cause the file to be re-read.
@@ -725,7 +725,7 @@ public abstract class Policy {
      */
     public void refresh() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This subclass is returned by the getInstance calls.  All Policy calls
      * are delegated to the underlying PolicySpi.
      */
@@ -768,14 +768,14 @@ public abstract class Policy {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This represents a marker interface for Policy parameters.
      *
      * @since 1.6
      */
     public static interface Parameters { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class represents a read-only empty PermissionCollection object that
      * is returned from the <code>getPermissions(CodeSource)</code> and
      * <code>getPermissions(ProtectionDomain)</code>
@@ -787,7 +787,7 @@ public abstract class Policy {
 
         private Permissions perms;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Create a read-only empty PermissionCollection object.
          */
         public UnsupportedEmptyCollection() {
@@ -795,7 +795,7 @@ public abstract class Policy {
             perms.setReadOnly();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a permission object to the current collection of permission
          * objects.
          *
@@ -808,7 +808,7 @@ public abstract class Policy {
             perms.add(permission);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Checks to see if the specified permission is implied by the
          * collection of Permission objects held in this PermissionCollection.
          *
@@ -821,7 +821,7 @@ public abstract class Policy {
             return perms.implies(permission);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns an enumeration of all the Permission objects in the
          * collection.
          *

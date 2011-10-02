@@ -32,7 +32,7 @@ import java.awt.geom.Point2D;
 import java.awt.RenderingHints;
 import sun.awt.image.ImagingLib;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class performs a pixel-by-pixel rescaling of the data in the
  * source image by multiplying the sample values for each pixel by a scale
  * factor and then adding an offset. The scaled sample values are clipped
@@ -90,7 +90,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
     private int dstNbits;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new RescaleOp with the desired scale factors
      * and offsets.  The length of the scaleFactor and offset arrays
      * must meet the restrictions stated in the class comments above.
@@ -114,7 +114,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         this.hints = hints;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new RescaleOp with the desired scale factor
      * and offset.  The scaleFactor and offset will be applied to
      * all bands in a source Raster and to all color (but not alpha)
@@ -134,7 +134,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         this.hints = hints;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the scale factors in the given array. The array is also
      * returned for convenience.  If scaleFactors is null, a new array
      * will be allocated.
@@ -152,7 +152,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return scaleFactors;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the offsets in the given array. The array is also returned
      * for convenience.  If offsets is null, a new array
      * will be allocated.
@@ -170,7 +170,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return offsets;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of scaling factors and offsets used in this
      * RescaleOp.
      * @return the number of scaling factors and offsets of this
@@ -181,7 +181,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a ByteLookupTable to implement the rescale.
      * The table may have either a SHORT or BYTE input.
      * @param nElems    Number of elements the table is to have.
@@ -216,7 +216,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return new ByteLookupTable(0, lutData);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a ShortLookupTable to implement the rescale.
      * The table may have either a SHORT or BYTE input.
      * @param nElems    Number of elements the table is to have.
@@ -251,7 +251,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if the rescale can be performed as a lookup.
      * The dst must be a byte or short type.
      * The src must be less than 16 bits.
@@ -303,7 +303,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rescales the source BufferedImage.
      * If the color model in the source image is not the same as that
      * in the destination image, the pixels will be converted
@@ -442,7 +442,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return origDst;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rescales the pixel data in the source Raster.
      * If the destination Raster is null, a new Raster will be created.
      * The source and destination must have the same number of bands.
@@ -580,7 +580,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return dst;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding box of the rescaled destination image.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -589,7 +589,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
          return getBounds2D(src.getRaster());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding box of the rescaled destination Raster.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -600,7 +600,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return src.getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a zeroed destination image with the correct size and number of
      * bands.
      * @param src       Source image for the filter operation.
@@ -629,7 +629,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return image;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a zeroed-destination <code>Raster</code> with the correct
      * size and number of bands, given this source.
      * @param src       the source <code>Raster</code>
@@ -639,7 +639,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return src.createCompatibleWritableRaster(src.getWidth(), src.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the location of the destination point given a
      * point in the source.  If dstPt is non-null, it will
      * be used to hold the return value.  Since this is not a geometric
@@ -656,7 +656,7 @@ public class RescaleOp implements BufferedImageOp, RasterOp {
         return dstPt;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the rendering hints for this op.
      * @return the rendering hints of this <code>RescaleOp</code>.
      */

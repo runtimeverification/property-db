@@ -27,7 +27,7 @@ package java.sql;
 
 import java.util.Properties;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>A connection (session) with a specific
  * database. SQL statements are executed and results are returned
  * within the context of a connection.
@@ -82,7 +82,7 @@ import java.util.Properties;
  */
 public interface Connection  extends Wrapper {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>Statement</code> object for sending
      * SQL statements to the database.
      * SQL statements without parameters are normally
@@ -102,7 +102,7 @@ public interface Connection  extends Wrapper {
      */
     Statement createStatement() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>PreparedStatement</code> object for sending
      * parameterized SQL statements to the database.
      * <P>
@@ -137,7 +137,7 @@ public interface Connection  extends Wrapper {
     PreparedStatement prepareStatement(String sql)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CallableStatement</code> object for calling
      * database stored procedures.
      * The <code>CallableStatement</code> object provides
@@ -169,7 +169,7 @@ public interface Connection  extends Wrapper {
      */
     CallableStatement prepareCall(String sql) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts the given SQL statement into the system's native SQL grammar.
      * A driver may convert the JDBC SQL grammar into its system's
      * native SQL grammar prior to sending it. This method returns the
@@ -183,7 +183,7 @@ public interface Connection  extends Wrapper {
      */
     String nativeSQL(String sql) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this connection's auto-commit mode to the given state.
      * If a connection is in auto-commit mode, then all its SQL
      * statements will be executed and committed as individual
@@ -220,7 +220,7 @@ public interface Connection  extends Wrapper {
      */
     void setAutoCommit(boolean autoCommit) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the current auto-commit mode for this <code>Connection</code>
      * object.
      *
@@ -232,7 +232,7 @@ public interface Connection  extends Wrapper {
      */
     boolean getAutoCommit() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes all changes made since the previous
      * commit/rollback permanent and releases any database locks
      * currently held by this <code>Connection</code> object.
@@ -247,7 +247,7 @@ public interface Connection  extends Wrapper {
      */
     void commit() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Undoes all changes made in the current transaction
      * and releases any database locks currently held
      * by this <code>Connection</code> object. This method should be
@@ -261,7 +261,7 @@ public interface Connection  extends Wrapper {
      */
     void rollback() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases this <code>Connection</code> object's database and JDBC resources
      * immediately instead of waiting for them to be automatically released.
      * <P>
@@ -278,7 +278,7 @@ public interface Connection  extends Wrapper {
      */
     void close() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves whether this <code>Connection</code> object has been
      * closed.  A connection is closed if the method <code>close</code>
      * has been called on it or if certain fatal errors have occurred.
@@ -300,7 +300,7 @@ public interface Connection  extends Wrapper {
     //======================================================================
     // Advanced features:
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves a <code>DatabaseMetaData</code> object that contains
      * metadata about the database to which this
      * <code>Connection</code> object represents a connection.
@@ -315,7 +315,7 @@ public interface Connection  extends Wrapper {
      */
     DatabaseMetaData getMetaData() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Puts this connection in read-only mode as a hint to the driver to enable
      * database optimizations.
      *
@@ -329,7 +329,7 @@ public interface Connection  extends Wrapper {
      */
     void setReadOnly(boolean readOnly) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves whether this <code>Connection</code>
      * object is in read-only mode.
      *
@@ -340,7 +340,7 @@ public interface Connection  extends Wrapper {
      */
     boolean isReadOnly() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the given catalog name in order to select
      * a subspace of this <code>Connection</code> object's database
      * in which to work.
@@ -356,7 +356,7 @@ public interface Connection  extends Wrapper {
      */
     void setCatalog(String catalog) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this <code>Connection</code> object's current catalog name.
      *
      * @return the current catalog name or <code>null</code> if there is none
@@ -366,12 +366,12 @@ public interface Connection  extends Wrapper {
      */
     String getCatalog() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant indicating that transactions are not supported.
      */
     int TRANSACTION_NONE             = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant indicating that
      * dirty reads, non-repeatable reads and phantom reads can occur.
      * This level allows a row changed by one transaction to be read
@@ -381,7 +381,7 @@ public interface Connection  extends Wrapper {
      */
     int TRANSACTION_READ_UNCOMMITTED = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant indicating that
      * dirty reads are prevented; non-repeatable reads and phantom
      * reads can occur.  This level only prohibits a transaction
@@ -389,7 +389,7 @@ public interface Connection  extends Wrapper {
      */
     int TRANSACTION_READ_COMMITTED   = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant indicating that
      * dirty reads and non-repeatable reads are prevented; phantom
      * reads can occur.  This level prohibits a transaction from
@@ -401,7 +401,7 @@ public interface Connection  extends Wrapper {
      */
     int TRANSACTION_REPEATABLE_READ  = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant indicating that
      * dirty reads, non-repeatable reads and phantom reads are prevented.
      * This level includes the prohibitions in
@@ -414,7 +414,7 @@ public interface Connection  extends Wrapper {
      */
     int TRANSACTION_SERIALIZABLE     = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to change the transaction isolation level for this
      * <code>Connection</code> object to the one given.
      * The constants defined in the interface <code>Connection</code>
@@ -439,7 +439,7 @@ public interface Connection  extends Wrapper {
      */
     void setTransactionIsolation(int level) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this <code>Connection</code> object's current
      * transaction isolation level.
      *
@@ -456,7 +456,7 @@ public interface Connection  extends Wrapper {
      */
     int getTransactionIsolation() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the first warning reported by calls on this
      * <code>Connection</code> object.  If there is more than one
      * warning, subsequent warnings will be chained to the first one
@@ -479,7 +479,7 @@ public interface Connection  extends Wrapper {
      */
     SQLWarning getWarnings() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears all warnings reported for this <code>Connection</code> object.
      * After a call to this method, the method <code>getWarnings</code>
      * returns <code>null</code> until a new warning is
@@ -493,7 +493,7 @@ public interface Connection  extends Wrapper {
 
     //--------------------------JDBC 2.0-----------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>Statement</code> object that will generate
      * <code>ResultSet</code> objects with the given type and concurrency.
      * This method is the same as the <code>createStatement</code> method
@@ -524,7 +524,7 @@ public interface Connection  extends Wrapper {
     Statement createStatement(int resultSetType, int resultSetConcurrency)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Creates a <code>PreparedStatement</code> object that will generate
      * <code>ResultSet</code> objects with the given type and concurrency.
@@ -560,7 +560,7 @@ public interface Connection  extends Wrapper {
                                        int resultSetConcurrency)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CallableStatement</code> object that will generate
      * <code>ResultSet</code> objects with the given type and concurrency.
      * This method is the same as the <code>prepareCall</code> method
@@ -593,7 +593,7 @@ public interface Connection  extends Wrapper {
     CallableStatement prepareCall(String sql, int resultSetType,
                                   int resultSetConcurrency) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the <code>Map</code> object associated with this
      * <code>Connection</code> object.
      * Unless the application has added an entry, the type map returned
@@ -610,7 +610,7 @@ public interface Connection  extends Wrapper {
      */
     java.util.Map<String,Class<?>> getTypeMap() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Installs the given <code>TypeMap</code> object as the type map for
      * this <code>Connection</code> object.  The type map will be used for the
      * custom mapping of SQL structured types and distinct types.
@@ -632,7 +632,7 @@ public interface Connection  extends Wrapper {
     //--------------------------JDBC 3.0-----------------------------
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes the default holdability of <code>ResultSet</code> objects
      * created using this <code>Connection</code> object to the given
      * holdability.  The default holdability of <code>ResultSet</code> objects
@@ -653,7 +653,7 @@ public interface Connection  extends Wrapper {
      */
     void setHoldability(int holdability) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the current holdability of <code>ResultSet</code> objects
      * created using this <code>Connection</code> object.
      *
@@ -669,7 +669,7 @@ public interface Connection  extends Wrapper {
      */
     int getHoldability() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an unnamed savepoint in the current transaction and
      * returns the new <code>Savepoint</code> object that represents it.
      *
@@ -689,7 +689,7 @@ public interface Connection  extends Wrapper {
      */
     Savepoint setSavepoint() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a savepoint with the given name in the current transaction
      * and returns the new <code>Savepoint</code> object that represents it.
      *
@@ -710,7 +710,7 @@ public interface Connection  extends Wrapper {
      */
     Savepoint setSavepoint(String name) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Undoes all changes made after the given <code>Savepoint</code> object
      * was set.
      * <P>
@@ -731,7 +731,7 @@ public interface Connection  extends Wrapper {
      */
     void rollback(Savepoint savepoint) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified <code>Savepoint</code>  and subsequent <code>Savepoint</code> objects from the current
      * transaction. Any reference to the savepoint after it have been removed
      * will cause an <code>SQLException</code> to be thrown.
@@ -747,7 +747,7 @@ public interface Connection  extends Wrapper {
      */
     void releaseSavepoint(Savepoint savepoint) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>Statement</code> object that will generate
      * <code>ResultSet</code> objects with the given type, concurrency,
      * and holdability.
@@ -784,7 +784,7 @@ public interface Connection  extends Wrapper {
     Statement createStatement(int resultSetType, int resultSetConcurrency,
                               int resultSetHoldability) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>PreparedStatement</code> object that will generate
      * <code>ResultSet</code> objects with the given type, concurrency,
      * and holdability.
@@ -827,7 +827,7 @@ public interface Connection  extends Wrapper {
                                        int resultSetConcurrency, int resultSetHoldability)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CallableStatement</code> object that will generate
      * <code>ResultSet</code> objects with the given type and concurrency.
      * This method is the same as the <code>prepareCall</code> method
@@ -868,7 +868,7 @@ public interface Connection  extends Wrapper {
                                   int resultSetHoldability) throws SQLException;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a default <code>PreparedStatement</code> object that has
      * the capability to retrieve auto-generated keys. The given constant
      * tells the driver whether it should make auto-generated keys
@@ -913,7 +913,7 @@ public interface Connection  extends Wrapper {
     PreparedStatement prepareStatement(String sql, int autoGeneratedKeys)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a default <code>PreparedStatement</code> object capable
      * of returning the auto-generated keys designated by the given array.
      * This array contains the indexes of the columns in the target
@@ -961,7 +961,7 @@ public interface Connection  extends Wrapper {
     PreparedStatement prepareStatement(String sql, int columnIndexes[])
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a default <code>PreparedStatement</code> object capable
      * of returning the auto-generated keys designated by the given array.
      * This array contains the names of the columns in the target
@@ -1009,7 +1009,7 @@ public interface Connection  extends Wrapper {
     PreparedStatement prepareStatement(String sql, String columnNames[])
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object that implements the <code>Clob</code> interface. The object
      * returned initially contains no data.  The <code>setAsciiStream</code>,
      * <code>setCharacterStream</code> and <code>setString</code> methods of
@@ -1025,7 +1025,7 @@ public interface Connection  extends Wrapper {
      */
     Clob createClob() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object that implements the <code>Blob</code> interface. The object
      * returned initially contains no data.  The <code>setBinaryStream</code> and
      * <code>setBytes</code> methods of the <code>Blob</code> interface may be used to add data to
@@ -1041,7 +1041,7 @@ public interface Connection  extends Wrapper {
      */
     Blob createBlob() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object that implements the <code>NClob</code> interface. The object
      * returned initially contains no data.  The <code>setAsciiStream</code>,
      * <code>setCharacterStream</code> and <code>setString</code> methods of the <code>NClob</code> interface may
@@ -1057,7 +1057,7 @@ public interface Connection  extends Wrapper {
      */
     NClob createNClob() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object that implements the <code>SQLXML</code> interface. The object
      * returned initially contains no data. The <code>createXmlStreamWriter</code> object and
      * <code>setString</code> method of the <code>SQLXML</code> interface may be used to add data to the <code>SQLXML</code>
@@ -1072,7 +1072,7 @@ public interface Connection  extends Wrapper {
      */
     SQLXML createSQLXML() throws SQLException;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if the connection has not been closed and is still valid.
          * The driver shall submit a query on the connection or use some other
          * mechanism that positively verifies the connection is still valid when
@@ -1097,7 +1097,7 @@ public interface Connection  extends Wrapper {
          */
          boolean isValid(int timeout) throws SQLException;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sets the value of the client info property specified by name to the
          * value specified by value.
          * <p>
@@ -1153,7 +1153,7 @@ public interface Connection  extends Wrapper {
          void setClientInfo(String name, String value)
                 throws SQLClientInfoException;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Sets the value of the connection's client info properties.  The
      * <code>Properties</code> object contains the names and values of the client info
      * properties to be set.  The set of client info properties contained in
@@ -1186,7 +1186,7 @@ public interface Connection  extends Wrapper {
          void setClientInfo(Properties properties)
                 throws SQLClientInfoException;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the value of the client info property specified by name.  This
          * method may return null if the specified client info property has not
          * been set and does not have a default value.  This method will also
@@ -1211,7 +1211,7 @@ public interface Connection  extends Wrapper {
          String getClientInfo(String name)
                 throws SQLException;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a list containing the name and current value of each client info
          * property supported by the driver.  The value of a client info property
          * may be null if the property has not been set and does not have a
@@ -1229,7 +1229,7 @@ public interface Connection  extends Wrapper {
          Properties getClientInfo()
                 throws SQLException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
   * Factory method for creating Array objects.
   *<p>
   * <b>Note: </b>When <code>createArrayOf</code> is used to create an array object
@@ -1258,7 +1258,7 @@ public interface Connection  extends Wrapper {
  Array createArrayOf(String typeName, Object[] elements) throws
 SQLException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
   * Factory method for creating Struct objects.
   *
   * @param typeName the SQL type name of the SQL structured type that this <code>Struct</code>

@@ -50,7 +50,7 @@ import java.awt.peer.LightweightPeer;
 import java.awt.dnd.peer.DropTargetPeer;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DropTarget</code> is associated
  * with a <code>Component</code> when that <code>Component</code>
  * wishes
@@ -68,7 +68,7 @@ public class DropTarget implements DropTargetListener, Serializable {
 
     private static final long serialVersionUID = -6283860791671019047L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new DropTarget given the <code>Component</code>
      * to associate itself with, an <code>int</code> representing
      * the default acceptable action(s) to
@@ -113,7 +113,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         if (fm != null) flavorMap = fm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DropTarget</code> given the <code>Component</code>
      * to associate itself with, an <code>int</code> representing
      * the default acceptable action(s)
@@ -137,7 +137,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         this(c, ops, dtl, act, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DropTarget</code>.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
      *            returns true
@@ -147,7 +147,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         this(null, DnDConstants.ACTION_COPY_OR_MOVE, null, true, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DropTarget</code> given the <code>Component</code>
      * to associate itself with, and the <code>DropTargetListener</code>
      * to handle event processing.
@@ -165,7 +165,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         this(c, DnDConstants.ACTION_COPY_OR_MOVE, dtl, true, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DropTarget</code> given the <code>Component</code>
      * to associate itself with, an <code>int</code> representing
      * the default acceptable action(s) to support, and a
@@ -185,7 +185,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         this(c, ops, dtl, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Note: this interface is required to permit the safe association
      * of a DropTarget with a Component in one of two ways, either:
      * <code> component.setDropTarget(droptarget); </code>
@@ -227,7 +227,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>Component</code> associated
      * with this <code>DropTarget</code>.
      * <P>
@@ -238,7 +238,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return component;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the default acceptable actions for this <code>DropTarget</code>
      * <P>
      * @param ops the default actions
@@ -258,7 +258,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         actions = ops;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an <code>int</code> representing the
      * current action(s) supported by this <code>DropTarget</code>.
      * <P>
@@ -269,7 +269,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return actions;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the DropTarget active if <code>true</code>,
      * inactive if <code>false</code>.
      * <P>
@@ -284,7 +284,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         if (!active) clearAutoscroll();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether or not
      * this <code>DropTarget</code>
      * is currently active (ready to accept drops).
@@ -296,7 +296,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return active;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a new <code>DropTargetListener</code> (UNICAST SOURCE).
      * <P>
      * @param dtl The new <code>DropTargetListener</code>
@@ -317,7 +317,7 @@ public class DropTarget implements DropTargetListener, Serializable {
             throw new TooManyListenersException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the current <code>DropTargetListener</code> (UNICAST SOURCE).
      * <P>
      * @param dtl the DropTargetListener to deregister.
@@ -332,7 +332,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>dragEnter</code> on the registered
      * <code>DropTargetListener</code> and passes it
      * the specified <code>DropTargetDragEvent</code>.
@@ -357,7 +357,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         initializeAutoscrolling(dtde.getLocation());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>dragOver</code> on the registered
      * <code>DropTargetListener</code> and passes it
      * the specified <code>DropTargetDragEvent</code>.
@@ -379,7 +379,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         updateAutoscroll(dtde.getLocation());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>dropActionChanged</code> on the registered
      * <code>DropTargetListener</code> and passes it
      * the specified <code>DropTargetDragEvent</code>.
@@ -401,7 +401,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         updateAutoscroll(dtde.getLocation());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>dragExit</code> on the registered
      * <code>DropTargetListener</code> and passes it
      * the specified <code>DropTargetEvent</code>.
@@ -424,7 +424,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         clearAutoscroll();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>drop</code> on the registered
      * <code>DropTargetListener</code> and passes it
      * the specified <code>DropTargetDropEvent</code>
@@ -449,7 +449,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>FlavorMap</code>
      * associated with this <code>DropTarget</code>.
      * If no <code>FlavorMap</code> has been set for this
@@ -461,7 +461,7 @@ public class DropTarget implements DropTargetListener, Serializable {
 
     public FlavorMap getFlavorMap() { return flavorMap; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>FlavorMap</code> associated
      * with this <code>DropTarget</code>.
      * <P>
@@ -473,7 +473,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         flavorMap = fm == null ? SystemFlavorMap.getDefaultFlavorMap() : fm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notify the DropTarget that it has been associated with a Component
      *
      **********************************************************************
@@ -508,7 +508,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notify the DropTarget that it has been disassociated from a Component
      *
      **********************************************************************
@@ -531,7 +531,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         componentPeer = nativePeer = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>DropTargetContext</code> associated
      * with this <code>DropTarget</code>.
      * <P>
@@ -542,7 +542,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return dropTargetContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the DropTargetContext associated with this DropTarget.
      * Subclasses may override this method to instantiate their own
      * DropTargetContext subclass.
@@ -557,7 +557,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return new DropTargetContext(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializes this <code>DropTarget</code>. Performs default serialization,
      * and then writes out this object's <code>DropTargetListener</code> if and
      * only if it can be serialized. If not, <code>null</code> is written
@@ -575,7 +575,7 @@ public class DropTarget implements DropTargetListener, Serializable {
                       ? dtListener : null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deserializes this <code>DropTarget</code>. This method first performs
      * default deserialization for all non-<code>transient</code> fields. An
      * attempt is then made to deserialize this object's
@@ -615,15 +615,15 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}*******************************************************************/
+    /** {@collect.stats} *******************************************************************/
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * this protected nested class implements autoscrolling
      */
 
     protected static class DropTargetAutoScroller implements ActionListener {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * construct a DropTargetAutoScroller
          * <P>
          * @param c the <code>Component</code>
@@ -670,7 +670,7 @@ public class DropTarget implements DropTargetListener, Serializable {
             timer.start();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * update the geometry of the autoscroll region
          */
 
@@ -692,7 +692,7 @@ public class DropTarget implements DropTargetListener, Serializable {
 
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * cause autoscroll to occur
          * <P>
          * @param newLocn the <code>Point</code>
@@ -710,13 +710,13 @@ public class DropTarget implements DropTargetListener, Serializable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * cause autoscrolling to stop
          */
 
         protected void stop() { timer.stop(); }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * cause autoscroll to occur
          * <P>
          * @param e the <code>ActionEvent</code>
@@ -747,9 +747,9 @@ public class DropTarget implements DropTargetListener, Serializable {
         private int        hysteresis = 10;
     }
 
-    /** {@collect.stats}*******************************************************************/
+    /** {@collect.stats} *******************************************************************/
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * create an embedded autoscroller
      * <P>
      * @param c the <code>Component</code>
@@ -760,7 +760,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         return new DropTargetAutoScroller(c, p);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * initialize autoscrolling
      * <P>
      * @param p the <code>Point</code>
@@ -772,7 +772,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         autoScroller = createDropTargetAutoScroller(component, p);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * update autoscrolling with current cursor locn
      * <P>
      * @param dragCursorLocn the <code>Point</code>
@@ -782,7 +782,7 @@ public class DropTarget implements DropTargetListener, Serializable {
         if (autoScroller != null) autoScroller.updateLocation(dragCursorLocn);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * clear autoscrolling
      */
 
@@ -793,14 +793,14 @@ public class DropTarget implements DropTargetListener, Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The DropTargetContext associated with this DropTarget.
      *
      * @serial
      */
     private DropTargetContext dropTargetContext = createDropTargetContext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Component associated with this DropTarget.
      *
      * @serial
@@ -818,7 +818,7 @@ public class DropTarget implements DropTargetListener, Serializable {
     private transient ComponentPeer nativePeer;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Default permissible actions supported by this DropTarget.
      *
      * @see #setDefaultActions
@@ -827,7 +827,7 @@ public class DropTarget implements DropTargetListener, Serializable {
      */
     int     actions = DnDConstants.ACTION_COPY_OR_MOVE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>true</code> if the DropTarget is accepting Drag & Drop operations.
      *
      * @serial

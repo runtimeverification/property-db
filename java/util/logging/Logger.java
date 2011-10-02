@@ -30,7 +30,7 @@ import java.util.*;
 import java.security.*;
 import java.lang.ref.WeakReference;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A Logger object is used to log messages for a specific
  * system or application component.  Loggers are normally named,
  * using a hierarchical dot-separated namespace.  Logger names
@@ -188,7 +188,7 @@ public class Logger {
     private Level levelObject;
     private volatile int levelValue;  // current effective level value
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * GLOBAL_LOGGER_NAME is a name for the global logger.
      * This name is provided as a convenience to developers who are making
      * casual use of the Logging package.  Developers who are making serious
@@ -204,7 +204,7 @@ public class Logger {
      */
     public static final String GLOBAL_LOGGER_NAME = "global";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "global" Logger object is provided as a convenience to developers
      * who are making casual use of the Logging package.  Developers
      * who are making serious use of the logging package (for example
@@ -224,7 +224,7 @@ public class Logger {
     @Deprecated
     public static final Logger global = new Logger(GLOBAL_LOGGER_NAME);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Protected method to construct a logger for a named subsystem.
      * <p>
      * The logger will be initially configured with a null Level
@@ -276,7 +276,7 @@ public class Logger {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find or create a logger for a named subsystem.  If a logger has
      * already been created with the given name it is returned.  Otherwise
      * a new logger is created.
@@ -308,7 +308,7 @@ public class Logger {
         return manager.demandLogger(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find or create a logger for a named subsystem.  If a logger has
      * already been created with the given name it is returned.  Otherwise
      * a new logger is created.
@@ -361,7 +361,7 @@ public class Logger {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an anonymous Logger.  The newly created Logger is not
      * registered in the LogManager namespace.  There will be no
      * access checks on updates to the logger.
@@ -385,7 +385,7 @@ public class Logger {
         return getAnonymousLogger(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an anonymous Logger.  The newly created Logger is not
      * registered in the LogManager namespace.  There will be no
      * access checks on updates to the logger.
@@ -419,7 +419,7 @@ public class Logger {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the localization resource bundle for this
      * logger for the current default locale.  Note that if
      * the result is null, then the Logger will use a resource
@@ -431,7 +431,7 @@ public class Logger {
         return findResourceBundle(getResourceBundleName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the localization resource bundle name for this
      * logger.  Note that if the result is null, then the Logger
      * will use a resource bundle name inherited from its parent.
@@ -442,7 +442,7 @@ public class Logger {
         return resourceBundleName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a filter to control output on this Logger.
      * <P>
      * After passing the initial "level" check, the Logger will
@@ -458,7 +458,7 @@ public class Logger {
         filter = newFilter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the current filter for this Logger.
      *
      * @return  a filter object (may be null)
@@ -467,7 +467,7 @@ public class Logger {
         return filter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a LogRecord.
      * <p>
      * All the other logging methods in this class call through
@@ -525,7 +525,7 @@ public class Logger {
     // Start of convenience methods WITHOUT className and methodName
     //================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, with no arguments.
      * <p>
      * If the logger is currently enabled for the given message
@@ -543,7 +543,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, with one object parameter.
      * <p>
      * If the logger is currently enabled for the given message
@@ -564,7 +564,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, with an array of object arguments.
      * <p>
      * If the logger is currently enabled for the given message
@@ -584,7 +584,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, with associated Throwable information.
      * <p>
      * If the logger is currently enabled for the given message
@@ -613,7 +613,7 @@ public class Logger {
     // Start of convenience methods WITH className and methodName
     //================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class and method,
      * with no arguments.
      * <p>
@@ -636,7 +636,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class and method,
      * with a single object parameter to the log message.
      * <p>
@@ -663,7 +663,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class and method,
      * with an array of object arguments.
      * <p>
@@ -689,7 +689,7 @@ public class Logger {
         doLog(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class and method,
      * with associated Throwable information.
      * <p>
@@ -737,7 +737,7 @@ public class Logger {
         log(lr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class, method, and resource bundle name
      * with no arguments.
      * <p>
@@ -768,7 +768,7 @@ public class Logger {
         doLog(lr, bundleName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class, method, and resource bundle name,
      * with a single object parameter to the log message.
      * <p>
@@ -801,7 +801,7 @@ public class Logger {
         doLog(lr, bundleName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class, method, and resource bundle name,
      * with an array of object arguments.
      * <p>
@@ -833,7 +833,7 @@ public class Logger {
         doLog(lr, bundleName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a message, specifying source class, method, and resource bundle name,
      * with associated Throwable information.
      * <p>
@@ -875,7 +875,7 @@ public class Logger {
     // Start of convenience methods for logging method entries and returns.
     //======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a method entry.
      * <p>
      * This is a convenience method that can be used to log entry
@@ -892,7 +892,7 @@ public class Logger {
         logp(Level.FINER, sourceClass, sourceMethod, "ENTRY");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a method entry, with one parameter.
      * <p>
      * This is a convenience method that can be used to log entry
@@ -912,7 +912,7 @@ public class Logger {
         logp(Level.FINER, sourceClass, sourceMethod, "ENTRY {0}", params);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a method entry, with an array of parameters.
      * <p>
      * This is a convenience method that can be used to log entry
@@ -940,7 +940,7 @@ public class Logger {
         logp(Level.FINER, sourceClass, sourceMethod, msg, params);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a method return.
      * <p>
      * This is a convenience method that can be used to log returning
@@ -958,7 +958,7 @@ public class Logger {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a method return, with result object.
      * <p>
      * This is a convenience method that can be used to log returning
@@ -978,7 +978,7 @@ public class Logger {
         logp(Level.FINER, sourceClass, sourceMethod, "RETURN {0}", result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log throwing an exception.
      * <p>
      * This is a convenience method to log that a method is
@@ -1014,7 +1014,7 @@ public class Logger {
     // Start of simple convenience methods using level names as method names
     //=======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a SEVERE message.
      * <p>
      * If the logger is currently enabled for the SEVERE message
@@ -1030,7 +1030,7 @@ public class Logger {
         log(Level.SEVERE, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a WARNING message.
      * <p>
      * If the logger is currently enabled for the WARNING message
@@ -1046,7 +1046,7 @@ public class Logger {
         log(Level.WARNING, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log an INFO message.
      * <p>
      * If the logger is currently enabled for the INFO message
@@ -1062,7 +1062,7 @@ public class Logger {
         log(Level.INFO, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a CONFIG message.
      * <p>
      * If the logger is currently enabled for the CONFIG message
@@ -1078,7 +1078,7 @@ public class Logger {
         log(Level.CONFIG, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a FINE message.
      * <p>
      * If the logger is currently enabled for the FINE message
@@ -1094,7 +1094,7 @@ public class Logger {
         log(Level.FINE, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a FINER message.
      * <p>
      * If the logger is currently enabled for the FINER message
@@ -1110,7 +1110,7 @@ public class Logger {
         log(Level.FINER, msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log a FINEST message.
      * <p>
      * If the logger is currently enabled for the FINEST message
@@ -1130,7 +1130,7 @@ public class Logger {
     // End of convenience methods
     //================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the log level specifying which message levels will be
      * logged by this logger.  Message levels lower than this
      * value will be discarded.  The level value Level.OFF
@@ -1152,7 +1152,7 @@ public class Logger {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the log Level that has been specified for this Logger.
      * The result may be null, which means that this logger's
      * effective level will be inherited from its parent.
@@ -1163,7 +1163,7 @@ public class Logger {
         return levelObject;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if a message of the given level would actually be logged
      * by this logger.  This check is based on the Loggers effective level,
      * which may be inherited from its parent.
@@ -1178,7 +1178,7 @@ public class Logger {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the name for this logger.
      * @return logger name.  Will be null for anonymous Loggers.
      */
@@ -1186,7 +1186,7 @@ public class Logger {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add a log Handler to receive logging messages.
      * <p>
      * By default, Loggers also send their output to their parent logger.
@@ -1207,7 +1207,7 @@ public class Logger {
         handlers.add(handler);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove a log Handler.
      * <P>
      * Returns silently if the given Handler is not found or is null
@@ -1227,7 +1227,7 @@ public class Logger {
         handlers.remove(handler);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the Handlers associated with this logger.
      * <p>
      * @return  an array of all registered Handlers
@@ -1239,7 +1239,7 @@ public class Logger {
         return handlers.toArray(new Handler[handlers.size()]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specify whether or not this logger should send its output
      * to it's parent Logger.  This means that any LogRecords will
      * also be written to the parent's Handlers, and potentially
@@ -1255,7 +1255,7 @@ public class Logger {
         this.useParentHandlers = useParentHandlers;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Discover whether or not this logger is sending its output
      * to its parent logger.
      *
@@ -1355,7 +1355,7 @@ public class Logger {
         resourceBundleName = name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the parent for this Logger.
      * <p>
      * This method returns the nearest extant parent in the namespace.
@@ -1374,7 +1374,7 @@ public class Logger {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the parent for this Logger.  This method is used by
      * the LogManager to update a Logger when the namespace changes.
      * <p>

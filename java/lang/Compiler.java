@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code Compiler} class is provided to support Java-to-native-code
  * compilers and related services. By design, the {@code Compiler} class does
  * nothing; it serves as a placeholder for a JIT compiler implementation.
@@ -81,7 +81,7 @@ public final class Compiler  {
             });
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compiles the specified class.
      *
      * @param  clazz
@@ -95,7 +95,7 @@ public final class Compiler  {
      */
     public static native boolean compileClass(Class<?> clazz);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compiles all classes whose name matches the specified string.
      *
      * @param  string
@@ -109,7 +109,7 @@ public final class Compiler  {
      */
     public static native boolean compileClasses(String string);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Examines the argument type and its fields and perform some documented
      * operation.  No specific operations are required.
      *
@@ -124,12 +124,12 @@ public final class Compiler  {
      */
     public static native Object command(Object any);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cause the Compiler to resume operation.
      */
     public static native void enable();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cause the Compiler to cease operation.
      */
     public static native void disable();

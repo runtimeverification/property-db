@@ -29,7 +29,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>FileDialog</code> class displays a dialog window
  * from which the user can select a file.
  * <p>
@@ -46,13 +46,13 @@ import java.io.ObjectInputStream;
  */
 public class FileDialog extends Dialog {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constant value indicates that the purpose of the file
      * dialog window is to locate a file from which to read.
      */
     public static final int LOAD = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constant value indicates that the purpose of the file
      * dialog window is to locate a file to which to write.
      */
@@ -123,13 +123,13 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs for fields that may be
        accessed from C.
      */
     private static native void initIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog for loading a file.  The title of the
      * file dialog is initially empty.  This is a convenience method for
      * <code>FileDialog(parent, "", LOAD)</code>.
@@ -141,7 +141,7 @@ public class FileDialog extends Dialog {
         this(parent, "", LOAD);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog window with the specified title for loading
      * a file. The files shown are those in the current directory.
      * This is a convenience method for
@@ -154,7 +154,7 @@ public class FileDialog extends Dialog {
         this(parent, title, LOAD);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog window with the specified title for loading
      * or saving a file.
      * <p>
@@ -179,7 +179,7 @@ public class FileDialog extends Dialog {
         setLayout(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog for loading a file.  The title of the
      * file dialog is initially empty.  This is a convenience method for
      * <code>FileDialog(parent, "", LOAD)</code>.
@@ -199,7 +199,7 @@ public class FileDialog extends Dialog {
         this(parent, "", LOAD);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog window with the specified title for loading
      * a file. The files shown are those in the current directory.
      * This is a convenience method for
@@ -223,7 +223,7 @@ public class FileDialog extends Dialog {
         this(parent, title, LOAD);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a file dialog window with the specified title for loading
      * or saving a file.
      * <p>
@@ -259,7 +259,7 @@ public class FileDialog extends Dialog {
         setLayout(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a name for this component. Called by <code>getName()</code>
      * when the name is <code>null</code>.
      */
@@ -269,7 +269,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the file dialog's peer.  The peer allows us to change the look
      * of the file dialog without changing its functionality.
      */
@@ -284,7 +284,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether this file dialog box is for loading from a file
      * or for saving to a file.
      *
@@ -299,7 +299,7 @@ public class FileDialog extends Dialog {
         return mode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the mode of the file dialog.  If <code>mode</code> is not
      * a legal value, an exception will be thrown and <code>mode</code>
      * will not be set.
@@ -325,7 +325,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the directory of this file dialog.
      *
      * @return  the (potentially <code>null</code> or invalid)
@@ -336,7 +336,7 @@ public class FileDialog extends Dialog {
         return dir;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the directory of this file dialog window to be the
      * specified directory. Specifying a <code>null</code> or an
      * invalid directory implies an implementation-defined default.
@@ -358,7 +358,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the selected file of this file dialog.  If the user
      * selected <code>CANCEL</code>, the returned file is <code>null</code>.
      *
@@ -370,7 +370,7 @@ public class FileDialog extends Dialog {
         return file;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the selected file for this file dialog window to be the
      * specified file. This file becomes the default file if it is set
      * before the file dialog window is first shown.
@@ -390,7 +390,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines this file dialog's filename filter. A filename filter
      * allows the user to specify which files appear in the file dialog
      * window.  Filename filters do not function in Sun's reference
@@ -404,7 +404,7 @@ public class FileDialog extends Dialog {
         return filter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the filename filter for this file dialog window to the
      * specified filter.
      * Filename filters do not function in Sun's reference
@@ -422,7 +422,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the <code>ObjectInputStream</code> and performs
      * a backwards compatibility check by converting
      * either a <code>dir</code> or a <code>file</code>
@@ -444,7 +444,7 @@ public class FileDialog extends Dialog {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>FileDialog</code>
      * window. This method is intended to be used only for debugging purposes,
      * and the content and format of the returned string may vary between

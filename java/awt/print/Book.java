@@ -27,7 +27,7 @@ package java.awt.print;
 
 import java.util.Vector;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Book</code> class provides a representation of a document in
  * which pages may have different page formats and page painters. This
  * class uses the {@link Pageable} interface to interact with a
@@ -44,21 +44,21 @@ public class Book implements Pageable {
 
  /* Instance Variables */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The set of pages that make up the Book.
      */
     private Vector mPages;
 
  /* Instance Methods */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Creates a new, empty <code>Book</code>.
      */
     public Book() {
         mPages = new Vector();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of pages in this <code>Book</code>.
      * @return the number of pages this <code>Book</code> contains.
      */
@@ -66,7 +66,7 @@ public class Book implements Pageable {
         return mPages.size();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@link PageFormat} of the page specified by
      * <code>pageIndex</code>.
      * @param pageIndex the zero based index of the page whose
@@ -82,7 +82,7 @@ public class Book implements Pageable {
         return getPage(pageIndex).getPageFormat();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@link Printable} instance responsible for rendering
      * the page specified by <code>pageIndex</code>.
      * @param pageIndex the zero based index of the page whose
@@ -97,7 +97,7 @@ public class Book implements Pageable {
         return getPage(pageIndex).getPrintable();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>PageFormat</code> and the <code>Painter</code> for a
      * specified page number.
      * @param pageIndex the zero based index of the page whose
@@ -124,7 +124,7 @@ public class Book implements Pageable {
         mPages.setElementAt(new BookPage(painter, page), pageIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends a single page to the end of this <code>Book</code>.
      * @param painter   the <code>Printable</code> instance that
      *                  renders the page
@@ -137,7 +137,7 @@ public class Book implements Pageable {
         mPages.addElement(new BookPage(painter, page));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends <code>numPages</code> pages to the end of this
      * <code>Book</code>.  Each of the pages is associated with
      * <code>page</code>.
@@ -161,7 +161,7 @@ public class Book implements Pageable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the BookPage for the page specified by 'pageIndex'.
      */
     private BookPage getPage(int pageIndex)
@@ -170,22 +170,22 @@ public class Book implements Pageable {
         return (BookPage) mPages.elementAt(pageIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The BookPage inner class describes an individual
      * page in a Book through a PageFormat-Printable pair.
      */
     private class BookPage {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          *  The size and orientation of the page.
          */
         private PageFormat mFormat;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The instance that will draw the page.
          */
         private Printable mPainter;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * A new instance where 'format' describes the page's
          * size and orientation and 'painter' is the instance
          * that will draw the page's graphics.
@@ -203,7 +203,7 @@ public class Book implements Pageable {
             mPainter = painter;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Return the instance that paints the
          * page.
          */
@@ -211,7 +211,7 @@ public class Book implements Pageable {
             return mPainter;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Return the format of the page.
          */
         PageFormat getPageFormat() {

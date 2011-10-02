@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the generic Message Digest exception.
  *
  * @author Benjamin Renaud
@@ -34,7 +34,7 @@ public class DigestException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 5821450303093652515L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a DigestException with no detail message.  (A
      * detail message is a String that describes this particular
      * exception.)
@@ -43,7 +43,7 @@ public class DigestException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a DigestException with the specified detail
      * message.  (A detail message is a String that describes this
      * particular exception.)
@@ -54,7 +54,7 @@ public class DigestException extends GeneralSecurityException {
        super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DigestException</code> with the specified
      * detail message and cause.
      *
@@ -69,7 +69,7 @@ public class DigestException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DigestException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

@@ -29,7 +29,7 @@ import java.security.AccessController;
 import sun.reflect.LangReflectAccess;
 import sun.reflect.ReflectionFactory;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The Modifier class provides {@code static} methods and
  * constants to decode class and member access modifiers.  The sets of
  * modifiers are represented as integers with distinct bit positions
@@ -64,7 +64,7 @@ class Modifier {
         factory.setLangReflectAccess(new java.lang.reflect.ReflectAccess());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code public} modifier, {@code false} otherwise.
      *
@@ -76,7 +76,7 @@ class Modifier {
         return (mod & PUBLIC) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code private} modifier, {@code false} otherwise.
      *
@@ -88,7 +88,7 @@ class Modifier {
         return (mod & PRIVATE) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code protected} modifier, {@code false} otherwise.
      *
@@ -100,7 +100,7 @@ class Modifier {
         return (mod & PROTECTED) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code static} modifier, {@code false} otherwise.
      *
@@ -112,7 +112,7 @@ class Modifier {
         return (mod & STATIC) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code final} modifier, {@code false} otherwise.
      *
@@ -124,7 +124,7 @@ class Modifier {
         return (mod & FINAL) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code synchronized} modifier, {@code false} otherwise.
      *
@@ -136,7 +136,7 @@ class Modifier {
         return (mod & SYNCHRONIZED) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code volatile} modifier, {@code false} otherwise.
      *
@@ -148,7 +148,7 @@ class Modifier {
         return (mod & VOLATILE) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code transient} modifier, {@code false} otherwise.
      *
@@ -160,7 +160,7 @@ class Modifier {
         return (mod & TRANSIENT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code native} modifier, {@code false} otherwise.
      *
@@ -172,7 +172,7 @@ class Modifier {
         return (mod & NATIVE) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code interface} modifier, {@code false} otherwise.
      *
@@ -184,7 +184,7 @@ class Modifier {
         return (mod & INTERFACE) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code abstract} modifier, {@code false} otherwise.
      *
@@ -196,7 +196,7 @@ class Modifier {
         return (mod & ABSTRACT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code true} if the integer argument includes the
      * {@code strictfp} modifier, {@code false} otherwise.
      *
@@ -208,7 +208,7 @@ class Modifier {
         return (mod & STRICT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a string describing the access modifier flags in
      * the specified modifier. For example:
      * <blockquote><pre>
@@ -270,73 +270,73 @@ class Modifier {
      * 4.5, and 4.7.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code public}
      * modifier.
      */
     public static final int PUBLIC           = 0x00000001;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code private}
      * modifier.
      */
     public static final int PRIVATE          = 0x00000002;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code protected}
      * modifier.
      */
     public static final int PROTECTED        = 0x00000004;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code static}
      * modifier.
      */
     public static final int STATIC           = 0x00000008;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code final}
      * modifier.
      */
     public static final int FINAL            = 0x00000010;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code synchronized}
      * modifier.
      */
     public static final int SYNCHRONIZED     = 0x00000020;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code volatile}
      * modifier.
      */
     public static final int VOLATILE         = 0x00000040;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code transient}
      * modifier.
      */
     public static final int TRANSIENT        = 0x00000080;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code native}
      * modifier.
      */
     public static final int NATIVE           = 0x00000100;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code interface}
      * modifier.
      */
     public static final int INTERFACE        = 0x00000200;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code abstract}
      * modifier.
      */
     public static final int ABSTRACT         = 0x00000400;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code int} value representing the {@code strictfp}
      * modifier.
      */

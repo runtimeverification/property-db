@@ -35,7 +35,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A collection designed for holding elements prior to processing.
  * Besides basic {@link java.util.Collection Collection} operations,
  * queues provide additional insertion, extraction, and inspection
@@ -142,7 +142,7 @@ package java.util;
  * @param <E> the type of elements held in this collection
  */
 public interface Queue<E> extends Collection<E> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this queue if it is possible to do so
      * immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
@@ -161,7 +161,7 @@ public interface Queue<E> extends Collection<E> {
      */
     boolean add(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions.
      * When using a capacity-restricted queue, this method is generally
@@ -180,7 +180,7 @@ public interface Queue<E> extends Collection<E> {
      */
     boolean offer(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue.  This method differs
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
@@ -190,7 +190,7 @@ public interface Queue<E> extends Collection<E> {
      */
     E remove();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue,
      * or returns <tt>null</tt> if this queue is empty.
      *
@@ -198,7 +198,7 @@ public interface Queue<E> extends Collection<E> {
      */
     E poll();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the head of this queue.  This method
      * differs from {@link #peek peek} only in that it throws an exception
      * if this queue is empty.
@@ -208,7 +208,7 @@ public interface Queue<E> extends Collection<E> {
      */
     E element();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the head of this queue,
      * or returns <tt>null</tt> if this queue is empty.
      *

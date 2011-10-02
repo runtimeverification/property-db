@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A specification of the result of a certification path builder algorithm.
  * All results returned by the {@link CertPathBuilder#build
  * CertPathBuilder.build} method must implement this interface.
@@ -51,14 +51,14 @@ package java.security.cert;
  */
 public interface CertPathBuilderResult extends Cloneable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the built certification path.
      *
      * @return the certification path (never <code>null</code>)
      */
     CertPath getCertPath();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes a copy of this <code>CertPathBuilderResult</code>. Changes to the
      * copy will not affect the original and vice versa.
      *

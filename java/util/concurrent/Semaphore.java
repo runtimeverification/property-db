@@ -38,7 +38,7 @@ import java.util.*;
 import java.util.concurrent.locks.*;
 import java.util.concurrent.atomic.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A counting semaphore.  Conceptually, a semaphore maintains a set of
  * permits.  Each {@link #acquire} blocks if necessary until a permit is
  * available, and then takes it.  Each {@link #release} adds a permit,
@@ -160,10 +160,10 @@ import java.util.concurrent.atomic.*;
 
 public class Semaphore implements java.io.Serializable {
     private static final long serialVersionUID = -3222578661600680210L;
-    /** {@collect.stats} All mechanics via AbstractQueuedSynchronizer subclass */
+    /** {@collect.stats}  All mechanics via AbstractQueuedSynchronizer subclass */
     private final Sync sync;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Synchronization implementation for semaphore.  Uses AQS state
      * to represent permits. Subclassed into fair and nonfair
      * versions.
@@ -215,7 +215,7 @@ public class Semaphore implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * NonFair version
      */
     final static class NonfairSync extends Sync {
@@ -230,7 +230,7 @@ public class Semaphore implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fair version
      */
     final static class FairSync extends Sync {
@@ -254,7 +254,7 @@ public class Semaphore implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a {@code Semaphore} with the given number of
      * permits and nonfair fairness setting.
      *
@@ -266,7 +266,7 @@ public class Semaphore implements java.io.Serializable {
         sync = new NonfairSync(permits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a {@code Semaphore} with the given number of
      * permits and the given fairness setting.
      *
@@ -281,7 +281,7 @@ public class Semaphore implements java.io.Serializable {
         sync = (fair)? new FairSync(permits) : new NonfairSync(permits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires a permit from this semaphore, blocking until one is
      * available, or the thread is {@linkplain Thread#interrupt interrupted}.
      *
@@ -313,7 +313,7 @@ public class Semaphore implements java.io.Serializable {
         sync.acquireSharedInterruptibly(1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires a permit from this semaphore, blocking until one is
      * available.
      *
@@ -336,7 +336,7 @@ public class Semaphore implements java.io.Serializable {
         sync.acquireShared(1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires a permit from this semaphore, only if one is available at the
      * time of invocation.
      *
@@ -364,7 +364,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.nonfairTryAcquireShared(1) >= 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires a permit from this semaphore, if one becomes available
      * within the given waiting time and the current thread has not
      * been {@linkplain Thread#interrupt interrupted}.
@@ -410,7 +410,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases a permit, returning it to the semaphore.
      *
      * <p>Releases a permit, increasing the number of available permits by
@@ -427,7 +427,7 @@ public class Semaphore implements java.io.Serializable {
         sync.releaseShared(1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires the given number of permits from this semaphore,
      * blocking until all are available,
      * or the thread is {@linkplain Thread#interrupt interrupted}.
@@ -468,7 +468,7 @@ public class Semaphore implements java.io.Serializable {
         sync.acquireSharedInterruptibly(permits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires the given number of permits from this semaphore,
      * blocking until all are available.
      *
@@ -496,7 +496,7 @@ public class Semaphore implements java.io.Serializable {
         sync.acquireShared(permits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires the given number of permits from this semaphore, only
      * if all are available at the time of invocation.
      *
@@ -528,7 +528,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.nonfairTryAcquireShared(permits) >= 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires the given number of permits from this semaphore, if all
      * become available within the given waiting time and the current
      * thread has not been {@linkplain Thread#interrupt interrupted}.
@@ -584,7 +584,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.tryAcquireSharedNanos(permits, unit.toNanos(timeout));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases the given number of permits, returning them to the semaphore.
      *
      * <p>Releases the given number of permits, increasing the number of
@@ -611,7 +611,7 @@ public class Semaphore implements java.io.Serializable {
         sync.releaseShared(permits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current number of permits available in this semaphore.
      *
      * <p>This method is typically used for debugging and testing purposes.
@@ -622,7 +622,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.getPermits();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires and returns all permits that are immediately available.
      *
      * @return the number of permits acquired
@@ -631,7 +631,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.drainPermits();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Shrinks the number of available permits by the indicated
      * reduction. This method can be useful in subclasses that use
      * semaphores to track resources that become unavailable. This
@@ -646,7 +646,7 @@ public class Semaphore implements java.io.Serializable {
         sync.reducePermits(reduction);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this semaphore has fairness set true.
      *
      * @return {@code true} if this semaphore has fairness set true
@@ -655,7 +655,7 @@ public class Semaphore implements java.io.Serializable {
         return sync instanceof FairSync;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether any threads are waiting to acquire. Note that
      * because cancellations may occur at any time, a {@code true}
      * return does not guarantee that any other thread will ever
@@ -669,7 +669,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.hasQueuedThreads();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an estimate of the number of threads waiting to acquire.
      * The value is only an estimate because the number of threads may
      * change dynamically while this method traverses internal data
@@ -682,7 +682,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.getQueueLength();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a collection containing threads that may be waiting to acquire.
      * Because the actual set of threads may change dynamically while
      * constructing this result, the returned collection is only a best-effort
@@ -696,7 +696,7 @@ public class Semaphore implements java.io.Serializable {
         return sync.getQueuedThreads();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string identifying this semaphore, as well as its state.
      * The state, in brackets, includes the String {@code "Permits ="}
      * followed by the number of permits.

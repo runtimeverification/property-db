@@ -27,7 +27,7 @@ package java.lang.management;
 import javax.management.openmbean.CompositeData;
 import sun.management.MemoryNotifInfoCompositeData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The information about a memory notification.
  *
  * <p>
@@ -109,7 +109,7 @@ public class MemoryNotificationInfo {
     private final MemoryUsage usage;
     private final long count;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notification type denoting that
      * the memory usage of a memory pool has
      * reached or exceeded its
@@ -124,7 +124,7 @@ public class MemoryNotificationInfo {
     public static final String MEMORY_THRESHOLD_EXCEEDED =
         "java.management.memory.threshold.exceeded";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notification type denoting that
      * the memory usage of a memory pool is greater than or equal to its
      * <a href="MemoryPoolMXBean.html#CollectionThreshold">
@@ -138,7 +138,7 @@ public class MemoryNotificationInfo {
     public static final String MEMORY_COLLECTION_THRESHOLD_EXCEEDED =
         "java.management.memory.collection.threshold.exceeded";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>MemoryNotificationInfo</tt> object.
      *
      * @param poolName The name of the memory pool which triggers this notification.
@@ -168,7 +168,7 @@ public class MemoryNotificationInfo {
         this.count = MemoryNotifInfoCompositeData.getCount(cd);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the memory pool that triggers this notification.
      * The memory pool usage has crossed a threshold.
      *
@@ -178,7 +178,7 @@ public class MemoryNotificationInfo {
         return poolName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the memory usage of the memory pool
      * when this notification was constructed.
      *
@@ -189,7 +189,7 @@ public class MemoryNotificationInfo {
         return usage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of times that the memory usage has crossed
      * a threshold when the notification was constructed.
      * For usage threshold notifications, this count will be the
@@ -206,7 +206,7 @@ public class MemoryNotificationInfo {
         return count;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <tt>MemoryNotificationInfo</tt> object represented by the
      * given <tt>CompositeData</tt>.
      * The given <tt>CompositeData</tt> must contain

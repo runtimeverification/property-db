@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an unexpected exception has occurred in a static initializer.
  * An <code>ExceptionInInitializerError</code> is thrown to indicate that an
  * exception occurred during evaluation of a static initializer or the
@@ -42,12 +42,12 @@ package java.lang;
  * @since   JDK1.1
  */
 public class ExceptionInInitializerError extends LinkageError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use serialVersionUID from JDK 1.1.X for interoperability
      */
     private static final long serialVersionUID = 1521711792217232256L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field holds the exception if the
      * ExceptionInInitializerError(Throwable thrown) constructor was
      * used to instantiate the object
@@ -57,7 +57,7 @@ public class ExceptionInInitializerError extends LinkageError {
      */
     private Throwable exception;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ExceptionInInitializerError</code> with
      * <code>null</code> as its detail message string and with no saved
      * throwable object.
@@ -67,7 +67,7 @@ public class ExceptionInInitializerError extends LinkageError {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>ExceptionInInitializerError</code> class by
      * saving a reference to the <code>Throwable</code> object thrown for
      * later retrieval by the {@link #getException()} method. The detail
@@ -80,7 +80,7 @@ public class ExceptionInInitializerError extends LinkageError {
         this.exception = thrown;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ExceptionInInitializerError with the specified detail
      * message string.  A detail message is a String that describes this
      * particular exception. The detail message string is saved for later
@@ -95,7 +95,7 @@ public class ExceptionInInitializerError extends LinkageError {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the exception that occurred during a static initialization that
      * caused this error to be created.
      *
@@ -112,7 +112,7 @@ public class ExceptionInInitializerError extends LinkageError {
         return exception;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this error (the exception that occurred
      * during a static initialization that caused this error to be created).
      *

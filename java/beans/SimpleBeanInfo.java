@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is a support class to make it easier for people to provide
  * BeanInfo classes.
  * <p>
@@ -38,7 +38,7 @@ package java.beans;
 
 public class SimpleBeanInfo implements BeanInfo {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge about the class and customizer of the bean.
      * You can override this if you wish to provide explicit info.
      */
@@ -46,7 +46,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge of properties. You can override this
      * if you wish to provide explicit property info.
      */
@@ -54,7 +54,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge of a default property. You can override this
      * if you wish to define a default property for the bean.
      */
@@ -62,7 +62,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge of event sets. You can override this
      * if you wish to provide explicit event set info.
      */
@@ -70,7 +70,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge of a default event. You can override this
      * if you wish to define a default event for the bean.
      */
@@ -78,7 +78,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deny knowledge of methods. You can override this
      * if you wish to provide explicit method info.
      */
@@ -86,7 +86,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Claim there are no other relevant BeanInfo objects.  You
      * may override this if you want to (for example) return a
      * BeanInfo for a base class.
@@ -95,7 +95,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Claim there are no icons available.  You can override
      * this if you want to provide icons for your bean.
      */
@@ -103,7 +103,7 @@ public class SimpleBeanInfo implements BeanInfo {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is a utility method to help in loading icon images.
      * It takes the name of a resource file associated with the
      * current object's class file and loads an image object

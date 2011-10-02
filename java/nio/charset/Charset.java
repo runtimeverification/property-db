@@ -48,7 +48,7 @@ import sun.nio.cs.ThreadLocalCoders;
 import sun.security.action.GetPropertyAction;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A named mapping between sequences of sixteen-bit Unicode <a
  * href="../../lang/Character.html#unicode">code units</a> and sequences of
  * bytes.  This class defines methods for creating decoders and encoders and
@@ -274,7 +274,7 @@ public abstract class Charset
         return (bugLevel != null) && bugLevel.equals(bl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks that the given string is a legal charset name. </p>
      *
      * @param  s
@@ -478,7 +478,7 @@ public abstract class Charset
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether the named charset is supported. </p>
      *
      * @param  charsetName
@@ -498,7 +498,7 @@ public abstract class Charset
         return (lookup(charsetName) != null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a charset object for the named charset. </p>
      *
      * @param  charsetName
@@ -535,7 +535,7 @@ public abstract class Charset
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a sorted map from canonical charset names to charset objects.
      *
      * <p> The map returned by this method will have one entry for each charset
@@ -580,7 +580,7 @@ public abstract class Charset
 
     private static volatile Charset defaultCharset;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default charset of this Java virtual machine.
      *
      * <p> The default charset is determined during virtual-machine startup and
@@ -613,7 +613,7 @@ public abstract class Charset
     private final String[] aliases;     // tickles a bug in oldjavac
     private Set aliasSet = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new charset with the given canonical name and alias
      * set. </p>
      *
@@ -635,7 +635,7 @@ public abstract class Charset
         this.aliases = as;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this charset's canonical name. </p>
      *
      * @return  The canonical name of this charset
@@ -644,7 +644,7 @@ public abstract class Charset
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a set containing this charset's aliases. </p>
      *
      * @return  An immutable set of this charset's aliases
@@ -660,7 +660,7 @@ public abstract class Charset
         return aliasSet;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this charset's human-readable name for the default locale.
      *
      * <p> The default implementation of this method simply returns this
@@ -673,7 +673,7 @@ public abstract class Charset
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this charset is registered in the <a
      * href="http://www.iana.org/assignments/character-sets">IANA Charset
      * Registry</a>.  </p>
@@ -685,7 +685,7 @@ public abstract class Charset
         return !name.startsWith("X-") && !name.startsWith("x-");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this charset's human-readable name for the given locale.
      *
      * <p> The default implementation of this method simply returns this
@@ -701,7 +701,7 @@ public abstract class Charset
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this charset contains the given charset.
      *
      * <p> A charset <i>C</i> is said to <i>contain</i> a charset <i>D</i> if,
@@ -727,14 +727,14 @@ public abstract class Charset
      */
     public abstract boolean contains(Charset cs);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new decoder for this charset. </p>
      *
      * @return  A new decoder for this charset
      */
     public abstract CharsetDecoder newDecoder();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new encoder for this charset. </p>
      *
      * @return  A new encoder for this charset
@@ -744,7 +744,7 @@ public abstract class Charset
      */
     public abstract CharsetEncoder newEncoder();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this charset supports encoding.
      *
      * <p> Nearly all charsets support encoding.  The primary exceptions are
@@ -761,7 +761,7 @@ public abstract class Charset
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method that decodes bytes in this charset into Unicode
      * characters.
      *
@@ -797,7 +797,7 @@ public abstract class Charset
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method that encodes Unicode characters into bytes in this
      * charset.
      *
@@ -833,7 +833,7 @@ public abstract class Charset
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method that encodes a string into bytes in this charset.
      *
      * <p> An invocation of this method upon a charset <tt>cs</tt> returns the
@@ -850,7 +850,7 @@ public abstract class Charset
         return encode(CharBuffer.wrap(str));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this charset to another.
      *
      * <p> Charsets are ordered by their canonical names, without regard to
@@ -866,7 +866,7 @@ public abstract class Charset
         return (name().compareToIgnoreCase(that.name()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes a hashcode for this charset. </p>
      *
      * @return  An integer hashcode
@@ -875,7 +875,7 @@ public abstract class Charset
         return name().hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object is equal to another.
      *
      * <p> Two charsets are equal if, and only if, they have the same canonical
@@ -892,7 +892,7 @@ public abstract class Charset
         return name.equals(((Charset)ob).name());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this charset. </p>
      *
      * @return  A string describing this charset

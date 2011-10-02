@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class specifies an RSA private key, as defined in the PKCS#1
  * standard, using the Chinese Remainder Theorem (CRT) information values for
  * efficiency.
@@ -54,7 +54,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
 
 
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Creates a new <code>RSAPrivateCrtKeySpec</code>
     * given the modulus, publicExponent, privateExponent,
     * primeP, primeQ, primeExponentP, primeExponentQ, and
@@ -87,7 +87,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         this.crtCoefficient = crtCoefficient;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the public exponent.
      *
      * @return the public exponent
@@ -96,7 +96,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.publicExponent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeP.
 
      * @return the primeP
@@ -105,7 +105,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeP;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeQ.
      *
      * @return the primeQ
@@ -114,7 +114,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeQ;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeExponentP.
      *
      * @return the primeExponentP
@@ -123,7 +123,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeExponentP;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeExponentQ.
      *
      * @return the primeExponentQ
@@ -132,7 +132,7 @@ public class RSAPrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeExponentQ;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the crtCoefficient.
      *
      * @return the crtCoefficient

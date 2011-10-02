@@ -25,7 +25,7 @@
 
 package java.awt.dnd;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class contains constant values representing
  * the type of action(s) to be performed by a Drag and Drop operation.
  * @since 1.2
@@ -35,28 +35,28 @@ public final class DnDConstants {
 
     private DnDConstants() {} // define null private constructor.
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing no action.
      */
     public static final int ACTION_NONE         = 0x0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing a &quot;copy&quot; action.
      */
     public static final int ACTION_COPY         = 0x1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing a &quot;move&quot; action.
      */
     public static final int ACTION_MOVE         = 0x2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing a &quot;copy&quot; or
      * &quot;move&quot; action.
      */
     public static final int ACTION_COPY_OR_MOVE = ACTION_COPY | ACTION_MOVE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing a &quot;link&quot; action.
      *
      * The link verb is found in many, if not all native DnD platforms, and the
@@ -74,7 +74,7 @@ public final class DnDConstants {
 
     public static final int ACTION_LINK         = 0x40000000;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An <code>int</code> representing a &quot;reference&quot;
      * action (synonym for ACTION_LINK).
      */

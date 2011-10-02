@@ -46,7 +46,7 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is used with the CHAR_REPLACEMENT attribute.
  * <p>
  * The <code>GraphicAttribute</code> class represents a graphic embedded
@@ -65,32 +65,32 @@ public abstract class GraphicAttribute {
 
     private int fAlignment;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Aligns top of graphic to top of line.
      */
     public static final int TOP_ALIGNMENT = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Aligns bottom of graphic to bottom of line.
      */
     public static final int BOTTOM_ALIGNMENT = -2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Aligns origin of graphic to roman baseline of line.
      */
     public static final int ROMAN_BASELINE = Font.ROMAN_BASELINE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Aligns origin of graphic to center baseline of line.
      */
     public static final int CENTER_BASELINE = Font.CENTER_BASELINE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Aligns origin of graphic to hanging baseline of line.
      */
     public static final int HANGING_BASELINE = Font.HANGING_BASELINE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GraphicAttribute</code>.
      * Subclasses use this to define the alignment of the graphic.
      * @param alignment an int representing one of the
@@ -105,7 +105,7 @@ public abstract class GraphicAttribute {
         fAlignment = alignment;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ascent of this <code>GraphicAttribute</code>.  A
      * graphic can be rendered above its ascent.
      * @return the ascent of this <code>GraphicAttribute</code>.
@@ -114,7 +114,7 @@ public abstract class GraphicAttribute {
     public abstract float getAscent();
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the descent of this <code>GraphicAttribute</code>.  A
      * graphic can be rendered below its descent.
      * @return the descent of this <code>GraphicAttribute</code>.
@@ -122,7 +122,7 @@ public abstract class GraphicAttribute {
      */
     public abstract float getDescent();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the advance of this <code>GraphicAttribute</code>.  The
      * <code>GraphicAttribute</code> object's advance is the distance
      * from the point at which the graphic is rendered and the point where
@@ -133,7 +133,7 @@ public abstract class GraphicAttribute {
      */
     public abstract float getAdvance();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Rectangle2D} that encloses all of the
      * bits drawn by this <code>GraphicAttribute</code> relative to the
      * rendering position.
@@ -150,7 +150,7 @@ public abstract class GraphicAttribute {
                                         getAdvance(), ascent+getDescent());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a {@link java.awt.Shape} that represents the region that
      * this <code>GraphicAttribute</code> renders.  This is used when a
      * {@link TextLayout} is requested to return the outline of the text.
@@ -173,7 +173,7 @@ public abstract class GraphicAttribute {
         return b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders this <code>GraphicAttribute</code> at the specified
      * location.
      * @param graphics the {@link Graphics2D} into which to render the
@@ -183,7 +183,7 @@ public abstract class GraphicAttribute {
      */
     public abstract void draw(Graphics2D graphics, float x, float y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alignment of this <code>GraphicAttribute</code>.
      * Alignment can be to a particular baseline, or to the absolute top
      * or bottom of a line.
@@ -194,7 +194,7 @@ public abstract class GraphicAttribute {
         return fAlignment;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the justification information for this
      * <code>GraphicAttribute</code>.  Subclasses
      * can override this method to provide different justification

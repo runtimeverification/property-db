@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * This interface is intended to be implemented by, or delegated from, instances
  * of java.beans.beancontext.BeanContext, in order to propagate to its nested hierarchy
@@ -48,14 +48,14 @@ package java.beans;
 
 public interface DesignMode {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard value of the propertyName as fired from a BeanContext or
      * other source of PropertyChangeEvents.
      */
 
     static String PROPERTYNAME = "designTime";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the "value" of the "designTime" property.
      * <p>
      * If the implementing object is an instance of java.beans.beancontext.BeanContext,
@@ -78,7 +78,7 @@ public interface DesignMode {
 
     void setDesignTime(boolean designTime);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A value of true denotes that JavaBeans should behave in design time
      * mode, a value of false denotes runtime behavior.
      *

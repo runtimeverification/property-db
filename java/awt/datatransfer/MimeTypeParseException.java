@@ -26,7 +26,7 @@
 package java.awt.datatransfer;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *    A class to encapsulate MimeType parsing related exceptions
  *
  * @serial exclude
@@ -37,14 +37,14 @@ public class MimeTypeParseException extends Exception {
     // use serialVersionUID from JDK 1.2.2 for interoperability
     private static final long serialVersionUID = -5604407764691570741L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a MimeTypeParseException with no specified detail message.
      */
     public MimeTypeParseException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a MimeTypeParseException with the specified detail message.
      *
      * @param   s   the detail message.

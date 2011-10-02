@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.InvalidAlgorithmParameterException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * The <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the {@link CertPathValidator CertPathValidator} class. All
@@ -55,12 +55,12 @@ import java.security.InvalidAlgorithmParameterException;
  */
 public abstract class CertPathValidatorSpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default constructor.
      */
     public CertPathValidatorSpi() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Validates the specified certification path using the specified
      * algorithm parameter set.
      * <p>

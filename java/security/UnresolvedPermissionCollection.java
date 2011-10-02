@@ -31,7 +31,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A UnresolvedPermissionCollection stores a collection
  * of UnresolvedPermission permissions.
  *
@@ -49,14 +49,14 @@ final class UnresolvedPermissionCollection
 extends PermissionCollection
 implements java.io.Serializable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key is permission type, value is a list of the UnresolvedPermissions
      * of the same type.
      * Not serialized; see serialization section at end of class.
      */
     private transient Map<String, List<UnresolvedPermission>> perms;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an empty UnresolvedPermissionCollection object.
      *
      */
@@ -64,7 +64,7 @@ implements java.io.Serializable
         perms = new HashMap<String, List<UnresolvedPermission>>(11);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a permission to this UnresolvedPermissionCollection.
      * The key for the hash is the unresolved permission's type (class) name.
      *
@@ -91,7 +91,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * get any unresolved permissions of the same type as p,
      * and return the List containing them.
      */
@@ -101,7 +101,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * always returns false for unresolved permissions
      *
      */
@@ -110,7 +110,7 @@ implements java.io.Serializable
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the UnresolvedPermission lists in the
      * container.
      *
@@ -139,7 +139,7 @@ implements java.io.Serializable
     // which had the serializable field:
     // private Hashtable permissions; // keyed on type
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField permissions java.util.Hashtable
      *     A table of the UnresolvedPermissions keyed on type, value is Vector
      *     of permissions
@@ -148,7 +148,7 @@ implements java.io.Serializable
         new ObjectStreamField("permissions", Hashtable.class),
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Default field.
      */
     /*

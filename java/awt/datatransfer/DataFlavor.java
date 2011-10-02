@@ -32,7 +32,7 @@ import java.util.*;
 
 import sun.awt.datatransfer.DataTransferer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@code DataFlavor} provides meta information about data. {@code DataFlavor}
  * is typically used to access data on the clipboard, or during
  * a drag and drop operation.
@@ -104,7 +104,7 @@ public class DataFlavor implements Externalizable, Cloneable {
     private static final long serialVersionUID = 8367026044764648243L;
     private static final Class ioInputStreamClass = java.io.InputStream.class;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tries to load a class from: the bootstrap loader, the system loader,
      * the context loader (if one is present) and finally the loader specified.
      *
@@ -162,7 +162,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DataFlavor</code> representing a Java Unicode String class,
      * where:
      * <pre>
@@ -172,7 +172,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final DataFlavor stringFlavor = createConstant(java.lang.String.class, "Unicode String");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DataFlavor</code> representing a Java Image class,
      * where:
      * <pre>
@@ -182,7 +182,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final DataFlavor imageFlavor = createConstant("image/x-java-image; class=java.awt.Image", "Image");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DataFlavor</code> representing plain text with Unicode
      * encoding, where:
      * <pre>
@@ -201,7 +201,7 @@ public class DataFlavor implements Externalizable, Cloneable {
     @Deprecated
     public static final DataFlavor plainTextFlavor = createConstant("text/plain; charset=unicode; class=java.io.InputStream", "Plain Text");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A MIME Content-Type of application/x-java-serialized-object represents
      * a graph of Java object(s) that have been made persistent.
      *
@@ -211,7 +211,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final String javaSerializedObjectMimeType = "application/x-java-serialized-object";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * To transfer a list of files to/from Java (and the underlying
      * platform) a <code>DataFlavor</code> of this type/subtype and
      * representation class of <code>java.util.List</code> is used.
@@ -220,7 +220,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final DataFlavor javaFileListFlavor = createConstant("application/x-java-file-list;class=java.util.List", null);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * To transfer a reference to an arbitrary Java object reference that
      * has no associated MIME Content-type, across a <code>Transferable</code>
      * interface WITHIN THE SAME JVM, a <code>DataFlavor</code>
@@ -235,7 +235,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final String javaJVMLocalObjectMimeType = "application/x-java-jvm-local-objectref";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * In order to pass a live link to a Remote object via a Drag and Drop
      * <code>ACTION_LINK</code> operation a Mime Content Type of
      * application/x-java-remote-object should be used,
@@ -245,7 +245,7 @@ public class DataFlavor implements Externalizable, Cloneable {
      */
     public static final String javaRemoteObjectMimeType = "application/x-java-remote-object";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>DataFlavor</code>.  This constructor is
      * provided only for the purpose of supporting the
      * <code>Externalizable</code> interface.  It is not
@@ -257,7 +257,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a fully specified <code>DataFlavor</code>.
      *
      * @exception NullPointerException if either <code>primaryType</code>,
@@ -298,7 +298,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         mimeType.removeParameter("humanPresentableName");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DataFlavor</code> that represents a Java class.
      * <p>
      * The returned <code>DataFlavor</code> will have the following
@@ -320,7 +320,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DataFlavor</code> that represents a
      * <code>MimeType</code>.
      * <p>
@@ -363,7 +363,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DataFlavor</code> that represents a
      * <code>MimeType</code>.
      * <p>
@@ -401,7 +401,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DataFlavor</code> from a <code>mimeType</code> string.
      * The string can specify a "class=<fully specified Java class name>"
      * parameter to create a <code>DataFlavor</code> with the desired
@@ -429,7 +429,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Common initialization code called from various constructors.
     *
     * @param mimeType the MIME Content Type (must have a class= param)
@@ -475,7 +475,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         this.mimeType.removeParameter("humanPresentableName"); // just in case
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * String representation of this <code>DataFlavor</code> and its
      * parameters. The resulting <code>String</code> contains the name of
      * the <code>DataFlavor</code> class, this flavor's MIME type, and its
@@ -517,7 +517,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return params;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>DataFlavor</code> representing plain text with Unicode
      * encoding, where:
      * <pre>
@@ -544,7 +544,7 @@ public class DataFlavor implements Externalizable, Cloneable {
             +";class=java.io.InputStream", "Plain Text");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects the best text <code>DataFlavor</code> from an array of <code>
      * DataFlavor</code>s. Only <code>DataFlavor.stringFlavor</code>, and
      * equivalent flavors, and flavors that have a primary MIME type of "text",
@@ -686,7 +686,7 @@ public class DataFlavor implements Externalizable, Cloneable {
     static class TextFlavorComparator
         extends DataTransferer.DataFlavorComparator {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Compares two <code>DataFlavor</code> objects. Returns a negative
          * integer, zero, or a positive integer as the first
          * <code>DataFlavor</code> is worse than, equal to, or better than the
@@ -724,7 +724,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a Reader for a text flavor, decoded, if necessary, for the expected
      * charset (encoding). The supported representation classes are
      * <code>java.io.Reader</code>, <code>java.lang.String</code>,
@@ -811,7 +811,7 @@ public class DataFlavor implements Externalizable, Cloneable {
             : new InputStreamReader(stream, encoding);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the MIME type string for this <code>DataFlavor</code>.
      * @return the MIME type string for this flavor
      */
@@ -819,7 +819,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return (mimeType != null) ? mimeType.toString() : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Class</code> which objects supporting this
      * <code>DataFlavor</code> will return when this <code>DataFlavor</code>
      * is requested.
@@ -831,7 +831,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return representationClass;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the human presentable name for the data format that this
      * <code>DataFlavor</code> represents.  This name would be localized
      * for different countries.
@@ -842,7 +842,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return humanPresentableName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primary MIME type for this <code>DataFlavor</code>.
      * @return the primary MIME type of this <code>DataFlavor</code>
      */
@@ -850,7 +850,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return (mimeType != null) ? mimeType.getPrimaryType() : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the sub MIME type of this <code>DataFlavor</code>.
      * @return the Sub MIME type of this <code>DataFlavor</code>
      */
@@ -858,7 +858,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return (mimeType != null) ? mimeType.getSubType() : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the human presentable name for this <code>DataFlavor</code>
      * if <code>paramName</code> equals "humanPresentableName".  Otherwise
      * returns the MIME type value associated with <code>paramName</code>.
@@ -876,7 +876,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the human presentable name for the data format that this
      * <code>DataFlavor</code> represents. This name would be localized
      * for different countries.
@@ -886,7 +886,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         this.humanPresentableName = humanPresentableName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests an arbitrary <code>Object</code> to this <code>DataFlavor</code>
      * for equality. Two <code>DataFlavor</code>s are considered equal if and
      * only if their MIME primary type and subtype and representation class are
@@ -909,7 +909,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return ((o instanceof DataFlavor) && equals((DataFlavor)o));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests a <code>DataFlavor</code> to this <code>DataFlavor</code> for
      * equality. Two <code>DataFlavor</code>s are considered equal if and only
      * if their MIME primary type and subtype and representation class are
@@ -983,7 +983,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares only the <code>mimeType</code> against the passed in
      * <code>String</code> and <code>representationClass</code> is
      * not considered in the comparison.
@@ -1001,7 +1001,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return isMimeTypeEqual(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns hash code for this <code>DataFlavor</code>.
      * For two equal <code>DataFlavor</code>s, hash codes are equal.
      * For the <code>String</code>
@@ -1048,7 +1048,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return total;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests a <code>DataFlavor</code> to this <code>DataFlavor</code> for
      * equality. Two <code>DataFlavor</code>s are considered equal if and only
      * if their MIME primary type and subtype and representation class are
@@ -1073,7 +1073,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return equals(that);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the string representation of the MIME type passed in
      * is equivalent to the MIME type of this <code>DataFlavor</code>.
      * Parameters are not included in the comparison.
@@ -1099,7 +1099,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the <code>mimeType</code> of two <code>DataFlavor</code>
      * objects. No parameters are considered.
      *
@@ -1112,7 +1112,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return isMimeTypeEqual(dataFlavor.mimeType);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the <code>mimeType</code> of two <code>DataFlavor</code>
      * objects.  No parameters are considered.
      *
@@ -1127,7 +1127,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return mimeType.match(mtype);
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Does the <code>DataFlavor</code> represent a serialized object?
     */
 
@@ -1143,7 +1143,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return getDefaultRepresentationClass().getName();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Does the <code>DataFlavor</code> represent a
     * <code>java.io.InputStream</code>?
     */
@@ -1152,7 +1152,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return ioInputStreamClass.isAssignableFrom(representationClass);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the representation class for this
      * <code>DataFlavor</code> is <code>java.io.Reader</code> or a subclass
      * thereof.
@@ -1163,7 +1163,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return java.io.Reader.class.isAssignableFrom(representationClass);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the representation class for this
      * <code>DataFlavor</code> is <code>java.nio.CharBuffer</code> or a
      * subclass thereof.
@@ -1174,7 +1174,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return java.nio.CharBuffer.class.isAssignableFrom(representationClass);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the representation class for this
      * <code>DataFlavor</code> is <code>java.nio.ByteBuffer</code> or a
      * subclass thereof.
@@ -1185,7 +1185,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return java.nio.ByteBuffer.class.isAssignableFrom(representationClass);
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns true if the representation class can be serialized.
     * @return true if the representation class can be serialized
     */
@@ -1194,7 +1194,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return java.io.Serializable.class.isAssignableFrom(representationClass);
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns true if the representation class is <code>Remote</code>.
     * @return true if the representation class is <code>Remote</code>
     */
@@ -1203,7 +1203,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return java.rmi.Remote.class.isAssignableFrom(representationClass);
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns true if the <code>DataFlavor</code> specified represents
     * a serialized object.
     * @return true if the <code>DataFlavor</code> specified represents
@@ -1214,7 +1214,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return isRepresentationClassSerializable() && isMimeTypeEqual(javaSerializedObjectMimeType);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the <code>DataFlavor</code> specified represents
      * a remote object.
      * @return true if the <code>DataFlavor</code> specified represents
@@ -1228,7 +1228,7 @@ public class DataFlavor implements Externalizable, Cloneable {
     }
 
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns true if the <code>DataFlavor</code> specified represents
     * a list of file objects.
     * @return true if the <code>DataFlavor</code> specified represents
@@ -1243,7 +1243,7 @@ public class DataFlavor implements Externalizable, Cloneable {
 
    }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this <code>DataFlavor</code> is a valid text flavor for
      * this implementation of the Java platform. Only flavors equivalent to
      * <code>DataFlavor.stringFlavor</code> and <code>DataFlavor</code>s with
@@ -1278,7 +1278,7 @@ public class DataFlavor implements Externalizable, Cloneable {
                 DataTransferer.isFlavorNoncharsetTextType(this));
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Serializes this <code>DataFlavor</code>.
     */
 
@@ -1294,7 +1294,7 @@ public class DataFlavor implements Externalizable, Cloneable {
        os.writeObject(representationClass);
    }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Restores this <code>DataFlavor</code> from a Serialized state.
     */
 
@@ -1328,7 +1328,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         }
    }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Returns a clone of this <code>DataFlavor</code>.
     * @return a clone of this <code>DataFlavor</code>
     */
@@ -1341,7 +1341,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return newObj;
     } // clone()
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Called on <code>DataFlavor</code> for every MIME Type parameter
     * to allow <code>DataFlavor</code> subclasses to handle special
     * parameters like the text/plain <code>charset</code>
@@ -1360,7 +1360,7 @@ public class DataFlavor implements Externalizable, Cloneable {
         return parameterValue;
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Called for each MIME type string to give <code>DataFlavor</code> subtypes
     * the opportunity to change how the normalization of MIME types is
     * accomplished.  One possible use would be to add default
@@ -1390,7 +1390,7 @@ public class DataFlavor implements Externalizable, Cloneable {
 
     private String      humanPresentableName;
 
-    /** {@collect.stats} Java class of objects this DataFlavor represents **/
+    /** {@collect.stats}  Java class of objects this DataFlavor represents **/
 
     private Class       representationClass;
 

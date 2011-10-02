@@ -38,7 +38,7 @@ import java.util.concurrent.*;
 import sun.misc.Unsafe;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Basic thread blocking primitives for creating locks and other
  * synchronization classes.
  *
@@ -136,7 +136,7 @@ public class LockSupport {
         unsafe.putObject(t, parkBlockerOffset, arg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes available the permit for the given thread, if it
      * was not already available.  If the thread was blocked on
      * {@code park} then it will unblock.  Otherwise, its next call
@@ -152,7 +152,7 @@ public class LockSupport {
             unsafe.unpark(thread);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes unless the
      * permit is available.
      *
@@ -187,7 +187,7 @@ public class LockSupport {
         setBlocker(t, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes, for up to
      * the specified waiting time, unless the permit is available.
      *
@@ -228,7 +228,7 @@ public class LockSupport {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes, until
      * the specified deadline, unless the permit is available.
      *
@@ -268,7 +268,7 @@ public class LockSupport {
         setBlocker(t, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the blocker object supplied to the most recent
      * invocation of a park method that has not yet unblocked, or null
      * if not blocked.  The value returned is just a momentary
@@ -282,7 +282,7 @@ public class LockSupport {
         return unsafe.getObjectVolatile(t, parkBlockerOffset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes unless the
      * permit is available.
      *
@@ -311,7 +311,7 @@ public class LockSupport {
         unsafe.park(false, 0L);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes, for up to
      * the specified waiting time, unless the permit is available.
      *
@@ -345,7 +345,7 @@ public class LockSupport {
             unsafe.park(false, nanos);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the current thread for thread scheduling purposes, until
      * the specified deadline, unless the permit is available.
      *

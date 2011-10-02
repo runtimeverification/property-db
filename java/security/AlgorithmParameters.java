@@ -29,7 +29,7 @@ import java.io.*;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is used as an opaque representation of cryptographic parameters.
  *
  * <p>An <code>AlgorithmParameters</code> object for managing the parameters
@@ -70,7 +70,7 @@ public class AlgorithmParameters {
     // Has this object been initialized?
     private boolean initialized = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an AlgorithmParameters object.
      *
      * @param paramSpi the delegate
@@ -85,7 +85,7 @@ public class AlgorithmParameters {
         this.algorithm = algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the algorithm associated with this parameter object.
      *
      * @return the algorithm name.
@@ -94,7 +94,7 @@ public class AlgorithmParameters {
         return this.algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter object for the specified algorithm.
      *
      * <p> This method traverses the list of registered security Providers,
@@ -137,7 +137,7 @@ public class AlgorithmParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter object for the specified algorithm.
      *
      * <p> A new AlgorithmParameters object encapsulating the
@@ -187,7 +187,7 @@ public class AlgorithmParameters {
                                        algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter object for the specified algorithm.
      *
      * <p> A new AlgorithmParameters object encapsulating the
@@ -232,7 +232,7 @@ public class AlgorithmParameters {
                                        algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this parameter object.
      *
      * @return the provider of this parameter object
@@ -241,7 +241,7 @@ public class AlgorithmParameters {
         return this.provider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes this parameter object using the parameters
      * specified in <code>paramSpec</code>.
      *
@@ -260,7 +260,7 @@ public class AlgorithmParameters {
         this.initialized = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Imports the specified parameters and decodes them according to the
      * primary decoding format for parameters. The primary decoding
      * format for parameters is ASN.1, if an ASN.1 specification for this type
@@ -278,7 +278,7 @@ public class AlgorithmParameters {
         this.initialized = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Imports the parameters from <code>params</code> and decodes them
      * according to the specified decoding scheme.
      * If <code>format</code> is null, the
@@ -300,7 +300,7 @@ public class AlgorithmParameters {
         this.initialized = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a (transparent) specification of this parameter object.
      * <code>paramSpec</code> identifies the specification class in which
      * the parameters should be returned. It could, for example, be
@@ -327,7 +327,7 @@ public class AlgorithmParameters {
         return paramSpi.engineGetParameterSpec(paramSpec);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameters in their primary encoding format.
      * The primary encoding format for parameters is ASN.1, if an ASN.1
      * specification for this type of parameters exists.
@@ -345,7 +345,7 @@ public class AlgorithmParameters {
         return paramSpi.engineGetEncoded();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameters encoded in the specified scheme.
      * If <code>format</code> is null, the
      * primary encoding format for parameters is used. The primary encoding
@@ -367,7 +367,7 @@ public class AlgorithmParameters {
         return paramSpi.engineGetEncoded(format);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters, or null if this

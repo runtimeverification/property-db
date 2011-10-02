@@ -25,7 +25,7 @@
 
 package java.lang.ref;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Reference queues, to which registered reference objects are appended by the
  * garbage collector after the appropriate reachability changes are detected.
  *
@@ -35,7 +35,7 @@ package java.lang.ref;
 
 public class ReferenceQueue<T> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new reference-object queue.
      */
     public ReferenceQueue() { }
@@ -86,7 +86,7 @@ public class ReferenceQueue<T> {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Polls this queue to see if a reference object is available.  If one is
      * available without further delay then it is removed from the queue and
      * returned.  Otherwise this method immediately returns <tt>null</tt>.
@@ -100,7 +100,7 @@ public class ReferenceQueue<T> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the next reference object in this queue, blocking until either
      * one becomes available or the given timeout period expires.
      *
@@ -138,7 +138,7 @@ public class ReferenceQueue<T> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the next reference object in this queue, blocking until one
      * becomes available.
      *

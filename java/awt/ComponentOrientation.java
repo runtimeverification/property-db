@@ -39,7 +39,7 @@ package java.awt;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-/** {@collect.stats}
+/** {@collect.stats} 
   * The ComponentOrientation class encapsulates the language-sensitive
   * orientation that is to be used to order the elements of a component
   * or of text. It is used to reflect the differences in this ordering
@@ -100,21 +100,21 @@ public final class ComponentOrientation implements java.io.Serializable
     private static final int HORIZ_BIT    = 2;
     private static final int LTR_BIT      = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Items run left to right and lines flow top to bottom
      * Examples: English, French.
      */
     public static final ComponentOrientation LEFT_TO_RIGHT =
                     new ComponentOrientation(HORIZ_BIT|LTR_BIT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Items run right to left and lines flow top to bottom
      * Examples: Arabic, Hebrew.
      */
     public static final ComponentOrientation RIGHT_TO_LEFT =
                     new ComponentOrientation(HORIZ_BIT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that a component's orientation has not been set.
      * To preserve the behavior of existing applications,
      * isLeftToRight will return true for this value.
@@ -122,7 +122,7 @@ public final class ComponentOrientation implements java.io.Serializable
     public static final ComponentOrientation UNKNOWN =
                     new ComponentOrientation(HORIZ_BIT|LTR_BIT|UNK_BIT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Are lines horizontal?
      * This will return true for horizontal, left-to-right writing
      * systems such as Roman.
@@ -131,7 +131,7 @@ public final class ComponentOrientation implements java.io.Serializable
         return (orientation & HORIZ_BIT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * HorizontalLines: Do items run left-to-right?<br>
      * Vertical Lines:  Do lines run left-to-right?<br>
      * This will return true for horizontal, left-to-right writing
@@ -141,7 +141,7 @@ public final class ComponentOrientation implements java.io.Serializable
         return (orientation & LTR_BIT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the orientation that is appropriate for the given locale.
      * @param locale the specified locale
      */
@@ -160,7 +160,7 @@ public final class ComponentOrientation implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the orientation appropriate for the given ResourceBundle's
      * localization.  Three approaches are tried, in the following order:
      * <ol>

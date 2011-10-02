@@ -41,7 +41,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents a heterogeneous collection of Permissions. That is,
  * it contains different types of Permission objects, organized into
  * PermissionCollections. For example, if any
@@ -82,7 +82,7 @@ import java.io.IOException;
 public final class Permissions extends PermissionCollection
 implements Serializable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key is permissions Class, value is PermissionCollection for that class.
      * Not serialized; see serialization section at end of class.
      */
@@ -96,7 +96,7 @@ implements Serializable
     // - package private for ProtectionDomain optimization
     PermissionCollection allPermission;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new Permissions object containing no PermissionCollections.
      */
     public Permissions() {
@@ -104,7 +104,7 @@ implements Serializable
         allPermission = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a permission object to the PermissionCollection for the class the
      * permission belongs to. For example, if <i>permission</i> is a
      * FilePermission, it is added to the FilePermissionCollection stored
@@ -143,7 +143,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks to see if this object's PermissionCollection for permissions of
      * the specified permission's class implies the permissions
      * expressed in the <i>permission</i> object. Returns true if the
@@ -189,7 +189,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the Permission objects in all the
      * PermissionCollections in this Permissions object.
      *
@@ -205,7 +205,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the PermissionCollection in this Permissions object for
      * permissions whose type is the same as that of <i>p</i>.
      * For example, if <i>p</i> is a FilePermission,
@@ -267,7 +267,7 @@ implements Serializable
         return pc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolves any unresolved permissions of type p.
      *
      * @param p the type of unresolved permission to resolve
@@ -339,7 +339,7 @@ implements Serializable
     // which had the serializable field:
     // private Hashtable perms;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField perms java.util.Hashtable
      *     A table of the Permission classes and PermissionCollections.
      * @serialField allPermission java.security.PermissionCollection
@@ -349,7 +349,7 @@ implements Serializable
         new ObjectStreamField("allPermission", PermissionCollection.class),
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Default fields.
      */
     /*
@@ -460,7 +460,7 @@ final class PermissionsEnumerator implements Enumeration<Permission> {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A PermissionsHash stores a homogeneous set of permissions in a hashtable.
  *
  * @see Permission
@@ -475,13 +475,13 @@ final class PermissionsEnumerator implements Enumeration<Permission> {
 final class PermissionsHash extends PermissionCollection
 implements Serializable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key and value are (same) permissions objects.
      * Not serialized; see serialization section at end of class.
      */
     private transient Map<Permission, Permission> permsMap;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an empty PermissionsHash object.
      */
 
@@ -489,7 +489,7 @@ implements Serializable
         permsMap = new HashMap<Permission, Permission>(11);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a permission to the PermissionsHash.
      *
      * @param permission the Permission object to add.
@@ -501,7 +501,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
      *
@@ -530,7 +530,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the Permission objects in the container.
      *
      * @return an enumeration of all the Permissions.
@@ -547,7 +547,7 @@ implements Serializable
     // Need to maintain serialization interoperability with earlier releases,
     // which had the serializable field:
     // private Hashtable perms;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField perms java.util.Hashtable
      *     A table of the Permissions (both key and value are same).
      */
@@ -555,7 +555,7 @@ implements Serializable
         new ObjectStreamField("perms", Hashtable.class),
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Default fields.
      */
     /*

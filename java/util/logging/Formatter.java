@@ -26,7 +26,7 @@
 
 package java.util.logging;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A Formatter provides support for formatting LogRecords.
  * <p>
  * Typically each logging Handler will have a Formatter associated
@@ -42,13 +42,13 @@ package java.util.logging;
 
 public abstract class Formatter {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new formatter.
      */
     protected Formatter() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Format the given log record and return the formatted string.
      * <p>
      * The resulting formatted String will normally include a
@@ -62,7 +62,7 @@ public abstract class Formatter {
     public abstract String format(LogRecord record);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the header string for a set of formatted records.
      * <p>
      * This base class returns an empty string, but this may be
@@ -75,7 +75,7 @@ public abstract class Formatter {
         return "";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the tail string for a set of formatted records.
      * <p>
      * This base class returns an empty string, but this may be
@@ -89,7 +89,7 @@ public abstract class Formatter {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Localize and format the message string from a log record.  This
      * method is provided as a convenience for Formatter subclasses to
      * use when they are performing formatting.

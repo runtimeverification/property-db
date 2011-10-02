@@ -40,7 +40,7 @@ import java.util.Arrays;
 
 import sun.security.x509.X509CRLImpl;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * Abstract class for an X.509 Certificate Revocation List (CRL).
  * A CRL is a time-stamped list identifying revoked certificates.
@@ -118,14 +118,14 @@ public abstract class X509CRL extends CRL implements X509Extension {
 
     private transient X500Principal issuerPrincipal;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor for X.509 CRLs.
      */
     protected X509CRL() {
         super("X.509");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this CRL for equality with the given
      * object. If the <code>other</code> object is an
      * <code>instanceof</code> <code>X509CRL</code>, then
@@ -154,7 +154,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode value for this CRL from its
      * encoded form.
      *
@@ -173,7 +173,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ASN.1 DER-encoded form of this CRL.
      *
      * @return the encoded form of this certificate
@@ -182,7 +182,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
     public abstract byte[] getEncoded()
         throws CRLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that this CRL was signed using the
      * private key that corresponds to the given public key.
      *
@@ -200,7 +200,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that this CRL was signed using the
      * private key that corresponds to the given public key.
      * This method uses the signature verification engine
@@ -221,7 +221,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>version</code> (version number) value from the CRL.
      * The ASN.1 definition for this is:
      * <pre>
@@ -236,7 +236,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract int getVersion();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <strong>Denigrated</strong>, replaced by {@linkplain
      * #getIssuerX500Principal()}. This method returns the <code>issuer</code>
      * as an implementation specific Principal object, which should not be
@@ -277,7 +277,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract Principal getIssuerDN();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the issuer (issuer distinguished name) value from the
      * CRL as an <code>X500Principal</code>.
      * <p>
@@ -294,7 +294,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         return issuerPrincipal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>thisUpdate</code> date from the CRL.
      * The ASN.1 definition for this is:
      * <pre>
@@ -308,7 +308,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract Date getThisUpdate();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>nextUpdate</code> date from the CRL.
      *
      * @return the <code>nextUpdate</code> date from the CRL, or null if
@@ -316,7 +316,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract Date getNextUpdate();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the CRL entry, if any, with the given certificate serialNumber.
      *
      * @param serialNumber the serial number of the certificate for which a CRL entry
@@ -328,7 +328,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
     public abstract X509CRLEntry
         getRevokedCertificate(BigInteger serialNumber);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the CRL entry, if any, for the given certificate.
      *
      * <p>This method can be used to lookup CRL entries in indirect CRLs,
@@ -354,7 +354,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
         return getRevokedCertificate(certificate.getSerialNumber());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets all the entries from this CRL.
      * This returns a Set of X509CRLEntry objects.
      *
@@ -363,7 +363,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract Set<? extends X509CRLEntry> getRevokedCertificates();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the DER-encoded CRL information, the
      * <code>tbsCertList</code> from this CRL.
      * This can be used to verify the signature independently.
@@ -373,7 +373,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract byte[] getTBSCertList() throws CRLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>signature</code> value (the raw signature bits) from
      * the CRL.
      * The ASN.1 definition for this is:
@@ -385,7 +385,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract byte[] getSignature();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the signature algorithm name for the CRL
      * signature algorithm. An example is the string "SHA-1/DSA".
      * The ASN.1 definition for this is:
@@ -406,7 +406,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract String getSigAlgName();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the signature algorithm OID string from the CRL.
      * An OID is represented by a set of nonnegative whole numbers separated
      * by periods.
@@ -423,7 +423,7 @@ public abstract class X509CRL extends CRL implements X509Extension {
      */
     public abstract String getSigAlgOID();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the DER-encoded signature algorithm parameters from this
      * CRL's signature algorithm. In most cases, the signature
      * algorithm parameters are null; the parameters are usually

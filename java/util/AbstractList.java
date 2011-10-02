@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides a skeletal implementation of the {@link List}
  * interface to minimize the effort required to implement this interface
  * backed by a "random access" data store (such as an array).  For sequential
@@ -69,14 +69,14 @@ package java.util;
  */
 
 public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected AbstractList() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified element to the end of this list (optional
      * operation).
      *
@@ -109,14 +109,14 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     abstract public E get(int index);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation always throws an
@@ -132,7 +132,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation always throws an
@@ -148,7 +148,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation always throws an
@@ -164,7 +164,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 
     // Search Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation first gets a list iterator (with
@@ -188,7 +188,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation first gets a list iterator that points to the end
@@ -216,7 +216,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 
     // Bulk Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
      *
@@ -234,7 +234,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         removeRange(0, size());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation gets an iterator over the specified collection
@@ -267,7 +267,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 
     // Iterators
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * <p>This implementation returns a straightforward implementation of the
@@ -289,7 +289,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return new Itr();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation returns {@code listIterator(0)}.
@@ -300,7 +300,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return listIterator(0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation returns a straightforward implementation of the
@@ -329,19 +329,19 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     }
 
     private class Itr implements Iterator<E> {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Index of element to be returned by subsequent call to next.
          */
         int cursor = 0;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Index of element returned by most recent call to next or
          * previous.  Reset to -1 if this element is deleted by a call
          * to remove.
          */
         int lastRet = -1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The modCount value that the iterator believes that the backing
          * List should have.  If this expectation is violated, the iterator
          * has detected concurrent modification.
@@ -446,7 +446,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      *
      * <p>This implementation returns a list that subclasses
@@ -489,7 +489,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this list for equality.  Returns
      * {@code true} if and only if the specified object is also a list, both
      * lists have the same size, and all corresponding pairs of elements in
@@ -527,7 +527,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return !(e1.hasNext() || e2.hasNext());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this list.
      *
      * <p>This implementation uses exactly the code that is used to define the
@@ -543,7 +543,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return hashCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this list all of the elements whose index is between
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.
      * Shifts any succeeding elements to the left (reduces their index).
@@ -573,7 +573,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times this list has been <i>structurally modified</i>.
      * Structural modifications are those that change the size of the
      * list, or otherwise perturb it in such a fashion that iterations in

@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Exception thrown by an {@link Executor} when a task cannot be
  * accepted for execution.
  *
@@ -45,14 +45,14 @@ package java.util.concurrent;
 public class RejectedExecutionException extends RuntimeException {
     private static final long serialVersionUID = -375805702767069545L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>RejectedExecutionException</tt> with no detail message.
      * The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause(Throwable) initCause}.
      */
     public RejectedExecutionException() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>RejectedExecutionException</tt> with the
      * specified detail message. The cause is not initialized, and may
      * subsequently be initialized by a call to {@link
@@ -64,7 +64,7 @@ public class RejectedExecutionException extends RuntimeException {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>RejectedExecutionException</tt> with the
      * specified detail message and cause.
      *
@@ -76,7 +76,7 @@ public class RejectedExecutionException extends RuntimeException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>RejectedExecutionException</tt> with the
      * specified cause.  The detail message is set to: <pre> (cause ==
      * null ? null : cause.toString())</pre> (which typically contains

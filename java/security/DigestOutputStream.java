@@ -32,7 +32,7 @@ import java.io.FilterOutputStream;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A transparent stream that updates the associated message digest using
  * the bits going through the stream.
  *
@@ -56,12 +56,12 @@ public class DigestOutputStream extends FilterOutputStream {
 
     private boolean on = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The message digest associated with this stream.
      */
     protected MessageDigest digest;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a digest output stream, using the specified output stream
      * and message digest.
      *
@@ -74,7 +74,7 @@ public class DigestOutputStream extends FilterOutputStream {
         setMessageDigest(digest);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the message digest associated with this stream.
      *
      * @return the message digest associated with this stream.
@@ -84,7 +84,7 @@ public class DigestOutputStream extends FilterOutputStream {
         return digest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Associates the specified message digest with this stream.
      *
      * @param digest the message digest to be associated with this stream.
@@ -94,7 +94,7 @@ public class DigestOutputStream extends FilterOutputStream {
         this.digest = digest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the message digest (if the digest function is on) using
      * the specified byte, and in any case writes the byte
      * to the output stream. That is, if the digest function is on
@@ -118,7 +118,7 @@ public class DigestOutputStream extends FilterOutputStream {
         out.write(b);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the message digest (if the digest function is on) using
      * the specified subarray, and in any case writes the subarray to
      * the output stream. That is, if the digest function is on (see
@@ -148,7 +148,7 @@ public class DigestOutputStream extends FilterOutputStream {
         out.write(b, off, len);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Turns the digest function on or off. The default is on.  When
      * it is on, a call to one of the <code>write</code> methods results in an
      * update on the message digest.  But when it is off, the message
@@ -161,7 +161,7 @@ public class DigestOutputStream extends FilterOutputStream {
         this.on = on;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a string representation of this digest output stream and
      * its associated message digest object.
      */

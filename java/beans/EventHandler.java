@@ -34,7 +34,7 @@ import java.security.PrivilegedAction;
 
 import sun.reflect.misc.MethodUtil;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>EventHandler</code> class provides
  * support for dynamically generating event listeners whose methods
  * execute a simple statement involving an incoming event object
@@ -282,7 +282,7 @@ public class EventHandler implements InvocationHandler {
     private final String listenerMethodName;
     private final AccessControlContext acc = AccessController.getContext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>EventHandler</code> object;
      * you generally use one of the <code>create</code> methods
      * instead of invoking this constructor directly.  Refer to
@@ -320,7 +320,7 @@ public class EventHandler implements InvocationHandler {
         this.listenerMethodName = listenerMethodName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the object to which this event handler will send a message.
      *
      * @return the target of this event handler
@@ -330,7 +330,7 @@ public class EventHandler implements InvocationHandler {
         return target;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the target's writable property
      * that this event handler will set,
      * or the name of the method that this event handler
@@ -343,7 +343,7 @@ public class EventHandler implements InvocationHandler {
         return action;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the property of the event that should be
      * used in the action applied to the target.
      *
@@ -355,7 +355,7 @@ public class EventHandler implements InvocationHandler {
         return eventPropertyName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the method that will trigger the action.
      * A return value of <code>null</code> signifies that all methods in the
      * listener interface trigger the action.
@@ -407,7 +407,7 @@ public class EventHandler implements InvocationHandler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Extract the appropriate property value from the event and
      * pass it to the action associated with
      * this <code>EventHandler</code>.
@@ -492,7 +492,7 @@ public class EventHandler implements InvocationHandler {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an implementation of <code>listenerInterface</code> in which
      * <em>all</em> of the methods in the listener interface apply
      * the handler's <code>action</code> to the <code>target</code>. This
@@ -532,8 +532,8 @@ public class EventHandler implements InvocationHandler {
         return create(listenerInterface, target, action, null, null);
     }
 
-    /** {@collect.stats}
-    /** {@collect.stats}
+    /** {@collect.stats} 
+    /** {@collect.stats} 
      * Creates an implementation of <code>listenerInterface</code> in which
      * <em>all</em> of the methods pass the value of the event
      * expression, <code>eventPropertyName</code>, to the final method in the
@@ -590,7 +590,7 @@ public class EventHandler implements InvocationHandler {
         return create(listenerInterface, target, action, eventPropertyName, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an implementation of <code>listenerInterface</code> in which
      * the method named <code>listenerMethodName</code>
      * passes the value of the event expression, <code>eventPropertyName</code>,

@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * TypeVariable is the common superinterface for type variables of kinds.
  * A type variable is created the first time it is needed by a reflective
  * method, as specified in this package.  If a type variable t is referenced
@@ -49,7 +49,7 @@ package java.lang.reflect;
  * @since 1.5
  */
 public interface TypeVariable<D extends GenericDeclaration> extends Type {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code Type} objects representing the
      * upper bound(s) of this type variable.  Note that if no upper bound is
      * explicitly declared, the upper bound is {@code Object}.
@@ -70,7 +70,7 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type {
     */
     Type[] getBounds();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code GenericDeclaration} object representing the
      * generic declaration declared this type variable.
      *
@@ -80,7 +80,7 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type {
      */
     D getGenericDeclaration();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of this type variable, as it occurs in the source code.
      *
      * @return the name of this type variable, as it appears in the source code

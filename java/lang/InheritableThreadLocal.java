@@ -26,7 +26,7 @@
 package java.lang;
 import java.lang.ref.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class extends <tt>ThreadLocal</tt> to provide inheritance of values
  * from parent thread to child thread: when a child thread is created, the
  * child receives initial values for all inheritable thread-local variables
@@ -46,7 +46,7 @@ import java.lang.ref.*;
  */
 
 public class InheritableThreadLocal<T> extends ThreadLocal<T> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes the child's initial value for this inheritable thread-local
      * variable as a function of the parent's value at the time the child
      * thread is created.  This method is called from within the parent
@@ -62,7 +62,7 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
         return parentValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the map associated with a ThreadLocal.
      *
      * @param t the current thread
@@ -71,7 +71,7 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
        return t.inheritableThreadLocals;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create the map associated with a ThreadLocal.
      *
      * @param t the current thread

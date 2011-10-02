@@ -36,7 +36,7 @@ import java.util.Map;
 import sun.reflect.annotation.AnnotationParser;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@code Field} provides information about, and dynamic access to, a
  * single field of a class or an interface.  The reflected field may
  * be a class (static) field or an instance field.
@@ -107,7 +107,7 @@ class Field extends AccessibleObject implements Member {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private constructor used by ReflectAccess to enable
      * instantiation of these objects in Java code from the java.lang
      * package via sun.reflect.LangReflectAccess.
@@ -129,7 +129,7 @@ class Field extends AccessibleObject implements Member {
         this.annotations = annotations;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private routine (exposed to java.lang.Class via
      * ReflectAccess) which returns a copy of this Field. The copy's
      * "root" field points to this Field.
@@ -150,7 +150,7 @@ class Field extends AccessibleObject implements Member {
         return res;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code Class} object representing the class or interface
      * that declares the field represented by this {@code Field} object.
      */
@@ -158,14 +158,14 @@ class Field extends AccessibleObject implements Member {
         return clazz;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the field represented by this {@code Field} object.
      */
     public String getName() {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Java language modifiers for the field represented
      * by this {@code Field} object, as an integer. The {@code Modifier} class should
      * be used to decode the modifiers.
@@ -176,7 +176,7 @@ class Field extends AccessibleObject implements Member {
         return modifiers;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this field represents an element of
      * an enumerated type; returns {@code false} otherwise.
      *
@@ -188,7 +188,7 @@ class Field extends AccessibleObject implements Member {
         return (getModifiers() & Modifier.ENUM) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this field is a synthetic
      * field; returns {@code false} otherwise.
      *
@@ -200,7 +200,7 @@ class Field extends AccessibleObject implements Member {
         return Modifier.isSynthetic(getModifiers());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Class} object that identifies the
      * declared type for the field represented by this
      * {@code Field} object.
@@ -212,7 +212,7 @@ class Field extends AccessibleObject implements Member {
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Type} object that represents the declared type for
      * the field represented by this {@code Field} object.
      *
@@ -244,7 +244,7 @@ class Field extends AccessibleObject implements Member {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this {@code Field} against the specified object.  Returns
      * true if the objects are the same.  Two {@code Field} objects are the same if
      * they were declared by the same class and have the same name
@@ -260,7 +260,7 @@ class Field extends AccessibleObject implements Member {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for this {@code Field}.  This is computed as the
      * exclusive-or of the hashcodes for the underlying field's
      * declaring class name and its name.
@@ -269,7 +269,7 @@ class Field extends AccessibleObject implements Member {
         return getDeclaringClass().getName().hashCode() ^ getName().hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this {@code Field}.  The format is
      * the access modifiers for the field, if any, followed
      * by the field type, followed by a space, followed by
@@ -295,7 +295,7 @@ class Field extends AccessibleObject implements Member {
             + getName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this {@code Field}, including
      * its generic type.  The format is the access modifiers for the
      * field, if any, followed by the generic field type, followed by
@@ -324,7 +324,7 @@ class Field extends AccessibleObject implements Member {
             + getName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the field represented by this {@code Field}, on
      * the specified object. The value is automatically wrapped in an
      * object if it has a primitive type.
@@ -376,7 +376,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).get(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance {@code boolean} field.
      *
      * @param obj the object to extract the {@code boolean} value
@@ -403,7 +403,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getBoolean(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance {@code byte} field.
      *
      * @param obj the object to extract the {@code byte} value
@@ -430,7 +430,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getByte(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code char} or of another primitive type convertible to
      * type {@code char} via a widening conversion.
@@ -459,7 +459,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getChar(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code short} or of another primitive type convertible to
      * type {@code short} via a widening conversion.
@@ -488,7 +488,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getShort(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code int} or of another primitive type convertible to
      * type {@code int} via a widening conversion.
@@ -517,7 +517,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getInt(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code long} or of another primitive type convertible to
      * type {@code long} via a widening conversion.
@@ -546,7 +546,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getLong(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code float} or of another primitive type convertible to
      * type {@code float} via a widening conversion.
@@ -575,7 +575,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getFloat(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of a static or instance field of type
      * {@code double} or of another primitive type convertible to
      * type {@code double} via a widening conversion.
@@ -604,7 +604,7 @@ class Field extends AccessibleObject implements Member {
         return getFieldAccessor(obj).getDouble(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the field represented by this {@code Field} object on the
      * specified object argument to the specified new value. The new
      * value is automatically unwrapped if the underlying field has a
@@ -675,7 +675,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).set(obj, value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code boolean} on the specified object.
      * This method is equivalent to
      * {@code set(obj, zObj)},
@@ -704,7 +704,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setBoolean(obj, z);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code byte} on the specified object.
      * This method is equivalent to
      * {@code set(obj, bObj)},
@@ -733,7 +733,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setByte(obj, b);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code char} on the specified object.
      * This method is equivalent to
      * {@code set(obj, cObj)},
@@ -762,7 +762,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setChar(obj, c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code short} on the specified object.
      * This method is equivalent to
      * {@code set(obj, sObj)},
@@ -791,7 +791,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setShort(obj, s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as an {@code int} on the specified object.
      * This method is equivalent to
      * {@code set(obj, iObj)},
@@ -820,7 +820,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setInt(obj, i);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code long} on the specified object.
      * This method is equivalent to
      * {@code set(obj, lObj)},
@@ -849,7 +849,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setLong(obj, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code float} on the specified object.
      * This method is equivalent to
      * {@code set(obj, fObj)},
@@ -878,7 +878,7 @@ class Field extends AccessibleObject implements Member {
         getFieldAccessor(obj).setFloat(obj, f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a field as a {@code double} on the specified object.
      * This method is equivalent to
      * {@code set(obj, dObj)},
@@ -1007,7 +1007,7 @@ class Field extends AccessibleObject implements Member {
         return type.getName();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -1020,7 +1020,7 @@ class Field extends AccessibleObject implements Member {
 
     private static final Annotation[] EMPTY_ANNOTATION_ARRAY=new Annotation[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {

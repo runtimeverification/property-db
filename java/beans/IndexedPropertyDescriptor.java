@@ -29,7 +29,7 @@ import java.lang.ref.Reference;
 
 import java.lang.reflect.Method;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An IndexedPropertyDescriptor describes a property that acts like an
  * array and has an indexed read and/or indexed write method to access
  * specific elements of the array.
@@ -48,7 +48,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
     private String indexedReadMethodName;
     private String indexedWriteMethodName;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor constructs an IndexedPropertyDescriptor for a property
      * that follows the standard Java conventions by having getFoo and setFoo
      * accessor methods, for both indexed access and array access.
@@ -72,7 +72,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
              Introspector.SET_PREFIX + NameGenerator.capitalize(propertyName));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor takes the name of a simple property, and method
      * names for reading and writing the property, both indexed
      * and non-indexed.
@@ -113,7 +113,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
         findIndexedPropertyType(getIndexedReadMethod(), getIndexedWriteMethod());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor takes the name of a simple property, and Method
      * objects for reading and writing the property.
      *
@@ -142,7 +142,7 @@ perty.
         setIndexedPropertyType(findIndexedPropertyType(indexedReadMethod, indexedWriteMethod));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates <code>PropertyDescriptor</code> for the specified bean
      * with the specified name and methods to read/write the property value.
      *
@@ -166,7 +166,7 @@ perty.
         setIndexedPropertyType(findIndexedPropertyType(readIndexed, writeIndexed));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method that should be used to read an indexed
      * property value.
      *
@@ -207,7 +207,7 @@ perty.
         return indexedReadMethod;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the method that should be used to read an indexed property value.
      *
      * @param readMethod The new indexed read method.
@@ -234,7 +234,7 @@ perty.
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method that should be used to write an indexed property value.
      *
      * @return The method that should be used to write an indexed
@@ -278,7 +278,7 @@ perty.
         return indexedWriteMethod;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the method that should be used to write an indexed property value.
      *
      * @param writeMethod The new indexed write method.
@@ -305,7 +305,7 @@ perty.
         this.indexedWriteMethodRef = getSoftReference(writeMethod);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>Class</code> object of the indexed properties' type.
      * The returned <code>Class</code> may describe a primitive type such as <code>int</code>.
      *
@@ -392,7 +392,7 @@ perty.
         return indexedPropertyType;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>PropertyDescriptor</code> against the specified object.
      * Returns true if the objects are the same. Two <code>PropertyDescriptor</code>s
      * are the same if the read, write, property types, property editor and
@@ -428,7 +428,7 @@ perty.
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private constructor.
      * Merge two property descriptors.  Where they conflict, give the
      * second argument (y) priority over the first argumnnt (x).
@@ -488,7 +488,7 @@ perty.
         indexedReadMethodName = old.indexedReadMethodName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for the object.
      * See {@link java.lang.Object#hashCode} for a complete description.
      *

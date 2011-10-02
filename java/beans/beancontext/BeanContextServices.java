@@ -36,7 +36,7 @@ import java.beans.beancontext.BeanContextServiceProvider;
 import java.beans.beancontext.BeanContextServicesListener;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * The BeanContextServices interface provides a mechanism for a BeanContext
  * to expose generic "services" to the BeanContextChild objects within.
@@ -44,7 +44,7 @@ import java.beans.beancontext.BeanContextServicesListener;
  */
 public interface BeanContextServices extends BeanContext, BeanContextServicesListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a service to this BeanContext.
      * <code>BeanContextServiceProvider</code>s call this method
      * to register a particular service with this context.
@@ -63,7 +63,7 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     boolean addService(Class serviceClass, BeanContextServiceProvider serviceProvider);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * BeanContextServiceProviders wishing to remove
      * a currently registered service from this context
      * may do so via invocation of this method. Upon revocation of
@@ -84,7 +84,7 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     void revokeService(Class serviceClass, BeanContextServiceProvider serviceProvider, boolean revokeCurrentServicesNow);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether or not a given service is
      * currently available from this context.
      * @param serviceClass the service in question
@@ -92,7 +92,7 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     boolean hasService(Class serviceClass);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <code>BeanContextChild</code>, or any arbitrary object
      * associated with a <code>BeanContextChild</code>, may obtain
      * a reference to a currently registered service from its
@@ -114,7 +114,7 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     Object getService(BeanContextChild child, Object requestor, Class serviceClass, Object serviceSelector, BeanContextServiceRevokedListener bcsrl) throws TooManyListenersException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases a <code>BeanContextChild</code>'s
      * (or any arbitrary object associated with a BeanContextChild)
      * reference to the specified service by calling releaseService()
@@ -125,14 +125,14 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     void releaseService(BeanContextChild child, Object requestor, Object service);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the currently available services for this context.
      * @return an <code>Iterator</code> consisting of the
      * currently available services
      */
     Iterator getCurrentServiceClasses();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the list of service dependent service parameters
      * (Service Selectors) for the specified service, by
      * calling getCurrentServiceSelectors() on the
@@ -143,13 +143,13 @@ public interface BeanContextServices extends BeanContext, BeanContextServicesLis
      */
     Iterator getCurrentServiceSelectors(Class serviceClass);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>BeanContextServicesListener</code> to this BeanContext
      * @param bcsl the <code>BeanContextServicesListener</code> to add
      */
     void addBeanContextServicesListener(BeanContextServicesListener bcsl);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a <code>BeanContextServicesListener</code>
      * from this <code>BeanContext</code>
      * @param bcsl the <code>BeanContextServicesListener</code>

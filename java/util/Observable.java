@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents an observable object, or "data"
  * in the model-view paradigm. It can be subclassed to represent an
  * object that the application wants to have observed.
@@ -63,13 +63,13 @@ public class Observable {
     private boolean changed = false;
     private Vector obs;
 
-    /** {@collect.stats} Construct an Observable with zero Observers. */
+    /** {@collect.stats}  Construct an Observable with zero Observers. */
 
     public Observable() {
         obs = new Vector();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an observer to the set of observers for this object, provided
      * that it is not the same as some observer already in the set.
      * The order in which notifications will be delivered to multiple
@@ -86,7 +86,7 @@ public class Observable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deletes an observer from the set of observers of this object.
      * Passing <CODE>null</CODE> to this method will have no effect.
      * @param   o   the observer to be deleted.
@@ -95,7 +95,7 @@ public class Observable {
         obs.removeElement(o);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If this object has changed, as indicated by the
      * <code>hasChanged</code> method, then notify all of its observers
      * and then call the <code>clearChanged</code> method to
@@ -115,7 +115,7 @@ public class Observable {
         notifyObservers(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If this object has changed, as indicated by the
      * <code>hasChanged</code> method, then notify all of its observers
      * and then call the <code>clearChanged</code> method to indicate
@@ -159,14 +159,14 @@ public class Observable {
             ((Observer)arrLocal[i]).update(this, arg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears the observer list so that this object no longer has any observers.
      */
     public synchronized void deleteObservers() {
         obs.removeAllElements();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks this <tt>Observable</tt> object as having been changed; the
      * <tt>hasChanged</tt> method will now return <tt>true</tt>.
      */
@@ -174,7 +174,7 @@ public class Observable {
         changed = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that this object has no longer changed, or that it has
      * already notified all of its observers of its most recent change,
      * so that the <tt>hasChanged</tt> method will now return <tt>false</tt>.
@@ -188,7 +188,7 @@ public class Observable {
         changed = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this object has changed.
      *
      * @return  <code>true</code> if and only if the <code>setChanged</code>
@@ -202,7 +202,7 @@ public class Observable {
         return changed;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of observers of this <tt>Observable</tt> object.
      *
      * @return  the number of observers of this object.

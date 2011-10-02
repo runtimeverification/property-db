@@ -781,7 +781,7 @@ final class TextLine {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the union of the visual bounds of all the components.
      * This incorporates the path.  It does not include logical
      * bounds (used by carets).
@@ -882,7 +882,7 @@ final class TextLine {
         return buf.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a TextLine from the text.  The Font must be able to
      * display all of the text.
      * attributes==null is equivalent to using an empty Map for
@@ -979,7 +979,7 @@ final class TextLine {
         return newComponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array in logical order of the TextLineComponents on
      * the text in the given range, with the given attributes.
      */
@@ -1031,7 +1031,7 @@ final class TextLine {
         return components;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array (in logical order) of the TextLineComponents representing
      * the text.  The components are both logically and visually contiguous.
      */
@@ -1112,7 +1112,7 @@ final class TextLine {
         return components;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a TextLine from the Font and character data over the
      * range.  The range is relative to both the StyledParagraph and the
      * character array.
@@ -1142,7 +1142,7 @@ final class TextLine {
                             chars, 0, chars.length, charsLtoV, levels, isDirectionLTR);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compute the components order from the given components array and
      * logical-to-visual character mapping.  May return null if canonical.
      */
@@ -1174,7 +1174,7 @@ final class TextLine {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a TextLine from the text.  chars is just the text in the iterator.
      */
     public static TextLine standardCreateTextLine(FontRenderContext frc,
@@ -1232,7 +1232,7 @@ final class TextLine {
     }
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * When this returns, the ACI's current position will be at the start of the
      * first run which does NOT contain a GraphicAttribute.  If no such run exists
      * the ACI's position will be at the end, and this method will return false.

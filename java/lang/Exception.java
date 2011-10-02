@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The class <code>Exception</code> and its subclasses are a form of
  * <code>Throwable</code> that indicates conditions that a reasonable
  * application might want to catch.
@@ -37,7 +37,7 @@ package java.lang;
 public class Exception extends Throwable {
     static final long serialVersionUID = -3387516993124229948L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new exception with <code>null</code> as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
@@ -46,7 +46,7 @@ public class Exception extends Throwable {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new exception with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by
      * a call to {@link #initCause}.
@@ -58,7 +58,7 @@ public class Exception extends Throwable {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new exception with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
@@ -76,7 +76,7 @@ public class Exception extends Throwable {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new exception with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).

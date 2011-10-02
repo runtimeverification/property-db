@@ -32,7 +32,7 @@ import java.io.FilterInputStream;
 import java.io.PrintStream;
 import java.io.ByteArrayInputStream;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A transparent stream that updates the associated message digest using
  * the bits going through the stream.
  *
@@ -68,12 +68,12 @@ public class DigestInputStream extends FilterInputStream {
     /* Are we on or off? */
     private boolean on = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The message digest associated with this stream.
      */
     protected MessageDigest digest;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a digest input stream, using the specified input stream
      * and message digest.
      *
@@ -86,7 +86,7 @@ public class DigestInputStream extends FilterInputStream {
         setMessageDigest(digest);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the message digest associated with this stream.
      *
      * @return the message digest associated with this stream.
@@ -96,7 +96,7 @@ public class DigestInputStream extends FilterInputStream {
         return digest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Associates the specified message digest with this stream.
      *
      * @param digest the message digest to be associated with this stream.
@@ -106,7 +106,7 @@ public class DigestInputStream extends FilterInputStream {
         this.digest = digest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a byte, and updates the message digest (if the digest
      * function is on).  That is, this method reads a byte from the
      * input stream, blocking until the byte is actually read. If the
@@ -128,7 +128,7 @@ public class DigestInputStream extends FilterInputStream {
         return ch;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads into a byte array, and updates the message digest (if the
      * digest function is on).  That is, this method reads up to
      * <code>len</code> bytes from the input stream into the array
@@ -165,7 +165,7 @@ public class DigestInputStream extends FilterInputStream {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Turns the digest function on or off. The default is on.  When
      * it is on, a call to one of the <code>read</code> methods results in an
      * update on the message digest.  But when it is off, the message
@@ -178,7 +178,7 @@ public class DigestInputStream extends FilterInputStream {
         this.on = on;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a string representation of this digest input stream and
      * its associated message digest object.
      */

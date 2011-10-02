@@ -25,7 +25,7 @@
 
 package java.net;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an error occurred while attempting to connect a
  * socket to a remote address and port.  Typically, the connection
  * was refused remotely (e.g., no process is listening on the
@@ -34,7 +34,7 @@ package java.net;
  * @since   JDK1.1
  */
 public class ConnectException extends SocketException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new ConnectException with the specified detail
      * message as to why the connect error occurred.
      * A detail message is a String that gives a specific
@@ -45,7 +45,7 @@ public class ConnectException extends SocketException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new ConnectException with no detailed message.
      */
     public ConnectException() {}

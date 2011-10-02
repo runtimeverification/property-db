@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.Enumeration;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The multicast datagram socket class is useful for sending
  * and receiving IP multicast packets.  A MulticastSocket is
  * a (UDP) DatagramSocket, with additional capabilities for
@@ -82,7 +82,7 @@ import java.util.Enumeration;
  */
 public
 class MulticastSocket extends DatagramSocket {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a multicast socket.
      *
      * <p>If there is a security manager,
@@ -105,7 +105,7 @@ class MulticastSocket extends DatagramSocket {
         this(new InetSocketAddress(0));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a multicast socket and bind it to a specific port.
      *
      * <p>If there is a security manager,
@@ -130,7 +130,7 @@ class MulticastSocket extends DatagramSocket {
         this(new InetSocketAddress(port));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a MulticastSocket bound to the specified socket address.
      * <p>
      * Or, if the address is <code>null</code>, create an unbound socket.
@@ -166,25 +166,25 @@ class MulticastSocket extends DatagramSocket {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The lock on the socket's TTL. This is for set/getTTL and
      * send(packet,ttl).
      */
     private Object ttlLock = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The lock on the socket's interface - used by setInterface
      * and getInterface
      */
     private Object infLock = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "last" interface set by setInterface on this MulticastSocket
      */
     private InetAddress infAddress = null;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the default time-to-live for multicast packets sent out
      * on this <code>MulticastSocket</code> in order to control the
      * scope of the multicasts.
@@ -206,7 +206,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().setTTL(ttl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the default time-to-live for multicast packets sent out
      * on this {@code MulticastSocket} in order to control the
      * scope of the multicasts.
@@ -232,7 +232,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().setTimeToLive(ttl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the default time-to-live for multicast packets sent out on
      * the socket.
      *
@@ -250,7 +250,7 @@ class MulticastSocket extends DatagramSocket {
         return getImpl().getTTL();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the default time-to-live for multicast packets sent out on
      * the socket.
      * @exception IOException if an I/O exception occurs while
@@ -264,7 +264,7 @@ class MulticastSocket extends DatagramSocket {
         return getImpl().getTimeToLive();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Joins a multicast group. Its behavior may be affected by
      * <code>setInterface</code> or <code>setNetworkInterface</code>.
      *
@@ -300,7 +300,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().join(mcastaddr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Leave a multicast group. Its behavior may be affected by
      * <code>setInterface</code> or <code>setNetworkInterface</code>.
      *
@@ -335,7 +335,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().leave(mcastaddr);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Joins the specified multicast group at the specified interface.
      *
      * <p>If there is a security manager, this method first
@@ -383,7 +383,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().joinGroup(mcastaddr, netIf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Leave a multicast group on a specified local interface.
      *
      * <p>If there is a security manager, this method first
@@ -430,7 +430,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().leaveGroup(mcastaddr, netIf);
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the multicast network interface used by methods
      * whose behavior would be affected by the value of the
      * network interface. Useful for multihomed hosts.
@@ -450,7 +450,7 @@ class MulticastSocket extends DatagramSocket {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the address of the network interface used for
      * multicast packets.
      *
@@ -471,7 +471,7 @@ class MulticastSocket extends DatagramSocket {
             InetAddress ia =
                 (InetAddress)getImpl().getOption(SocketOptions.IP_MULTICAST_IF);
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * No previous setInterface or interface can be
              * set using setNetworkInterface
              */
@@ -479,14 +479,14 @@ class MulticastSocket extends DatagramSocket {
                 return ia;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Same interface set with setInterface?
              */
             if (ia.equals(infAddress)) {
                 return ia;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Different InetAddress from what we set with setInterface
              * so enumerate the current interface to see if the
              * address set by setInterface is bound to this interface.
@@ -501,7 +501,7 @@ class MulticastSocket extends DatagramSocket {
                     }
                 }
 
-                /** {@collect.stats}
+                /** {@collect.stats} 
                  * No match so reset infAddress to indicate that the
                  * interface has changed via means
                  */
@@ -513,7 +513,7 @@ class MulticastSocket extends DatagramSocket {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specify the network interface for outgoing multicast datagrams
      * sent on this socket.
      *
@@ -532,7 +532,7 @@ class MulticastSocket extends DatagramSocket {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the multicast network interface set.
      *
      * @exception SocketException if there is an error in
@@ -553,7 +553,7 @@ class MulticastSocket extends DatagramSocket {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disable/Enable local loopback of multicast datagrams
      * The option is used by the platform's networking code as a hint
      * for setting whether multicast data will be looped back to
@@ -571,7 +571,7 @@ class MulticastSocket extends DatagramSocket {
         getImpl().setOption(SocketOptions.IP_MULTICAST_LOOP, Boolean.valueOf(disable));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the setting for local loopback of multicast datagrams.
      *
      * @throws SocketException  if an error occurs while getting the value
@@ -583,7 +583,7 @@ class MulticastSocket extends DatagramSocket {
         return ((Boolean)getImpl().getOption(SocketOptions.IP_MULTICAST_LOOP)).booleanValue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a datagram packet to the destination, with a TTL (time-
      * to-live) other than the default for the socket.  This method
      * need only be used in instances where a particular TTL is desired;

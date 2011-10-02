@@ -29,7 +29,7 @@ import java.nio.channels.FileChannel;
 import sun.nio.ch.FileChannelImpl;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <code>FileInputStream</code> obtains input bytes
  * from a file in a file system. What files
@@ -67,7 +67,7 @@ class FileInputStream extends InputStream
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>FileInputStream</code> by
      * opening a connection to an actual file,
@@ -100,7 +100,7 @@ class FileInputStream extends InputStream
         this(name != null ? new File(name) : null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>FileInputStream</code> by
      * opening a connection to an actual file,
@@ -143,7 +143,7 @@ class FileInputStream extends InputStream
         open(name);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>FileInputStream</code> by using the file descriptor
      * <code>fdObj</code>, which represents an existing connection to an
@@ -182,7 +182,7 @@ class FileInputStream extends InputStream
         fd.incrementAndGetUseCount();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Opens the specified file for reading.
      * {@description.close}
@@ -190,7 +190,7 @@ class FileInputStream extends InputStream
      */
     private native void open(String name) throws FileNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a byte of data from this input stream.
      * {@description.close}
@@ -205,7 +205,7 @@ class FileInputStream extends InputStream
      */
     public native int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a subarray as a sequence of bytes.
      * {@description.close}
@@ -216,7 +216,7 @@ class FileInputStream extends InputStream
      */
     private native int readBytes(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>b.length</code> bytes of data from this input
      * stream into an array of bytes.
@@ -236,7 +236,7 @@ class FileInputStream extends InputStream
         return readBytes(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
@@ -263,7 +263,7 @@ class FileInputStream extends InputStream
         return readBytes(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips over and discards <code>n</code> bytes of data from the
      * input stream.
@@ -289,7 +289,7 @@ class FileInputStream extends InputStream
      */
     public native long skip(long n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@property.open blocking}
      * Returns an estimate of the number of remaining bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
@@ -312,7 +312,7 @@ class FileInputStream extends InputStream
      */
     public native int available() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this file input stream and releases any system resources
      * associated with the stream.
@@ -357,7 +357,7 @@ class FileInputStream extends InputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the <code>FileDescriptor</code>
      * object  that represents the connection to
@@ -374,7 +374,7 @@ class FileInputStream extends InputStream
         throw new IOException();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file input stream.
@@ -416,7 +416,7 @@ class FileInputStream extends InputStream
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Ensures that the <code>close</code> method of this file input stream is
      * called when there are no more references to it.

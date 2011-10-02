@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An obsolete subclass of {@link ExportException}.
  *
  * @author  Ann Wollrath
@@ -36,7 +36,7 @@ public class SocketSecurityException extends ExportException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -7622072999407781979L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>SocketSecurityException</code> with the specified
      * detail message.
      *
@@ -47,7 +47,7 @@ public class SocketSecurityException extends ExportException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>SocketSecurityException</code> with the specified
      * detail message and nested exception.
      *

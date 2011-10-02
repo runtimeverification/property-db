@@ -24,7 +24,7 @@
  */
 package java.rmi.server;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>RemoteStub</code> class is the common superclass to client
  * stubs and provides the framework to support a wide range of remote
  * reference semantics.  Stub objects are surrogates that support
@@ -36,17 +36,17 @@ package java.rmi.server;
  */
 abstract public class RemoteStub extends RemoteObject {
 
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -1585587260594494182L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteStub</code>.
      */
     protected RemoteStub() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteStub</code>, with the specified remote
      * reference.
      *
@@ -57,7 +57,7 @@ abstract public class RemoteStub extends RemoteObject {
         super(ref);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the remote reference inside the remote stub.
      *
      * @param stub the remote stub

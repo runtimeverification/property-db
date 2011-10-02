@@ -30,7 +30,7 @@ import java.net.*;
 import java.rmi.server.UID;
 import java.security.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A VMID is a identifier that is unique across all Java virtual
  * machines.  VMIDs are used by the distributed garbage collector
  * to identify client VMs.
@@ -40,23 +40,23 @@ import java.security.*;
  */
 public final class VMID implements java.io.Serializable {
 
-    /** {@collect.stats} array of bytes uniquely identifying this host */
+    /** {@collect.stats}  array of bytes uniquely identifying this host */
     private static byte[] localAddr = computeAddressHash();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial array of bytes uniquely identifying host created on
      */
     private byte[] addr;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial unique identifier with respect to host created on
      */
     private UID uid;
 
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -538642295484486218L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new VMID.  Each new VMID returned from this constructor
      * is unique for all Java virtual machines under the following
      * conditions: a) the conditions for uniqueness for objects of
@@ -69,7 +69,7 @@ public final class VMID implements java.io.Serializable {
         uid = new UID();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true if an accurate address can be determined for this
      * host.  If false, reliable VMID cannot be generated from this host
      * @return true if host address can be determined, false otherwise
@@ -80,14 +80,14 @@ public final class VMID implements java.io.Serializable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compute hash code for this VMID.
      */
     public int hashCode() {
         return uid.hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compare this VMID to another, and return true if they are the
      * same identifier.
      */
@@ -111,7 +111,7 @@ public final class VMID implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return string representation of this VMID.
      */
     public String toString() {
@@ -127,7 +127,7 @@ public final class VMID implements java.io.Serializable {
         return result.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compute the hash an IP address.  The hash is the first 8 bytes
      * of the SHA digest of the IP address.
      */

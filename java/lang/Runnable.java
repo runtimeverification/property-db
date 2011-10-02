@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@descriptive.open}
  * The <code>Runnable</code> interface should be implemented by any
  * class whose instances are intended to be executed by a thread.
@@ -61,7 +61,7 @@ package java.lang;
  */
 public
 interface Runnable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * When an object implementing interface <code>Runnable</code> is used
      * to create a thread, starting the thread causes the object's

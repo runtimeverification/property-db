@@ -31,7 +31,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.UnsupportedCharsetException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>XMLEncoder</code> class is a complementary alternative to
  * the <code>ObjectOutputStream</code> and can used to generate
  * a textual representation of a <em>JavaBean</em> in the same
@@ -223,7 +223,7 @@ public class XMLEncoder extends Encoder {
         public Expression exp = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream for sending <em>JavaBeans</em>
      * to the stream <code>out</code> using an XML encoding.
      *
@@ -239,7 +239,7 @@ public class XMLEncoder extends Encoder {
         nameGenerator = new NameGenerator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the owner of this encoder to <code>owner</code>.
      *
      * @param owner The owner of this encoder.
@@ -251,7 +251,7 @@ public class XMLEncoder extends Encoder {
         writeExpression(new Expression(this, "getOwner", new Object[0]));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the owner of this encoder.
      *
      * @return The owner of this encoder.
@@ -262,7 +262,7 @@ public class XMLEncoder extends Encoder {
         return owner;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Write an XML representation of the specified object to the output.
      *
      * @param o The object to be written to the stream.
@@ -329,7 +329,7 @@ public class XMLEncoder extends Encoder {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Records the Statement so that the Encoder will
      * produce the actual output when the stream is flushed.
      * <P>
@@ -364,7 +364,7 @@ public class XMLEncoder extends Encoder {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Records the Expression so that the Encoder will
      * produce the actual output when the stream is flushed.
      * <P>
@@ -391,7 +391,7 @@ public class XMLEncoder extends Encoder {
         this.internal = internal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method writes out the preamble associated with the
      * XML encoding if it has not been written already and
      * then writes out all of the values that been
@@ -437,7 +437,7 @@ public class XMLEncoder extends Encoder {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method calls <code>flush</code>, writes the closing
      * postamble and then closes the output stream associated
      * with this stream.
@@ -466,7 +466,7 @@ public class XMLEncoder extends Encoder {
         return d;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if the argument,
      * a Unicode code point, is valid in XML documents.
      * Unicode characters fit into the low sixteen bits of a Unicode code point,

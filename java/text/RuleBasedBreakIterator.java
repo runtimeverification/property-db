@@ -55,7 +55,7 @@ import java.text.StringCharacterIterator;
 import sun.text.CompactByteArray;
 import sun.text.SupplementaryCharacterData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>A subclass of BreakIterator whose behavior is specified using a list of rules.</p>
  *
  * <p>There are two kinds of rules, which are separated by semicolons: <i>substitutions</i>
@@ -221,22 +221,22 @@ import sun.text.SupplementaryCharacterData;
  */
 class RuleBasedBreakIterator extends BreakIterator {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A token used as a character-category value to identify ignore characters
      */
     protected static final byte IGNORE = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The state number of the starting state
      */
     private static final short START_STATE = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The state-transition value indicating "stop"
      */
     private static final short STOP_STATE = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Magic number for the BreakIterator data file format.
      */
     static final byte[] LABEL = {
@@ -245,68 +245,68 @@ class RuleBasedBreakIterator extends BreakIterator {
     };
     static final int    LABEL_LENGTH = LABEL.length;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Version number of the dictionary that was read in.
      */
     static final byte supportedVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Header size in byte count
      */
     private static final int HEADER_LENGTH = 36;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An array length of indices for BMP characters
      */
     private static final int BMP_INDICES_LENGTH = 512;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tables that indexes from character values to character category numbers
      */
     private CompactByteArray charCategoryTable = null;
     private SupplementaryCharacterData supplementaryCharCategoryTable = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The table of state transitions used for forward iteration
      */
     private short[] stateTable = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The table of state transitions used to sync up the iterator with the
      * text in backwards and random-access iteration
      */
     private short[] backwardsStateTable = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A list of flags indicating which states in the state table are accepting
      * ("end") states
      */
     private boolean[] endStates = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A list of flags indicating which states in the state table are
      * lookahead states (states which turn lookahead on and off)
      */
     private boolean[] lookaheadStates = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A table for additional data. May be used by a subclass of
      * RuleBasedBreakIterator.
      */
     private byte[] additionalData = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of character categories (and, thus, the number of columns in
      * the state tables)
      */
     private int numCategories;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The character iterator through which this BreakIterator accesses the text
      */
     private CharacterIterator text = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A CRC32 value of all data in datafile
      */
     private long checksum;
@@ -315,7 +315,7 @@ class RuleBasedBreakIterator extends BreakIterator {
     // constructors
     //=======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a RuleBasedBreakIterator according to the datafile
      * provided.
      */
@@ -324,7 +324,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         readTables(datafile);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Read datafile. The datafile's format is as follows:
      * <pre>
      *   BreakIteratorData {
@@ -504,7 +504,7 @@ class RuleBasedBreakIterator extends BreakIterator {
     //=======================================================================
     // boilerplate
     //=======================================================================
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clones this iterator.
      * @return A newly-constructed RuleBasedBreakIterator with the same
      * behavior as this one.
@@ -517,7 +517,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if both BreakIterators are of the same class, have the same
      * rules, and iterate over the same text.
      */
@@ -542,7 +542,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns text
      */
     public String toString() {
@@ -553,7 +553,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return sb.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compute a hashcode for this BreakIterator
      * @return A hash code
      */
@@ -565,7 +565,7 @@ class RuleBasedBreakIterator extends BreakIterator {
     // BreakIterator overrides
     //=======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current iteration position to the beginning of the text.
      * (i.e., the CharacterIterator's starting offset).
      * @return The offset of the beginning of the text.
@@ -577,7 +577,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return t.getIndex();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current iteration position to the end of the text.
      * (i.e., the CharacterIterator's ending offset).
      * @return The text's past-the-end offset.
@@ -591,7 +591,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return t.getIndex();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Advances the iterator either forward or backward the specified number of steps.
      * Negative values move backward, and positive values move forward.  This is
      * equivalent to repeatedly calling next() or previous().
@@ -613,7 +613,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Advances the iterator to the next boundary position.
      * @return The position of the first boundary after this one.
      */
@@ -621,7 +621,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return handleNext();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Advances the iterator backwards, to the last boundary preceding this one.
      * @return The position of the last boundary position preceding this one.
      */
@@ -656,7 +656,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return lastResult;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns previous character
      */
     private int getPrevious() {
@@ -673,7 +673,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return (int)c2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns current character
      */
     int getCurrent() {
@@ -689,7 +689,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return (int)c1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the count of next character.
      */
     private int getCurrentCodePointCount() {
@@ -705,7 +705,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return 1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns next character
      */
     int getNext() {
@@ -719,7 +719,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return getCurrent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position of next character.
      */
     private int getNextIndex() {
@@ -732,7 +732,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throw IllegalArgumentException unless begin <= offset < end.
      */
     protected static final void checkOffset(int offset, CharacterIterator text) {
@@ -741,7 +741,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the iterator to refer to the first boundary position following
      * the specified position.
      * @offset The position from which to begin searching for a break position.
@@ -774,7 +774,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the iterator to refer to the last boundary position before the
      * specified position.
      * @offset The position to begin searching for a break from.
@@ -790,7 +790,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return previous();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the specfied position is a boundary position.  As a side
      * effect, leaves the iterator pointing to the first boundary position at
      * or after "offset".
@@ -812,7 +812,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current iteration position.
      * @return The current iteration position.
      */
@@ -820,7 +820,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return getText().getIndex();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a CharacterIterator over the text being analyzed.  This version
      * of this method returns the actual CharacterIterator we're using internally.
      * Changing the state of this iterator can have undefined consequences.  If
@@ -837,7 +837,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return text;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the iterator to analyze a new piece of text.  This function resets
      * the current iteration position to the beginning of the text.
      * @param newText An iterator over the text to analyze.
@@ -872,7 +872,7 @@ class RuleBasedBreakIterator extends BreakIterator {
     // implementation
     //=======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is the actual implementation of the next() method.  All iteration
      * vectors through here.  This method initializes the state machine to state 1
      * and advances through the text character by character until we reach the end
@@ -944,7 +944,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method backs the iterator back up to a "safe position" in the text.
      * This is a position that we know, without any context, must be a break position.
      * The various calling methods then iterate forward from this safe position to
@@ -993,7 +993,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return text.getIndex();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Looks up a character's category (i.e., its category for breaking purposes,
      * not its Unicode category)
      */
@@ -1005,7 +1005,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Given a current state and a character category, looks up the
      * next state to transition to in the state table.
      */
@@ -1013,7 +1013,7 @@ class RuleBasedBreakIterator extends BreakIterator {
         return stateTable[state * numCategories + category];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Given a current state and a character category, looks up the
      * next state to transition to in the backwards state table.
      */

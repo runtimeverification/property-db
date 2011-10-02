@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>String</code> class represents character strings. All
  * string literals in Java programs, such as <code>"abc"</code>, are
  * implemented as instances of this class.
@@ -109,22 +109,22 @@ import java.util.regex.PatternSyntaxException;
 public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence
 {
-    /** {@collect.stats} The value is used for character storage. */
+    /** {@collect.stats}  The value is used for character storage. */
     private final char value[];
 
-    /** {@collect.stats} The offset is the first index of the storage that is used. */
+    /** {@collect.stats}  The offset is the first index of the storage that is used. */
     private final int offset;
 
-    /** {@collect.stats} The count is the number of characters in the String. */
+    /** {@collect.stats}  The count is the number of characters in the String. */
     private final int count;
 
-    /** {@collect.stats} Cache the hash code for the string */
+    /** {@collect.stats}  Cache the hash code for the string */
     private int hash; // Default to 0
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -6849794470754667710L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Class String is special cased within the Serialization Stream Protocol.
      *
      * A String instance is written initially into an ObjectOutputStream in the
@@ -139,7 +139,7 @@ public final class String
     private static final ObjectStreamField[] serialPersistentFields =
         new ObjectStreamField[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a newly created {@code String} object so that it represents
      * an empty character sequence.  Note that use of this constructor is
      * unnecessary since Strings are immutable.
@@ -150,7 +150,7 @@ public final class String
         this.value = new char[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a newly created {@code String} object so that it represents
      * the same sequence of characters as the argument; in other words, the
      * newly created string is a copy of the argument string. Unless an
@@ -180,7 +180,7 @@ public final class String
         this.value = v;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new {@code String} so that it represents the sequence of
      * characters currently contained in the character array argument. The
      * contents of the character array are copied; subsequent modification of
@@ -196,7 +196,7 @@ public final class String
         this.value = Arrays.copyOf(value, size);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new {@code String} that contains characters from a subarray
      * of the character array argument. The {@code offset} argument is the
      * index of the first character of the subarray and the {@code count}
@@ -233,7 +233,7 @@ public final class String
         this.value = Arrays.copyOfRange(value, offset, offset+count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new {@code String} that contains characters from a subarray
      * of the <a href="Character.html#unicode">Unicode code point</a> array
      * argument.  The {@code offset} argument is the index of the first code
@@ -302,7 +302,7 @@ public final class String
         this.offset = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new {@code String} constructed from a subarray of an array
      * of 8-bit integer values.
      *
@@ -361,7 +361,7 @@ public final class String
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new {@code String} containing characters constructed from
      * an array of 8-bit integer values. Each character <i>c</i>in the
      * resulting string is constructed from the corresponding component
@@ -409,7 +409,7 @@ public final class String
             throw new StringIndexOutOfBoundsException(offset + length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified subarray of
      * bytes using the specified charset.  The length of the new {@code String}
      * is a function of the charset, and hence may not be equal to the length
@@ -454,7 +454,7 @@ public final class String
         this.value = v;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified subarray of
      * bytes using the specified {@linkplain java.nio.charset.Charset charset}.
      * The length of the new {@code String} is a function of the charset, and
@@ -494,7 +494,7 @@ public final class String
         this.value = v;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified array of bytes
      * using the specified {@linkplain java.nio.charset.Charset charset}.  The
      * length of the new {@code String} is a function of the charset, and hence
@@ -523,7 +523,7 @@ public final class String
         this(bytes, 0, bytes.length, charsetName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified array of
      * bytes using the specified {@linkplain java.nio.charset.Charset charset}.
      * The length of the new {@code String} is a function of the charset, and
@@ -547,7 +547,7 @@ public final class String
         this(bytes, 0, bytes.length, charset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified subarray of
      * bytes using the platform's default charset.  The length of the new
      * {@code String} is a function of the charset, and hence may not be equal
@@ -581,7 +581,7 @@ public final class String
         this.value = v;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code String} by decoding the specified array of bytes
      * using the platform's default charset.  The length of the new {@code
      * String} is a function of the charset, and hence may not be equal to the
@@ -601,7 +601,7 @@ public final class String
         this(bytes, 0, bytes.length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new string that contains the sequence of characters
      * currently contained in the string buffer argument. The contents of the
      * string buffer are copied; subsequent modification of the string buffer
@@ -617,7 +617,7 @@ public final class String
         this.offset = result.offset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new string that contains the sequence of characters
      * currently contained in the string builder argument. The contents of the
      * string builder are copied; subsequent modification of the string builder
@@ -647,7 +647,7 @@ public final class String
         this.count = count;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of this string.
      * The length is equal to the number of <a href="Character.html#unicode">Unicode
      * code units</a> in the string.
@@ -659,7 +659,7 @@ public final class String
         return count;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if, and only if, {@link #length()} is <tt>0</tt>.
      *
      * @return <tt>true</tt> if {@link #length()} is <tt>0</tt>, otherwise
@@ -671,7 +671,7 @@ public final class String
         return count == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>char</code> value at the
      * specified index. An index ranges from <code>0</code> to
      * <code>length() - 1</code>. The first <code>char</code> value of the sequence
@@ -696,7 +696,7 @@ public final class String
         return value[index + offset];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the character (Unicode code point) at the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>0</code> to
@@ -725,7 +725,7 @@ public final class String
         return Character.codePointAtImpl(value, offset + index, offset + count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the character (Unicode code point) before the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>1</code> to {@link
@@ -755,7 +755,7 @@ public final class String
         return Character.codePointBeforeImpl(value, offset + index, offset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of Unicode code points in the specified text
      * range of this <code>String</code>. The text range begins at the
      * specified <code>beginIndex</code> and extends to the
@@ -783,7 +783,7 @@ public final class String
         return Character.codePointCountImpl(value, offset+beginIndex, endIndex-beginIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this <code>String</code> that is
      * offset from the given <code>index</code> by
      * <code>codePointOffset</code> code points. Unpaired surrogates
@@ -811,7 +811,7 @@ public final class String
                                                 offset+index, codePointOffset) - offset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copy characters from this string into dst starting at dstBegin.
      * This method doesn't perform any range checking.
      */
@@ -819,7 +819,7 @@ public final class String
         System.arraycopy(value, offset, dst, dstBegin, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies characters from this string into the destination character
      * array.
      * <p>
@@ -863,7 +863,7 @@ public final class String
              srcEnd - srcBegin);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies characters from this string into the destination byte array. Each
      * byte receives the 8 low-order bits of the corresponding character. The
      * eight high-order bits of each character are not copied and do not
@@ -927,7 +927,7 @@ public final class String
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Encodes this {@code String} into a sequence of bytes using the named
      * charset, storing the result into a new byte array.
      *
@@ -954,7 +954,7 @@ public final class String
         return StringCoding.encode(charsetName, value, offset, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Encodes this {@code String} into a sequence of bytes using the given
      * {@linkplain java.nio.charset.Charset charset}, storing the result into a
      * new byte array.
@@ -977,7 +977,7 @@ public final class String
         return StringCoding.encode(charset, value, offset, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Encodes this {@code String} into a sequence of bytes using the
      * platform's default charset, storing the result into a new byte array.
      *
@@ -994,7 +994,7 @@ public final class String
         return StringCoding.encode(value, offset, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this string to the specified object.  The result is {@code
      * true} if and only if the argument is not {@code null} and is a {@code
      * String} object that represents the same sequence of characters as this
@@ -1031,7 +1031,7 @@ public final class String
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this string to the specified {@code StringBuffer}.  The result
      * is {@code true} if and only if this {@code String} represents the same
      * sequence of characters as the specified {@code StringBuffer}.
@@ -1051,7 +1051,7 @@ public final class String
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this string to the specified {@code CharSequence}.  The result
      * is {@code true} if and only if this {@code String} represents the same
      * sequence of char values as the specified sequence.
@@ -1096,7 +1096,7 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this {@code String} to another {@code String}, ignoring case
      * considerations.  Two strings are considered equal ignoring case if they
      * are of the same length and corresponding characters in the two strings
@@ -1130,7 +1130,7 @@ public final class String
                regionMatches(true, 0, anotherString, 0, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two strings lexicographically.
      * The comparison is based on the Unicode value of each character in
      * the strings. The character sequence represented by this
@@ -1203,7 +1203,7 @@ public final class String
         return len1 - len2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A Comparator that orders <code>String</code> objects as by
      * <code>compareToIgnoreCase</code>. This comparator is serializable.
      * <p>
@@ -1246,7 +1246,7 @@ public final class String
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two strings lexicographically, ignoring case
      * differences. This method returns an integer whose sign is that of
      * calling <code>compareTo</code> with normalized versions of the strings
@@ -1270,7 +1270,7 @@ public final class String
         return CASE_INSENSITIVE_ORDER.compare(this, str);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if two string regions are equal.
      * <p>
      * A substring of this <tt>String</tt> object is compared to a substring
@@ -1320,7 +1320,7 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if two string regions are equal.
      * <p>
      * A substring of this <tt>String</tt> object is compared to a substring
@@ -1410,7 +1410,7 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the substring of this string beginning at the
      * specified index starts with the specified prefix.
      *
@@ -1445,7 +1445,7 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this string starts with the specified prefix.
      *
      * @param   prefix   the prefix.
@@ -1462,7 +1462,7 @@ public final class String
         return startsWith(prefix, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this string ends with the specified suffix.
      *
      * @param   suffix   the suffix.
@@ -1477,7 +1477,7 @@ public final class String
         return startsWith(suffix, count - suffix.count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code for this string. The hash code for a
      * <code>String</code> object is computed as
      * <blockquote><pre>
@@ -1505,7 +1505,7 @@ public final class String
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the first occurrence of
      * the specified character. If a character with value
      * <code>ch</code> occurs in the character sequence represented by
@@ -1533,7 +1533,7 @@ public final class String
         return indexOf(ch, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the first occurrence of the
      * specified character, starting the search at the specified index.
      * <p>
@@ -1612,7 +1612,7 @@ public final class String
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the last occurrence of
      * the specified character. For values of <code>ch</code> in the
      * range from 0 to 0xFFFF (inclusive), the index (in Unicode code
@@ -1639,7 +1639,7 @@ public final class String
         return lastIndexOf(ch, count - 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the last occurrence of
      * the specified character, searching backward starting at the
      * specified index. For values of <code>ch</code> in the range
@@ -1708,7 +1708,7 @@ public final class String
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the first occurrence of the
      * specified substring. The integer returned is the smallest value
      * <i>k</i> such that:
@@ -1727,7 +1727,7 @@ public final class String
         return indexOf(str, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the first occurrence of the
      * specified substring, starting at the specified index.  The integer
      * returned is the smallest value <tt>k</tt> for which:
@@ -1746,7 +1746,7 @@ public final class String
                        str.value, str.offset, str.count, fromIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Code shared by String and StringBuffer to do searches. The
      * source is the character array being searched, and the target
      * is the string being searched for.
@@ -1797,7 +1797,7 @@ public final class String
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the rightmost occurrence
      * of the specified substring.  The rightmost empty string "" is
      * considered to occur at the index value <code>this.length()</code>.
@@ -1817,7 +1817,7 @@ public final class String
         return lastIndexOf(str, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index within this string of the last occurrence of the
      * specified substring, searching backward starting at the specified index.
      * The integer returned is the largest value <i>k</i> such that:
@@ -1836,7 +1836,7 @@ public final class String
                            str.value, str.offset, str.count, fromIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Code shared by String and StringBuffer to do searches. The
      * source is the character array being searched, and the target
      * is the string being searched for.
@@ -1895,7 +1895,7 @@ public final class String
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new string that is a substring of this string. The
      * substring begins with the character at the specified index and
      * extends to the end of this string. <p>
@@ -1916,7 +1916,7 @@ public final class String
         return substring(beginIndex, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new string that is a substring of this string. The
      * substring begins at the specified <code>beginIndex</code> and
      * extends to the character at index <code>endIndex - 1</code>.
@@ -1952,7 +1952,7 @@ public final class String
             new String(offset + beginIndex, endIndex - beginIndex, value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new character sequence that is a subsequence of this sequence.
      *
      * <p> An invocation of this method of the form
@@ -1984,7 +1984,7 @@ public final class String
         return this.substring(beginIndex, endIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the specified string to the end of this string.
      * <p>
      * If the length of the argument string is <code>0</code>, then this
@@ -2015,7 +2015,7 @@ public final class String
         return new String(0, count + otherLen, buf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new string resulting from replacing all occurrences of
      * <code>oldChar</code> in this string with <code>newChar</code>.
      * <p>
@@ -2072,7 +2072,7 @@ public final class String
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this string matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2102,7 +2102,7 @@ public final class String
         return Pattern.matches(regex, this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if and only if this string contains the specified
      * sequence of char values.
      *
@@ -2115,7 +2115,7 @@ public final class String
         return indexOf(s.toString()) > -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the first substring of this string that matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a> with the
      * given replacement.
@@ -2158,7 +2158,7 @@ public final class String
         return Pattern.compile(regex).matcher(this).replaceFirst(replacement);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces each substring of this string that matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a> with the
      * given replacement.
@@ -2201,7 +2201,7 @@ public final class String
         return Pattern.compile(regex).matcher(this).replaceAll(replacement);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces each substring of this string that matches the literal target
      * sequence with the specified literal replacement sequence. The
      * replacement proceeds from the beginning of the string to the end, for
@@ -2220,7 +2220,7 @@ public final class String
             this).replaceAll(Matcher.quoteReplacement(replacement.toString()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Splits this string around matches of the given
      * <a href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2304,7 +2304,7 @@ public final class String
         return Pattern.compile(regex).split(this, limit);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Splits this string around matches of the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2346,7 +2346,7 @@ public final class String
         return split(regex, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts all of the characters in this <code>String</code> to lower
      * case using the rules of the given <code>Locale</code>.  Case mapping is based
      * on the Unicode Standard version specified by the {@link java.lang.Character Character}
@@ -2485,7 +2485,7 @@ public final class String
         return new String(0, count+resultOffset, result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts all of the characters in this <code>String</code> to lower
      * case using the rules of the default locale. This is equivalent to calling
      * <code>toLowerCase(Locale.getDefault())</code>.
@@ -2508,7 +2508,7 @@ public final class String
         return toLowerCase(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts all of the characters in this <code>String</code> to upper
      * case using the rules of the given <code>Locale</code>. Case mapping is based
      * on the Unicode Standard version specified by the {@link java.lang.Character Character}
@@ -2648,7 +2648,7 @@ public final class String
         return new String(0, count+resultOffset, result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts all of the characters in this <code>String</code> to upper
      * case using the rules of the default locale. This method is equivalent to
      * <code>toUpperCase(Locale.getDefault())</code>.
@@ -2671,7 +2671,7 @@ public final class String
         return toUpperCase(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the string, with leading and trailing whitespace
      * omitted.
      * <p>
@@ -2717,7 +2717,7 @@ public final class String
         return ((st > 0) || (len < count)) ? substring(st, len) : this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This object (which is already a string!) is itself returned.
      *
      * @return  the string itself.
@@ -2726,7 +2726,7 @@ public final class String
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts this string to a new character array.
      *
      * @return  a newly allocated character array whose length is the length
@@ -2739,7 +2739,7 @@ public final class String
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string using the specified format string and
      * arguments.
      *
@@ -2781,7 +2781,7 @@ public final class String
         return new Formatter().format(format, args).toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string using the specified locale, format string,
      * and arguments.
      *
@@ -2825,7 +2825,7 @@ public final class String
         return new Formatter(l).format(format, args).toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>Object</code> argument.
      *
      * @param   obj   an <code>Object</code>.
@@ -2838,7 +2838,7 @@ public final class String
         return (obj == null) ? "null" : obj.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>char</code> array
      * argument. The contents of the character array are copied; subsequent
      * modification of the character array does not affect the newly
@@ -2852,7 +2852,7 @@ public final class String
         return new String(data);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of a specific subarray of the
      * <code>char</code> array argument.
      * <p>
@@ -2877,7 +2877,7 @@ public final class String
         return new String(data, offset, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a String that represents the character sequence in the
      * array specified.
      *
@@ -2892,7 +2892,7 @@ public final class String
         return new String(data, offset, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a String that represents the character sequence in the
      * array specified.
      *
@@ -2904,7 +2904,7 @@ public final class String
         return copyValueOf(data, 0, data.length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>boolean</code> argument.
      *
      * @param   b   a <code>boolean</code>.
@@ -2916,7 +2916,7 @@ public final class String
         return b ? "true" : "false";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>char</code>
      * argument.
      *
@@ -2929,7 +2929,7 @@ public final class String
         return new String(0, 1, data);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>int</code> argument.
      * <p>
      * The representation is exactly the one returned by the
@@ -2943,7 +2943,7 @@ public final class String
         return Integer.toString(i, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>long</code> argument.
      * <p>
      * The representation is exactly the one returned by the
@@ -2957,7 +2957,7 @@ public final class String
         return Long.toString(l, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>float</code> argument.
      * <p>
      * The representation is exactly the one returned by the
@@ -2971,7 +2971,7 @@ public final class String
         return Float.toString(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of the <code>double</code> argument.
      * <p>
      * The representation is exactly the one returned by the
@@ -2985,7 +2985,7 @@ public final class String
         return Double.toString(d);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a canonical representation for the string object.
      * <p>
      * A pool of strings, initially empty, is maintained privately by the

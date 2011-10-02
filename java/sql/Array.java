@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The mapping in the Java programming language for the SQL type
  * <code>ARRAY</code>.
  * By default, an <code>Array</code> value is a transaction-duration
@@ -69,7 +69,7 @@ package java.sql;
 
 public interface Array {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the SQL type name of the elements in
    * the array designated by this <code>Array</code> object.
    * If the elements are a built-in type, it returns
@@ -88,7 +88,7 @@ public interface Array {
    */
   String getBaseTypeName() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the JDBC type of the elements in the array designated
    * by this <code>Array</code> object.
    *
@@ -103,7 +103,7 @@ public interface Array {
    */
   int getBaseType() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the contents of the SQL <code>ARRAY</code> value designated
    * by this
    * <code>Array</code> object in the form of an array in the Java
@@ -127,7 +127,7 @@ public interface Array {
    */
   Object getArray() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the contents of the SQL <code>ARRAY</code> value designated by this
    * <code>Array</code> object.
    * This method uses
@@ -155,7 +155,7 @@ public interface Array {
    */
   Object getArray(java.util.Map<String,Class<?>> map) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a slice of the SQL <code>ARRAY</code>
    * value designated by this <code>Array</code> object, beginning with the
    * specified <code>index</code> and containing up to <code>count</code>
@@ -180,7 +180,7 @@ public interface Array {
    */
   Object getArray(long index, int count) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retreives a slice of the SQL <code>ARRAY</code> value
    * designated by this <code>Array</code> object, beginning with the specified
    * <code>index</code> and containing up to <code>count</code>
@@ -219,7 +219,7 @@ public interface Array {
   Object getArray(long index, int count, java.util.Map<String,Class<?>> map)
     throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a result set that contains the elements of the SQL
    * <code>ARRAY</code> value
    * designated by this <code>Array</code> object.  If appropriate,
@@ -244,7 +244,7 @@ public interface Array {
    */
   ResultSet getResultSet () throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a result set that contains the elements of the SQL
    * <code>ARRAY</code> value designated by this <code>Array</code> object.
    * This method uses
@@ -275,7 +275,7 @@ public interface Array {
    */
   ResultSet getResultSet (java.util.Map<String,Class<?>> map) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a result set holding the elements of the subarray that
    * starts at index <code>index</code> and contains up to
    * <code>count</code> successive elements.  This method uses
@@ -306,7 +306,7 @@ public interface Array {
    */
   ResultSet getResultSet(long index, int count) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a result set holding the elements of the subarray that
    * starts at index <code>index</code> and contains up to
    * <code>count</code> successive elements.
@@ -344,7 +344,7 @@ public interface Array {
   ResultSet getResultSet (long index, int count,
                           java.util.Map<String,Class<?>> map)
     throws SQLException;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method frees the <code>Array</code> object and releases the resources that
      * it holds. The object is invalid once the <code>free</code>
      * method is called.

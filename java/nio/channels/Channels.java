@@ -47,7 +47,7 @@ import sun.nio.cs.StreamDecoder;
 import sun.nio.cs.StreamEncoder;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Utility methods for channels and streams.
  *
  * <p> This class defines static methods that support the interoperation of the
@@ -84,7 +84,7 @@ public final class Channels {
 
     // -- Byte streams from channels --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a stream that reads bytes from the given channel.
      *
      * <p> The <tt>read</tt> methods of the resulting stream will throw an
@@ -104,7 +104,7 @@ public final class Channels {
         return new sun.nio.ch.ChannelInputStream(ch);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a stream that writes bytes to the given channel.
      *
      * <p> The <tt>write</tt> methods of the resulting stream will throw an
@@ -161,7 +161,7 @@ public final class Channels {
 
     // -- Channels from streams --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a channel that reads bytes from the given stream.
      *
      * <p> The resulting channel will not be buffered; it will simply redirect
@@ -238,7 +238,7 @@ public final class Channels {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a channel that writes bytes to the given stream.
      *
      * <p> The resulting channel will not be buffered; it will simply redirect
@@ -308,7 +308,7 @@ public final class Channels {
 
     // -- Character streams from channels --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a reader that decodes bytes from the given channel using the
      * given decoder.
      *
@@ -342,7 +342,7 @@ public final class Channels {
         return StreamDecoder.forDecoder(ch, dec, minBufferCap);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a reader that decodes bytes from the given channel according
      * to the named charset.
      *
@@ -377,7 +377,7 @@ public final class Channels {
         return newReader(ch, Charset.forName(csName).newDecoder(), -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a writer that encodes characters using the given encoder and
      * writes the resulting bytes to the given channel.
      *
@@ -410,7 +410,7 @@ public final class Channels {
         return StreamEncoder.forEncoder(ch, enc, minBufferCap);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a writer that encodes characters according to the named
      * charset and writes the resulting bytes to the given channel.
      *

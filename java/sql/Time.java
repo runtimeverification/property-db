@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>A thin wrapper around the <code>java.util.Date</code> class that allows the JDBC
  * API to identify this as an SQL <code>TIME</code> value. The <code>Time</code>
  * class adds formatting and
@@ -36,7 +36,7 @@ package java.sql;
  */
 public class Time extends java.util.Date {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Time</code> object initialized with the
      * given values for the hour, minute, and second.
      * The driver sets the date components to January 1, 1970.
@@ -58,7 +58,7 @@ public class Time extends java.util.Date {
         super(70, 0, 1, hour, minute, second);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Time</code> object using a milliseconds time value.
      *
      * @param time milliseconds since January 1, 1970, 00:00:00 GMT;
@@ -69,7 +69,7 @@ public class Time extends java.util.Date {
         super(time);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a <code>Time</code> object using a milliseconds time value.
      *
      * @param time milliseconds since January 1, 1970, 00:00:00 GMT;
@@ -80,7 +80,7 @@ public class Time extends java.util.Date {
         super.setTime(time);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts a string in JDBC time escape format to a <code>Time</code> value.
      *
      * @param s time in format "hh:mm:ss"
@@ -110,7 +110,7 @@ public class Time extends java.util.Date {
         return new Time(hour, minute, second);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats a time in JDBC time escape format.
      *
      * @return a <code>String</code> in hh:mm:ss format
@@ -143,7 +143,7 @@ public class Time extends java.util.Date {
 
     // Override all the date operations inherited from java.util.Date;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a year component.
     *
@@ -157,7 +157,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a month component.
     *
@@ -171,7 +171,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a day component.
     *
@@ -184,7 +184,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a date component.
     *
@@ -198,7 +198,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a year component.
     *
@@ -212,7 +212,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a month component.
     *
@@ -226,7 +226,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * This method is deprecated and should not be used because SQL <code>TIME</code>
     * values do not have a date component.
     *
@@ -240,7 +240,7 @@ public class Time extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Private serial version unique ID to ensure serialization
     * compatibility.
     */

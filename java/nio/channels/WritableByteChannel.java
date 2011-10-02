@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A channel that can write bytes.
  *
  * <p> Only one write operation upon a writable channel may be in progress at
@@ -49,7 +49,7 @@ public interface WritableByteChannel
     extends Channel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a sequence of bytes to this channel from the given buffer.
      *
      * <p> An attempt is made to write up to <i>r</i> bytes to the channel,

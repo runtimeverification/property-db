@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when an application tries to create an instance of a class
  * using the {@code newInstance} method in class
  * {@code Class}, but the specified class object cannot be
@@ -44,14 +44,14 @@ package java.lang;
  */
 public
 class InstantiationException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an {@code InstantiationException} with no detail message.
      */
     public InstantiationException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an {@code InstantiationException} with the
      * specified detail message.
      *

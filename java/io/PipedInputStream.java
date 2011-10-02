@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A piped input stream should be connected
  * to a piped output stream; the piped  input
@@ -68,7 +68,7 @@ public class PipedInputStream extends InputStream {
 
     private static final int DEFAULT_PIPE_SIZE = 1024;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The default size of the pipe's circular input buffer.
      * {@description.close}
@@ -79,7 +79,7 @@ public class PipedInputStream extends InputStream {
     // for backward compatibility.
     protected static final int PIPE_SIZE = DEFAULT_PIPE_SIZE;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The circular buffer into which incoming data is placed.
      * {@description.close}
@@ -87,7 +87,7 @@ public class PipedInputStream extends InputStream {
      */
     protected byte buffer[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index of the position in the circular buffer at which the
      * next byte of data will be stored when received from the connected
@@ -98,7 +98,7 @@ public class PipedInputStream extends InputStream {
      */
     protected int in = -1;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index of the position in the circular buffer at which the next
      * byte of data will be read by this piped input stream.
@@ -107,7 +107,7 @@ public class PipedInputStream extends InputStream {
      */
     protected int out = 0;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedInputStream</code> so
      * that it is connected to the piped output
@@ -123,7 +123,7 @@ public class PipedInputStream extends InputStream {
         this(src, DEFAULT_PIPE_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedInputStream</code> so that it is
      * connected to the piped output stream
@@ -145,7 +145,7 @@ public class PipedInputStream extends InputStream {
          connect(src);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedInputStream</code> so
      * that it is not yet {@linkplain #connect(java.io.PipedOutputStream)
@@ -159,7 +159,7 @@ public class PipedInputStream extends InputStream {
         initPipe(DEFAULT_PIPE_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedInputStream</code> so that it is not yet
      * {@linkplain #connect(java.io.PipedOutputStream) connected} and
@@ -184,7 +184,7 @@ public class PipedInputStream extends InputStream {
          buffer = new byte[pipeSize];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Causes this piped input stream to be connected
      * to the piped  output stream <code>src</code>.
@@ -214,7 +214,7 @@ public class PipedInputStream extends InputStream {
         src.connect(this);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Receives a byte of data.
      * {@description.close}
@@ -243,7 +243,7 @@ public class PipedInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Receives data into an array of bytes.
      * {@description.close}
@@ -313,7 +313,7 @@ public class PipedInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Notifies all waiting threads that the last byte of data has been
      * received.
@@ -324,7 +324,7 @@ public class PipedInputStream extends InputStream {
         notifyAll();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next byte of data from this piped input stream. The
      * value byte is returned as an <code>int</code> in the range
@@ -382,7 +382,7 @@ public class PipedInputStream extends InputStream {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this piped input
      * stream into an array of bytes. Less than <code>len</code> bytes
@@ -456,7 +456,7 @@ public class PipedInputStream extends InputStream {
         return rlen;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
@@ -482,7 +482,7 @@ public class PipedInputStream extends InputStream {
             return in + buffer.length - out;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this piped input stream and releases any system resources
      * associated with the stream.

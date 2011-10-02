@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * From a server executing on JDK&nbsp;1.1, a
  * <code>ServerRuntimeException</code> is thrown as a result of a
  * remote method invocation when a <code>RuntimeException</code> is
@@ -49,7 +49,7 @@ public class ServerRuntimeException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 7054464920481467219L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ServerRuntimeException</code> with the specified
      * detail message and nested exception.
      *

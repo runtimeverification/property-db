@@ -24,7 +24,7 @@
  */
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown by the security manager to indicate a security violation.
  *
  * @author  unascribed
@@ -35,14 +35,14 @@ public class SecurityException extends RuntimeException {
 
     private static final long serialVersionUID = 6878364983674394167L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SecurityException</code> with no detail  message.
      */
     public SecurityException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SecurityException</code> with the specified
      * detail message.
      *
@@ -52,7 +52,7 @@ public class SecurityException extends RuntimeException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SecurityException</code> with the specified
      * detail message and cause.
      *
@@ -67,7 +67,7 @@ public class SecurityException extends RuntimeException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SecurityException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

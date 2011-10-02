@@ -36,7 +36,7 @@
 package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An object reference that may be updated atomically. See the {@link
  * java.util.concurrent.atomic} package specification for description
  * of the properties of atomic variables.
@@ -59,7 +59,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
 
     private volatile V value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicReference with the given initial value.
      *
      * @param initialValue the initial value
@@ -68,13 +68,13 @@ public class AtomicReference<V>  implements java.io.Serializable {
         value = initialValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicReference with null initial value.
      */
     public AtomicReference() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current value.
      *
      * @return the current value
@@ -83,7 +83,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets to the given value.
      *
      * @param newValue the new value
@@ -92,7 +92,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         value = newValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Eventually sets to the given value.
      *
      * @param newValue the new value
@@ -102,7 +102,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         unsafe.putOrderedObject(this, valueOffset, newValue);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      * @param expect the expected value
@@ -114,7 +114,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         return unsafe.compareAndSwapObject(this, valueOffset, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -130,7 +130,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         return unsafe.compareAndSwapObject(this, valueOffset, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets to the given value and returns the old value.
      *
      * @param newValue the new value
@@ -144,7 +144,7 @@ public class AtomicReference<V>  implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String representation of the current value.
      * @return the String representation of the current value.
      */

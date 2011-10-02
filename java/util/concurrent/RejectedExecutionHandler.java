@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A handler for tasks that cannot be executed by a {@link ThreadPoolExecutor}.
  *
  * @since 1.5
@@ -43,7 +43,7 @@ package java.util.concurrent;
  */
 public interface RejectedExecutionHandler {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Method that may be invoked by a {@link ThreadPoolExecutor} when
      * {@link ThreadPoolExecutor#execute execute} cannot accept a
      * task.  This may occur when no more threads or queue slots are

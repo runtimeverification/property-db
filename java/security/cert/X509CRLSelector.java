@@ -36,7 +36,7 @@ import sun.security.util.DerInputStream;
 import sun.security.x509.CRLNumberExtension;
 import sun.security.x509.X500Name;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>CRLSelector</code> that selects <code>X509CRLs</code> that
  * match all specified criteria. This class is particularly useful when
  * selecting CRLs from a <code>CertStore</code> to check revocation status
@@ -80,13 +80,13 @@ public class X509CRLSelector implements CRLSelector {
     private Date dateAndTime;
     private X509Certificate certChecking;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <code>X509CRLSelector</code>. Initially, no criteria are set
      * so any <code>X509CRL</code> will match.
      */
     public X509CRLSelector() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the issuerNames criterion. The issuer distinguished name in the
      * <code>X509CRL</code> must match at least one of the specified
      * distinguished names. If <code>null</code>, any issuer distinguished name
@@ -127,7 +127,7 @@ public class X509CRLSelector implements CRLSelector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <strong>Note:</strong> use {@linkplain #setIssuers(Collection)} instead
      * or only specify the byte array form of distinguished names when using
      * this method. See {@link #addIssuerName(String)} for more information.
@@ -201,7 +201,7 @@ public class X509CRLSelector implements CRLSelector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a name to the issuerNames criterion. The issuer distinguished
      * name in the <code>X509CRL</code> must match at least one of the specified
      * distinguished names.
@@ -218,7 +218,7 @@ public class X509CRLSelector implements CRLSelector {
         addIssuerNameInternal(issuer.getEncoded(), issuer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <strong>Denigrated</strong>, use
      * {@linkplain #addIssuer(X500Principal)} or
      * {@linkplain #addIssuerName(byte[])} instead. This method should not be
@@ -242,7 +242,7 @@ public class X509CRLSelector implements CRLSelector {
         addIssuerNameInternal(name, new X500Name(name).asX500Principal());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a name to the issuerNames criterion. The issuer distinguished
      * name in the <code>X509CRL</code> must match at least one of the specified
      * distinguished names.
@@ -271,7 +271,7 @@ public class X509CRLSelector implements CRLSelector {
         addIssuerNameInternal(name.clone(), new X500Name(name).asX500Principal());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A private method that adds a name (String or byte array) to the
      * issuerNames criterion. The issuer distinguished
      * name in the <code>X509CRL</code> must match at least one of the specified
@@ -292,7 +292,7 @@ public class X509CRLSelector implements CRLSelector {
         issuerX500Principals.add(principal);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clone and check an argument of the form passed to
      * setIssuerNames. Throw an IOException if the argument is malformed.
      *
@@ -321,7 +321,7 @@ public class X509CRLSelector implements CRLSelector {
         return(namesCopy);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clone an argument of the form passed to setIssuerNames.
      * Throw a RuntimeException if the argument is malformed.
      * <p>
@@ -344,7 +344,7 @@ public class X509CRLSelector implements CRLSelector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parse an argument of the form passed to setIssuerNames,
      * returning a Collection of issuerX500Principals.
      * Throw an IOException if the argument is malformed.
@@ -374,7 +374,7 @@ public class X509CRLSelector implements CRLSelector {
         return x500Principals;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the minCRLNumber criterion. The <code>X509CRL</code> must have a
      * CRL number extension whose value is greater than or equal to the
      * specified value. If <code>null</code>, no minCRLNumber check will be
@@ -386,7 +386,7 @@ public class X509CRLSelector implements CRLSelector {
         this.minCRL = minCRL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the maxCRLNumber criterion. The <code>X509CRL</code> must have a
      * CRL number extension whose value is less than or equal to the
      * specified value. If <code>null</code>, no maxCRLNumber check will be
@@ -398,7 +398,7 @@ public class X509CRLSelector implements CRLSelector {
         this.maxCRL = maxCRL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the dateAndTime criterion. The specified date must be
      * equal to or later than the value of the thisUpdate component
      * of the <code>X509CRL</code> and earlier than the value of the
@@ -420,7 +420,7 @@ public class X509CRLSelector implements CRLSelector {
             this.dateAndTime = (Date) dateAndTime.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the certificate being checked. This is not a criterion. Rather,
      * it is optional information that may help a <code>CertStore</code>
      * find CRLs that would be relevant when checking revocation for the
@@ -435,7 +435,7 @@ public class X509CRLSelector implements CRLSelector {
         certChecking = cert;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the issuerNames criterion. The issuer distinguished
      * name in the <code>X509CRL</code> must match at least one of the specified
      * distinguished names. If the value returned is <code>null</code>, any
@@ -456,7 +456,7 @@ public class X509CRLSelector implements CRLSelector {
         return Collections.unmodifiableCollection(issuerX500Principals);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the issuerNames criterion. The issuer distinguished
      * name in the <code>X509CRL</code> must match at least one of the specified
      * distinguished names. If the value returned is <code>null</code>, any
@@ -486,7 +486,7 @@ public class X509CRLSelector implements CRLSelector {
         return cloneIssuerNames(issuerNames);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minCRLNumber criterion. The <code>X509CRL</code> must have a
      * CRL number extension whose value is greater than or equal to the
      * specified value. If <code>null</code>, no minCRLNumber check will be done.
@@ -497,7 +497,7 @@ public class X509CRLSelector implements CRLSelector {
         return minCRL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maxCRLNumber criterion. The <code>X509CRL</code> must have a
      * CRL number extension whose value is less than or equal to the
      * specified value. If <code>null</code>, no maxCRLNumber check will be
@@ -509,7 +509,7 @@ public class X509CRLSelector implements CRLSelector {
         return maxCRL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the dateAndTime criterion. The specified date must be
      * equal to or later than the value of the thisUpdate component
      * of the <code>X509CRL</code> and earlier than the value of the
@@ -529,7 +529,7 @@ public class X509CRLSelector implements CRLSelector {
         return (Date) dateAndTime.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the certificate being checked. This is not a criterion. Rather,
      * it is optional information that may help a <code>CertStore</code>
      * find CRLs that would be relevant when checking revocation for the
@@ -543,7 +543,7 @@ public class X509CRLSelector implements CRLSelector {
         return certChecking;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a printable representation of the <code>X509CRLSelector</code>.
      *
      * @return a <code>String</code> describing the contents of the
@@ -570,7 +570,7 @@ public class X509CRLSelector implements CRLSelector {
         return sb.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Decides whether a <code>CRL</code> should be selected.
      *
      * @param crl the <code>CRL</code> to be checked
@@ -669,7 +669,7 @@ public class X509CRLSelector implements CRLSelector {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of this object.
      *
      * @return the copy

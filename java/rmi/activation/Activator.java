@@ -30,7 +30,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.activation.UnknownObjectException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Activator</code> facilitates remote object activation. A
  * "faulting" remote reference calls the activator's
  * <code>activate</code> method to obtain a "live" reference to a
@@ -62,7 +62,7 @@ import java.rmi.activation.UnknownObjectException;
  * @since       1.2
  */
 public interface Activator extends Remote {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Activate the object associated with the activation identifier,
      * <code>id</code>. If the activator knows the object to be active
      * already, and <code>force</code> is false , the stub with a

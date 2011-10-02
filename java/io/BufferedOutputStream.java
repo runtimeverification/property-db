@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * The class implements a buffered output stream. By setting up such
  * an output stream, an application can write bytes to the underlying
@@ -38,14 +38,14 @@ package java.io;
  */
 public
 class BufferedOutputStream extends FilterOutputStream {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The internal buffer where data is stored.
      * {@description.close}
      */
     protected byte buf[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The number of valid bytes in the buffer.
      * {@description.close}
@@ -58,7 +58,7 @@ class BufferedOutputStream extends FilterOutputStream {
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new buffered output stream to write data to the
      * specified underlying output stream.
@@ -70,7 +70,7 @@ class BufferedOutputStream extends FilterOutputStream {
         this(out, 8192);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new buffered output stream to write data to the
      * specified underlying output stream with the specified buffer
@@ -89,7 +89,7 @@ class BufferedOutputStream extends FilterOutputStream {
         buf = new byte[size];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flush the internal buffer
      * {@description.close}
@@ -101,7 +101,7 @@ class BufferedOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified byte to this buffered output stream.
      * {@description.close}
@@ -116,7 +116,7 @@ class BufferedOutputStream extends FilterOutputStream {
         buf[count++] = (byte)b;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this buffered output stream.
@@ -150,7 +150,7 @@ class BufferedOutputStream extends FilterOutputStream {
         count += len;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes this buffered output stream. This forces any buffered
      * output bytes to be written out to the underlying output stream.

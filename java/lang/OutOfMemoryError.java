@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when the Java Virtual Machine cannot allocate an object
  * because it is out of memory, and no more memory could be made
  * available by the garbage collector.
@@ -35,14 +35,14 @@ package java.lang;
  */
 public
 class OutOfMemoryError extends VirtualMachineError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>OutOfMemoryError</code> with no detail message.
      */
     public OutOfMemoryError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>OutOfMemoryError</code> with the specified
      * detail message.
      *

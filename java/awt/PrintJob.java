@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class which initiates and executes a print job.
  * It provides access to a print graphics object which renders
  * to an appropriate print device.
@@ -36,7 +36,7 @@ package java.awt;
  */
 public abstract class PrintJob {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a Graphics object that will draw to the next page.
      * The page is sent to the printer when the graphics
      * object is disposed.  This graphics object will also implement
@@ -45,31 +45,31 @@ public abstract class PrintJob {
      */
     public abstract Graphics getGraphics();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the dimensions of the page in pixels.
      * The resolution of the page is chosen so that it
      * is similar to the screen resolution.
      */
     public abstract Dimension getPageDimension();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the resolution of the page in pixels per inch.
      * Note that this doesn't have to correspond to the physical
      * resolution of the printer.
      */
     public abstract int getPageResolution();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the last page will be printed first.
      */
     public abstract boolean lastPageFirst();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Ends the print job and does any necessary cleanup.
      */
     public abstract void end();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Ends this print job once it is no longer referenced.
      * @see #end
      */

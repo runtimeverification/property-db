@@ -28,7 +28,7 @@ package java.awt;
 import java.awt.image.Raster;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>PaintContext</code> interface defines the encapsulated
  * and optimized environment to generate color patterns in device
  * space for fill or stroke operations on a
@@ -42,12 +42,12 @@ import java.awt.image.ColorModel;
  */
 
 public interface PaintContext {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases the resources allocated for the operation.
      */
     public void dispose();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ColorModel</code> of the output.  Note that
      * this <code>ColorModel</code> might be different from the hint
      * specified in the
@@ -60,7 +60,7 @@ AffineTransform, RenderingHints) createContext} method of
      */
     ColorModel getColorModel();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Raster</code> containing the colors generated for
      * the graphics operation.
      * @param x the x coordinate of the area in device space

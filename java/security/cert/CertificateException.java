@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.GeneralSecurityException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This exception indicates one of a variety of certificate problems.
  *
  * @author Hemma Prafullchandra
@@ -37,7 +37,7 @@ public class CertificateException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 3192535253797119798L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a certificate exception with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -45,7 +45,7 @@ public class CertificateException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a certificate exception with the given detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -56,7 +56,7 @@ public class CertificateException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateException</code> with the specified
      * detail message and cause.
      *
@@ -71,7 +71,7 @@ public class CertificateException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

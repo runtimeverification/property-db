@@ -45,7 +45,7 @@ import java.text.CharacterIterator;
 import java.text.AttributedCharacterIterator;
 import java.awt.font.FontRenderContext;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>LineBreakMeasurer</code> class allows styled text to be
  * broken into lines (or segments) that fit within a particular visual
  * advance.  This is useful for clients who wish to display a paragraph of
@@ -254,7 +254,7 @@ public final class LineBreakMeasurer {
     private TextMeasurer measurer;
     private CharArrayIterator charIter;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>LineBreakMeasurer</code> for the specified text.
      *
      * @param text the text for which this <code>LineBreakMeasurer</code>
@@ -277,7 +277,7 @@ public final class LineBreakMeasurer {
         this(text, BreakIterator.getLineInstance(), frc);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>LineBreakMeasurer</code> for the specified text.
      *
      * @param text the text for which this <code>LineBreakMeasurer</code>
@@ -315,7 +315,7 @@ public final class LineBreakMeasurer {
         this.breakIter.setText(charIter);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position at the end of the next layout.  Does NOT
      * update the current position of this <code>LineBreakMeasurer</code>.
      *
@@ -328,7 +328,7 @@ public final class LineBreakMeasurer {
         return nextOffset(wrappingWidth, limit, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position at the end of the next layout.  Does NOT
      * update the current position of this <code>LineBreakMeasurer</code>.
      *
@@ -400,7 +400,7 @@ public final class LineBreakMeasurer {
         return nextOffset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next layout, and updates the current position.
      *
      * @param wrappingWidth the maximum visible advance permitted for
@@ -413,7 +413,7 @@ public final class LineBreakMeasurer {
         return nextLayout(wrappingWidth, limit, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next layout, and updates the current position.
      *
      * @param wrappingWidth the maximum visible advance permitted
@@ -451,7 +451,7 @@ public final class LineBreakMeasurer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current position of this <code>LineBreakMeasurer</code>.
      *
      * @return the current position of this <code>LineBreakMeasurer</code>
@@ -461,7 +461,7 @@ public final class LineBreakMeasurer {
         return pos;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current position of this <code>LineBreakMeasurer</code>.
      *
      * @param newPosition the current position of this
@@ -478,7 +478,7 @@ public final class LineBreakMeasurer {
         pos = newPosition;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates this <code>LineBreakMeasurer</code> after a single
      * character is inserted into the text, and sets the current
      * position to the beginning of the paragraph.
@@ -505,7 +505,7 @@ public final class LineBreakMeasurer {
         breakIter.setText(charIter);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates this <code>LineBreakMeasurer</code> after a single
      * character is deleted from the text, and sets the current
      * position to the beginning of the paragraph.

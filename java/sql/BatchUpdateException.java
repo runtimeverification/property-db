@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The subclass of {@link SQLException} thrown when an error
  * occurs during a batch update operation.  In addition to the
  * information provided by {@link SQLException}, a
@@ -52,7 +52,7 @@ package java.sql;
 
 public class BatchUpdateException extends SQLException {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Constructs a <code>BatchUpdateException</code> object initialized with a given
    * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code> and
    * <code>updateCounts</code>.
@@ -81,7 +81,7 @@ public class BatchUpdateException extends SQLException {
     this.updateCounts = updateCounts;
   }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Constructs a <code>BatchUpdateException</code> object initialized with a given
    * <code>reason</code>, <code>SQLState</code> and
    * <code>updateCounts</code>.
@@ -109,7 +109,7 @@ public class BatchUpdateException extends SQLException {
     this.updateCounts = updateCounts;
   }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Constructs a <code>BatchUpdateException</code> object initialized with a given
    * <code>reason</code> and <code>updateCounts</code>.
    * The <code>cause</code> is not initialized, and may subsequently be
@@ -136,7 +136,7 @@ public class BatchUpdateException extends SQLException {
     this.updateCounts = updateCounts;
   }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Constructs a <code>BatchUpdateException</code> object initialized with a given
    * <code>updateCounts</code>.
    * initialized by a call to the
@@ -160,7 +160,7 @@ public class BatchUpdateException extends SQLException {
     this.updateCounts = updateCounts;
   }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Constructs a <code>BatchUpdateException</code> object.
    * The <code>reason</code>, <code>SQLState</code> and <code>updateCounts</code>
    *  are initialized to <code>null</code> and the vendor code is initialized to 0.
@@ -176,7 +176,7 @@ public class BatchUpdateException extends SQLException {
     this.updateCounts = null;
   }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>BatchUpdateException</code> object initialized with
      *  a given <code>cause</code>.
      * The <code>SQLState</code> and <code>updateCounts</code>
@@ -195,7 +195,7 @@ public class BatchUpdateException extends SQLException {
         this.updateCounts = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>BatchUpdateException</code> object initialized with a
      * given <code>cause</code> and <code>updateCounts</code>.
      * The <code>SQLState</code> is initialized
@@ -222,7 +222,7 @@ public class BatchUpdateException extends SQLException {
         this.updateCounts = updateCounts;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>BatchUpdateException</code> object initialized with
      * a given <code>reason</code>, <code>cause</code>
      * and <code>updateCounts</code>. The <code>SQLState</code> is initialized
@@ -247,7 +247,7 @@ public class BatchUpdateException extends SQLException {
         this.updateCounts = updateCounts;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>BatchUpdateException</code> object initialized with
      * a given <code>reason</code>, <code>SQLState</code>,<code>cause</code>, and
    * <code>updateCounts</code>. The vendor code is initialized to 0.
@@ -273,7 +273,7 @@ public class BatchUpdateException extends SQLException {
         this.updateCounts = updateCounts;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>BatchUpdateException</code> object initialized with
      * a given <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>
      * <code>cause</code> and <code>updateCounts</code>.
@@ -301,7 +301,7 @@ public class BatchUpdateException extends SQLException {
         this.updateCounts = updateCounts;
     }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the update count for each update statement in the batch
    * update that executed successfully before this exception occurred.
    * A driver that implements batch updates may or may not continue to
@@ -335,7 +335,7 @@ public class BatchUpdateException extends SQLException {
     return updateCounts;
   }
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * The array that describes the outcome of a batch execution.
    * @serial
    * @since 1.2

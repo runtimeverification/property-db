@@ -42,7 +42,7 @@ import java.util.EventObject;
 import java.security.AccessControlContext;
 import java.security.AccessController;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>TrayIcon</code> object represents a tray icon that can be
  * added to the {@link SystemTray system tray}. A
  * <code>TrayIcon</code> can have a tooltip (text), an image, a popup
@@ -143,7 +143,7 @@ public class TrayIcon {
         SunToolkit.insertTargetMapping(this, AppContext.getAppContext());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>TrayIcon</code> with the specified image.
      *
      * @param image the <code>Image</code> to be used
@@ -169,7 +169,7 @@ public class TrayIcon {
         setImage(image);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>TrayIcon</code> with the specified image and
      * tooltip text.
      *
@@ -195,7 +195,7 @@ public class TrayIcon {
         setToolTip(tooltip);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>TrayIcon</code> with the specified image,
      * tooltip and popup menu.
      *
@@ -225,7 +225,7 @@ public class TrayIcon {
         setPopupMenu(popup);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the image for this <code>TrayIcon</code>.  The previous
      * tray icon image is discarded without calling the {@link
      * java.awt.Image#flush} method &#151; you will need to call it
@@ -259,7 +259,7 @@ public class TrayIcon {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current image used for this <code>TrayIcon</code>.
      *
      * @return the image
@@ -270,7 +270,7 @@ public class TrayIcon {
         return image;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the popup menu for this <code>TrayIcon</code>.  If
      * <code>popup</code> is <code>null</code>, no popup menu will be
      * associated with this <code>TrayIcon</code>.
@@ -314,7 +314,7 @@ public class TrayIcon {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the popup menu associated with this <code>TrayIcon</code>.
      *
      * @return the popup menu or <code>null</code> if none exists
@@ -324,7 +324,7 @@ public class TrayIcon {
         return popup;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the tooltip string for this <code>TrayIcon</code>. The
      * tooltip is displayed automatically when the mouse hovers over
      * the icon.  Setting the tooltip to <code>null</code> removes any
@@ -346,7 +346,7 @@ public class TrayIcon {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the tooltip string associated with this
      * <code>TrayIcon</code>.
      *
@@ -357,7 +357,7 @@ public class TrayIcon {
         return tooltip;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the auto-size property.  Auto-size determines whether the
      * tray image is automatically sized to fit the space allocated
      * for the image on the tray.  By default, the auto-size property
@@ -384,7 +384,7 @@ public class TrayIcon {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the auto-size property.
      *
      * @return <code>true</code> if the image will be auto-sized,
@@ -395,7 +395,7 @@ public class TrayIcon {
         return autosize;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified mouse listener to receive mouse events from
      * this <code>TrayIcon</code>.  Calling this method with a
      * <code>null</code> value has no effect.
@@ -422,7 +422,7 @@ public class TrayIcon {
         mouseListener = AWTEventMulticaster.add(mouseListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified mouse listener.  Calling this method with
      * <code>null</code> or an invalid value has no effect.
      * <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads"
@@ -441,7 +441,7 @@ public class TrayIcon {
         mouseListener = AWTEventMulticaster.remove(mouseListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the mouse listeners
      * registered on this <code>TrayIcon</code>.
      *
@@ -457,7 +457,7 @@ public class TrayIcon {
         return (MouseListener[])(getListeners(MouseListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified mouse listener to receive mouse-motion
      * events from this <code>TrayIcon</code>.  Calling this method
      * with a <code>null</code> value has no effect.
@@ -483,7 +483,7 @@ public class TrayIcon {
         mouseMotionListener = AWTEventMulticaster.add(mouseMotionListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified mouse-motion listener.  Calling this method with
      * <code>null</code> or an invalid value has no effect.
      * <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads"
@@ -502,7 +502,7 @@ public class TrayIcon {
         mouseMotionListener = AWTEventMulticaster.remove(mouseMotionListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the mouse-motion listeners
      * registered on this <code>TrayIcon</code>.
      *
@@ -518,7 +518,7 @@ public class TrayIcon {
         return (MouseMotionListener[]) (getListeners(MouseMotionListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the command name of the action event fired by this tray icon.
      *
      * @return the action command name, or <code>null</code> if none exists
@@ -529,7 +529,7 @@ public class TrayIcon {
         return actionCommand;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the command name for the action event fired by this tray
      * icon.  By default, this action command is set to
      * <code>null</code>.
@@ -544,7 +544,7 @@ public class TrayIcon {
         actionCommand = command;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified action listener to receive
      * <code>ActionEvent</code>s from this <code>TrayIcon</code>.
      * Action events usually occur when a user selects the tray icon,
@@ -569,7 +569,7 @@ public class TrayIcon {
         actionListener = AWTEventMulticaster.add(actionListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified action listener.  Calling this method with
      * <code>null</code> or an invalid value has no effect.
      * <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads"
@@ -589,7 +589,7 @@ public class TrayIcon {
         actionListener = AWTEventMulticaster.remove(actionListener, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the action listeners
      * registered on this <code>TrayIcon</code>.
      *
@@ -605,7 +605,7 @@ public class TrayIcon {
         return (ActionListener[])(getListeners(ActionListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The message type determines which icon will be displayed in the
      * caption of the message, and a possible system sound a message
      * may generate upon showing.
@@ -615,17 +615,17 @@ public class TrayIcon {
      * @since 1.6
      */
     public enum MessageType {
-        /** {@collect.stats} An error message */
+        /** {@collect.stats}  An error message */
         ERROR,
-        /** {@collect.stats} A warning message */
+        /** {@collect.stats}  A warning message */
         WARNING,
-        /** {@collect.stats} An information message */
+        /** {@collect.stats}  An information message */
         INFO,
-        /** {@collect.stats} Simple message */
+        /** {@collect.stats}  Simple message */
         NONE
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Displays a popup message near the tray icon.  The message will
      * disappear after a time or if the user clicks on it.  Clicking
      * on the message may trigger an {@code ActionEvent}.
@@ -660,7 +660,7 @@ public class TrayIcon {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the size, in pixels, of the space that the tray icon
      * occupies in the system tray.  For the tray icon that is not yet
      * added to the system tray, the returned size is equal to the

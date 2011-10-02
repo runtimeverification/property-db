@@ -51,7 +51,7 @@ import java.util.concurrent.ConcurrentMap;
 import sun.misc.Unsafe;
 import sun.reflect.ReflectionFactory;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Serialization's descriptor for classes.  It contains the name and
  * serialVersionUID of the class.  The ObjectStreamClass for a specific class
@@ -70,7 +70,7 @@ import sun.reflect.ReflectionFactory;
  */
 public class ObjectStreamClass implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * serialPersistentFields value indicating no serializable fields
      * {@description.close}
@@ -82,7 +82,7 @@ public class ObjectStreamClass implements Serializable {
     private static final ObjectStreamField[] serialPersistentFields =
         NO_FIELDS;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * reflection factory for obtaining serialization constructors
      * {@description.close}
@@ -92,7 +92,7 @@ public class ObjectStreamClass implements Serializable {
             new ReflectionFactory.GetReflectionFactoryAction());
 
     private static class Caches {
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * cache mapping local classes -> descriptors
          * {@description.close}
@@ -100,7 +100,7 @@ public class ObjectStreamClass implements Serializable {
         static final ConcurrentMap<WeakClassKey,Reference<?>> localDescs =
             new ConcurrentHashMap<WeakClassKey,Reference<?>>();
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * cache mapping field group/local desc pairs -> field reflectors
          * {@description.close}
@@ -108,14 +108,14 @@ public class ObjectStreamClass implements Serializable {
         static final ConcurrentMap<FieldReflectorKey,Reference<?>> reflectors =
             new ConcurrentHashMap<FieldReflectorKey,Reference<?>>();
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * queue for WeakReferences to local classes
          * {@description.close}
          */
         private static final ReferenceQueue<Class<?>> localDescsQueue =
             new ReferenceQueue<Class<?>>();
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * queue for WeakReferences to field reflectors keys
          * {@description.close}
@@ -124,56 +124,56 @@ public class ObjectStreamClass implements Serializable {
             new ReferenceQueue<Class<?>>();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class associated with this descriptor (if any)
      * {@description.close}
      */
     private Class cl;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * name of class represented by this descriptor
      * {@description.close}
      */
     private String name;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * serialVersionUID of represented class (null if not computed yet)
      * {@description.close}
      */
     private volatile Long suid;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if represents dynamic proxy class
      * {@description.close}
      */
     private boolean isProxy;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if represents enum type
      * {@description.close}
      */
     private boolean isEnum;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if represented class implements Serializable
      * {@description.close}
      */
     private boolean serializable;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if represented class implements Externalizable
      * {@description.close}
      */
     private boolean externalizable;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if desc has data written by class-defined writeObject method
      * {@description.close}
      */
     private boolean hasWriteObjectData;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * true if desc has externalizable data written in block data format; this
      * must be true by default to accommodate ObjectInputStream subclasses which
@@ -183,113 +183,113 @@ public class ObjectStreamClass implements Serializable {
      */
     private boolean hasBlockExternalData = true;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * exception (if any) thrown while attempting to resolve class
      * {@description.close}
      */
     private ClassNotFoundException resolveEx;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * exception (if any) to throw if non-enum deserialization attempted
      * {@description.close}
      */
     private InvalidClassException deserializeEx;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * exception (if any) to throw if non-enum serialization attempted
      * {@description.close}
      */
     private InvalidClassException serializeEx;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * exception (if any) to throw if default serialization attempted
      * {@description.close}
      */
     private InvalidClassException defaultSerializeEx;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * serializable fields
      * {@description.close}
      */
     private ObjectStreamField[] fields;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * aggregate marshalled size of primitive fields
      * {@description.close}
      */
     private int primDataSize;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * number of non-primitive fields
      * {@description.close}
      */
     private int numObjFields;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * reflector for setting/getting serializable field values
      * {@description.close}
      */
     private FieldReflector fieldRefl;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * data layout of serialized objects described by this class desc
      * {@description.close}
      */
     private volatile ClassDataSlot[] dataLayout;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * serialization-appropriate constructor, or null if none
      * {@description.close}
      */
     private Constructor cons;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class-defined writeObject method, or null if none
      * {@description.close}
      */
     private Method writeObjectMethod;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class-defined readObject method, or null if none
      * {@description.close}
      */
     private Method readObjectMethod;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class-defined readObjectNoData method, or null if none
      * {@description.close}
      */
     private Method readObjectNoDataMethod;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class-defined writeReplace method, or null if none
      * {@description.close}
      */
     private Method writeReplaceMethod;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * class-defined readResolve method, or null if none
      * {@description.close}
      */
     private Method readResolveMethod;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * local class descriptor for represented class (may point to self)
      * {@description.close}
      */
     private ObjectStreamClass localDesc;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * superclass descriptor appearing in stream
      * {@description.close}
      */
     private ObjectStreamClass superDesc;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Initializes native code.
      * {@description.close}
@@ -299,7 +299,7 @@ public class ObjectStreamClass implements Serializable {
         initNative();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find the descriptor for a class that can be serialized.  Creates an
      * ObjectStreamClass instance if one does not exist yet for class. Null is
      * returned if the specified class does not implement java.io.Serializable
@@ -312,7 +312,7 @@ public class ObjectStreamClass implements Serializable {
         return lookup(cl, false);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the descriptor for any class, regardless of whether it
      * implements {@link Serializable}.
@@ -326,7 +326,7 @@ public class ObjectStreamClass implements Serializable {
         return lookup(cl, true);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the name of the class described by this descriptor.
      * This method returns the name of the class in the format that
@@ -339,7 +339,7 @@ public class ObjectStreamClass implements Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return the serialVersionUID for this class.  The serialVersionUID
      * defines a set of classes all with the same name that have evolved from a
@@ -363,7 +363,7 @@ public class ObjectStreamClass implements Serializable {
         return suid.longValue();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return the class in the local VM that this version is mapped to.  Null
      * is returned if there is no corresponding local class.
@@ -375,7 +375,7 @@ public class ObjectStreamClass implements Serializable {
         return cl;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return an array of the fields of this serializable class.
      * {@description.close}
@@ -389,7 +389,7 @@ public class ObjectStreamClass implements Serializable {
         return getFields(true);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Get the field of this class by name.
      * {@description.close}
@@ -402,7 +402,7 @@ public class ObjectStreamClass implements Serializable {
         return getField(name, null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return a string describing this ObjectStreamClass.
      * {@description.close}
@@ -412,7 +412,7 @@ public class ObjectStreamClass implements Serializable {
             getSerialVersionUID() + "L;";
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Looks up and returns class descriptor for given class, or null if class
      * is non-serializable and "all" is set to false.
@@ -493,7 +493,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Placeholder used in class descriptor and field reflector lookup tables
      * for an entry in the process of being initialized.  (Internal) callers
@@ -509,7 +509,7 @@ public class ObjectStreamClass implements Serializable {
         private final Thread owner = Thread.currentThread();
         private Object entry = unset;
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Attempts to set the value contained by this EntryFuture.  If the
          * EntryFuture's value has not been set already, then the value is
@@ -527,7 +527,7 @@ public class ObjectStreamClass implements Serializable {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Returns the value contained by this EntryFuture, blocking if
          * necessary until a value is set.
@@ -555,7 +555,7 @@ public class ObjectStreamClass implements Serializable {
             return entry;
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Returns the thread that created this EntryFuture.
          * {@description.close}
@@ -565,7 +565,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates local class descriptor representing given class.
      * {@description.close}
@@ -653,7 +653,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@property.open formal:ObjectStreamClass_Initialize}
      * Creates blank class descriptor which should be initialized via a
      * subsequent call to initProxy(), initNonProxy() or readNonProxy().
@@ -662,7 +662,7 @@ public class ObjectStreamClass implements Serializable {
     ObjectStreamClass() {
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Initializes class descriptor representing a proxy class.
      * {@description.close}
@@ -696,7 +696,7 @@ public class ObjectStreamClass implements Serializable {
         fieldRefl = getReflector(fields, localDesc);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Initializes class descriptor representing a non-proxy class.
      * {@description.close}
@@ -783,7 +783,7 @@ public class ObjectStreamClass implements Serializable {
         fields = fieldRefl.getFields();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads non-proxy class descriptor information from given input stream.
      * The resulting class descriptor is not fully functional; it can only be
@@ -840,7 +840,7 @@ public class ObjectStreamClass implements Serializable {
         computeFieldOffsets();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes non-proxy class descriptor information to given output stream.
      * {@description.close}
@@ -878,7 +878,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns ClassNotFoundException (if any) thrown while attempting to
      * resolve local class corresponding to this class descriptor.
@@ -888,7 +888,7 @@ public class ObjectStreamClass implements Serializable {
         return resolveEx;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Throws an InvalidClassException if object instances referencing this
      * class descriptor should not be allowed to deserialize.  This method does
@@ -905,7 +905,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Throws an InvalidClassException if objects whose class is represented by
      * this descriptor should not be allowed to serialize.  This method does
@@ -922,7 +922,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Throws an InvalidClassException if objects whose class is represented by
      * this descriptor should not be permitted to use default serialization
@@ -941,7 +941,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns superclass descriptor.  Note that on the receiving side, the
      * superclass descriptor may be bound to a class that is not a superclass
@@ -952,7 +952,7 @@ public class ObjectStreamClass implements Serializable {
         return superDesc;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the "local" class descriptor for the class associated with this
      * class descriptor (i.e., the result of
@@ -964,7 +964,7 @@ public class ObjectStreamClass implements Serializable {
         return localDesc;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns arrays of ObjectStreamFields representing the serializable
      * fields of the represented class.  If copy is true, a clone of this class
@@ -976,7 +976,7 @@ public class ObjectStreamClass implements Serializable {
         return copy ? fields.clone() : fields;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Looks up a serializable field of the represented class by name and type.
      * A specified type of null matches all types, Object.class matches all
@@ -1002,7 +1002,7 @@ public class ObjectStreamClass implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if class descriptor represents a dynamic proxy class, false
      * otherwise.
@@ -1012,7 +1012,7 @@ public class ObjectStreamClass implements Serializable {
         return isProxy;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if class descriptor represents an enum type, false
      * otherwise.
@@ -1022,7 +1022,7 @@ public class ObjectStreamClass implements Serializable {
         return isEnum;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class implements Externalizable, false
      * otherwise.
@@ -1032,7 +1032,7 @@ public class ObjectStreamClass implements Serializable {
         return externalizable;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class implements Serializable, false
      * otherwise.
@@ -1042,7 +1042,7 @@ public class ObjectStreamClass implements Serializable {
         return serializable;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if class descriptor represents externalizable class that
      * has written its data in 1.2 (block data) format, false otherwise.
@@ -1052,7 +1052,7 @@ public class ObjectStreamClass implements Serializable {
         return hasBlockExternalData;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if class descriptor represents serializable (but not
      * externalizable) class which has written its data via a custom
@@ -1063,7 +1063,7 @@ public class ObjectStreamClass implements Serializable {
         return hasWriteObjectData;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable/externalizable and can
      * be instantiated by the serialization runtime--i.e., if it is
@@ -1076,7 +1076,7 @@ public class ObjectStreamClass implements Serializable {
         return (cons != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable (but not
      * externalizable) and defines a conformant writeObject method.  Otherwise,
@@ -1087,7 +1087,7 @@ public class ObjectStreamClass implements Serializable {
         return (writeObjectMethod != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable (but not
      * externalizable) and defines a conformant readObject method.  Otherwise,
@@ -1098,7 +1098,7 @@ public class ObjectStreamClass implements Serializable {
         return (readObjectMethod != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable (but not
      * externalizable) and defines a conformant readObjectNoData method.
@@ -1109,7 +1109,7 @@ public class ObjectStreamClass implements Serializable {
         return (readObjectNoDataMethod != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable or externalizable and
      * defines a conformant writeReplace method.  Otherwise, returns false.
@@ -1119,7 +1119,7 @@ public class ObjectStreamClass implements Serializable {
         return (writeReplaceMethod != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if represented class is serializable or externalizable and
      * defines a conformant readResolve method.  Otherwise, returns false.
@@ -1129,7 +1129,7 @@ public class ObjectStreamClass implements Serializable {
         return (readResolveMethod != null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new instance of the represented class.  If the class is
      * externalizable, invokes its public no-arg constructor; otherwise, if the
@@ -1156,7 +1156,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Invokes the writeObject method of the represented serializable class.
      * Throws UnsupportedOperationException if this class descriptor is not
@@ -1186,7 +1186,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Invokes the readObject method of the represented serializable class.
      * Throws UnsupportedOperationException if this class descriptor is not
@@ -1219,7 +1219,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Invokes the readObjectNoData method of the represented serializable
      * class.  Throws UnsupportedOperationException if this class descriptor is
@@ -1249,7 +1249,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Invokes the writeReplace method of the represented serializable class and
      * returns the result.  Throws UnsupportedOperationException if this class
@@ -1280,7 +1280,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Invokes the readResolve method of the represented serializable class and
      * returns the result.  Throws UnsupportedOperationException if this class
@@ -1311,7 +1311,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Class representing the portion of an object's serialized form allotted
      * to data described by a given class descriptor.  If "hasData" is false,
@@ -1321,9 +1321,9 @@ public class ObjectStreamClass implements Serializable {
      */
     static class ClassDataSlot {
 
-        /** {@collect.stats} class descriptor "occupying" this slot */
+        /** {@collect.stats}  class descriptor "occupying" this slot */
         final ObjectStreamClass desc;
-        /** {@collect.stats} true if serialized form includes data for this slot's descriptor */
+        /** {@collect.stats}  true if serialized form includes data for this slot's descriptor */
         final boolean hasData;
 
         ClassDataSlot(ObjectStreamClass desc, boolean hasData) {
@@ -1332,7 +1332,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns array of ClassDataSlot instances representing the data layout
      * (including superclass data) for serialized objects described by this
@@ -1397,7 +1397,7 @@ public class ObjectStreamClass implements Serializable {
             slots.toArray(new ClassDataSlot[slots.size()]);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns aggregate size (in bytes) of marshalled primitive field values
      * for represented class.
@@ -1407,7 +1407,7 @@ public class ObjectStreamClass implements Serializable {
         return primDataSize;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns number of non-primitive serializable fields of represented
      * class.
@@ -1417,7 +1417,7 @@ public class ObjectStreamClass implements Serializable {
         return numObjFields;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Fetches the serializable primitive field values of object obj and
      * marshals them into byte array buf starting at offset 0.  It is the
@@ -1429,7 +1429,7 @@ public class ObjectStreamClass implements Serializable {
         fieldRefl.getPrimFieldValues(obj, buf);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Sets the serializable primitive fields of object obj using values
      * unmarshalled from byte array buf starting at offset 0.  It is the
@@ -1441,7 +1441,7 @@ public class ObjectStreamClass implements Serializable {
         fieldRefl.setPrimFieldValues(obj, buf);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Fetches the serializable object field values of object obj and stores
      * them in array vals starting at offset 0.  It is the responsibility of
@@ -1452,7 +1452,7 @@ public class ObjectStreamClass implements Serializable {
         fieldRefl.getObjFieldValues(obj, vals);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Sets the serializable object fields of object obj using values from
      * array vals starting at offset 0.  It is the responsibility of the caller
@@ -1463,7 +1463,7 @@ public class ObjectStreamClass implements Serializable {
         fieldRefl.setObjFieldValues(obj, vals);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Calculates and sets serializable field offsets, as well as primitive
      * data size and object field count totals.  Throws InvalidClassException
@@ -1520,7 +1520,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * If given class is the same as the class associated with this class
      * descriptor, returns reference to this class descriptor.  Otherwise,
@@ -1542,7 +1542,7 @@ public class ObjectStreamClass implements Serializable {
         return desc;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns public no-arg constructor of given class, or null if none found.
      * Access checks are disabled on the returned constructor (if any), since
@@ -1560,7 +1560,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns subclass-accessible no-arg constructor of first non-serializable
      * superclass, or null if none found.  Access checks are disabled on the
@@ -1591,7 +1591,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns non-static, non-abstract method with given signature provided it
      * is defined by or accessible (via inheritance) by the given class, or
@@ -1630,7 +1630,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns non-static private method with given signature defined by given
      * class, or null if none found.  Access checks are disabled on the
@@ -1653,7 +1653,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if classes are defined in the same runtime package, false
      * otherwise.
@@ -1664,7 +1664,7 @@ public class ObjectStreamClass implements Serializable {
                 getPackageName(cl1).equals(getPackageName(cl2)));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns package name of given class.
      * {@description.close}
@@ -1679,7 +1679,7 @@ public class ObjectStreamClass implements Serializable {
         return (i >= 0) ? s.substring(0, i) : "";
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Compares class names for equality, ignoring package names.  Returns true
      * if class names equal, false otherwise.
@@ -1691,7 +1691,7 @@ public class ObjectStreamClass implements Serializable {
         return name1.equals(name2);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns JVM type signature for given class.
      * {@description.close}
@@ -1730,7 +1730,7 @@ public class ObjectStreamClass implements Serializable {
         return sbuf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns JVM type signature for given list of parameters and return type.
      * {@description.close}
@@ -1748,7 +1748,7 @@ public class ObjectStreamClass implements Serializable {
         return sbuf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Convenience method for throwing an exception that is either a
      * RuntimeException, Error, or of some unexpected type (in which case it is
@@ -1767,7 +1767,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns ObjectStreamField array describing the serializable fields of
      * the given class.  Serializable fields backed by an actual field of the
@@ -1795,7 +1795,7 @@ public class ObjectStreamClass implements Serializable {
         return fields;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns serializable fields of given class as defined explicitly by a
      * "serialPersistentFields" field, or null if no appropriate
@@ -1859,7 +1859,7 @@ public class ObjectStreamClass implements Serializable {
         return boundFields;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns array of ObjectStreamFields corresponding to all non-static
      * non-transient fields declared by given class.  Each ObjectStreamField
@@ -1882,7 +1882,7 @@ public class ObjectStreamClass implements Serializable {
             (ObjectStreamField[]) list.toArray(new ObjectStreamField[size]);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns explicit serial version UID value declared by given class, or
      * null if none.
@@ -1901,7 +1901,7 @@ public class ObjectStreamClass implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Computes the default serial version UID value for the given class.
      * {@description.close}
@@ -2055,7 +2055,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns true if the given class defines a static initializer method,
      * false otherwise.
@@ -2063,7 +2063,7 @@ public class ObjectStreamClass implements Serializable {
      */
     private native static boolean hasStaticInitializer(Class cl);
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Class for computing and caching field/constructor/method signatures
      * during serialVersionUID calculation.
@@ -2096,7 +2096,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Class for setting and retrieving serializable field values in batch.
      * {@description.close}
@@ -2104,57 +2104,57 @@ public class ObjectStreamClass implements Serializable {
     // REMIND: dynamically generate these?
     private static class FieldReflector {
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * handle for performing unsafe operations
          * {@description.close}
          */
         private static final Unsafe unsafe = Unsafe.getUnsafe();
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * fields to operate on
          * {@description.close}
          */
         private final ObjectStreamField[] fields;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * number of primitive fields
          * {@description.close}
          */
         private final int numPrimFields;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * unsafe field keys for reading fields - may contain dupes
          * {@description.close}
          */
         private final long[] readKeys;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * unsafe fields keys for writing fields - no dupes 
          * {@description.close}
          / 
         private final long[] writeKeys;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * field data offsets
          * {@description.close}
          */
         private final int[] offsets;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * field type codes
          * {@description.close}
          */
         private final char[] typeCodes;
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * field types
          * {@description.close}
          */
         private final Class[] types;
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Constructs FieldReflector capable of setting/getting values from the
          * subset of fields whose ObjectStreamFields contain non-null
@@ -2192,7 +2192,7 @@ public class ObjectStreamClass implements Serializable {
             numPrimFields = nfields - types.length;
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Returns list of ObjectStreamFields representing fields operated on
          * by this reflector.  The shared/unshared values and Field objects
@@ -2204,7 +2204,7 @@ public class ObjectStreamClass implements Serializable {
             return fields;
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Fetches the serializable primitive field values of object obj and
          * marshals them into byte array buf starting at offset 0.  The caller
@@ -2261,7 +2261,7 @@ public class ObjectStreamClass implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Sets the serializable primitive fields of object obj using values
          * unmarshalled from byte array buf starting at offset 0.  The caller
@@ -2317,7 +2317,7 @@ public class ObjectStreamClass implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Fetches the serializable object field values of object obj and
          * stores them in array vals starting at offset 0.  The caller is
@@ -2345,7 +2345,7 @@ public class ObjectStreamClass implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Sets the serializable object fields of object obj using values from
          * array vals starting at offset 0.  The caller is responsible for
@@ -2389,7 +2389,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Matches given set of serializable fields with serializable fields
      * described by the given local class descriptor, and returns a
@@ -2460,7 +2460,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * FieldReflector cache lookup key.  Keys are considered equal if they
      * refer to the same class and equivalent field formats.
@@ -2508,7 +2508,7 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Matches given set of serializable fields with serializable fields
      * obtained from the given local class descriptor (which contain bindings
@@ -2570,7 +2570,7 @@ public class ObjectStreamClass implements Serializable {
         return matches;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Removes from the specified map any keys that have been enqueued
      * on the specified reference queue.
@@ -2586,14 +2586,14 @@ public class ObjectStreamClass implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      *  Weak key for Class objects.
      * {@description.close}
      *
      **/
     static class WeakClassKey extends WeakReference<Class<?>> {
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * saved value of the referent's identity hash code, to maintain
          * a consistent hash code after the referent has been cleared
@@ -2601,7 +2601,7 @@ public class ObjectStreamClass implements Serializable {
          */
         private final int hash;
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Create a new WeakClassKey to the given object, registered
          * with a queue.
@@ -2612,7 +2612,7 @@ public class ObjectStreamClass implements Serializable {
             hash = System.identityHashCode(cl);
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Returns the identity hash code of the original referent.
          * {@description.close}
@@ -2621,7 +2621,7 @@ public class ObjectStreamClass implements Serializable {
             return hash;
         }
 
-        /**
+        /** {@collect.stats}
          * {@description.open}
          * Returns true if the given object is this identical
          * WeakClassKey instance, or, if this object's referent has not

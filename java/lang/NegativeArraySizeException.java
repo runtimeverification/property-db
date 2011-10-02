@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown if an application tries to create an array with negative size.
  *
  * @author  unascribed
@@ -33,7 +33,7 @@ package java.lang;
  */
 public
 class NegativeArraySizeException extends RuntimeException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>NegativeArraySizeException</code> with no
      * detail message.
      */
@@ -41,7 +41,7 @@ class NegativeArraySizeException extends RuntimeException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>NegativeArraySizeException</code> with the
      * specified detail message.
      *

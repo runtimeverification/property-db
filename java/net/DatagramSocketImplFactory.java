@@ -25,7 +25,7 @@
 
 package java.net;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This interface defines a factory for datagram socket implementations. It
  * is used by the classes <code>DatagramSocket</code> to create actual socket
  * implementations.
@@ -36,7 +36,7 @@ package java.net;
  */
 public
 interface DatagramSocketImplFactory {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>DatagramSocketImpl</code> instance.
      *
      * @return  a new instance of <code>DatagramSocketImpl</code>.

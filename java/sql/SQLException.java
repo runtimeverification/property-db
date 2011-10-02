@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>An exception that provides information on a database access
  * error or other errors.
  *
@@ -53,7 +53,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 public class SQLException extends java.lang.Exception
                           implements Iterable<Throwable> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLException</code> object with a given
      * <code>reason</code>, <code>SQLState</code>  and
      * <code>vendorCode</code>.
@@ -80,7 +80,7 @@ public class SQLException extends java.lang.Exception
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLException</code> object with a given
      * <code>reason</code> and <code>SQLState</code>.
      *
@@ -104,7 +104,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLException</code> object with a given
      * <code>reason</code>. The  <code>SQLState</code>  is initialized to
      * <code>null</code> and the vender code is initialized to 0.
@@ -126,7 +126,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLException</code> object.
      * The <code>reason</code>, <code>SQLState</code> are initialized
      * to <code>null</code> and the vendor code is initialized to 0.
@@ -147,7 +147,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLException</code> object with a given
      * <code>cause</code>.
      * The <code>SQLState</code> is initialized
@@ -171,7 +171,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLException</code> object with a given
      * <code>reason</code> and  <code>cause</code>.
      * The <code>SQLState</code> is  initialized to <code>null</code>
@@ -193,7 +193,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLException</code> object with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
      * The vendor code is initialized to 0.
@@ -219,7 +219,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLException</code> object with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>
      * and  <code>cause</code>.
@@ -246,7 +246,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the SQLState for this <code>SQLException</code> object.
      *
      * @return the SQLState value
@@ -255,7 +255,7 @@ public class SQLException extends java.lang.Exception
         return (SQLState);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the vendor-specific exception code
      * for this <code>SQLException</code> object.
      *
@@ -265,7 +265,7 @@ public class SQLException extends java.lang.Exception
         return (vendorCode);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the exception chained to this
      * <code>SQLException</code> object by setNextException(SQLException ex).
      *
@@ -277,7 +277,7 @@ public class SQLException extends java.lang.Exception
         return (next);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an <code>SQLException</code> object to the end of the chain.
      *
      * @param ex the new exception that will be added to the end of
@@ -301,7 +301,7 @@ public class SQLException extends java.lang.Exception
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the chained SQLExceptions.  The iterator will
      * be used to iterate over each SQLException and its underlying cause
      * (if any).
@@ -353,17 +353,17 @@ public class SQLException extends java.lang.Exception
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
          * @serial
          */
     private String SQLState;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * @serial
          */
     private int vendorCode;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * @serial
          */
     private volatile SQLException next;

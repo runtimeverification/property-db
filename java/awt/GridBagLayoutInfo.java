@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code GridBagLayoutInfo} is an utility class for
  * {@code GridBagLayout} layout manager.
  * It stores align, size and baseline parameters for every component within a container.
@@ -57,7 +57,7 @@ public class GridBagLayoutInfo implements java.io.Serializable {
     int maxAscent[];            /* Max ascent (baseline). */
     int maxDescent[];           /* Max descent (height - baseline) */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of GridBagLayoutInfo representing {@code GridBagLayout}
      * grid cells with it's own parameters.
      * @param width the columns
@@ -69,7 +69,7 @@ public class GridBagLayoutInfo implements java.io.Serializable {
         this.height = height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the specified row has any component aligned on the
      * baseline with a baseline resize behavior of CONSTANT_DESCENT.
      */
@@ -78,7 +78,7 @@ public class GridBagLayoutInfo implements java.io.Serializable {
                                       CONSTANT_DESCENT.ordinal())) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if there is a baseline for the specified row.
      */
     boolean hasBaseline(int row) {

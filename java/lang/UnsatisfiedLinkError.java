@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown if the Java Virtual Machine cannot find an appropriate
  * native-language definition of a method declared <code>native</code>.
  *
@@ -35,14 +35,14 @@ package java.lang;
  */
 public
 class UnsatisfiedLinkError extends LinkageError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnsatisfiedLinkError</code> with no detail message.
      */
     public UnsatisfiedLinkError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnsatisfiedLinkError</code> with the
      * specified detail message.
      *

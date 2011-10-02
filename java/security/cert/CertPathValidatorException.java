@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.GeneralSecurityException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An exception indicating one of a variety of problems encountered when
  * validating a certification path.
  * <p>
@@ -59,19 +59,19 @@ public class CertPathValidatorException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -3083180014971893139L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the index of the certificate in the certification path
      * that caused the exception to be thrown
      */
     private int index = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the <code>CertPath</code> that was being validated when
      * the exception was thrown
      */
     private CertPath certPath;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathValidatorException</code> with
      * no detail message.
      */
@@ -79,7 +79,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathValidatorException</code> with the given
      * detail message. A detail message is a <code>String</code> that
      * describes this particular exception.
@@ -90,7 +90,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathValidatorException</code> that wraps the
      * specified throwable. This allows any exception to be converted into a
      * <code>CertPathValidatorException</code>, while retaining information
@@ -107,7 +107,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         super(cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathValidatorException</code> with the specified
      * detail message and cause.
      *
@@ -120,7 +120,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         super(msg, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathValidatorException</code> with the specified
      * detail message, cause, certification path, and index.
      *
@@ -151,7 +151,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         this.index = index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the certification path that was being validated when
      * the exception was thrown.
      *
@@ -162,7 +162,7 @@ public class CertPathValidatorException extends GeneralSecurityException {
         return this.certPath;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the certificate in the certification path
      * that caused the exception to be thrown. Note that the list of
      * certificates in a <code>CertPath</code> is zero based. If no

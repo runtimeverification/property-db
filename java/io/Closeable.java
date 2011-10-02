@@ -27,7 +27,7 @@ package java.io;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <tt>Closeable</tt> is a source or destination of data that can be closed.
  * The close method is invoked to release resources that the object is
@@ -39,7 +39,7 @@ import java.io.IOException;
 
 public interface Closeable {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this stream and releases any system resources associated
      * with it.

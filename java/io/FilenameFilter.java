@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Instances of classes that implement this interface are used to
  * filter filenames. These instances are used to filter directory
@@ -43,7 +43,7 @@ package java.io;
  */
 public
 interface FilenameFilter {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tests if a specified file should be included in a file list.
      * {@description.close}

@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@descriptive.open}
  * The {@code Void} class is an uninstantiable placeholder class to hold a
  * reference to the {@code Class} object representing the Java keyword
@@ -38,7 +38,7 @@ package java.lang;
 public final
 class Void {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * The {@code Class} object representing the pseudo-type corresponding to
      * the keyword {@code void}.

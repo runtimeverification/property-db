@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FileDescriptor;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The abstract class <code>SocketImpl</code> is a common superclass
  * of all classes that actually implement sockets. It is used to
  * create both client and server sockets.
@@ -42,33 +42,33 @@ import java.io.FileDescriptor;
  * @since   JDK1.0
  */
 public abstract class SocketImpl implements SocketOptions {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The actual Socket object.
      */
     Socket socket = null;
     ServerSocket serverSocket = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The file descriptor object for this socket.
      */
     protected FileDescriptor fd;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The IP address of the remote end of this socket.
      */
     protected InetAddress address;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The port number on the remote host to which this socket is connected.
      */
     protected int port;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The local port number to which this socket is connected.
      */
     protected int localport;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates either a stream or a datagram socket.
      *
      * @param      stream   if <code>true</code>, create a stream socket;
@@ -78,7 +78,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void create(boolean stream) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Connects this socket to the specified port on the named host.
      *
      * @param      host   the name of the remote host.
@@ -88,7 +88,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void connect(String host, int port) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Connects this socket to the specified port number on the specified host.
      *
      * @param      address   the IP address of the remote host.
@@ -98,7 +98,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void connect(InetAddress address, int port) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Connects this socket to the specified port number on the specified host.
      * A timeout of zero is interpreted as an infinite timeout. The connection
      * will then block until established or an error occurs.
@@ -111,7 +111,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void connect(SocketAddress address, int timeout) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Binds this socket to the specified local IP address and port number.
      *
      * @param      host   an IP address that belongs to a local interface.
@@ -120,7 +120,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void bind(InetAddress host, int port) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the maximum queue length for incoming connection indications
      * (a request to connect) to the <code>count</code> argument. If a
      * connection indication arrives when the queue is full, the
@@ -131,7 +131,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void listen(int backlog) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Accepts a connection.
      *
      * @param      s   the accepted connection.
@@ -140,7 +140,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void accept(SocketImpl s) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an input stream for this socket.
      *
      * @return     a stream for reading from this socket.
@@ -149,7 +149,7 @@ public abstract class SocketImpl implements SocketOptions {
     */
     protected abstract InputStream getInputStream() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an output stream for this socket.
      *
      * @return     an output stream for writing to this socket.
@@ -158,7 +158,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract OutputStream getOutputStream() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bytes that can be read from this socket
      * without blocking.
      *
@@ -169,14 +169,14 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract int available() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this socket.
      *
      * @exception  IOException  if an I/O error occurs when closing this socket.
      */
     protected abstract void close() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Places the input stream for this socket at "end of stream".
      * Any data sent to this socket is acknowledged and then
      * silently discarded.
@@ -195,7 +195,7 @@ public abstract class SocketImpl implements SocketOptions {
       throw new IOException("Method not implemented!");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disables the output stream for this socket.
      * For a TCP socket, any previously written data will be sent
      * followed by TCP's normal connection termination sequence.
@@ -215,7 +215,7 @@ public abstract class SocketImpl implements SocketOptions {
       throw new IOException("Method not implemented!");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this socket's <code>fd</code> field.
      *
      * @return  the value of this socket's <code>fd</code> field.
@@ -225,7 +225,7 @@ public abstract class SocketImpl implements SocketOptions {
         return fd;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this socket's <code>address</code> field.
      *
      * @return  the value of this socket's <code>address</code> field.
@@ -235,7 +235,7 @@ public abstract class SocketImpl implements SocketOptions {
         return address;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this socket's <code>port</code> field.
      *
      * @return  the value of this socket's <code>port</code> field.
@@ -245,7 +245,7 @@ public abstract class SocketImpl implements SocketOptions {
         return port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not this SocketImpl supports sending
      * urgent data. By default, false is returned
      * unless the method is overridden in a sub-class
@@ -258,7 +258,7 @@ public abstract class SocketImpl implements SocketOptions {
         return false; // must be overridden in sub-class
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Send one byte of urgent data on the socket.
      * The byte to be sent is the low eight bits of the parameter
      * @param data The byte of data to send
@@ -268,7 +268,7 @@ public abstract class SocketImpl implements SocketOptions {
      */
     protected abstract void sendUrgentData (int data) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this socket's <code>localport</code> field.
      *
      * @return  the value of this socket's <code>localport</code> field.
@@ -294,7 +294,7 @@ public abstract class SocketImpl implements SocketOptions {
         return serverSocket;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the address and port of this socket as a <code>String</code>.
      *
      * @return  a string representation of this socket.
@@ -310,7 +310,7 @@ public abstract class SocketImpl implements SocketOptions {
         localport = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets performance preferences for this socket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations

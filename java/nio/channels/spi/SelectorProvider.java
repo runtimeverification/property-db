@@ -38,7 +38,7 @@ import java.util.ServiceConfigurationError;
 import sun.security.action.GetPropertyAction;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Service-provider class for selectors and selectable channels.
  *
  * <p> A selector provider is a concrete subclass of this class that has a
@@ -73,7 +73,7 @@ public abstract class SelectorProvider {
     private static final Object lock = new Object();
     private static SelectorProvider provider = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.  </p>
      *
      * @throws  SecurityException
@@ -128,7 +128,7 @@ public abstract class SelectorProvider {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the system-wide default selector provider for this invocation of
      * the Java virtual machine.
      *
@@ -181,7 +181,7 @@ public abstract class SelectorProvider {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a datagram channel.  </p>
      *
      * @return  The new channel
@@ -189,7 +189,7 @@ public abstract class SelectorProvider {
     public abstract DatagramChannel openDatagramChannel()
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a pipe.  </p>
      *
      * @return  The new pipe
@@ -197,7 +197,7 @@ public abstract class SelectorProvider {
     public abstract Pipe openPipe()
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a selector.  </p>
      *
      * @return  The new selector
@@ -205,7 +205,7 @@ public abstract class SelectorProvider {
     public abstract AbstractSelector openSelector()
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a server-socket channel.  </p>
      *
      * @return  The new channel
@@ -213,7 +213,7 @@ public abstract class SelectorProvider {
     public abstract ServerSocketChannel openServerSocketChannel()
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a socket channel. </p>
      *
      * @return  The new channel
@@ -221,7 +221,7 @@ public abstract class SelectorProvider {
     public abstract SocketChannel openSocketChannel()
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the channel inherited from the entity that created this
      * Java virtual machine.
      *

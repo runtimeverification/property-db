@@ -27,7 +27,7 @@ package java.security.interfaces;
 import java.security.PublicKey;
 import java.security.spec.ECPoint;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface to an elliptic curve (EC) public key.
  *
  * @author Valerie Peng
@@ -41,13 +41,13 @@ import java.security.spec.ECPoint;
  */
 public interface ECPublicKey extends PublicKey, ECKey {
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * The class fingerprint that is set to indicate
     * serialization compatibility.
     */
     static final long serialVersionUID = -3314988629879632826L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the public point W.
      * @return the public point W.
      */

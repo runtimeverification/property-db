@@ -54,7 +54,7 @@ import sun.misc.FpUtils;
 import sun.misc.DoubleConsts;
 import sun.misc.FormattedFloatingDecimal;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An interpreter for printf-style format strings.  This class provides support
  * for layout justification and alignment, common formats for numeric, string,
  * and date/time data, and locale-specific output.  Common Java types such as
@@ -1838,7 +1838,7 @@ public final class Formatter implements Closeable, Flushable {
         setZero();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter.
      *
      * <p> The destination of the formatted output is a {@link StringBuilder}
@@ -1852,7 +1852,7 @@ public final class Formatter implements Closeable, Flushable {
         init(new StringBuilder(), Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified destination.
      *
      * <p> The locale used is the {@linkplain Locale#getDefault() default
@@ -1868,7 +1868,7 @@ public final class Formatter implements Closeable, Flushable {
         init(a, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified locale.
      *
      * <p> The destination of the formatted output is a {@link StringBuilder}
@@ -1885,7 +1885,7 @@ public final class Formatter implements Closeable, Flushable {
         init(new StringBuilder(), l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified destination and locale.
      *
      * @param  a
@@ -1903,7 +1903,7 @@ public final class Formatter implements Closeable, Flushable {
         init(a, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file name.
      *
      * <p> The charset used is the {@linkplain
@@ -1935,7 +1935,7 @@ public final class Formatter implements Closeable, Flushable {
              Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file name and charset.
      *
      * <p> The locale used is the {@linkplain Locale#getDefault default
@@ -1971,7 +1971,7 @@ public final class Formatter implements Closeable, Flushable {
         this(fileName, csn, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file name, charset, and
      * locale.
      *
@@ -2011,7 +2011,7 @@ public final class Formatter implements Closeable, Flushable {
              l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file.
      *
      * <p> The charset used is the {@linkplain
@@ -2043,7 +2043,7 @@ public final class Formatter implements Closeable, Flushable {
              Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file and charset.
      *
      * <p> The locale used is the {@linkplain Locale#getDefault default
@@ -2079,7 +2079,7 @@ public final class Formatter implements Closeable, Flushable {
         this(file, csn, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified file, charset, and
      * locale.
      *
@@ -2119,7 +2119,7 @@ public final class Formatter implements Closeable, Flushable {
              l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified print stream.
      *
      * <p> The locale used is the {@linkplain Locale#getDefault() default
@@ -2138,7 +2138,7 @@ public final class Formatter implements Closeable, Flushable {
         init((Appendable)ps, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified output stream.
      *
      * <p> The charset used is the {@linkplain
@@ -2157,7 +2157,7 @@ public final class Formatter implements Closeable, Flushable {
              Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified output stream and
      * charset.
      *
@@ -2181,7 +2181,7 @@ public final class Formatter implements Closeable, Flushable {
         this(os, csn, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new formatter with the specified output stream, charset,
      * and locale.
      *
@@ -2214,7 +2214,7 @@ public final class Formatter implements Closeable, Flushable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the locale set by the construction of this formatter.
      *
      * <p> The {@link #format(java.util.Locale,String,Object...) format} method
@@ -2232,7 +2232,7 @@ public final class Formatter implements Closeable, Flushable {
         return l;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the destination for the output.
      *
      * @return  The destination for the output
@@ -2246,7 +2246,7 @@ public final class Formatter implements Closeable, Flushable {
         return a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the result of invoking <tt>toString()</tt> on the destination
      * for the output.  For example, the following code formats text into a
      * {@link StringBuilder} then retrieves the resultant string:
@@ -2282,7 +2282,7 @@ public final class Formatter implements Closeable, Flushable {
         return a.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flushes this formatter.  If the destination implements the {@link
      * java.io.Flushable} interface, its <tt>flush</tt> method will be invoked.
      *
@@ -2304,7 +2304,7 @@ public final class Formatter implements Closeable, Flushable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this formatter.  If the destination implements the {@link
      * java.io.Closeable} interface, its <tt>close</tt> method will be invoked.
      *
@@ -2334,7 +2334,7 @@ public final class Formatter implements Closeable, Flushable {
             throw new FormatterClosedException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <tt>IOException</tt> last thrown by this formatter's {@link
      * Appendable}.
      *
@@ -2348,7 +2348,7 @@ public final class Formatter implements Closeable, Flushable {
         return lastException;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a formatted string to this object's destination using the
      * specified format string and arguments.  The locale used is the one
      * defined during the construction of this formatter.
@@ -2383,7 +2383,7 @@ public final class Formatter implements Closeable, Flushable {
         return format(l, format, args);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a formatted string to this object's destination using the
      * specified locale, format string, and arguments.
      *

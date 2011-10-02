@@ -28,7 +28,7 @@ package java.util.regex;
 import sun.security.action.GetPropertyAction;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown to indicate a syntax error in a
  * regular-expression pattern.
  *
@@ -45,7 +45,7 @@ public class PatternSyntaxException
     private final String pattern;
     private final int index;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new instance of this class.
      *
      * @param  desc
@@ -64,7 +64,7 @@ public class PatternSyntaxException
         this.index = index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the error index.
      *
      * @return  The approximate index in the pattern of the error,
@@ -74,7 +74,7 @@ public class PatternSyntaxException
         return index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the description of the error.
      *
      * @return  The description of the error
@@ -83,7 +83,7 @@ public class PatternSyntaxException
         return desc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the erroneous regular-expression pattern.
      *
      * @return  The erroneous pattern
@@ -96,7 +96,7 @@ public class PatternSyntaxException
         java.security.AccessController
             .doPrivileged(new GetPropertyAction("line.separator"));
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a multi-line string containing the description of the syntax
      * error and its index, the erroneous regular-expression pattern, and a
      * visual indication of the error index within the pattern.

@@ -79,7 +79,7 @@ class NullPersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for <CODE>enum</CODE> classes.
  *
  * @author Sergey A. Malenkov
@@ -254,7 +254,7 @@ class java_lang_reflect_Method_PersistenceDelegate extends PersistenceDelegate {
 
 // Dates
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for <CODE>java.util.Date</CODE> classes.
  * Do not extend DefaultPersistenceDelegate to improve performance and
  * to avoid problems with <CODE>java.sql.Date</CODE>,
@@ -279,7 +279,7 @@ class java_util_Date_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for <CODE>java.sql.Timestamp</CODE> classes.
  * It supports nanoseconds.
  *
@@ -312,7 +312,7 @@ ignore any delegates attached to interfaces and force all persistence
 delegates to be registered with concrete classes.
 */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The base class for persistence delegates for inner classes
  * that can be created using {@link Collections}.
  *
@@ -528,7 +528,7 @@ abstract class java_util_Collections extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for <CODE>java.util.EnumMap</CODE> classes.
  *
  * @author Sergey A. Malenkov
@@ -547,7 +547,7 @@ class java_util_EnumMap_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for <CODE>java.util.EnumSet</CODE> classes.
  *
  * @author Sergey A. Malenkov
@@ -666,7 +666,7 @@ class java_beans_beancontext_BeanContextSupport_PersistenceDelegate extends java
 
 // AWT
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link Dimension}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because all getters have return types that differ from parameter types
@@ -689,7 +689,7 @@ final class java_awt_Dimension_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link GridBagConstraints}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because this class does not have any properties.
@@ -716,7 +716,7 @@ final class java_awt_GridBagConstraints_PersistenceDelegate extends PersistenceD
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link Insets}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because this class does not have any properties.
@@ -740,7 +740,7 @@ final class java_awt_Insets_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link Point}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because all getters have return types that differ from parameter types
@@ -763,7 +763,7 @@ final class java_awt_Point_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link Rectangle}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because all getters have return types that differ from parameter types
@@ -788,7 +788,7 @@ final class java_awt_Rectangle_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link Font}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because size of the font can be float value.
@@ -857,7 +857,7 @@ final class java_awt_Font_PersistenceDelegate extends PersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link AWTKeyStroke}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because this class have no public constructor.
@@ -1264,7 +1264,7 @@ class javax_swing_JMenu_PersistenceDelegate extends DefaultPersistenceDelegate {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link MatteBorder}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because this class does not have writable properties.
@@ -1303,7 +1303,7 @@ class javax_swing_JMenu_PersistenceDelegate extends DefaultPersistenceDelegate {
 }
 */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The persistence delegate for {@link PrintColorUIResource}.
  * It is impossible to use {@link DefaultPersistenceDelegate}
  * because this class has special rule for serialization:

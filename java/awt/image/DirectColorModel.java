@@ -28,7 +28,7 @@ package java.awt.image;
 import java.awt.color.ColorSpace;
 import java.awt.Transparency;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DirectColorModel</code> class is a <code>ColorModel</code>
  * class that works with pixel values that represent RGB
  * color and alpha information as separate samples and that pack all
@@ -125,7 +125,7 @@ public class DirectColorModel extends PackedColorModel {
     private byte[] fromsRGB8LUT8;
     private short[] fromsRGB8LUT16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DirectColorModel</code> from the specified masks
      * that indicate which bits in an <code>int</code> pixel representation
      * contain the red, green and blue color samples.  As pixel values do not
@@ -152,7 +152,7 @@ public class DirectColorModel extends PackedColorModel {
         this(bits, rmask, gmask, bmask, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DirectColorModel</code> from the specified masks
      * that indicate which bits in an <code>int</code> pixel representation
      * contain the red, green and blue color samples and the alpha sample,
@@ -186,7 +186,7 @@ public class DirectColorModel extends PackedColorModel {
         setFields();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DirectColorModel</code> from the specified
      * parameters.  Color components are in the specified
      * <code>ColorSpace</code>, which must be of type ColorSpace.TYPE_RGB
@@ -260,7 +260,7 @@ public class DirectColorModel extends PackedColorModel {
         setFields();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask indicating which bits in an <code>int</code> pixel
      * representation contain the red color component.
      * @return the mask, which indicates which bits of the <code>int</code>
@@ -270,7 +270,7 @@ public class DirectColorModel extends PackedColorModel {
         return maskArray[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask indicating which bits in an <code>int</code> pixel
      * representation contain the green color component.
      * @return the mask, which indicates which bits of the <code>int</code>
@@ -280,7 +280,7 @@ public class DirectColorModel extends PackedColorModel {
         return maskArray[1];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask indicating which bits in an <code>int</code> pixel
      * representation contain the blue color component.
      * @return the mask, which indicates which bits of the <code>int</code>
@@ -290,7 +290,7 @@ public class DirectColorModel extends PackedColorModel {
         return maskArray[2];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask indicating which bits in an <code>int</code> pixel
      * representation contain the alpha component.
      * @return the mask, which indicates which bits of the <code>int</code>
@@ -352,7 +352,7 @@ public class DirectColorModel extends PackedColorModel {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -375,7 +375,7 @@ public class DirectColorModel extends PackedColorModel {
         return (int) (rgb[0] * 255.0f + 0.5f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -398,7 +398,7 @@ public class DirectColorModel extends PackedColorModel {
         return (int) (rgb[1] * 255.0f + 0.5f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -421,7 +421,7 @@ public class DirectColorModel extends PackedColorModel {
         return (int) (rgb[2] * 255.0f + 0.5f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.  The pixel value is specified as an <code>int</code>.
      * @param pixel the specified pixel
@@ -437,7 +437,7 @@ public class DirectColorModel extends PackedColorModel {
         return a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color/alpha components of the pixel in the default
      * RGB color model format.  A color conversion is done if necessary.
      * The pixel value is specified as an <code>int</code>.
@@ -464,7 +464,7 @@ public class DirectColorModel extends PackedColorModel {
             | (((int) (rgb[2] * 255.0f + 0.5f)) << 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -518,7 +518,7 @@ public class DirectColorModel extends PackedColorModel {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -571,7 +571,7 @@ public class DirectColorModel extends PackedColorModel {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is specified
@@ -623,7 +623,7 @@ public class DirectColorModel extends PackedColorModel {
         return getBlue(pixel);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.  The pixel value is specified by an array of data
      * elements of type <code>transferType</code> passed in as an object
@@ -673,7 +673,7 @@ public class DirectColorModel extends PackedColorModel {
         return getAlpha(pixel);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color/alpha components for the specified pixel in the
      * default RGB color model format.  A color conversion is done if
      * necessary.  The pixel value is specified by an array of data
@@ -721,7 +721,7 @@ public class DirectColorModel extends PackedColorModel {
         return getRGB(pixel);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an integer pixel representation in the
      * default RGB color model.
@@ -903,7 +903,7 @@ public class DirectColorModel extends PackedColorModel {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of unnormalized color/alpha components given a pixel
      * in this <code>ColorModel</code>.  The pixel value is specified as an
      * <code>int</code>.  If the <code>components</code> array is
@@ -935,7 +935,7 @@ public class DirectColorModel extends PackedColorModel {
         return components;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of unnormalized color/alpha components given a pixel
      * in this <code>ColorModel</code>.  The pixel value is specified by an
      * array of data elements of type <code>transferType</code> passed in as
@@ -997,7 +997,7 @@ public class DirectColorModel extends PackedColorModel {
         return getComponents(intpixel, components, offset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>WritableRaster</code> with the specified width and
      * height that has a data layout (<code>SampleModel</code>) compatible
      * with this <code>ColorModel</code>.
@@ -1042,7 +1042,7 @@ public class DirectColorModel extends PackedColorModel {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a pixel value represented as an <code>int</code> in this
      * <code>ColorModel</code>, given an array of unnormalized color/alpha
      * components.   An <code>ArrayIndexOutOfBoundsException</code> is
@@ -1068,7 +1068,7 @@ public class DirectColorModel extends PackedColorModel {
         return pixel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an array of unnormalized color/alpha
      * components.
@@ -1149,7 +1149,7 @@ public class DirectColorModel extends PackedColorModel {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forces the raster data to match the state specified in the
      * <code>isAlphaPremultiplied</code> variable, assuming the data is
      * currently correctly described by this <code>ColorModel</code>.  It
@@ -1342,7 +1342,7 @@ public class DirectColorModel extends PackedColorModel {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
       * Returns <code>true</code> if <code>raster</code> is compatible
       * with this <code>ColorModel</code> and <code>false</code> if it is
       * not.
@@ -1400,7 +1400,7 @@ public class DirectColorModel extends PackedColorModel {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>String</code> that represents this
      * <code>DirectColorModel</code>.
      * @return a <code>String</code> representing this

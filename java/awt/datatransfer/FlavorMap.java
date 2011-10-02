@@ -28,7 +28,7 @@ package java.awt.datatransfer;
 import java.util.Map;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A two-way Map between "natives" (Strings), which correspond to platform-
  * specfic data formats, and "flavors" (DataFlavors), which corerspond to
  * platform-independent MIME types. FlavorMaps need not be symmetric, but
@@ -39,7 +39,7 @@ import java.util.Map;
  */
 public interface FlavorMap {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Map</code> of the specified <code>DataFlavor</code>s to
      * their corresponding <code>String</code> native. The returned
      * <code>Map</code> is a modifiable copy of this <code>FlavorMap</code>'s
@@ -56,7 +56,7 @@ public interface FlavorMap {
      */
     Map<DataFlavor,String> getNativesForFlavors(DataFlavor[] flavors);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Map</code> of the specified <code>String</code> natives
      * to their corresponding <code>DataFlavor</code>. The returned
      * <code>Map</code> is a modifiable copy of this <code>FlavorMap</code>'s

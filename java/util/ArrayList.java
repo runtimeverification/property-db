@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Resizable-array implementation of the <tt>List</tt> interface.  Implements
  * all optional list operations, and permits all elements, including
  * <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface,
@@ -104,20 +104,20 @@ public class ArrayList<E> extends AbstractList<E>
 {
     private static final long serialVersionUID = 8683452581122892189L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array buffer into which the elements of the ArrayList are stored.
      * The capacity of the ArrayList is the length of this array buffer.
      */
     private transient Object[] elementData;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The size of the ArrayList (the number of elements it contains).
      *
      * @serial
      */
     private int size;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty list with the specified initial capacity.
      *
      * @param   initialCapacity   the initial capacity of the list
@@ -132,14 +132,14 @@ public class ArrayList<E> extends AbstractList<E>
         this.elementData = new Object[initialCapacity];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty list with an initial capacity of ten.
      */
     public ArrayList() {
         this(10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a list containing the elements of the specified
      * collection, in the order they are returned by the collection's
      * iterator.
@@ -155,7 +155,7 @@ public class ArrayList<E> extends AbstractList<E>
             elementData = Arrays.copyOf(elementData, size, Object[].class);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Trims the capacity of this <tt>ArrayList</tt> instance to be the
      * list's current size.  An application can use this operation to minimize
      * the storage of an <tt>ArrayList</tt> instance.
@@ -168,7 +168,7 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Increases the capacity of this <tt>ArrayList</tt> instance, if
      * necessary, to ensure that it can hold at least the number of elements
      * specified by the minimum capacity argument.
@@ -188,7 +188,7 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this list.
      *
      * @return the number of elements in this list
@@ -197,7 +197,7 @@ public class ArrayList<E> extends AbstractList<E>
         return size;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this list contains no elements.
      *
      * @return <tt>true</tt> if this list contains no elements
@@ -206,7 +206,7 @@ public class ArrayList<E> extends AbstractList<E>
         return size == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
@@ -219,7 +219,7 @@ public class ArrayList<E> extends AbstractList<E>
         return indexOf(o) >= 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
@@ -239,7 +239,7 @@ public class ArrayList<E> extends AbstractList<E>
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index <tt>i</tt> such that
@@ -259,7 +259,7 @@ public class ArrayList<E> extends AbstractList<E>
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a shallow copy of this <tt>ArrayList</tt> instance.  (The
      * elements themselves are not copied.)
      *
@@ -278,7 +278,7 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this list
      * in proper sequence (from first to last element).
      *
@@ -296,7 +296,7 @@ public class ArrayList<E> extends AbstractList<E>
         return Arrays.copyOf(elementData, size);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element); the runtime type of the returned
      * array is that of the specified array.  If the list fits in the
@@ -338,7 +338,7 @@ public class ArrayList<E> extends AbstractList<E>
         return (E) elementData[index];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the element at the specified position in this list.
      *
      * @param  index index of the element to return
@@ -351,7 +351,7 @@ public class ArrayList<E> extends AbstractList<E>
         return elementData(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the element at the specified position in this list with
      * the specified element.
      *
@@ -368,7 +368,7 @@ public class ArrayList<E> extends AbstractList<E>
         return oldValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified element to the end of this list.
      *
      * @param e element to be appended to this list
@@ -380,7 +380,7 @@ public class ArrayList<E> extends AbstractList<E>
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the specified position in this
      * list. Shifts the element currently at that position (if any) and
      * any subsequent elements to the right (adds one to their indices).
@@ -399,7 +399,7 @@ public class ArrayList<E> extends AbstractList<E>
         size++;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the element at the specified position in this list.
      * Shifts any subsequent elements to the left (subtracts one from their
      * indices).
@@ -423,7 +423,7 @@ public class ArrayList<E> extends AbstractList<E>
         return oldValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the first occurrence of the specified element from this list,
      * if it is present.  If the list does not contain the element, it is
      * unchanged.  More formally, removes the element with the lowest index
@@ -466,7 +466,7 @@ public class ArrayList<E> extends AbstractList<E>
         elementData[--size] = null; // Let gc do its work
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this list.  The list will
      * be empty after this call returns.
      */
@@ -480,7 +480,7 @@ public class ArrayList<E> extends AbstractList<E>
         size = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the
      * specified collection's Iterator.  The behavior of this operation is
@@ -502,7 +502,7 @@ public class ArrayList<E> extends AbstractList<E>
         return numNew != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts all of the elements in the specified collection into this
      * list, starting at the specified position.  Shifts the element
      * currently at that position (if any) and any subsequent elements to
@@ -534,7 +534,7 @@ public class ArrayList<E> extends AbstractList<E>
         return numNew != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this list all of the elements whose index is between
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.
      * Shifts any succeeding elements to the left (reduces their index).
@@ -560,7 +560,7 @@ public class ArrayList<E> extends AbstractList<E>
             elementData[--size] = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if the given index is in range.  If not, throws an appropriate
      * runtime exception.  This method does *not* check if the index is
      * negative: It is always used immediately prior to an array access,
@@ -571,7 +571,7 @@ public class ArrayList<E> extends AbstractList<E>
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A version of rangeCheck used by add and addAll.
      */
     private void rangeCheckForAdd(int index) {
@@ -579,7 +579,7 @@ public class ArrayList<E> extends AbstractList<E>
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an IndexOutOfBoundsException detail message.
      * Of the many possible refactorings of the error handling code,
      * this "outlining" performs best with both server and client VMs.
@@ -588,7 +588,7 @@ public class ArrayList<E> extends AbstractList<E>
         return "Index: "+index+", Size: "+size;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this list all of its elements that are contained in the
      * specified collection.
      *
@@ -605,7 +605,7 @@ public class ArrayList<E> extends AbstractList<E>
         return batchRemove(c, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retains only the elements in this list that are contained in the
      * specified collection.  In other words, removes from this list all
      * of its elements that are not contained in the specified collection.
@@ -651,7 +651,7 @@ public class ArrayList<E> extends AbstractList<E>
         return modified;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state of the <tt>ArrayList</tt> instance to a stream (that
      * is, serialize it).
      *
@@ -678,7 +678,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the <tt>ArrayList</tt> instance from a stream (that is,
      * deserialize it).
      */
@@ -696,7 +696,7 @@ public class ArrayList<E> extends AbstractList<E>
             a[i] = s.readObject();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
      * The specified index indicates the first element that would be
@@ -714,7 +714,7 @@ public class ArrayList<E> extends AbstractList<E>
         return new ListItr(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
      *
@@ -726,7 +726,7 @@ public class ArrayList<E> extends AbstractList<E>
         return new ListItr(0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * <p>The returned iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
@@ -737,7 +737,7 @@ public class ArrayList<E> extends AbstractList<E>
         return new Itr();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An optimized version of AbstractList.Itr
      */
     private class Itr implements Iterator<E> {
@@ -783,7 +783,7 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An optimized version of AbstractList.ListItr
      */
     private class ListItr extends Itr implements ListIterator<E> {
@@ -844,7 +844,7 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a view of the portion of this list between the specified
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.  (If
      * {@code fromIndex} and {@code toIndex} are equal, the returned list is

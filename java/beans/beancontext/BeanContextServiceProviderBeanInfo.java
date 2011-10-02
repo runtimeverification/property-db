@@ -27,7 +27,7 @@ package java.beans.beancontext;
 
 import java.beans.BeanInfo;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A BeanContextServiceProvider implementor who wishes to provide explicit
  * information about the services their bean may provide shall implement a
  * BeanInfo class that implements this BeanInfo subinterface and provides
@@ -37,7 +37,7 @@ import java.beans.BeanInfo;
 
 public interface BeanContextServiceProviderBeanInfo extends BeanInfo {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a <code>BeanInfo</code> array, one for each
      * service class or interface statically available
      * from this ServiceProvider.

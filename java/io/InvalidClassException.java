@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Thrown when the Serialization runtime detects one of the following
  * problems with a Class.
@@ -44,7 +44,7 @@ public class InvalidClassException extends ObjectStreamException {
 
     private static final long serialVersionUID = -4333316296251054416L;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Name of the invalid class.
      * {@description.close}
@@ -53,7 +53,7 @@ public class InvalidClassException extends ObjectStreamException {
      */
     public String classname;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Report an InvalidClassException for the reason specified.
      * {@description.close}
@@ -64,7 +64,7 @@ public class InvalidClassException extends ObjectStreamException {
         super(reason);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an InvalidClassException object.
      * {@description.close}
@@ -77,7 +77,7 @@ public class InvalidClassException extends ObjectStreamException {
         classname = cname;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Produce the message and include the classname, if present.
      * {@description.close}

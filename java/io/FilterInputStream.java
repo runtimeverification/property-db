@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <code>FilterInputStream</code> contains
  * some other input stream, which it uses as
@@ -46,14 +46,14 @@ package java.io;
  */
 public
 class FilterInputStream extends InputStream {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The input stream to be filtered.
      * {@description.close}
      */
     protected volatile InputStream in;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>FilterInputStream</code>
      * by assigning the  argument <code>in</code>
@@ -68,7 +68,7 @@ class FilterInputStream extends InputStream {
         this.in = in;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
@@ -96,7 +96,7 @@ class FilterInputStream extends InputStream {
         return in.read();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>byte.length</code> bytes of data from this
      * input stream into an array of bytes.
@@ -127,7 +127,7 @@ class FilterInputStream extends InputStream {
         return read(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
@@ -160,9 +160,9 @@ class FilterInputStream extends InputStream {
         return in.read(b, off, len);
     }
 
-    /**
-     * {@description.open}
+    /** {@collect.stats}
      * {@inheritDoc}
+     * {@description.open}
      * <p>
      * This method simply performs <code>in.skip(n)</code>.
      * {@description.close}
@@ -171,7 +171,7 @@ class FilterInputStream extends InputStream {
         return in.skip(n);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
@@ -190,7 +190,7 @@ class FilterInputStream extends InputStream {
         return in.available();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
@@ -205,7 +205,7 @@ class FilterInputStream extends InputStream {
         in.close();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the current position in this input stream. A subsequent
      * call to the <code>reset</code> method repositions this stream at
@@ -231,7 +231,7 @@ class FilterInputStream extends InputStream {
         in.mark(readlimit);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
@@ -258,7 +258,7 @@ class FilterInputStream extends InputStream {
         in.reset();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods.

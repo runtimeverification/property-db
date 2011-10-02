@@ -29,7 +29,7 @@ package java.util.logging;
 import java.io.*;
 import java.net.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Simple network logging <tt>Handler</tt>.
  * <p>
  * <tt>LogRecords</tt> are published to a network stream connection.  By default
@@ -95,7 +95,7 @@ public class SocketHandler extends StreamHandler {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>SocketHandler</tt>, using only <tt>LogManager</tt> properties
      * (or their defaults).
      * @throws IllegalArgumentException if the host or port are invalid or
@@ -117,7 +117,7 @@ public class SocketHandler extends StreamHandler {
         sealed = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <tt>SocketHandler</tt> using a specified host and port.
      *
      * The <tt>SocketHandler</tt> is configured based on <tt>LogManager</tt>
@@ -157,7 +157,7 @@ public class SocketHandler extends StreamHandler {
         setOutputStream(bout);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Close this output stream.
      *
      * @exception  SecurityException  if a security manager exists and if
@@ -175,7 +175,7 @@ public class SocketHandler extends StreamHandler {
         sock = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Format and publish a <tt>LogRecord</tt>.
      *
      * @param  record  description of the log event. A null record is

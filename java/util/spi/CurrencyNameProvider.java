@@ -28,7 +28,7 @@ package java.util.spi;
 import java.util.Currency;
 import java.util.Locale;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide localized currency symbols and display names for the
  * {@link java.util.Currency Currency} class.
@@ -41,14 +41,14 @@ import java.util.Locale;
  */
 public abstract class CurrencyNameProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected CurrencyNameProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the symbol of the given currency code for the specified locale.
      * For example, for "USD" (US Dollar), the symbol is "$" if the specified
      * locale is the US, while for other locales it may be "US$". If no
@@ -71,7 +71,7 @@ public abstract class CurrencyNameProvider extends LocaleServiceProvider {
      */
     public abstract String getSymbol(String currencyCode, Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a name for the currency that is appropriate for display to the
      * user.  The default implementation returns null.
      *

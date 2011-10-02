@@ -29,7 +29,7 @@ package java.awt;
 import java.awt.image.ColorModel;
 import sun.awt.AppContext;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>GraphicsDevice</code> class describes the graphics devices
  * that might be available in a particular graphics environment.  These
  * include screen and printer devices. Note that there can be many screens
@@ -83,7 +83,7 @@ public abstract class GraphicsDevice {
 
     private Rectangle windowedModeBounds;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class that cannot be instantiated directly.
      * Instances must be obtained from a suitable factory or query method.
      * @see GraphicsEnvironment#getScreenDevices
@@ -93,23 +93,23 @@ public abstract class GraphicsDevice {
     protected GraphicsDevice() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Device is a raster screen.
      */
     public final static int TYPE_RASTER_SCREEN          = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Device is a printer.
      */
     public final static int TYPE_PRINTER                = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Device is an image buffer.  This buffer can reside in device
      * or system memory but it is not physically viewable by the user.
      */
     public final static int TYPE_IMAGE_BUFFER           = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the type of this <code>GraphicsDevice</code>.
      * @return the type of this <code>GraphicsDevice</code>, which can
      * either be TYPE_RASTER_SCREEN, TYPE_PRINTER or TYPE_IMAGE_BUFFER.
@@ -119,7 +119,7 @@ public abstract class GraphicsDevice {
      */
     public abstract int getType();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the identification string associated with this
      * <code>GraphicsDevice</code>.
      * <p>
@@ -142,7 +142,7 @@ public abstract class GraphicsDevice {
      */
     public abstract String getIDstring();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns all of the <code>GraphicsConfiguration</code>
      * objects associated with this <code>GraphicsDevice</code>.
      * @return an array of <code>GraphicsConfiguration</code>
@@ -151,7 +151,7 @@ public abstract class GraphicsDevice {
      */
     public abstract GraphicsConfiguration[] getConfigurations();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default <code>GraphicsConfiguration</code>
      * associated with this <code>GraphicsDevice</code>.
      * @return the default <code>GraphicsConfiguration</code>
@@ -159,7 +159,7 @@ public abstract class GraphicsDevice {
      */
     public abstract GraphicsConfiguration getDefaultConfiguration();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the "best" configuration possible that passes the
      * criteria defined in the {@link GraphicsConfigTemplate}.
      * @param gct the <code>GraphicsConfigTemplate</code> object
@@ -175,7 +175,7 @@ public abstract class GraphicsDevice {
         return gct.getBestConfiguration(configs);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if this <code>GraphicsDevice</code>
      * supports full-screen exclusive mode.
      * If a SecurityManager is installed, its
@@ -192,7 +192,7 @@ public abstract class GraphicsDevice {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enter full-screen mode, or return to windowed mode.  The entered
      * full-screen mode may be either exclusive or simulated.  Exclusive
      * mode is only available if <code>isFullScreenSupported</code>
@@ -261,7 +261,7 @@ public abstract class GraphicsDevice {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Window</code> object representing the
      * full-screen window if the device is in full-screen mode.
      *
@@ -282,7 +282,7 @@ public abstract class GraphicsDevice {
         return returnWindow;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if this <code>GraphicsDevice</code>
      * supports low-level display changes.
      * On some platforms low-level display changes may only be allowed in
@@ -300,7 +300,7 @@ public abstract class GraphicsDevice {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the display mode of this graphics device. This is only allowed
      * if {@link #isDisplayChangeSupported()} returns {@code true} and may
      * require first entering full-screen exclusive mode using
@@ -355,7 +355,7 @@ public abstract class GraphicsDevice {
         throw new UnsupportedOperationException("Cannot change display mode");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current display mode of this
      * <code>GraphicsDevice</code>.
      * The returned display mode is allowed to have a refresh rate
@@ -374,7 +374,7 @@ public abstract class GraphicsDevice {
         return new DisplayMode(r.width, r.height, cm.getPixelSize(), 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns all display modes available for this
      * <code>GraphicsDevice</code>.
      * The returned display modes are allowed to have a refresh rate
@@ -389,7 +389,7 @@ public abstract class GraphicsDevice {
         return new DisplayMode[] { getDisplayMode() };
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the number of bytes available in
      * accelerated memory on this device.
      * Some images are created or cached

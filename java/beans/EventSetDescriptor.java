@@ -29,7 +29,7 @@ import java.lang.ref.Reference;
 
 import java.lang.reflect.Method;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An EventSetDescriptor describes a group of events that a given Java
  * bean fires.
  * <P>
@@ -50,7 +50,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
     private boolean unicast;
     private boolean inDefaultEventSet = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <TT>EventSetDescriptor</TT> assuming that you are
      * following the most simple standard design pattern where a named
      * event &quot;fred&quot; is (1) delivered as a call on the single method of
@@ -96,7 +96,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         return className.substring(className.lastIndexOf('.') + 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <TT>EventSetDescriptor</TT> from scratch using
      * string names.
      *
@@ -126,7 +126,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
              removeListenerMethodName, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor creates an EventSetDescriptor from scratch using
      * string names.
      *
@@ -196,7 +196,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         return method;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <TT>EventSetDescriptor</TT> from scratch using
      * <TT>java.lang.reflect.Method</TT> and <TT>java.lang.Class</TT> objects.
      *
@@ -221,7 +221,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
              addListenerMethod, removeListenerMethod, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor creates an EventSetDescriptor from scratch using
      * java.lang.reflect.Method and java.lang.Class objects.
      *
@@ -254,7 +254,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         setListenerType(listenerType);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <TT>EventSetDescriptor</TT> from scratch using
      * <TT>java.lang.reflect.MethodDescriptor</TT> and <TT>java.lang.Class</TT>
      *  objects.
@@ -284,7 +284,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         setListenerType(listenerType);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <TT>Class</TT> object for the target interface.
      *
      * @return The Class object for the target interface that will
@@ -300,7 +300,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         this.listenerTypeRef = getWeakReference(cls);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the methods of the target listener interface.
      *
      * @return An array of <TT>Method</TT> objects for the target methods
@@ -340,7 +340,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
                 : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>MethodDescriptor</code>s of the target listener interface.
      *
      * @return An array of <code>MethodDescriptor</code> objects for the target methods
@@ -351,7 +351,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         return listenerMethodDescriptors;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method used to add event listeners.
      *
      * @return The method used to register a listener at the event source.
@@ -371,7 +371,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         addMethodDescriptor = new MethodDescriptor(method);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method used to remove event listeners.
      *
      * @return The method used to remove a listener at the event source.
@@ -391,7 +391,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         removeMethodDescriptor = new MethodDescriptor(method);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method used to access the registered event listeners.
      *
      * @return The method used to access the array of listeners at the event
@@ -413,7 +413,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         getMethodDescriptor = new MethodDescriptor(method);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Mark an event set as unicast (or not).
      *
      * @param unicast  True if the event set is unicast.
@@ -422,7 +422,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         this.unicast = unicast;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Normally event sources are multicast.  However there are some
      * exceptions that are strictly unicast.
      *
@@ -433,7 +433,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         return unicast;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks an event set as being in the &quot;default&quot; set (or not).
      * By default this is <TT>true</TT>.
      *
@@ -445,7 +445,7 @@ public class EventSetDescriptor extends FeatureDescriptor {
         this.inDefaultEventSet = inDefaultEventSet;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports if an event set is in the &quot;default&quot; set.
      *
      * @return  <TT>true</TT> if the event set is in

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown when there is a format specifier which does not
  * have a corresponding argument or if an argument index refers to an argument
  * that does not exist.
@@ -42,7 +42,7 @@ public class MissingFormatArgumentException extends IllegalFormatException {
 
     private String s;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class with the unmatched format
      * specifier.
      *
@@ -55,7 +55,7 @@ public class MissingFormatArgumentException extends IllegalFormatException {
         this.s = s;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the unmatched format specifier.
      *
      * @return  The unmatched format specifier

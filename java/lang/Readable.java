@@ -27,7 +27,7 @@ package java.lang;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@descriptive.open}
  * A <tt>Readable</tt> is a source of characters. Characters from
  * a <tt>Readable</tt> are made available to callers of the read
@@ -39,7 +39,7 @@ import java.io.IOException;
 
 public interface Readable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Attempts to read characters into the specified character buffer.
      * The buffer is used as a repository of characters as-is: the only

@@ -26,7 +26,7 @@
 package java.lang;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A mutable sequence of characters.  This class provides an API compatible
  * with <code>StringBuffer</code>, but with no guarantee of synchronization.
  * This class is designed for use as a drop-in replacement for
@@ -74,10 +74,10 @@ public final class StringBuilder
     implements java.io.Serializable, CharSequence
 {
 
-    /** {@collect.stats} use serialVersionUID for interoperability */
+    /** {@collect.stats}  use serialVersionUID for interoperability */
     static final long serialVersionUID = 4383685877147921099L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a string builder with no characters in it and an
      * initial capacity of 16 characters.
      */
@@ -85,7 +85,7 @@ public final class StringBuilder
         super(16);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a string builder with no characters in it and an
      * initial capacity specified by the <code>capacity</code> argument.
      *
@@ -97,7 +97,7 @@ public final class StringBuilder
         super(capacity);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a string builder initialized to the contents of the
      * specified string. The initial capacity of the string builder is
      * <code>16</code> plus the length of the string argument.
@@ -110,7 +110,7 @@ public final class StringBuilder
         append(str);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a string builder that contains the same characters
      * as the specified <code>CharSequence</code>. The initial capacity of
      * the string builder is <code>16</code> plus the length of the
@@ -124,7 +124,7 @@ public final class StringBuilder
         append(seq);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(java.lang.Object)
      * @see     #append(java.lang.String)
      */
@@ -150,7 +150,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified <tt>StringBuffer</tt> to this sequence.
      * <p>
      * The characters of the <tt>StringBuffer</tt> argument are appended,
@@ -174,7 +174,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder append(CharSequence s) {
@@ -189,7 +189,7 @@ public final class StringBuilder
         return this.append(s, 0, s.length());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws     IndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder append(CharSequence s, int start, int end) {
@@ -207,7 +207,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(boolean)
      * @see     #append(java.lang.String)
      */
@@ -221,7 +221,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(int)
      * @see     #append(java.lang.String)
      */
@@ -230,7 +230,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(long)
      * @see     #append(java.lang.String)
      */
@@ -239,7 +239,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(float)
      * @see     #append(java.lang.String)
      */
@@ -248,7 +248,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see     java.lang.String#valueOf(double)
      * @see     #append(java.lang.String)
      */
@@ -257,7 +257,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @since 1.5
      */
     public StringBuilder appendCodePoint(int codePoint) {
@@ -265,7 +265,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder delete(int start, int end) {
@@ -273,7 +273,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder deleteCharAt(int index) {
@@ -281,7 +281,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder replace(int start, int end, String str) {
@@ -289,7 +289,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder insert(int index, char str[], int offset,
@@ -299,7 +299,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(java.lang.Object)
      * @see        #insert(int, java.lang.String)
@@ -309,7 +309,7 @@ public final class StringBuilder
         return insert(offset, String.valueOf(obj));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -318,7 +318,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder insert(int offset, char str[]) {
@@ -326,7 +326,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder insert(int dstOffset, CharSequence s) {
@@ -337,7 +337,7 @@ public final class StringBuilder
         return this.insert(dstOffset, s, 0, s.length());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     public StringBuilder insert(int dstOffset, CharSequence s,
@@ -347,7 +347,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(boolean)
      * @see        #insert(int, java.lang.String)
@@ -358,7 +358,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -367,7 +367,7 @@ public final class StringBuilder
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(int)
      * @see        #insert(int, java.lang.String)
@@ -377,7 +377,7 @@ public final class StringBuilder
         return insert(offset, String.valueOf(i));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(long)
      * @see        #insert(int, java.lang.String)
@@ -387,7 +387,7 @@ public final class StringBuilder
         return insert(offset, String.valueOf(l));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(float)
      * @see        #insert(int, java.lang.String)
@@ -397,7 +397,7 @@ public final class StringBuilder
         return insert(offset, String.valueOf(f));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(double)
      * @see        #insert(int, java.lang.String)
@@ -407,14 +407,14 @@ public final class StringBuilder
         return insert(offset, String.valueOf(d));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      */
     public int indexOf(String str) {
         return indexOf(str, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      */
     public int indexOf(String str, int fromIndex) {
@@ -422,14 +422,14 @@ public final class StringBuilder
                               str.toCharArray(), 0, str.length(), fromIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      */
     public int lastIndexOf(String str) {
         return lastIndexOf(str, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      */
     public int lastIndexOf(String str, int fromIndex) {
@@ -447,7 +447,7 @@ public final class StringBuilder
         return new String(value, 0, count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state of the <tt>StringBuilder</tt> instance to a stream
      * (that is, serialize it).
      *
@@ -465,7 +465,7 @@ public final class StringBuilder
         s.writeObject(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
      */

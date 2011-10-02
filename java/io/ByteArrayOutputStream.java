@@ -27,7 +27,7 @@ package java.io;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * This class implements an output stream in which the data is
  * written into a byte array. The buffer automatically grows as data
@@ -48,21 +48,21 @@ import java.util.Arrays;
 
 public class ByteArrayOutputStream extends OutputStream {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The buffer where data is stored.
      * {@description.close}
      */
     protected byte buf[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The number of valid bytes in the buffer.
      * {@description.close}
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new byte array output stream. The buffer capacity is
      * initially 32 bytes, though its size increases if necessary.
@@ -72,7 +72,7 @@ public class ByteArrayOutputStream extends OutputStream {
         this(32);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new byte array output stream, with a buffer capacity of
      * the specified size, in bytes.
@@ -89,7 +89,7 @@ public class ByteArrayOutputStream extends OutputStream {
         buf = new byte[size];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified byte to this byte array output stream.
      * {@description.close}
@@ -105,7 +105,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this byte array output stream.
@@ -130,7 +130,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the complete contents of this byte array output stream to
      * the specified output stream argument, as if by calling the output
@@ -150,7 +150,7 @@ public class ByteArrayOutputStream extends OutputStream {
         out.write(buf, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the <code>count</code> field of this byte array output
      * stream to zero, so that all currently accumulated output in the
@@ -164,7 +164,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a newly allocated byte array. Its size is the current
      * size of this output stream and the valid contents of the buffer
@@ -181,7 +181,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return Arrays.copyOf(buf, count);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the current size of the buffer.
      * {@description.close}
@@ -194,7 +194,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the buffer's contents into a string decoding bytes using the
      * platform's default character set. The length of the new <tt>String</tt>
@@ -218,7 +218,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the buffer's contents into a string by decoding the bytes using
      * the specified {@link java.nio.charset.Charset charsetName}. The length of
@@ -247,7 +247,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a newly allocated string. Its size is the current size of
      * the output stream and the valid contents of the buffer have been
@@ -279,7 +279,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, hibyte, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closing a <tt>ByteArrayOutputStream</tt> has no effect.
      * {@description.close}

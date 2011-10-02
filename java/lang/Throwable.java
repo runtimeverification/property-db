@@ -26,7 +26,7 @@
 package java.lang;
 import  java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Throwable</code> class is the superclass of all errors and
  * exceptions in the Java language. Only objects that are instances of this
  * class (or one of its subclasses) are thrown by the Java Virtual Machine or
@@ -145,15 +145,15 @@ import  java.io.*;
  * @since JDK1.0
  */
 public class Throwable implements Serializable {
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -3042686055658047285L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Native code saves some indication of the stack backtrace in this slot.
      */
     private transient Object backtrace;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specific details about the Throwable.  For example, for
      * <tt>FileNotFoundException</tt>, this contains the name of
      * the file that could not be found.
@@ -162,7 +162,7 @@ public class Throwable implements Serializable {
      */
     private String detailMessage;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The throwable that caused this throwable to get thrown, or null if this
      * throwable was not caused by another throwable, or if the causative
      * throwable is unknown.  If this field is equal to this throwable itself,
@@ -174,7 +174,7 @@ public class Throwable implements Serializable {
      */
     private Throwable cause = this;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The stack trace, as returned by {@link #getStackTrace()}.
      *
      * @serial
@@ -186,7 +186,7 @@ public class Throwable implements Serializable {
      * nulled out when fillInStackTrace is called.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new throwable with <code>null</code> as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
@@ -198,7 +198,7 @@ public class Throwable implements Serializable {
         fillInStackTrace();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new throwable with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by
      * a call to {@link #initCause}.
@@ -214,7 +214,7 @@ public class Throwable implements Serializable {
         detailMessage = message;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new throwable with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
@@ -237,7 +237,7 @@ public class Throwable implements Serializable {
         this.cause = cause;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new throwable with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).
@@ -260,7 +260,7 @@ public class Throwable implements Serializable {
         this.cause = cause;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the detail message string of this throwable.
      *
      * @return  the detail message string of this <tt>Throwable</tt> instance
@@ -270,7 +270,7 @@ public class Throwable implements Serializable {
         return detailMessage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a localized description of this throwable.
      * Subclasses may override this method in order to produce a
      * locale-specific message.  For subclasses that do not override this
@@ -284,7 +284,7 @@ public class Throwable implements Serializable {
         return getMessage();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this throwable or <code>null</code> if the
      * cause is nonexistent or unknown.  (The cause is the throwable that
      * caused this throwable to get thrown.)
@@ -308,7 +308,7 @@ public class Throwable implements Serializable {
         return (cause==this ? null : cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes the <i>cause</i> of this throwable to the specified value.
      * (The cause is the throwable that caused this throwable to get thrown.)
      *
@@ -341,7 +341,7 @@ public class Throwable implements Serializable {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a short description of this throwable.
      * The result is the concatenation of:
      * <ul>
@@ -361,7 +361,7 @@ public class Throwable implements Serializable {
         return (message != null) ? (s + ": " + message) : s;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints this throwable and its backtrace to the
      * standard error stream. This method prints a stack trace for this
      * <code>Throwable</code> object on the error output stream that is
@@ -468,7 +468,7 @@ public class Throwable implements Serializable {
         printStackTrace(System.err);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints this throwable and its backtrace to the specified print stream.
      *
      * @param s <code>PrintStream</code> to use for output
@@ -486,7 +486,7 @@ public class Throwable implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Print our stack trace as a cause for the specified stack trace.
      */
     private void printStackTraceAsCause(PrintStream s,
@@ -514,7 +514,7 @@ public class Throwable implements Serializable {
             ourCause.printStackTraceAsCause(s, trace);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints this throwable and its backtrace to the specified
      * print writer.
      *
@@ -534,7 +534,7 @@ public class Throwable implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Print our stack trace as a cause for the specified stack trace.
      */
     private void printStackTraceAsCause(PrintWriter s,
@@ -562,7 +562,7 @@ public class Throwable implements Serializable {
             ourCause.printStackTraceAsCause(s, trace);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills in the execution stack trace. This method records within this
      * <code>Throwable</code> object information about the current state of
      * the stack frames for the current thread.
@@ -572,7 +572,7 @@ public class Throwable implements Serializable {
      */
     public synchronized native Throwable fillInStackTrace();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Provides programmatic access to the stack trace information printed by
      * {@link #printStackTrace()}.  Returns an array of stack trace elements,
      * each representing one stack frame.  The zeroth element of the array
@@ -610,7 +610,7 @@ public class Throwable implements Serializable {
         return stackTrace;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the stack trace elements that will be returned by
      * {@link #getStackTrace()} and printed by {@link #printStackTrace()}
      * and related methods.
@@ -642,13 +642,13 @@ public class Throwable implements Serializable {
         this.stackTrace = defensiveCopy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in the stack trace (or 0 if the stack
      * trace is unavailable).
      */
     private native int getStackTraceDepth();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the specified element of the stack trace.
      *
      * @param index index of the element to return.

@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.List;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Represents implementations of URLConnection caches. An instance of
  * such a class can be registered with the system by doing
  * ResponseCache.setDefault(ResponseCache), and the system will call
@@ -60,7 +60,7 @@ import sun.security.util.SecurityConstants;
  */
 public abstract class ResponseCache {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The system wide cache that provides access to a url
      * caching mechanism.
      *
@@ -69,7 +69,7 @@ public abstract class ResponseCache {
      */
     private static ResponseCache theResponseCache;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system-wide response cache.
      *
      * @throws  SecurityException
@@ -88,7 +88,7 @@ public abstract class ResponseCache {
         return theResponseCache;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets (or unsets) the system-wide cache.
      *
      * Note: non-standard procotol handlers may ignore this setting.
@@ -111,7 +111,7 @@ public abstract class ResponseCache {
         theResponseCache = responseCache;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the cached response based on the requesting uri,
      * request method and request headers. Typically this method is
      * called by the protocol handler before it sends out the request
@@ -139,7 +139,7 @@ public abstract class ResponseCache {
         get(URI uri, String rqstMethod, Map<String, List<String>> rqstHeaders)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The protocol handler calls this method after a resource has
      * been retrieved, and the ResponseCache must decide whether or
      * not to store the resource in its cache. If the resource is to

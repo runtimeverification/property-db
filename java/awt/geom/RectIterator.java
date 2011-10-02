@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A utility class to iterate over the path segments of a rectangle
  * through the PathIterator interface.
  *
@@ -49,7 +49,7 @@ class RectIterator implements PathIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the winding rule for determining the insideness of the
      * path.
      * @see #WIND_EVEN_ODD
@@ -59,7 +59,7 @@ class RectIterator implements PathIterator {
         return WIND_NON_ZERO;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if there are more points to read.
      * @return true if there are more points to read
      */
@@ -67,7 +67,7 @@ class RectIterator implements PathIterator {
         return index > 5;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -76,7 +76,7 @@ class RectIterator implements PathIterator {
         index++;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -115,7 +115,7 @@ class RectIterator implements PathIterator {
         return (index == 0 ? SEG_MOVETO : SEG_LINETO);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

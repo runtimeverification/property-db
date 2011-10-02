@@ -28,7 +28,7 @@ import java.rmi.*;
 import sun.rmi.server.UnicastServerRef;
 import sun.rmi.server.UnicastServerRef2;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Used for exporting a remote object with JRMP and obtaining a stub
  * that communicates to the remote object.
  *
@@ -106,17 +106,17 @@ import sun.rmi.server.UnicastServerRef2;
  **/
 public class UnicastRemoteObject extends RemoteServer {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial port number on which to export object
      */
     private int port = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial client-side socket factory (if any)
      */
     private RMIClientSocketFactory csf = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial server-side socket factory (if any) to use when
      * exporting object
      */
@@ -125,7 +125,7 @@ public class UnicastRemoteObject extends RemoteServer {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 4974527148936298033L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and exports a new UnicastRemoteObject object using an
      * anonymous port.
      * @throws RemoteException if failed to export object
@@ -136,7 +136,7 @@ public class UnicastRemoteObject extends RemoteServer {
         this(0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and exports a new UnicastRemoteObject object using the
      * particular supplied port.
      * @param port the port number on which the remote object receives calls
@@ -150,7 +150,7 @@ public class UnicastRemoteObject extends RemoteServer {
         exportObject((Remote) this, port);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and exports a new UnicastRemoteObject object using the
      * particular supplied port and socket factories.
      * @param port the port number on which the remote object receives calls
@@ -172,7 +172,7 @@ public class UnicastRemoteObject extends RemoteServer {
         exportObject((Remote) this, port, csf, ssf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Re-export the remote object when it is deserialized.
      */
     private void readObject(java.io.ObjectInputStream in)
@@ -182,7 +182,7 @@ public class UnicastRemoteObject extends RemoteServer {
         reexport();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a clone of the remote object that is distinct from
      * the original.
      *
@@ -216,7 +216,7 @@ public class UnicastRemoteObject extends RemoteServer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Exports the remote object to make it available to receive incoming
      * calls using an anonymous port.
      * @param obj the remote object to be exported
@@ -237,7 +237,7 @@ public class UnicastRemoteObject extends RemoteServer {
         return (RemoteStub) exportObject(obj, new UnicastServerRef(true));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Exports the remote object to make it available to receive incoming
      * calls, using the particular supplied port.
      * @param obj the remote object to be exported
@@ -252,7 +252,7 @@ public class UnicastRemoteObject extends RemoteServer {
         return exportObject(obj, new UnicastServerRef(port));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Exports the remote object to make it available to receive incoming
      * calls, using a transport specified by the given socket factory.
      * @param obj the remote object to be exported
@@ -273,7 +273,7 @@ public class UnicastRemoteObject extends RemoteServer {
         return exportObject(obj, new UnicastServerRef2(port, csf, ssf));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the remote object, obj, from the RMI runtime. If
      * successful, the object can no longer accept incoming RMI calls.
      * If the force parameter is true, the object is forcibly unexported
@@ -297,7 +297,7 @@ public class UnicastRemoteObject extends RemoteServer {
         return sun.rmi.transport.ObjectTable.unexportObject(obj, force);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Exports the specified object using the specified server ref.
      */
     private static Remote exportObject(Remote obj, UnicastServerRef sref)

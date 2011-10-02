@@ -42,7 +42,7 @@ import java.net.URL;
 
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The security manager is a class that allows
  * applications to implement a security policy. It allows an
  * application to determine, before performing a possibly unsafe or
@@ -226,7 +226,7 @@ import sun.security.util.SecurityConstants;
 public
 class SecurityManager {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field is <code>true</code> if there is a security check in
      * progress; <code>false</code> otherwise.
      *
@@ -243,7 +243,7 @@ class SecurityManager {
     private boolean initialized = false;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * returns true if the current context has been granted AllPermission
      */
     private boolean hasAllPermission()
@@ -256,7 +256,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if there is a security check in progress.
      *
      * @return the value of the <code>inCheck</code> field. This field
@@ -273,7 +273,7 @@ class SecurityManager {
         return inCheck;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>SecurityManager</code>.
      *
      * <p> If there is a security manager already installed, this method first
@@ -303,7 +303,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current execution stack as an array of classes.
      * <p>
      * The length of the array is the number of methods on the execution
@@ -315,7 +315,7 @@ class SecurityManager {
      */
     protected native Class[] getClassContext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class loader of the most recently executing method from
      * a class defined using a non-system class loader. A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -362,7 +362,7 @@ class SecurityManager {
 
     private native ClassLoader currentClassLoader0();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class of the most recently executing method from
      * a class defined using a non-system class loader. A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -406,7 +406,7 @@ class SecurityManager {
         return c;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the stack depth of the specified class.
      *
      * @param   name   the fully qualified name of the class to search for.
@@ -421,7 +421,7 @@ class SecurityManager {
     @Deprecated
     protected native int classDepth(String name);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the stack depth of the most recently executing method
      * from a class defined using a non-system class loader.  A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -471,7 +471,7 @@ class SecurityManager {
 
     private native int classLoaderDepth0();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if a method from a class with the specified
      *         name is on the execution stack.
      *
@@ -487,7 +487,7 @@ class SecurityManager {
         return classDepth(name) >= 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Basically, tests if a method from a class defined using a
      *          class loader is on the execution stack.
      *
@@ -504,7 +504,7 @@ class SecurityManager {
         return currentClassLoader() != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an object that encapsulates the current execution
      * environment. The result of this method is used, for example, by the
      * three-argument <code>checkConnect</code> method and by the
@@ -530,7 +530,7 @@ class SecurityManager {
         return AccessController.getContext();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the requested
      * access, specified by the given permission, is not permitted based
      * on the security policy currently in effect.
@@ -549,7 +549,7 @@ class SecurityManager {
         java.security.AccessController.checkPermission(perm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * specified security context is denied access to the resource
      * specified by the given permission.
@@ -588,7 +588,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to create a new class loader.
      * <p>
@@ -611,7 +611,7 @@ class SecurityManager {
         checkPermission(SecurityConstants.CREATE_CLASSLOADER_PERMISSION);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * reference to the root thread group, used for the checkAccess
      * methods.
      */
@@ -626,7 +626,7 @@ class SecurityManager {
         return root;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to modify the thread argument.
      * <p>
@@ -678,7 +678,7 @@ class SecurityManager {
             // just return
         }
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to modify the thread group argument.
      * <p>
@@ -732,7 +732,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to cause the Java Virtual Machine to
      * halt with the specified status code.
@@ -761,7 +761,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("exitVM."+status));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to create a subprocess.
      * <p>
@@ -801,7 +801,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to dynamic link the library code
      * specified by the string argument file. The argument is either a
@@ -835,7 +835,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("loadLibrary."+lib));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to read from the specified file
      * descriptor.
@@ -864,7 +864,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("readFileDescriptor"));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to read the file specified by the
      * string argument.
@@ -889,7 +889,7 @@ class SecurityManager {
             SecurityConstants.FILE_READ_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * specified security context is not allowed to read the file
      * specified by the string argument. The context must be a security
@@ -925,7 +925,7 @@ class SecurityManager {
             context);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to write to the specified file
      * descriptor.
@@ -955,7 +955,7 @@ class SecurityManager {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to write to the file specified by
      * the string argument.
@@ -980,7 +980,7 @@ class SecurityManager {
             SecurityConstants.FILE_WRITE_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to delete the specified file.
      * <p>
@@ -1008,7 +1008,7 @@ class SecurityManager {
             SecurityConstants.FILE_DELETE_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to open a socket connection to the
      * specified host and port number.
@@ -1053,7 +1053,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * specified security context is not allowed to open a socket
      * connection to the specified host and port number.
@@ -1109,7 +1109,7 @@ class SecurityManager {
                 context);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to wait for a connection request on
      * the specified local port number.
@@ -1139,7 +1139,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not permitted to accept a socket connection from
      * the specified host and port number.
@@ -1175,7 +1175,7 @@ class SecurityManager {
             SecurityConstants.SOCKET_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to use
      * (join/leave/send/receive) IP multicast.
@@ -1206,7 +1206,7 @@ class SecurityManager {
             SecurityConstants.SOCKET_CONNECT_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to use
      * (join/leave/send/receive) IP multicast.
@@ -1242,7 +1242,7 @@ class SecurityManager {
             SecurityConstants.SOCKET_CONNECT_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access or modify the system
      * properties.
@@ -1270,7 +1270,7 @@ class SecurityManager {
             SecurityConstants.PROPERTY_RW_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the system property with
      * the specified <code>key</code> name.
@@ -1303,7 +1303,7 @@ class SecurityManager {
             SecurityConstants.PROPERTY_READ_ACTION));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>false</code> if the calling
      * thread is not trusted to bring up the top-level window indicated
      * by the <code>window</code> argument. In this case, the caller can
@@ -1349,7 +1349,7 @@ class SecurityManager {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to initiate a print job request.
      * <p>
@@ -1372,7 +1372,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("queuePrintJob"));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the system clipboard.
      * <p>
@@ -1394,7 +1394,7 @@ class SecurityManager {
         checkPermission(SecurityConstants.ACCESS_CLIPBOARD_PERMISSION);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the AWT event queue.
      * <p>
@@ -1460,7 +1460,7 @@ class SecurityManager {
         return packages;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the package specified by
      * the argument.
@@ -1533,7 +1533,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to define classes in the package
      * specified by the argument.
@@ -1601,7 +1601,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to set the socket factory used by
      * <code>ServerSocket</code> or <code>Socket</code>, or the stream
@@ -1629,7 +1629,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("setFactory"));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access members.
      * <p>
@@ -1681,7 +1681,7 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the permission with the specified permission target
      * name should be granted or denied.
      *
@@ -1717,7 +1717,7 @@ class SecurityManager {
 
     private native Class currentLoadedClass0();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the thread group into which to instantiate any new
      * thread being created at the time this is being called.
      * By default, it returns the thread group of the current

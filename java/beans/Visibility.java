@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Under some circumstances a bean may be run on servers where a GUI
  * is not available.  This interface can be used to query a bean to
  * determine whether it absolutely needs a gui, and to advise the
@@ -38,7 +38,7 @@ package java.beans;
 
 public interface Visibility {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether this bean needs a GUI.
      *
      * @return True if the bean absolutely needs a GUI available in
@@ -46,17 +46,17 @@ public interface Visibility {
      */
     boolean needsGui();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method instructs the bean that it should not use the Gui.
      */
     void dontUseGui();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method instructs the bean that it is OK to use the Gui.
      */
     void okToUseGui();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether this bean is avoiding using a GUI.
      *
      * @return true if the bean is currently avoiding use of the Gui.

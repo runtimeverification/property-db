@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The super class of all menu related containers.
  *
  * @author      Arthur van Hoff
@@ -34,7 +34,7 @@ public interface MenuContainer {
     Font getFont();
     void remove(MenuComponent comp);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1
      * replaced by dispatchEvent(AWTEvent).
      */

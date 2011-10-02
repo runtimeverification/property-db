@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.io.Serializable;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Ellipse2D</code> class describes an ellipse that is defined
  * by a framing rectangle.
  * <p>
@@ -41,13 +41,13 @@ import java.io.Serializable;
  */
 public abstract class Ellipse2D extends RectangularShape {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>Float</code> class defines an ellipse specified
      * in <code>float</code> precision.
      * @since 1.2
      */
     public static class Float extends Ellipse2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the upper-left corner of the
          * framing rectangle of this {@code Ellipse2D}.
          * @since 1.2
@@ -55,7 +55,7 @@ public abstract class Ellipse2D extends RectangularShape {
          */
         public float x;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the upper-left corner of the
          * framing rectangle of this {@code Ellipse2D}.
          * @since 1.2
@@ -63,21 +63,21 @@ public abstract class Ellipse2D extends RectangularShape {
          */
         public float y;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The overall width of this <code>Ellipse2D</code>.
          * @since 1.2
          * @serial
          */
         public float width;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The overall height of this <code>Ellipse2D</code>.
          * @since 1.2
          * @serial
          */
         public float height;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new <code>Ellipse2D</code>, initialized to
          * location (0,&nbsp;0) and size (0,&nbsp;0).
          * @since 1.2
@@ -85,7 +85,7 @@ public abstract class Ellipse2D extends RectangularShape {
         public Float() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes an <code>Ellipse2D</code> from the
          * specified coordinates.
          *
@@ -101,7 +101,7 @@ public abstract class Ellipse2D extends RectangularShape {
             setFrame(x, y, w, h);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -109,7 +109,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (double) x;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -117,7 +117,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (double) y;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -125,7 +125,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (double) width;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -133,7 +133,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (double) height;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -141,7 +141,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (width <= 0.0 || height <= 0.0);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sets the location and size of the framing rectangle of this
          * <code>Shape</code> to the specified rectangular values.
          *
@@ -160,7 +160,7 @@ public abstract class Ellipse2D extends RectangularShape {
             this.height = h;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -171,7 +171,7 @@ public abstract class Ellipse2D extends RectangularShape {
             this.height = (float) h;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -185,13 +185,13 @@ public abstract class Ellipse2D extends RectangularShape {
         private static final long serialVersionUID = -6633761252372475977L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>Double</code> class defines an ellipse specified
      * in <code>double</code> precision.
      * @since 1.2
      */
     public static class Double extends Ellipse2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the upper-left corner of the
          * framing rectangle of this {@code Ellipse2D}.
          * @since 1.2
@@ -199,7 +199,7 @@ public abstract class Ellipse2D extends RectangularShape {
          */
         public double x;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the upper-left corner of the
          * framing rectangle of this {@code Ellipse2D}.
          * @since 1.2
@@ -207,21 +207,21 @@ public abstract class Ellipse2D extends RectangularShape {
          */
         public double y;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The overall width of this <code>Ellipse2D</code>.
          * @since 1.2
          * @serial
          */
         public double width;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The overall height of the <code>Ellipse2D</code>.
          * @since 1.2
          * @serial
          */
         public double height;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new <code>Ellipse2D</code>, initialized to
          * location (0,&nbsp;0) and size (0,&nbsp;0).
          * @since 1.2
@@ -229,7 +229,7 @@ public abstract class Ellipse2D extends RectangularShape {
         public Double() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes an <code>Ellipse2D</code> from the
          * specified coordinates.
          *
@@ -245,7 +245,7 @@ public abstract class Ellipse2D extends RectangularShape {
             setFrame(x, y, w, h);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -253,7 +253,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return x;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -261,7 +261,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return y;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -269,7 +269,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return width;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -277,7 +277,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return height;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -285,7 +285,7 @@ public abstract class Ellipse2D extends RectangularShape {
             return (width <= 0.0 || height <= 0.0);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -296,7 +296,7 @@ public abstract class Ellipse2D extends RectangularShape {
             this.height = h;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -310,7 +310,7 @@ public abstract class Ellipse2D extends RectangularShape {
         private static final long serialVersionUID = 5555464816372320683L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class that cannot be instantiated directly.
      * Type-specific implementation subclasses are available for
      * instantiation and provide a number of formats for storing
@@ -324,7 +324,7 @@ public abstract class Ellipse2D extends RectangularShape {
     protected Ellipse2D() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -344,7 +344,7 @@ public abstract class Ellipse2D extends RectangularShape {
         return (normx * normx + normy * normy) < 0.25;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -391,7 +391,7 @@ public abstract class Ellipse2D extends RectangularShape {
         return (nearx * nearx + neary * neary) < 0.25;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -402,7 +402,7 @@ public abstract class Ellipse2D extends RectangularShape {
                 contains(x + w, y + h));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration object that defines the boundary of this
      * <code>Ellipse2D</code>.
      * The iterator for this class is multi-threaded safe, which means
@@ -422,7 +422,7 @@ public abstract class Ellipse2D extends RectangularShape {
         return new EllipseIterator(this, at);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hashcode for this <code>Ellipse2D</code>.
      * @return the hashcode for this <code>Ellipse2D</code>.
      * @since 1.6
@@ -435,7 +435,7 @@ public abstract class Ellipse2D extends RectangularShape {
         return (((int) bits) ^ ((int) (bits >> 32)));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether or not the specified <code>Object</code> is
      * equal to this <code>Ellipse2D</code>.  The specified
      * <code>Object</code> is equal to this <code>Ellipse2D</code>

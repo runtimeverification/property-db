@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The management interface for the operating system on which
  * the Java virtual machine is running.
  *
@@ -57,7 +57,7 @@ package java.lang.management;
  * @since   1.5
  */
 public interface OperatingSystemMXBean {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the operating system name.
      * This method is equivalent to <tt>System.getProperty("os.name")</tt>.
      *
@@ -72,7 +72,7 @@ public interface OperatingSystemMXBean {
      */
     public String getName();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the operating system architecture.
      * This method is equivalent to <tt>System.getProperty("os.arch")</tt>.
      *
@@ -87,7 +87,7 @@ public interface OperatingSystemMXBean {
      */
     public String getArch();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the operating system version.
      * This method is equivalent to <tt>System.getProperty("os.version")</tt>.
      *
@@ -102,7 +102,7 @@ public interface OperatingSystemMXBean {
      */
     public String getVersion();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of processors available to the Java virtual machine.
      * This method is equivalent to the {@link Runtime#availableProcessors()}
      * method.
@@ -114,7 +114,7 @@ public interface OperatingSystemMXBean {
      */
     public int getAvailableProcessors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the system load average for the last minute.
      * The system load average is the sum of the number of runnable entities
      * queued to the {@linkplain #getAvailableProcessors available processors}

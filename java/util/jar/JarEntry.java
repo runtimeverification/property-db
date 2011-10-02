@@ -30,7 +30,7 @@ import java.util.zip.ZipEntry;
 import java.security.CodeSigner;
 import java.security.cert.Certificate;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is used to represent a JAR file entry.
  */
 public
@@ -39,7 +39,7 @@ class JarEntry extends ZipEntry {
     Certificate[] certs;
     CodeSigner[] signers;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarEntry</code> for the specified JAR file
      * entry name.
      *
@@ -52,7 +52,7 @@ class JarEntry extends ZipEntry {
         super(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarEntry</code> with fields taken from the
      * specified <code>ZipEntry</code> object.
      * @param ze the <code>ZipEntry</code> object to create the
@@ -62,7 +62,7 @@ class JarEntry extends ZipEntry {
         super(ze);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarEntry</code> with fields taken from the
      * specified <code>JarEntry</code> object.
      *
@@ -75,7 +75,7 @@ class JarEntry extends ZipEntry {
         this.signers = je.signers;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Manifest</code> <code>Attributes</code> for this
      * entry, or <code>null</code> if none.
      *
@@ -86,7 +86,7 @@ class JarEntry extends ZipEntry {
         return attr;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Certificate</code> objects for this entry, or
      * <code>null</code> if none. This method can only be called once
      * the <code>JarEntry</code> has been completely verified by reading
@@ -107,7 +107,7 @@ class JarEntry extends ZipEntry {
         return certs == null ? null : certs.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>CodeSigner</code> objects for this entry, or
      * <code>null</code> if none. This method can only be called once
      * the <code>JarEntry</code> has been completely verified by reading

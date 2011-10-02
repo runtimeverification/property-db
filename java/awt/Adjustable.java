@@ -27,7 +27,7 @@ package java.awt;
 
 import java.awt.event.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface for objects which have an adjustable numeric value
  * contained within a bounded range of values.
  *
@@ -37,22 +37,22 @@ import java.awt.event.*;
 
 public interface Adjustable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the <code>Adjustable</code> has horizontal orientation.
      */
     public static final int HORIZONTAL = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the <code>Adjustable</code> has vertical orientation.
      */
     public static final int VERTICAL = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the <code>Adjustable</code> has no orientation.
      */
     public static final int NO_ORIENTATION = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the orientation of the adjustable object.
      * @return the orientation of the adjustable object;
      *   either <code>HORIZONTAL</code>, <code>VERTICAL</code>,
@@ -60,68 +60,68 @@ public interface Adjustable {
      */
     int getOrientation();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the minimum value of the adjustable object.
      * @param min the minimum value
      */
     void setMinimum(int min);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minimum value of the adjustable object.
      * @return the minimum value of the adjustable object
      */
     int getMinimum();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the maximum value of the adjustable object.
      * @param max the maximum value
      */
     void setMaximum(int max);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the maximum value of the adjustable object.
      * @return the maximum value of the adjustable object
      */
     int getMaximum();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the unit value increment for the adjustable object.
      * @param u the unit increment
      */
     void setUnitIncrement(int u);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the unit value increment for the adjustable object.
      * @return the unit value increment for the adjustable object
      */
     int getUnitIncrement();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the block value increment for the adjustable object.
      * @param b the block increment
      */
     void setBlockIncrement(int b);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the block value increment for the adjustable object.
      * @return the block value increment for the adjustable object
      */
     int getBlockIncrement();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the length of the proportional indicator of the
      * adjustable object.
      * @param v the length of the indicator
      */
     void setVisibleAmount(int v);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the length of the proportional indicator.
      * @return the length of the proportional indicator
      */
     int getVisibleAmount();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current value of the adjustable object. If
      * the value supplied is less than <code>minimum</code>
      * or greater than <code>maximum</code> - <code>visibleAmount</code>,
@@ -135,13 +135,13 @@ public interface Adjustable {
      */
     void setValue(int v);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current value of the adjustable object.
      * @return the current value of the adjustable object
      */
     int getValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a listener to receive adjustment events when the value of
      * the adjustable object changes.
      * @param l the listener to receive events
@@ -149,7 +149,7 @@ public interface Adjustable {
      */
     void addAdjustmentListener(AdjustmentListener l);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an adjustment listener.
      * @param l the listener being removed
      * @see AdjustmentEvent

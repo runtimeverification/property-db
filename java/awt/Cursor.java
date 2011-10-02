@@ -39,7 +39,7 @@ import java.util.logging.*;
 
 import java.security.AccessController;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class to encapsulate the bitmap representation of the mouse cursor.
  *
  * @see Component#setCursor
@@ -47,79 +47,79 @@ import java.security.AccessController;
  */
 public class Cursor implements java.io.Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default cursor type (gets set if no cursor is defined).
      */
     public static final int     DEFAULT_CURSOR                  = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The crosshair cursor type.
      */
     public static final int     CROSSHAIR_CURSOR                = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The text cursor type.
      */
     public static final int     TEXT_CURSOR                     = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The wait cursor type.
      */
     public static final int     WAIT_CURSOR                     = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The south-west-resize cursor type.
      */
     public static final int     SW_RESIZE_CURSOR                = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The south-east-resize cursor type.
      */
     public static final int     SE_RESIZE_CURSOR                = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The north-west-resize cursor type.
      */
     public static final int     NW_RESIZE_CURSOR                = 6;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The north-east-resize cursor type.
      */
     public static final int     NE_RESIZE_CURSOR                = 7;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The north-resize cursor type.
      */
     public static final int     N_RESIZE_CURSOR                 = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The south-resize cursor type.
      */
     public static final int     S_RESIZE_CURSOR                 = 9;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The west-resize cursor type.
      */
     public static final int     W_RESIZE_CURSOR                 = 10;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The east-resize cursor type.
      */
     public static final int     E_RESIZE_CURSOR                 = 11;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The hand cursor type.
      */
     public static final int     HAND_CURSOR                     = 12;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The move cursor type.
      */
     public static final int     MOVE_CURSOR                     = 13;
 
     protected static Cursor predefined[] = new Cursor[14];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field is a private replacement for 'predefined' array.
      */
     private final static Cursor[] predefinedPrivate = new Cursor[14];
@@ -142,7 +142,7 @@ public class Cursor implements java.io.Serializable {
         { "AWT.MoveCursor", "Move Cursor" },
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The chosen cursor type initially set to
      * the <code>DEFAULT_CURSOR</code>.
      *
@@ -151,7 +151,7 @@ public class Cursor implements java.io.Serializable {
      */
     int type = DEFAULT_CURSOR;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The type associated with all custom cursors.
      */
     public static final int     CUSTOM_CURSOR                   = -1;
@@ -195,13 +195,13 @@ public class Cursor implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs for fields that may be
      * accessed from C.
      */
     private static native void initIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Hook into native data.
      */
     private transient long pData;
@@ -237,7 +237,7 @@ public class Cursor implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The user-visible name of the cursor.
      *
      * @serial
@@ -245,7 +245,7 @@ public class Cursor implements java.io.Serializable {
      */
     protected String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a cursor object with the specified predefined type.
      *
      * @param type the type of predefined cursor
@@ -268,7 +268,7 @@ public class Cursor implements java.io.Serializable {
         return c;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a system-specific custom cursor object matching the
      * specified name.  Cursor names are, for example: "Invalid.16x16"
      *
@@ -358,14 +358,14 @@ public class Cursor implements java.io.Serializable {
         return cursor;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the system default cursor.
      */
     static public Cursor getDefaultCursor() {
         return getPredefinedCursor(Cursor.DEFAULT_CURSOR);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new cursor object with the specified type.
      * @param type the type of cursor
      * @throws IllegalArgumentException if the specified cursor type
@@ -382,7 +382,7 @@ public class Cursor implements java.io.Serializable {
                                    cursorProperties[type][1]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new custom cursor object with the specified name.<p>
      * Note:  this constructor should only be used by AWT implementations
      * as part of their support for custom cursors.  Applications should
@@ -395,14 +395,14 @@ public class Cursor implements java.io.Serializable {
         this.name = name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the type for this cursor.
      */
     public int getType() {
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of this cursor.
      * @return    a localized description of this cursor.
      * @since     1.2
@@ -411,7 +411,7 @@ public class Cursor implements java.io.Serializable {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this cursor.
      * @return    a string representation of this cursor.
      * @since     1.2

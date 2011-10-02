@@ -34,7 +34,7 @@ import java.util.Date;
 
 import java.lang.NullPointerException;  // for javadoc
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An HttpCookie object represents an http cookie, which carries state
  * information between server and user agent. Cookie is widely adopted
  * to create stateful sessions.
@@ -105,7 +105,7 @@ public final class HttpCookie implements Cloneable {
 
     /* ---------------- Ctors -------------- */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a cookie with a specified name and value.
      *
      * <p>The name must conform to RFC 2965. That means it can contain
@@ -151,7 +151,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs cookies from set-cookie or set-cookie2 header string.
      * RFC 2965 section 3.2.2 set-cookie2 syntax indicates that one header line
      * may contain more than one cookie definitions, so this is a static
@@ -209,7 +209,7 @@ public final class HttpCookie implements Cloneable {
     /* ---------------- Public operations -------------- */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether this http cookie has expired or not.
      *
      * @return  <tt>true</tt> to indicate this http cookie has expired;
@@ -230,7 +230,7 @@ public final class HttpCookie implements Cloneable {
             return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Specifies a comment that describes a cookie's purpose.
      * The comment is useful if the browser presents the cookie
@@ -251,7 +251,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the comment describing the purpose of this cookie, or
      * <code>null</code> if the cookie has no comment.
      *
@@ -267,7 +267,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Specifies a comment url that describes a cookie's purpose.
      * The comment url is useful if the browser presents the cookie
@@ -287,7 +287,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the comment url describing the purpose of this cookie, or
      * <code>null</code> if the cookie has no comment url.
      *
@@ -303,7 +303,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specify whether user agent should discard the cookie unconditionally.
      * This is RFC 2965 only attribute.
      *
@@ -319,7 +319,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the discard attribute of the cookie
      *
      * @return  a <tt>boolean</tt> to represent this cookie's discard attribute
@@ -332,7 +332,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specify the portlist of the cookie, which restricts the port(s)
      * to which a cookie may be sent back in a Cookie header.
      *
@@ -348,7 +348,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the port list attribute of the cookie
      *
      * @return  a <tt>String</tt> contains the port list
@@ -360,7 +360,7 @@ public final class HttpCookie implements Cloneable {
         return portlist;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Specifies the domain within which this cookie should be presented.
      *
@@ -391,7 +391,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the domain name set for this cookie. The form of
      * the domain name is set by RFC 2965.
      *
@@ -406,7 +406,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the maximum age of the cookie in seconds.
      *
      * <p>A positive value indicates that the cookie will expire
@@ -434,7 +434,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum age of the cookie, specified in seconds.
      * By default, <code>-1</code> indicating the cookie will persist
      * until browser shutdown.
@@ -455,7 +455,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies a path for the cookie
      * to which the client should return the cookie.
      *
@@ -483,7 +483,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the path on the server
      * to which the browser returns this cookie. The
      * cookie is visible to all subpaths on the server.
@@ -504,7 +504,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates to the browser whether the cookie should only be sent
      * using a secure protocol, such as HTTPS or SSL.
      *
@@ -525,7 +525,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if the browser is sending cookies
      * only over a secure protocol, or <code>false</code> if the
      * browser can send cookies using any protocol.
@@ -545,7 +545,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the cookie. The name cannot be changed after
      * creation.
      *
@@ -561,7 +561,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Assigns a new value to a cookie after the cookie is created.
      * If you use a binary value, you may want to use BASE64 encoding.
@@ -586,7 +586,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the cookie.
      *
      * @return                  a <code>String</code> containing the cookie's
@@ -603,7 +603,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the version of the protocol this cookie complies
      * with. Version 1 complies with RFC 2965/2109,
      * and version 0 complies with the original
@@ -626,7 +626,7 @@ public final class HttpCookie implements Cloneable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the version of the cookie protocol this cookie complies
      * with. Version 0 complies with the original Netscape cookie
      * specification. Version 1 complies with RFC 2965/2109.
@@ -651,7 +651,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The utility method to check whether a host name is in a domain
      * or not.
      *
@@ -741,7 +741,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a cookie header string representation of this cookie,
      * which is in the format defined by corresponding cookie specification,
      * but without the leading "Cookie:" token.
@@ -757,7 +757,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Test the equality of two http cookies.
      *
      * <p> The result is <tt>true</tt> only if two cookies
@@ -785,7 +785,7 @@ public final class HttpCookie implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return hash code of this http cookie. The result is the sum of
      * hash code value of three significant components of this cookie:
      * name, domain, and path.
@@ -806,7 +806,7 @@ public final class HttpCookie implements Cloneable {
         return h1 + h2 + h3;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create and return a copy of this object.
      *
      * @return          a clone of this http cookie

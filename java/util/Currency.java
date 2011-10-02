@@ -45,7 +45,7 @@ import sun.util.resources.LocaleData;
 import sun.util.resources.OpenListResourceBundle;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Represents a currency. Currencies are identified by their ISO 4217 currency
  * codes. Visit the <a href="http://www.bsi-global.com/">
  * BSi web site</a> for more information, including a table of
@@ -62,20 +62,20 @@ public final class Currency implements Serializable {
 
     private static final long serialVersionUID = -158308464356906721L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ISO 4217 currency code for this currency.
      *
      * @serial
      */
     private final String currencyCode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Default fraction digits for this currency.
      * Set from currency data tables.
      */
     transient private final int defaultFractionDigits;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ISO 4217 numeric code for this currency.
      * Set from currency data tables.
      */
@@ -238,14 +238,14 @@ public final class Currency implements Serializable {
         });
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constants for retrieving localized names from the name providers.
      */
     private static final int SYMBOL = 0;
     private static final int DISPLAYNAME = 1;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Currency</code> instance. The constructor is private
      * so that we can insure that there's never more than one instance for a
      * given currency.
@@ -256,7 +256,7 @@ public final class Currency implements Serializable {
         this.numericCode = numericCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Currency</code> instance for the given currency code.
      *
      * @param currencyCode the ISO 4217 code of the currency
@@ -315,7 +315,7 @@ public final class Currency implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Currency</code> instance for the country of the
      * given locale. The language and variant components of the locale
      * are ignored. The result may vary over time, as countries change their
@@ -377,7 +377,7 @@ public final class Currency implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the set of available currencies.  The returned set of currencies
      * contains all of the available currencies, which may include currencies
      * that represent obsolete ISO 4217 codes.  The set can be modified
@@ -421,7 +421,7 @@ public final class Currency implements Serializable {
         return (Set<Currency>) available.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the ISO 4217 currency code of this currency.
      *
      * @return the ISO 4217 currency code of this currency.
@@ -430,7 +430,7 @@ public final class Currency implements Serializable {
         return currencyCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the symbol of this currency for the default locale.
      * For example, for the US Dollar, the symbol is "$" if the default
      * locale is the US, while for other locales it may be "US$". If no
@@ -442,7 +442,7 @@ public final class Currency implements Serializable {
         return getSymbol(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the symbol of this currency for the specified locale.
      * For example, for the US Dollar, the symbol is "$" if the specified
      * locale is the US, while for other locales it may be "US$". If no
@@ -483,7 +483,7 @@ public final class Currency implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the default number of fraction digits used with this currency.
      * For example, the default number of fraction digits for the Euro is 2,
      * while for the Japanese Yen it's 0.
@@ -496,7 +496,7 @@ public final class Currency implements Serializable {
         return defaultFractionDigits;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ISO 4217 numeric code of this currency.
      *
      * @return the ISO 4217 numeric code of this currency
@@ -506,7 +506,7 @@ public final class Currency implements Serializable {
         return numericCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name that is suitable for displaying this currency for
      * the default locale.  If there is no suitable display name found
      * for the default locale, the ISO 4217 currency code is returned.
@@ -518,7 +518,7 @@ public final class Currency implements Serializable {
         return getDisplayName(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name that is suitable for displaying this currency for
      * the specified locale.  If there is no suitable display name found
      * for the specified locale, the ISO 4217 currency code is returned.
@@ -560,7 +560,7 @@ public final class Currency implements Serializable {
         return currencyCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ISO 4217 currency code of this currency.
      *
      * @return the ISO 4217 currency code of this currency
@@ -569,14 +569,14 @@ public final class Currency implements Serializable {
         return currencyCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolves instances being deserialized to a single instance per currency.
      */
     private Object readResolve() {
         return getInstance(currencyCode);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the main table entry for the country whose country code consists
      * of char1 and char2.
      */
@@ -587,7 +587,7 @@ public final class Currency implements Serializable {
         return mainTable[(char1 - 'A') * A_TO_Z + (char2 - 'A')];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the main table entry for the country whose country code consists
      * of char1 and char2.
      */
@@ -598,7 +598,7 @@ public final class Currency implements Serializable {
         mainTable[(char1 - 'A') * A_TO_Z + (char2 - 'A')] = entry;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Obtains a localized currency names from a CurrencyNameProvider
      * implementation.
      */
@@ -654,7 +654,7 @@ public final class Currency implements Serializable {
         return ret;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces currency data found in the currencydata.properties file
      *
      * @param pattern regex pattern for the properties

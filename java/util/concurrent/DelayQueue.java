@@ -38,7 +38,7 @@ package java.util.concurrent;
 import java.util.concurrent.locks.*;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An unbounded {@linkplain BlockingQueue blocking queue} of
  * <tt>Delayed</tt> elements, in which an element can only be taken
  * when its delay has expired.  The <em>head</em> of the queue is that
@@ -72,12 +72,12 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
     private transient final Condition available = lock.newCondition();
     private final PriorityQueue<E> q = new PriorityQueue<E>();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <tt>DelayQueue</tt> that is initially empty.
      */
     public DelayQueue() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>DelayQueue</tt> initially containing the elements of the
      * given collection of {@link Delayed} instances.
      *
@@ -89,7 +89,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         this.addAll(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this delay queue.
      *
      * @param e the element to add
@@ -100,7 +100,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         return offer(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this delay queue.
      *
      * @param e the element to add
@@ -121,7 +121,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this delay queue. As the queue is
      * unbounded this method will never block.
      *
@@ -132,7 +132,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         offer(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this delay queue. As the queue is
      * unbounded this method will never block.
      *
@@ -146,7 +146,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         return offer(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, or returns <tt>null</tt>
      * if this queue has no elements with an expired delay.
      *
@@ -172,7 +172,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, waiting if necessary
      * until an element with an expired delay is available on this queue.
      *
@@ -206,7 +206,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, waiting if necessary
      * until an element with an expired delay is available on this queue,
      * or the specified wait time expires.
@@ -251,7 +251,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the head of this queue, or
      * returns <tt>null</tt> if this queue is empty.  Unlike
      * <tt>poll</tt>, if no expired elements are available in the queue,
@@ -281,7 +281,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -311,7 +311,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -343,7 +343,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically removes all of the elements from this delay queue.
      * The queue will be empty after this call returns.
      * Elements with an unexpired delay are not waited for; they are
@@ -359,7 +359,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>Integer.MAX_VALUE</tt> because
      * a <tt>DelayQueue</tt> is not capacity constrained.
      *
@@ -369,7 +369,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         return Integer.MAX_VALUE;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this queue.
      * The returned array elements are in no particular order.
      *
@@ -392,7 +392,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this queue; the
      * runtime type of the returned array is that of the specified array.
      * The returned array elements are in no particular order.
@@ -438,7 +438,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a single instance of the specified element from this
      * queue, if it is present, whether or not it has expired.
      */
@@ -452,7 +452,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over all the elements (both expired and
      * unexpired) in this queue. The iterator does not return the
      * elements in any particular order.  The returned
@@ -468,7 +468,7 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
         return new Itr(toArray());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Snapshot iterator that works off copy of underlying q array.
      */
     private class Itr implements Iterator<E> {

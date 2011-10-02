@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>Driver properties for making a connection. The
  * <code>DriverPropertyInfo</code> class is of interest only to advanced programmers
  * who need to interact with a Driver via the method
@@ -35,7 +35,7 @@ package java.sql;
 
 public class DriverPropertyInfo {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>DriverPropertyInfo</code> object with a  given
      * name and value.  The <code>description</code> and <code>choices</code>
      * are intialized to <code>null</code> and <code>required</code> is initialized
@@ -49,24 +49,24 @@ public class DriverPropertyInfo {
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The name of the property.
      */
     public String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A brief description of the property, which may be null.
      */
     public String description = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>required</code> field is <code>true</code> if a value must be
          * supplied for this property
      * during <code>Driver.connect</code> and <code>false</code> otherwise.
      */
     public boolean required = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>value</code> field specifies the current value of
          * the property, based on a combination of the information
          * supplied to the method <code>getPropertyInfo</code>, the
@@ -75,7 +75,7 @@ public class DriverPropertyInfo {
      */
     public String value = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An array of possible values if the value for the field
          * <code>DriverPropertyInfo.value</code> may be selected
          * from a particular set of values; otherwise null.

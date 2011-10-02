@@ -27,7 +27,7 @@ package java.awt.image;
 
 import java.util.Hashtable;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface for objects expressing interest in image data through
  * the ImageProducer interfaces.  When a consumer is added to an image
  * producer, the producer delivers all of the data about the image
@@ -38,7 +38,7 @@ import java.util.Hashtable;
  * @author      Jim Graham
  */
 public interface ImageConsumer {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The dimensions of the source image are reported using the
      * setDimensions method call.
      * @param width the width of the source image
@@ -46,14 +46,14 @@ public interface ImageConsumer {
      */
     void setDimensions(int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the extensible list of properties associated with this image.
      * @param props the list of properties to be associated with this
      *        image
      */
     void setProperties(Hashtable<?,?> props);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the ColorModel object used for the majority of
      * the pixels reported using the setPixels method
      * calls.  Note that each set of pixels delivered using setPixels
@@ -71,7 +71,7 @@ public interface ImageConsumer {
      */
     void setColorModel(ColorModel model);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the hints that the ImageConsumer uses to process the
      * pixels delivered by the ImageProducer.
      * The ImageProducer can deliver the pixels in any order, but
@@ -88,7 +88,7 @@ public interface ImageConsumer {
      */
     void setHints(int hintflags);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The pixels will be delivered in a random order.  This tells the
      * ImageConsumer not to use any optimizations that depend on the
      * order of pixel delivery, which should be the default assumption
@@ -97,20 +97,20 @@ public interface ImageConsumer {
      */
     int RANDOMPIXELORDER = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The pixels will be delivered in top-down, left-to-right order.
      * @see #setHints
      */
     int TOPDOWNLEFTRIGHT = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The pixels will be delivered in (multiples of) complete scanlines
      * at a time.
      * @see #setHints
      */
     int COMPLETESCANLINES = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The pixels will be delivered in a single pass.  Each pixel will
      * appear in only one call to any of the setPixels methods.  An
      * example of an image format which does not meet this criterion
@@ -120,7 +120,7 @@ public interface ImageConsumer {
      */
     int SINGLEPASS = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The image contain a single static image.  The pixels will be defined
      * in calls to the setPixels methods and then the imageComplete method
      * will be called with the STATICIMAGEDONE flag after which no more
@@ -134,7 +134,7 @@ public interface ImageConsumer {
      */
     int SINGLEFRAME = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Delivers the pixels of the image with one or more calls
      * to this method.  Each call specifies the location and
      * size of the rectangle of source pixels that are contained in
@@ -159,7 +159,7 @@ public interface ImageConsumer {
     void setPixels(int x, int y, int w, int h,
                    ColorModel model, byte pixels[], int off, int scansize);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The pixels of the image are delivered using one or more calls
      * to the setPixels method.  Each call specifies the location and
      * size of the rectangle of source pixels that are contained in
@@ -185,7 +185,7 @@ public interface ImageConsumer {
     void setPixels(int x, int y, int w, int h,
                    ColorModel model, int pixels[], int off, int scansize);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The imageComplete method is called when the ImageProducer is
      * finished delivering all of the pixels that the source image
      * contains, or when a single frame of a multi-frame animation has
@@ -198,27 +198,27 @@ public interface ImageConsumer {
      */
     void imageComplete(int status);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An error was encountered while producing the image.
      * @see #imageComplete
      */
     int IMAGEERROR = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * One frame of the image is complete but there are more frames
      * to be delivered.
      * @see #imageComplete
      */
     int SINGLEFRAMEDONE = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The image is complete and there are no more pixels or frames
      * to be delivered.
      * @see #imageComplete
      */
     int STATICIMAGEDONE = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The image creation process was deliberately aborted.
      * @see #imageComplete
      */

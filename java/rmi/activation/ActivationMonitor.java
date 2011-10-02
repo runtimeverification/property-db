@@ -31,7 +31,7 @@ import java.rmi.RemoteException;
 import java.rmi.activation.UnknownGroupException;
 import java.rmi.activation.UnknownObjectException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>ActivationMonitor</code> is specific to an
  * <code>ActivationGroup</code> and is obtained when a group is
  * reported active via a call to
@@ -48,7 +48,7 @@ import java.rmi.activation.UnknownObjectException;
  */
 public interface ActivationMonitor extends Remote {
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * An activation group calls its monitor's
      * <code>inactiveObject</code> method when an object in its group
      * becomes inactive (deactivates).  An activation group discovers
@@ -73,7 +73,7 @@ public interface ActivationMonitor extends Remote {
     public void inactiveObject(ActivationID id)
         throws UnknownObjectException, RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Informs that an object is now active. An <code>ActivationGroup</code>
      * informs its monitor if an object in its group becomes active by
      * other means than being activated directly (i.e., the object
@@ -89,7 +89,7 @@ public interface ActivationMonitor extends Remote {
                              MarshalledObject<? extends Remote> obj)
         throws UnknownObjectException, RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Informs that the group is now inactive. The group will be
      * recreated upon a subsequent request to activate an object
      * within the group. A group becomes inactive when all objects

@@ -35,7 +35,7 @@ import java.io.ByteArrayOutputStream;
 import sun.net.ConnectionResetException;
 import sun.net.ResourceManager;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Default Socket Implementation. This implementation does
  * not implement any security checks.
  * Note this class should <b>NOT</b> be public.
@@ -74,7 +74,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     */
     private boolean stream;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Load net library into runtime.
      */
     static {
@@ -82,7 +82,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
                   new sun.security.action.LoadLibraryAction("net"));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a socket with a boolean that specifies whether this
      * is a stream socket (true) or an unconnected UDP socket (false).
      */
@@ -107,7 +107,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
             serverSocket.setCreated();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a socket and connects it to the specified port on
      * the specified host.
      * @param host the specified host
@@ -137,7 +137,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         throw pending;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a socket and connects it to the specified address on
      * the specified port.
      * @param address the address
@@ -157,7 +157,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a socket and connects it to the specified address on
      * the specified port.
      * @param address the address
@@ -314,7 +314,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The workhorse of the connection operation.  Tries several times to
      * establish a connection to the given <host, port>.  If unsuccessful,
      * throws an IOException indicating what went wrong.
@@ -342,7 +342,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Binds the socket to the specified address of the specified local port.
      * @param address the address
      * @param port the port
@@ -357,7 +357,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
             serverSocket.setBound();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Listens, for a specified amount of time, for connections.
      * @param count the amount of time to listen for connections
      */
@@ -365,7 +365,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         socketListen(count);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Accepts connections.
      * @param s the connection
      */
@@ -378,7 +378,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an InputStream for this socket.
      */
     protected synchronized InputStream getInputStream() throws IOException {
@@ -398,7 +398,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         socketInputStream = in;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an OutputStream for this socket.
      */
     protected synchronized OutputStream getOutputStream() throws IOException {
@@ -427,7 +427,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         this.localport = localport;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bytes that can be read without blocking.
      */
     protected synchronized int available() throws IOException {
@@ -469,7 +469,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes the socket.
      */
     protected void close() throws IOException {
@@ -524,7 +524,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Shutdown read-half of the socket connection;
      */
     protected void shutdownInput() throws IOException {
@@ -537,7 +537,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Shutdown write-half of the socket connection;
      */
     protected void shutdownOutput() throws IOException {
@@ -558,7 +558,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         socketSendUrgentData (data);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cleans up if the user forgets to close it.
      */
     protected void finalize() throws IOException {

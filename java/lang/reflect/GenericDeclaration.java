@@ -25,13 +25,13 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A common interface for all entities that declare type variables.
  *
  * @since 1.5
  */
 public interface GenericDeclaration {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code TypeVariable} objects that
      * represent the type variables declared by the generic
      * declaration represented by this {@code GenericDeclaration}

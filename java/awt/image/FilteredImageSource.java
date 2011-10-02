@@ -32,7 +32,7 @@ import java.awt.image.ImageProducer;
 import java.util.Hashtable;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is an implementation of the ImageProducer interface which
  * takes an existing image and a filter object and uses them to produce
  * image data for a new filtered version of the original image.
@@ -55,7 +55,7 @@ public class FilteredImageSource implements ImageProducer {
     ImageProducer src;
     ImageFilter filter;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object from an existing ImageProducer
      * and a filter object.
      * @param orig the specified <code>ImageProducer</code>
@@ -70,7 +70,7 @@ public class FilteredImageSource implements ImageProducer {
 
     private Hashtable proxies;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified <code>ImageConsumer</code>
      * to the list of consumers interested in data for the filtered image.
      * An instance of the original <code>ImageFilter</code>
@@ -103,7 +103,7 @@ public class FilteredImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether an ImageConsumer is on the list of consumers
      * currently interested in data for this image.
      *
@@ -122,7 +122,7 @@ public class FilteredImageSource implements ImageProducer {
         return (proxies != null && proxies.containsKey(ic));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an ImageConsumer from the list of consumers interested in
      * data for this image.
      *
@@ -148,7 +148,7 @@ public class FilteredImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Starts production of the filtered image.
      * If the specified <code>ImageConsumer</code>
      * isn't already a consumer of the filtered image,
@@ -183,7 +183,7 @@ public class FilteredImageSource implements ImageProducer {
         src.startProduction(imgf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Requests that a given ImageConsumer have the image data delivered
      * one more time in top-down, left-right order.  The request is
      * handed to the ImageFilter for further processing, since the

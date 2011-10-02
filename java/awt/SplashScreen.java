@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import sun.awt.image.SunWritableRaster;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The splash screen can be created at application startup, before the
  * Java Virtual Machine (JVM) starts. The splash screen is displayed as an
  * undecorated window containing an image. You can use GIF, JPEG, and PNG files
@@ -90,7 +90,7 @@ public final class SplashScreen {
         splashPtr = ptr;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code SplashScreen} object used for
      * Java startup splash screen control.
      *
@@ -119,7 +119,7 @@ public final class SplashScreen {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes the splash screen image. The new image is loaded from the
      * specified URL; GIF, JPEG and PNG image formats are supported.
      * The method returns after the image has finished loading and the window
@@ -182,7 +182,7 @@ public final class SplashScreen {
             throw new IllegalStateException("no splash screen available");
         }
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current splash screen image.
      *
      * @return URL for the current splash screen image file
@@ -213,7 +213,7 @@ public final class SplashScreen {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounds of the splash screen window as a {@link Rectangle}.
      * This may be useful if, for example, you want to replace the splash
      * screen with your window at the same location.
@@ -231,7 +231,7 @@ public final class SplashScreen {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the size of the splash screen window as a {@link Dimension}.
      * This may be useful if, for example,
      * you want to draw on the splash screen overlay surface.
@@ -246,7 +246,7 @@ public final class SplashScreen {
         return getBounds().getSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a graphics context (as a {@link Graphics2D} object) for the splash
      * screen overlay image, which allows you to draw over the splash screen.
      * Note that you do not draw on the main image but on the image that is
@@ -269,7 +269,7 @@ public final class SplashScreen {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the splash window with current contents of the overlay image.
      *
      * @throws IllegalStateException if the overlay image does not exist;
@@ -308,7 +308,7 @@ public final class SplashScreen {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Hides the splash screen, closes the window, and releases all associated
      * resources.
      *
@@ -325,7 +325,7 @@ public final class SplashScreen {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the splash screen is visible. The splash screen may
      * be hidden using {@link #close()}, it is also hidden automatically when
      * the first AWT/Swing window is made visible.
@@ -346,7 +346,7 @@ public final class SplashScreen {
 
     private URL imageURL;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The instance reference for the singleton.
      * (<code>null</code> if no instance exists yet.)
      *

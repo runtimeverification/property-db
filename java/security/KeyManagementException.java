@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the general key management exception for all operations
  * dealing with key management. Examples of subclasses of
  * KeyManagementException that developers might create for
@@ -47,7 +47,7 @@ public class KeyManagementException extends KeyException {
 
     private static final long serialVersionUID = 947674216157062695L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a KeyManagementException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -56,7 +56,7 @@ public class KeyManagementException extends KeyException {
         super();
     }
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
      * Constructs a KeyManagementException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -67,7 +67,7 @@ public class KeyManagementException extends KeyException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>KeyManagementException</code> with the specified
      * detail message and cause.
      *
@@ -82,7 +82,7 @@ public class KeyManagementException extends KeyException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>KeyManagementException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

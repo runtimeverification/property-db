@@ -40,7 +40,7 @@ package java.text;
 
 import java.util.ArrayList;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Utility class for normalizing and merging patterns for collation.
  * Patterns are strings of the form <entry>*, where <entry> has the
  * form:
@@ -62,7 +62,7 @@ import java.util.ArrayList;
 
 final class MergeCollation {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates from a pattern
      * @exception ParseException If the input pattern is incorrect.
      */
@@ -73,14 +73,14 @@ final class MergeCollation {
         setPattern(pattern);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * recovers current pattern
      */
     public String getPattern() {
         return getPattern(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * recovers current pattern.
      * @param withWhiteSpace puts spacing around the entries, and \n
      * before & and <
@@ -129,7 +129,7 @@ final class MergeCollation {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * emits the pattern for collation builder.
      * @return emits the string in the format understable to the collation
      * builder.
@@ -138,7 +138,7 @@ final class MergeCollation {
         return emitPattern(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * emits the pattern for collation builder.
      * @param withWhiteSpace puts spacing around the entries, and \n
      * before & and <
@@ -157,7 +157,7 @@ final class MergeCollation {
         return result.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * sets the pattern.
      */
     public void setPattern(String pattern) throws ParseException
@@ -166,7 +166,7 @@ final class MergeCollation {
         addPattern(pattern);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * adds a pattern to the current one.
      * @param pattern the new pattern to be added
      */
@@ -184,7 +184,7 @@ final class MergeCollation {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * gets count of separate entries
      * @return the size of pattern entries
      */
@@ -192,7 +192,7 @@ final class MergeCollation {
         return patterns.size();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * gets count of separate entries
      * @param index the offset of the desired pattern entry
      * @return the requested pattern entry

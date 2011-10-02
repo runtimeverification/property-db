@@ -26,7 +26,7 @@
 package java.lang.ref;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Phantom reference objects, which are enqueued after the collector
  * determines that their referents may otherwise be reclaimed.  Phantom
  * references are most often used for scheduling pre-mortem cleanup actions in
@@ -52,7 +52,7 @@ package java.lang.ref;
 
 public class PhantomReference<T> extends Reference<T> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this reference object's referent.  Because the referent of a
      * phantom reference is always inaccessible, this method always returns
      * <code>null</code>.
@@ -63,7 +63,7 @@ public class PhantomReference<T> extends Reference<T> {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new phantom reference that refers to the given object and
      * is registered with the given queue.
      *

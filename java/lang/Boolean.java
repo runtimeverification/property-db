@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@descriptive.open}
  * The Boolean class wraps a value of the primitive type
  * {@code boolean} in an object. An object of type
@@ -45,7 +45,7 @@ package java.lang;
 public final class Boolean implements java.io.Serializable,
                                       Comparable<Boolean>
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * The {@code Boolean} object corresponding to the primitive
      * {@descriptive.close}
@@ -53,7 +53,7 @@ public final class Boolean implements java.io.Serializable,
      */
     public static final Boolean TRUE = new Boolean(true);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * The {@code Boolean} object corresponding to the primitive
      * {@descriptive.close}
@@ -61,7 +61,7 @@ public final class Boolean implements java.io.Serializable,
      */
     public static final Boolean FALSE = new Boolean(false);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * The Class object representing the primitive type boolean.
      * {@descriptive.close}
@@ -70,7 +70,7 @@ public final class Boolean implements java.io.Serializable,
      */
     public static final Class<Boolean> TYPE = Class.getPrimitiveClass("boolean");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * The value of the Boolean.
      * {@descriptive.close}
@@ -79,10 +79,10 @@ public final class Boolean implements java.io.Serializable,
      */
     private final boolean value;
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -3665804199014368530L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Allocates a {@code Boolean} object representing the
      * {@code value} argument.
@@ -101,7 +101,7 @@ public final class Boolean implements java.io.Serializable,
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Allocates a {@code Boolean} object representing the value
      * {@code true} if the string argument is not {@code null}
@@ -120,7 +120,7 @@ public final class Boolean implements java.io.Serializable,
         this(toBoolean(s));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Parses the string argument as a boolean.  The {@code boolean}
      * returned represents the value {@code true} if the string argument
@@ -139,7 +139,7 @@ public final class Boolean implements java.io.Serializable,
         return toBoolean(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns the value of this {@code Boolean} object as a boolean
      * primitive.
@@ -151,7 +151,7 @@ public final class Boolean implements java.io.Serializable,
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns a {@code Boolean} instance representing the specified
      * {@code boolean} value.  If the specified {@code boolean} value
@@ -174,7 +174,7 @@ public final class Boolean implements java.io.Serializable,
         return (b ? TRUE : FALSE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns a {@code Boolean} with a value represented by the
      * specified string.  The {@code Boolean} returned represents a
@@ -189,7 +189,7 @@ public final class Boolean implements java.io.Serializable,
         return toBoolean(s) ? TRUE : FALSE;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns a {@code String} object representing the specified
      * boolean.  If the specified boolean is {@code true}, then
@@ -205,7 +205,7 @@ public final class Boolean implements java.io.Serializable,
         return b ? "true" : "false";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns a {@code String} object representing this Boolean's
      * value.  If this object represents the value {@code true},
@@ -219,7 +219,7 @@ public final class Boolean implements java.io.Serializable,
         return value ? "true" : "false";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns a hash code for this {@code Boolean} object.
      * {@descriptive.close}
@@ -232,7 +232,7 @@ public final class Boolean implements java.io.Serializable,
         return value ? 1231 : 1237;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns {@code true} if and only if the argument is not
      * {@code null} and is a {@code Boolean} object that
@@ -250,7 +250,7 @@ public final class Boolean implements java.io.Serializable,
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns {@code true} if and only if the system property
      * named by the argument exists and is equal to the string
@@ -279,7 +279,7 @@ public final class Boolean implements java.io.Serializable,
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Compares this {@code Boolean} instance with another.
      * {@descriptive.close}

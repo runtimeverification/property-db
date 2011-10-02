@@ -31,7 +31,7 @@ import java.net.URL;
 
 import sun.security.util.Debug;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class extends ClassLoader with additional support for defining
  * classes with an associated code source and permissions which are
  * retrieved by the system policy by default.
@@ -53,7 +53,7 @@ public class SecureClassLoader extends ClassLoader {
 
     private static final Debug debug = Debug.getInstance("scl");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new SecureClassLoader using the specified parent
      * class loader for delegation.
      *
@@ -77,7 +77,7 @@ public class SecureClassLoader extends ClassLoader {
         initialized = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new SecureClassLoader using the default parent class
      * loader for delegation.
      *
@@ -100,7 +100,7 @@ public class SecureClassLoader extends ClassLoader {
         initialized = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts an array of bytes into an instance of class Class,
      * with an optional CodeSource. Before the
      * class can be used it must be resolved.
@@ -142,7 +142,7 @@ public class SecureClassLoader extends ClassLoader {
             return defineClass(name, b, off, len, getProtectionDomain(cs));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts a {@link java.nio.ByteBuffer <tt>ByteBuffer</tt>}
      * into an instance of class <tt>Class</tt>, with an optional CodeSource.
      * Before the class can be used it must be resolved.
@@ -178,7 +178,7 @@ public class SecureClassLoader extends ClassLoader {
             return defineClass(name, b, getProtectionDomain(cs));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the permissions for the given CodeSource object.
      * <p>
      * This method is invoked by the defineClass method which takes

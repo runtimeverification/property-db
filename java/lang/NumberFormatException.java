@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that the application has attempted to convert
  * a string to one of the numeric types, but that the string does not
  * have the appropriate format.
@@ -38,14 +38,14 @@ public
 class NumberFormatException extends IllegalArgumentException {
     static final long serialVersionUID = -2848938806368998894L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>NumberFormatException</code> with no detail message.
      */
     public NumberFormatException () {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>NumberFormatException</code> with the
      * specified detail message.
      *
@@ -55,7 +55,7 @@ class NumberFormatException extends IllegalArgumentException {
         super (s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Factory method for making a <code>NumberFormatException</code>
      * given the specified input which caused the error.
      *

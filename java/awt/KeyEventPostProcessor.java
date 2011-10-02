@@ -27,7 +27,7 @@ package java.awt;
 import java.awt.event.KeyEvent;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A KeyEventPostProcessor cooperates with the current KeyboardFocusManager
  * in the final resolution of all unconsumed KeyEvents. KeyEventPostProcessors
  * registered with the current KeyboardFocusManager will receive KeyEvents
@@ -56,7 +56,7 @@ import java.awt.event.KeyEvent;
  */
 public interface KeyEventPostProcessor {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is called by the current KeyboardFocusManager, requesting
      * that this KeyEventPostProcessor perform any necessary post-processing
      * which should be part of the KeyEvent's final resolution. At the time

@@ -27,7 +27,7 @@ package java.awt.image;
 
 import java.util.Hashtable;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements a filter for the set of interface methods that
  * are used to deliver data from an ImageProducer to an ImageConsumer.
  * It is meant to be used in conjunction with a FilteredImageSource
@@ -43,7 +43,7 @@ import java.util.Hashtable;
  * @author      Jim Graham
  */
 public class ImageFilter implements ImageConsumer, Cloneable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The consumer of the particular image data stream for which this
      * instance of the ImageFilter is filtering data.  It is not
      * initialized during the constructor, but rather during the
@@ -55,7 +55,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
      */
     protected ImageConsumer consumer;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a unique instance of an ImageFilter object which will
      * actually perform the filtering for the specified ImageConsumer.
      * The default implementation just clones this object.
@@ -75,7 +75,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         return instance;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters the information provided in the setDimensions method
      * of the ImageConsumer interface.
      * <p>
@@ -90,7 +90,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setDimensions(width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Passes the properties from the source object along after adding a
      * property indicating the stream of filters it has been run through.
      * <p>
@@ -114,7 +114,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setProperties(p);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filter the information provided in the setColorModel method
      * of the ImageConsumer interface.
      * <p>
@@ -129,7 +129,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setColorModel(model);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters the information provided in the setHints method
      * of the ImageConsumer interface.
      * <p>
@@ -144,7 +144,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setHints(hints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters the information provided in the setPixels method of the
      * ImageConsumer interface which takes an array of bytes.
      * <p>
@@ -161,7 +161,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setPixels(x, y, w, h, model, pixels, off, scansize);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters the information provided in the setPixels method of the
      * ImageConsumer interface which takes an array of integers.
      * <p>
@@ -178,7 +178,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.setPixels(x, y, w, h, model, pixels, off, scansize);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters the information provided in the imageComplete method of
      * the ImageConsumer interface.
      * <p>
@@ -193,7 +193,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         consumer.imageComplete(status);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Responds to a request for a TopDownLeftRight (TDLR) ordered resend
      * of the pixel data from an <code>ImageConsumer</code>.
      * When an <code>ImageConsumer</code> being fed
@@ -244,7 +244,7 @@ public class ImageFilter implements ImageConsumer, Cloneable {
         ip.requestTopDownLeftRightResend(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clones this object.
      */
     public Object clone() {

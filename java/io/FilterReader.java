@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Abstract class for reading filtered character streams.
  * The abstract class <code>FilterReader</code> itself
@@ -42,14 +42,14 @@ package java.io;
 
 public abstract class FilterReader extends Reader {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The underlying character-input stream.
      * {@description.close}
      */
     protected Reader in;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new filtered reader.
      * {@description.close}
@@ -62,7 +62,7 @@ public abstract class FilterReader extends Reader {
         this.in = in;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a single character.
      * {@description.close}
@@ -73,7 +73,7 @@ public abstract class FilterReader extends Reader {
         return in.read();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
@@ -84,7 +84,7 @@ public abstract class FilterReader extends Reader {
         return in.read(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips characters.
      * {@description.close}
@@ -95,7 +95,7 @@ public abstract class FilterReader extends Reader {
         return in.skip(n);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream is ready to be read.
      * {@description.close}
@@ -106,7 +106,7 @@ public abstract class FilterReader extends Reader {
         return in.ready();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream supports the mark() operation.
      * {@description.close}
@@ -115,7 +115,7 @@ public abstract class FilterReader extends Reader {
         return in.markSupported();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the present position in the stream.
      * {@description.close}
@@ -126,7 +126,7 @@ public abstract class FilterReader extends Reader {
         in.mark(readAheadLimit);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the stream.
      * {@description.close}

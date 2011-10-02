@@ -25,7 +25,7 @@
 
 package java.awt.datatransfer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Defines the interface for classes that will provide data to
  * a clipboard. An instance of this interface becomes the owner
  * of the contents of a clipboard (clipboard owner) if it is
@@ -43,7 +43,7 @@ package java.awt.datatransfer;
 
 public interface ClipboardOwner {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notifies this object that it is no longer the clipboard owner.
      * This method will be called when another application or another
      * object within this application asserts ownership of the clipboard.

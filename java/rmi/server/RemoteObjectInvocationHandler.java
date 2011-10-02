@@ -36,7 +36,7 @@ import java.util.WeakHashMap;
 import sun.rmi.server.Util;
 import sun.rmi.server.WeakClassHashMap;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An implementation of the <code>InvocationHandler</code> interface for
  * use with Java Remote Method Invocation (Java RMI).  This invocation
  * handler can be used in conjunction with a dynamic proxy instance as a
@@ -56,14 +56,14 @@ public class RemoteObjectInvocationHandler
 {
     private static final long serialVersionUID = 2L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A weak hash map, mapping classes to weak hash maps that map
      * method objects to method hashes.
      **/
     private static final MethodToHash_Maps methodToHash_Maps =
         new MethodToHash_Maps();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>RemoteObjectInvocationHandler</code> constructed
      * with the specified <code>RemoteRef</code>.
      *
@@ -78,7 +78,7 @@ public class RemoteObjectInvocationHandler
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes a method invocation made on the encapsulating
      * proxy instance, <code>proxy</code>, and returns the result.
      *
@@ -149,7 +149,7 @@ public class RemoteObjectInvocationHandler
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Handles java.lang.Object methods.
      **/
     private Object invokeObjectMethod(Object proxy,
@@ -178,7 +178,7 @@ public class RemoteObjectInvocationHandler
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Handles remote methods.
      **/
     private Object invokeRemoteMethod(Object proxy,
@@ -215,7 +215,7 @@ public class RemoteObjectInvocationHandler
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation for a proxy that uses this invocation
      * handler.
      **/
@@ -235,7 +235,7 @@ public class RemoteObjectInvocationHandler
         return "Proxy[" + iface + "," + this + "]";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws InvalidObjectException unconditionally
      **/
     private void readObjectNoData() throws InvalidObjectException {
@@ -243,7 +243,7 @@ public class RemoteObjectInvocationHandler
                                          this.getClass().getName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the method hash for the specified method.  Subsequent calls
      * to "getMethodHash" passing the same method argument should be faster
      * since this method caches internally the result of the method to
@@ -257,7 +257,7 @@ public class RemoteObjectInvocationHandler
         return methodToHash_Maps.get(method.getDeclaringClass()).get(method);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A weak hash map, mapping classes to weak hash maps that map
      * method objects to method hashes.
      **/

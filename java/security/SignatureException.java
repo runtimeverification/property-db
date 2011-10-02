@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the generic Signature exception.
  *
  * @author Benjamin Renaud
@@ -35,7 +35,7 @@ public class SignatureException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 7509989324975124438L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SignatureException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -44,7 +44,7 @@ public class SignatureException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SignatureException with the specified detail
      * message.  A detail message is a String that describes this
      * particular exception.
@@ -55,7 +55,7 @@ public class SignatureException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SignatureException</code> with the specified
      * detail message and cause.
      *
@@ -70,7 +70,7 @@ public class SignatureException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SignatureException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

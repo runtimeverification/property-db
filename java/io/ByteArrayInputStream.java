@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <code>ByteArrayInputStream</code> contains
  * an internal buffer that contains bytes that
@@ -47,7 +47,7 @@ package java.io;
 public
 class ByteArrayInputStream extends InputStream {
 
-    /**
+    /** {@collect.stats}
      * {@property.open undecided internal}
      * An array of bytes that was provided
      * by the creator of the stream. Elements <code>buf[0]</code>
@@ -59,7 +59,7 @@ class ByteArrayInputStream extends InputStream {
      */
     protected byte buf[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index of the next character to read from the input stream buffer.
      * This value should always be nonnegative
@@ -70,7 +70,7 @@ class ByteArrayInputStream extends InputStream {
      */
     protected int pos;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The currently marked position in the stream.
      * {@description.close}
@@ -91,7 +91,7 @@ class ByteArrayInputStream extends InputStream {
      */
     protected int mark = 0;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index one greater than the last valid character in the input
      * stream buffer.
@@ -106,7 +106,7 @@ class ByteArrayInputStream extends InputStream {
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>ByteArrayInputStream</code>
      * so that it  uses <code>buf</code> as its
@@ -126,7 +126,7 @@ class ByteArrayInputStream extends InputStream {
         this.count = buf.length;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates <code>ByteArrayInputStream</code>
      * that uses <code>buf</code> as its
@@ -149,7 +149,7 @@ class ByteArrayInputStream extends InputStream {
         this.mark = offset;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
@@ -170,7 +170,7 @@ class ByteArrayInputStream extends InputStream {
         return (pos < count) ? (buf[pos++] & 0xff) : -1;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data into an array of bytes
      * from this input stream.
@@ -223,7 +223,7 @@ class ByteArrayInputStream extends InputStream {
         return len;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips <code>n</code> bytes of input from this input stream. Fewer
      * bytes might be skipped if the end of the input stream is reached.
@@ -248,7 +248,7 @@ class ByteArrayInputStream extends InputStream {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the number of remaining bytes that can be read (or skipped over)
      * from this input stream.
@@ -264,7 +264,7 @@ class ByteArrayInputStream extends InputStream {
         return count - pos;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tests if this <code>InputStream</code> supports mark/reset.
      * {@description.close}
@@ -280,7 +280,7 @@ class ByteArrayInputStream extends InputStream {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Set the current marked position in the stream.
      * ByteArrayInputStream objects are marked at position zero by
@@ -303,7 +303,7 @@ class ByteArrayInputStream extends InputStream {
         mark = pos;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the buffer to the marked position.
      * {@description.close}
@@ -317,7 +317,7 @@ class ByteArrayInputStream extends InputStream {
         pos = mark;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closing a <tt>ByteArrayInputStream</tt> has no effect.
      * {@description.close}

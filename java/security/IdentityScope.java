@@ -29,7 +29,7 @@ import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.Properties;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>This class represents a scope for identities. It is an Identity
  * itself, and therefore has a name and can have a scope. It can also
  * optionally have a public key and associated certificates.
@@ -95,7 +95,7 @@ class IdentityScope extends Identity {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor is used for serialization only and should not
      * be used by subclasses.
      */
@@ -103,7 +103,7 @@ class IdentityScope extends Identity {
         this("restoring...");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new identity scope with the specified name.
      *
      * @param name the scope name.
@@ -112,7 +112,7 @@ class IdentityScope extends Identity {
         super(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new identity scope with the specified name and scope.
      *
      * @param name the scope name.
@@ -126,7 +126,7 @@ class IdentityScope extends Identity {
         super(name, scope);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the system's identity scope.
      *
      * @return the system's identity scope.
@@ -141,7 +141,7 @@ class IdentityScope extends Identity {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the system's identity scope.
      *
      * <p>First, if there is a security manager, its
@@ -163,14 +163,14 @@ class IdentityScope extends Identity {
         IdentityScope.scope = scope;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of identities within this identity scope.
      *
      * @return the number of identities within this identity scope.
      */
     public abstract int size();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the identity in this scope with the specified name (if any).
      *
      * @param name the name of the identity to be retrieved.
@@ -180,7 +180,7 @@ class IdentityScope extends Identity {
      */
     public abstract Identity getIdentity(String name);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the identity whose name is the same as that of the
      * specified principal. (Note: Identity implements Principal.)
      *
@@ -195,7 +195,7 @@ class IdentityScope extends Identity {
         return getIdentity(principal.getName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the identity with the specified public key.
      *
      * @param key the public key for the identity to be returned.
@@ -205,7 +205,7 @@ class IdentityScope extends Identity {
      */
     public abstract Identity getIdentity(PublicKey key);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an identity to this identity scope.
      *
      * @param identity the identity to be added.
@@ -217,7 +217,7 @@ class IdentityScope extends Identity {
     public abstract void addIdentity(Identity identity)
     throws KeyManagementException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an identity from this identity scope.
      *
      * @param identity the identity to be removed.
@@ -228,14 +228,14 @@ class IdentityScope extends Identity {
     public abstract void removeIdentity(Identity identity)
     throws KeyManagementException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all identities in this identity scope.
      *
      * @return an enumeration of all identities in this identity scope.
      */
     public abstract Enumeration<Identity> identities();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this identity scope, including
      * its name, its scope name, and the number of identities in this
      * identity scope.

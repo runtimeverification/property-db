@@ -28,7 +28,7 @@ package java.util.logging;
 
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Stream based logging <tt>Handler</tt>.
  * <p>
  * This is primarily intended as a base class or support class to
@@ -86,7 +86,7 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>StreamHandler</tt>, with no current output stream.
      */
     public StreamHandler() {
@@ -95,7 +95,7 @@ public class StreamHandler extends Handler {
         sealed = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>StreamHandler</tt> with a given <tt>Formatter</tt>
      * and output stream.
      * <p>
@@ -110,7 +110,7 @@ public class StreamHandler extends Handler {
         sealed = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Change the output stream.
      * <P>
      * If there is a current output stream then the <tt>Formatter</tt>'s
@@ -142,7 +142,7 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set (or change) the character encoding used by this <tt>Handler</tt>.
      * <p>
      * The encoding should be set before any <tt>LogRecords</tt> are written
@@ -170,7 +170,7 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Format and publish a <tt>LogRecord</tt>.
      * <p>
      * The <tt>StreamHandler</tt> first checks if there is an <tt>OutputStream</tt>
@@ -215,7 +215,7 @@ public class StreamHandler extends Handler {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if this <tt>Handler</tt> would actually log a given <tt>LogRecord</tt>.
      * <p>
      * This method checks if the <tt>LogRecord</tt> has an appropriate level and
@@ -233,7 +233,7 @@ public class StreamHandler extends Handler {
         return super.isLoggable(record);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flush any buffered messages.
      */
     public synchronized void flush() {
@@ -269,7 +269,7 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Close the current output stream.
      * <p>
      * The <tt>Formatter</tt>'s "tail" string is written to the stream before it

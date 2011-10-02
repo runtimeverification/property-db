@@ -29,7 +29,7 @@ package java.awt.font;
 
 import java.awt.geom.Point2D;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * LayoutPath provides a mapping between locations relative to the
  * baseline and points in user space.  Locations consist of an advance
  * along the baseline, and an offset perpendicular to the baseline at
@@ -41,7 +41,7 @@ import java.awt.geom.Point2D;
  * @since 1.6
  */
 public abstract class LayoutPath {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convert a point in user space to a location relative to the
      * path. The location is chosen so as to minimize the distance
      * from the point to the path (e.g., the magnitude of the offset
@@ -60,7 +60,7 @@ public abstract class LayoutPath {
      */
     public abstract boolean pointToPath(Point2D point, Point2D location);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convert a location relative to the path to a point in user
      * coordinates.  The path might bend abruptly or be disjoint at
      * the location's advance.  If this is the case, the value of

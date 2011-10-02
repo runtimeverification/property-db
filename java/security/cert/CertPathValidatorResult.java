@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A specification of the result of a certification path validator algorithm.
  * <p>
  * The purpose of this interface is to group (and provide type safety
@@ -40,7 +40,7 @@ package java.security.cert;
  */
 public interface CertPathValidatorResult extends Cloneable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes a copy of this <code>CertPathValidatorResult</code>. Changes to the
      * copy will not affect the original and vice versa.
      *

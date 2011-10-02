@@ -26,7 +26,7 @@
 package java.lang.reflect;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when a syntactically malformed signature attribute is
  * encountered by a reflective method that needs to interpret the
  * generic signature information for a type, method or constructor.

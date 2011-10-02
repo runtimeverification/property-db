@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>ServerNotActiveException</code> is an <code>Exception</code>
  * thrown during a call to <code>RemoteServer.getClientHost</code> if
  * the getClientHost method is called outside of servicing a remote
@@ -40,14 +40,14 @@ public class ServerNotActiveException extends java.lang.Exception {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 4687940720827538231L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ServerNotActiveException</code> with no specified
      * detail message.
      * @since JDK1.1
      */
     public ServerNotActiveException() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ServerNotActiveException</code> with the specified
      * detail message.
      *

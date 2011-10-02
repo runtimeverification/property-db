@@ -34,7 +34,7 @@ import java.util.Vector;
 import java.lang.reflect.*;
 import java.security.cert.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The UnresolvedPermission class is used to hold Permissions that
  * were "unresolved" when the Policy was initialized.
  * An unresolved permission is one whose actual Permission class
@@ -110,7 +110,7 @@ implements java.io.Serializable
         sun.security.util.Debug.getInstance
         ("policy,access", "UnresolvedPermission");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The class name of the Permission class that will be
      * created when this unresolved permission is resolved.
      *
@@ -118,14 +118,14 @@ implements java.io.Serializable
      */
     private String type;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The permission name.
      *
      * @serial
      */
     private String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The actions of the permission.
      *
      * @serial
@@ -134,7 +134,7 @@ implements java.io.Serializable
 
     private transient java.security.cert.Certificate certs[];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new UnresolvedPermission containing the permission
      * information needed later to actually create a Permission of the
      * specified class, when the permission is resolved.
@@ -222,7 +222,7 @@ implements java.io.Serializable
     private static final Class[] PARAMS1 = { String.class };
     private static final Class[] PARAMS2 = { String.class, String.class };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * try and resolve this permission using the class loader of the permission
      * that was passed in.
      */
@@ -297,7 +297,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method always returns false for unresolved permissions.
      * That is, an UnresolvedPermission is never considered to
      * imply another permission.
@@ -310,7 +310,7 @@ implements java.io.Serializable
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks two UnresolvedPermission objects for equality.
      * Checks that <i>obj</i> is an UnresolvedPermission, and has
      * the same type (class) name, permission name, actions, and
@@ -394,7 +394,7 @@ implements java.io.Serializable
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -409,7 +409,7 @@ implements java.io.Serializable
         return hash;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the canonical string representation of the actions,
      * which currently is the empty string "", since there are no actions for
      * an UnresolvedPermission. That is, the actions for the
@@ -424,7 +424,7 @@ implements java.io.Serializable
         return "";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the type (class name) of the underlying permission that
      * has not been resolved.
      *
@@ -437,7 +437,7 @@ implements java.io.Serializable
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the target name of the underlying permission that
      * has not been resolved.
      *
@@ -451,7 +451,7 @@ implements java.io.Serializable
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the actions for the underlying permission that
      * has not been resolved.
      *
@@ -465,7 +465,7 @@ implements java.io.Serializable
         return actions;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the signer certificates (without any supporting chain)
      * for the underlying permission that has not been resolved.
      *
@@ -479,7 +479,7 @@ implements java.io.Serializable
         return (certs == null) ? null : certs.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this UnresolvedPermission.  The convention
      * is to specify the class name, the permission name, and the actions, in
      * the following format: '(unresolved "ClassName" "name" "actions")'.
@@ -490,7 +490,7 @@ implements java.io.Serializable
         return "(unresolved " + type + " " + name + " " + actions + ")";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new PermissionCollection object for storing
      * UnresolvedPermission  objects.
      * <p>
@@ -502,7 +502,7 @@ implements java.io.Serializable
         return new UnresolvedPermissionCollection();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes this object out to a stream (i.e., serializes it).
      *
      * @serialData An initial <code>String</code> denoting the
@@ -543,7 +543,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Restores this object from a stream (i.e., deserializes it).
      */
     private void readObject(java.io.ObjectInputStream ois)

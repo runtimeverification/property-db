@@ -31,7 +31,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code LinearGradientPaint} class provides a way to fill
  * a {@link java.awt.Shape} with a linear color gradient pattern.  The user
  * may specify two or more gradient colors, and this paint will provide an
@@ -98,10 +98,10 @@ import java.awt.image.ColorModel;
  */
 public final class LinearGradientPaint extends MultipleGradientPaint {
 
-    /** {@collect.stats} Gradient start and end points. */
+    /** {@collect.stats}  Gradient start and end points. */
     private final Point2D start, end;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a {@code LinearGradientPaint} with a default
      * {@code NO_CYCLE} repeating method and {@code SRGB} color space.
      *
@@ -138,7 +138,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
              CycleMethod.NO_CYCLE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a {@code LinearGradientPaint} with a default {@code SRGB}
      * color space.
      *
@@ -179,7 +179,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
              cycleMethod);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a {@code LinearGradientPaint} with a default
      * {@code NO_CYCLE} repeating method and {@code SRGB} color space.
      *
@@ -208,7 +208,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
              CycleMethod.NO_CYCLE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a {@code LinearGradientPaint} with a default {@code SRGB}
      * color space.
      *
@@ -243,7 +243,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
              new AffineTransform());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a {@code LinearGradientPaint}.
      *
      * @param start the gradient axis start {@code Point2D} in user space
@@ -295,7 +295,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
         this.end = new Point2D.Double(end.getX(), end.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a {@link PaintContext} used to 
      * generate a linear color gradient pattern.
      * See the {@link Paint#createContext specification} of the 
@@ -355,7 +355,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the start point of the gradient axis.
      *
      * @return a {@code Point2D} object that is a copy of the point
@@ -365,7 +365,7 @@ public final class LinearGradientPaint extends MultipleGradientPaint {
         return new Point2D.Double(start.getX(), start.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the end point of the gradient axis.
      *
      * @return a {@code Point2D} object that is a copy of the point

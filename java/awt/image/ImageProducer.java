@@ -25,7 +25,7 @@
 
 package java.awt.image;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface for objects which can produce the image data for Images.
  * Each image contains an ImageProducer which is used to reconstruct
  * the image whenever it is needed, for example, when a new size of the
@@ -37,7 +37,7 @@ package java.awt.image;
  * @author      Jim Graham
  */
 public interface ImageProducer {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers an <code>ImageConsumer</code> with the
      * <code>ImageProducer</code> for access to the image data
      * during a later reconstruction of the <code>Image</code>.
@@ -51,7 +51,7 @@ public interface ImageProducer {
      */
     public void addConsumer(ImageConsumer ic);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if a specified <code>ImageConsumer</code>
      * object is currently registered with this
      * <code>ImageProducer</code> as one of its consumers.
@@ -63,7 +63,7 @@ public interface ImageProducer {
      */
     public boolean isConsumer(ImageConsumer ic);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified <code>ImageConsumer</code> object
      * from the list of consumers currently registered to
      * receive image data.  It is not considered an error
@@ -74,7 +74,7 @@ public interface ImageProducer {
      */
     public void removeConsumer(ImageConsumer ic);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers the specified <code>ImageConsumer</code> object
      * as a consumer and starts an immediate reconstruction of
      * the image data which will then be delivered to this
@@ -87,7 +87,7 @@ public interface ImageProducer {
      */
     public void startProduction(ImageConsumer ic);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Requests, on behalf of the <code>ImageConsumer</code>,
      * that the <code>ImageProducer</code> attempt to resend
      * the image data one more time in TOPDOWNLEFTRIGHT order

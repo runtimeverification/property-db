@@ -27,7 +27,7 @@ package java.beans;
 
 import java.util.EventListenerProxy;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class which extends the <code>EventListenerProxy</code> specifically
  * for associating a <code>VetoableChangeListener</code> with a "constrained"
  * property. Instances of this class can be added as a
@@ -49,7 +49,7 @@ public class VetoableChangeListenerProxy extends EventListenerProxy
 
     private String propertyName;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
     * @param propertyName The name of the property to listen on.
     * @param listener The listener object
     */
@@ -59,7 +59,7 @@ public class VetoableChangeListenerProxy extends EventListenerProxy
         this.propertyName = propertyName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
     * Forwards the property change event to the listener delegate.
     *
     * @param evt the property change event
@@ -72,7 +72,7 @@ public class VetoableChangeListenerProxy extends EventListenerProxy
         ((VetoableChangeListener)getListener()).vetoableChange(evt);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
     * Returns the name of the named property associated with the
     * listener.
     */

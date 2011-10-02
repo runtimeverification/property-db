@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown by <code>String</code> methods to indicate that an index
  * is either negative or greater than the size of the string.  For
  * some methods such as the charAt method, this exception also is
@@ -37,7 +37,7 @@ package java.lang;
  */
 public
 class StringIndexOutOfBoundsException extends IndexOutOfBoundsException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>StringIndexOutOfBoundsException</code> with no
      * detail message.
      *
@@ -47,7 +47,7 @@ class StringIndexOutOfBoundsException extends IndexOutOfBoundsException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>StringIndexOutOfBoundsException</code> with
      * the specified detail message.
      *
@@ -57,7 +57,7 @@ class StringIndexOutOfBoundsException extends IndexOutOfBoundsException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>StringIndexOutOfBoundsException</code>
      * class with an argument indicating the illegal index.
      *

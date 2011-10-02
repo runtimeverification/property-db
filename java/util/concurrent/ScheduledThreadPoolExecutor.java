@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.concurrent.atomic.*;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@link ThreadPoolExecutor} that can additionally schedule
  * commands to run after a given delay, or to execute
  * periodically. This class is preferable to {@link java.util.Timer}
@@ -139,23 +139,23 @@ public class ScheduledThreadPoolExecutor
      *    don't have any impact on pool control logic though.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * False if should cancel/suppress periodic tasks on shutdown.
      */
     private volatile boolean continueExistingPeriodicTasksAfterShutdown;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * False if should cancel non-periodic tasks on shutdown.
      */
     private volatile boolean executeExistingDelayedTasksAfterShutdown = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sequence number to break scheduling ties, and in turn to
      * guarantee FIFO order among tied entries.
      */
     private static final AtomicLong sequencer = new AtomicLong(0);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns current nanosecond time.
      */
     final long now() {
@@ -165,11 +165,11 @@ public class ScheduledThreadPoolExecutor
     private class ScheduledFutureTask<V>
             extends FutureTask<V> implements RunnableScheduledFuture<V> {
 
-        /** {@collect.stats} Sequence number to break ties FIFO */
+        /** {@collect.stats}  Sequence number to break ties FIFO */
         private final long sequenceNumber;
-        /** {@collect.stats} The time the task is enabled to execute in nanoTime units */
+        /** {@collect.stats}  The time the task is enabled to execute in nanoTime units */
         private long time;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Period in nanoseconds for repeating tasks.  A positive
          * value indicates fixed-rate execution.  A negative value
          * indicates fixed-delay execution.  A value of 0 indicates a
@@ -177,10 +177,10 @@ public class ScheduledThreadPoolExecutor
          */
         private final long period;
 
-        /** {@collect.stats} The actual task to be re-enqueued by reExecutePeriodic */
+        /** {@collect.stats}  The actual task to be re-enqueued by reExecutePeriodic */
         RunnableScheduledFuture<V> outerTask = this;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a one-shot action with given nanoTime-based trigger time.
          */
         ScheduledFutureTask(Runnable r, V result, long ns) {
@@ -190,7 +190,7 @@ public class ScheduledThreadPoolExecutor
             this.sequenceNumber = sequencer.getAndIncrement();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a periodic action with given nano time and period.
          */
         ScheduledFutureTask(Runnable r, V result, long ns, long period) {
@@ -200,7 +200,7 @@ public class ScheduledThreadPoolExecutor
             this.sequenceNumber = sequencer.getAndIncrement();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a one-shot action with given nanoTime-based trigger.
          */
         ScheduledFutureTask(Callable<V> callable, long ns) {
@@ -235,7 +235,7 @@ public class ScheduledThreadPoolExecutor
             return (d == 0) ? 0 : ((d < 0) ? -1 : 1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if this is a periodic (not a one-shot) action.
          *
          * @return true if periodic
@@ -244,7 +244,7 @@ public class ScheduledThreadPoolExecutor
             return period != 0;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sets the next time to run for a periodic task.
          */
         private void setNextRunTime() {
@@ -255,7 +255,7 @@ public class ScheduledThreadPoolExecutor
                 time = now() - p;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Overrides FutureTask version so as to reset/requeue if periodic.
          */
         public void run() {
@@ -271,7 +271,7 @@ public class ScheduledThreadPoolExecutor
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if can run a task given current run state
      * and run-after-shutdown parameters.
      *
@@ -283,7 +283,7 @@ public class ScheduledThreadPoolExecutor
                                    executeExistingDelayedTasksAfterShutdown);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Main execution method for delayed or periodic tasks.  If pool
      * is shut down, rejects the task. Otherwise adds task to queue
      * and starts a thread, if necessary, to run it.  (We cannot
@@ -308,7 +308,7 @@ public class ScheduledThreadPoolExecutor
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Requeues a periodic task unless current run state precludes it.
      * Same idea as delayedExecute except drops task rather than rejecting.
      *
@@ -324,7 +324,7 @@ public class ScheduledThreadPoolExecutor
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cancels and clears the queue of all tasks that should not be run
      * due to shutdown policy.  Invoked within super.shutdown.
      */
@@ -353,7 +353,7 @@ public class ScheduledThreadPoolExecutor
         tryTerminate();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Modifies or replaces the task used to execute a runnable.
      * This method can be used to override the concrete
      * class used for managing internal tasks.
@@ -369,7 +369,7 @@ public class ScheduledThreadPoolExecutor
         return task;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Modifies or replaces the task used to execute a callable.
      * This method can be used to override the concrete
      * class used for managing internal tasks.
@@ -385,7 +385,7 @@ public class ScheduledThreadPoolExecutor
         return task;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new {@code ScheduledThreadPoolExecutor} with the
      * given core pool size.
      *
@@ -398,7 +398,7 @@ public class ScheduledThreadPoolExecutor
               new DelayedWorkQueue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new {@code ScheduledThreadPoolExecutor} with the
      * given initial parameters.
      *
@@ -415,7 +415,7 @@ public class ScheduledThreadPoolExecutor
               new DelayedWorkQueue(), threadFactory);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new ScheduledThreadPoolExecutor with the given
      * initial parameters.
      *
@@ -432,7 +432,7 @@ public class ScheduledThreadPoolExecutor
               new DelayedWorkQueue(), handler);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new ScheduledThreadPoolExecutor with the given
      * initial parameters.
      *
@@ -521,7 +521,7 @@ public class ScheduledThreadPoolExecutor
         return t;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Executes {@code command} with zero required delay.
      * This has effect equivalent to
      * {@link #schedule(Runnable,long,TimeUnit) schedule(command, 0, anyUnit)}.
@@ -560,7 +560,7 @@ public class ScheduledThreadPoolExecutor
         return schedule(task, 0, TimeUnit.NANOSECONDS);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the policy on whether to continue executing existing
      * periodic tasks even when this executor has been {@code shutdown}.
      * In this case, these tasks will only terminate upon
@@ -577,7 +577,7 @@ public class ScheduledThreadPoolExecutor
             onShutdown();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the policy on whether to continue executing existing
      * periodic tasks even when this executor has been {@code shutdown}.
      * In this case, these tasks will only terminate upon
@@ -592,7 +592,7 @@ public class ScheduledThreadPoolExecutor
         return continueExistingPeriodicTasksAfterShutdown;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the policy on whether to execute existing delayed
      * tasks even when this executor has been {@code shutdown}.
      * In this case, these tasks will only terminate upon
@@ -609,7 +609,7 @@ public class ScheduledThreadPoolExecutor
             onShutdown();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the policy on whether to execute existing delayed
      * tasks even when this executor has been {@code shutdown}.
      * In this case, these tasks will only terminate upon
@@ -624,7 +624,7 @@ public class ScheduledThreadPoolExecutor
         return executeExistingDelayedTasksAfterShutdown;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initiates an orderly shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.  If the
      * {@code ExecuteExistingDelayedTasksAfterShutdownPolicy} has
@@ -638,7 +638,7 @@ public class ScheduledThreadPoolExecutor
         super.shutdown();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to stop all actively executing tasks, halts the
      * processing of waiting tasks, and returns a list of the tasks
      * that were awaiting execution.
@@ -659,7 +659,7 @@ public class ScheduledThreadPoolExecutor
         return super.shutdownNow();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the task queue used by this executor.  Each element of
      * this queue is a {@link ScheduledFuture}, including those
      * tasks submitted using {@code execute} which are for scheduling
@@ -674,7 +674,7 @@ public class ScheduledThreadPoolExecutor
         return super.getQueue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An annoying wrapper class to convince javac to use a
      * DelayQueue<RunnableScheduledFuture> as a BlockingQueue<Runnable>
      */

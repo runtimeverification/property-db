@@ -27,7 +27,7 @@ package java.awt.peer;
 
 import java.awt.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * RobotPeer defines an interface whereby toolkits support automated testing
  * by allowing native input events to be generated from Java code.
  *

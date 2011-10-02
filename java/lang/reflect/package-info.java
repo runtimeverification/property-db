@@ -23,7 +23,7 @@
  * questions.
  */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides classes and interfaces for obtaining reflective
  * information about classes and objects.  Reflection allows
  * programmatic access to information about the fields, methods and

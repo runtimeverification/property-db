@@ -39,7 +39,7 @@
 package java.text;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>ParsePosition</code> is a simple class used by <code>Format</code>
  * and its subclasses to keep track of the current position during parsing.
  * The <code>parseObject</code> method in the various <code>Format</code>
@@ -56,7 +56,7 @@ package java.text;
 
 public class ParsePosition {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Input: the place you start parsing.
      * <br>Output: position where the parse stopped.
      * This is designed to be used serially,
@@ -65,7 +65,7 @@ public class ParsePosition {
     int index = 0;
     int errorIndex = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the current parse position.  On input to a parse method, this
      * is the index of the character at which parsing will begin; on output, it
      * is the index of the character following the last character parsed.
@@ -74,20 +74,20 @@ public class ParsePosition {
         return index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the current parse position.
      */
     public void setIndex(int index) {
         this.index = index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new ParsePosition with the given initial index.
      */
     public ParsePosition(int index) {
         this.index = index;
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the index at which a parse error occurred.  Formatters
      * should set this before returning an error code from their
      * parseObject method.  The default value is -1 if this is not set.
@@ -98,7 +98,7 @@ public class ParsePosition {
         errorIndex = ei;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieve the index at which an error occurred, or -1 if the
      * error index has not been set.
      * @since 1.2
@@ -107,7 +107,7 @@ public class ParsePosition {
     {
         return errorIndex;
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overrides equals
      */
     public boolean equals(Object obj)
@@ -119,7 +119,7 @@ public class ParsePosition {
         return (index == other.index && errorIndex == other.errorIndex);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code for this ParsePosition.
      * @return a hash code value for this object
      */
@@ -127,7 +127,7 @@ public class ParsePosition {
         return (errorIndex << 16) | index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a string representation of this ParsePosition.
      * @return  a string representation of this object
      */

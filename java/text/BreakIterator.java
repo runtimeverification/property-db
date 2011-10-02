@@ -57,7 +57,7 @@ import sun.util.LocaleServiceProviderPool;
 import sun.util.resources.LocaleData;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>BreakIterator</code> class implements methods for finding
  * the location of boundaries in text. Instances of <code>BreakIterator</code>
  * maintain a current position and scan over text
@@ -237,14 +237,14 @@ import sun.util.resources.LocaleData;
 
 public abstract class BreakIterator implements Cloneable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor. BreakIterator is stateless and has no default behavior.
      */
     protected BreakIterator()
     {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a copy of this iterator
      * @return A copy of this
      */
@@ -258,28 +258,28 @@ public abstract class BreakIterator implements Cloneable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * DONE is returned by previous(), next(), next(int), preceding(int)
      * and following(int) when either the first or last text boundary has been
      * reached.
      */
     public static final int DONE = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first boundary. The iterator's current position is set
      * to the first text boundary.
      * @return The character index of the first text boundary.
      */
     public abstract int first();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the last boundary. The iterator's current position is set
      * to the last text boundary.
      * @return The character index of the last text boundary.
      */
     public abstract int last();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the nth boundary from the current boundary. If either
      * the first or last text boundary has been reached, it returns
      * <code>BreakIterator.DONE</code> and the current position is set to either
@@ -300,7 +300,7 @@ public abstract class BreakIterator implements Cloneable
      */
     public abstract int next(int n);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the boundary following the current boundary. If the current boundary
      * is the last text boundary, it returns <code>BreakIterator.DONE</code> and
      * the iterator's current position is unchanged. Otherwise, the iterator's
@@ -313,7 +313,7 @@ public abstract class BreakIterator implements Cloneable
      */
     public abstract int next();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the boundary preceding the current boundary. If the current boundary
      * is the first text boundary, it returns <code>BreakIterator.DONE</code> and
      * the iterator's current position is unchanged. Otherwise, the iterator's
@@ -324,7 +324,7 @@ public abstract class BreakIterator implements Cloneable
      */
     public abstract int previous();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first boundary following the specified character offset. If the
      * specified offset equals to the last text boundary, it returns
      * <code>BreakIterator.DONE</code> and the iterator's current position is unchanged.
@@ -340,7 +340,7 @@ public abstract class BreakIterator implements Cloneable
      */
     public abstract int following(int offset);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the last boundary preceding the specified character offset. If the
      * specified offset equals to the first text boundary, it returns
      * <code>BreakIterator.DONE</code> and the iterator's current position is unchanged.
@@ -365,7 +365,7 @@ public abstract class BreakIterator implements Cloneable
         return pos;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the specified character offset is a text boundary.
      * @param offset the character offset to check.
      * @return <code>true</code> if "offset" is a boundary position,
@@ -387,7 +387,7 @@ public abstract class BreakIterator implements Cloneable
             return following(offset - 1) == offset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns character index of the text boundary that was most
      * recently returned by next(), next(int), previous(), first(), last(),
      * following(int) or preceding(int). If any of these methods returns
@@ -406,13 +406,13 @@ public abstract class BreakIterator implements Cloneable
      */
     public abstract int current();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the text being scanned
      * @return the text being scanned
      */
     public abstract CharacterIterator getText();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a new text string to be scanned.  The current scan
      * position is reset to first().
      * @param newText new text to scan.
@@ -422,7 +422,7 @@ public abstract class BreakIterator implements Cloneable
         setText(new StringCharacterIterator(newText));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a new text for scanning.  The current scan
      * position is reset to first().
      * @param newText new text to scan.
@@ -435,7 +435,7 @@ public abstract class BreakIterator implements Cloneable
     private static final int SENTENCE_INDEX = 3;
     private static final SoftReference[] iterCache = new SoftReference[4];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#word">word breaks</a>
      * for the {@linkplain Locale#getDefault() default locale}.
@@ -446,7 +446,7 @@ public abstract class BreakIterator implements Cloneable
         return getWordInstance(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#word">word breaks</a>
      * for the given locale.
@@ -462,7 +462,7 @@ public abstract class BreakIterator implements Cloneable
                                 "WordDictionary");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#line">line breaks</a>
      * for the {@linkplain Locale#getDefault() default locale}.
@@ -473,7 +473,7 @@ public abstract class BreakIterator implements Cloneable
         return getLineInstance(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#line">line breaks</a>
      * for the given locale.
@@ -489,7 +489,7 @@ public abstract class BreakIterator implements Cloneable
                                 "LineDictionary");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#character">character breaks</a>
      * for the {@linkplain Locale#getDefault() default locale}.
@@ -500,7 +500,7 @@ public abstract class BreakIterator implements Cloneable
         return getCharacterInstance(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#character">character breaks</a>
      * for the given locale.
@@ -516,7 +516,7 @@ public abstract class BreakIterator implements Cloneable
                                 "CharacterDictionary");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#sentence">sentence breaks</a>
      * for the {@linkplain Locale#getDefault() default locale}.
@@ -527,7 +527,7 @@ public abstract class BreakIterator implements Cloneable
         return getSentenceInstance(Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="#sentence">sentence breaks</a>
      * for the given locale.
@@ -615,7 +615,7 @@ public abstract class BreakIterator implements Cloneable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all locales for which the
      * <code>get*Instance</code> methods of this class can return
      * localized instances.
@@ -676,7 +676,7 @@ public abstract class BreakIterator implements Cloneable
         return num;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Obtains a BreakIterator instance from a BreakIteratorProvider
      * implementation.
      */

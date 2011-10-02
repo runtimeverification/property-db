@@ -49,7 +49,7 @@ import sun.util.calendar.Gregorian;
 import sun.util.calendar.JulianCalendar;
 import sun.util.calendar.ZoneInfo;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>GregorianCalendar</code> is a concrete subclass of
  * <code>Calendar</code> and provides the standard calendar system
  * used by most of the world.
@@ -327,7 +327,7 @@ public class GregorianCalendar extends Calendar {
 // Class Variables
 //////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the <code>ERA</code> field indicating
      * the period before the common era (before Christ), also known as BCE.
      * The sequence of years at the transition from <code>BC</code> to <code>AD</code> is
@@ -337,7 +337,7 @@ public class GregorianCalendar extends Calendar {
      */
     public static final int BC = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the {@link #ERA} field indicating
      * the period before the common era, the same value as {@link #BC}.
      *
@@ -345,7 +345,7 @@ public class GregorianCalendar extends Calendar {
      */
     static final int BCE = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the <code>ERA</code> field indicating
      * the common era (Anno Domini), also known as CE.
      * The sequence of years at the transition from <code>BC</code> to <code>AD</code> is
@@ -355,7 +355,7 @@ public class GregorianCalendar extends Calendar {
      */
     public static final int AD = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the {@link #ERA} field indicating
      * the common era, the same value as {@link #AD}.
      *
@@ -484,7 +484,7 @@ public class GregorianCalendar extends Calendar {
 // Instance Variables
 /////////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The point at which the Gregorian calendar rules are used, measured in
      * milliseconds from the standard epoch.  Default is October 15, 1582
      * (Gregorian) 00:00:00 UTC or -12219292800000L.  For this value, October 4,
@@ -494,53 +494,53 @@ public class GregorianCalendar extends Calendar {
      */
     private long gregorianCutover = DEFAULT_GREGORIAN_CUTOVER;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The fixed date of the gregorianCutover.
      */
     private transient long gregorianCutoverDate =
         (((DEFAULT_GREGORIAN_CUTOVER + 1)/ONE_DAY) - 1) + EPOCH_OFFSET; // == 577736
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The normalized year of the gregorianCutover in Gregorian, with
      * 0 representing 1 BCE, -1 representing 2 BCE, etc.
      */
     private transient int gregorianCutoverYear = 1582;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The normalized year of the gregorianCutover in Julian, with 0
      * representing 1 BCE, -1 representing 2 BCE, etc.
      */
     private transient int gregorianCutoverYearJulian = 1582;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * gdate always has a sun.util.calendar.Gregorian.Date instance to
      * avoid overhead of creating it. The assumption is that most
      * applications will need only Gregorian calendar calculations.
      */
     private transient BaseCalendar.Date gdate;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reference to either gdate or a JulianCalendar.Date
      * instance. After calling complete(), this value is guaranteed to
      * be set.
      */
     private transient BaseCalendar.Date cdate;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The CalendarSystem used to calculate the date in cdate. After
      * calling complete(), this value is guaranteed to be set and
      * consistent with the cdate value.
      */
     private transient BaseCalendar calsys;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Temporary int[2] to get time zone offsets. zoneOffsets[0] gets
      * the GMT offset value and zoneOffsets[1] gets the DST saving
      * value.
      */
     private transient int[] zoneOffsets;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Temporary storage for saving original fields[] values in
      * non-lenient mode.
      */
@@ -550,7 +550,7 @@ public class GregorianCalendar extends Calendar {
 // Constructors
 ///////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a default <code>GregorianCalendar</code> using the current time
      * in the default time zone with the default locale.
      */
@@ -559,7 +559,7 @@ public class GregorianCalendar extends Calendar {
         setZoneShared(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> based on the current time
      * in the given time zone with the default locale.
      *
@@ -569,7 +569,7 @@ public class GregorianCalendar extends Calendar {
         this(zone, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> based on the current time
      * in the default time zone with the given locale.
      *
@@ -580,7 +580,7 @@ public class GregorianCalendar extends Calendar {
         setZoneShared(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> based on the current time
      * in the given time zone with the given locale.
      *
@@ -593,7 +593,7 @@ public class GregorianCalendar extends Calendar {
         setTimeInMillis(System.currentTimeMillis());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> with the given date set
      * in the default time zone with the default locale.
      *
@@ -606,7 +606,7 @@ public class GregorianCalendar extends Calendar {
         this(year, month, dayOfMonth, 0, 0, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> with the given date
      * and time set for the default time zone with the default locale.
      *
@@ -624,7 +624,7 @@ public class GregorianCalendar extends Calendar {
         this(year, month, dayOfMonth, hourOfDay, minute, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a GregorianCalendar with the given date
      * and time set for the default time zone with the default locale.
      *
@@ -644,7 +644,7 @@ public class GregorianCalendar extends Calendar {
         this(year, month, dayOfMonth, hourOfDay, minute, second, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>GregorianCalendar</code> with the given date
      * and time set for the default time zone with the default locale.
      *
@@ -696,7 +696,7 @@ public class GregorianCalendar extends Calendar {
 // Public methods
 /////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>GregorianCalendar</code> change date. This is the point when the switch
      * from Julian dates to Gregorian dates occurred. Default is October 15,
      * 1582 (Gregorian). Previous to this, dates will be in the Julian calendar.
@@ -749,7 +749,7 @@ public class GregorianCalendar extends Calendar {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Gregorian Calendar change date.  This is the point when the
      * switch from Julian dates to Gregorian dates occurred. Default is
      * October 15, 1582 (Gregorian). Previous to this, dates will be in the Julian
@@ -761,7 +761,7 @@ public class GregorianCalendar extends Calendar {
         return new Date(gregorianCutover);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if the given year is a leap year. Returns <code>true</code> if
      * the given year is a leap year. To specify BC year numbers,
      * <code>1 - year number</code> must be given. For example, year BC 4 is
@@ -793,7 +793,7 @@ public class GregorianCalendar extends Calendar {
         return gregorian ? (year%100 != 0) || (year%400 == 0) : true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>GregorianCalendar</code> to the specified
      * <code>Object</code>. The result is <code>true</code> if and
      * only if the argument is a <code>GregorianCalendar</code> object
@@ -813,14 +813,14 @@ public class GregorianCalendar extends Calendar {
             gregorianCutover == ((GregorianCalendar)obj).gregorianCutover;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates the hash code for this <code>GregorianCalendar</code> object.
      */
     public int hashCode() {
         return super.hashCode() ^ (int)gregorianCutoverDate;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified (signed) amount of time to the given calendar field,
      * based on the calendar's rules.
      *
@@ -1028,7 +1028,7 @@ public class GregorianCalendar extends Calendar {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds or subtracts (up/down) a single unit of time on the given time
      * field without changing larger fields.
      * <p>
@@ -1050,7 +1050,7 @@ public class GregorianCalendar extends Calendar {
         roll(field, up ? +1 : -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a signed amount to the specified calendar field without changing larger fields.
      * A negative roll amount means to subtract from field without changing
      * larger fields. If the specified amount is 0, this method performs nothing.
@@ -1431,7 +1431,7 @@ public class GregorianCalendar extends Calendar {
         set(field, getRolledValue(internalGet(field), amount, min, max));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The minimum value is
      * defined as the smallest value returned by the {@link
@@ -1454,7 +1454,7 @@ public class GregorianCalendar extends Calendar {
         return MIN_VALUES[field];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The maximum value is
      * defined as the largest value returned by the {@link
@@ -1502,7 +1502,7 @@ public class GregorianCalendar extends Calendar {
         return MAX_VALUES[field];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the highest minimum value for the given calendar field
      * of this <code>GregorianCalendar</code> instance. The highest
      * minimum value is defined as the largest value returned by
@@ -1531,7 +1531,7 @@ public class GregorianCalendar extends Calendar {
         return MIN_VALUES[field];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the lowest maximum value for the given calendar field
      * of this <code>GregorianCalendar</code> instance. The lowest
      * maximum value is defined as the smallest value returned by
@@ -1572,7 +1572,7 @@ public class GregorianCalendar extends Calendar {
         return LEAST_MAX_VALUES[field];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum value that this calendar field could have,
      * taking into consideration the given time value and the current
      * values of the
@@ -1612,7 +1612,7 @@ public class GregorianCalendar extends Calendar {
         return getMinimum(field);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum value that this calendar field could have,
      * taking into consideration the given time value and the current
      * values of the
@@ -1882,7 +1882,7 @@ public class GregorianCalendar extends Calendar {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the millisecond offset from the beginning of this
      * year. This Calendar object must have been normalized.
      */
@@ -1938,7 +1938,7 @@ public class GregorianCalendar extends Calendar {
 // Proposed public API
 //////////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the year that corresponds to the <code>WEEK_OF_YEAR</code> field.
      * This may be one year before or after the Gregorian or Julian year stored
      * in the <code>YEAR</code> field.  For example, January 1, 1999 is considered
@@ -1979,14 +1979,14 @@ public class GregorianCalendar extends Calendar {
 // Time => Fields computation
 /////////////////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The fixed date corresponding to gdate. If the value is
      * Long.MIN_VALUE, the fixed date value is unknown. Currently,
      * Julian calendar dates are not cached.
      */
     transient private long cachedFixedDate = Long.MIN_VALUE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts the time value (millisecond offset from the <a
      * href="Calendar.html#Epoch">Epoch</a>) to calendar field values.
      * The time is <em>not</em>
@@ -2016,7 +2016,7 @@ public class GregorianCalendar extends Calendar {
         setFieldsComputed(mask);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This computeFields implements the conversion from UTC
      * (millisecond offset from the Epoch) to calendar
      * field values. fieldMask specifies which fields to change the
@@ -2284,7 +2284,7 @@ public class GregorianCalendar extends Calendar {
         return mask;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of weeks in a period between fixedDay1 and
      * fixedDate. The getFirstDayOfWeek-getMinimalDaysInFirstWeek rule
      * is applied to calculate the number of weeks.
@@ -2310,7 +2310,7 @@ public class GregorianCalendar extends Calendar {
         return CalendarUtils.floorDivide(normalizedDayOfPeriod, 7) + 1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts calendar field values to the time value (millisecond
      * offset from the <a href="Calendar.html#Epoch">Epoch</a>).
      *
@@ -2503,7 +2503,7 @@ public class GregorianCalendar extends Calendar {
         setFieldsNormalized(mask);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes the fixed date under either the Gregorian or the
      * Julian calendar, using the given year and the specified calendar fields.
      *
@@ -2633,7 +2633,7 @@ public class GregorianCalendar extends Calendar {
         return fixedDate;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this object if it's normalized (all fields and time are
      * in sync). Otherwise, a cloned object is returned after calling
      * complete() in lenient mode.
@@ -2651,7 +2651,7 @@ public class GregorianCalendar extends Calendar {
         return gc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Julian calendar system instance (singleton). 'jcal'
      * and 'jeras' are set upon the return.
      */
@@ -2663,7 +2663,7 @@ public class GregorianCalendar extends Calendar {
         return jcal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the calendar system for dates before the cutover date
      * in the cutover year. If the cutover date is January 1, the
      * method returns Gregorian. Otherwise, Julian.
@@ -2677,7 +2677,7 @@ public class GregorianCalendar extends Calendar {
         return getJulianCalendarSystem();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if the specified year (normalized) is the Gregorian
      * cutover year. This object must have been normalized.
      */
@@ -2686,7 +2686,7 @@ public class GregorianCalendar extends Calendar {
         return normalizedYear == cutoverYear;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the fixed date of the first day of the year (usually
      * January 1) before the specified date.
      *
@@ -2712,7 +2712,7 @@ public class GregorianCalendar extends Calendar {
         return jcal.getFixedDate(date.getNormalizedYear(), BaseCalendar.JANUARY, 1, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the fixed date of the first date of the month (usually
      * the 1st of the month) before the specified date.
      *
@@ -2755,7 +2755,7 @@ public class GregorianCalendar extends Calendar {
         return fixedDateMonth1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a CalendarDate produced from the specified fixed date.
      *
      * @param fd the fixed date
@@ -2767,7 +2767,7 @@ public class GregorianCalendar extends Calendar {
         return d;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Gregorian cutover date as a BaseCalendar.Date. The
      * date is a Gregorian date.
      */
@@ -2775,7 +2775,7 @@ public class GregorianCalendar extends Calendar {
         return getCalendarDate(gregorianCutoverDate);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the day before the Gregorian cutover date as a
      * BaseCalendar.Date. The date is a Julian date.
      */
@@ -2783,7 +2783,7 @@ public class GregorianCalendar extends Calendar {
         return getCalendarDate(gregorianCutoverDate - 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the specified month in the specified
      * year. The year number must be normalized.
      *
@@ -2793,7 +2793,7 @@ public class GregorianCalendar extends Calendar {
         return isLeapYear(year) ? LEAP_MONTH_LENGTH[month] : MONTH_LENGTH[month];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the specified month in the year provided
      * by internalGet(YEAR).
      *
@@ -2827,7 +2827,7 @@ public class GregorianCalendar extends Calendar {
         return (int)(next1 - month1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length (in days) of the specified year. The year
      * must be normalized.
      */
@@ -2835,7 +2835,7 @@ public class GregorianCalendar extends Calendar {
         return isLeapYear(year) ? 366 : 365;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length (in days) of the year provided by
      * internalGet(YEAR).
      */
@@ -2847,7 +2847,7 @@ public class GregorianCalendar extends Calendar {
         return yearLength(year);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * After adjustments such as add(MONTH), add(YEAR), we don't want the
      * month to jump around.  E.g., we don't want Jan 31 + 1 month to go to Mar
      * 3, we want it to go to Feb 28.  Adjustments which might run into this
@@ -2868,7 +2868,7 @@ public class GregorianCalendar extends Calendar {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the fixed date value of this object. The time value and
      * calendar fields must be in synch.
      */
@@ -2876,7 +2876,7 @@ public class GregorianCalendar extends Calendar {
         return (calsys == gcal) ? cachedFixedDate : calsys.getFixedDate(cdate);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the new value after 'roll'ing the specified value and amount.
      */
     private static final int getRolledValue(int value, int amount, int min, int max) {
@@ -2893,7 +2893,7 @@ public class GregorianCalendar extends Calendar {
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ERA.  We need a special method for this because the
      * default ERA is CE, but a zero (unset) ERA is BCE.
      */
@@ -2901,7 +2901,7 @@ public class GregorianCalendar extends Calendar {
         return isSet(ERA) ? internalGet(ERA) : CE;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates internal state.
      */
     private void readObject(ObjectInputStream stream)

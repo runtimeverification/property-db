@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Piped character-input streams.
  * {@description.close}
@@ -47,21 +47,21 @@ public class PipedReader extends Reader {
     Thread readSide;
     Thread writeSide;
 
-   /**
+   /** {@collect.stats}
     * {@description.open}
     * The size of the pipe's circular input buffer.
     * {@description.close}
     */
     private static final int DEFAULT_PIPE_SIZE = 1024;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The circular buffer into which incoming data is placed.
      * {@description.close}
      */
     char buffer[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index of the position in the circular buffer at which the
      * next character of data will be stored when received from the connected
@@ -71,7 +71,7 @@ public class PipedReader extends Reader {
      */
     int in = -1;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index of the position in the circular buffer at which the next
      * character of data will be read by this piped reader.
@@ -79,7 +79,7 @@ public class PipedReader extends Reader {
      */
     int out = 0;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedReader</code> so
      * that it is connected to the piped writer
@@ -94,7 +94,7 @@ public class PipedReader extends Reader {
         this(src, DEFAULT_PIPE_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedReader</code> so that it is connected
      * to the piped writer <code>src</code> and uses the specified
@@ -114,7 +114,7 @@ public class PipedReader extends Reader {
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedReader</code> so
      * that it is not yet {@linkplain #connect(java.io.PipedWriter)
@@ -127,7 +127,7 @@ public class PipedReader extends Reader {
         initPipe(DEFAULT_PIPE_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>PipedReader</code> so that it is not yet
      * {@link #connect(java.io.PipedWriter) connected} and uses
@@ -152,7 +152,7 @@ public class PipedReader extends Reader {
         buffer = new char[pipeSize];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Causes this piped reader to be connected
      * to the piped  writer <code>src</code>.
@@ -182,7 +182,7 @@ public class PipedReader extends Reader {
         src.connect(this);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Receives a char of data.
      * {@description.close}
@@ -223,7 +223,7 @@ public class PipedReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Receives data into an array of characters.
      * {@description.close}
@@ -238,7 +238,7 @@ public class PipedReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Notifies all waiting threads that the last character of data has been
      * received.
@@ -249,7 +249,7 @@ public class PipedReader extends Reader {
         notifyAll();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next character of data from this piped stream.
      * If no character is available because the end of the stream
@@ -306,7 +306,7 @@ public class PipedReader extends Reader {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> characters of data from this piped
      * stream into an array of characters. Less than <code>len</code> characters
@@ -367,7 +367,7 @@ public class PipedReader extends Reader {
         return rlen;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tell whether this stream is ready to be read.  A piped character
      * stream is ready if the circular buffer is not empty.
@@ -393,7 +393,7 @@ public class PipedReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this piped stream and releases any system resources
      * associated with the stream.

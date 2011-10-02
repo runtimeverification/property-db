@@ -27,7 +27,7 @@ package java.util.prefs;
 
 import java.io.NotSerializableException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that a preferences operation could not complete because
  * of a failure in the backing store, or a failure to contact the backing
  * store.
@@ -36,7 +36,7 @@ import java.io.NotSerializableException;
  * @since   1.4
  */
 public class BackingStoreException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a BackingStoreException with the specified detail message.
      *
      * @param s the detail message.
@@ -45,7 +45,7 @@ public class BackingStoreException extends Exception {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a BackingStoreException with the specified cause.
      *
      * @param cause the cause

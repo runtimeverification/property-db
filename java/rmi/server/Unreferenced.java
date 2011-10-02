@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A remote object implementation should implement the
  * <code>Unreferenced</code> interface to receive notification when there are
  * no more clients that reference that remote object.
@@ -35,7 +35,7 @@ package java.rmi.server;
  * @since   JDK1.1
  */
 public interface Unreferenced {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called by the RMI runtime sometime after the runtime determines that
      * the reference list, the list of clients referencing the remote object,
      * becomes empty.

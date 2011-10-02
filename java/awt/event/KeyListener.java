@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving keyboard events (keystrokes).
  * The class that is interested in processing a keyboard event
  * either implements this interface (and all the methods it
@@ -50,21 +50,21 @@ import java.util.EventListener;
  */
 public interface KeyListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been typed.
      * See the class description for {@link KeyEvent} for a definition of
      * a key typed event.
      */
     public void keyTyped(KeyEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been pressed.
      * See the class description for {@link KeyEvent} for a definition of
      * a key pressed event.
      */
     public void keyPressed(KeyEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been released.
      * See the class description for {@link KeyEvent} for a definition of
      * a key released event.

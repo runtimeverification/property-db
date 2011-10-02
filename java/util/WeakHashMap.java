@@ -28,7 +28,7 @@ import java.lang.ref.WeakReference;
 import java.lang.ref.ReferenceQueue;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A hashtable-based <tt>Map</tt> implementation with <em>weak keys</em>.
  * An entry in a <tt>WeakHashMap</tt> will automatically be removed when
  * its key is no longer in ordinary use.  More precisely, the presence of a
@@ -130,49 +130,49 @@ public class WeakHashMap<K,V>
     extends AbstractMap<K,V>
     implements Map<K,V> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default initial capacity -- MUST be a power of two.
      */
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The maximum capacity, used if a higher value is implicitly specified
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<30.
      */
     private static final int MAXIMUM_CAPACITY = 1 << 30;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The load factor used when none specified in constructor.
      */
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The table, resized as necessary. Length MUST Always be a power of two.
      */
     Entry<K,V>[] table;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of key-value mappings contained in this weak hash map.
      */
     private int size;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The next size value at which to resize (capacity * load factor).
      */
     private int threshold;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The load factor for the hash table.
      */
     private final float loadFactor;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reference queue for cleared WeakEntries
      */
     private final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times this WeakHashMap has been structurally modified.
      * Structural modifications are those that change the number of
      * mappings in the map or otherwise modify its internal structure
@@ -188,7 +188,7 @@ public class WeakHashMap<K,V>
         return (Entry<K,V>[]) new Entry[n];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty <tt>WeakHashMap</tt> with the given initial
      * capacity and the given load factor.
      *
@@ -215,7 +215,7 @@ public class WeakHashMap<K,V>
         threshold = (int)(capacity * loadFactor);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty <tt>WeakHashMap</tt> with the given initial
      * capacity and the default load factor (0.75).
      *
@@ -226,7 +226,7 @@ public class WeakHashMap<K,V>
         this(initialCapacity, DEFAULT_LOAD_FACTOR);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty <tt>WeakHashMap</tt> with the default initial
      * capacity (16) and load factor (0.75).
      */
@@ -236,7 +236,7 @@ public class WeakHashMap<K,V>
         table = newTable(DEFAULT_INITIAL_CAPACITY);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <tt>WeakHashMap</tt> with the same mappings as the
      * specified map.  The <tt>WeakHashMap</tt> is created with the default
      * load factor (0.75) and an initial capacity sufficient to hold the
@@ -254,26 +254,26 @@ public class WeakHashMap<K,V>
 
     // internal utilities
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value representing null keys inside tables.
      */
     private static final Object NULL_KEY = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use NULL_KEY for key if it is null.
      */
     private static Object maskNull(Object key) {
         return (key == null) ? NULL_KEY : key;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns internal representation of null key back to caller as null.
      */
     static Object unmaskNull(Object key) {
         return (key == NULL_KEY) ? null : key;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks for equality of non-null reference x and possibly-null y.  By
      * default uses Object.equals.
      */
@@ -281,14 +281,14 @@ public class WeakHashMap<K,V>
         return x == y || x.equals(y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns index for hash code h.
      */
     private static int indexFor(int h, int length) {
         return h & (length-1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Expunges stale entries from the table.
      */
     private void expungeStaleEntries() {
@@ -320,7 +320,7 @@ public class WeakHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the table after first expunging stale entries.
      */
     private Entry<K,V>[] getTable() {
@@ -328,7 +328,7 @@ public class WeakHashMap<K,V>
         return table;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of key-value mappings in this map.
      * This result is a snapshot, and may not reflect unprocessed
      * entries that will be removed before next attempted access
@@ -341,7 +341,7 @@ public class WeakHashMap<K,V>
         return size;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this map contains no key-value mappings.
      * This result is a snapshot, and may not reflect unprocessed
      * entries that will be removed before next attempted access
@@ -351,7 +351,7 @@ public class WeakHashMap<K,V>
         return size() == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -382,7 +382,7 @@ public class WeakHashMap<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this map contains a mapping for the
      * specified key.
      *
@@ -394,7 +394,7 @@ public class WeakHashMap<K,V>
         return getEntry(key) != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the entry associated with the specified key in this map.
      * Returns null if the map contains no mapping for this key.
      */
@@ -409,7 +409,7 @@ public class WeakHashMap<K,V>
         return e;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for this key, the old
      * value is replaced.
@@ -444,7 +444,7 @@ public class WeakHashMap<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rehashes the contents of this map into a new array with a
      * larger capacity.  This method is called automatically when the
      * number of keys in this map reaches its threshold.
@@ -484,7 +484,7 @@ public class WeakHashMap<K,V>
         }
     }
 
-    /** {@collect.stats} Transfers all entries from src to dest tables */
+    /** {@collect.stats}  Transfers all entries from src to dest tables */
     private void transfer(Entry<K,V>[] src, Entry<K,V>[] dest) {
         for (int j = 0; j < src.length; ++j) {
             Entry<K,V> e = src[j];
@@ -506,7 +506,7 @@ public class WeakHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for any
      * of the keys currently in the specified map.
@@ -543,7 +543,7 @@ public class WeakHashMap<K,V>
             put(e.getKey(), e.getValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the mapping for a key from this weak hash map if it is present.
      * More formally, if this map contains a mapping from key <tt>k</tt> to
      * value <tt>v</tt> such that <code>(key==null ?  k==null :
@@ -589,7 +589,7 @@ public class WeakHashMap<K,V>
         return null;
     }
 
-    /** {@collect.stats} Special version of remove needed by Entry set */
+    /** {@collect.stats}  Special version of remove needed by Entry set */
     boolean removeMapping(Object o) {
         if (!(o instanceof Map.Entry))
             return false;
@@ -619,7 +619,7 @@ public class WeakHashMap<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
      */
@@ -640,7 +640,7 @@ public class WeakHashMap<K,V>
             ;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
      *
@@ -660,7 +660,7 @@ public class WeakHashMap<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Special-case code for containsValue with null argument
      */
     private boolean containsNullValue() {
@@ -672,7 +672,7 @@ public class WeakHashMap<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The entries in this hash table extend WeakReference, using its main ref
      * field as the key.
      */
@@ -681,7 +681,7 @@ public class WeakHashMap<K,V>
         final int hash;
         Entry<K,V> next;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates new entry.
          */
         Entry(Object key, V value,
@@ -741,13 +741,13 @@ public class WeakHashMap<K,V>
         private Entry<K,V> lastReturned = null;
         private int expectedModCount = modCount;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Strong reference needed to avoid disappearance of key
          * between hasNext and next
          */
         private Object nextKey = null;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Strong reference needed to avoid disappearance of key
          * between nextEntry() and any use of the entry
          */
@@ -778,7 +778,7 @@ public class WeakHashMap<K,V>
             return true;
         }
 
-        /** {@collect.stats} The common parts of next() across different types of iterators */
+        /** {@collect.stats}  The common parts of next() across different types of iterators */
         protected Entry<K,V> nextEntry() {
             if (modCount != expectedModCount)
                 throw new ConcurrentModificationException();
@@ -828,7 +828,7 @@ public class WeakHashMap<K,V>
 
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified
@@ -873,7 +873,7 @@ public class WeakHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  If the map is
@@ -909,7 +909,7 @@ public class WeakHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified

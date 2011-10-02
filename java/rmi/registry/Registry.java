@@ -30,7 +30,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>Registry</code> is a remote interface to a simple remote
  * object registry that provides methods for storing and retrieving
  * remote object references bound with arbitrary string names.  The
@@ -77,10 +77,10 @@ import java.rmi.RemoteException;
  */
 public interface Registry extends Remote {
 
-    /** {@collect.stats} Well known port for registry. */
+    /** {@collect.stats}  Well known port for registry. */
     public static final int REGISTRY_PORT = 1099;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the remote reference bound to the specified
      * <code>name</code> in this registry.
      *
@@ -103,7 +103,7 @@ public interface Registry extends Remote {
     public Remote lookup(String name)
         throws RemoteException, NotBoundException, AccessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Binds a remote reference to the specified <code>name</code> in
      * this registry.
      *
@@ -127,7 +127,7 @@ public interface Registry extends Remote {
     public void bind(String name, Remote obj)
         throws RemoteException, AlreadyBoundException, AccessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the binding for the specified <code>name</code> in
      * this registry.
      *
@@ -149,7 +149,7 @@ public interface Registry extends Remote {
     public void unbind(String name)
         throws RemoteException, NotBoundException, AccessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the binding for the specified <code>name</code> in
      * this registry with the supplied remote reference.  If there is
      * an existing binding for the specified <code>name</code>, it is
@@ -173,7 +173,7 @@ public interface Registry extends Remote {
     public void rebind(String name, Remote obj)
         throws RemoteException, AccessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of the names bound in this registry.  The
      * array will contain a snapshot of the names bound in this
      * registry at the time of the given invocation of this method.

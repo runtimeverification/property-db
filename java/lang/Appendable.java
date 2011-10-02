@@ -27,7 +27,7 @@ package java.lang;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@descriptive.open}
  * An object to which <tt>char</tt> sequences and values can be appended.
  * {@descriptive.close}
@@ -61,7 +61,7 @@ import java.io.IOException;
  */
 public interface Appendable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Appends the specified character sequence to this <tt>Appendable</tt>.
      *
@@ -83,7 +83,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Appends a subsequence of the specified character sequence to this
      * <tt>Appendable</tt>.
@@ -121,7 +121,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq, int start, int end) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Appends the specified character to this <tt>Appendable</tt>.
      * {@descriptive.close}

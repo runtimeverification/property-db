@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving keyboard events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -51,18 +51,18 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class KeyAdapter implements KeyListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been typed.
      * This event occurs when a key press is followed by a key release.
      */
     public void keyTyped(KeyEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been pressed.
      */
     public void keyPressed(KeyEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a key has been released.
      */
     public void keyReleased(KeyEvent e) {}

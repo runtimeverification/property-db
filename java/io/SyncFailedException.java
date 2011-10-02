@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Signals that a sync operation has failed.
  * {@description.close}
@@ -36,7 +36,7 @@ package java.io;
  * @since   JDK1.1
  */
 public class SyncFailedException extends IOException {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an SyncFailedException with a detail message.
      * A detail message is a String that describes this particular exception.

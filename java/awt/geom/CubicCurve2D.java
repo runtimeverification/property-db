@@ -31,7 +31,7 @@ import java.util.Arrays;
 import java.io.Serializable;
 import sun.awt.geom.Curve;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>CubicCurve2D</code> class defines a cubic parametric curve
  * segment in {@code (x,y)} coordinate space.
  * <p>
@@ -45,13 +45,13 @@ import sun.awt.geom.Curve;
  */
 public abstract class CubicCurve2D implements Shape, Cloneable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A cubic parametric curve segment specified with
      * {@code float} coordinates.
      * @since 1.2
      */
     public static class Float extends CubicCurve2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the start point
          * of the cubic curve segment.
          * @since 1.2
@@ -59,7 +59,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float x1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the start point
          * of the cubic curve segment.
          * @since 1.2
@@ -67,7 +67,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float y1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the first control point
          * of the cubic curve segment.
          * @since 1.2
@@ -75,7 +75,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float ctrlx1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the first control point
          * of the cubic curve segment.
          * @since 1.2
@@ -83,7 +83,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float ctrly1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the second control point
          * of the cubic curve segment.
          * @since 1.2
@@ -91,7 +91,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float ctrlx2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the second control point
          * of the cubic curve segment.
          * @since 1.2
@@ -99,7 +99,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float ctrly2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the end point
          * of the cubic curve segment.
          * @since 1.2
@@ -107,7 +107,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float x2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the end point
          * of the cubic curve segment.
          * @since 1.2
@@ -115,7 +115,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public float y2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a CubicCurve with coordinates
          * (0, 0, 0, 0, 0, 0, 0, 0).
          * @since 1.2
@@ -123,7 +123,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         public Float() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a {@code CubicCurve2D} from
          * the specified {@code float} coordinates.
          *
@@ -153,7 +153,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             setCurve(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -161,7 +161,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) x1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -169,7 +169,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) y1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -177,7 +177,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Float(x1, y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -185,7 +185,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) ctrlx1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -193,7 +193,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) ctrly1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -201,7 +201,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Float(ctrlx1, ctrly1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -209,7 +209,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) ctrlx2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -217,7 +217,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) ctrly2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -225,7 +225,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Float(ctrlx2, ctrly2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -233,7 +233,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) x2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -241,7 +241,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return (double) y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -249,7 +249,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Float(x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -268,7 +268,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             this.y2     = (float) y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sets the location of the end points and control points
          * of this curve to the specified {@code float} coordinates.
          *
@@ -305,7 +305,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             this.y2     = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -328,13 +328,13 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         private static final long serialVersionUID = -1272015596714244385L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A cubic parametric curve segment specified with
      * {@code double} coordinates.
      * @since 1.2
      */
     public static class Double extends CubicCurve2D implements Serializable {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the start point
          * of the cubic curve segment.
          * @since 1.2
@@ -342,7 +342,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double x1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the start point
          * of the cubic curve segment.
          * @since 1.2
@@ -350,7 +350,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double y1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the first control point
          * of the cubic curve segment.
          * @since 1.2
@@ -358,7 +358,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double ctrlx1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the first control point
          * of the cubic curve segment.
          * @since 1.2
@@ -366,7 +366,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double ctrly1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the second control point
          * of the cubic curve segment.
          * @since 1.2
@@ -374,7 +374,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double ctrlx2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the second control point
          * of the cubic curve segment.
          * @since 1.2
@@ -382,7 +382,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double ctrly2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The X coordinate of the end point
          * of the cubic curve segment.
          * @since 1.2
@@ -390,7 +390,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double x2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The Y coordinate of the end point
          * of the cubic curve segment.
          * @since 1.2
@@ -398,7 +398,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
          */
         public double y2;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a CubicCurve with coordinates
          * (0, 0, 0, 0, 0, 0, 0, 0).
          * @since 1.2
@@ -406,7 +406,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         public Double() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs and initializes a {@code CubicCurve2D} from
          * the specified {@code double} coordinates.
          *
@@ -436,7 +436,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             setCurve(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -444,7 +444,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return x1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -452,7 +452,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return y1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -460,7 +460,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Double(x1, y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -468,7 +468,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return ctrlx1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -476,7 +476,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return ctrly1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -484,7 +484,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Double(ctrlx1, ctrly1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -492,7 +492,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return ctrlx2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -500,7 +500,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return ctrly2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -508,7 +508,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Double(ctrlx2, ctrly2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -516,7 +516,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return x2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -524,7 +524,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -532,7 +532,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             return new Point2D.Double(x2, y2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -551,7 +551,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
             this.y2     = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.2
          */
@@ -574,7 +574,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         private static final long serialVersionUID = -4202960122839707295L;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class that cannot be instantiated directly.
      * Type-specific implementation subclasses are available for
      * instantiation and provide a number of formats for storing
@@ -588,7 +588,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
     protected CubicCurve2D() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the start point in double precision.
      * @return the X coordinate of the start point of the
      *         {@code CubicCurve2D}.
@@ -596,7 +596,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getX1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the start point in double precision.
      * @return the Y coordinate of the start point of the
      *         {@code CubicCurve2D}.
@@ -604,7 +604,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getY1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the start point.
      * @return a {@code Point2D} that is the start point of
      *         the {@code CubicCurve2D}.
@@ -612,7 +612,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getP1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the first control point in double precision.
      * @return the X coordinate of the first control point of the
      *         {@code CubicCurve2D}.
@@ -620,7 +620,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlX1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the first control point in double precision.
      * @return the Y coordinate of the first control point of the
      *         {@code CubicCurve2D}.
@@ -628,7 +628,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlY1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first control point.
      * @return a {@code Point2D} that is the first control point of
      *         the {@code CubicCurve2D}.
@@ -636,7 +636,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getCtrlP1();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the second control point
      * in double precision.
      * @return the X coordinate of the second control point of the
@@ -645,7 +645,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlX2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the second control point
      * in double precision.
      * @return the Y coordinate of the second control point of the
@@ -654,7 +654,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getCtrlY2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the second control point.
      * @return a {@code Point2D} that is the second control point of
      *         the {@code CubicCurve2D}.
@@ -662,7 +662,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getCtrlP2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the end point in double precision.
      * @return the X coordinate of the end point of the
      *         {@code CubicCurve2D}.
@@ -670,7 +670,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getX2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the end point in double precision.
      * @return the Y coordinate of the end point of the
      *         {@code CubicCurve2D}.
@@ -678,7 +678,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract double getY2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the end point.
      * @return a {@code Point2D} that is the end point of
      *         the {@code CubicCurve2D}.
@@ -686,7 +686,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
      */
     public abstract Point2D getP2();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this curve
      * to the specified double coordinates.
      *
@@ -713,7 +713,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                                   double ctrlx2, double ctrly2,
                                   double x2, double y2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this curve
      * to the double coordinates at the specified offset in the specified
      * array.
@@ -730,7 +730,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                  coords[offset + 6], coords[offset + 7]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this curve
      * to the specified <code>Point2D</code> coordinates.
      * @param p1 the first specified <code>Point2D</code> used to set the
@@ -748,7 +748,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                  cp2.getX(), cp2.getY(), p2.getX(), p2.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this curve
      * to the coordinates of the <code>Point2D</code> objects at the specified
      * offset in the specified array.
@@ -765,7 +765,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                  pts[offset + 3].getX(), pts[offset + 3].getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the location of the end points and control points of this curve
      * to the same as those in the specified <code>CubicCurve2D</code>.
      * @param c the specified <code>CubicCurve2D</code>
@@ -776,7 +776,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                  c.getCtrlX2(), c.getCtrlY2(), c.getX2(), c.getY2());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness of the cubic curve specified
      * by the indicated control points. The flatness is the maximum distance
      * of a control point from the line connecting the end points.
@@ -810,7 +810,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness of the cubic curve specified
      * by the indicated control points. The flatness is the maximum distance
      * of a control point from the line connecting the end points.
@@ -843,7 +843,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                                        ctrlx2, ctrly2, x2, y2));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness of the cubic curve specified
      * by the control points stored in the indicated array at the
      * indicated index. The flatness is the maximum distance
@@ -863,7 +863,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                              coords[offset + 6], coords[offset + 7]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness of the cubic curve specified
      * by the control points stored in the indicated array at the
      * indicated index.  The flatness is the maximum distance
@@ -883,7 +883,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                            coords[offset + 6], coords[offset + 7]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the square of the flatness of this curve.  The flatness is the
      * maximum distance of a control point from the line connecting the
      * end points.
@@ -895,7 +895,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                              getCtrlX2(), getCtrlY2(), getX2(), getY2());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness of this curve.  The flatness is the
      * maximum distance of a control point from the line connecting the
      * end points.
@@ -907,7 +907,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                            getCtrlX2(), getCtrlY2(), getX2(), getY2());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides this cubic curve and stores the resulting two
      * subdivided curves into the left and right curve parameters.
      * Either or both of the left and right objects may be the same
@@ -922,7 +922,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         subdivide(this, left, right);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides the cubic curve specified by the <code>src</code> parameter
      * and stores the resulting two subdivided curves into the
      * <code>left</code> and <code>right</code> curve parameters.
@@ -968,7 +968,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subdivides the cubic curve specified by the coordinates
      * stored in the <code>src</code> array at indices <code>srcoff</code>
      * through (<code>srcoff</code>&nbsp;+&nbsp;7) and stores the
@@ -1045,7 +1045,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Solves the cubic whose coefficients are in the <code>eqn</code>
      * array and places the non-complex roots back into the same array,
      * returning the number of roots.  The solved cubic is represented
@@ -1065,7 +1065,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return solveCubic(eqn, eqn);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Solve the cubic whose coefficients are in the <code>eqn</code>
      * array and place the non-complex roots into the <code>res</code>
      * array, returning the number of roots.
@@ -1236,7 +1236,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1265,7 +1265,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return ((crossings & 1) == 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1377,7 +1377,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1586,7 +1586,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
                 (num >= 3 && tags[2] * tags[3] <= 0));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1594,7 +1594,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1618,7 +1618,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return !rect.intersectsLine(getX1(), getY1(), getX2(), getY2());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1626,7 +1626,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1634,7 +1634,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return getBounds2D().getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration object that defines the boundary of the
      * shape.
      * The iterator for this class is not multi-threaded safe,
@@ -1654,7 +1654,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return new CubicIterator(this, at);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return an iteration object that defines the boundary of the
      * flattened shape.
      * The iterator for this class is not multi-threaded safe,
@@ -1677,7 +1677,7 @@ public abstract class CubicCurve2D implements Shape, Cloneable {
         return new FlatteningPathIterator(getPathIterator(at), flatness);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new object of the same class as this object.
      *
      * @return     a clone of this instance.

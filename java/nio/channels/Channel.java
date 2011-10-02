@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.Closeable;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A nexus for I/O operations.
  *
  * <p> A channel represents an open connection to an entity such as a hardware
@@ -55,14 +55,14 @@ import java.io.Closeable;
 
 public interface Channel extends Closeable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this channel is open.  </p>
      *
      * @return <tt>true</tt> if, and only if, this channel is open
      */
     public boolean isOpen();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this channel.
      *
      * <p> After a channel is closed, any further attempt to invoke I/O

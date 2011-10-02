@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.channels.spi.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A pair of channels that implements a unidirectional pipe.
  *
  * <p> A pipe consists of a pair of channels: A writable {@link
@@ -52,7 +52,7 @@ import java.nio.channels.spi.*;
 
 public abstract class Pipe {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A channel representing the readable end of a {@link Pipe}.  </p>
      *
      * @since 1.4
@@ -61,14 +61,14 @@ public abstract class Pipe {
         extends AbstractSelectableChannel
         implements ReadableByteChannel, ScatteringByteChannel
     {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new instance of this class.
          */
         protected SourceChannel(SelectorProvider provider) {
             super(provider);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns an operation set identifying this channel's supported
          * operations.
          *
@@ -83,7 +83,7 @@ public abstract class Pipe {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A channel representing the writable end of a {@link Pipe}.  </p>
      *
      * @since 1.4
@@ -92,14 +92,14 @@ public abstract class Pipe {
         extends AbstractSelectableChannel
         implements WritableByteChannel, GatheringByteChannel
     {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Initializes a new instance of this class.
          */
         protected SinkChannel(SelectorProvider provider) {
             super(provider);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns an operation set identifying this channel's supported
          * operations.
          *
@@ -114,26 +114,26 @@ public abstract class Pipe {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected Pipe() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this pipe's source channel.  </p>
      *
      * @return  This pipe's source channel
      */
     public abstract SourceChannel source();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this pipe's sink channel.  </p>
      *
      * @return  This pipe's sink channel
      */
     public abstract SinkChannel sink();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a pipe.
      *
      * <p> The new pipe is created by invoking the {@link

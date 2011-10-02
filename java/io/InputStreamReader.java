@@ -30,7 +30,7 @@ import java.nio.charset.CharsetDecoder;
 import sun.nio.cs.StreamDecoder;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * An InputStreamReader is a bridge from byte streams to character streams: It
  * reads bytes and decodes them into characters using a specified {@link
@@ -65,7 +65,7 @@ public class InputStreamReader extends Reader {
 
     private final StreamDecoder sd;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an InputStreamReader that uses the default charset.
      * {@description.close}
@@ -82,7 +82,7 @@ public class InputStreamReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an InputStreamReader that uses the named charset.
      * {@description.close}
@@ -106,7 +106,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an InputStreamReader that uses the given charset. </p>
      * {@description.close}
@@ -124,7 +124,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, cs);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an InputStreamReader that uses the given charset decoder.  </p>
      * {@description.close}
@@ -142,7 +142,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, dec);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the name of the character encoding being used by this stream.
      * {@description.close}
@@ -172,7 +172,7 @@ public class InputStreamReader extends Reader {
         return sd.getEncoding();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a single character.
      * {@description.close}
@@ -186,7 +186,7 @@ public class InputStreamReader extends Reader {
         return sd.read();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
@@ -204,7 +204,7 @@ public class InputStreamReader extends Reader {
         return sd.read(cbuf, offset, length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream is ready to be read.  An InputStreamReader is
      * ready if its input buffer is not empty, or if bytes are available to be

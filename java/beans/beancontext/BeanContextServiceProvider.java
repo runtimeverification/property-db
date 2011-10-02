@@ -27,7 +27,7 @@ package java.beans.beancontext;
 
 import java.util.Iterator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * One of the primary functions of a BeanContext is to act a as rendezvous
  * between JavaBeans, and BeanContextServiceProviders.
@@ -51,7 +51,7 @@ import java.util.Iterator;
 
 public interface BeanContextServiceProvider {
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Invoked by <code>BeanContextServices</code>, this method
     * requests an instance of a
     * service from this <code>BeanContextServiceProvider</code>.
@@ -72,7 +72,7 @@ public interface BeanContextServiceProvider {
     */
     Object getService(BeanContextServices bcs, Object requestor, Class serviceClass, Object serviceSelector);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked by <code>BeanContextServices</code>,
      * this method releases a nested <code>BeanContextChild</code>'s
      * (or any arbitrary object associated with a
@@ -87,7 +87,7 @@ public interface BeanContextServiceProvider {
      */
     public void releaseService(BeanContextServices bcs, Object requestor, Object service);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked by <code>BeanContextServices</code>, this method
      * gets the current service selectors for the specified service.
      * A service selector is a service specific parameter,

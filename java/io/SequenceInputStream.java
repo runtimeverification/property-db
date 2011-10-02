@@ -29,7 +29,7 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <code>SequenceInputStream</code> represents
  * the logical concatenation of other input
@@ -49,7 +49,7 @@ class SequenceInputStream extends InputStream {
     Enumeration e;
     InputStream in;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Initializes a newly created <code>SequenceInputStream</code>
      * by remembering the argument, which must
@@ -77,7 +77,7 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Initializes a newly
      * created <code>SequenceInputStream</code>
@@ -104,7 +104,7 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      *  Continues reading in the next stream if an EOF is reached.
      * {@description.close}
@@ -123,7 +123,7 @@ class SequenceInputStream extends InputStream {
 
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from the current underlying input stream without
@@ -151,7 +151,7 @@ class SequenceInputStream extends InputStream {
         return in.available();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next byte of data from this input stream. The byte is
      * returned as an <code>int</code> in the range <code>0</code> to
@@ -187,7 +187,7 @@ class SequenceInputStream extends InputStream {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
@@ -236,7 +236,7 @@ class SequenceInputStream extends InputStream {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.

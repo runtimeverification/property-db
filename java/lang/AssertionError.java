@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that an assertion has failed.
  *
  * <p>The seven one-argument public constructors provided by this
@@ -43,13 +43,13 @@ package java.lang;
  * @since   1.4
  */
 public class AssertionError extends Error {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with no detail message.
      */
     public AssertionError() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This internal constructor does no processing on its string argument,
      * even if it is a null reference.  The public constructors will
      * never call this constructor with a null argument.
@@ -58,7 +58,7 @@ public class AssertionError extends Error {
         super(detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified object, which is converted to a string as
      * defined in <i>The Java Language Specification, Second
@@ -76,7 +76,7 @@ public class AssertionError extends Error {
             initCause((Throwable) detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>boolean</code>, which is converted to
      * a string as defined in <i>The Java Language Specification,
@@ -88,7 +88,7 @@ public class AssertionError extends Error {
         this("" +  detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>char</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
@@ -100,7 +100,7 @@ public class AssertionError extends Error {
         this("" +  detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>int</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
@@ -112,7 +112,7 @@ public class AssertionError extends Error {
         this("" +  detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>long</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
@@ -124,7 +124,7 @@ public class AssertionError extends Error {
         this("" +  detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>float</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
@@ -136,7 +136,7 @@ public class AssertionError extends Error {
         this("" +  detailMessage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>double</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second

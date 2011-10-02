@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown when an unknown flag is given.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
@@ -40,7 +40,7 @@ public class UnknownFormatFlagsException extends IllegalFormatException {
 
     private String flags;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class with the specified flags.
      *
      * @param  f
@@ -52,7 +52,7 @@ public class UnknownFormatFlagsException extends IllegalFormatException {
         this.flags = f;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the set of flags which contains an unknown flag.
      *
      * @return  The flags

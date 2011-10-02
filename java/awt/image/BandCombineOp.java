@@ -34,7 +34,7 @@ import java.awt.RenderingHints;
 import sun.awt.image.ImagingLib;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class performs an arbitrary linear combination of the bands
  * in a <CODE>Raster</CODE>, using a specified matrix.
  * <p>
@@ -63,7 +63,7 @@ public class BandCombineOp implements  RasterOp {
     int ncols = 0;
     RenderingHints hints;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <CODE>BandCombineOp</CODE> with the specified matrix.
      * The width of the matrix must be equal to the number of bands in
      * the source <CODE>Raster</CODE>, optionally plus one.  If there is one
@@ -99,7 +99,7 @@ public class BandCombineOp implements  RasterOp {
         this.hints  = hints;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the linear combination matrix.
      *
      * @return The matrix associated with this band combine operation.
@@ -112,7 +112,7 @@ public class BandCombineOp implements  RasterOp {
         return ret;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms the <CODE>Raster</CODE> using the matrix specified in the
      * constructor. An <CODE>IllegalArgumentException</CODE> may be thrown if
      * the number of bands in the source or destination is incompatible with
@@ -203,7 +203,7 @@ public class BandCombineOp implements  RasterOp {
         return dst;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding box of the transformed destination.  Since
      * this is not a geometric operation, the bounding box is the same for
      * the source and destination.
@@ -224,7 +224,7 @@ public class BandCombineOp implements  RasterOp {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a zeroed destination <CODE>Raster</CODE> with the correct size
      * and number of bands.
      * An <CODE>IllegalArgumentException</CODE> may be thrown if the number of
@@ -254,7 +254,7 @@ public class BandCombineOp implements  RasterOp {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the location of the corresponding destination point given a
      * point in the source <CODE>Raster</CODE>.  If <CODE>dstPt</CODE> is
      * specified, it is used to hold the return value.
@@ -277,7 +277,7 @@ public class BandCombineOp implements  RasterOp {
         return dstPt;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the rendering hints for this operation.
      *
      * @return The <CODE>RenderingHints</CODE> object associated with this

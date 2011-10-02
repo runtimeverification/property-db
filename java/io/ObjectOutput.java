@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * ObjectOutput extends the DataOutput interface to include writing of objects.
  * DataOutput includes methods for output of primitive types, ObjectOutput
@@ -39,7 +39,7 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectOutput extends DataOutput {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write an object to the underlying storage or stream.  The
      * class that implements this interface defines how the object is
@@ -52,7 +52,7 @@ public interface ObjectOutput extends DataOutput {
     public void writeObject(Object obj)
       throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a byte.
      * {@description.close}
@@ -65,7 +65,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes an array of bytes.
      * {@description.close}
@@ -78,7 +78,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a sub array of bytes.
      * {@description.close}
@@ -89,7 +89,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the stream. This will write any buffered
      * output bytes.
@@ -98,7 +98,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void flush() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes the stream.
      * {@description.close}

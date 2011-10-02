@@ -35,7 +35,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A container class which implements automatic horizontal and/or
  * vertical scrolling for a single child component.  The display
  * policy for the scrollbars can be set to:
@@ -90,7 +90,7 @@ import java.io.IOException;
 public class ScrollPane extends Container implements Accessible {
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -103,26 +103,26 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies that horizontal/vertical scrollbar should be shown
      * only when the size of the child exceeds the size of the scrollpane
      * in the horizontal/vertical dimension.
      */
     public static final int SCROLLBARS_AS_NEEDED = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies that horizontal/vertical scrollbars should always be
      * shown regardless of the respective sizes of the scrollpane and child.
      */
     public static final int SCROLLBARS_ALWAYS = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies that horizontal/vertical scrollbars should never be shown
      * regardless of the respective sizes of the scrollpane and child.
      */
     public static final int SCROLLBARS_NEVER = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * There are 3 ways in which a scroll bar can be displayed.
      * This integer will represent one of these 3 displays -
      * (SCROLLBARS_ALWAYS, SCROLLBARS_AS_NEEDED, SCROLLBARS_NEVER)
@@ -132,7 +132,7 @@ public class ScrollPane extends Container implements Accessible {
      */
     private int scrollbarDisplayPolicy;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An adjustable vertical scrollbar.
      * It is important to note that you must <em>NOT</em> call 3
      * <code>Adjustable</code> methods, namely:
@@ -144,7 +144,7 @@ public class ScrollPane extends Container implements Accessible {
      */
     private ScrollPaneAdjustable vAdjustable;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An adjustable horizontal scrollbar.
      * It is important to note that you must <em>NOT</em> call 3
      * <code>Adjustable</code> methods, namely:
@@ -161,7 +161,7 @@ public class ScrollPane extends Container implements Accessible {
 
     private static final boolean defaultWheelScroll = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether or not scrolling should take place when a
      * MouseWheelEvent is received.
      *
@@ -175,7 +175,7 @@ public class ScrollPane extends Container implements Accessible {
      */
     private static final long serialVersionUID = 7956609840827222915L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new scrollpane container with a scrollbar display
      * policy of "as needed".
      * @throws HeadlessException if GraphicsEnvironment.isHeadless()
@@ -186,7 +186,7 @@ public class ScrollPane extends Container implements Accessible {
         this(SCROLLBARS_AS_NEEDED);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new scrollpane container.
      * @param scrollbarDisplayPolicy policy for when scrollbars should be shown
      * @throws IllegalArgumentException if the specified scrollbar
@@ -217,7 +217,7 @@ public class ScrollPane extends Container implements Accessible {
         setWheelScrollingEnabled(defaultWheelScroll);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -238,7 +238,7 @@ public class ScrollPane extends Container implements Accessible {
         validate();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to this scroll pane container.
      * If the scroll pane has an existing child component, that
      * component is removed and the new one is added.
@@ -263,7 +263,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the display policy for the scrollbars.
      * @return the display policy for the scrollbars
      */
@@ -271,7 +271,7 @@ public class ScrollPane extends Container implements Accessible {
         return scrollbarDisplayPolicy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current size of the scroll pane's view port.
      * @return the size of the view port in pixels
      */
@@ -281,7 +281,7 @@ public class ScrollPane extends Container implements Accessible {
                              height - i.top - i.bottom);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the height that would be occupied by a horizontal
      * scrollbar, which is independent of whether it is currently
      * displayed by the scroll pane or not.
@@ -298,7 +298,7 @@ public class ScrollPane extends Container implements Accessible {
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the width that would be occupied by a vertical
      * scrollbar, which is independent of whether it is currently
      * displayed by the scroll pane or not.
@@ -315,7 +315,7 @@ public class ScrollPane extends Container implements Accessible {
         return w;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ScrollPaneAdjustable</code> object which
      * represents the state of the vertical scrollbar.
      * The declared return type of this method is
@@ -326,7 +326,7 @@ public class ScrollPane extends Container implements Accessible {
         return vAdjustable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ScrollPaneAdjustable</code> object which
      * represents the state of the horizontal scrollbar.
      * The declared return type of this method is
@@ -337,7 +337,7 @@ public class ScrollPane extends Container implements Accessible {
         return hAdjustable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Scrolls to the specified position within the child component.
      * A call to this method is only valid if the scroll pane contains
      * a child.  Specifying a position outside of the legal scrolling bounds
@@ -362,7 +362,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Scrolls to the specified position within the child component.
      * A call to this method is only valid if the scroll pane contains
      * a child and the specified position is within legal scrolling bounds
@@ -379,7 +379,7 @@ public class ScrollPane extends Container implements Accessible {
         setScrollPosition(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current x,y position within the child which is displayed
      * at the 0,0 location of the scrolled panel's view port.
      * This is a convenience method which interfaces with the adjustable
@@ -395,7 +395,7 @@ public class ScrollPane extends Container implements Accessible {
         return new Point(hAdjustable.getValue(), vAdjustable.getValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the layout manager for this container.  This method is
      * overridden to prevent the layout mgr from being set.
      * @param mgr the specified layout manager
@@ -404,7 +404,7 @@ public class ScrollPane extends Container implements Accessible {
         throw new AWTError("ScrollPane controls layout");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Lays out this container by resizing its child to its preferred size.
      * If the new preferred size of the child causes the current scroll
      * position to be invalid, the scroll position is set to the closest
@@ -416,7 +416,7 @@ public class ScrollPane extends Container implements Accessible {
         layout();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine the size to allocate the child component.
      * If the viewport area is bigger than the childs
      * preferred size then the child is allocated enough
@@ -476,7 +476,7 @@ public class ScrollPane extends Container implements Accessible {
         return childSize;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>doLayout()</code>.
      */
@@ -504,7 +504,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints the component in this scroll pane.
      * @param g the specified Graphics window
      * @see Component#print
@@ -528,7 +528,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the scroll pane's peer.
      */
     public void addNotify() {
@@ -560,7 +560,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this
      * <code>ScrollPane</code>. This
      * method is intended to be used only for debugging purposes, and the
@@ -597,7 +597,7 @@ public class ScrollPane extends Container implements Accessible {
         processMouseWheelEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Process mouse wheel events that are delivered to this
      * <code>ScrollPane</code> by scrolling an appropriate amount.
      * <p>Note that if the event parameter is <code>null</code>
@@ -615,7 +615,7 @@ public class ScrollPane extends Container implements Accessible {
         super.processMouseWheelEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If wheel scrolling is enabled, we return true for MouseWheelEvents
      * @since 1.4
      */
@@ -628,7 +628,7 @@ public class ScrollPane extends Container implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enables/disables scrolling in response to movement of the mouse wheel.
      * Wheel scrolling is enabled by default.
      *
@@ -644,7 +644,7 @@ public class ScrollPane extends Container implements Accessible {
         wheelScrollingEnabled = handleWheel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether or not scrolling will take place in response to
      * the mouse wheel.  Wheel scrolling is enabled by default.
      *
@@ -656,7 +656,7 @@ public class ScrollPane extends Container implements Accessible {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to stream.
      */
     private void writeObject(ObjectOutputStream s) throws IOException {
@@ -666,7 +666,7 @@ public class ScrollPane extends Container implements Accessible {
         s.defaultWriteObject();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads default serializable fields to stream.
      * @exception HeadlessException if
      * <code>GraphicsEnvironment.isHeadless()</code> returns
@@ -713,7 +713,7 @@ public class ScrollPane extends Container implements Accessible {
             this.scroller = scroller;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Invoked when the value of the adjustable has changed.
          */
         public void adjustmentValueChanged(AdjustmentEvent e) {
@@ -745,7 +745,7 @@ public class ScrollPane extends Container implements Accessible {
 // Accessibility support
 ////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the AccessibleContext associated with this ScrollPane.
      * For scroll panes, the AccessibleContext takes the form of an
      * AccessibleAWTScrollPane.
@@ -762,7 +762,7 @@ public class ScrollPane extends Container implements Accessible {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class implements accessibility support for the
      * <code>ScrollPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to scroll pane user-interface
@@ -776,7 +776,7 @@ public class ScrollPane extends Container implements Accessible {
          */
         private static final long serialVersionUID = 6100703663886637L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -812,7 +812,7 @@ class PeerFixer implements AdjustmentListener, java.io.Serializable {
         this.scroller = scroller;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the value of the adjustable has changed.
      */
     public void adjustmentValueChanged(AdjustmentEvent e) {

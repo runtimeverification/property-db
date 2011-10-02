@@ -37,7 +37,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class for building certification paths (also known as certificate chains).
  * <p>
  * This class uses a provider-based architecture.
@@ -88,7 +88,7 @@ public class CertPathBuilder {
     private Provider provider;
     private String algorithm;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPathBuilder</code> object of the given algorithm,
      * and encapsulates the given provider implementation (SPI object) in it.
      *
@@ -104,7 +104,7 @@ public class CertPathBuilder {
         this.algorithm = algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>CertPathBuilder</code> object that implements the
      * specified algorithm.
      *
@@ -140,7 +140,7 @@ public class CertPathBuilder {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>CertPathBuilder</code> object that implements the
      * specified algorithm.
      *
@@ -183,7 +183,7 @@ public class CertPathBuilder {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>CertPathBuilder</code> object that implements the
      * specified algorithm.
      *
@@ -220,7 +220,7 @@ public class CertPathBuilder {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this <code>CertPathBuilder</code>.
      *
      * @return the provider of this <code>CertPathBuilder</code>
@@ -229,7 +229,7 @@ public class CertPathBuilder {
         return this.provider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the algorithm of this <code>CertPathBuilder</code>.
      *
      * @return the name of the algorithm of this <code>CertPathBuilder</code>
@@ -238,7 +238,7 @@ public class CertPathBuilder {
         return this.algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to build a certification path using the specified algorithm
      * parameter set.
      *
@@ -255,7 +255,7 @@ public class CertPathBuilder {
         return builderSpi.engineBuild(params);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default <code>CertPathBuilder</code> type as specified in
      * the Java security properties file, or the string &quot;PKIX&quot;
      * if no such property exists. The Java security properties file is

@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>StubNotFoundException</code> is thrown if a valid stub class
  * could not be found for a remote object when it is exported.
  * A <code>StubNotFoundException</code> may also be
@@ -42,7 +42,7 @@ public class StubNotFoundException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -7088199405468872373L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>StubNotFoundException</code> with the specified
      * detail message.
      *
@@ -53,7 +53,7 @@ public class StubNotFoundException extends RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>StubNotFoundException</code> with the specified
      * detail message and nested exception.
      *

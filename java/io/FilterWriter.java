@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Abstract class for writing filtered character streams.
  * The abstract class <code>FilterWriter</code> itself
@@ -42,14 +42,14 @@ package java.io;
 
 public abstract class FilterWriter extends Writer {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The underlying character-output stream.
      * {@description.close}
      */
     protected Writer out;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Create a new filtered writer.
      * {@description.close}
@@ -62,7 +62,7 @@ public abstract class FilterWriter extends Writer {
         this.out = out;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a single character.
      * {@description.close}
@@ -73,7 +73,7 @@ public abstract class FilterWriter extends Writer {
         out.write(c);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of an array of characters.
      * {@description.close}
@@ -88,7 +88,7 @@ public abstract class FilterWriter extends Writer {
         out.write(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of a string.
      * {@description.close}
@@ -103,7 +103,7 @@ public abstract class FilterWriter extends Writer {
         out.write(str, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the stream.
      * {@description.close}

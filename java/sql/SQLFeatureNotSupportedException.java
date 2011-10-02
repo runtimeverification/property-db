@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The subclass of {@link SQLException} thrown when the SQLState class value is '<i>0A</i>'
  * ( the value is 'zero' A).
  * This indicates that the JDBC driver does not support an optional JDBC feature.
@@ -42,7 +42,7 @@ package java.sql;
  */
 public class SQLFeatureNotSupportedException extends SQLNonTransientException {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLFeatureNotSupportedException</code> object.
          *  The <code>reason</code>, <code>SQLState</code> are initialized
          * to <code>null</code> and the vendor code is initialized to 0.
@@ -57,7 +57,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
                 super();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLFeatureNotSupportedException</code> object
          * with a given <code>reason</code>. The <code>SQLState</code>
          * is initialized to <code>null</code> and the vender code is initialized
@@ -74,7 +74,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
                 super(reason);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLFeatureNotSupportedException</code> object
          * with a given <code>reason</code> and <code>SQLState</code>.
          *
@@ -91,7 +91,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
                 super(reason,SQLState);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLFeatureNotSupportedException</code> object
          *  with a given <code>reason</code>, <code>SQLState</code>  and
          * <code>vendorCode</code>.
@@ -109,7 +109,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
                 super(reason,SQLState,vendorCode);
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLFeatureNotSupportedException</code> object
      *   with a given  <code>cause</code>.
      * The <code>SQLState</code> is initialized
@@ -126,7 +126,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
         super(cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLFeatureNotSupportedException</code> object
      * with a given
      * <code>reason</code> and  <code>cause</code>.
@@ -142,7 +142,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
         super(reason,cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLFeatureNotSupportedException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
@@ -158,7 +158,7 @@ public class SQLFeatureNotSupportedException extends SQLNonTransientException {
         super(reason,SQLState,cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLFeatureNotSupportedException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>

@@ -27,7 +27,7 @@ package java.beans;
 
 import java.lang.ref.Reference;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A BeanDescriptor provides global information about a "bean",
  * including its Java class, its displayName, etc.
  * <p>
@@ -40,7 +40,7 @@ public class BeanDescriptor extends FeatureDescriptor {
     private Reference<Class> beanClassRef;
     private Reference<Class> customizerClassRef;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a BeanDescriptor for a bean that doesn't have a customizer.
      *
      * @param beanClass  The Class object of the Java class that implements
@@ -50,7 +50,7 @@ public class BeanDescriptor extends FeatureDescriptor {
         this(beanClass, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a BeanDescriptor for a bean that has a customizer.
      *
      * @param beanClass  The Class object of the Java class that implements
@@ -69,7 +69,7 @@ public class BeanDescriptor extends FeatureDescriptor {
         setName(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the bean's Class object.
      *
      * @return The Class object for the bean.
@@ -80,7 +80,7 @@ public class BeanDescriptor extends FeatureDescriptor {
                 : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Class object for the bean's customizer.
      *
      * @return The Class object for the bean's customizer.  This may

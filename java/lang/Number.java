@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The abstract class <code>Number</code> is the superclass of classes
  * <code>BigDecimal</code>, <code>BigInteger</code>,
  * <code>Byte</code>, <code>Double</code>, <code>Float</code>,
@@ -47,7 +47,7 @@ package java.lang;
  * @since   JDK1.0
  */
 public abstract class Number implements java.io.Serializable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as an <code>int</code>.
      * This may involve rounding or truncation.
      *
@@ -56,7 +56,7 @@ public abstract class Number implements java.io.Serializable {
      */
     public abstract int intValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as a <code>long</code>.
      * This may involve rounding or truncation.
      *
@@ -65,7 +65,7 @@ public abstract class Number implements java.io.Serializable {
      */
     public abstract long longValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as a <code>float</code>.
      * This may involve rounding.
      *
@@ -74,7 +74,7 @@ public abstract class Number implements java.io.Serializable {
      */
     public abstract float floatValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as a <code>double</code>.
      * This may involve rounding.
      *
@@ -83,7 +83,7 @@ public abstract class Number implements java.io.Serializable {
      */
     public abstract double doubleValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as a <code>byte</code>.
      * This may involve rounding or truncation.
      *
@@ -95,7 +95,7 @@ public abstract class Number implements java.io.Serializable {
         return (byte)intValue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the specified number as a <code>short</code>.
      * This may involve rounding or truncation.
      *
@@ -107,6 +107,6 @@ public abstract class Number implements java.io.Serializable {
         return (short)intValue();
     }
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -8742448824652078965L;
 }

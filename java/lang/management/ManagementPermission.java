@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The permission which the SecurityManager will check when code
  * that is running with a SecurityManager calls methods defined
  * in the management interface for the Java platform.
@@ -84,7 +84,7 @@ at the permission allows, and associated risks">
 
 public final class ManagementPermission extends java.security.BasicPermission {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a ManagementPermission with the specified name.
      *
      * @param name Permission name. Must be either "monitor" or "control".
@@ -99,7 +99,7 @@ public final class ManagementPermission extends java.security.BasicPermission {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new ManagementPermission object.
      *
      * @param name Permission name. Must be either "monitor" or "control".

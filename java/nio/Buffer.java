@@ -26,7 +26,7 @@
 package java.nio;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A container for data of a specific primitive type.
  *
  * <p> A buffer is a linear, finite sequence of elements of a specific
@@ -199,7 +199,7 @@ public abstract class Buffer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this buffer's capacity. </p>
      *
      * @return  The capacity of this buffer
@@ -208,7 +208,7 @@ public abstract class Buffer {
         return capacity;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this buffer's position. </p>
      *
      * @return  The position of this buffer
@@ -217,7 +217,7 @@ public abstract class Buffer {
         return position;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this buffer's position.  If the mark is defined and larger than the
      * new position then it is discarded. </p>
      *
@@ -238,7 +238,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this buffer's limit. </p>
      *
      * @return  The limit of this buffer
@@ -247,7 +247,7 @@ public abstract class Buffer {
         return limit;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this buffer's limit.  If the position is larger than the new limit
      * then it is set to the new limit.  If the mark is defined and larger than
      * the new limit then it is discarded. </p>
@@ -270,7 +270,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this buffer's mark at its position. </p>
      *
      * @return  This buffer
@@ -280,7 +280,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets this buffer's position to the previously-marked position.
      *
      * <p> Invoking this method neither changes nor discards the mark's
@@ -299,7 +299,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears this buffer.  The position is set to zero, the limit is set to
      * the capacity, and the mark is discarded.
      *
@@ -323,7 +323,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flips this buffer.  The limit is set to the current position and then
      * the position is set to zero.  If the mark is defined then it is
      * discarded.
@@ -351,7 +351,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rewinds this buffer.  The position is set to zero and the mark is
      * discarded.
      *
@@ -372,7 +372,7 @@ public abstract class Buffer {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements between the current position and the
      * limit. </p>
      *
@@ -382,7 +382,7 @@ public abstract class Buffer {
         return limit - position;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether there are any elements between the current position and
      * the limit. </p>
      *
@@ -393,14 +393,14 @@ public abstract class Buffer {
         return position < limit;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this buffer is read-only. </p>
      *
      * @return  <tt>true</tt> if, and only if, this buffer is read-only
      */
     public abstract boolean isReadOnly();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this buffer is backed by an accessible
      * array.
      *
@@ -415,7 +415,7 @@ public abstract class Buffer {
      */
     public abstract boolean hasArray();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the array that backs this
      * buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -442,7 +442,7 @@ public abstract class Buffer {
      */
     public abstract Object array();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the offset within this buffer's backing array of the first
      * element of the buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -466,7 +466,7 @@ public abstract class Buffer {
      */
     public abstract int arrayOffset();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this buffer is
      * <a href="ByteBuffer.html#direct"><i>direct</i></a>. </p>
      *
@@ -479,7 +479,7 @@ public abstract class Buffer {
 
     // -- Package-private methods for bounds checking, etc. --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks the current position against the limit, throwing a {@link
      * BufferUnderflowException} if it is not smaller than the limit, and then
      * increments the position. </p>
@@ -500,7 +500,7 @@ public abstract class Buffer {
         return p;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks the current position against the limit, throwing a {@link
      * BufferOverflowException} if it is not smaller than the limit, and then
      * increments the position. </p>
@@ -521,7 +521,7 @@ public abstract class Buffer {
         return p;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks the given index against the limit, throwing an {@link
      * IndexOutOfBoundsException} if it is not smaller than the limit
      * or is smaller than zero.

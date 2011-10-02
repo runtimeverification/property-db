@@ -40,7 +40,7 @@ import java.util.logging.*;
 
 import sun.awt.dnd.SunDragSourceContextPeer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * EventDispatchThread is a package-private AWT class which takes
  * events off the EventQueue and dispatches them to the appropriate
  * AWT components.
@@ -321,7 +321,7 @@ class EventDispatchThread extends Thread {
     private static String handlerClassName = null;
     private static String NO_HANDLER = new String();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Handles an exception thrown in the event-dispatch thread.
      *
      * <p> If the system property "sun.awt.exception.handler" is defined, then

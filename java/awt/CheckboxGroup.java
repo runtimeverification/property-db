@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>CheckboxGroup</code> class is used to group together
  * a set of <code>Checkbox</code> buttons.
  * <p>
@@ -55,7 +55,7 @@ package java.awt;
  * @since       JDK1.0
  */
 public class CheckboxGroup implements java.io.Serializable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The current choice.
      * @serial
      * @see #getCurrent()
@@ -68,13 +68,13 @@ public class CheckboxGroup implements java.io.Serializable {
      */
     private static final long serialVersionUID = 3729780091441768983L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new instance of <code>CheckboxGroup</code>.
      */
     public CheckboxGroup() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current choice from this check box group.
      * The current choice is the check box in this
      * group that is currently in the "on" state,
@@ -90,7 +90,7 @@ public class CheckboxGroup implements java.io.Serializable {
         return getCurrent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getSelectedCheckbox()</code>.
      */
@@ -99,7 +99,7 @@ public class CheckboxGroup implements java.io.Serializable {
         return selectedCheckbox;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the currently selected check box in this group
      * to be the specified check box.
      * This method sets the state of that check box to "on" and
@@ -119,7 +119,7 @@ public class CheckboxGroup implements java.io.Serializable {
         setCurrent(box);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setSelectedCheckbox(Checkbox)</code>.
      */
@@ -138,7 +138,7 @@ public class CheckboxGroup implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this check box group,
      * including the value of its current selection.
      * @return    a string representation of this check box group.

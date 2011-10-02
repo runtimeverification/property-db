@@ -25,7 +25,7 @@
 
 package java.rmi.activation;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This exception is thrown by the RMI runtime when activation
  * fails during a remote call to an activatable object.
  *
@@ -34,10 +34,10 @@ package java.rmi.activation;
  */
 public class ActivateFailedException extends java.rmi.RemoteException {
 
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = 4863550261346652506L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ActivateFailedException</code> with the specified
      * detail message.
      *
@@ -48,7 +48,7 @@ public class ActivateFailedException extends java.rmi.RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ActivateFailedException</code> with the specified
      * detail message and nested exception.
      *

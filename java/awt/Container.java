@@ -61,7 +61,7 @@ import sun.awt.dnd.SunDropTargetEvent;
 
 import sun.java2d.pipe.Region;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A generic Abstract Window Toolkit(AWT) container object is a component
  * that can contain other AWT components.
  * <p>
@@ -90,7 +90,7 @@ public class Container extends Component {
     private static final Logger log = Logger.getLogger("java.awt.Container");
     private static final Logger eventLog = Logger.getLogger("java.awt.event.Container");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of components in this container.
      * This value can be null.
      * @see #getComponent
@@ -99,14 +99,14 @@ public class Container extends Component {
      */
     int ncomponents;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The components in this container.
      * @see #add
      * @see #getComponents
      */
     Component component[] = new Component[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Layout manager for this container.
      * @see #doLayout
      * @see #setLayout
@@ -114,7 +114,7 @@ public class Container extends Component {
      */
     LayoutManager layoutMgr;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Event router for lightweight components.  If this container
      * is native, this dispatcher takes care of forwarding and
      * retargeting the events to lightweight components contained
@@ -122,7 +122,7 @@ public class Container extends Component {
      */
     private LightweightDispatcher dispatcher;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The focus traversal policy that will manage keyboard traversal of this
      * Container's children, if this Container is a focus cycle root. If the
      * value is null, this Container inherits its policy from its focus-cycle-
@@ -142,7 +142,7 @@ public class Container extends Component {
      */
     private transient FocusTraversalPolicy focusTraversalPolicy;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether this Component is the root of a focus traversal cycle.
      * Once focus enters a traversal cycle, typically it cannot leave it via
      * focus traversal unless one of the up- or down-cycle keys is pressed.
@@ -157,7 +157,7 @@ public class Container extends Component {
     private boolean focusCycleRoot = false;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Stores the value of focusTraversalPolicyProvider property.
      * @since 1.5
      * @see #setFocusTraversalPolicyProvider
@@ -176,12 +176,12 @@ public class Container extends Component {
     transient int listeningBoundsChildren;
     transient int descendantsCount;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * JDK 1.1 serialVersionUID
      */
     private static final long serialVersionUID = 4613797578919906343L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant which toggles one of the controllable behaviors
      * of <code>getMouseEventTarget</code>. It is used to specify whether
      * the method can return the Container on which it is originally called
@@ -191,7 +191,7 @@ public class Container extends Component {
      */
     static final boolean INCLUDE_SELF = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant which toggles one of the controllable behaviors
      * of <code>getMouseEventTarget</code>. It is used to specify whether
      * the method should search only lightweight components.
@@ -209,7 +209,7 @@ public class Container extends Component {
 
     private static final Logger mixingLog = Logger.getLogger("java.awt.mixing.Container");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField ncomponents                     int
      *       The number of components in this container.
      *       This value can be null.
@@ -255,13 +255,13 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs for fields that may be
        called from C.
      */
     private static native void initIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new Container. Containers can be extended directly,
      * but are lightweight in this case and must be contained by a parent
      * somewhere higher up in the component tree that is native.
@@ -274,7 +274,7 @@ public class Container extends Component {
         focusTraversalKeys = new Set[4];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of components in this panel.
      * @return    the number of components in this panel.
      * @see       #getComponent
@@ -284,7 +284,7 @@ public class Container extends Component {
         return countComponents();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by getComponentCount().
      */
@@ -293,7 +293,7 @@ public class Container extends Component {
         return ncomponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the nth component in this container.
      * @param      n   the index of the component to get.
      * @return     the n<sup>th</sup> component in this container.
@@ -309,7 +309,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets all the components in this container.
      * @return    an array of all the components in this container.
      */
@@ -326,7 +326,7 @@ public class Container extends Component {
         }
     } // getComponents_NoClientCode()
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the insets of this container, which indicate the size
      * of the container's border.
      * <p>
@@ -341,7 +341,7 @@ public class Container extends Component {
         return insets();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getInsets()</code>.
      */
@@ -355,7 +355,7 @@ public class Container extends Component {
         return new Insets(0, 0, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified component to the end of this container.
      * This is a convenience method for {@link #addImpl}.
      * <p>
@@ -378,7 +378,7 @@ public class Container extends Component {
         return comp;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to this container.
      * This is a convenience method for {@link #addImpl}.
      * <p>
@@ -392,7 +392,7 @@ public class Container extends Component {
         return comp;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to this container at the given
      * position.
      * This is a convenience method for {@link #addImpl}.
@@ -421,7 +421,7 @@ public class Container extends Component {
         return comp;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks that the component comp can be added to this container
      * Checks :  index in bounds of container's size,
      * comp is not one of this container's parents,
@@ -467,7 +467,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes component comp from this container without making unneccessary changes
      * and generating unneccessary events. This function intended to perform optimized
      * remove, for example, if newParent and current parent are the same it just changes
@@ -535,7 +535,7 @@ public class Container extends Component {
         return needRemoveNotify;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether this container can contain component which is focus owner.
      * Verifies that container is enable and showing, and if it is focus cycle root
      * its FTP allows component to be focus owner
@@ -563,7 +563,7 @@ public class Container extends Component {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this container has heavyweight children.
      * Note: Should be called while holding tree lock
      * @return true if there is at least one heavyweight children in a container, false otherwise
@@ -574,7 +574,7 @@ public class Container extends Component {
         return numOfHWComponents > 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this container has lightweight children.
      * Note: Should be called while holding tree lock
      * @return true if there is at least one lightweight children in a container, false otherwise
@@ -585,7 +585,7 @@ public class Container extends Component {
         return numOfLWComponents > 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns closest heavyweight component to this container. If this container is heavyweight
      * returns this.
      * @since 1.5
@@ -599,7 +599,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Detects whether or not remove from current parent and adding to new parent requires call of
      * removeNotify on the component. Since removeNotify destroys native window this might (not)
      * be required. For example, if new container and old containers are the same we don't need to
@@ -646,7 +646,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves the specified component to the specified z-order index in
      * the container. The z-order determines the order that components
      * are painted; the component with the highest z-order paints first
@@ -721,7 +721,7 @@ public class Container extends Component {
          }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Traverses the tree of components and reparents children heavyweight component
      * to new heavyweight parent.
      * @since 1.5
@@ -744,7 +744,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reparents child component peer to this container peer.
      * Container must be heavyweight.
      * @since 1.5
@@ -765,7 +765,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds component to this container. Tries to minimize side effects of this adding -
      * doesn't call remove notify if it is not required.
      * @since 1.5
@@ -883,7 +883,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the z-order index of the component inside the container.
      * The higher a component is in the z-order hierarchy, the lower
      * its index.  The component with the lowest z-order index is
@@ -915,7 +915,7 @@ public class Container extends Component {
         return -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to the end of this container.
      * Also notifies the layout manager to add the component to
      * this container's layout using the specified constraints object.
@@ -942,7 +942,7 @@ public class Container extends Component {
         addImpl(comp, constraints, -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to this container with the specified
      * constraints at the specified index.  Also notifies the layout
      * manager to add the component to the this container's layout using
@@ -974,7 +974,7 @@ public class Container extends Component {
        addImpl(comp, constraints, index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component to this container at the specified
      * index. This method also notifies the layout manager to add
      * the component to this container's layout using the specified
@@ -1127,7 +1127,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks that all Components that this Container contains are on
      * the same GraphicsDevice as this Container.  If not, throws an
      * IllegalArgumentException.
@@ -1142,7 +1142,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the component, specified by <code>index</code>,
      * from this container.
      * This method also notifies the layout manager to remove the
@@ -1211,7 +1211,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified component from this container.
      * This method also notifies the layout manager to remove the
      * component from this container's layout via the
@@ -1246,7 +1246,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all the components from this container.
      * This method also notifies the layout manager to remove the
      * components from this container's layout via the
@@ -1435,7 +1435,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the layout manager for this container.
      * @see #doLayout
      * @see #setLayout
@@ -1444,7 +1444,7 @@ public class Container extends Component {
         return layoutMgr;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the layout manager for this container.
      * @param mgr the specified layout manager
      * @see #doLayout
@@ -1457,7 +1457,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes this container to lay out its components.  Most programs
      * should not call this method directly, but should invoke
      * the <code>validate</code> method instead.
@@ -1470,7 +1470,7 @@ public class Container extends Component {
         layout();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>doLayout()</code>.
      */
@@ -1482,7 +1482,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invalidates the container.  The container and all parents
      * above it are marked as needing to be laid out.  This method can
      * be called often, so it needs to execute quickly.
@@ -1506,7 +1506,7 @@ public class Container extends Component {
         super.invalidate();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Validates this container and all of its subcomponents.
      * <p>
      * The <code>validate</code> method is used to cause a container
@@ -1551,7 +1551,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Recursively descends the container tree and recomputes the
      * layout for any subtrees marked as needing it (those marked as
      * invalid).  Synchronization should be provided by the method
@@ -1584,7 +1584,7 @@ public class Container extends Component {
         valid = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Recursively descends the container tree and invalidates all
      * contained components.
      */
@@ -1607,7 +1607,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the font of this container.
      * @param f The font to become this container's font.
      * @see Component#getFont
@@ -1625,7 +1625,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the preferred size of this container.  If the preferred size has
      * not been set explicitly by {@link Component#setPreferredSize(Dimension)}
      * and this {@code Container} has a {@code non-null} {@link LayoutManager},
@@ -1650,7 +1650,7 @@ public class Container extends Component {
         return preferredSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize()</code>.
      */
@@ -1676,7 +1676,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum size of this container.  If the minimum size has
      * not been set explicitly by {@link Component#setMinimumSize(Dimension)}
      * and this {@code Container} has a {@code non-null} {@link LayoutManager},
@@ -1702,7 +1702,7 @@ public class Container extends Component {
         return minimumSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize()</code>.
      */
@@ -1728,7 +1728,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum size of this container.  If the maximum size has
      * not been set explicitly by {@link Component#setMaximumSize(Dimension)}
      * and the {@link LayoutManager} installed on this {@code Container}
@@ -1774,7 +1774,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -1794,7 +1794,7 @@ public class Container extends Component {
         return xAlign;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -1814,7 +1814,7 @@ public class Container extends Component {
         return yAlign;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Paints the container. This forwards the paint to any lightweight
      * components that are children of this container. If this method is
      * reimplemented, super.paint(g) should be called so that lightweight
@@ -1846,7 +1846,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the container.  This forwards the update to any lightweight
      * components that are children of this container.  If this method is
      * reimplemented, super.update(g) should be called so that lightweight
@@ -1866,7 +1866,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints the container. This forwards the print to any lightweight
      * components that are children of this container. If this method is
      * reimplemented, super.print(g) should be called so that lightweight
@@ -1901,7 +1901,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Paints each of the components in this container.
      * @param     g   the graphics context.
      * @see       Component#paint
@@ -1914,7 +1914,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Simulates the peer callbacks into java.awt for printing of
      * lightweight Containers.
      * @param     g   the graphics context to use for printing.
@@ -1926,7 +1926,7 @@ public class Container extends Component {
         paintHeavyweightComponents(g);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints all the heavyweight subcomponents.
      */
     void paintHeavyweightComponents(Graphics g) {
@@ -1937,7 +1937,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints each of the components in this container.
      * @param     g   the graphics context.
      * @see       Component#print
@@ -1950,7 +1950,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Simulates the peer callbacks into java.awt for printing of
      * lightweight Containers.
      * @param     g   the graphics context to use for printing.
@@ -1962,7 +1962,7 @@ public class Container extends Component {
         printHeavyweightComponents(g);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints all the heavyweight subcomponents.
      */
     void printHeavyweightComponents(Graphics g) {
@@ -1973,7 +1973,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified container listener to receive container events
      * from this container.
      * If l is null, no exception is thrown and no action is performed.
@@ -1993,7 +1993,7 @@ public class Container extends Component {
         newEventsOnly = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified container listener so it no longer receives
      * container events from this container.
      * If l is null, no exception is thrown and no action is performed.
@@ -2012,7 +2012,7 @@ public class Container extends Component {
         containerListener = AWTEventMulticaster.remove(containerListener, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the container listeners
      * registered on this container.
      *
@@ -2028,7 +2028,7 @@ public class Container extends Component {
         return (ContainerListener[]) (getListeners(ContainerListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>Container</code>.
@@ -2086,7 +2086,7 @@ public class Container extends Component {
         return super.eventEnabled(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes events on this container. If the event is a
      * <code>ContainerEvent</code>, it invokes the
      * <code>processContainerEvent</code> method, else it invokes
@@ -2105,7 +2105,7 @@ public class Container extends Component {
         super.processEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes container events occurring on this container by
      * dispatching them to any registered ContainerListener objects.
      * NOTE: This method will not be called unless container events
@@ -2187,7 +2187,7 @@ public class Container extends Component {
         super.dispatchEventImpl(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fetchs the top-most (deepest) lightweight component that is interested
      * in receiving mouse events.
      */
@@ -2197,7 +2197,7 @@ public class Container extends Component {
                                    !SEARCH_HEAVYWEIGHTS);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fetches the top-most (deepest) component to receive SunDropTargetEvents.
      */
     Component getDropTargetEventTarget(int x, int y, boolean includeSelf) {
@@ -2206,7 +2206,7 @@ public class Container extends Component {
                                    SEARCH_HEAVYWEIGHTS);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A private version of getMouseEventTarget which has two additional
      * controllable behaviors. This method searches for the top-most
      * descendant of this container that contains the given coordinates
@@ -2237,7 +2237,7 @@ public class Container extends Component {
         return comp;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A private version of getMouseEventTarget which has three additional
      * controllable behaviors. This method searches for the top-most
      * descendant of this container that contains the given coordinates
@@ -2342,7 +2342,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is called by lightweight components that want the containing
      * windowed parent to enable some kind of events on their behalf.
      * This is needed for events that are normally only dispatched to
@@ -2368,7 +2368,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>dispatchEvent(AWTEvent e)</code>
      */
@@ -2383,7 +2383,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Locates the component that contains the x,y position.  The
      * top-most child component is returned in the case where there
      * is overlap in the components.  This is determined by finding
@@ -2405,7 +2405,7 @@ public class Container extends Component {
         return locate(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getComponentAt(int, int)</code>.
      */
@@ -2438,7 +2438,7 @@ public class Container extends Component {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the component that contains the specified point.
      * @param      p   the point.
      * @return     returns the component that contains the point,
@@ -2451,7 +2451,7 @@ public class Container extends Component {
         return getComponentAt(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position of the mouse pointer in this <code>Container</code>'s
      * coordinate space if the <code>Container</code> is under the mouse pointer,
      * otherwise returns <code>null</code>.
@@ -2494,7 +2494,7 @@ public class Container extends Component {
         return this == comp || (allowChildren && isParentOf(comp));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Locates the visible child component that contains the specified
      * position.  The top-most child component is returned in the case
      * where there is overlap in the components.  If the containing child
@@ -2523,7 +2523,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Private version of findComponentAt which has a controllable
      * behavior. Setting 'ignoreEnabled' to 'false' bypasses disabled
      * Components during the search. This behavior is used by the
@@ -2588,7 +2588,7 @@ public class Container extends Component {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Locates the visible child component that contains the specified
      * point.  The top-most child component is returned in the case
      * where there is overlap in the components.  If the containing child
@@ -2614,7 +2614,7 @@ public class Container extends Component {
         return findComponentAt(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes this Container displayable by connecting it to
      * a native screen resource.  Making a container displayable will
      * cause all of its children to be made displayable.
@@ -2648,7 +2648,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes this Container undisplayable by removing its connection
      * to its native screen resource.  Making a container undisplayable
      * will cause all of its children to be made undisplayable.
@@ -2673,7 +2673,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if the component is contained in the component hierarchy of
      * this container.
      * @param c the component
@@ -2823,7 +2823,7 @@ public class Container extends Component {
 
     /* End of JOptionPane support code */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>Container</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -2841,7 +2841,7 @@ public class Container extends Component {
         return str;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a listing of this container to the specified output
      * stream. The listing starts at the specified indentation.
      * <p>
@@ -2867,7 +2867,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints out a list, starting at the specified indentation,
      * to the specified print writer.
      * <p>
@@ -2893,7 +2893,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the focus traversal keys for a given traversal operation for this
      * Container.
      * <p>
@@ -2983,7 +2983,7 @@ public class Container extends Component {
         setFocusTraversalKeys_NoIDCheck(id, keystrokes);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Set of focus traversal keys for a given traversal operation
      * for this Container. (See
      * <code>setFocusTraversalKeys</code> for a full description of each key.)
@@ -3022,7 +3022,7 @@ public class Container extends Component {
         return getFocusTraversalKeys_NoIDCheck(id);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the Set of focus traversal keys for the given focus
      * traversal operation has been explicitly defined for this Container. If
      * this method returns <code>false</code>, this Container is inheriting the
@@ -3050,7 +3050,7 @@ public class Container extends Component {
         return (focusTraversalKeys != null && focusTraversalKeys[id] != null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the specified Container is the focus cycle root of this
      * Container's focus traversal cycle. Each focus traversal cycle has only
      * a single focus cycle root and each Container which is not a focus cycle
@@ -3108,7 +3108,7 @@ public class Container extends Component {
         return isParentOf(focusOwner);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if this component is the child of this container or its children.
      * Note: this function acquires treeLock
      * Note: this function traverses children tree only in one Window.
@@ -3166,7 +3166,7 @@ public class Container extends Component {
         return super.getTraversalRoot();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the focus traversal policy that will manage keyboard traversal of
      * this Container's children, if this Container is a focus cycle root. If
      * the argument is null, this Container inherits its policy from its focus-
@@ -3196,7 +3196,7 @@ public class Container extends Component {
         firePropertyChange("focusTraversalPolicy", oldPolicy, policy);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the focus traversal policy that will manage keyboard traversal
      * of this Container's children, or null if this Container is not a focus
      * cycle root. If no traversal policy has been explicitly set for this
@@ -3229,7 +3229,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the focus traversal policy has been explicitly set for
      * this Container. If this method returns <code>false</code>, this
      * Container will inherit its focus traversal policy from an ancestor.
@@ -3242,7 +3242,7 @@ public class Container extends Component {
         return (focusTraversalPolicy != null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets whether this Container is the root of a focus traversal cycle. Once
      * focus enters a traversal cycle, typically it cannot leave it via focus
      * traversal unless one of the up- or down-cycle keys is pressed. Normal
@@ -3277,7 +3277,7 @@ public class Container extends Component {
                            focusCycleRoot);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this Container is the root of a focus traversal cycle.
      * Once focus enters a traversal cycle, typically it cannot leave it via
      * focus traversal unless one of the up- or down-cycle keys is pressed.
@@ -3298,7 +3298,7 @@ public class Container extends Component {
         return focusCycleRoot;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets whether this container will be used to provide focus
      * traversal policy. Container with this property as
      * <code>true</code> will be used to acquire focus traversal policy
@@ -3321,7 +3321,7 @@ public class Container extends Component {
         firePropertyChange("focusTraversalPolicyProvider", oldProvider, provider);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this container provides focus traversal
      * policy. If this property is set to <code>true</code> then when
      * keyboard focus manager searches container hierarchy for focus
@@ -3343,7 +3343,7 @@ public class Container extends Component {
         return focusTraversalPolicyProvider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers the focus down one focus traversal cycle. If this Container is
      * a focus cycle root, then the focus owner is set to this Container's
      * default Component to focus, and the current focus cycle root is set to
@@ -3385,7 +3385,7 @@ public class Container extends Component {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>ComponentOrientation</code> property of this container
      * and all components contained within it.
      *
@@ -3404,7 +3404,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a PropertyChangeListener to the listener list. The listener is
      * registered for all bound properties of this class, including the
      * following:
@@ -3441,7 +3441,7 @@ public class Container extends Component {
         super.addPropertyChangeListener(listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a PropertyChangeListener to the listener list for a specific
      * property. The specified property may be user-defined, or one of the
      * following defaults:
@@ -3485,12 +3485,12 @@ public class Container extends Component {
     // Serialization support. A Container is responsible for restoring the
     // parent fields of its component children.
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Container Serial Data Version.
      */
     private int containerSerializedDataVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializes this <code>Container</code> to the specified
      * <code>ObjectOutputStream</code>.
      * <ul>
@@ -3538,7 +3538,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deserializes this <code>Container</code> from the specified
      * <code>ObjectInputStream</code>.
      * <ul>
@@ -3615,7 +3615,7 @@ public class Container extends Component {
      * --- Accessibility Support ---
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inner class of Container used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -3628,12 +3628,12 @@ public class Container extends Component {
      */
     protected class AccessibleAWTContainer extends AccessibleAWTComponent {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * JDK1.3 serialVersionUID
          */
         private static final long serialVersionUID = 5081320404842566097L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement <code>Accessible</code>,
          * then this method should return the number of children of this object.
@@ -3644,7 +3644,7 @@ public class Container extends Component {
             return Container.this.getAccessibleChildrenCount();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the nth <code>Accessible</code> child of the object.
          *
          * @param i zero-based index of child
@@ -3654,7 +3654,7 @@ public class Container extends Component {
             return Container.this.getAccessibleChild(i);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the <code>Accessible</code> child, if one exists,
          * contained at the local coordinate <code>Point</code>.
          *
@@ -3670,7 +3670,7 @@ public class Container extends Component {
 
         protected ContainerListener accessibleContainerHandler = null;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Fire <code>PropertyChange</code> listener, if one is registered,
          * when children are added or removed.
          * @since 1.3
@@ -3695,7 +3695,7 @@ public class Container extends Component {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a PropertyChangeListener to the listener list.
          *
          * @param listener  the PropertyChangeListener to be added
@@ -3710,7 +3710,7 @@ public class Container extends Component {
 
     } // inner class AccessibleAWTContainer
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Accessible</code> child contained at the local
      * coordinate <code>Point</code>, if one exists.  Otherwise
      * returns <code>null</code>.
@@ -3773,7 +3773,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of accessible children in the object.  If all
      * of the children of this object implement <code>Accessible</code>,
      * then this method should return the number of children of this object.
@@ -3793,7 +3793,7 @@ public class Container extends Component {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the nth <code>Accessible</code> child of the object.
      *
      * @param i zero-based index of child
@@ -3982,7 +3982,7 @@ public class Container extends Component {
 }
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Class to manage the dispatching of MouseEvents to the lightweight descendants
  * and SunDropTargetEvents to both lightweight and heavyweight descendants
  * contained by a native container.
@@ -4022,14 +4022,14 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
         mouseEventTarget = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enables events to subcomponents.
      */
     void enableEvents(long events) {
         eventMask |= events;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Dispatches an event to a sub-component if necessary, and
      * returns whether or not the event was forwarded to a
      * sub-component.
@@ -4091,7 +4091,7 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
                               | InputEvent.BUTTON3_DOWN_MASK)) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method attempts to distribute a mouse event to a lightweight
      * component.  It tries to avoid doing any unnecessary probes down
      * into the component tree to minimize the overhead of determining
@@ -4384,7 +4384,7 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
         trackMouseEnterExit(targetOver, me);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a mouse event to the current mouse event recipient using
      * the given event (sent to the windowed host) as a srcEvent.  If
      * the mouse event target is still in the component tree, the
@@ -4466,18 +4466,18 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
 
     // --- member variables -------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The windowed container that might be hosting events for
      * subcomponents.
      */
     private Container nativeContainer;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This variable is not used, but kept for serialization compatibility
      */
     private Component focus;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The current subcomponent being hosted by this windowed
      * component that has events being forwarded to it.  If this
      * is null, there are currently no events being forwarded to
@@ -4485,22 +4485,22 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
      */
     private transient Component mouseEventTarget;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The last component entered
      */
     private transient Component targetLastEntered;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Is the mouse over the native container
      */
     private transient boolean isMouseInNativeContainer = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This variable is not used, but kept for serialization compatibility
      */
     private Cursor nativeCursor;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The event mask for contained lightweight components.  Lightweight
      * components need a windowed container to host window-related
      * events.  This separate mask indicates events that have been
@@ -4509,7 +4509,7 @@ class LightweightDispatcher implements java.io.Serializable, AWTEventListener {
      */
     private long eventMask;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The kind of events routed to lightweight components from windowed
      * hosts.
      */

@@ -32,7 +32,7 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An immutable sequence of certificates (a certification path).
  * <p>
  * This is an abstract class that defines the methods common to all
@@ -110,7 +110,7 @@ public abstract class CertPath implements Serializable {
 
     private String type;        // the type of certificates in this chain
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertPath</code> of the specified type.
      * <p>
      * This constructor is protected because most users should use a
@@ -123,7 +123,7 @@ public abstract class CertPath implements Serializable {
         this.type = type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the type of <code>Certificate</code>s in this certification
      * path. This is the same string that would be returned by
      * {@link java.security.cert.Certificate#getType() cert.getType()}
@@ -136,7 +136,7 @@ public abstract class CertPath implements Serializable {
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iteration of the encodings supported by this certification
      * path, with the default encoding first. Attempts to modify the returned
      * <code>Iterator</code> via its <code>remove</code> method result in an
@@ -147,7 +147,7 @@ public abstract class CertPath implements Serializable {
      */
     public abstract Iterator<String> getEncodings();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this certification path for equality with the specified
      * object. Two <code>CertPath</code>s are equal if and only if their
      * types are equal and their certificate <code>List</code>s (and by
@@ -178,7 +178,7 @@ public abstract class CertPath implements Serializable {
         return(thisCertList.equals(otherCertList));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hashcode for this certification path. The hash code of
      * a certification path is defined to be the result of the following
      * calculation:
@@ -199,7 +199,7 @@ public abstract class CertPath implements Serializable {
         return hashCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this certification path.
      * This calls the <code>toString</code> method on each of the
      * <code>Certificate</code>s in the path.
@@ -229,7 +229,7 @@ public abstract class CertPath implements Serializable {
         return sb.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the encoded form of this certification path, using the default
      * encoding.
      *
@@ -239,7 +239,7 @@ public abstract class CertPath implements Serializable {
     public abstract byte[] getEncoded()
         throws CertificateEncodingException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the encoded form of this certification path, using the
      * specified encoding.
      *
@@ -251,7 +251,7 @@ public abstract class CertPath implements Serializable {
     public abstract byte[] getEncoded(String encoding)
         throws CertificateEncodingException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the list of certificates in this certification path.
      * The <code>List</code> returned must be immutable and thread-safe.
      *
@@ -260,7 +260,7 @@ public abstract class CertPath implements Serializable {
      */
     public abstract List<? extends Certificate> getCertificates();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the <code>CertPath</code> to be serialized with a
      * <code>CertPathRep</code> object.
      *
@@ -281,7 +281,7 @@ public abstract class CertPath implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Alternate <code>CertPath</code> class for serialization.
      * @since 1.4
      */
@@ -289,12 +289,12 @@ public abstract class CertPath implements Serializable {
 
         private static final long serialVersionUID = 3015633072427920915L;
 
-        /** {@collect.stats} The Certificate type */
+        /** {@collect.stats}  The Certificate type */
         private String type;
-        /** {@collect.stats} The encoded form of the cert path */
+        /** {@collect.stats}  The encoded form of the cert path */
         private byte[] data;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a <code>CertPathRep</code> with the specified
          * type and encoded form of a certification path.
          *
@@ -306,7 +306,7 @@ public abstract class CertPath implements Serializable {
             this.data = data;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>CertPath</code> constructed from the type and data.
          *
          * @return the resolved <code>CertPath</code> object

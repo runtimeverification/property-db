@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.List;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Represent channels for retrieving resources from the
  * ResponseCache. Instances of such a class provide an
  * InputStream that returns the entity body, and also a
@@ -41,7 +41,7 @@ import java.io.IOException;
  */
 public abstract class CacheResponse {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the response headers as a Map.
      *
      * @return An immutable Map from response header field names to
@@ -52,7 +52,7 @@ public abstract class CacheResponse {
      */
     public abstract Map<String, List<String>> getHeaders() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the response body as an InputStream.
      *
      * @return an InputStream from which the response body can

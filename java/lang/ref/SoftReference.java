@@ -26,7 +26,7 @@
 package java.lang.ref;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Soft reference objects, which are cleared at the discretion of the garbage
  * collector in response to memory demand.  Soft references are most often used
  * to implement memory-sensitive caches.
@@ -73,7 +73,7 @@ public class SoftReference<T> extends Reference<T> {
      */
     private long timestamp;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new soft reference that refers to the given object.  The new
      * reference is not registered with any queue.
      *
@@ -84,7 +84,7 @@ public class SoftReference<T> extends Reference<T> {
         this.timestamp = clock;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new soft reference that refers to the given object and is
      * registered with the given queue.
      *
@@ -98,7 +98,7 @@ public class SoftReference<T> extends Reference<T> {
         this.timestamp = clock;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this reference object's referent.  If this reference object has
      * been cleared, either by the program or by the garbage collector, then
      * this method returns <code>null</code>.

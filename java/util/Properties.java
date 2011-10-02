@@ -35,7 +35,7 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.io.BufferedWriter;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Properties</code> class represents a persistent set of
  * properties. The <code>Properties</code> can be saved to a stream
  * or loaded from a stream. Each key and its corresponding value in
@@ -114,12 +114,12 @@ import java.io.BufferedWriter;
  */
 public
 class Properties extends Hashtable<Object,Object> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * use serialVersionUID from JDK 1.1.X for interoperability
      */
      private static final long serialVersionUID = 4112578634029874840L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A property list that contains default values for any keys not
      * found in this property list.
      *
@@ -127,14 +127,14 @@ class Properties extends Hashtable<Object,Object> {
      */
     protected Properties defaults;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an empty property list with no default values.
      */
     public Properties() {
         this(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an empty property list with the specified defaults.
      *
      * @param   defaults   the defaults.
@@ -143,7 +143,7 @@ class Properties extends Hashtable<Object,Object> {
         this.defaults = defaults;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls the <tt>Hashtable</tt> method <code>put</code>. Provided for
      * parallelism with the <tt>getProperty</tt> method. Enforces use of
      * strings for property keys and values. The value returned is the
@@ -161,7 +161,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a property list (key and element pairs) from the input
      * character stream in a simple line-oriented format.
      * <p>
@@ -319,7 +319,7 @@ class Properties extends Hashtable<Object,Object> {
         load0(new LineReader(reader));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a property list (key and element pairs) from the input
      * byte stream. The input stream is in a simple line-oriented
      * format as specified in
@@ -688,7 +688,7 @@ class Properties extends Hashtable<Object,Object> {
         bw.newLine();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls the <code>store(OutputStream out, String comments)</code> method
      * and suppresses IOExceptions that were thrown.
      *
@@ -712,7 +712,7 @@ class Properties extends Hashtable<Object,Object> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes this property list (key and element pairs) in this
      * <code>Properties</code> table to the output character stream in a
      * format suitable for using the {@link #load(java.io.Reader) load(Reader)}
@@ -769,7 +769,7 @@ class Properties extends Hashtable<Object,Object> {
                false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes this property list (key and element pairs) in this
      * <code>Properties</code> table to the output stream in a format suitable
      * for loading into a <code>Properties</code> table using the
@@ -839,7 +839,7 @@ class Properties extends Hashtable<Object,Object> {
         bw.flush();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loads all of the properties represented by the XML document on the
      * specified input stream into this properties table.
      *
@@ -870,7 +870,7 @@ class Properties extends Hashtable<Object,Object> {
         in.close();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Emits an XML document representing all of the properties contained
      * in this table.
      *
@@ -898,7 +898,7 @@ class Properties extends Hashtable<Object,Object> {
         storeToXML(os, comment, "UTF-8");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Emits an XML document representing all of the properties contained
      * in this table, using the specified encoding.
      *
@@ -934,7 +934,7 @@ class Properties extends Hashtable<Object,Object> {
         XMLUtils.save(this, os, comment, encoding);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Searches for the property with the specified key in this property list.
      * If the key is not found in this property list, the default property list,
      * and its defaults, recursively, are then checked. The method returns
@@ -951,7 +951,7 @@ class Properties extends Hashtable<Object,Object> {
         return ((sval == null) && (defaults != null)) ? defaults.getProperty(key) : sval;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Searches for the property with the specified key in this property list.
      * If the key is not found in this property list, the default property list,
      * and its defaults, recursively, are then checked. The method returns the
@@ -969,7 +969,7 @@ class Properties extends Hashtable<Object,Object> {
         return (val == null) ? defaultValue : val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the keys in this property list,
      * including distinct keys in the default property list if a key
      * of the same name has not already been found from the main
@@ -989,7 +989,7 @@ class Properties extends Hashtable<Object,Object> {
         return h.keys();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a set of keys in this property list where
      * the key and its corresponding value are strings,
      * including distinct keys in the default property list if a key
@@ -1013,7 +1013,7 @@ class Properties extends Hashtable<Object,Object> {
         return h.keySet();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints this property list out to the specified output stream.
      * This method is useful for debugging.
      *
@@ -1035,7 +1035,7 @@ class Properties extends Hashtable<Object,Object> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints this property list out to the specified output stream.
      * This method is useful for debugging.
      *
@@ -1063,7 +1063,7 @@ class Properties extends Hashtable<Object,Object> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enumerates all key/value pairs in the specified hashtable.
      * @param h the hashtable
      * @throws ClassCastException if any of the property keys
@@ -1079,7 +1079,7 @@ class Properties extends Hashtable<Object,Object> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enumerates all key/value pairs in the specified hashtable
      * and omits the property if the key or value is not a string.
      * @param h the hashtable
@@ -1097,7 +1097,7 @@ class Properties extends Hashtable<Object,Object> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convert a nibble to a hex character
      * @param   nibble  the nibble to convert.
      */
@@ -1105,7 +1105,7 @@ class Properties extends Hashtable<Object,Object> {
         return hexDigit[(nibble & 0xF)];
     }
 
-    /** {@collect.stats} A table of hex digits */
+    /** {@collect.stats}  A table of hex digits */
     private static final char[] hexDigit = {
         '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'
     };

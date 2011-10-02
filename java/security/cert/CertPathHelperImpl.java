@@ -31,7 +31,7 @@ import sun.security.provider.certpath.CertPathHelper;
 
 import sun.security.x509.GeneralNameInterface;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Helper class that allows the Sun CertPath provider to access
  * implementation dependent APIs in CertPath framework.
  *
@@ -43,7 +43,7 @@ class CertPathHelperImpl extends CertPathHelper {
         // empty
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize the helper framework. This method must be called from
      * the static initializer of each class that is the target of one of
      * the methods in this class. This ensures that the helper if initialized

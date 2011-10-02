@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The management interface for the garbage collection of
  * the Java virtual machine.  Garbage collection is the process
  * that the Java virtual machine uses to find and reclaim unreachable
@@ -62,7 +62,7 @@ package java.lang.management;
  * @since   1.5
  */
 public interface GarbageCollectorMXBean extends MemoryManagerMXBean {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the total number of collections that have occurred.
      * This method returns <tt>-1</tt> if the collection count is undefined for
      * this collector.
@@ -71,7 +71,7 @@ public interface GarbageCollectorMXBean extends MemoryManagerMXBean {
      */
     public long getCollectionCount();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the approximate accumulated collection elapsed time
      * in milliseconds.  This method returns <tt>-1</tt> if the collection
      * elapsed time is undefined for this collector.

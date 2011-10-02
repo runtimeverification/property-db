@@ -36,7 +36,7 @@ import sun.security.action.GetPropertyAction;
 import sun.security.util.ManifestEntryVerifier;
 import sun.misc.SharedSecrets;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>JarFile</code> class is used to read the contents of a jar file
  * from any file that can be opened with <code>java.io.RandomAccessFile</code>.
  * It extends the class <code>java.util.zip.ZipFile</code> with support
@@ -69,12 +69,12 @@ class JarFile extends ZipFile {
         SharedSecrets.setJavaUtilJarAccess(new JavaUtilJarAccessImpl());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The JAR manifest file name.
      */
     public static final String MANIFEST_NAME = "META-INF/MANIFEST.MF";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarFile</code> to read from the specified
      * file <code>name</code>. The <code>JarFile</code> will be verified if
      * it is signed.
@@ -87,7 +87,7 @@ class JarFile extends ZipFile {
         this(new File(name), true, ZipFile.OPEN_READ);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarFile</code> to read from the specified
      * file <code>name</code>.
      * @param name the name of the jar file to be opened for reading
@@ -101,7 +101,7 @@ class JarFile extends ZipFile {
         this(new File(name), verify, ZipFile.OPEN_READ);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarFile</code> to read from the specified
      * <code>File</code> object. The <code>JarFile</code> will be verified if
      * it is signed.
@@ -115,7 +115,7 @@ class JarFile extends ZipFile {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarFile</code> to read from the specified
      * <code>File</code> object.
      * @param file the jar file to be opened for reading
@@ -130,7 +130,7 @@ class JarFile extends ZipFile {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarFile</code> to read from the specified
      * <code>File</code> object in the specified mode.  The mode argument
      * must be either <tt>OPEN_READ</tt> or <tt>OPEN_READ | OPEN_DELETE</tt>.
@@ -151,7 +151,7 @@ class JarFile extends ZipFile {
         this.verify = verify;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the jar file manifest, or <code>null</code> if none.
      *
      * @return the jar file manifest, or <code>null</code> if none
@@ -189,7 +189,7 @@ class JarFile extends ZipFile {
 
     private native String[] getMetaInfEntryNames();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>JarEntry</code> for the given entry name or
      * <code>null</code> if not found.
      *
@@ -206,7 +206,7 @@ class JarFile extends ZipFile {
         return (JarEntry)getEntry(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ZipEntry</code> for the given entry name or
      * <code>null</code> if not found.
      *
@@ -227,7 +227,7 @@ class JarFile extends ZipFile {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of the zip file entries.
      */
     public Enumeration<JarEntry> entries() {
@@ -379,7 +379,7 @@ class JarFile extends ZipFile {
         return b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an input stream for reading the contents of the specified
      * zip file entry.
      * @param ze the zip file entry

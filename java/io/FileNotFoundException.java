@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Signals that an attempt to open the file denoted by a specified pathname
  * has failed.
@@ -44,7 +44,7 @@ package java.io;
 
 public class FileNotFoundException extends IOException {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with
      * <code>null</code> as its error detail message.
@@ -54,7 +54,7 @@ public class FileNotFoundException extends IOException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with the
      * specified detail message. The string <code>s</code> can be
@@ -69,7 +69,7 @@ public class FileNotFoundException extends IOException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with a detail message
      * consisting of the given pathname string followed by the given reason

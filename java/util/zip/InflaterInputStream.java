@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.io.EOFException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements a stream filter for uncompressing data in the
  * "deflate" compression format. It is also used as the basis for other
  * decompression filters, such as GZIPInputStream.
@@ -40,17 +40,17 @@ import java.io.EOFException;
  */
 public
 class InflaterInputStream extends FilterInputStream {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Decompressor for this stream.
      */
     protected Inflater inf;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Input buffer for decompression.
      */
     protected byte[] buf;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Length of input buffer.
      */
     protected int len;
@@ -59,7 +59,7 @@ class InflaterInputStream extends FilterInputStream {
     // this flag is set to true after EOF has reached
     private boolean reachEOF = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check to make sure that this stream has not been closed
      */
     private void ensureOpen() throws IOException {
@@ -69,7 +69,7 @@ class InflaterInputStream extends FilterInputStream {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream with the specified decompressor and
      * buffer size.
      * @param in the input stream
@@ -88,7 +88,7 @@ class InflaterInputStream extends FilterInputStream {
         buf = new byte[size];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream with the specified decompressor and a
      * default buffer size.
      * @param in the input stream
@@ -100,7 +100,7 @@ class InflaterInputStream extends FilterInputStream {
 
     boolean usesDefaultInflater = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream with a default decompressor and buffer size.
      * @param in the input stream
      */
@@ -111,7 +111,7 @@ class InflaterInputStream extends FilterInputStream {
 
     private byte[] singleByteBuf = new byte[1];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a byte of uncompressed data. This method will block until
      * enough input is available for decompression.
      * @return the byte read, or -1 if end of compressed input is reached
@@ -122,7 +122,7 @@ class InflaterInputStream extends FilterInputStream {
         return read(singleByteBuf, 0, 1) == -1 ? -1 : singleByteBuf[0] & 0xff;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads uncompressed data into an array of bytes. If <code>len</code> is not
      * zero, the method will block until some input can be decompressed; otherwise,
      * no bytes are read and <code>0</code> is returned.
@@ -165,7 +165,7 @@ class InflaterInputStream extends FilterInputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns 0 after EOF has been reached, otherwise always return 1.
      * <p>
      * Programs should not count on this method to return the actual number
@@ -186,7 +186,7 @@ class InflaterInputStream extends FilterInputStream {
 
     private byte[] b = new byte[512];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Skips specified number of bytes of uncompressed data.
      * @param n the number of bytes to skip
      * @return the actual number of bytes skipped.
@@ -215,7 +215,7 @@ class InflaterInputStream extends FilterInputStream {
         return total;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this input stream and releases any system resources associated
      * with the stream.
      * @exception IOException if an I/O error has occurred
@@ -229,7 +229,7 @@ class InflaterInputStream extends FilterInputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills input buffer with more data to decompress.
      * @exception IOException if an I/O error has occurred
      */
@@ -242,7 +242,7 @@ class InflaterInputStream extends FilterInputStream {
         inf.setInput(buf, 0, len);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods. The <code>markSupported</code>
      * method of <code>InflaterInputStream</code> returns
@@ -257,7 +257,7 @@ class InflaterInputStream extends FilterInputStream {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the current position in this input stream.
      *
      * <p> The <code>mark</code> method of <code>InflaterInputStream</code>
@@ -270,7 +270,7 @@ class InflaterInputStream extends FilterInputStream {
     public synchronized void mark(int readlimit) {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      *

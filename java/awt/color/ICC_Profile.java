@@ -23,7 +23,7 @@
  * questions.
  */
 
-/** {@collect.stats}********************************************************************
+/** {@collect.stats} ********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -58,7 +58,7 @@ import java.util.StringTokenizer;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A representation of color profile data for device independent and
  * device dependent color spaces based on the International Color
  * Consortium Specification ICC.1:2001-12, File Format for Color Profiles,
@@ -107,622 +107,622 @@ public class ICC_Profile implements Serializable {
     private static ICC_Profile LINEAR_RGBprofile;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is input.
      */
     public static final int CLASS_INPUT = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is display.
      */
     public static final int CLASS_DISPLAY = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is output.
      */
     public static final int CLASS_OUTPUT = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is device link.
      */
     public static final int CLASS_DEVICELINK = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is color space conversion.
      */
     public static final int CLASS_COLORSPACECONVERSION = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is abstract.
      */
     public static final int CLASS_ABSTRACT = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Profile class is named color.
      */
     public static final int CLASS_NAMEDCOLOR = 6;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'XYZ '.
      */
     public static final int icSigXYZData        = 0x58595A20;    /* 'XYZ ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'Lab '.
      */
     public static final int icSigLabData        = 0x4C616220;    /* 'Lab ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'Luv '.
      */
     public static final int icSigLuvData        = 0x4C757620;    /* 'Luv ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'YCbr'.
      */
     public static final int icSigYCbCrData        = 0x59436272;    /* 'YCbr' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'Yxy '.
      */
     public static final int icSigYxyData        = 0x59787920;    /* 'Yxy ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'RGB '.
      */
     public static final int icSigRgbData        = 0x52474220;    /* 'RGB ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'GRAY'.
      */
     public static final int icSigGrayData        = 0x47524159;    /* 'GRAY' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'HSV'.
      */
     public static final int icSigHsvData        = 0x48535620;    /* 'HSV ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'HLS'.
      */
     public static final int icSigHlsData        = 0x484C5320;    /* 'HLS ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'CMYK'.
      */
     public static final int icSigCmykData        = 0x434D594B;    /* 'CMYK' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'CMY '.
      */
     public static final int icSigCmyData        = 0x434D5920;    /* 'CMY ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '2CLR'.
      */
     public static final int icSigSpace2CLR        = 0x32434C52;    /* '2CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '3CLR'.
      */
     public static final int icSigSpace3CLR        = 0x33434C52;    /* '3CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '4CLR'.
      */
     public static final int icSigSpace4CLR        = 0x34434C52;    /* '4CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '5CLR'.
      */
     public static final int icSigSpace5CLR        = 0x35434C52;    /* '5CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '6CLR'.
      */
     public static final int icSigSpace6CLR        = 0x36434C52;    /* '6CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '7CLR'.
      */
     public static final int icSigSpace7CLR        = 0x37434C52;    /* '7CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '8CLR'.
      */
     public static final int icSigSpace8CLR        = 0x38434C52;    /* '8CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: '9CLR'.
      */
     public static final int icSigSpace9CLR        = 0x39434C52;    /* '9CLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'ACLR'.
      */
     public static final int icSigSpaceACLR        = 0x41434C52;    /* 'ACLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'BCLR'.
      */
     public static final int icSigSpaceBCLR        = 0x42434C52;    /* 'BCLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'CCLR'.
      */
     public static final int icSigSpaceCCLR        = 0x43434C52;    /* 'CCLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'DCLR'.
      */
     public static final int icSigSpaceDCLR        = 0x44434C52;    /* 'DCLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'ECLR'.
      */
     public static final int icSigSpaceECLR        = 0x45434C52;    /* 'ECLR' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Color Space Type Signature: 'FCLR'.
      */
     public static final int icSigSpaceFCLR        = 0x46434C52;    /* 'FCLR' */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'scnr'.
      */
     public static final int icSigInputClass       = 0x73636E72;    /* 'scnr' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'mntr'.
      */
     public static final int icSigDisplayClass     = 0x6D6E7472;    /* 'mntr' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'prtr'.
      */
     public static final int icSigOutputClass      = 0x70727472;    /* 'prtr' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'link'.
      */
     public static final int icSigLinkClass        = 0x6C696E6B;    /* 'link' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'abst'.
      */
     public static final int icSigAbstractClass    = 0x61627374;    /* 'abst' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'spac'.
      */
     public static final int icSigColorSpaceClass  = 0x73706163;    /* 'spac' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Class Signature: 'nmcl'.
      */
     public static final int icSigNamedColorClass  = 0x6e6d636c;    /* 'nmcl' */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: Perceptual.
      */
     public static final int icPerceptual            = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: RelativeColorimetric.
      */
     public static final int icRelativeColorimetric    = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: Media-RelativeColorimetric.
      * @since 1.5
      */
     public static final int icMediaRelativeColorimetric = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: Saturation.
      */
     public static final int icSaturation            = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: AbsoluteColorimetric.
      */
     public static final int icAbsoluteColorimetric    = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Rendering Intent: ICC-AbsoluteColorimetric.
      * @since 1.5
      */
     public static final int icICCAbsoluteColorimetric = 3;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'head' - special.
      */
     public static final int icSigHead      = 0x68656164; /* 'head' - special */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'A2B0'.
      */
     public static final int icSigAToB0Tag         = 0x41324230;    /* 'A2B0' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'A2B1'.
      */
     public static final int icSigAToB1Tag         = 0x41324231;    /* 'A2B1' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'A2B2'.
      */
     public static final int icSigAToB2Tag         = 0x41324232;    /* 'A2B2' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'bXYZ'.
      */
     public static final int icSigBlueColorantTag  = 0x6258595A;    /* 'bXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'bXYZ'.
      * @since 1.5
      */
     public static final int icSigBlueMatrixColumnTag = 0x6258595A; /* 'bXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'bTRC'.
      */
     public static final int icSigBlueTRCTag       = 0x62545243;    /* 'bTRC' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'B2A0'.
      */
     public static final int icSigBToA0Tag         = 0x42324130;    /* 'B2A0' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'B2A1'.
      */
     public static final int icSigBToA1Tag         = 0x42324131;    /* 'B2A1' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'B2A2'.
      */
     public static final int icSigBToA2Tag         = 0x42324132;    /* 'B2A2' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'calt'.
      */
     public static final int icSigCalibrationDateTimeTag = 0x63616C74;
                                                                    /* 'calt' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'targ'.
      */
     public static final int icSigCharTargetTag    = 0x74617267;    /* 'targ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'cprt'.
      */
     public static final int icSigCopyrightTag     = 0x63707274;    /* 'cprt' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'crdi'.
      */
     public static final int icSigCrdInfoTag       = 0x63726469;    /* 'crdi' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'dmnd'.
      */
     public static final int icSigDeviceMfgDescTag = 0x646D6E64;    /* 'dmnd' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'dmdd'.
      */
     public static final int icSigDeviceModelDescTag = 0x646D6464;  /* 'dmdd' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'devs'.
      */
     public static final int icSigDeviceSettingsTag =  0x64657673;  /* 'devs' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'gamt'.
      */
     public static final int icSigGamutTag         = 0x67616D74;    /* 'gamt' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'kTRC'.
      */
     public static final int icSigGrayTRCTag       = 0x6b545243;    /* 'kTRC' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'gXYZ'.
      */
     public static final int icSigGreenColorantTag = 0x6758595A;    /* 'gXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'gXYZ'.
      * @since 1.5
      */
     public static final int icSigGreenMatrixColumnTag = 0x6758595A;/* 'gXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'gTRC'.
      */
     public static final int icSigGreenTRCTag      = 0x67545243;    /* 'gTRC' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'lumi'.
      */
     public static final int icSigLuminanceTag     = 0x6C756d69;    /* 'lumi' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'meas'.
      */
     public static final int icSigMeasurementTag   = 0x6D656173;    /* 'meas' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'bkpt'.
      */
     public static final int icSigMediaBlackPointTag = 0x626B7074;  /* 'bkpt' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'wtpt'.
      */
     public static final int icSigMediaWhitePointTag = 0x77747074;  /* 'wtpt' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'ncl2'.
      */
     public static final int icSigNamedColor2Tag   = 0x6E636C32;    /* 'ncl2' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'resp'.
      */
     public static final int icSigOutputResponseTag = 0x72657370;   /* 'resp' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'pre0'.
      */
     public static final int icSigPreview0Tag      = 0x70726530;    /* 'pre0' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'pre1'.
      */
     public static final int icSigPreview1Tag      = 0x70726531;    /* 'pre1' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'pre2'.
      */
     public static final int icSigPreview2Tag      = 0x70726532;    /* 'pre2' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'desc'.
      */
     public static final int icSigProfileDescriptionTag = 0x64657363;
                                                                    /* 'desc' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'pseq'.
      */
     public static final int icSigProfileSequenceDescTag = 0x70736571;
                                                                    /* 'pseq' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'psd0'.
      */
     public static final int icSigPs2CRD0Tag       = 0x70736430;    /* 'psd0' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'psd1'.
      */
     public static final int icSigPs2CRD1Tag       = 0x70736431;    /* 'psd1' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'psd2'.
      */
     public static final int icSigPs2CRD2Tag       = 0x70736432;    /* 'psd2' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'psd3'.
      */
     public static final int icSigPs2CRD3Tag       = 0x70736433;    /* 'psd3' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'ps2s'.
      */
     public static final int icSigPs2CSATag        = 0x70733273;    /* 'ps2s' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'ps2i'.
      */
     public static final int icSigPs2RenderingIntentTag = 0x70733269;
                                                                    /* 'ps2i' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'rXYZ'.
      */
     public static final int icSigRedColorantTag   = 0x7258595A;    /* 'rXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'rXYZ'.
      * @since 1.5
      */
     public static final int icSigRedMatrixColumnTag = 0x7258595A;  /* 'rXYZ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'rTRC'.
      */
     public static final int icSigRedTRCTag        = 0x72545243;    /* 'rTRC' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'scrd'.
      */
     public static final int icSigScreeningDescTag = 0x73637264;    /* 'scrd' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'scrn'.
      */
     public static final int icSigScreeningTag     = 0x7363726E;    /* 'scrn' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'tech'.
      */
     public static final int icSigTechnologyTag    = 0x74656368;    /* 'tech' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'bfd '.
      */
     public static final int icSigUcrBgTag         = 0x62666420;    /* 'bfd ' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'vued'.
      */
     public static final int icSigViewingCondDescTag = 0x76756564;  /* 'vued' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'view'.
      */
     public static final int icSigViewingConditionsTag = 0x76696577;/* 'view' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'chrm'.
      */
     public static final int icSigChromaticityTag  = 0x6368726d;    /* 'chrm' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'chad'.
      * @since 1.5
      */
     public static final int icSigChromaticAdaptationTag = 0x63686164;/* 'chad' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'clro'.
      * @since 1.5
      */
     public static final int icSigColorantOrderTag = 0x636C726F;    /* 'clro' */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Tag Signature: 'clrt'.
      * @since 1.5
      */
     public static final int icSigColorantTableTag = 0x636C7274;    /* 'clrt' */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: profile size in bytes.
      */
     public static final int icHdrSize         = 0;  /* Profile size in bytes */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: CMM for this profile.
      */
     public static final int icHdrCmmId        = 4;  /* CMM for this profile */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: format version number.
      */
     public static final int icHdrVersion      = 8;  /* Format version number */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: type of profile.
      */
     public static final int icHdrDeviceClass  = 12; /* Type of profile */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: color space of data.
      */
     public static final int icHdrColorSpace   = 16; /* Color space of data */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: PCS - XYZ or Lab only.
      */
     public static final int icHdrPcs          = 20; /* PCS - XYZ or Lab only */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: date profile was created.
      */
     public static final int icHdrDate       = 24; /* Date profile was created */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: icMagicNumber.
      */
     public static final int icHdrMagic        = 36; /* icMagicNumber */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: primary platform.
      */
     public static final int icHdrPlatform     = 40; /* Primary Platform */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: various bit settings.
      */
     public static final int icHdrFlags        = 44; /* Various bit settings */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: device manufacturer.
      */
     public static final int icHdrManufacturer = 48; /* Device manufacturer */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: device model number.
      */
     public static final int icHdrModel        = 52; /* Device model number */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: device attributes.
      */
     public static final int icHdrAttributes   = 56; /* Device attributes */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: rendering intent.
      */
     public static final int icHdrRenderingIntent = 64; /* Rendering intent */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: profile illuminant.
      */
     public static final int icHdrIlluminant   = 68; /* Profile illuminant */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: profile creator.
      */
     public static final int icHdrCreator      = 80; /* Profile creator */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Header Location: profile's ID.
      * @since 1.5
      */
     public static final int icHdrProfileID = 84; /* Profile's ID */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Constant: tag type signaturE.
      */
     public static final int icTagType          = 0;    /* tag type signature */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Constant: reserved.
      */
     public static final int icTagReserved      = 4;    /* reserved */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Constant: curveType count.
      */
     public static final int icCurveCount       = 8;    /* curveType count */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Constant: curveType data.
      */
     public static final int icCurveData        = 12;   /* curveType data */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ICC Profile Constant: XYZNumber X.
      */
     public static final int icXYZNumberX       = 8;    /* XYZNumber X */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile object with a given ID.
      */
     ICC_Profile(long ID) {
@@ -730,7 +730,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile object whose loading will be deferred.
      * The ID will be 0 until the profile is loaded.
      */
@@ -745,7 +745,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Frees the resources associated with an ICC_Profile object.
      */
     protected void finalize () {
@@ -757,7 +757,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile object corresponding to the data in
      * a byte array.  Throws an IllegalArgumentException if the data
      * does not correspond to a valid ICC Profile.
@@ -807,7 +807,7 @@ public class ICC_Profile implements Serializable {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile corresponding to one of the specific color
      * spaces defined by the ColorSpace class (for example CS_sRGB).
      * Throws an IllegalArgumentException if cspace is not one of the
@@ -917,7 +917,7 @@ public class ICC_Profile implements Serializable {
              });
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile corresponding to the data in a file.
      * fileName may be an absolute or a relative file specification.
      * Relative file names are looked for in several places: first, relative
@@ -964,7 +964,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile corresponding to the data in an InputStream.
      * This method throws an IllegalArgumentException if the stream does not
      * contain valid ICC Profile data.  It throws an IOException if an I/O
@@ -1035,7 +1035,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ICC_Profile for which the actual loading of the
      * profile data from a file and the initialization of the CMM should
      * be deferred as long as possible.
@@ -1105,7 +1105,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns profile major version.
      * @return  The major version of the profile.
      */
@@ -1118,7 +1118,7 @@ public class ICC_Profile implements Serializable {
         return (int) theHeader[8];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns profile minor version.
      * @return The minor version of the profile.
      */
@@ -1131,7 +1131,7 @@ public class ICC_Profile implements Serializable {
         return (int) theHeader[9];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the profile class.
      * @return One of the predefined profile class constants.
      */
@@ -1186,7 +1186,7 @@ public class ICC_Profile implements Serializable {
         return theClass;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color space type.  Returns one of the color space type
      * constants defined by the ColorSpace class.  This is the
      * "input" color space of the profile.  The type defines the
@@ -1218,7 +1218,7 @@ public class ICC_Profile implements Serializable {
         return theColorSpace;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color space type of the Profile Connection Space (PCS).
      * Returns one of the color space type constants defined by the
      * ColorSpace class.  This is the "output" color space of the
@@ -1249,7 +1249,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Write this ICC_Profile to a file.
      *
      * @param fileName The file to write the profile data to.
@@ -1269,7 +1269,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Write this ICC_Profile to an OutputStream.
      *
      * @param s The stream to write the profile data to.
@@ -1286,7 +1286,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a byte array corresponding to the data of this ICC_Profile.
      * @return A byte array that contains the profile data.
      * @see #setData(int, byte[])
@@ -1313,7 +1313,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a particular tagged data element from the profile as
      * a byte array.  Elements are identified by signatures
      * as defined in the ICC specification.  The signature
@@ -1359,7 +1359,7 @@ public class ICC_Profile implements Serializable {
         return tagData;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a particular tagged data element in the profile from
      * a byte array.  This method is useful
      * for advanced applets or applications which need to access
@@ -1379,7 +1379,7 @@ public class ICC_Profile implements Serializable {
         CMSManager.getModule().setTagData(ID, tagSignature, tagData);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the rendering intent of the profile.
      * This is used to select the proper transform from a profile that
      * has multiple transforms.
@@ -1393,7 +1393,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the rendering intent of the profile.
      * This is used to select the proper transform from a profile that
      * has multiple transforms.  It is typically set in a source profile
@@ -1409,7 +1409,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of color components in the "input" color
      * space of this profile.  For example if the color space type
      * of this profile is TYPE_RGB, then this method will return 3.
@@ -1513,7 +1513,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a float array of length 3 containing the X, Y, and Z
      * components of the mediaWhitePointTag in the ICC profile.
      */
@@ -1523,7 +1523,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a float array of length 3 containing the X, Y, and Z
      * components encoded in an XYZType tag.
      */
@@ -1547,7 +1547,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a gamma value representing a tone reproduction
      * curve (TRC).  If the profile represents the TRC as a table rather
      * than a single gamma value, then an exception is thrown.  In this
@@ -1580,7 +1580,7 @@ public class ICC_Profile implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the TRC as an array of shorts.  If the profile has
      * specified the TRC as linear (gamma = 1.0) or as a simple gamma
      * value, this method throws an exception, and the getGamma() method
@@ -1824,7 +1824,7 @@ public class ICC_Profile implements Serializable {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a file object corresponding to a built-in profile
      * specified by fileName.
      * If there is no built-in profile with such name, then the method
@@ -1838,7 +1838,7 @@ public class ICC_Profile implements Serializable {
         return (f.isFile() && isChildOf(f, dir)) ? f : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether given file resides inside give directory.
      */
     private static boolean isChildOf(File f, String dirName) {
@@ -1886,7 +1886,7 @@ public class ICC_Profile implements Serializable {
      */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Version of the format of additional serialized data in the
      * stream.  Version&nbsp;<code>1</code> corresponds to Java&nbsp;2
      * Platform,&nbsp;v1.3.
@@ -1896,7 +1896,7 @@ public class ICC_Profile implements Serializable {
     private int iccProfileSerializedDataVersion = 1;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to the stream.  Writes a
      * string and an array of bytes to the stream as additional data.
      *
@@ -1956,7 +1956,7 @@ public class ICC_Profile implements Serializable {
     // (obtained with getInstance) for readResolve to return.
     private transient ICC_Profile resolvedDeserializedProfile;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads default serializable fields from the stream.  Reads from
      * the stream a string and an array of bytes as additional data.
      *
@@ -2022,7 +2022,7 @@ public class ICC_Profile implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolves instances being deserialized into instances registered
      * with CMM.
      * @return ICC_Profile object for profile registered with CMM.

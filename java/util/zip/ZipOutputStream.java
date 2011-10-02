@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.Vector;
 import java.util.HashSet;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements an output stream filter for writing files in the
  * ZIP file format. Includes support for both compressed and uncompressed
  * entries.
@@ -79,7 +79,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks to make sure that this stream has not been closed.
      */
     private void ensureOpen() throws IOException {
@@ -87,17 +87,17 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
             throw new IOException("Stream closed");
         }
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compression method for uncompressed (STORED) entries.
      */
     public static final int STORED = ZipEntry.STORED;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compression method for compressed (DEFLATED) entries.
      */
     public static final int DEFLATED = ZipEntry.DEFLATED;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new ZIP output stream.
      * @param out the actual output stream
      */
@@ -106,7 +106,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         usesDefaultDeflater = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the ZIP file comment.
      * @param comment the comment string
      * @exception IllegalArgumentException if the length of the specified
@@ -120,7 +120,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         this.comment = comment;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the default compression method for subsequent entries. This
      * default will be used whenever the compression method is not specified
      * for an individual ZIP file entry, and is initially set to DEFLATED.
@@ -135,7 +135,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         this.method = method;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the compression level for subsequent entries which are DEFLATED.
      * The default setting is DEFAULT_COMPRESSION.
      * @param level the compression level (0-9)
@@ -145,7 +145,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         def.setLevel(level);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Begins writing a new ZIP file entry and positions the stream to the
      * start of the entry data. Closes the current entry if still active.
      * The default compression method will be used if no compression method
@@ -196,7 +196,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         writeLOC(current);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes the current ZIP entry and positions the stream for writing
      * the next entry.
      * @exception ZipException if a ZIP format error has occurred
@@ -261,7 +261,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes an array of bytes to the current ZIP entry data. This method
      * will block until all the bytes are written.
      * @param b the data to be written
@@ -302,7 +302,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         crc.update(b, off, len);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finishes writing the contents of the ZIP output stream without closing
      * the underlying stream. Use this method when applying multiple filters
      * in succession to the same output stream.
@@ -328,7 +328,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         finished = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes the ZIP output stream as well as the stream being filtered.
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred

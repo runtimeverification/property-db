@@ -38,7 +38,7 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>XMLDecoder</code> class is used to read XML documents
  * created using the <code>XMLEncoder</code> and is used just like
  * the <code>ObjectInputStream</code>. For example, one can use
@@ -72,7 +72,7 @@ public class XMLDecoder {
     private ObjectHandler handler;
     private Reference clref;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream for reading archives
      * created by the <code>XMLEncoder</code> class.
      *
@@ -84,7 +84,7 @@ public class XMLDecoder {
         this(in, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream for reading archives
      * created by the <code>XMLEncoder</code> class.
      *
@@ -96,7 +96,7 @@ public class XMLDecoder {
         this(in, owner, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream for reading archives
      * created by the <code>XMLEncoder</code> class.
      *
@@ -109,7 +109,7 @@ public class XMLDecoder {
         this(in, owner, exceptionListener, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream for reading archives
      * created by the <code>XMLEncoder</code> class.
      *
@@ -133,7 +133,7 @@ public class XMLDecoder {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the class loader used to instantiate objects for this stream.
      *
      * @param cl a classloader to use; if null then the default class loader
@@ -145,7 +145,7 @@ public class XMLDecoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the class loader used to instantiate objects. If the class loader
      * has not been explicitly set then null is returned.
      *
@@ -158,7 +158,7 @@ public class XMLDecoder {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method closes the input stream associated
      * with this stream.
      */
@@ -174,7 +174,7 @@ public class XMLDecoder {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the exception handler for this stream to <code>exceptionListener</code>.
      * The exception handler is notified when this stream catches recoverable
      * exceptions.
@@ -188,7 +188,7 @@ public class XMLDecoder {
         this.exceptionListener = exceptionListener;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the exception handler for this stream.
      *
      * @return The exception handler for this stream.
@@ -201,7 +201,7 @@ public class XMLDecoder {
             Statement.defaultExceptionListener;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the next object from the underlying input stream.
      *
      * @return the next object read
@@ -218,7 +218,7 @@ public class XMLDecoder {
         return getHandler().dequeueResult();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the owner of this decoder to <code>owner</code>.
      *
      * @param owner The owner of this decoder.
@@ -229,7 +229,7 @@ public class XMLDecoder {
         this.owner = owner;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the owner of this decoder.
      *
      * @return The owner of this decoder.
@@ -240,7 +240,7 @@ public class XMLDecoder {
         return owner;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the object handler for input stream.
      * The object handler is created if necessary.
      *

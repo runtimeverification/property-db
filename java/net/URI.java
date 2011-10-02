@@ -44,7 +44,7 @@ import java.lang.Character;             // for javadoc
 import java.lang.NullPointerException;  // for javadoc
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Represents a Uniform Resource Identifier (URI) reference.
  *
  * <p> Aside from some minor deviations noted below, an instance of this
@@ -509,7 +509,7 @@ public final class URI
     private volatile transient String decodedFragment = null;
     private volatile transient String decodedSchemeSpecificPart = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The string form of this URI.
      *
      * @serial
@@ -522,7 +522,7 @@ public final class URI
 
     private URI() { }                           // Used internally
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a URI by parsing the given string.
      *
      * <p> This constructor parses the given string exactly as specified by the
@@ -595,7 +595,7 @@ public final class URI
         new Parser(str).parse(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a hierarchical URI from the given components.
      *
      * <p> If a scheme is given then the path, if also given, must either be
@@ -680,7 +680,7 @@ public final class URI
         new Parser(s).parse(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a hierarchical URI from the given components.
      *
      * <p> If a scheme is given then the path, if also given, must either be
@@ -753,7 +753,7 @@ public final class URI
         new Parser(s).parse(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a hierarchical URI from the given components.
      *
      * <p> A component may be left undefined by passing <tt>null</tt>.
@@ -781,7 +781,7 @@ public final class URI
         this(scheme, null, host, -1, path, null, fragment);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a URI from the given components.
      *
      * <p> A component may be left undefined by passing <tt>null</tt>.
@@ -827,7 +827,7 @@ public final class URI
             .parse(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a URI by parsing the given string.
      *
      * <p> This convenience factory method works as if by invoking the {@link
@@ -865,7 +865,7 @@ public final class URI
 
     // -- Operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to parse this URI's authority component, if defined, into
      * user-information, host, and port components.
      *
@@ -925,7 +925,7 @@ public final class URI
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Normalizes this URI's path.
      *
      * <p> If this URI is opaque, or if its path is already in normal form,
@@ -966,7 +966,7 @@ public final class URI
         return normalize(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolves the given URI against this URI.
      *
      * <p> If the given URI is already absolute, or if this URI is opaque, then
@@ -1024,7 +1024,7 @@ public final class URI
         return resolve(this, uri);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new URI by parsing the given string and then resolving it
      * against this URI.
      *
@@ -1045,7 +1045,7 @@ public final class URI
         return resolve(URI.create(str));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relativizes the given URI against this URI.
      *
      * <p> The relativization of the given URI against this URI is computed as
@@ -1075,7 +1075,7 @@ public final class URI
         return relativize(this, uri);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a URL from this URI.
      *
      * <p> This convenience method works as if invoking it were equivalent to
@@ -1100,7 +1100,7 @@ public final class URI
 
     // -- Component access methods --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the scheme component of this URI.
      *
      * <p> The scheme component of a URI, if defined, only contains characters
@@ -1117,7 +1117,7 @@ public final class URI
         return scheme;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this URI is absolute.
      *
      * <p> A URI is absolute if, and only if, it has a scheme component. </p>
@@ -1128,7 +1128,7 @@ public final class URI
         return scheme != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this URI is opaque.
      *
      * <p> A URI is opaque if, and only if, it is absolute and its
@@ -1142,7 +1142,7 @@ public final class URI
         return path == null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw scheme-specific part of this URI.  The scheme-specific
      * part is never undefined, though it may be empty.
      *
@@ -1157,7 +1157,7 @@ public final class URI
         return schemeSpecificPart;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded scheme-specific part of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1174,7 +1174,7 @@ public final class URI
         return decodedSchemeSpecificPart;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw authority component of this URI.
      *
      * <p> The authority component of a URI, if defined, only contains the
@@ -1191,7 +1191,7 @@ public final class URI
         return authority;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded authority component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1207,7 +1207,7 @@ public final class URI
         return decodedAuthority;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw user-information component of this URI.
      *
      * <p> The user-information component of a URI, if defined, only contains
@@ -1221,7 +1221,7 @@ public final class URI
         return userInfo;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded user-information component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1237,7 +1237,7 @@ public final class URI
         return decodedUserInfo;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the host component of this URI.
      *
      * <p> The host component of a URI, if defined, will have one of the
@@ -1277,7 +1277,7 @@ public final class URI
         return host;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the port number of this URI.
      *
      * <p> The port component of a URI, if defined, is a non-negative
@@ -1290,7 +1290,7 @@ public final class URI
         return port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw path component of this URI.
      *
      * <p> The path component of a URI, if defined, only contains the slash
@@ -1305,7 +1305,7 @@ public final class URI
         return path;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded path component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1321,7 +1321,7 @@ public final class URI
         return decodedPath;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw query component of this URI.
      *
      * <p> The query component of a URI, if defined, only contains legal URI
@@ -1334,7 +1334,7 @@ public final class URI
         return query;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded query component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1350,7 +1350,7 @@ public final class URI
         return decodedQuery;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw fragment component of this URI.
      *
      * <p> The fragment component of a URI, if defined, only contains legal URI
@@ -1363,7 +1363,7 @@ public final class URI
         return fragment;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the decoded fragment component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
@@ -1382,7 +1382,7 @@ public final class URI
 
     // -- Equality, comparison, hash code, toString, and serialization --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests this URI for equality with another object.
      *
      * <p> If the given object is not a URI then this method immediately
@@ -1454,7 +1454,7 @@ public final class URI
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash-code value for this URI.  The hash code is based upon all
      * of the URI's components, and satisfies the general contract of the
      * {@link java.lang.Object#hashCode() Object.hashCode} method.
@@ -1483,7 +1483,7 @@ public final class URI
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this URI to another object, which must be a URI.
      *
      * <p> When comparing corresponding components of two URIs, if one
@@ -1594,7 +1594,7 @@ public final class URI
         return compare(this.fragment, that.fragment);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the content of this URI as a string.
      *
      * <p> If this URI was created by invoking one of the constructors in this
@@ -1613,7 +1613,7 @@ public final class URI
         return string;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the content of this URI as a US-ASCII string.
      *
      * <p> If this URI does not contain any characters in the <i>other</i>
@@ -1634,7 +1634,7 @@ public final class URI
 
     // -- Serialization support --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Saves the content of this URI to the given serial stream.
      *
      * <p> The only serializable field of a URI instance is its <tt>string</tt>
@@ -1652,7 +1652,7 @@ public final class URI
         os.defaultWriteObject();        // Writes the string field only
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitutes a URI from the given serial stream.
      *
      * <p> The {@link java.io.ObjectInputStream#defaultReadObject()} method is

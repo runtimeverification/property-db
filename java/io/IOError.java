@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Thrown when a serious I/O error has occurred.
  * {@description.close}
@@ -34,7 +34,7 @@ package java.io;
  * @since   1.6
  */
 public class IOError extends Error {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a new instance of IOError with the specified cause. The
      * IOError is created with the detail message of

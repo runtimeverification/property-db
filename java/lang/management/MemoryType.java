@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Types of {@link MemoryPoolMXBean memory pools}.
  *
  * @author  Mandy Chung
@@ -33,7 +33,7 @@ package java.lang.management;
  */
 public enum MemoryType {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Heap memory type.
      * <p>
      * The Java virtual machine has a <i>heap</i>
@@ -42,7 +42,7 @@ public enum MemoryType {
      */
     HEAP("Heap memory"),
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Non-heap memory type.
      * <p>
      * The Java virtual machine manages memory other than the heap
@@ -61,7 +61,7 @@ public enum MemoryType {
         this.description = s;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of this <tt>MemoryType</tt>.
      * @return the string representation of this <tt>MemoryType</tt>.
      */

@@ -33,7 +33,7 @@ import sun.awt.ComponentFactory;
 import sun.awt.SunToolkit;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is used to generate native system input events
  * for the purposes of test automation, self-running demos, and
  * other applications where control of the mouse and keyboard
@@ -74,7 +74,7 @@ public class Robot {
 
     private DirectColorModel screenCapCM = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a Robot object in the coordinate system of the primary screen.
      * <p>
      *
@@ -94,7 +94,7 @@ public class Robot {
             .getDefaultScreenDevice());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Robot for the given screen device. Coordinates passed
      * to Robot method calls like mouseMove and createScreenCapture will
      * be interpreted as being in the same coordinate system as the
@@ -169,7 +169,7 @@ public class Robot {
 
     private transient RobotDisposer disposer;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves mouse pointer to given screen coordinates.
      * @param x         X position
      * @param y         Y position
@@ -179,7 +179,7 @@ public class Robot {
         afterEvent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Presses one or more mouse buttons.  The mouse buttons should
      * be released using the <code>mouseRelease</code> method.
      *
@@ -200,7 +200,7 @@ public class Robot {
         afterEvent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases one or more mouse buttons.
      *
      * @param buttons   the Button mask; a combination of one or more
@@ -226,7 +226,7 @@ public class Robot {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rotates the scroll wheel on wheel-equipped mice.
      *
      * @param wheelAmt  number of "notches" to move the mouse wheel
@@ -240,7 +240,7 @@ public class Robot {
         afterEvent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Presses a given key.  The key should be released using the
      * <code>keyRelease</code> method.
      * <p>
@@ -260,7 +260,7 @@ public class Robot {
         afterEvent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases a given key.
      * <p>
      * Key codes that have more than one physical key associated with them
@@ -289,7 +289,7 @@ public class Robot {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color of a pixel at the given screen coordinates.
      * @param   x       X position of pixel
      * @param   y       Y position of pixel
@@ -300,7 +300,7 @@ public class Robot {
         return color;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an image containing pixels read from the screen.  This image does
      * not include the mouse cursor.
      * @param   screenRect      Rect to capture in screen coordinates
@@ -374,7 +374,7 @@ public class Robot {
         autoDelay();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this Robot automatically invokes <code>waitForIdle</code>
      * after generating an event.
      * @return Whether <code>waitForIdle</code> is automatically called
@@ -383,7 +383,7 @@ public class Robot {
         return isAutoWaitForIdle;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets whether this Robot automatically invokes <code>waitForIdle</code>
      * after generating an event.
      * @param   isOn    Whether <code>waitForIdle</code> is automatically invoked
@@ -401,14 +401,14 @@ public class Robot {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of milliseconds this Robot sleeps after generating an event.
      */
     public synchronized int getAutoDelay() {
         return autoDelay;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of milliseconds this Robot sleeps after generating an event.
      * @throws  IllegalArgumentException If <code>ms</code> is not between 0 and 60,000 milliseconds inclusive
      */
@@ -424,7 +424,7 @@ public class Robot {
         delay(autoDelay);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sleeps for the specified time.
      * To catch any <code>InterruptedException</code>s that occur,
      * <code>Thread.sleep()</code> may be used instead.
@@ -447,7 +447,7 @@ public class Robot {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits until all events currently on the event queue have been processed.
      * @throws  IllegalThreadStateException if called on the AWT event dispatching thread
      */
@@ -477,7 +477,7 @@ public class Robot {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this Robot.
      *
      * @return  the string representation.

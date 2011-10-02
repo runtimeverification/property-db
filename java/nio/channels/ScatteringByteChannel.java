@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A channel that can read bytes into a sequence of buffers.
  *
  * <p> A <i>scattering</i> read operation reads, in a single invocation, a
@@ -50,7 +50,7 @@ public interface ScatteringByteChannel
     extends ReadableByteChannel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into a subsequence of the
      * given buffers.
      *
@@ -123,7 +123,7 @@ public interface ScatteringByteChannel
     public long read(ByteBuffer[] dsts, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into the given buffers.
      *
      * <p> An invocation of this method of the form <tt>c.read(dsts)</tt>

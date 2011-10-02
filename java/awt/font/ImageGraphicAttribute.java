@@ -44,7 +44,7 @@ import java.awt.Image;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>ImageGraphicAttribute</code> class is an implementation of
  * {@link GraphicAttribute} which draws images in
  * a {@link TextLayout}.
@@ -57,7 +57,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
     private float fImageWidth, fImageHeight;
     private float fOriginX, fOriginY;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constucts an <code>ImageGraphicAttribute</code> from the specified
      * {@link Image}.  The origin is at (0,&nbsp;0).
      * @param image the <code>Image</code> rendered by this
@@ -71,7 +71,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         this(image, alignment, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ImageGraphicAttribute</code> from the specified
      * <code>Image</code>. The point
      * (<code>originX</code>,&nbsp;<code>originY</code>) in the
@@ -108,7 +108,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         fOriginY = originY;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the ascent of this <code>ImageGraphicAttribute</code>.  The
      * ascent of an <code>ImageGraphicAttribute</code> is the distance
      * from the top of the image to the origin.
@@ -119,7 +119,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         return Math.max(0, fOriginY);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the descent of this <code>ImageGraphicAttribute</code>.
      * The descent of an <code>ImageGraphicAttribute</code> is the
      * distance from the origin to the bottom of the image.
@@ -130,7 +130,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         return Math.max(0, fImageHeight-fOriginY);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the advance of this <code>ImageGraphicAttribute</code>.
      * The advance of an <code>ImageGraphicAttribute</code> is the
      * distance from the origin to the right edge of the image.
@@ -141,7 +141,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         return Math.max(0, fImageWidth-fOriginX);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Rectangle2D} that encloses all of the
      * bits rendered by this <code>ImageGraphicAttribute</code>, relative
      * to the rendering position.  A graphic can be rendered beyond its
@@ -156,7 +156,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
                         -fOriginX, -fOriginY, fImageWidth, fImageHeight);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void draw(Graphics2D graphics, float x, float y) {
@@ -164,7 +164,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         graphics.drawImage(fImage, (int) (x-fOriginX), (int) (y-fOriginY), null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for this <code>ImageGraphicAttribute</code>.
      * @return  a hash code value for this object.
      */
@@ -173,7 +173,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         return fImage.hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>ImageGraphicAttribute</code> to the specified
      * {@link Object}.
      * @param rhs the <code>Object</code> to compare for equality
@@ -191,7 +191,7 @@ public final class ImageGraphicAttribute extends GraphicAttribute {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>ImageGraphicAttribute</code> to the specified
      * <code>ImageGraphicAttribute</code>.
      * @param rhs the <code>ImageGraphicAttribute</code> to compare for

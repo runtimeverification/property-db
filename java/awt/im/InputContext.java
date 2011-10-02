@@ -31,7 +31,7 @@ import java.awt.AWTEvent;
 import java.lang.Character.Subset;
 import sun.awt.im.InputMethodContext;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides methods to control text input facilities such as input
  * methods and keyboard layouts.
  * Two methods handle both input methods and keyboard layouts: selectInputMethod
@@ -74,7 +74,7 @@ import sun.awt.im.InputMethodContext;
 
 public class InputContext {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an InputContext.
      * This method is protected so clients cannot instantiate
      * InputContext directly. Input contexts are obtained by
@@ -84,14 +84,14 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new InputContext instance.
      */
     public static InputContext getInstance() {
         return new sun.awt.im.InputMethodContext();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to select an input method or keyboard layout that
      * supports the given locale, and returns a value indicating whether such
      * an input method or keyboard layout has been successfully selected. The
@@ -147,7 +147,7 @@ public class InputContext {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current locale of the current input method or keyboard
      * layout.
      * Returns null if the input context does not have a current input method
@@ -170,7 +170,7 @@ public class InputContext {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the subsets of the Unicode character set that input methods of this input
      * context should be allowed to input. Null may be passed in to
      * indicate that all characters are allowed. The initial value
@@ -187,7 +187,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enables or disables the current input method for composition,
      * depending on the value of the parameter <code>enable</code>.
      * <p>
@@ -217,7 +217,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the current input method is enabled for composition.
      * An input method that is enabled for composition interprets incoming
      * events for both composition and control purposes, while a
@@ -236,7 +236,7 @@ public class InputContext {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Asks the current input method to reconvert text from the
      * current client component. The input method obtains the text to
      * be reconverted from the client component using the
@@ -259,7 +259,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Dispatches an event to the active input method. Called by AWT.
      * If no input method is available, then the event will never be consumed.
      *
@@ -270,7 +270,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notifies the input context that a client component has been
      * removed from its containment hierarchy, or that input method
      * support has been disabled for the component. This method is
@@ -287,7 +287,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Ends any input composition that may currently be going on in this
      * context. Depending on the platform and possibly user preferences,
      * this may commit or delete uncommitted text. Any changes to the text
@@ -305,7 +305,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases the resources used by this input context.
      * Called by AWT for the default input context of each Window.
      * If no input methods are available, then this method
@@ -315,7 +315,7 @@ public class InputContext {
         // real implementation is in sun.awt.im.InputContext
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a control object from the current input method, or null. A
      * control object provides methods that control the behavior of the
      * input method or obtain information from the input method. The type

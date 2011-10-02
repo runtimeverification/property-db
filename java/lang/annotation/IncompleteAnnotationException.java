@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that a program has attempted to access an element of
  * an annotation type that was added to the annotation type definition after
  * the annotation was compiled (or serialized).  This exception will not be
@@ -39,7 +39,7 @@ public class IncompleteAnnotationException extends RuntimeException {
     private String elementName;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an IncompleteAnnotationException to indicate that
      * the named element was missing from the specified annotation type.
      *
@@ -55,7 +55,7 @@ public class IncompleteAnnotationException extends RuntimeException {
         this.elementName = elementName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Class object for the annotation type with the
      * missing element.
      *
@@ -66,7 +66,7 @@ public class IncompleteAnnotationException extends RuntimeException {
         return annotationType;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the missing element.
      *
      * @return the name of the missing element

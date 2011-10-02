@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.List;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Selects the proxy server to use, if any, when connecting to the
  * network resource referenced by a URL. A proxy selector is a
  * concrete sub-class of this class and is registered by invoking the
@@ -54,7 +54,7 @@ import sun.security.util.SecurityConstants;
  * @since 1.5
  */
 public abstract class ProxySelector {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The system wide proxy selector that selects the proxy server to
      * use, if any, when connecting to a remote object referenced by
      * an URL.
@@ -74,7 +74,7 @@ public abstract class ProxySelector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system-wide proxy selector.
      *
      * @throws  SecurityException
@@ -92,7 +92,7 @@ public abstract class ProxySelector {
         return theProxySelector;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets (or unsets) the system-wide proxy selector.
      *
      * Note: non-standard protocol handlers may ignore this setting.
@@ -115,7 +115,7 @@ public abstract class ProxySelector {
         theProxySelector = ps;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects all the applicable proxies based on the protocol to
      * access the resource with and a destination address to access
      * the resource at.
@@ -142,7 +142,7 @@ public abstract class ProxySelector {
      */
     public abstract List<Proxy> select(URI uri);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called to indicate that a connection could not be established
      * to a proxy/socks server. An implementation of this method can
      * temporarily remove the proxies or reorder the sequence of

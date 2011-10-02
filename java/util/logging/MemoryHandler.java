@@ -25,7 +25,7 @@
 
 package java.util.logging;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <tt>Handler</tt> that buffers requests in a circular buffer in memory.
  * <p>
  * Normally this <tt>Handler</tt> simply stores incoming <tt>LogRecords</tt>
@@ -97,7 +97,7 @@ public class MemoryHandler extends Handler {
         setFormatter(manager.getFormatterProperty(cname +".formatter", new SimpleFormatter()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>MemoryHandler</tt> and configure it based on
      * <tt>LogManager</tt> configuration properties.
      */
@@ -125,7 +125,7 @@ public class MemoryHandler extends Handler {
         count = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>MemoryHandler</tt>.
      * <p>
      * The <tt>MemoryHandler</tt> is configured based on <tt>LogManager</tt>
@@ -154,7 +154,7 @@ public class MemoryHandler extends Handler {
         init();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Store a <tt>LogRecord</tt> in an internal buffer.
      * <p>
      * If there is a <tt>Filter</tt>, its <tt>isLoggable</tt>
@@ -186,7 +186,7 @@ public class MemoryHandler extends Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Push any buffered output to the target <tt>Handler</tt>.
      * <p>
      * The buffer is then cleared.
@@ -202,7 +202,7 @@ public class MemoryHandler extends Handler {
         count = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes a flush on the target <tt>Handler</tt>.
      * <p>
      * Note that the current contents of the <tt>MemoryHandler</tt>
@@ -212,7 +212,7 @@ public class MemoryHandler extends Handler {
         target.flush();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Close the <tt>Handler</tt> and free all associated resources.
      * This will also close the target <tt>Handler</tt>.
      *
@@ -224,7 +224,7 @@ public class MemoryHandler extends Handler {
         setLevel(Level.OFF);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the <tt>pushLevel</tt>.  After a <tt>LogRecord</tt> is copied
      * into our internal buffer, if its level is greater than or equal to
      * the <tt>pushLevel</tt>, then <tt>push</tt> will be called.
@@ -242,7 +242,7 @@ public class MemoryHandler extends Handler {
         pushLevel = newLevel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the <tt>pushLevel</tt>.
      *
      * @return the value of the <tt>pushLevel</tt>
@@ -251,7 +251,7 @@ public class MemoryHandler extends Handler {
         return pushLevel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if this <tt>Handler</tt> would actually log a given
      * <tt>LogRecord</tt> into its internal buffer.
      * <p>

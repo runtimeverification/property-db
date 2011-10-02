@@ -32,7 +32,7 @@ import java.io.Serializable;
 import java.io.StreamCorruptedException;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code Path2D} class provides a simple, yet flexible
  * shape which represents an arbitrary geometric path.
  * It can fully represent any path which can be iterated by the
@@ -68,7 +68,7 @@ import java.util.Arrays;
  * @since 1.6
  */
 public abstract class Path2D implements Shape, Cloneable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An even-odd winding rule for determining the interior of
      * a path.
      *
@@ -77,7 +77,7 @@ public abstract class Path2D implements Shape, Cloneable {
      */
     public static final int WIND_EVEN_ODD = PathIterator.WIND_EVEN_ODD;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A non-zero winding rule for determining the interior of a
      * path.
      *
@@ -102,7 +102,7 @@ public abstract class Path2D implements Shape, Cloneable {
     static final int INIT_SIZE = 20;
     static final int EXPAND_MAX = 500;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new empty {@code Path2D} object.
      * It is assumed that the package sibling subclass that is
      * defaulting to this constructor will fill in all values.
@@ -113,7 +113,7 @@ public abstract class Path2D implements Shape, Cloneable {
     Path2D() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code Path2D} object from the given
      * specified initial values.
      * This method is only intended for internal use and should
@@ -141,7 +141,7 @@ public abstract class Path2D implements Shape, Cloneable {
     abstract int rectCrossings(double rxmin, double rymin,
                                double rxmax, double rymax);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code Float} class defines a geometric path with
      * coordinates stored in single precision floating point.
      *
@@ -150,7 +150,7 @@ public abstract class Path2D implements Shape, Cloneable {
     public static class Float extends Path2D implements Serializable {
         transient float floatCoords[];
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty single precision {@code Path2D} object
          * with a default winding rule of {@link #WIND_NON_ZERO}.
          *
@@ -160,7 +160,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(WIND_NON_ZERO, INIT_SIZE);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty single precision {@code Path2D} object
          * with the specified winding rule to control operations that
          * require the interior of the path to be defined.
@@ -174,7 +174,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(rule, INIT_SIZE);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty single precision {@code Path2D} object
          * with the specified winding rule and the specified initial
          * capacity to store path segments.
@@ -194,7 +194,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords = new float[initialCapacity * 2];
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new single precision {@code Path2D} object
          * from an arbitrary {@link Shape} object.
          * All of the initial geometry and the winding rule for this path are
@@ -207,7 +207,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(s, null);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new single precision {@code Path2D} object
          * from an arbitrary {@link Shape} object, transformed by an
          * {@link AffineTransform} object.
@@ -301,7 +301,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -317,7 +317,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a point to the path by moving to the specified
          * coordinates specified in float precision.
          * <p>
@@ -342,7 +342,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -353,7 +353,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords[numCoords++] = (float) y;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a point to the path by drawing a straight line from the
          * current coordinates to the new specified coordinates
          * specified in float precision.
@@ -374,7 +374,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords[numCoords++] = y;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -389,7 +389,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords[numCoords++] = (float) y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a curved segment, defined by two new points, to the path by
          * drawing a Quadratic curve that intersects both the current
          * coordinates and the specified coordinates {@code (x2,y2)},
@@ -419,7 +419,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords[numCoords++] = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -437,7 +437,7 @@ public abstract class Path2D implements Shape, Cloneable {
             floatCoords[numCoords++] = (float) y3;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a curved segment, defined by three new points, to the path by
          * drawing a B&eacute;zier curve that intersects both the current
          * coordinates and the specified coordinates {@code (x3,y3)},
@@ -647,7 +647,7 @@ public abstract class Path2D implements Shape, Cloneable {
             return crossings;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -689,7 +689,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -697,7 +697,7 @@ public abstract class Path2D implements Shape, Cloneable {
             at.transform(floatCoords, 0, floatCoords, 0, numCoords / 2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -721,7 +721,7 @@ public abstract class Path2D implements Shape, Cloneable {
             return new Rectangle2D.Float(x1, y1, x2 - x1, y2 - y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * <p>
          * The iterator for this class is not multi-threaded safe,
@@ -740,7 +740,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a new object of the same class as this object.
          *
          * @return     a clone of this instance.
@@ -766,7 +766,7 @@ public abstract class Path2D implements Shape, Cloneable {
          */
         private static final long serialVersionUID = 6990832515060788886L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Writes the default serializable fields to the
          * {@code ObjectOutputStream} followed by an explicit
          * serialization of the path segments stored in this
@@ -893,7 +893,7 @@ public abstract class Path2D implements Shape, Cloneable {
             super.writeObject(s, false);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Reads the default serializable fields from the
          * {@code ObjectInputStream} followed by an explicit
          * serialization of the path segments stored in this
@@ -975,7 +975,7 @@ public abstract class Path2D implements Shape, Cloneable {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code Double} class defines a geometric path with
      * coordinates stored in double precision floating point.
      *
@@ -984,7 +984,7 @@ public abstract class Path2D implements Shape, Cloneable {
     public static class Double extends Path2D implements Serializable {
         transient double doubleCoords[];
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty double precision {@code Path2D} object
          * with a default winding rule of {@link #WIND_NON_ZERO}.
          *
@@ -994,7 +994,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(WIND_NON_ZERO, INIT_SIZE);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty double precision {@code Path2D} object
          * with the specified winding rule to control operations that
          * require the interior of the path to be defined.
@@ -1008,7 +1008,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(rule, INIT_SIZE);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new empty double precision {@code Path2D} object
          * with the specified winding rule and the specified initial
          * capacity to store path segments.
@@ -1028,7 +1028,7 @@ public abstract class Path2D implements Shape, Cloneable {
             doubleCoords = new double[initialCapacity * 2];
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new double precision {@code Path2D} object
          * from an arbitrary {@link Shape} object.
          * All of the initial geometry and the winding rule for this path are
@@ -1041,7 +1041,7 @@ public abstract class Path2D implements Shape, Cloneable {
             this(s, null);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a new double precision {@code Path2D} object
          * from an arbitrary {@link Shape} object, transformed by an
          * {@link AffineTransform} object.
@@ -1136,7 +1136,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1152,7 +1152,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1163,7 +1163,7 @@ public abstract class Path2D implements Shape, Cloneable {
             doubleCoords[numCoords++] = y;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1178,7 +1178,7 @@ public abstract class Path2D implements Shape, Cloneable {
             doubleCoords[numCoords++] = y2;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1372,7 +1372,7 @@ public abstract class Path2D implements Shape, Cloneable {
             return crossings;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1414,7 +1414,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1422,7 +1422,7 @@ public abstract class Path2D implements Shape, Cloneable {
             at.transform(doubleCoords, 0, doubleCoords, 0, numCoords / 2);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * @since 1.6
          */
@@ -1446,7 +1446,7 @@ public abstract class Path2D implements Shape, Cloneable {
             return new Rectangle2D.Double(x1, y1, x2 - x1, y2 - y1);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@inheritDoc}
          * <p>
          * The iterator for this class is not multi-threaded safe,
@@ -1469,7 +1469,7 @@ public abstract class Path2D implements Shape, Cloneable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a new object of the same class as this object.
          *
          * @return     a clone of this instance.
@@ -1491,7 +1491,7 @@ public abstract class Path2D implements Shape, Cloneable {
          */
         private static final long serialVersionUID = 1826762518450014216L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Writes the default serializable fields to the
          * {@code ObjectOutputStream} followed by an explicit
          * serialization of the path segments stored in this
@@ -1618,7 +1618,7 @@ public abstract class Path2D implements Shape, Cloneable {
             super.writeObject(s, true);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Reads the default serializable fields from the
          * {@code ObjectInputStream} followed by an explicit
          * serialization of the path segments stored in this
@@ -1699,7 +1699,7 @@ public abstract class Path2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a point to the path by moving to the specified
      * coordinates specified in double precision.
      *
@@ -1709,7 +1709,7 @@ public abstract class Path2D implements Shape, Cloneable {
      */
     public abstract void moveTo(double x, double y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a point to the path by drawing a straight line from the
      * current coordinates to the new specified coordinates
      * specified in double precision.
@@ -1720,7 +1720,7 @@ public abstract class Path2D implements Shape, Cloneable {
      */
     public abstract void lineTo(double x, double y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a curved segment, defined by two new points, to the path by
      * drawing a Quadratic curve that intersects both the current
      * coordinates and the specified coordinates {@code (x2,y2)},
@@ -1737,7 +1737,7 @@ public abstract class Path2D implements Shape, Cloneable {
     public abstract void quadTo(double x1, double y1,
                                 double x2, double y2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a curved segment, defined by three new points, to the path by
      * drawing a B&eacute;zier curve that intersects both the current
      * coordinates and the specified coordinates {@code (x3,y3)},
@@ -1757,7 +1757,7 @@ public abstract class Path2D implements Shape, Cloneable {
                                  double x2, double y2,
                                  double x3, double y3);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes the current subpath by drawing a straight line back to
      * the coordinates of the last {@code moveTo}.  If the path is already
      * closed then this method has no effect.
@@ -1771,7 +1771,7 @@ public abstract class Path2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the geometry of the specified {@code Shape} object to the
      * path, possibly connecting the new geometry to the existing path
      * segments with a line segment.
@@ -1797,7 +1797,7 @@ public abstract class Path2D implements Shape, Cloneable {
         append(s.getPathIterator(null), connect);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the geometry of the specified
      * {@link PathIterator} object
      * to the path, possibly connecting the new geometry to the existing
@@ -1822,7 +1822,7 @@ public abstract class Path2D implements Shape, Cloneable {
      */
     public abstract void append(PathIterator pi, boolean connect);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the fill style winding rule.
      *
      * @return an integer representing the current winding rule.
@@ -1835,7 +1835,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return windingRule;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the winding rule for this path to the specified value.
      *
      * @param rule an integer representing the specified
@@ -1856,7 +1856,7 @@ public abstract class Path2D implements Shape, Cloneable {
         windingRule = rule;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates most recently added to the end of the path
      * as a {@link Point2D} object.
      *
@@ -1892,7 +1892,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return getPoint(index - 2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets the path to empty.  The append position is set back to the
      * beginning of the path and all coordinates and point types are
      * forgotten.
@@ -1903,7 +1903,7 @@ public abstract class Path2D implements Shape, Cloneable {
         numTypes = numCoords = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms the geometry of this path using the specified
      * {@link AffineTransform}.
      * The geometry is transformed in place, which permanently changes the
@@ -1914,7 +1914,7 @@ public abstract class Path2D implements Shape, Cloneable {
      */
     public abstract void transform(AffineTransform at);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new {@code Shape} representing a transformed version
      * of this {@code Path2D}.
      * Note that the exact type and coordinate precision of the return
@@ -1943,7 +1943,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return p2d;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */
@@ -1951,7 +1951,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return getBounds2D().getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified coordinates are inside the closed
      * boundary of the specified {@link PathIterator}.
      * <p>
@@ -1984,7 +1984,7 @@ public abstract class Path2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified {@link Point2D} is inside the closed
      * boundary of the specified {@link PathIterator}.
      * <p>
@@ -2002,7 +2002,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return contains(pi, p.getX(), p.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */
@@ -2026,7 +2026,7 @@ public abstract class Path2D implements Shape, Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */
@@ -2034,7 +2034,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return contains(p.getX(), p.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified rectangular area is entirely inside the
      * closed boundary of the specified {@link PathIterator}.
      * <p>
@@ -2088,7 +2088,7 @@ public abstract class Path2D implements Shape, Cloneable {
                 (crossings & mask) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified {@link Rectangle2D} is entirely inside the
      * closed boundary of the specified {@link PathIterator}.
      * <p>
@@ -2120,7 +2120,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return contains(pi, r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * <p>
      * This method object may conservatively return false in
@@ -2160,7 +2160,7 @@ public abstract class Path2D implements Shape, Cloneable {
                 (crossings & mask) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * <p>
      * This method object may conservatively return false in
@@ -2183,7 +2183,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the specified {@link PathIterator}
      * intersects the interior of a specified set of rectangular
      * coordinates.
@@ -2238,7 +2238,7 @@ public abstract class Path2D implements Shape, Cloneable {
                 (crossings & mask) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the specified {@link PathIterator}
      * intersects the interior of a specified {@link Rectangle2D}.
      * <p>
@@ -2270,7 +2270,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return intersects(pi, r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * <p>
      * This method object may conservatively return true in
@@ -2309,7 +2309,7 @@ public abstract class Path2D implements Shape, Cloneable {
                 (crossings & mask) != 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * <p>
      * This method object may conservatively return true in
@@ -2331,7 +2331,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * <p>
      * The iterator for this class is not multi-threaded safe,
@@ -2348,7 +2348,7 @@ public abstract class Path2D implements Shape, Cloneable {
         return new FlatteningPathIterator(getPathIterator(at), flatness);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new object of the same class as this object.
      *
      * @return     a clone of this instance.

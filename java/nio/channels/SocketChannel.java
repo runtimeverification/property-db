@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.spi.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A selectable channel for stream-oriented connecting sockets.
  *
  * <p> Socket channels are not a complete abstraction of connecting network
@@ -98,14 +98,14 @@ public abstract class SocketChannel
     implements ByteChannel, ScatteringByteChannel, GatheringByteChannel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected SocketChannel(SelectorProvider provider) {
         super(provider);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a socket channel.
      *
      * <p> The new channel is created by invoking the {@link
@@ -122,7 +122,7 @@ public abstract class SocketChannel
         return SelectorProvider.provider().openSocketChannel();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a socket channel and connects it to a remote address.
      *
      * <p> This convenience method works as if by invoking the {@link #open()}
@@ -171,7 +171,7 @@ public abstract class SocketChannel
         return sc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an operation set identifying this channel's supported
      * operations.
      *
@@ -191,7 +191,7 @@ public abstract class SocketChannel
 
     // -- Socket-specific operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves a socket associated with this channel.
      *
      * <p> The returned object will not declare any public methods that are not
@@ -201,7 +201,7 @@ public abstract class SocketChannel
      */
     public abstract Socket socket();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this channel's network socket is connected.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this channel's network socket
@@ -209,7 +209,7 @@ public abstract class SocketChannel
      */
     public abstract boolean isConnected();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not a connection operation is in progress on this
      * channel.  </p>
      *
@@ -219,7 +219,7 @@ public abstract class SocketChannel
      */
     public abstract boolean isConnectionPending();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Connects this channel's socket.
      *
      * <p> If this channel is in non-blocking mode then an invocation of this
@@ -288,7 +288,7 @@ public abstract class SocketChannel
      */
     public abstract boolean connect(SocketAddress remote) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finishes the process of connecting a socket channel.
      *
      * <p> A non-blocking connection operation is initiated by placing a socket
@@ -342,20 +342,20 @@ public abstract class SocketChannel
 
     // -- ByteChannel operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */
     public abstract int read(ByteBuffer dst) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */
     public abstract long read(ByteBuffer[] dsts, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */
@@ -363,20 +363,20 @@ public abstract class SocketChannel
         return read(dsts, 0, dsts.length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */
     public abstract int write(ByteBuffer src) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */
     public abstract long write(ByteBuffer[] srcs, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws  NotYetConnectedException
      *          If this channel is not yet connected
      */

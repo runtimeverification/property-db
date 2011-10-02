@@ -31,7 +31,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.spi.AbstractInterruptibleChannel;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A channel for reading, writing, mapping, and manipulating a file.
  *
  * <p> A file channel has a current <i>position</i> within its file which can
@@ -154,7 +154,7 @@ public abstract class FileChannel
     implements ByteChannel, GatheringByteChannel, ScatteringByteChannel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected FileChannel() { }
@@ -162,7 +162,7 @@ public abstract class FileChannel
 
     // -- Channel operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into the given buffer.
      *
      * <p> Bytes are read starting at this channel's current file position, and
@@ -172,7 +172,7 @@ public abstract class FileChannel
      */
     public abstract int read(ByteBuffer dst) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into a subsequence of the
      * given buffers.
      *
@@ -184,7 +184,7 @@ public abstract class FileChannel
     public abstract long read(ByteBuffer[] dsts, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into the given buffers.
      *
      * <p> Bytes are read starting at this channel's current file position, and
@@ -196,7 +196,7 @@ public abstract class FileChannel
         return read(dsts, 0, dsts.length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a sequence of bytes to this channel from the given buffer.
      *
      * <p> Bytes are written starting at this channel's current file position
@@ -209,7 +209,7 @@ public abstract class FileChannel
      */
     public abstract int write(ByteBuffer src) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a sequence of bytes to this channel from a subsequence of the
      * given buffers.
      *
@@ -224,7 +224,7 @@ public abstract class FileChannel
     public abstract long write(ByteBuffer[] srcs, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a sequence of bytes to this channel from the given buffers.
      *
      * <p> Bytes are written starting at this channel's current file position
@@ -242,7 +242,7 @@ public abstract class FileChannel
 
     // -- Other operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this channel's file position.  </p>
      *
      * @return  This channel's file position,
@@ -257,7 +257,7 @@ public abstract class FileChannel
      */
     public abstract long position() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this channel's file position.
      *
      * <p> Setting the position to a value that is greater than the file's
@@ -285,7 +285,7 @@ public abstract class FileChannel
      */
     public abstract FileChannel position(long newPosition) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current size of this channel's file. </p>
      *
      * @return  The current size of this channel's file,
@@ -299,7 +299,7 @@ public abstract class FileChannel
      */
     public abstract long size() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Truncates this channel's file to the given size.
      *
      * <p> If the given size is less than the file's current size then the file
@@ -328,7 +328,7 @@ public abstract class FileChannel
      */
     public abstract FileChannel truncate(long size) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forces any updates to this channel's file to be written to the storage
      * device that contains it.
      *
@@ -378,7 +378,7 @@ public abstract class FileChannel
      */
     public abstract void force(boolean metaData) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers bytes from this channel's file to the given writable byte
      * channel.
      *
@@ -445,7 +445,7 @@ public abstract class FileChannel
                                     WritableByteChannel target)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers bytes into this channel's file from the given readable byte
      * channel.
      *
@@ -512,7 +512,7 @@ public abstract class FileChannel
                                       long position, long count)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a sequence of bytes from this channel into the given buffer,
      * starting at the given file position.
      *
@@ -557,7 +557,7 @@ public abstract class FileChannel
      */
     public abstract int read(ByteBuffer dst, long position) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a sequence of bytes to this channel from the given buffer,
      * starting at the given file position.
      *
@@ -605,7 +605,7 @@ public abstract class FileChannel
 
     // -- Memory-mapped buffers --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A typesafe enumeration for file-mapping modes.
      *
      * @since 1.4
@@ -614,19 +614,19 @@ public abstract class FileChannel
      */
     public static class MapMode {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Mode for a read-only mapping.
          */
         public static final MapMode READ_ONLY
             = new MapMode("READ_ONLY");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Mode for a read/write mapping.
          */
         public static final MapMode READ_WRITE
             = new MapMode("READ_WRITE");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Mode for a private (copy-on-write) mapping.
          */
         public static final MapMode PRIVATE
@@ -638,7 +638,7 @@ public abstract class FileChannel
             this.name = name;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a string describing this file-mapping mode.
          *
          * @return  A descriptive string
@@ -649,7 +649,7 @@ public abstract class FileChannel
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maps a region of this channel's file directly into memory.
      *
      * <p> A region of a file may be mapped into memory in one of three modes:
@@ -742,7 +742,7 @@ public abstract class FileChannel
 
     // -- Locks --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires a lock on the given region of this channel's file.
      *
      * <p> An invocation of this method will block until the region can be
@@ -834,7 +834,7 @@ public abstract class FileChannel
     public abstract FileLock lock(long position, long size, boolean shared)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires an exclusive lock on this channel's file.
      *
      * <p> An invocation of this method of the form <tt>fc.lock()</tt> behaves
@@ -876,7 +876,7 @@ public abstract class FileChannel
         return lock(0L, Long.MAX_VALUE, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire a lock on the given region of this channel's file.
      *
      * <p> This method does not block.  An invocation always returns
@@ -945,7 +945,7 @@ public abstract class FileChannel
     public abstract FileLock tryLock(long position, long size, boolean shared)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire an exclusive lock on this channel's file.
      *
      * <p> An invocation of this method of the form <tt>fc.tryLock()</tt>

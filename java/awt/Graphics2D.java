@@ -38,7 +38,7 @@ import java.awt.font.TextAttribute;
 import java.text.AttributedCharacterIterator;
 import java.util.Map;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This <code>Graphics2D</code> class extends the
  * {@link Graphics} class to provide more sophisticated
  * control over geometry, coordinate transformations, color management,
@@ -406,7 +406,7 @@ import java.util.Map;
  */
 public abstract class Graphics2D extends Graphics {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Graphics2D</code> object.  Since
      * <code>Graphics2D</code> is an abstract class, and since it must be
      * customized by subclasses for different output devices,
@@ -421,7 +421,7 @@ public abstract class Graphics2D extends Graphics {
     protected Graphics2D() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws a 3-D highlighted outline of the specified rectangle.
      * The edges of the rectangle are highlighted so that they
      * appear to be beveled and lit from the upper left corner.
@@ -462,7 +462,7 @@ public abstract class Graphics2D extends Graphics {
         setPaint(p);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Paints a 3-D highlighted rectangle filled with the current color.
      * The edges of the rectangle are highlighted so that it appears
      * as if the edges were beveled and lit from the upper left corner.
@@ -505,7 +505,7 @@ public abstract class Graphics2D extends Graphics {
         setPaint(p);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Strokes the outline of a <code>Shape</code> using the settings of the
      * current <code>Graphics2D</code> context.  The rendering attributes
      * applied include the <code>Clip</code>, <code>Transform</code>,
@@ -523,7 +523,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void draw(Shape s);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders an image, applying a transform from image space into user space
      * before drawing.
      * The transformation from user space into device space is done with
@@ -553,7 +553,7 @@ public abstract class Graphics2D extends Graphics {
                                       AffineTransform xform,
                                       ImageObserver obs);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders a <code>BufferedImage</code> that is
      * filtered with a
      * {@link BufferedImageOp}.
@@ -583,7 +583,7 @@ public abstract class Graphics2D extends Graphics {
                                    int x,
                                    int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders a {@link RenderedImage},
      * applying a transform from image
      * space into user space before drawing.
@@ -607,7 +607,7 @@ public abstract class Graphics2D extends Graphics {
     public abstract void drawRenderedImage(RenderedImage img,
                                            AffineTransform xform);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders a
      * {@link RenderableImage},
      * applying a transform from image space into user space before drawing.
@@ -641,7 +641,7 @@ public abstract class Graphics2D extends Graphics {
     public abstract void drawRenderableImage(RenderableImage img,
                                              AffineTransform xform);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text of the specified <code>String</code>, using the
      * current text attribute state in the <code>Graphics2D</code> context.
      * The baseline of the
@@ -666,7 +666,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void drawString(String str, int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text specified by the specified <code>String</code>,
      * using the current text attribute state in the <code>Graphics2D</code> context.
      * The baseline of the first character is at position
@@ -693,7 +693,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void drawString(String str, float x, float y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text of the specified iterator applying its attributes
      * in accordance with the specification of the {@link TextAttribute} class.
      * <p>
@@ -719,7 +719,7 @@ public abstract class Graphics2D extends Graphics {
     public abstract void drawString(AttributedCharacterIterator iterator,
                                     int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text of the specified iterator applying its attributes
      * in accordance with the specification of the {@link TextAttribute} class.
      * <p>
@@ -745,7 +745,7 @@ public abstract class Graphics2D extends Graphics {
     public abstract void drawString(AttributedCharacterIterator iterator,
                                     float x, float y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text of the specified
      * {@link GlyphVector} using
      * the <code>Graphics2D</code> context's rendering attributes.
@@ -773,7 +773,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void drawGlyphVector(GlyphVector g, float x, float y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills the interior of a <code>Shape</code> using the settings of the
      * <code>Graphics2D</code> context. The rendering attributes applied
      * include the <code>Clip</code>, <code>Transform</code>,
@@ -789,7 +789,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void fill(Shape s);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not the specified <code>Shape</code> intersects
      * the specified {@link Rectangle}, which is in device
      * space. If <code>onStroke</code> is false, this method checks
@@ -822,14 +822,14 @@ public abstract class Graphics2D extends Graphics {
                                 Shape s,
                                 boolean onStroke);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the device configuration associated with this
      * <code>Graphics2D</code>.
      * @return the device configuration of this <code>Graphics2D</code>.
      */
     public abstract GraphicsConfiguration getDeviceConfiguration();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>Composite</code> for the <code>Graphics2D</code> context.
      * The <code>Composite</code> is used in all drawing methods such as
      * <code>drawImage</code>, <code>drawString</code>, <code>draw</code>,
@@ -858,7 +858,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setComposite(Composite comp);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>Paint</code> attribute for the
      * <code>Graphics2D</code> context.  Calling this method
      * with a <code>null</code> <code>Paint</code> object does
@@ -873,7 +873,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setPaint( Paint paint );
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>Stroke</code> for the <code>Graphics2D</code> context.
      * @param s the <code>Stroke</code> object to be used to stroke a
      * <code>Shape</code> during the rendering process
@@ -882,7 +882,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setStroke(Stroke s);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of a single preference for the rendering algorithms.
      * Hint categories include controls for rendering quality and overall
      * time/quality trade-off in the rendering process.  Refer to the
@@ -896,7 +896,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setRenderingHint(Key hintKey, Object hintValue);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of a single preference for the rendering algorithms.
      * Hint categories include controls for rendering quality and overall
      * time/quality trade-off in the rendering process.  Refer to the
@@ -911,7 +911,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract Object getRenderingHint(Key hintKey);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the values of all preferences for the rendering
      * algorithms with the specified <code>hints</code>.
      * The existing values for all rendering hints are discarded and
@@ -927,7 +927,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setRenderingHints(Map<?,?> hints);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the values of an arbitrary number of preferences for the
      * rendering algorithms.
      * Only values for the rendering hints that are present in the
@@ -943,7 +943,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void addRenderingHints(Map<?,?> hints);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the preferences for the rendering algorithms.  Hint categories
      * include controls for rendering quality and overall time/quality
      * trade-off in the rendering process.
@@ -958,7 +958,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract RenderingHints getRenderingHints();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the origin of the <code>Graphics2D</code> context to the
      * point (<i>x</i>,&nbsp;<i>y</i>) in the current coordinate system.
      * Modifies the <code>Graphics2D</code> context so that its new origin
@@ -972,7 +972,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void translate(int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the current
      * <code>Graphics2D</code> <code>Transform</code>
      * with a translation transform.
@@ -990,7 +990,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void translate(double tx, double ty);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the current <code>Graphics2D</code>
      * <code>Transform</code> with a rotation transform.
      * Subsequent rendering is rotated by the specified radians relative
@@ -1008,7 +1008,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void rotate(double theta);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the current <code>Graphics2D</code>
      * <code>Transform</code> with a translated rotation
      * transform.  Subsequent rendering is transformed by a transform
@@ -1029,7 +1029,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void rotate(double theta, double x, double y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the current <code>Graphics2D</code>
      * <code>Transform</code> with a scaling transformation
      * Subsequent rendering is resized according to the specified scaling
@@ -1050,7 +1050,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void scale(double sx, double sy);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Concatenates the current <code>Graphics2D</code>
      * <code>Transform</code> with a shearing transform.
      * Subsequent renderings are sheared by the specified
@@ -1070,7 +1070,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void shear(double shx, double shy);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Composes an <code>AffineTransform</code> object with the
      * <code>Transform</code> in this <code>Graphics2D</code> according
      * to the rule last-specified-first-applied.  If the current
@@ -1089,7 +1089,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void transform(AffineTransform Tx);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overwrites the Transform in the <code>Graphics2D</code> context.
      * WARNING: This method should <b>never</b> be used to apply a new
      * coordinate transform on top of an existing transform because the
@@ -1122,7 +1122,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setTransform(AffineTransform Tx);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the current <code>Transform</code> in the
      * <code>Graphics2D</code> context.
      * @return the current <code>AffineTransform</code> in the
@@ -1132,7 +1132,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract AffineTransform getTransform();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current <code>Paint</code> of the
      * <code>Graphics2D</code> context.
      * @return the current <code>Graphics2D</code> <code>Paint</code>,
@@ -1142,7 +1142,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract Paint getPaint();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current <code>Composite</code> in the
      * <code>Graphics2D</code> context.
      * @return the current <code>Graphics2D</code> <code>Composite</code>,
@@ -1151,7 +1151,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract Composite getComposite();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the background color for the <code>Graphics2D</code> context.
      * The background color is used for clearing a region.
      * When a <code>Graphics2D</code> is constructed for a
@@ -1169,7 +1169,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract void setBackground(Color color);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the background color used for clearing a region.
      * @return the current <code>Graphics2D</code> <code>Color</code>,
      * which defines the background color.
@@ -1177,7 +1177,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract Color getBackground();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current <code>Stroke</code> in the
      * <code>Graphics2D</code> context.
      * @return the current <code>Graphics2D</code> <code>Stroke</code>,
@@ -1186,7 +1186,7 @@ public abstract class Graphics2D extends Graphics {
      */
     public abstract Stroke getStroke();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Intersects the current <code>Clip</code> with the interior of the
      * specified <code>Shape</code> and sets the <code>Clip</code> to the
      * resulting intersection.  The specified <code>Shape</code> is
@@ -1207,7 +1207,7 @@ public abstract class Graphics2D extends Graphics {
      */
      public abstract void clip(Shape s);
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
      * Get the rendering context of the <code>Font</code> within this
      * <code>Graphics2D</code> context.
      * The {@link FontRenderContext}

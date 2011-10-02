@@ -38,7 +38,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The BasicPermission class extends the Permission class, and
  * can be used as the base class for permissions that want to
  * follow the same naming convention as BasicPermission.
@@ -91,7 +91,7 @@ implements java.io.Serializable
     // is this permission the old-style exitVM permission (pre JDK 1.6)?
     private transient boolean exitVM;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * initialize a BasicPermission object. Common to all constructors.
      *
      */
@@ -128,7 +128,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new BasicPermission with the specified name.
      * Name is the symbolic name of the permission, such as
      * "setFactory",
@@ -147,7 +147,7 @@ implements java.io.Serializable
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new BasicPermission object with the specified name.
      * The name is the symbolic name of the BasicPermission, and the
      * actions String is currently unused.
@@ -164,7 +164,7 @@ implements java.io.Serializable
         init(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if the specified permission is "implied" by
      * this object.
      * <P>
@@ -207,7 +207,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks two BasicPermission objects for equality.
      * Checks that <i>obj</i>'s class is the same as this object's class
      * and has the same name as this object.
@@ -229,7 +229,7 @@ implements java.io.Serializable
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this object.
      * The hash code used is the hash code of the name, that is,
      * <code>getName().hashCode()</code>, where <code>getName</code> is
@@ -242,7 +242,7 @@ implements java.io.Serializable
         return this.getName().hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the canonical string representation of the actions,
      * which currently is the empty string "", since there are no actions for
      * a BasicPermission.
@@ -254,7 +254,7 @@ implements java.io.Serializable
         return "";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new PermissionCollection object for storing BasicPermission
      * objects.
      *
@@ -271,7 +271,7 @@ implements java.io.Serializable
         return new BasicPermissionCollection(this.getClass());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * readObject is called to restore the state of the BasicPermission from
      * a stream.
      */
@@ -283,7 +283,7 @@ implements java.io.Serializable
         init(getName());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the canonical name of this BasicPermission.
      * All internal invocations of getName should invoke this method, so
      * that the pre-JDK 1.6 "exitVM" and current "exitVM.*" permission are
@@ -296,7 +296,7 @@ implements java.io.Serializable
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A BasicPermissionCollection stores a collection
  * of BasicPermission permissions. BasicPermission objects
  * must be stored in a manner that allows them to be inserted in any
@@ -323,14 +323,14 @@ implements java.io.Serializable
 
     private static final long serialVersionUID = 739301742472979399L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
       * Key is name, value is permission. All permission objects in
       * collection must be of the same type.
       * Not serialized; see serialization section at end of class.
       */
     private transient Map<String, Permission> perms;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is set to <code>true</code> if this BasicPermissionCollection
      * contains a BasicPermission with '*' as its permission name.
      *
@@ -338,7 +338,7 @@ implements java.io.Serializable
      */
     private boolean all_allowed;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The class to which all BasicPermissions in this
      * BasicPermissionCollection belongs.
      *
@@ -346,7 +346,7 @@ implements java.io.Serializable
      */
     private Class permClass;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an empty BasicPermissionCollection object.
      *
      */
@@ -357,7 +357,7 @@ implements java.io.Serializable
         permClass = clazz;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a permission to the BasicPermissions. The key for the hash is
      * permission.path.
      *
@@ -406,7 +406,7 @@ implements java.io.Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
      *
@@ -474,7 +474,7 @@ implements java.io.Serializable
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the BasicPermission objects in the
      * container.
      *
@@ -494,7 +494,7 @@ implements java.io.Serializable
     // @serial the Hashtable is indexed by the BasicPermission name
     //
     // private Hashtable permissions;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField permissions java.util.Hashtable
      *    The BasicPermissions in this BasicPermissionCollection.
      *    All BasicPermissions in the collection must belong to the same class.
@@ -513,7 +513,7 @@ implements java.io.Serializable
         new ObjectStreamField("permClass", Class.class),
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Default fields.
      */
     /*
@@ -540,7 +540,7 @@ implements java.io.Serializable
         out.writeFields();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * readObject is called to restore the state of the
      * BasicPermissionCollection from a stream.
      */

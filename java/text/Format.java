@@ -40,7 +40,7 @@ package java.text;
 
 import java.io.Serializable;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>Format</code> is an abstract base class for formatting locale-sensitive
  * information such as dates, messages, and numbers.
  *
@@ -134,14 +134,14 @@ public abstract class Format implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -299282585814624189L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected Format() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats an object to produce a string. This is equivalent to
      * <blockquote>
      * {@link #format(Object, StringBuffer, FieldPosition) format}<code>(obj,
@@ -157,7 +157,7 @@ public abstract class Format implements Serializable, Cloneable {
         return format(obj, new StringBuffer(), new FieldPosition(0)).toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats an object and appends the resulting text to a given string
      * buffer.
      * If the <code>pos</code> argument identifies a field used by the format,
@@ -179,7 +179,7 @@ public abstract class Format implements Serializable, Cloneable {
                     StringBuffer toAppendTo,
                     FieldPosition pos);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats an Object producing an <code>AttributedCharacterIterator</code>.
      * You can use the returned <code>AttributedCharacterIterator</code>
      * to build the resulting String, as well as to determine information
@@ -206,7 +206,7 @@ public abstract class Format implements Serializable, Cloneable {
         return createAttributedCharacterIterator(format(obj));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses text from a string to produce an object.
      * <p>
      * The method attempts to parse text starting at the index given by
@@ -229,7 +229,7 @@ public abstract class Format implements Serializable, Cloneable {
      */
     public abstract Object parseObject (String source, ParsePosition pos);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses text from the beginning of the given string to produce an object.
      * The method may not use the entire text of the given string.
      *
@@ -248,7 +248,7 @@ public abstract class Format implements Serializable, Cloneable {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a copy of this object.
      *
      * @return a clone of this instance.
@@ -267,7 +267,7 @@ public abstract class Format implements Serializable, Cloneable {
     // different parameters.
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <code>AttributedCharacterIterator</code> for the String
      * <code>s</code>.
      *
@@ -280,7 +280,7 @@ public abstract class Format implements Serializable, Cloneable {
         return as.getIterator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an <code>AttributedCharacterIterator</code> containg the
      * concatenated contents of the passed in
      * <code>AttributedCharacterIterator</code>s.
@@ -297,7 +297,7 @@ public abstract class Format implements Serializable, Cloneable {
         return as.getIterator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an AttributedCharacterIterator with the String
      * <code>string</code> and additional key/value pair <code>key</code>,
      * <code>value</code>.
@@ -316,7 +316,7 @@ public abstract class Format implements Serializable, Cloneable {
         return as.getIterator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an AttributedCharacterIterator with the contents of
      * <code>iterator</code> and the additional attribute <code>key</code>
      * <code>value</code>.
@@ -336,7 +336,7 @@ public abstract class Format implements Serializable, Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Defines constants that are used as attribute keys in the
      * <code>AttributedCharacterIterator</code> returned
      * from <code>Format.formatToCharacterIterator</code> and as
@@ -349,7 +349,7 @@ public abstract class Format implements Serializable, Cloneable {
         // Proclaim serial compatibility with 1.4 FCS
         private static final long serialVersionUID = 276966692217360283L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a Field with the specified name.
          *
          * @param name Name of the attribute
@@ -360,7 +360,7 @@ public abstract class Format implements Serializable, Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * FieldDelegate is notified by the various <code>Format</code>
      * implementations as they are formatting the Objects. This allows for
      * storage of the individual sections of the formatted String for
@@ -374,7 +374,7 @@ public abstract class Format implements Serializable, Cloneable {
      * @see CharacterIteratorFieldDelegate
      */
     interface FieldDelegate {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Notified when a particular region of the String is formatted. This
          * method will be invoked if there is no corresponding integer field id
          * matching <code>attr</code>.
@@ -389,7 +389,7 @@ public abstract class Format implements Serializable, Cloneable {
         public void formatted(Format.Field attr, Object value, int start,
                               int end, StringBuffer buffer);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Notified when a particular region of the String is formatted.
          *
          * @param fieldID Identifies the field by integer

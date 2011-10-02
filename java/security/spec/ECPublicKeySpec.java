@@ -24,7 +24,7 @@
  */
 package java.security.spec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class specifies an elliptic curve public key with
  * its associated parameters.
  *
@@ -41,7 +41,7 @@ public class ECPublicKeySpec implements KeySpec {
     private ECPoint w;
     private ECParameterSpec params;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new ECPublicKeySpec with the specified
      * parameter values.
      * @param w the public point.
@@ -66,7 +66,7 @@ public class ECPublicKeySpec implements KeySpec {
         this.params = params;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the public point W.
      * @return the public point W.
      */
@@ -74,7 +74,7 @@ public class ECPublicKeySpec implements KeySpec {
         return w;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the associated elliptic curve domain
      * parameters.
      * @return the EC domain parameters.

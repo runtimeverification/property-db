@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when a serious Abstract Window Toolkit error has occurred.
  *
  * @author      Arthur van Hoff
@@ -37,7 +37,7 @@ public class AWTError extends Error {
      */
      private static final long serialVersionUID = -1819846354050686206L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of <code>AWTError</code> with the specified
      * detail message.
      * @param   msg   the detail message.

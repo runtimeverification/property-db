@@ -27,7 +27,7 @@
 package java.util.logging;
 
 import java.io.UnsupportedEncodingException;
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <tt>Handler</tt> object takes log messages from a <tt>Logger</tt> and
  * exports them.  It might for example, write them to a console
  * or write them to a file, or send them to a network logging service,
@@ -58,7 +58,7 @@ public abstract class Handler {
     // is true, we access check updates to the class.
     boolean sealed = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Default constructor.  The resulting <tt>Handler</tt> has a log
      * level of <tt>Level.ALL</tt>, no <tt>Formatter</tt>, and no
      * <tt>Filter</tt>.  A default <tt>ErrorManager</tt> instance is installed
@@ -67,7 +67,7 @@ public abstract class Handler {
     protected Handler() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Publish a <tt>LogRecord</tt>.
      * <p>
      * The logging request was made initially to a <tt>Logger</tt> object,
@@ -81,12 +81,12 @@ public abstract class Handler {
      */
     public abstract void publish(LogRecord record);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flush any buffered output.
      */
     public abstract void flush();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Close the <tt>Handler</tt> and free all associated resources.
      * <p>
      * The close method will perform a <tt>flush</tt> and then close the
@@ -99,7 +99,7 @@ public abstract class Handler {
      */
     public abstract void close() throws SecurityException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a <tt>Formatter</tt>.  This <tt>Formatter</tt> will be used
      * to format <tt>LogRecords</tt> for this <tt>Handler</tt>.
      * <p>
@@ -117,7 +117,7 @@ public abstract class Handler {
         formatter = newFormatter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the <tt>Formatter</tt> for this <tt>Handler</tt>.
      * @return the <tt>Formatter</tt> (may be null).
      */
@@ -125,7 +125,7 @@ public abstract class Handler {
         return formatter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the character encoding used by this <tt>Handler</tt>.
      * <p>
      * The encoding should be set before any <tt>LogRecords</tt> are written
@@ -153,7 +153,7 @@ public abstract class Handler {
         this.encoding = encoding;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the character encoding for this <tt>Handler</tt>.
      *
      * @return  The encoding name.  May be null, which indicates the
@@ -163,7 +163,7 @@ public abstract class Handler {
         return encoding;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a <tt>Filter</tt> to control output on this <tt>Handler</tt>.
      * <P>
      * For each call of <tt>publish</tt> the <tt>Handler</tt> will call
@@ -179,7 +179,7 @@ public abstract class Handler {
         filter = newFilter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the current <tt>Filter</tt> for this <tt>Handler</tt>.
      *
      * @return  a <tt>Filter</tt> object (may be null)
@@ -188,7 +188,7 @@ public abstract class Handler {
         return filter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Define an ErrorManager for this Handler.
      * <p>
      * The ErrorManager's "error" method will be invoked if any
@@ -206,7 +206,7 @@ public abstract class Handler {
         errorManager = em;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the ErrorManager for this Handler.
      *
      * @exception  SecurityException  if a security manager exists and if
@@ -217,7 +217,7 @@ public abstract class Handler {
         return errorManager;
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * Protected convenience method to report an error to this Handler's
      * ErrorManager.  Note that this method retrieves and uses the ErrorManager
      * without doing a security check.  It can therefore be used in
@@ -236,7 +236,7 @@ public abstract class Handler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the log level specifying which message levels will be
      * logged by this <tt>Handler</tt>.  Message levels lower than this
      * value will be discarded.
@@ -257,7 +257,7 @@ public abstract class Handler {
         logLevel = newLevel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the log level specifying which messages will be
      * logged by this <tt>Handler</tt>.  Message levels lower
      * than this level will be discarded.
@@ -267,7 +267,7 @@ public abstract class Handler {
         return logLevel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if this <tt>Handler</tt> would actually log a given <tt>LogRecord</tt>.
      * <p>
      * This method checks if the <tt>LogRecord</tt> has an appropriate

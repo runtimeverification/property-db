@@ -57,7 +57,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.jar.JarEntry;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * Resource bundles contain locale-specific objects.
  * When your program needs a locale-specific resource,
@@ -264,10 +264,10 @@ import java.util.jar.JarEntry;
  */
 public abstract class ResourceBundle {
 
-    /** {@collect.stats} initial size of the bundle cache */
+    /** {@collect.stats}  initial size of the bundle cache */
     private static final int INITIAL_CACHE_SIZE = 32;
 
-    /** {@collect.stats} constant indicating that no resource bundle exists */
+    /** {@collect.stats}  constant indicating that no resource bundle exists */
     private static final ResourceBundle NONEXISTENT_BUNDLE = new ResourceBundle() {
             public Enumeration<String> getKeys() { return null; }
             protected Object handleGetObject(String key) { return null; }
@@ -275,7 +275,7 @@ public abstract class ResourceBundle {
         };
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The cache is a map from cache keys (with bundle base name, locale, and
      * class loader) to either a resource bundle or NONEXISTENT_BUNDLE wrapped by a
      * BundleReference.
@@ -290,7 +290,7 @@ public abstract class ResourceBundle {
     private static final ConcurrentMap<CacheKey, BundleReference> cacheList
         = new ConcurrentHashMap<CacheKey, BundleReference>(INITIAL_CACHE_SIZE);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This ConcurrentMap is used to keep multiple threads from loading the
      * same bundle concurrently.  The table entries are <CacheKey, Thread>
      * where CacheKey is the key for the bundle that is under construction
@@ -300,52 +300,52 @@ public abstract class ResourceBundle {
     private static final ConcurrentMap<CacheKey, Thread> underConstruction
         = new ConcurrentHashMap<CacheKey, Thread>();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queue for reference objects referring to class loaders or bundles.
      */
     private static final ReferenceQueue referenceQueue = new ReferenceQueue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The parent bundle of this bundle.
      * The parent bundle is searched by {@link #getObject getObject}
      * when this bundle does not contain a particular resource.
      */
     protected ResourceBundle parent = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The locale for this bundle.
      */
     private Locale locale = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The base bundle name for this bundle.
      */
     private String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The flag indicating this bundle has expired in the cache.
      */
     private volatile boolean expired;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The back link to the cache key. null if this bundle isn't in
      * the cache (yet) or has expired.
      */
     private volatile CacheKey cacheKey;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A Set of the keys contained only in this ResourceBundle.
      */
     private volatile Set<String> keySet;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     public ResourceBundle() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a string for the given key from this resource bundle or one of its parents.
      * Calling this method is equivalent to calling
      * <blockquote>
@@ -362,7 +362,7 @@ public abstract class ResourceBundle {
         return (String) getObject(key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a string array for the given key from this resource bundle or one of its parents.
      * Calling this method is equivalent to calling
      * <blockquote>
@@ -379,7 +379,7 @@ public abstract class ResourceBundle {
         return (String[]) getObject(key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an object for the given key from this resource bundle or one of its parents.
      * This method first tries to obtain the object from this resource bundle using
      * {@link #handleGetObject(java.lang.String) handleGetObject}.
@@ -408,7 +408,7 @@ public abstract class ResourceBundle {
         return obj;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the locale of this resource bundle. This method can be used after a
      * call to getBundle() to determine whether the resource bundle returned really
      * corresponds to the requested locale or is a fallback.
@@ -444,7 +444,7 @@ public abstract class ResourceBundle {
 
     private static native Class[] getClassContext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A wrapper of ClassLoader.getSystemClassLoader().
      */
     private static class RBClassLoader extends ClassLoader {
@@ -478,7 +478,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the parent bundle of this bundle.
      * The parent bundle is searched by {@link #getObject getObject}
      * when this bundle does not contain a particular resource.
@@ -490,7 +490,7 @@ public abstract class ResourceBundle {
         this.parent = parent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key used for cached resource bundles.  The key checks the base
      * name, the locale, and the class loader to determine if the
      * resource is a match to the requested one. The loader may be
@@ -665,7 +665,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The common interface to get a CacheKey in LoaderReference and
      * BundleReference.
      */
@@ -673,7 +673,7 @@ public abstract class ResourceBundle {
         public CacheKey getCacheKey();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * References to class loaders are weak references, so that they can be
      * garbage collected when nobody else is using them. The ResourceBundle
      * class has no reason to keep class loaders alive.
@@ -692,7 +692,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * References to bundles are soft references so that they can be garbage
      * collected when they have no hard references.
      */
@@ -710,7 +710,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a resource bundle using the specified base name, the default locale,
      * and the caller's class loader. Calling this method is equivalent to calling
      * <blockquote>
@@ -736,7 +736,7 @@ public abstract class ResourceBundle {
                              Control.INSTANCE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a resource bundle using the specified base name, the
      * default locale and the specified control. Calling this method
      * is equivalent to calling
@@ -778,7 +778,7 @@ public abstract class ResourceBundle {
                              control);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a resource bundle using the specified base name and locale,
      * and the caller's class loader. Calling this method is equivalent to calling
      * <blockquote>
@@ -808,7 +808,7 @@ public abstract class ResourceBundle {
                              Control.INSTANCE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a resource bundle using the specified base name, target
      * locale and control, and the caller's class loader. Calling this
      * method is equivalent to calling
@@ -853,7 +853,7 @@ public abstract class ResourceBundle {
                              control);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a resource bundle using the specified base name, locale, and class loader.
      *
      * <p><a name="default_behavior"/>
@@ -980,7 +980,7 @@ public abstract class ResourceBundle {
         return getBundleImpl(baseName, locale, loader, Control.INSTANCE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a resource bundle using the specified base name, target
      * locale, class loader and control. Unlike the {@linkplain
      * #getBundle(String, Locale, ClassLoader) <code>getBundle</code>
@@ -1283,7 +1283,7 @@ public abstract class ResourceBundle {
         return bundle;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if the given <code>List</code> is not null, not empty,
      * not having null in its elements.
      */
@@ -1452,7 +1452,7 @@ public abstract class ResourceBundle {
         return bundle != null && bundle != NONEXISTENT_BUNDLE;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether any of resource bundles in the parent chain,
      * including the leaf, have expired.
      */
@@ -1474,7 +1474,7 @@ public abstract class ResourceBundle {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Declares the beginning of actual resource bundle loading. This method
      * returns true if the declaration is successful and the current thread has
      * been put in underConstruction. If someone else has already begun
@@ -1509,7 +1509,7 @@ public abstract class ResourceBundle {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Declares the end of the bundle loading. This method calls notifyAll
      * for those who are waiting for this completion.
      */
@@ -1525,7 +1525,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throw a MissingResourceException with proper message
      */
     private static final void throwMissingResourceException(String baseName,
@@ -1543,7 +1543,7 @@ public abstract class ResourceBundle {
                                            cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finds a bundle in the cache. Any expired bundles are marked as
      * `expired' and removed from the cache upon return.
      *
@@ -1651,7 +1651,7 @@ public abstract class ResourceBundle {
         return bundle;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Put a new bundle in the cache.
      *
      * @param cacheKey the key for the resource bundle
@@ -1709,7 +1709,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all resource bundles from the cache that have been loaded
      * using the caller's class loader.
      *
@@ -1720,7 +1720,7 @@ public abstract class ResourceBundle {
         clearCache(getLoader());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all resource bundles from the cache that have been loaded
      * using the given class loader.
      *
@@ -1741,7 +1741,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an object for the given key from this resource bundle.
      * Returns null if this resource bundle does not contain an
      * object for the given key.
@@ -1752,7 +1752,7 @@ public abstract class ResourceBundle {
      */
     protected abstract Object handleGetObject(String key);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of the keys.
      *
      * @return an <code>Enumeration</code> of the keys contained in
@@ -1760,7 +1760,7 @@ public abstract class ResourceBundle {
      */
     public abstract Enumeration<String> getKeys();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the given <code>key</code> is contained in
      * this <code>ResourceBundle</code> or its parent bundles.
      *
@@ -1785,7 +1785,7 @@ public abstract class ResourceBundle {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Set</code> of all keys contained in this
      * <code>ResourceBundle</code> and its parent bundles.
      *
@@ -1801,7 +1801,7 @@ public abstract class ResourceBundle {
         return keys;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Set</code> of the keys contained <em>only</em>
      * in this <code>ResourceBundle</code>.
      *
@@ -1839,7 +1839,7 @@ public abstract class ResourceBundle {
 
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>ResourceBundle.Control</code> defines a set of callback methods
      * that are invoked by the {@link ResourceBundle#getBundle(String,
      * Locale, ClassLoader, Control) ResourceBundle.getBundle} factory
@@ -1987,7 +1987,7 @@ public abstract class ResourceBundle {
      * @since 1.6
      */
     public static class Control {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The default format <code>List</code>, which contains the strings
          * <code>"java.class"</code> and <code>"java.properties"</code>, in
          * this order. This <code>List</code> is {@linkplain
@@ -1999,7 +1999,7 @@ public abstract class ResourceBundle {
             = Collections.unmodifiableList(Arrays.asList("java.class",
                                                          "java.properties"));
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The class-only format <code>List</code> containing
          * <code>"java.class"</code>. This <code>List</code> is {@linkplain
          * Collections#unmodifiableList(List) unmodifiable}.
@@ -2009,7 +2009,7 @@ public abstract class ResourceBundle {
         public static final List<String> FORMAT_CLASS
             = Collections.unmodifiableList(Arrays.asList("java.class"));
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The properties-only format <code>List</code> containing
          * <code>"java.properties"</code>. This <code>List</code> is
          * {@linkplain Collections#unmodifiableList(List) unmodifiable}.
@@ -2019,7 +2019,7 @@ public abstract class ResourceBundle {
         public static final List<String> FORMAT_PROPERTIES
             = Collections.unmodifiableList(Arrays.asList("java.properties"));
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The time-to-live constant for not caching loaded resource bundle
          * instances.
          *
@@ -2027,7 +2027,7 @@ public abstract class ResourceBundle {
          */
         public static final long TTL_DONT_CACHE = -1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The time-to-live constant for disabling the expiration control
          * for loaded resource bundle instances in the cache.
          *
@@ -2037,14 +2037,14 @@ public abstract class ResourceBundle {
 
         private static final Control INSTANCE = new Control();
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Sole constructor. (For invocation by subclass constructors,
          * typically implicit.)
          */
         protected Control() {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code>. The <code>formats</code> must be equal to
@@ -2080,7 +2080,7 @@ public abstract class ResourceBundle {
             throw new IllegalArgumentException();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code> and the {@link
@@ -2115,7 +2115,7 @@ public abstract class ResourceBundle {
             throw new IllegalArgumentException();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>List</code> of <code>String</code>s containing
          * formats to be used to load resource bundles for the given
          * <code>baseName</code>. The <code>ResourceBundle.getBundle</code>
@@ -2156,7 +2156,7 @@ public abstract class ResourceBundle {
             return FORMAT_DEFAULT;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>List</code> of <code>Locale</code>s as candidate
          * locales for <code>baseName</code> and <code>locale</code>. This
          * method is called by the <code>ResourceBundle.getBundle</code>
@@ -2251,7 +2251,7 @@ public abstract class ResourceBundle {
             return locales;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a <code>Locale</code> to be used as a fallback locale for
          * further resource bundle searches by the
          * <code>ResourceBundle.getBundle</code> factory method. This method
@@ -2295,7 +2295,7 @@ public abstract class ResourceBundle {
             return locale.equals(defaultLocale) ? null : defaultLocale;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Instantiates a resource bundle for the given bundle name of the
          * given format and locale, using the given class loader if
          * necessary. This method returns <code>null</code> if there is no
@@ -2454,7 +2454,7 @@ public abstract class ResourceBundle {
             return bundle;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the time-to-live (TTL) value for resource bundles that
          * are loaded under this
          * <code>ResourceBundle.Control</code>. Positive time-to-live values
@@ -2507,7 +2507,7 @@ public abstract class ResourceBundle {
             return TTL_NO_EXPIRATION_CONTROL;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Determines if the expired <code>bundle</code> in the cache needs
          * to be reloaded based on the loading time given by
          * <code>loadTime</code> or some other criteria. The method returns
@@ -2596,7 +2596,7 @@ public abstract class ResourceBundle {
             return result;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Converts the given <code>baseName</code> and <code>locale</code>
          * to the bundle name. This method is called from the default
          * implementation of the {@link #newBundle(String, Locale, String,
@@ -2663,7 +2663,7 @@ public abstract class ResourceBundle {
 
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Converts the given <code>bundleName</code> to the form required
          * by the {@link ClassLoader#getResource ClassLoader.getResource}
          * method by replacing all occurrences of <code>'.'</code> in

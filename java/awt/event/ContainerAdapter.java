@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving container events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -50,12 +50,12 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class ContainerAdapter implements ContainerListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a component has been added to the container.
      */
     public void componentAdded(ContainerEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a component has been removed from the container.
      */
     public void componentRemoved(ContainerEvent e) {}

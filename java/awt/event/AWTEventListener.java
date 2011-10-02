@@ -28,7 +28,7 @@ package java.awt.event;
 import java.util.EventListener;
 import java.awt.AWTEvent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving notification of events
  * dispatched to objects that are instances of Component or
  * MenuComponent or their subclasses.  Unlike the other EventListeners
@@ -54,7 +54,7 @@ import java.awt.AWTEvent;
  */
 public interface AWTEventListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when an event is dispatched in the AWT.
      */
     public void eventDispatched(AWTEvent event);

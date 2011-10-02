@@ -34,7 +34,7 @@ import sun.awt.SunToolkit;
 import sun.awt.HeadlessToolkit;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>SystemTray</code> class represents the system tray for a
  * desktop.  On Microsoft Windows it is referred to as the "Taskbar
  * Status Area", on Gnome it is referred to as the "Notification
@@ -125,7 +125,7 @@ public class SystemTray {
 
     transient private SystemTrayPeer peer;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Private <code>SystemTray</code> constructor.
      *
      */
@@ -133,7 +133,7 @@ public class SystemTray {
         addNotify();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>SystemTray</code> instance that represents the
      * desktop's tray area.  This always returns the same instance per
      * application.  On some platforms the system tray may not be
@@ -175,7 +175,7 @@ public class SystemTray {
         return systemTray;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the system tray is supported on the current
      * platform.  In addition to displaying the tray icon, minimal
      * system tray support includes either a popup menu (see {@link
@@ -212,7 +212,7 @@ public class SystemTray {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>TrayIcon</code> to the <code>SystemTray</code>.
      * The tray icon becomes visible in the system tray once it is
      * added.  The order in which icons are displayed in a tray is not
@@ -263,7 +263,7 @@ public class SystemTray {
         firePropertyChange("trayIcons", oldArray, newArray);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified <code>TrayIcon</code> from the
      * <code>SystemTray</code>.
      *
@@ -297,7 +297,7 @@ public class SystemTray {
         firePropertyChange("trayIcons", oldArray, newArray);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all icons added to the tray by this
      * application.  You can't access the icons added by another
      * application.  Some browsers partition applets in different
@@ -324,7 +324,7 @@ public class SystemTray {
         return new TrayIcon[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the size, in pixels, of the space that a tray icon will
      * occupy in the system tray.  Developers may use this methods to
      * acquire the preferred size for the image property of a tray icon
@@ -340,7 +340,7 @@ public class SystemTray {
         return peer.getTrayIconSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a {@code PropertyChangeListener} to the listener list for a
      * specific property. Currently supported property:
      * <ul>
@@ -374,7 +374,7 @@ public class SystemTray {
         getCurrentChangeSupport().addPropertyChangeListener(propertyName, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a {@code PropertyChangeListener} from the listener list
      * for a specific property.
      * <p>
@@ -398,7 +398,7 @@ public class SystemTray {
         getCurrentChangeSupport().removePropertyChangeListener(propertyName, listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the listeners that have been associated
      * with the named property.
      * <p>
@@ -422,7 +422,7 @@ public class SystemTray {
     // ***************************************************************
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Support for reporting bound property changes for Object properties.
      * This method can be called when a bound property has changed and it will
      * send the appropriate PropertyChangeEvent to any registered
@@ -441,7 +441,7 @@ public class SystemTray {
         getCurrentChangeSupport().firePropertyChange(propertyName, oldValue, newValue);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current PropertyChangeSupport instance for the
      * calling thread's context.
      *

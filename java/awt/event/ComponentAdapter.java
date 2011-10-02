@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving component events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -50,22 +50,22 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class ComponentAdapter implements ComponentListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the component's size changes.
      */
     public void componentResized(ComponentEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the component's position changes.
      */
     public void componentMoved(ComponentEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the component has been made visible.
      */
     public void componentShown(ComponentEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the component has been made invisible.
      */
     public void componentHidden(ComponentEvent e) {}

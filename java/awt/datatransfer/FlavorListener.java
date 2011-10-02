@@ -27,14 +27,14 @@ package java.awt.datatransfer;
 import java.util.EventListener;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Defines an object which listens for {@link FlavorEvent}s.
  *
  * @author Alexander Gerasimov
  * @since 1.5
  */
 public interface FlavorListener extends EventListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the target {@link Clipboard} of the listener
      * has changed its available {@link DataFlavor}s.
      * <p>

@@ -27,7 +27,7 @@ package java.util.prefs;
 
 import java.io.NotSerializableException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An event emitted by a <tt>Preferences</tt> node to indicate that
  * a child of that node has been added or removed.<p>
  *
@@ -44,14 +44,14 @@ import java.io.NotSerializableException;
  */
 
 public class NodeChangeEvent extends java.util.EventObject {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The node that was added or removed.
      *
      * @serial
      */
     private Preferences child;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>NodeChangeEvent</code> instance.
      *
      * @param parent  The parent of the node that was added or removed.
@@ -62,7 +62,7 @@ public class NodeChangeEvent extends java.util.EventObject {
         this.child = child;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parent of the node that was added or removed.
      *
      * @return  The parent Preferences node whose child was added or removed
@@ -71,7 +71,7 @@ public class NodeChangeEvent extends java.util.EventObject {
         return (Preferences) getSource();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the node that was added or removed.
      *
      * @return  The node that was added or removed.
@@ -80,7 +80,7 @@ public class NodeChangeEvent extends java.util.EventObject {
         return child;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws NotSerializableException, since NodeChangeEvent objects are not
      * intended to be serializable.
      */
@@ -89,7 +89,7 @@ public class NodeChangeEvent extends java.util.EventObject {
          throw new NotSerializableException("Not serializable.");
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws NotSerializableException, since NodeChangeEvent objects are not
      * intended to be serializable.
      */

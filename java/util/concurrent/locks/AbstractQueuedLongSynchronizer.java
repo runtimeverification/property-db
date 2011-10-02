@@ -39,7 +39,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
 import sun.misc.Unsafe;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A version of {@link AbstractQueuedSynchronizer} in
  * which synchronization state is maintained as a <tt>long</tt>.
  * This class has exactly the same structure, properties, and methods
@@ -69,13 +69,13 @@ public abstract class AbstractQueuedLongSynchronizer
       keep it that way.
     */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <tt>AbstractQueuedLongSynchronizer</tt> instance
      * with initial synchronization state of zero.
      */
     protected AbstractQueuedLongSynchronizer() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wait queue node class.
      *
      * <p>The wait queue is a variant of a "CLH" (Craig, Landin, and
@@ -155,24 +155,24 @@ public abstract class AbstractQueuedLongSynchronizer
      * on the design of this class.
      */
     static final class Node {
-        /** {@collect.stats} Marker to indicate a node is waiting in shared mode */
+        /** {@collect.stats}  Marker to indicate a node is waiting in shared mode */
         static final Node SHARED = new Node();
-        /** {@collect.stats} Marker to indicate a node is waiting in exclusive mode */
+        /** {@collect.stats}  Marker to indicate a node is waiting in exclusive mode */
         static final Node EXCLUSIVE = null;
 
-        /** {@collect.stats} waitStatus value to indicate thread has cancelled */
+        /** {@collect.stats}  waitStatus value to indicate thread has cancelled */
         static final int CANCELLED =  1;
-        /** {@collect.stats} waitStatus value to indicate successor's thread needs unparking */
+        /** {@collect.stats}  waitStatus value to indicate successor's thread needs unparking */
         static final int SIGNAL    = -1;
-        /** {@collect.stats} waitStatus value to indicate thread is waiting on condition */
+        /** {@collect.stats}  waitStatus value to indicate thread is waiting on condition */
         static final int CONDITION = -2;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * waitStatus value to indicate the next acquireShared should
          * unconditionally propagate
          */
         static final int PROPAGATE = -3;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Status field, taking on only the values:
          *   SIGNAL:     The successor of this node is (or will soon be)
          *               blocked (via park), so the current node must
@@ -208,7 +208,7 @@ public abstract class AbstractQueuedLongSynchronizer
          */
         volatile int waitStatus;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Link to predecessor node that current node/thread relies on
          * for checking waitStatus. Assigned during enqueing, and nulled
          * out (for sake of GC) only upon dequeuing.  Also, upon
@@ -221,7 +221,7 @@ public abstract class AbstractQueuedLongSynchronizer
          */
         volatile Node prev;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Link to the successor node that the current node/thread
          * unparks upon release. Assigned during enqueuing, adjusted
          * when bypassing cancelled predecessors, and nulled out (for
@@ -236,13 +236,13 @@ public abstract class AbstractQueuedLongSynchronizer
          */
         volatile Node next;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The thread that enqueued this node.  Initialized on
          * construction and nulled out after use.
          */
         volatile Thread thread;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Link to next node waiting on condition, or the special
          * value SHARED.  Because condition queues are accessed only
          * when holding in exclusive mode, we just need a simple
@@ -254,14 +254,14 @@ public abstract class AbstractQueuedLongSynchronizer
          */
         Node nextWaiter;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if node is waiting in shared mode
          */
         final boolean isShared() {
             return nextWaiter == SHARED;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns previous node, or throws NullPointerException if null.
          * Use when predecessor cannot be null.  The null check could
          * be elided, but is present to help the VM.
@@ -290,7 +290,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Head of the wait queue, lazily initialized.  Except for
      * initialization, it is modified only via method setHead.  Note:
      * If head exists, its waitStatus is guaranteed not to be
@@ -298,18 +298,18 @@ public abstract class AbstractQueuedLongSynchronizer
      */
     private transient volatile Node head;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tail of the wait queue, lazily initialized.  Modified only via
      * method enq to add new wait node.
      */
     private transient volatile Node tail;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The synchronization state.
      */
     private volatile long state;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value of synchronization state.
      * This operation has memory semantics of a <tt>volatile</tt> read.
      * @return current state value
@@ -318,7 +318,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return state;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of synchronization state.
      * This operation has memory semantics of a <tt>volatile</tt> write.
      * @param newState the new state value
@@ -327,7 +327,7 @@ public abstract class AbstractQueuedLongSynchronizer
         state = newState;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets synchronization state to the given updated
      * value if the current state value equals the expected value.
      * This operation has memory semantics of a <tt>volatile</tt> read
@@ -345,14 +345,14 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Queuing utilities
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of nanoseconds for which it is faster to spin
      * rather than to use timed park. A rough estimate suffices
      * to improve responsiveness with very short timeouts.
      */
     static final long spinForTimeoutThreshold = 1000L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts node into queue, initializing if necessary. See picture above.
      * @param node the node to insert
      * @return node's predecessor
@@ -373,7 +373,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and enqueues node for current thread and given mode.
      *
      * @param mode Node.EXCLUSIVE for exclusive, Node.SHARED for shared
@@ -394,7 +394,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return node;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets head of queue to be node, thus dequeuing. Called only by
      * acquire methods.  Also nulls out unused fields for sake of GC
      * and to suppress unnecessary signals and traversals.
@@ -407,7 +407,7 @@ public abstract class AbstractQueuedLongSynchronizer
         node.prev = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wakes up node's successor, if one exists.
      *
      * @param node the node
@@ -439,7 +439,7 @@ public abstract class AbstractQueuedLongSynchronizer
             LockSupport.unpark(s.thread);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Release action for shared mode -- signal successor and ensure
      * propagation. (Note: For exclusive mode, release just amounts
      * to calling unparkSuccessor of head if it needs signal.)
@@ -474,7 +474,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets head of queue, and checks if successor may be waiting
      * in shared mode, if so propagating if either propagate > 0 or
      * PROPAGATE status was set.
@@ -509,7 +509,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Utilities for various versions of acquire
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cancels an ongoing attempt to acquire.
      *
      * @param node the node
@@ -558,7 +558,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks and updates status for a node that failed to acquire.
      * Returns true if thread should block. This is the main signal
      * control in all acquire loops.  Requires that pred == node.prev
@@ -595,14 +595,14 @@ public abstract class AbstractQueuedLongSynchronizer
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method to interrupt current thread.
      */
     private static void selfInterrupt() {
         Thread.currentThread().interrupt();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method to park and then check if interrupted
      *
      * @return {@code true} if interrupted
@@ -621,7 +621,7 @@ public abstract class AbstractQueuedLongSynchronizer
      * least not without hurting performance too much.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in exclusive uninterruptible mode for thread already in
      * queue. Used by condition wait methods as well as acquire.
      *
@@ -651,7 +651,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in exclusive interruptible mode.
      * @param arg the acquire argument
      */
@@ -678,7 +678,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in exclusive timed mode.
      *
      * @param arg the acquire argument
@@ -716,7 +716,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in shared uninterruptible mode.
      * @param arg the acquire argument
      */
@@ -748,7 +748,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in shared interruptible mode.
      * @param arg the acquire argument
      */
@@ -778,7 +778,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in shared timed mode.
      *
      * @param arg the acquire argument
@@ -822,7 +822,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Main exported methods
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire in exclusive mode. This method should query
      * if the state of the object permits it to be acquired in the
      * exclusive mode, and if so to acquire it.
@@ -852,7 +852,7 @@ public abstract class AbstractQueuedLongSynchronizer
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to set the state to reflect a release in exclusive
      * mode.
      *
@@ -878,7 +878,7 @@ public abstract class AbstractQueuedLongSynchronizer
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire in shared mode. This method should query if
      * the state of the object permits it to be acquired in the shared
      * mode, and if so to acquire it.
@@ -914,7 +914,7 @@ public abstract class AbstractQueuedLongSynchronizer
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to set the state to reflect a release in shared mode.
      *
      * <p>This method is always invoked by the thread performing release.
@@ -939,7 +939,7 @@ public abstract class AbstractQueuedLongSynchronizer
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if synchronization is held exclusively with
      * respect to the current (calling) thread.  This method is invoked
      * upon each call to a non-waiting {@link ConditionObject} method.
@@ -958,7 +958,7 @@ public abstract class AbstractQueuedLongSynchronizer
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in exclusive mode, ignoring interrupts.  Implemented
      * by invoking at least once {@link #tryAcquire},
      * returning on success.  Otherwise the thread is queued, possibly
@@ -976,7 +976,7 @@ public abstract class AbstractQueuedLongSynchronizer
             selfInterrupt();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in exclusive mode, aborting if interrupted.
      * Implemented by first checking interrupt status, then invoking
      * at least once {@link #tryAcquire}, returning on
@@ -997,7 +997,7 @@ public abstract class AbstractQueuedLongSynchronizer
             doAcquireInterruptibly(arg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire in exclusive mode, aborting if interrupted,
      * and failing if the given timeout elapses.  Implemented by first
      * checking interrupt status, then invoking at least once {@link
@@ -1021,7 +1021,7 @@ public abstract class AbstractQueuedLongSynchronizer
             doAcquireNanos(arg, nanosTimeout);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases in exclusive mode.  Implemented by unblocking one or
      * more threads if {@link #tryRelease} returns true.
      * This method can be used to implement method {@link Lock#unlock}.
@@ -1041,7 +1041,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in shared mode, ignoring interrupts.  Implemented by
      * first invoking at least once {@link #tryAcquireShared},
      * returning on success.  Otherwise the thread is queued, possibly
@@ -1057,7 +1057,7 @@ public abstract class AbstractQueuedLongSynchronizer
             doAcquireShared(arg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Acquires in shared mode, aborting if interrupted.  Implemented
      * by first checking interrupt status, then invoking at least once
      * {@link #tryAcquireShared}, returning on success.  Otherwise the
@@ -1077,7 +1077,7 @@ public abstract class AbstractQueuedLongSynchronizer
             doAcquireSharedInterruptibly(arg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to acquire in shared mode, aborting if interrupted, and
      * failing if the given timeout elapses.  Implemented by first
      * checking interrupt status, then invoking at least once {@link
@@ -1100,7 +1100,7 @@ public abstract class AbstractQueuedLongSynchronizer
             doAcquireSharedNanos(arg, nanosTimeout);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases in shared mode.  Implemented by unblocking one or more
      * threads if {@link #tryReleaseShared} returns true.
      *
@@ -1119,7 +1119,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Queue inspection methods
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether any threads are waiting to acquire. Note that
      * because cancellations due to interrupts and timeouts may occur
      * at any time, a {@code true} return does not guarantee that any
@@ -1134,7 +1134,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return head != tail;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether any threads have ever contended to acquire this
      * synchronizer; that is if an acquire method has ever blocked.
      *
@@ -1147,7 +1147,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return head != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first (longest-waiting) thread in the queue, or
      * {@code null} if no threads are currently queued.
      *
@@ -1163,7 +1163,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return (head == tail) ? null : fullGetFirstQueuedThread();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Version of getFirstQueuedThread called when fastpath fails
      */
     private Thread fullGetFirstQueuedThread() {
@@ -1202,7 +1202,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return firstThread;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the given thread is currently queued.
      *
      * <p>This implementation traverses the queue to determine
@@ -1221,7 +1221,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if the apparent first queued thread, if one
      * exists, is waiting in exclusive mode.  If this method returns
      * {@code true}, and the current thread is attempting to acquire in
@@ -1238,7 +1238,7 @@ public abstract class AbstractQueuedLongSynchronizer
             s.thread != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether any threads have been waiting to acquire longer
      * than the current thread.
      *
@@ -1295,7 +1295,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Instrumentation and monitoring methods
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an estimate of the number of threads waiting to
      * acquire.  The value is only an estimate because the number of
      * threads may change dynamically while this method traverses
@@ -1314,7 +1314,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a collection containing threads that may be waiting to
      * acquire.  Because the actual set of threads may change
      * dynamically while constructing this result, the returned
@@ -1335,7 +1335,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return list;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a collection containing threads that may be waiting to
      * acquire in exclusive mode. This has the same properties
      * as {@link #getQueuedThreads} except that it only returns
@@ -1355,7 +1355,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return list;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a collection containing threads that may be waiting to
      * acquire in shared mode. This has the same properties
      * as {@link #getQueuedThreads} except that it only returns
@@ -1375,7 +1375,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return list;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string identifying this synchronizer, as well as its state.
      * The state, in brackets, includes the String {@code "State ="}
      * followed by the current value of {@link #getState}, and either
@@ -1394,7 +1394,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Internal support methods for Conditions
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if a node, always one that was initially placed on
      * a condition queue, is now waiting to reacquire on sync queue.
      * @param node the node
@@ -1416,7 +1416,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return findNodeFromTail(node);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if node is on sync queue by searching backwards from tail.
      * Called only when needed by isOnSyncQueue.
      * @return true if present
@@ -1432,7 +1432,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers a node from a condition queue onto sync queue.
      * Returns true if successful.
      * @param node the node
@@ -1459,7 +1459,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers node, if necessary, to sync queue after a cancelled
      * wait. Returns true if thread was cancelled before being
      * signalled.
@@ -1483,7 +1483,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invokes release with current state value; returns saved state.
      * Cancels node and throws exception on failure.
      * @param node the condition node for this wait
@@ -1507,7 +1507,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
     // Instrumentation methods for conditions
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether the given ConditionObject
      * uses this synchronizer as its lock.
      *
@@ -1521,7 +1521,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return condition.isOwnedBy(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries whether any threads are waiting on the given condition
      * associated with this synchronizer. Note that because timeouts
      * and interrupts may occur at any time, a <tt>true</tt> return
@@ -1543,7 +1543,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return condition.hasWaiters();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an estimate of the number of threads waiting on the
      * given condition associated with this synchronizer. Note that
      * because timeouts and interrupts may occur at any time, the
@@ -1565,7 +1565,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return condition.getWaitQueueLength();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a collection containing those threads that may be
      * waiting on the given condition associated with this
      * synchronizer.  Because the actual set of threads may change
@@ -1587,7 +1587,7 @@ public abstract class AbstractQueuedLongSynchronizer
         return condition.getWaitingThreads();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Condition implementation for a {@link
      * AbstractQueuedLongSynchronizer} serving as the basis of a {@link
      * Lock} implementation.
@@ -1606,19 +1606,19 @@ public abstract class AbstractQueuedLongSynchronizer
      */
     public class ConditionObject implements Condition, java.io.Serializable {
         private static final long serialVersionUID = 1173984872572414699L;
-        /** {@collect.stats} First node of condition queue. */
+        /** {@collect.stats}  First node of condition queue. */
         private transient Node firstWaiter;
-        /** {@collect.stats} Last node of condition queue. */
+        /** {@collect.stats}  Last node of condition queue. */
         private transient Node lastWaiter;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a new <tt>ConditionObject</tt> instance.
          */
         public ConditionObject() { }
 
         // Internal methods
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds a new waiter to wait queue.
          * @return its new wait node
          */
@@ -1638,7 +1638,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return node;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Removes and transfers nodes until hit non-cancelled one or
          * null. Split out from signal in part to encourage compilers
          * to inline the case of no waiters.
@@ -1653,7 +1653,7 @@ public abstract class AbstractQueuedLongSynchronizer
                      (first = firstWaiter) != null);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Removes and transfers all nodes.
          * @param first (non-null) the first node on condition queue
          */
@@ -1667,7 +1667,7 @@ public abstract class AbstractQueuedLongSynchronizer
             } while (first != null);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Unlinks cancelled waiter nodes from condition queue.
          * Called only while holding lock. This is called when
          * cancellation occurred during condition wait, and upon
@@ -1703,7 +1703,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
         // public methods
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Moves the longest-waiting thread, if one exists, from the
          * wait queue for this condition to the wait queue for the
          * owning lock.
@@ -1719,7 +1719,7 @@ public abstract class AbstractQueuedLongSynchronizer
                 doSignal(first);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Moves all threads from the wait queue for this condition to
          * the wait queue for the owning lock.
          *
@@ -1734,7 +1734,7 @@ public abstract class AbstractQueuedLongSynchronizer
                 doSignalAll(first);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements uninterruptible condition wait.
          * <ol>
          * <li> Save lock state returned by {@link #getState}.
@@ -1766,12 +1766,12 @@ public abstract class AbstractQueuedLongSynchronizer
          * interrupted while blocked waiting to re-acquire.
          */
 
-        /** {@collect.stats} Mode meaning to reinterrupt on exit from wait */
+        /** {@collect.stats}  Mode meaning to reinterrupt on exit from wait */
         private static final int REINTERRUPT =  1;
-        /** {@collect.stats} Mode meaning to throw InterruptedException on exit from wait */
+        /** {@collect.stats}  Mode meaning to throw InterruptedException on exit from wait */
         private static final int THROW_IE    = -1;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Checks for interrupt, returning THROW_IE if interrupted
          * before signalled, REINTERRUPT if after signalled, or
          * 0 if not interrupted.
@@ -1782,7 +1782,7 @@ public abstract class AbstractQueuedLongSynchronizer
                 0;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Throws InterruptedException, reinterrupts current thread, or
          * does nothing, depending on mode.
          */
@@ -1794,7 +1794,7 @@ public abstract class AbstractQueuedLongSynchronizer
                 selfInterrupt();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements interruptible condition wait.
          * <ol>
          * <li> If current thread is interrupted, throw InterruptedException.
@@ -1827,7 +1827,7 @@ public abstract class AbstractQueuedLongSynchronizer
                 reportInterruptAfterWait(interruptMode);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements timed condition wait.
          * <ol>
          * <li> If current thread is interrupted, throw InterruptedException.
@@ -1870,7 +1870,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return nanosTimeout - (System.nanoTime() - lastTime);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements absolute timed condition wait.
          * <ol>
          * <li> If current thread is interrupted, throw InterruptedException.
@@ -1913,7 +1913,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return !timedout;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements timed condition wait.
          * <ol>
          * <li> If current thread is interrupted, throw InterruptedException.
@@ -1963,7 +1963,7 @@ public abstract class AbstractQueuedLongSynchronizer
 
         //  support for instrumentation
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if this condition was created by the given
          * synchronization object.
          *
@@ -1973,7 +1973,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return sync == AbstractQueuedLongSynchronizer.this;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Queries whether any threads are waiting on this condition.
          * Implements {@link AbstractQueuedLongSynchronizer#hasWaiters}.
          *
@@ -1991,7 +1991,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return false;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns an estimate of the number of threads waiting on
          * this condition.
          * Implements {@link AbstractQueuedLongSynchronizer#getWaitQueueLength}.
@@ -2011,7 +2011,7 @@ public abstract class AbstractQueuedLongSynchronizer
             return n;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a collection containing those threads that may be
          * waiting on this Condition.
          * Implements {@link AbstractQueuedLongSynchronizer#getWaitingThreads}.
@@ -2035,7 +2035,7 @@ public abstract class AbstractQueuedLongSynchronizer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Setup to support compareAndSet. We need to natively implement
      * this here: For the sake of permitting future enhancements, we
      * cannot explicitly subclass AtomicLong, which would be
@@ -2067,21 +2067,21 @@ public abstract class AbstractQueuedLongSynchronizer
         } catch (Exception ex) { throw new Error(ex); }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CAS head field. Used only by enq.
      */
     private final boolean compareAndSetHead(Node update) {
         return unsafe.compareAndSwapObject(this, headOffset, null, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CAS tail field. Used only by enq.
      */
     private final boolean compareAndSetTail(Node expect, Node update) {
         return unsafe.compareAndSwapObject(this, tailOffset, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CAS waitStatus field of a node.
      */
     private final static boolean compareAndSetWaitStatus(Node node,
@@ -2091,7 +2091,7 @@ public abstract class AbstractQueuedLongSynchronizer
                                         expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CAS next field of a node.
      */
     private final static boolean compareAndSetNext(Node node,

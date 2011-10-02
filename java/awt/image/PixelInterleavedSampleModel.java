@@ -25,7 +25,7 @@
 
 package java.awt.image;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *  This class represents image data which is stored in a pixel interleaved
  *  fashion and for
  *  which each sample of a pixel occupies one data element of the DataBuffer.
@@ -55,7 +55,7 @@ package java.awt.image;
 
 public class PixelInterleavedSampleModel extends ComponentSampleModel
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a PixelInterleavedSampleModel with the specified parameters.
      * The number of bands will be given by the length of the bandOffsets
      * array.
@@ -110,7 +110,7 @@ public class PixelInterleavedSampleModel extends ComponentSampleModel
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new PixelInterleavedSampleModel with the specified
      * width and height.  The new PixelInterleavedSampleModel will have the
      * same number of bands, storage data type, and pixel stride
@@ -145,7 +145,7 @@ public class PixelInterleavedSampleModel extends ComponentSampleModel
                                                pixelStride*w, bandOff);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new PixelInterleavedSampleModel with a subset of the
      * bands of this PixelInterleavedSampleModel.  The new
      * PixelInterleavedSampleModel can be used with any DataBuffer that the

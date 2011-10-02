@@ -27,7 +27,7 @@ package java.beans;
 
 import java.beans.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is a support class to help build property editors.
  * <p>
  * It can be used either as a base class or as a delagatee.
@@ -35,7 +35,7 @@ import java.beans.*;
 
 public class PropertyEditorSupport implements PropertyEditor {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>PropertyEditorSupport</code> object.
      *
      * @since 1.5
@@ -44,7 +44,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         setSource(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>PropertyEditorSupport</code> object.
      *
      * @param source the source used for event firing
@@ -57,7 +57,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         setSource(source);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bean that is used as the
      * source of events. If the source has not
      * been explicitly set then this instance of
@@ -70,7 +70,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         return source;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the source bean.
      * <p>
      * The source bean is used as the source of events
@@ -84,7 +84,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         this.source = source;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set (or change) the object that is to be edited.
      *
      * @param value The new target object to be edited.  Note that this
@@ -97,7 +97,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         firePropertyChange();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of the property.
      *
      * @return The value of the property.
@@ -108,7 +108,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the class will honor the paintValue method.
      *
      * @return  True if the class will honor the paintValue method.
@@ -118,7 +118,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Paint a representation of the value into a given area of screen
      * real estate.  Note that the propertyEditor is responsible for doing
      * its own clipping so that it fits into the given rectangle.
@@ -134,7 +134,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is intended for use when generating Java code to set
      * the value of the property.  It should return a fragment of Java code
      * that can be used to initialize a variable with the current property
@@ -151,7 +151,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the property value as a string suitable for presentation
      * to a human to edit.
      *
@@ -167,7 +167,7 @@ public class PropertyEditorSupport implements PropertyEditor {
                 : "null";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the property value by parsing a given String.  May raise
      * java.lang.IllegalArgumentException if either the String is
      * badly formatted or if this kind of property can't be expressed
@@ -185,7 +185,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the property value must be one of a set of known tagged values,
      * then this method should return an array of the tag values.  This can
      * be used to represent (for example) enum values.  If a PropertyEditor
@@ -202,7 +202,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A PropertyEditor may chose to make available a full custom Component
      * that edits its property value.  It is the responsibility of the
      * PropertyEditor to hook itself up to its editor Component itself and
@@ -221,7 +221,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the propertyEditor can provide a custom editor.
      *
      * @return  True if the propertyEditor can provide a custom editor.
@@ -232,7 +232,7 @@ public class PropertyEditorSupport implements PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Register a listener for the PropertyChange event.  The class will
      * fire a PropertyChange value whenever the value is updated.
      *
@@ -247,7 +247,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         listeners.addElement(listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove a listener for the PropertyChange event.
      *
      * @param listener  The PropertyChange listener to be removed.
@@ -260,7 +260,7 @@ public class PropertyEditorSupport implements PropertyEditor {
         listeners.removeElement(listener);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Report that we have been modified to any interested listeners.
      */
     public void firePropertyChange() {

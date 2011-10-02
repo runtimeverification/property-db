@@ -26,7 +26,7 @@
 package java.awt.image;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Kernel</code> class defines a matrix that describes how a
  * specified pixel and its surrounding pixels affect the value
  * computed for the pixel's position in the output image of a filtering
@@ -49,7 +49,7 @@ public class Kernel implements Cloneable {
         initIDs();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Kernel</code> object from an array of floats.
      * The first <code>width</code>*<code>height</code> elements of
      * the <code>data</code> array are copied.
@@ -79,7 +79,7 @@ public class Kernel implements Cloneable {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X origin of this <code>Kernel</code>.
      * @return the X origin.
      */
@@ -87,7 +87,7 @@ public class Kernel implements Cloneable {
         return xOrigin;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y origin of this <code>Kernel</code>.
      * @return the Y origin.
      */
@@ -95,7 +95,7 @@ public class Kernel implements Cloneable {
         return yOrigin;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the width of this <code>Kernel</code>.
      * @return the width of this <code>Kernel</code>.
      */
@@ -103,7 +103,7 @@ public class Kernel implements Cloneable {
         return width;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the height of this <code>Kernel</code>.
      * @return the height of this <code>Kernel</code>.
      */
@@ -111,7 +111,7 @@ public class Kernel implements Cloneable {
         return height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the kernel data in row major order.
      * The <code>data</code> array is returned.  If <code>data</code>
      * is <code>null</code>, a new array is allocated.
@@ -138,7 +138,7 @@ public class Kernel implements Cloneable {
         return data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clones this object.
      * @return a clone of this object.
      */

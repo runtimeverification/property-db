@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A set of attributes which control a print job.
  * <p>
  * Instances of this class control the number of copies, default selection,
@@ -58,7 +58,7 @@ package java.awt;
  * @since 1.3
  */
 public final class JobAttributes implements Cloneable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible default selection states.
      * @since 1.3
      */
@@ -71,19 +71,19 @@ public final class JobAttributes implements Cloneable {
             "all", "range", "selection"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DefaultSelectionType</code> instance to use for
          * specifying that all pages of the job should be printed.
          */
         public static final DefaultSelectionType ALL =
            new DefaultSelectionType(I_ALL);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DefaultSelectionType</code> instance to use for
          * specifying that a range of pages of the job should be printed.
          */
         public static final DefaultSelectionType RANGE =
            new DefaultSelectionType(I_RANGE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DefaultSelectionType</code> instance to use for
          * specifying that the current selection should be printed.
          */
@@ -95,7 +95,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible job destinations.
      * @since 1.3
      */
@@ -107,13 +107,13 @@ public final class JobAttributes implements Cloneable {
             "file", "printer"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DestinationType</code> instance to use for
          * specifying print to file.
          */
         public static final DestinationType FILE =
             new DestinationType(I_FILE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DestinationType</code> instance to use for
          * specifying print to printer.
          */
@@ -125,7 +125,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible dialogs to display to the user.
      * @since 1.3
      */
@@ -138,17 +138,17 @@ public final class JobAttributes implements Cloneable {
             "common", "native", "none"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DialogType</code> instance to use for
          * specifying the cross-platform, pure Java print dialog.
          */
         public static final DialogType COMMON = new DialogType(I_COMMON);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DialogType</code> instance to use for
          * specifying the platform's native print dialog.
          */
         public static final DialogType NATIVE = new DialogType(I_NATIVE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>DialogType</code> instance to use for
          * specifying no print dialog.
          */
@@ -159,7 +159,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible multiple copy handling states.
      * It is used to control how the sheets of multiple copies of a single
      * document are collated.
@@ -175,7 +175,7 @@ public final class JobAttributes implements Cloneable {
             "separate-documents-uncollated-copies"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>MultipleDocumentHandlingType</code> instance to use for specifying
          * that the job should be divided into separate, collated copies.
          */
@@ -183,7 +183,7 @@ public final class JobAttributes implements Cloneable {
             SEPARATE_DOCUMENTS_COLLATED_COPIES =
                 new MultipleDocumentHandlingType(
                     I_SEPARATE_DOCUMENTS_COLLATED_COPIES);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>MultipleDocumentHandlingType</code> instance to use for specifying
          * that the job should be divided into separate, uncollated copies.
          */
@@ -197,7 +197,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible multi-page impositions. These
      * impositions are in compliance with IPP 1.1.
      * @since 1.3
@@ -211,13 +211,13 @@ public final class JobAttributes implements Cloneable {
             "one-sided", "two-sided-long-edge", "two-sided-short-edge"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>SidesType</code> instance to use for specifying that
          * consecutive job pages should be printed upon the same side of
          * consecutive media sheets.
          */
         public static final SidesType ONE_SIDED = new SidesType(I_ONE_SIDED);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>SidesType</code> instance to use for specifying that
          * consecutive job pages should be printed upon front and back sides
          * of consecutive media sheets, such that the orientation of each pair
@@ -226,7 +226,7 @@ public final class JobAttributes implements Cloneable {
          */
         public static final SidesType TWO_SIDED_LONG_EDGE =
             new SidesType(I_TWO_SIDED_LONG_EDGE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The <code>SidesType</code> instance to use for specifying that
          * consecutive job pages should be printed upon front and back sides
          * of consecutive media sheets, such that the orientation of each pair
@@ -257,7 +257,7 @@ public final class JobAttributes implements Cloneable {
     private SidesType sides;
     private int toPage;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>JobAttributes</code> instance with default
      * values for every attribute.  The dialog defaults to
      * <code>DialogType.NATIVE</code>.  Min page defaults to
@@ -280,7 +280,7 @@ public final class JobAttributes implements Cloneable {
         setSidesToDefault();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>JobAttributes</code> instance which is a copy
      * of the supplied <code>JobAttributes</code>.
      *
@@ -290,7 +290,7 @@ public final class JobAttributes implements Cloneable {
         set(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>JobAttributes</code> instance with the
      * specified values for every attribute.
      *
@@ -350,7 +350,7 @@ public final class JobAttributes implements Cloneable {
         setSides(sides);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a copy of this <code>JobAttributes</code>.
      *
      * @return  the newly created copy; it is safe to cast this Object into
@@ -365,7 +365,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all of the attributes of this <code>JobAttributes</code> to
      * the same values as the attributes of obj.
      *
@@ -390,7 +390,7 @@ public final class JobAttributes implements Cloneable {
         toPage = obj.toPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of copies the application should render for jobs
      * using these attributes. This attribute is updated to the value chosen
      * by the user.
@@ -401,7 +401,7 @@ public final class JobAttributes implements Cloneable {
         return copies;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the number of copies the application should render for jobs
      * using these attributes. Not specifying this attribute is equivalent to
      * specifying <code>1</code>.
@@ -418,7 +418,7 @@ public final class JobAttributes implements Cloneable {
         this.copies = copies;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of copies the application should render for jobs using
      * these attributes to the default. The default number of copies is 1.
      */
@@ -426,7 +426,7 @@ public final class JobAttributes implements Cloneable {
         setCopies(1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether, for jobs using these attributes, the application
      * should print all pages, the range specified by the return value of
      * <code>getPageRanges</code>, or the current selection. This attribute
@@ -439,7 +439,7 @@ public final class JobAttributes implements Cloneable {
         return defaultSelection;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether, for jobs using these attributes, the application
      * should print all pages, the range specified by the return value of
      * <code>getPageRanges</code>, or the current selection. Not specifying
@@ -457,7 +457,7 @@ public final class JobAttributes implements Cloneable {
         this.defaultSelection = defaultSelection;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether output will be to a printer or a file for jobs using
      * these attributes. This attribute is updated to the value chosen by the
      * user.
@@ -468,7 +468,7 @@ public final class JobAttributes implements Cloneable {
         return destination;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether output will be to a printer or a file for jobs using
      * these attributes. Not specifying this attribute is equivalent to
      * specifying DesintationType.PRINTER.
@@ -484,7 +484,7 @@ public final class JobAttributes implements Cloneable {
         this.destination = destination;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether, for jobs using these attributes, the user should see
      * a print dialog in which to modify the print settings, and which type of
      * print dialog should be displayed. DialogType.COMMON denotes a cross-
@@ -502,7 +502,7 @@ public final class JobAttributes implements Cloneable {
         return dialog;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether, for jobs using these attributes, the user should see
      * a print dialog in which to modify the print settings, and which type of
      * print dialog should be displayed. DialogType.COMMON denotes a cross-
@@ -525,7 +525,7 @@ public final class JobAttributes implements Cloneable {
         this.dialog = dialog;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the file name for the output file for jobs using these
      * attributes. This attribute is updated to the value chosen by the user.
      *
@@ -535,7 +535,7 @@ public final class JobAttributes implements Cloneable {
         return fileName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the file name for the output file for jobs using these
      * attributes. Default is platform-dependent and implementation-defined.
      *
@@ -545,7 +545,7 @@ public final class JobAttributes implements Cloneable {
         this.fileName = fileName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns, for jobs using these attributes, the first page to be
      * printed, if a range of pages is to be printed. This attribute is
      * updated to the value chosen by the user. An application should ignore
@@ -570,7 +570,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies, for jobs using these attributes, the first page to be
      * printed, if a range of pages is to be printed. If this attribute is not
      * specified, then the values from the pageRanges attribute are used. If
@@ -596,7 +596,7 @@ public final class JobAttributes implements Cloneable {
         this.fromPage = fromPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the maximum value the user can specify as the last page to
      * be printed for jobs using these attributes. This attribute cannot be
      * modified by, and is not subject to any limitations of, the
@@ -609,7 +609,7 @@ public final class JobAttributes implements Cloneable {
         return maxPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the maximum value the user can specify as the last page to
      * be printed for jobs using these attributes. Not specifying this
      * attribute is equivalent to specifying <code>Integer.MAX_VALUE</code>.
@@ -627,7 +627,7 @@ public final class JobAttributes implements Cloneable {
         this.maxPage = maxPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the minimum value the user can specify as the first page to
      * be printed for jobs using these attributes. This attribute cannot be
      * modified by, and is not subject to any limitations of, the
@@ -640,7 +640,7 @@ public final class JobAttributes implements Cloneable {
         return minPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the minimum value the user can specify as the first page to
      * be printed for jobs using these attributes. Not specifying this
      * attribute is equivalent to specifying <code>1</code>.
@@ -658,7 +658,7 @@ public final class JobAttributes implements Cloneable {
         this.minPage = minPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the handling of multiple copies, including collation, for
      * jobs using these attributes. This attribute is updated to the value
      * chosen by the user.
@@ -671,7 +671,7 @@ public final class JobAttributes implements Cloneable {
         return multipleDocumentHandling;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the handling of multiple copies, including collation, for
      * jobs using these attributes. Not specifying this attribute is equivalent
      * to specifying
@@ -691,7 +691,7 @@ public final class JobAttributes implements Cloneable {
         this.multipleDocumentHandling = multipleDocumentHandling;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the handling of multiple copies, including collation, for jobs
      * using these attributes to the default. The default handling is
      * MultipleDocumentHandlingType.SEPARATE_DOCUMENTS_UNCOLLATED_COPIES.
@@ -701,7 +701,7 @@ public final class JobAttributes implements Cloneable {
             MultipleDocumentHandlingType.SEPARATE_DOCUMENTS_UNCOLLATED_COPIES);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies, for jobs using these attributes, the ranges of pages to be
      * printed, if a range of pages is to be printed. All range numbers are
      * inclusive. This attribute is updated to the value chosen by the user.
@@ -740,7 +740,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies, for jobs using these attributes, the ranges of pages to be
      * printed, if a range of pages is to be printed. All range numbers are
      * inclusive. If this attribute is not specified, then the values from the
@@ -804,7 +804,7 @@ public final class JobAttributes implements Cloneable {
         this.prLast = last;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the destination printer for jobs using these attributes. This
      * attribute is updated to the value chosen by the user.
      *
@@ -814,7 +814,7 @@ public final class JobAttributes implements Cloneable {
         return printer;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the destination printer for jobs using these attributes.
      * Default is platform-dependent and implementation-defined.
      *
@@ -824,7 +824,7 @@ public final class JobAttributes implements Cloneable {
         this.printer = printer;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns how consecutive pages should be imposed upon the sides of the
      * print medium for jobs using these attributes. SidesType.ONE_SIDED
      * imposes each consecutive page upon the same side of consecutive media
@@ -847,7 +847,7 @@ public final class JobAttributes implements Cloneable {
         return sides;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies how consecutive pages should be imposed upon the sides of the
      * print medium for jobs using these attributes. SidesType.ONE_SIDED
      * imposes each consecutive page upon the same side of consecutive media
@@ -875,7 +875,7 @@ public final class JobAttributes implements Cloneable {
         this.sides = sides;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets how consecutive pages should be imposed upon the sides of the
      * print medium for jobs using these attributes to the default. The
      * default imposition is SidesType.ONE_SIDED.
@@ -884,7 +884,7 @@ public final class JobAttributes implements Cloneable {
         setSides(SidesType.ONE_SIDED);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns, for jobs using these attributes, the last page (inclusive)
      * to be printed, if a range of pages is to be printed. This attribute is
      * updated to the value chosen by the user. An application should ignore
@@ -909,7 +909,7 @@ public final class JobAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies, for jobs using these attributes, the last page (inclusive)
      * to be printed, if a range of pages is to be printed.
      * If this attribute is not specified, then the values from the pageRanges
@@ -935,7 +935,7 @@ public final class JobAttributes implements Cloneable {
         this.toPage = toPage;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether two JobAttributes are equal to each other.
      * <p>
      * Two JobAttributes are equal if and only if each of their attributes are
@@ -1005,7 +1005,7 @@ public final class JobAttributes implements Cloneable {
                 toPage == rhs.toPage);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this JobAttributes.
      *
      * @return  the hash code.
@@ -1034,7 +1034,7 @@ public final class JobAttributes implements Cloneable {
                 rest);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this JobAttributes.
      *
      * @return  the string representation.

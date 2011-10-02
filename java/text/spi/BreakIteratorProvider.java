@@ -29,7 +29,7 @@ import java.text.BreakIterator;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide concrete implementations of the
  * {@link java.text.BreakIterator BreakIterator} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class BreakIteratorProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected BreakIteratorProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="../BreakIterator.html#word">word breaks</a>
      * for the given locale.
@@ -60,7 +60,7 @@ public abstract class BreakIteratorProvider extends LocaleServiceProvider {
      */
     public abstract BreakIterator getWordInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="../BreakIterator.html#line">line breaks</a>
      * for the given locale.
@@ -75,7 +75,7 @@ public abstract class BreakIteratorProvider extends LocaleServiceProvider {
      */
     public abstract BreakIterator getLineInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="../BreakIterator.html#character">character breaks</a>
      * for the given locale.
@@ -90,7 +90,7 @@ public abstract class BreakIteratorProvider extends LocaleServiceProvider {
      */
     public abstract BreakIterator getCharacterInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>BreakIterator</code> instance
      * for <a href="../BreakIterator.html#sentence">sentence breaks</a>
      * for the given locale.

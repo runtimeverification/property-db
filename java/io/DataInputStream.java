@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A data input stream lets an application read primitive Java data
  * types from an underlying input stream in a machine-independent
@@ -46,7 +46,7 @@ package java.io;
 public
 class DataInputStream extends FilterInputStream implements DataInput {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a DataInputStream that uses the specified
      * underlying InputStream.
@@ -58,7 +58,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         super(in);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * working arrays initialized on demand by readUTF
      * {@description.close}
@@ -66,7 +66,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
     private byte bytearr[] = new byte[80];
     private char chararr[] = new char[80];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads some number of bytes from the contained input stream and
      * stores them into the buffer array <code>b</code>. The number of
@@ -110,7 +110,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return in.read(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from the contained
      * input stream into an array of bytes.  An attempt is made to read
@@ -165,7 +165,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return in.read(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readFully</code>
      * method of <code>DataInput</code>.
@@ -187,7 +187,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         readFully(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readFully</code>
      * method of <code>DataInput</code>.
@@ -219,7 +219,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>skipBytes</code>
      * method of <code>DataInput</code>.
@@ -246,7 +246,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return total;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readBoolean</code>
      * method of <code>DataInput</code>.
@@ -269,7 +269,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (ch != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readByte</code>
      * method of <code>DataInput</code>.
@@ -294,7 +294,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (byte)(ch);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readUnsignedByte</code>
      * method of <code>DataInput</code>.
@@ -319,7 +319,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return ch;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readShort</code>
      * method of <code>DataInput</code>.
@@ -346,7 +346,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (short)((ch1 << 8) + (ch2 << 0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readUnsignedShort</code>
      * method of <code>DataInput</code>.
@@ -373,7 +373,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (ch1 << 8) + (ch2 << 0);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readChar</code>
      * method of <code>DataInput</code>.
@@ -400,7 +400,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (char)((ch1 << 8) + (ch2 << 0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readInt</code>
      * method of <code>DataInput</code>.
@@ -431,7 +431,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
 
     private byte readBuffer[] = new byte[8];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readLong</code>
      * method of <code>DataInput</code>.
@@ -462,7 +462,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
                 ((readBuffer[7] & 255) <<  0));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readFloat</code>
      * method of <code>DataInput</code>.
@@ -486,7 +486,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return Float.intBitsToFloat(readInt());
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readDouble</code>
      * method of <code>DataInput</code>.
@@ -512,7 +512,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
 
     private char lineBuffer[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readLine</code>
      * method of <code>DataInput</code>.
@@ -586,7 +586,7 @@ loop:   while (true) {
         return String.copyValueOf(buf, 0, offset);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>readUTF</code>
      * method of <code>DataInput</code>.
@@ -610,7 +610,7 @@ loop:   while (true) {
         return readUTF(this);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads from the
      * stream <code>in</code> a representation

@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A service that decouples the production of new asynchronous tasks
  * from the consumption of the results of completed tasks.  Producers
  * <tt>submit</tt> tasks for execution. Consumers <tt>take</tt>
@@ -60,7 +60,7 @@ package java.util.concurrent;
  *
  */
 public interface CompletionService<V> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Submits a value-returning task for execution and returns a Future
      * representing the pending results of the task.  Upon completion,
      * this task may be taken or polled.
@@ -73,7 +73,7 @@ public interface CompletionService<V> {
      */
     Future<V> submit(Callable<V> task);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Submits a Runnable task for execution and returns a Future
      * representing that task.  Upon completion, this task may be
      * taken or polled.
@@ -89,7 +89,7 @@ public interface CompletionService<V> {
      */
     Future<V> submit(Runnable task, V result);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the Future representing the next
      * completed task, waiting if none are yet present.
      *
@@ -99,7 +99,7 @@ public interface CompletionService<V> {
     Future<V> take() throws InterruptedException;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the Future representing the next
      * completed task or <tt>null</tt> if none are present.
      *
@@ -108,7 +108,7 @@ public interface CompletionService<V> {
      */
     Future<V> poll();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the Future representing the next
      * completed task, waiting if necessary up to the specified wait
      * time if none are yet present.

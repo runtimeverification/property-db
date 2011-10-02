@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An AttributedCharacterIterator allows iteration through both text and
  * related attribute information.
  *
@@ -72,7 +72,7 @@ import java.util.Set;
 
 public interface AttributedCharacterIterator extends CharacterIterator {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Defines attribute keys that are used to identify text attributes. These
      * keys are used in AttributedCharacterIterator and AttributedString.
      * @see AttributedCharacterIterator
@@ -82,7 +82,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
 
     public static class Attribute implements Serializable {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The name of this Attribute. The name is used primarily by readResolve
          * to look up the corresponding predefined instance when deserializing
          * an instance.
@@ -93,7 +93,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
         // table of all instances in this class, used by readResolve
         private static final Map instanceMap = new HashMap(7);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs an Attribute with the given name.
          */
         protected Attribute(String name) {
@@ -103,7 +103,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Compares two objects for equality. This version only returns true
          * for <code>x.equals(y)</code> if <code>x</code> and <code>y</code> refer
          * to the same object, and guarantees this for all subclasses.
@@ -112,7 +112,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
             return super.equals(obj);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a hash code value for the object. This version is identical to
          * the one in Object, but is also final.
          */
@@ -120,7 +120,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
             return super.hashCode();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a string representation of the object. This version returns the
          * concatenation of class name, "(", a name identifying the attribute and ")".
          */
@@ -128,14 +128,14 @@ public interface AttributedCharacterIterator extends CharacterIterator {
             return getClass().getName() + "(" + name + ")";
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the name of the attribute.
          */
         protected String getName() {
             return name;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Resolves instances being deserialized to the predefined constants.
          */
         protected Object readResolve() throws InvalidObjectException {
@@ -151,14 +151,14 @@ public interface AttributedCharacterIterator extends CharacterIterator {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Attribute key for the language of some text.
          * <p> Values are instances of Locale.
          * @see java.util.Locale
          */
         public static final Attribute LANGUAGE = new Attribute("language");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Attribute key for the reading of some text. In languages where the written form
          * and the pronunciation of a word are only loosely related (such as Japanese),
          * it is often necessary to store the reading (pronunciation) along with the
@@ -169,7 +169,7 @@ public interface AttributedCharacterIterator extends CharacterIterator {
          */
         public static final Attribute READING = new Attribute("reading");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Attribute key for input method segments. Input methods often break
          * up text into segments, which usually correspond to words.
          * <p>Values are instances of Annotation holding a null reference.
@@ -182,56 +182,56 @@ public interface AttributedCharacterIterator extends CharacterIterator {
 
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character of the run
      * with respect to all attributes containing the current character.
      */
     public int getRunStart();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character of the run
      * with respect to the given attribute containing the current character.
      */
     public int getRunStart(Attribute attribute);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character of the run
      * with respect to the given attributes containing the current character.
      */
     public int getRunStart(Set<? extends Attribute> attributes);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character following the run
      * with respect to all attributes containing the current character.
      */
     public int getRunLimit();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character following the run
      * with respect to the given attribute containing the current character.
      */
     public int getRunLimit(Attribute attribute);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first character following the run
      * with respect to the given attributes containing the current character.
      */
     public int getRunLimit(Set<? extends Attribute> attributes);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a map with the attributes defined on the current
      * character.
      */
     public Map<Attribute,Object> getAttributes();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the named attribute for the current character.
      * Returns null if the attribute is not defined.
      * @param attribute the key of the attribute whose value is requested.
      */
     public Object getAttribute(Attribute attribute);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the keys of all attributes defined on the
      * iterator's text range. The set is empty if no
      * attributes are defined.

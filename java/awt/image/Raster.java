@@ -46,7 +46,7 @@ import sun.awt.image.ShortBandedRaster;
 import sun.awt.image.BytePackedRaster;
 import sun.awt.image.SunWritableRaster;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class representing a rectangular array of pixels.  A Raster
  * encapsulates a DataBuffer that stores the sample values and a
  * SampleModel that describes how to locate a given sample value in a
@@ -125,46 +125,46 @@ import sun.awt.image.SunWritableRaster;
  */
 public class Raster {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The SampleModel that describes how pixels from this Raster
      * are stored in the DataBuffer.
      */
     protected SampleModel sampleModel;
 
-    /** {@collect.stats} The DataBuffer that stores the image data. */
+    /** {@collect.stats}  The DataBuffer that stores the image data. */
     protected DataBuffer dataBuffer;
 
-    /** {@collect.stats} The X coordinate of the upper-left pixel of this Raster. */
+    /** {@collect.stats}  The X coordinate of the upper-left pixel of this Raster. */
     protected int minX;
 
-    /** {@collect.stats} The Y coordinate of the upper-left pixel of this Raster. */
+    /** {@collect.stats}  The Y coordinate of the upper-left pixel of this Raster. */
     protected int minY;
 
-    /** {@collect.stats} The width of this Raster. */
+    /** {@collect.stats}  The width of this Raster. */
     protected int width;
 
-    /** {@collect.stats} The height of this Raster. */
+    /** {@collect.stats}  The height of this Raster. */
     protected int height;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The X translation from the coordinate space of the
      * Raster's SampleModel to that of the Raster.
      */
     protected int sampleModelTranslateX;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Y translation from the coordinate space of the
      * Raster's SampleModel to that of the Raster.
      */
     protected int sampleModelTranslateY;
 
-    /** {@collect.stats} The number of bands in the Raster. */
+    /** {@collect.stats}  The number of bands in the Raster. */
     protected int numBands;
 
-    /** {@collect.stats} The number of DataBuffer data elements per pixel. */
+    /** {@collect.stats}  The number of DataBuffer data elements per pixel. */
     protected int numDataElements;
 
-    /** {@collect.stats} The parent of this Raster, or null. */
+    /** {@collect.stats}  The parent of this Raster, or null. */
     protected Raster parent;
 
     static private native void initIDs();
@@ -173,7 +173,7 @@ public class Raster {
         initIDs();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a PixelInterleavedSampleModel with the
      * specified data type, width, height, and number of bands.
      *
@@ -213,7 +213,7 @@ public class Raster {
                                        bandOffsets, location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a PixelInterleavedSampleModel with the
      * specified data type, width, height, scanline stride, pixel
      * stride, and band offsets.  The number of bands is inferred from
@@ -284,7 +284,7 @@ public class Raster {
                                        pixelStride, bandOffsets, location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a BandedSampleModel with the
      * specified data type, width, height, and number of bands.
      *
@@ -331,7 +331,7 @@ public class Raster {
                                   location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a BandedSampleModel with the
      * specified data type, width, height, scanline stride, bank
      * indices and band offsets.  The number of bands is inferred from
@@ -421,7 +421,7 @@ public class Raster {
                                   bankIndices, bandOffsets, location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a SinglePixelPackedSampleModel with
      * the specified data type, width, height, and band masks.
      * The number of bands is inferred from bandMasks.length.
@@ -478,7 +478,7 @@ public class Raster {
         return createPackedRaster(d, w, h, w, bandMasks, location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a packed SampleModel with the
      * specified data type, width, height, number of bands, and bits
      * per band.  If the number of bands is one, the SampleModel will
@@ -592,7 +592,7 @@ public class Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a PixelInterleavedSampleModel with the
      * specified DataBuffer, width, height, scanline stride, pixel
      * stride, and band offsets.  The number of bands is inferred from
@@ -659,7 +659,7 @@ public class Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a BandedSampleModel with the
      * specified DataBuffer, width, height, scanline stride, bank
      * indices, and band offsets.  The number of bands is inferred
@@ -730,7 +730,7 @@ public class Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a SinglePixelPackedSampleModel with
      * the specified DataBuffer, width, height, scanline stride, and
      * band masks.  The number of bands is inferred from bandMasks.length.
@@ -793,7 +793,7 @@ public class Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a Raster based on a MultiPixelPackedSampleModel with the
      * specified DataBuffer, width, height, and bits per pixel.  The upper
      * left corner of the Raster is given by the location argument.  If
@@ -858,7 +858,7 @@ public class Raster {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Creates a Raster with the specified SampleModel and DataBuffer.
      *  The upper left corner of the Raster is given by the location argument.
      *  If location is null, (0, 0) will be used.
@@ -921,7 +921,7 @@ public class Raster {
         return new Raster(sm,db,location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Creates a WritableRaster with the specified SampleModel.
      *  The upper left corner of the Raster is given by the location argument.
      *  If location is null, (0, 0) will be used.
@@ -944,7 +944,7 @@ public class Raster {
         return createWritableRaster(sm, sm.createDataBuffer(), location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Creates a WritableRaster with the specified SampleModel and DataBuffer.
      *  The upper left corner of the Raster is given by the location argument.
      *  If location is null, (0, 0) will be used.
@@ -1007,7 +1007,7 @@ public class Raster {
         return new SunWritableRaster(sm,db,location);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a Raster with the given SampleModel.  The Raster's
      *  upper left corner is origin and it is the same size as the
      *  SampleModel.  A DataBuffer large enough to describe the
@@ -1033,7 +1033,7 @@ public class Raster {
              null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a Raster with the given SampleModel and DataBuffer.
      *  The Raster's upper left corner is origin and it is the same size
      *  as the SampleModel.  The DataBuffer is not initialized and must
@@ -1061,7 +1061,7 @@ public class Raster {
              null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a Raster with the given SampleModel, DataBuffer, and
      * parent.  aRegion specifies the bounding rectangle of the new
      * Raster.  When translated into the base Raster's coordinate
@@ -1126,7 +1126,7 @@ public class Raster {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parent Raster (if any) of this Raster or null.
      * @return the parent Raster or <code>null</code>.
      */
@@ -1134,7 +1134,7 @@ public class Raster {
         return parent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X translation from the coordinate system of the
      * SampleModel to that of the Raster.  To convert a pixel's X
      * coordinate from the Raster coordinate system to the SampleModel
@@ -1146,7 +1146,7 @@ public class Raster {
         return sampleModelTranslateX;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y translation from the coordinate system of the
      * SampleModel to that of the Raster.  To convert a pixel's Y
      * coordinate from the Raster coordinate system to the SampleModel
@@ -1158,7 +1158,7 @@ public class Raster {
         return sampleModelTranslateY;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a compatible WritableRaster the same size as this Raster with
      * the same SampleModel and a new initialized DataBuffer.
      * @return a compatible <code>WritableRaster</code> with the same sample
@@ -1168,7 +1168,7 @@ public class Raster {
         return new SunWritableRaster(sampleModel, new Point(0,0));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a compatible WritableRaster with the specified size, a new
      * SampleModel, and a new initialized DataBuffer.
      * @param w the specified width of the new <code>WritableRaster</code>
@@ -1189,7 +1189,7 @@ public class Raster {
         return new SunWritableRaster(sm, new Point(0,0));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a compatible WritableRaster with location (minX, minY)
      * and size (width, height) specified by rect, a
      * new SampleModel, and a new initialized DataBuffer.
@@ -1212,7 +1212,7 @@ public class Raster {
                                               rect.width, rect.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a compatible WritableRaster with the specified
      * location (minX, minY) and size (width, height), a
      * new SampleModel, and a new initialized DataBuffer.
@@ -1236,7 +1236,7 @@ public class Raster {
         return ret.createWritableChild(0,0,w,h,x,y,null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a Raster with the same size, SampleModel and DataBuffer
      * as this one, but with a different location.  The new Raster
      * will possess a reference to the current Raster, accessible
@@ -1259,7 +1259,7 @@ public class Raster {
                            childMinX,childMinY,null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new Raster which shares all or part of this Raster's
      * DataBuffer.  The new Raster will possess a reference to the
      * current Raster, accessible through its getParent() method.
@@ -1351,7 +1351,7 @@ public class Raster {
                                     sampleModelTranslateY + deltaY), this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding Rectangle of this Raster. This function returns
      * the same information as getMinX/MinY/Width/Height.
      * @return the bounding box of this <code>Raster</code>.
@@ -1360,42 +1360,42 @@ public class Raster {
         return new Rectangle(minX, minY, width, height);
     }
 
-    /** {@collect.stats} Returns the minimum valid X coordinate of the Raster.
+    /** {@collect.stats}  Returns the minimum valid X coordinate of the Raster.
      *  @return the minimum x coordinate of this <code>Raster</code>.
      */
     final public int getMinX() {
         return minX;
     }
 
-    /** {@collect.stats} Returns the minimum valid Y coordinate of the Raster.
+    /** {@collect.stats}  Returns the minimum valid Y coordinate of the Raster.
      *  @return the minimum y coordinate of this <code>Raster</code>.
      */
     final public int getMinY() {
         return minY;
     }
 
-    /** {@collect.stats} Returns the width in pixels of the Raster.
+    /** {@collect.stats}  Returns the width in pixels of the Raster.
      *  @return the width of this <code>Raster</code>.
      */
     final public int getWidth() {
         return width;
     }
 
-    /** {@collect.stats} Returns the height in pixels of the Raster.
+    /** {@collect.stats}  Returns the height in pixels of the Raster.
      *  @return the height of this <code>Raster</code>.
      */
     final public int getHeight() {
         return height;
     }
 
-    /** {@collect.stats} Returns the number of bands (samples per pixel) in this Raster.
+    /** {@collect.stats}  Returns the number of bands (samples per pixel) in this Raster.
      *  @return the number of bands of this <code>Raster</code>.
      */
     final public int getNumBands() {
         return numBands;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Returns the number of data elements needed to transfer one pixel
      *  via the getDataElements and setDataElements methods.  When pixels
      *  are transferred via these methods, they may be transferred in a
@@ -1410,7 +1410,7 @@ public class Raster {
         return sampleModel.getNumDataElements();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Returns the TransferType used to transfer pixels via the
      *  getDataElements and setDataElements methods.  When pixels
      *  are transferred via these methods, they may be transferred in a
@@ -1426,21 +1426,21 @@ public class Raster {
         return sampleModel.getTransferType();
     }
 
-    /** {@collect.stats} Returns the DataBuffer associated with this Raster.
+    /** {@collect.stats}  Returns the DataBuffer associated with this Raster.
      *  @return the <code>DataBuffer</code> of this <code>Raster</code>.
      */
     public DataBuffer getDataBuffer() {
         return dataBuffer;
     }
 
-    /** {@collect.stats} Returns the SampleModel that describes the layout of the image data.
+    /** {@collect.stats}  Returns the SampleModel that describes the layout of the image data.
      *  @return the <code>SampleModel</code> of this <code>Raster</code>.
      */
     public SampleModel getSampleModel() {
         return sampleModel;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns data for a single pixel in a primitive array of type
      * TransferType.  For image data supported by the Java 2D(tm) API,
      * this will be one of DataBuffer.TYPE_BYTE, DataBuffer.TYPE_USHORT,
@@ -1471,7 +1471,7 @@ public class Raster {
                                            outData, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the pixel data for the specified rectangle of pixels in a
      * primitive array of type TransferType.
      * For image data supported by the Java 2D API, this
@@ -1505,7 +1505,7 @@ public class Raster {
                                            w, h, outData, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples in an array of int for the specified pixel.
      * An ArrayIndexOutOfBoundsException may be thrown
      * if the coordinates are not in bounds.  However, explicit bounds
@@ -1524,7 +1524,7 @@ public class Raster {
                                     iArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples in an array of float for the
      * specified pixel.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1544,7 +1544,7 @@ public class Raster {
                                     fArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples in an array of double for the specified pixel.
      * An ArrayIndexOutOfBoundsException may be thrown
      * if the coordinates are not in bounds.  However, explicit bounds
@@ -1563,7 +1563,7 @@ public class Raster {
                                     dArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an int array containing all samples for a rectangle of pixels,
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1585,7 +1585,7 @@ public class Raster {
                                      iArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a float array containing all samples for a rectangle of pixels,
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1608,7 +1608,7 @@ public class Raster {
                                      fArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a double array containing all samples for a rectangle of pixels,
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1632,7 +1632,7 @@ public class Raster {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the sample in a specified band for the pixel located
      * at (x,y) as an int.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1653,7 +1653,7 @@ public class Raster {
                                      dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the sample in a specified band
      * for the pixel located at (x,y) as a float.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1674,7 +1674,7 @@ public class Raster {
                                           dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the sample in a specified band
      * for a pixel located at (x,y) as a double.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1695,7 +1695,7 @@ public class Raster {
                                            b, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples for a specified band for the specified rectangle
      * of pixels in an int array, one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1722,7 +1722,7 @@ public class Raster {
                                       dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples for a specified band for the specified rectangle
      * of pixels in a float array, one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown
@@ -1748,7 +1748,7 @@ public class Raster {
                                       w, h, b, fArray, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the samples for a specified band for a specified rectangle
      * of pixels in a double array, one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown

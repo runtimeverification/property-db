@@ -29,7 +29,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Implements an output stream filter for uncompressing data stored in the
  * "deflate" compression format.
  *
@@ -42,22 +42,22 @@ import java.io.OutputStream;
  */
 
 public class InflaterOutputStream extends FilterOutputStream {
-    /** {@collect.stats} Decompressor for this stream. */
+    /** {@collect.stats}  Decompressor for this stream. */
     protected final Inflater inf;
 
-    /** {@collect.stats} Output buffer for writing uncompressed data. */
+    /** {@collect.stats}  Output buffer for writing uncompressed data. */
     protected final byte[] buf;
 
-    /** {@collect.stats} Temporary write buffer. */
+    /** {@collect.stats}  Temporary write buffer. */
     private final byte[] wbuf = new byte[1];
 
-    /** {@collect.stats} Default decompressor is used. */
+    /** {@collect.stats}  Default decompressor is used. */
     private boolean usesDefaultInflater = false;
 
-    /** {@collect.stats} true iff {@link #close()} has been called. */
+    /** {@collect.stats}  true iff {@link #close()} has been called. */
     private boolean closed = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks to make sure that this stream has not been closed.
      */
     private void ensureOpen() throws IOException {
@@ -66,7 +66,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream with a default decompressor and buffer
      * size.
      *
@@ -78,7 +78,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         usesDefaultInflater = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream with the specified decompressor and a
      * default buffer size.
      *
@@ -90,7 +90,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         this(out, infl, 512);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream with the specified decompressor and
      * buffer size.
      *
@@ -116,7 +116,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         buf = new byte[bufLen];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes any remaining uncompressed data to the output stream and closes
      * the underlying output stream.
      *
@@ -134,7 +134,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flushes this output stream, forcing any pending buffered output bytes to be
      * written.
      *
@@ -171,7 +171,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finishes writing uncompressed data to the output stream without closing
      * the underlying stream.  Use this method when applying multiple filters in
      * succession to the same output stream.
@@ -189,7 +189,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a byte to the uncompressed output stream.
      *
      * @param b a single byte of compressed data to decompress and write to
@@ -204,7 +204,7 @@ public class InflaterOutputStream extends FilterOutputStream {
         write(wbuf, 0, 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes an array of bytes to the uncompressed output stream.
      *
      * @param b buffer containing compressed data to decompress and write to

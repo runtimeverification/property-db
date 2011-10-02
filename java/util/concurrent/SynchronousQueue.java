@@ -39,7 +39,7 @@ import java.util.concurrent.locks.*;
 import java.util.concurrent.atomic.*;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@linkplain BlockingQueue blocking queue} in which each insert
  * operation must wait for a corresponding remove operation by another
  * thread, and vice versa.  A synchronous queue does not have any
@@ -160,11 +160,11 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
      * node has ever referred to since arrival.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Shared internal API for dual stacks and queues.
      */
     static abstract class Transferer {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Performs a put or take.
          *
          * @param e if non-null, the item to be handed to a consumer;
@@ -180,10 +180,10 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         abstract Object transfer(Object e, boolean timed, long nanos);
     }
 
-    /** {@collect.stats} The number of CPUs, for spin control */
+    /** {@collect.stats}  The number of CPUs, for spin control */
     static final int NCPUS = Runtime.getRuntime().availableProcessors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times to spin before blocking in timed waits.
      * The value is empirically derived -- it works well across a
      * variety of processors and OSes. Empirically, the best value
@@ -192,20 +192,20 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
      */
     static final int maxTimedSpins = (NCPUS < 2)? 0 : 32;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times to spin before blocking in untimed waits.
      * This is greater than timed value because untimed waits spin
      * faster since they don't need to check times on each spin.
      */
     static final int maxUntimedSpins = maxTimedSpins * 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of nanoseconds for which it is faster to spin
      * rather than to use timed park. A rough estimate suffices.
      */
     static final long spinForTimeoutThreshold = 1000L;
 
-    /** {@collect.stats} Dual stack */
+    /** {@collect.stats}  Dual stack */
     static final class TransferStack extends Transferer {
         /*
          * This extends Scherer-Scott dual stack algorithm, differing,
@@ -216,17 +216,17 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
          */
 
         /* Modes for SNodes, ORed together in node fields */
-        /** {@collect.stats} Node represents an unfulfilled consumer */
+        /** {@collect.stats}  Node represents an unfulfilled consumer */
         static final int REQUEST    = 0;
-        /** {@collect.stats} Node represents an unfulfilled producer */
+        /** {@collect.stats}  Node represents an unfulfilled producer */
         static final int DATA       = 1;
-        /** {@collect.stats} Node is fulfilling another unfulfilled DATA or REQUEST */
+        /** {@collect.stats}  Node is fulfilling another unfulfilled DATA or REQUEST */
         static final int FULFILLING = 2;
 
-        /** {@collect.stats} Return true if m has fulfilling bit set */
+        /** {@collect.stats}  Return true if m has fulfilling bit set */
         static boolean isFulfilling(int m) { return (m & FULFILLING) != 0; }
 
-        /** {@collect.stats} Node class for TransferStacks. */
+        /** {@collect.stats}  Node class for TransferStacks. */
         static final class SNode {
             volatile SNode next;        // next node in stack
             volatile SNode match;       // the node matched to this
@@ -254,7 +254,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
                 matchUpdater = AtomicReferenceFieldUpdater.newUpdater
                 (SNode.class, SNode.class, "match");
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Tries to match node s to this node, if so, waking up thread.
              * Fulfillers call tryMatch to identify their waiters.
              * Waiters block until they have been matched.
@@ -275,7 +275,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
                 return match == s;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Tries to cancel a wait by matching node to itself.
              */
             void tryCancel() {
@@ -287,7 +287,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats} The head (top) of the stack */
+        /** {@collect.stats}  The head (top) of the stack */
         volatile SNode head;
 
         static final AtomicReferenceFieldUpdater<TransferStack, SNode>
@@ -298,7 +298,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             return h == head && headUpdater.compareAndSet(this, h, nh);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates or resets fields of a node. Called only from transfer
          * where the node to push on stack is lazily created and
          * reused when possible to help reduce intervals between reads
@@ -312,7 +312,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             return s;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Puts or takes an item.
          */
         Object transfer(Object e, boolean timed, long nanos) {
@@ -392,7 +392,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Spins/blocks until node s is matched by a fulfill operation.
          *
          * @param s the waiting node
@@ -454,7 +454,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if node s is at head or there is an active
          * fulfiller.
          */
@@ -463,7 +463,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             return (h == s || h == null || isFulfilling(h.mode));
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Unlinks s from the stack.
          */
         void clean(SNode s) {
@@ -501,7 +501,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats} Dual Queue */
+    /** {@collect.stats}  Dual Queue */
     static final class TransferQueue extends Transferer {
         /*
          * This extends Scherer-Scott dual queue algorithm, differing,
@@ -512,7 +512,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
          * from non-null to null (for put) or vice versa (for take).
          */
 
-        /** {@collect.stats} Node class for TransferQueue. */
+        /** {@collect.stats}  Node class for TransferQueue. */
         static final class QNode {
             volatile QNode next;          // next node in queue
             volatile Object item;         // CAS'ed to or from null
@@ -542,7 +542,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
                         itemUpdater.compareAndSet(this, cmp, val));
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Tries to cancel by CAS'ing ref to this as item.
              */
             void tryCancel(Object cmp) {
@@ -553,7 +553,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
                 return item == this;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns true if this node is known to be off the queue
              * because its next pointer has been forgotten due to
              * an advanceHead operation.
@@ -563,11 +563,11 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats} Head of queue */
+        /** {@collect.stats}  Head of queue */
         transient volatile QNode head;
-        /** {@collect.stats} Tail of queue */
+        /** {@collect.stats}  Tail of queue */
         transient volatile QNode tail;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Reference to a cancelled node that might not yet have been
          * unlinked from queue because it was the last inserted node
          * when it cancelled.
@@ -584,7 +584,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             headUpdater = AtomicReferenceFieldUpdater.newUpdater
             (TransferQueue.class,  QNode.class, "head");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Tries to cas nh as new head; if successful, unlink
          * old head's next node to avoid garbage retention.
          */
@@ -597,7 +597,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             tailUpdater = AtomicReferenceFieldUpdater.newUpdater
             (TransferQueue.class, QNode.class, "tail");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Tries to cas nt as new tail.
          */
         void advanceTail(QNode t, QNode nt) {
@@ -609,7 +609,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             cleanMeUpdater = AtomicReferenceFieldUpdater.newUpdater
             (TransferQueue.class, QNode.class, "cleanMe");
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Tries to CAS cleanMe slot.
          */
         boolean casCleanMe(QNode cmp, QNode val) {
@@ -617,7 +617,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
                     cleanMeUpdater.compareAndSet(this, cmp, val));
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Puts or takes an item.
          */
         Object transfer(Object e, boolean timed, long nanos) {
@@ -705,7 +705,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Spins/blocks until node s is fulfilled.
          *
          * @param s the waiting node
@@ -746,7 +746,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Gets rid of cancelled node s with original predecessor pred.
          */
         void clean(QNode pred, QNode s) {
@@ -801,7 +801,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The transferer. Set only in constructor, but cannot be declared
      * as final without further complicating serialization.  Since
      * this is accessed only at most once per public method, there
@@ -810,14 +810,14 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
      */
     private transient volatile Transferer transferer;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>SynchronousQueue</tt> with nonfair access policy.
      */
     public SynchronousQueue() {
         this(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>SynchronousQueue</tt> with the specified fairness policy.
      *
      * @param fair if true, waiting threads contend in FIFO order for
@@ -827,7 +827,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         transferer = (fair)? new TransferQueue() : new TransferStack();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified element to this queue, waiting if necessary for
      * another thread to receive it.
      *
@@ -842,7 +842,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this queue, waiting if necessary
      * up to the specified wait time for another thread to receive it.
      *
@@ -861,7 +861,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         throw new InterruptedException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into this queue, if another thread is
      * waiting to receive it.
      *
@@ -875,7 +875,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return transferer.transfer(e, true, 0) != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, waiting if necessary
      * for another thread to insert it.
      *
@@ -890,7 +890,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         throw new InterruptedException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, waiting
      * if necessary up to the specified wait time, for another thread
      * to insert it.
@@ -906,7 +906,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         throw new InterruptedException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of this queue, if another thread
      * is currently making an element available.
      *
@@ -917,7 +917,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return (E)transferer.transfer(null, true, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>true</tt>.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -927,7 +927,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns zero.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -937,7 +937,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns zero.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -947,14 +947,14 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Does nothing.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      */
     public void clear() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>false</tt>.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -965,7 +965,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>false</tt>.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -976,7 +976,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>false</tt> unless the given collection is empty.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -987,7 +987,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return c.isEmpty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>false</tt>.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -998,7 +998,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>false</tt>.
      * A <tt>SynchronousQueue</tt> has no internal capacity.
      *
@@ -1009,7 +1009,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Always returns <tt>null</tt>.
      * A <tt>SynchronousQueue</tt> does not return elements
      * unless actively waited on.
@@ -1020,7 +1020,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an empty iterator in which <tt>hasNext</tt> always returns
      * <tt>false</tt>.
      *
@@ -1030,7 +1030,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return Collections.<E>emptyList().iterator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a zero-length array.
      * @return a zero-length array
      */
@@ -1038,7 +1038,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return new Object[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the zeroeth element of the specified array to <tt>null</tt>
      * (if the array has non-zero length) and returns it.
      *
@@ -1052,7 +1052,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -1072,7 +1072,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -1111,7 +1111,7 @@ public class SynchronousQueue<E> extends AbstractQueue<E>
     private WaitQueue waitingProducers;
     private WaitQueue waitingConsumers;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state to a stream (that is, serialize it).
      *
      * @param s the stream

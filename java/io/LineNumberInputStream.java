@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * This class is an input stream filter that provides the added
  * functionality of keeping track of the current line number.
@@ -56,7 +56,7 @@ class LineNumberInputStream extends FilterInputStream {
     int markLineNumber;
     int markPushBack = -1;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a newline number input stream that reads its input
      * from the specified input stream.
@@ -68,7 +68,7 @@ class LineNumberInputStream extends FilterInputStream {
         super(in);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
@@ -123,7 +123,7 @@ class LineNumberInputStream extends FilterInputStream {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
@@ -179,7 +179,7 @@ class LineNumberInputStream extends FilterInputStream {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips over and discards <code>n</code> bytes of data from this
      * input stream. The <code>skip</code> method may, for a variety of
@@ -220,7 +220,7 @@ class LineNumberInputStream extends FilterInputStream {
         return n - remaining;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Sets the line number to the specified argument.
      * {@description.close}
@@ -232,7 +232,7 @@ class LineNumberInputStream extends FilterInputStream {
         this.lineNumber = lineNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the current line number.
      * {@description.close}
@@ -245,7 +245,7 @@ class LineNumberInputStream extends FilterInputStream {
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
@@ -271,7 +271,7 @@ class LineNumberInputStream extends FilterInputStream {
         return (pushBack == -1) ? super.available()/2 : super.available()/2 + 1;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the current position in this input stream.
      * {@description.close}
@@ -299,7 +299,7 @@ class LineNumberInputStream extends FilterInputStream {
         in.mark(readlimit);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.

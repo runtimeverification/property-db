@@ -26,7 +26,7 @@
 package java.io;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A <code>BufferedInputStream</code> adds
  * functionality to another input stream-namely,
@@ -57,7 +57,7 @@ class BufferedInputStream extends FilterInputStream {
 
     private static int defaultBufferSize = 8192;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The internal buffer array where the data is stored. When necessary,
      * it may be replaced by another array of
@@ -66,7 +66,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     protected volatile byte buf[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Atomic updater to provide compareAndSet for buf. This is
      * necessary because closes can be asynchronous. We use nullness
@@ -79,7 +79,7 @@ class BufferedInputStream extends FilterInputStream {
         AtomicReferenceFieldUpdater.newUpdater
         (BufferedInputStream.class,  byte[].class, "buf");
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The index one greater than the index of the last valid byte in
      * the buffer.
@@ -94,7 +94,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The current position in the buffer. This is the index of the next
      * character to be read from the <code>buf</code> array.
@@ -115,7 +115,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     protected int pos;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The value of the <code>pos</code> field at the time the last
      * <code>mark</code> method was called.
@@ -148,7 +148,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     protected int markpos = -1;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The maximum read ahead allowed after a call to the
      * <code>mark</code> method before subsequent calls to the
@@ -166,7 +166,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     protected int marklimit;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Check to make sure that underlying input stream has not been
      * nulled out due to close; if not return it;
@@ -179,7 +179,7 @@ class BufferedInputStream extends FilterInputStream {
         return input;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Check to make sure that buffer has not been nulled out due to
      * close; if not return it;
@@ -192,7 +192,7 @@ class BufferedInputStream extends FilterInputStream {
         return buffer;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>BufferedInputStream</code>
      * and saves its  argument, the input stream
@@ -206,7 +206,7 @@ class BufferedInputStream extends FilterInputStream {
         this(in, defaultBufferSize);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a <code>BufferedInputStream</code>
      * with the specified buffer size,
@@ -228,7 +228,7 @@ class BufferedInputStream extends FilterInputStream {
         buf = new byte[size];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Fills the buffer with more data, taking into account
      * shuffling and other tricks for dealing with marks.
@@ -276,7 +276,7 @@ class BufferedInputStream extends FilterInputStream {
             count = n + pos;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See
      * the general contract of the <code>read</code>
@@ -299,7 +299,7 @@ class BufferedInputStream extends FilterInputStream {
         return getBufIfOpen()[pos++] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Read characters into a portion of an array, reading from the underlying
      * stream at most once if necessary.
@@ -325,7 +325,7 @@ class BufferedInputStream extends FilterInputStream {
         return cnt;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads bytes from this byte-input stream into the specified byte array,
      * starting at the given offset.
@@ -389,7 +389,7 @@ class BufferedInputStream extends FilterInputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>skip</code>
      * method of <code>InputStream</code>.
@@ -424,7 +424,7 @@ class BufferedInputStream extends FilterInputStream {
         return skipped;
     }
 
-    /**
+    /** {@collect.stats}
      * {@property.open blocking}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
@@ -449,7 +449,7 @@ class BufferedInputStream extends FilterInputStream {
         return getInIfOpen().available() + (count - pos);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>mark</code>
      * method of <code>InputStream</code>.
@@ -464,7 +464,7 @@ class BufferedInputStream extends FilterInputStream {
         markpos = pos;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * See the general contract of the <code>reset</code>
      * method of <code>InputStream</code>.
@@ -491,7 +491,7 @@ class BufferedInputStream extends FilterInputStream {
         pos = markpos;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods.
@@ -511,7 +511,7 @@ class BufferedInputStream extends FilterInputStream {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.

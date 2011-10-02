@@ -27,7 +27,7 @@ package java.util.prefs;
 
 import java.io.NotSerializableException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An event emitted by a <tt>Preferences</tt> node to indicate that
  * a preference has been added, removed or has had its value changed.<p>
  *
@@ -44,21 +44,21 @@ import java.io.NotSerializableException;
  */
 public class PreferenceChangeEvent extends java.util.EventObject {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key of the preference that changed.
      *
      * @serial
      */
     private String key;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * New value for preference, or <tt>null</tt> if it was removed.
      *
      * @serial
      */
     private String newValue;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>PreferenceChangeEvent</code> instance.
      *
      * @param node  The Preferences node that emitted the event.
@@ -73,7 +73,7 @@ public class PreferenceChangeEvent extends java.util.EventObject {
         this.newValue = newValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the preference node that emitted the event.
      *
      * @return  The preference node that emitted the event.
@@ -82,7 +82,7 @@ public class PreferenceChangeEvent extends java.util.EventObject {
         return (Preferences) getSource();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the key of the preference that was changed.
      *
      * @return  The key of the preference that was changed.
@@ -91,7 +91,7 @@ public class PreferenceChangeEvent extends java.util.EventObject {
         return key;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the new value for the preference.
      *
      * @return  The new value for the preference, or <tt>null</tt> if the
@@ -101,7 +101,7 @@ public class PreferenceChangeEvent extends java.util.EventObject {
         return newValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws NotSerializableException, since NodeChangeEvent objects
      * are not intended to be serializable.
      */
@@ -110,7 +110,7 @@ public class PreferenceChangeEvent extends java.util.EventObject {
          throw new NotSerializableException("Not serializable.");
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws NotSerializableException, since PreferenceChangeEvent objects
      * are not intended to be serializable.
      */

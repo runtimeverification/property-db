@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when the annotation parser attempts to read an annotation
  * from a class file and determines that the annotation is malformed.
  *
@@ -33,7 +33,7 @@ package java.lang.annotation;
  * @since   1.5
  */
 public class AnnotationFormatError extends Error {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <tt>AnnotationFormatError</tt> with the specified
      * detail message.
      *
@@ -43,7 +43,7 @@ public class AnnotationFormatError extends Error {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <tt>AnnotationFormatError</tt> with the specified
      * detail message and cause.  Note that the detail message associated
      * with <code>cause</code> is <i>not</i> automatically incorporated in
@@ -58,7 +58,7 @@ public class AnnotationFormatError extends Error {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <tt>AnnotationFormatError</tt> with the specified
      * cause and a detail message of
      * <tt>(cause == null ? null : cause.toString())</tt> (which

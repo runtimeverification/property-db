@@ -35,7 +35,7 @@
 
 package java.util.concurrent.atomic;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An {@code AtomicMarkableReference} maintains an object reference
  * along with a mark bit, that can be updated atomically.
  * <p>
@@ -59,7 +59,7 @@ public class AtomicMarkableReference<V>  {
 
     private final AtomicReference<ReferenceBooleanPair<V>>  atomicRef;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new {@code AtomicMarkableReference} with the given
      * initial values.
      *
@@ -70,7 +70,7 @@ public class AtomicMarkableReference<V>  {
         atomicRef = new AtomicReference<ReferenceBooleanPair<V>> (new ReferenceBooleanPair<V>(initialRef, initialMark));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value of the reference.
      *
      * @return the current value of the reference
@@ -79,7 +79,7 @@ public class AtomicMarkableReference<V>  {
         return atomicRef.get().reference;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value of the mark.
      *
      * @return the current value of the mark
@@ -88,7 +88,7 @@ public class AtomicMarkableReference<V>  {
         return atomicRef.get().bit;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current values of both the reference and the mark.
      * Typical usage is {@code boolean[1] holder; ref = v.get(holder); }.
      *
@@ -102,7 +102,7 @@ public class AtomicMarkableReference<V>  {
         return p.reference;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value of both the reference and mark
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -131,7 +131,7 @@ public class AtomicMarkableReference<V>  {
                                                               newMark)));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value of both the reference and mark
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -156,7 +156,7 @@ public class AtomicMarkableReference<V>  {
                                                               newMark)));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Unconditionally sets the value of both the reference and mark.
      *
      * @param newReference the new value for the reference
@@ -168,7 +168,7 @@ public class AtomicMarkableReference<V>  {
             atomicRef.set(new ReferenceBooleanPair<V>(newReference, newMark));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value of the mark to the given update value
      * if the current reference is {@code ==} to the expected
      * reference.  Any given invocation of this operation may fail

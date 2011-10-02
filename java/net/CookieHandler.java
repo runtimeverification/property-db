@@ -30,7 +30,7 @@ import java.util.List;
 import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A CookieHandler object provides a callback mechanism to hook up a
  * HTTP state management policy implementation into the HTTP protocol
  * handler. The HTTP state management mechanism specifies a way to
@@ -50,7 +50,7 @@ import sun.security.util.SecurityConstants;
  * @since 1.5
  */
 public abstract class CookieHandler {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The system-wide cookie handler that will apply cookies to the
      * request headers and manage cookies from the response headers.
      *
@@ -59,7 +59,7 @@ public abstract class CookieHandler {
      */
     private static CookieHandler cookieHandler;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system-wide cookie handler.
      *
      * @return the system-wide cookie handler; A null return means
@@ -77,7 +77,7 @@ public abstract class CookieHandler {
         return cookieHandler;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets (or unsets) the system-wide cookie handler.
      *
      * Note: non-standard http protocol handlers may ignore this setting.
@@ -97,7 +97,7 @@ public abstract class CookieHandler {
         cookieHandler = cHandler;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets all the applicable cookies from a cookie cache for the
      * specified uri in the request header.
      *
@@ -121,7 +121,7 @@ public abstract class CookieHandler {
         get(URI uri, Map<String, List<String>> requestHeaders)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all the applicable cookies, examples are response header
      * fields that are named Set-Cookie2, present in the response
      * headers into a cookie cache.

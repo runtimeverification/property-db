@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the basic key exception.
  *
  * @see Key
@@ -39,7 +39,7 @@ public class KeyException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -7483676942812432108L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a KeyException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -47,7 +47,7 @@ public class KeyException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a KeyException with the specified detail message.
      * A detail message is a String that describes this particular
      * exception.
@@ -58,7 +58,7 @@ public class KeyException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>KeyException</code> with the specified
      * detail message and cause.
      *
@@ -73,7 +73,7 @@ public class KeyException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>KeyException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

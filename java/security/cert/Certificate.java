@@ -35,7 +35,7 @@ import java.security.SignatureException;
 
 import sun.security.x509.X509CertImpl;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>Abstract class for managing a variety of identity certificates.
  * An identity certificate is a binding of a principal to a public key which
  * is vouched for by another principal.  (A principal represents
@@ -65,7 +65,7 @@ public abstract class Certificate implements java.io.Serializable {
     // the certificate type
     private final String type;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a certificate of the specified type.
      *
      * @param type the standard name of the certificate type.
@@ -78,7 +78,7 @@ public abstract class Certificate implements java.io.Serializable {
         this.type = type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the type of this certificate.
      *
      * @return the type of this certificate.
@@ -87,7 +87,7 @@ public abstract class Certificate implements java.io.Serializable {
         return this.type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this certificate for equality with the specified
      * object. If the <code>other</code> object is an
      * <code>instanceof</code> <code>Certificate</code>, then
@@ -115,7 +115,7 @@ public abstract class Certificate implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode value for this certificate from its
      * encoded form.
      *
@@ -134,7 +134,7 @@ public abstract class Certificate implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the encoded form of this certificate. It is
      * assumed that each certificate type would have only a single
      * form of encoding; for example, X.509 certificates would
@@ -147,7 +147,7 @@ public abstract class Certificate implements java.io.Serializable {
     public abstract byte[] getEncoded()
         throws CertificateEncodingException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that this certificate was signed using the
      * private key that corresponds to the specified public key.
      *
@@ -165,7 +165,7 @@ public abstract class Certificate implements java.io.Serializable {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that this certificate was signed using the
      * private key that corresponds to the specified public key.
      * This method uses the signature verification engine
@@ -186,21 +186,21 @@ public abstract class Certificate implements java.io.Serializable {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this certificate.
      *
      * @return a string representation of this certificate.
      */
     public abstract String toString();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the public key from this certificate.
      *
      * @return the public key.
      */
     public abstract PublicKey getPublicKey();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Alternate Certificate class for serialization.
      * @since 1.3
      */
@@ -211,7 +211,7 @@ public abstract class Certificate implements java.io.Serializable {
         private String type;
         private byte[] data;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Construct the alternate Certificate class with the Certificate
          * type and Certificate encoding bytes.
          *
@@ -226,7 +226,7 @@ public abstract class Certificate implements java.io.Serializable {
             this.data = data;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Resolve the Certificate Object.
          *
          * <p>
@@ -251,7 +251,7 @@ public abstract class Certificate implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replace the Certificate to be serialized.
      *
      * @return the alternate Certificate object to be serialized

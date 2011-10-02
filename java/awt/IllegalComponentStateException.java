@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an AWT component is not in an appropriate state for
  * the requested operation.
  *
@@ -37,7 +37,7 @@ public class IllegalComponentStateException extends IllegalStateException {
      */
      private static final long serialVersionUID = -1889339587208144238L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an IllegalComponentStateException with no detail message.
      * A detail message is a String that describes this particular exception.
      */
@@ -45,7 +45,7 @@ public class IllegalComponentStateException extends IllegalStateException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an IllegalComponentStateException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.

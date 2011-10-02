@@ -31,7 +31,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.util.Set;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Parameters used as input for the PKIX <code>CertPathBuilder</code>
  * algorithm.
  * <p>
@@ -79,7 +79,7 @@ public class PKIXBuilderParameters extends PKIXParameters {
 
     private int maxPathLength = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>PKIXBuilderParameters</code> with
      * the specified <code>Set</code> of most-trusted CAs.
      * Each element of the set is a {@link TrustAnchor TrustAnchor}.
@@ -105,7 +105,7 @@ public class PKIXBuilderParameters extends PKIXParameters {
         setTargetCertConstraints(targetConstraints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>PKIXBuilderParameters</code> that
      * populates the set of most-trusted CAs from the trusted
      * certificate entries contained in the specified <code>KeyStore</code>.
@@ -131,7 +131,7 @@ public class PKIXBuilderParameters extends PKIXParameters {
         setTargetCertConstraints(targetConstraints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the value of the maximum number of non-self-issued intermediate
      * certificates that may exist in a certification path. A certificate
      * is self-issued if the DNs that appear in the subject and issuer
@@ -169,7 +169,7 @@ public class PKIXBuilderParameters extends PKIXParameters {
         this.maxPathLength = maxPathLength;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the maximum number of intermediate non-self-issued
      * certificates that may exist in a certification path. See
      * the {@link #setMaxPathLength} method for more details.
@@ -183,7 +183,7 @@ public class PKIXBuilderParameters extends PKIXParameters {
         return maxPathLength;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters

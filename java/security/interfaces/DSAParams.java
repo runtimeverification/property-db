@@ -27,7 +27,7 @@ package java.security.interfaces;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interface to a DSA-specific set of key parameters, which defines a
  * DSA <em>key family</em>. DSA (Digital Signature Algorithm) is defined
  * in NIST's FIPS-186.
@@ -41,21 +41,21 @@ import java.math.BigInteger;
  */
 public interface DSAParams {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the prime, <code>p</code>.
      *
      * @return the prime, <code>p</code>.
      */
     public BigInteger getP();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the subprime, <code>q</code>.
      *
      * @return the subprime, <code>q</code>.
      */
     public BigInteger getQ();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the base, <code>g</code>.
      *
      * @return the base, <code>g</code>.

@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving mouse motion events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -54,7 +54,7 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class MouseMotionAdapter implements MouseMotionListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a mouse button is pressed on a component and then
      * dragged.  Mouse drag events will continue to be delivered to
      * the component where the first originated until the mouse button is
@@ -63,7 +63,7 @@ public abstract class MouseMotionAdapter implements MouseMotionListener {
      */
     public void mouseDragged(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the mouse button has been moved on a component
      * (with no buttons no down).
      */

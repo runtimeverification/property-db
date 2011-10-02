@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving mouse events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -68,44 +68,44 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class MouseAdapter implements MouseListener, MouseWheelListener, MouseMotionListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void mouseClicked(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void mousePressed(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void mouseReleased(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void mouseEntered(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public void mouseExited(MouseEvent e) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */
     public void mouseWheelMoved(MouseWheelEvent e){}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */
     public void mouseDragged(MouseEvent e){}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.6
      */

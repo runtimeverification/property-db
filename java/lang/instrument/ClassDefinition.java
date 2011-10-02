@@ -29,7 +29,7 @@ package java.lang.instrument;
  * Copyright 2003 Wily Technology, Inc.
  */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class serves as a parameter block to the <code>Instrumentation.redefineClasses</code> method.
  * Serves to bind the <code>Class</code> that needs redefining together with the new class file bytes.
  *
@@ -37,17 +37,17 @@ package java.lang.instrument;
  * @since   1.5
  */
 public final class ClassDefinition {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  The class to redefine
      */
     private final   Class   mClass;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  The replacement class file bytes
      */
     private final   byte[]  mClassFile;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Creates a new <code>ClassDefinition</code> binding using the supplied
      *  class and class file bytes. Does not copy the supplied buffer, just captures a reference to it.
      *
@@ -66,7 +66,7 @@ public final class ClassDefinition {
         mClassFile  = theClassFile;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class.
      *
      * @return    the <code>Class</code> object referred to.
@@ -76,7 +76,7 @@ public final class ClassDefinition {
         return mClass;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the array of bytes that contains the new class file.
      *
      * @return    the class file bytes.

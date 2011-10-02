@@ -25,7 +25,7 @@
 
 package java.text;
 
-/** {@collect.stats}
+/** {@collect.stats} 
 * An Annotation object is used as a wrapper for a text attribute value if
 * the attribute has annotation characteristics. These characteristics are:
 * <ul>
@@ -56,7 +56,7 @@ package java.text;
 
 public class Annotation {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an annotation record with the given value, which
      * may be null.
      * @param value The value of the attribute
@@ -65,14 +65,14 @@ public class Annotation {
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the attribute, which may be null.
      */
     public Object getValue() {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String representation of this Annotation.
      */
     public String toString() {

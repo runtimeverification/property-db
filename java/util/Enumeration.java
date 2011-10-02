@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An object that implements the Enumeration interface generates a
  * series of elements, one at a time. Successive calls to the
  * <code>nextElement</code> method return successive elements of the
@@ -59,7 +59,7 @@ package java.util;
  * @since   JDK1.0
  */
 public interface Enumeration<E> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this enumeration contains more elements.
      *
      * @return  <code>true</code> if and only if this enumeration object
@@ -68,7 +68,7 @@ public interface Enumeration<E> {
      */
     boolean hasMoreElements();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next element of this enumeration if this enumeration
      * object has at least one more element to provide.
      *

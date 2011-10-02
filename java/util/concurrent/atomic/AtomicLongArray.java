@@ -37,7 +37,7 @@ package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@code long} array in which elements may be updated atomically.
  * See the {@link java.util.concurrent.atomic} package specification
  * for description of the properties of atomic variables.
@@ -59,7 +59,7 @@ public class AtomicLongArray implements java.io.Serializable {
         return base + (long) i * scale;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicLongArray of given length.
      *
      * @param length the length of the array
@@ -71,7 +71,7 @@ public class AtomicLongArray implements java.io.Serializable {
             unsafe.putLongVolatile(array, rawIndex(0), 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicLongArray with the same length as, and
      * all elements copied from, the given array.
      *
@@ -92,7 +92,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the array.
      *
      * @return the length of the array
@@ -101,7 +101,7 @@ public class AtomicLongArray implements java.io.Serializable {
         return array.length;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current value at position {@code i}.
      *
      * @param i the index
@@ -111,7 +111,7 @@ public class AtomicLongArray implements java.io.Serializable {
         return unsafe.getLongVolatile(array, rawIndex(i));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the element at position {@code i} to the given value.
      *
      * @param i the index
@@ -121,7 +121,7 @@ public class AtomicLongArray implements java.io.Serializable {
         unsafe.putLongVolatile(array, rawIndex(i), newValue);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Eventually sets the element at position {@code i} to the given value.
      *
      * @param i the index
@@ -133,7 +133,7 @@ public class AtomicLongArray implements java.io.Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the element at position {@code i} to the given value
      * and returns the old value.
      *
@@ -149,7 +149,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -164,7 +164,7 @@ public class AtomicLongArray implements java.io.Serializable {
                                          expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -181,7 +181,7 @@ public class AtomicLongArray implements java.io.Serializable {
         return compareAndSet(i, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically increments by one the element at index {@code i}.
      *
      * @param i the index
@@ -196,7 +196,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically decrements by one the element at index {@code i}.
      *
      * @param i the index
@@ -211,7 +211,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically adds the given value to the element at index {@code i}.
      *
      * @param i the index
@@ -227,7 +227,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically increments by one the element at index {@code i}.
      *
      * @param i the index
@@ -242,7 +242,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically decrements by one the element at index {@code i}.
      *
      * @param i the index
@@ -257,7 +257,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically adds the given value to the element at index {@code i}.
      *
      * @param i the index
@@ -273,7 +273,7 @@ public class AtomicLongArray implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String representation of the current values of array.
      * @return the String representation of the current values of array.
      */

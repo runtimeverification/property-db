@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>GridLayout</code> class is a layout manager that
  * lays out a container's components in a rectangular grid.
  * The container is divided into equal-sized rectangles,
@@ -96,7 +96,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
      */
     private static final long serialVersionUID = -7411804673224730901L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is the horizontal gap (in pixels) which specifies the space
      * between columns.  They can be changed at any time.
      * This should be a non-negative integer.
@@ -106,7 +106,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
      * @see #setHgap(int)
      */
     int hgap;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is the vertical gap (in pixels) which specifies the space
      * between rows.  They can be changed at any time.
      * This should be a non negative integer.
@@ -116,7 +116,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
      * @see #setVgap(int)
      */
     int vgap;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is the number of rows specified for the grid.  The number
      * of rows can be changed at any time.
      * This should be a non negative integer, where '0' means
@@ -128,7 +128,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
      * @see #setRows(int)
      */
     int rows;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is the number of columns specified for the grid.  The number
      * of columns can be changed at any time.
      * This should be a non negative integer, where '0' means
@@ -141,7 +141,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
      */
     int cols;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a grid layout with a default of one column per component,
      * in a single row.
      * @since JDK1.1
@@ -150,7 +150,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this(1, 0, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a grid layout with the specified number of rows and
      * columns. All components in the layout are given equal size.
      * <p>
@@ -166,7 +166,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this(rows, cols, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a grid layout with the specified number of rows and
      * columns. All components in the layout are given equal size.
      * <p>
@@ -200,7 +200,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this.vgap = vgap;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of rows in this layout.
      * @return    the number of rows in this layout
      * @since     JDK1.1
@@ -209,7 +209,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         return rows;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of rows in this layout to the specified value.
      * @param        rows   the number of rows in this layout
      * @exception    IllegalArgumentException  if the value of both
@@ -223,7 +223,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this.rows = rows;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of columns in this layout.
      * @return     the number of columns in this layout
      * @since      JDK1.1
@@ -232,7 +232,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         return cols;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of columns in this layout to the specified value.
      * Setting the number of columns has no affect on the layout
      * if the number of rows specified by a constructor or by
@@ -251,7 +251,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this.cols = cols;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the horizontal gap between components.
      * @return       the horizontal gap between components
      * @since        JDK1.1
@@ -260,7 +260,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         return hgap;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the horizontal gap between components to the specified value.
      * @param        hgap   the horizontal gap between components
      * @since        JDK1.1
@@ -269,7 +269,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this.hgap = hgap;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the vertical gap between components.
      * @return       the vertical gap between components
      * @since        JDK1.1
@@ -278,7 +278,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         return vgap;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the vertical gap between components to the specified value.
      * @param         vgap  the vertical gap between components
      * @since        JDK1.1
@@ -287,7 +287,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
         this.vgap = vgap;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified component with the specified name to the layout.
      * @param name the name of the component
      * @param comp the component to be added
@@ -295,14 +295,14 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
     public void addLayoutComponent(String name, Component comp) {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified component from the layout.
      * @param comp the component to be removed
      */
     public void removeLayoutComponent(Component comp) {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the preferred size of the container argument using
      * this grid layout.
      * <p>
@@ -351,7 +351,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the minimum size of the container argument using this
      * grid layout.
      * <p>
@@ -400,7 +400,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Lays out the specified container using this layout.
      * <p>
      * This method reshapes the components in the specified target
@@ -470,7 +470,7 @@ public class GridLayout implements LayoutManager, java.io.Serializable {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the string representation of this grid layout's values.
      * @return     a string representation of this grid layout
      */

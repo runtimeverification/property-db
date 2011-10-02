@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>FlatteningPathIterator</code> class returns a flattened view of
  * another {@link PathIterator} object.  Other {@link java.awt.Shape Shape}
  * classes can use this class to provide flattening behavior for their paths
@@ -81,7 +81,7 @@ public class FlatteningPathIterator implements PathIterator {
 
     boolean done;                       // True when iteration is done
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>FlatteningPathIterator</code> object that
      * flattens a path as it iterates over it.  The iterator does not
      * subdivide any curve read from the source iterator to more than
@@ -95,7 +95,7 @@ public class FlatteningPathIterator implements PathIterator {
         this(src, flatness, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>FlatteningPathIterator</code> object
      * that flattens a path as it iterates over it.
      * The <code>limit</code> parameter allows you to control the
@@ -129,7 +129,7 @@ public class FlatteningPathIterator implements PathIterator {
         next(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the flatness of this iterator.
      * @return the flatness of this <code>FlatteningPathIterator</code>.
      */
@@ -137,7 +137,7 @@ public class FlatteningPathIterator implements PathIterator {
         return Math.sqrt(squareflat);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the recursion limit of this iterator.
      * @return the recursion limit of this
      * <code>FlatteningPathIterator</code>.
@@ -146,7 +146,7 @@ public class FlatteningPathIterator implements PathIterator {
         return limit;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the winding rule for determining the interior of the
      * path.
      * @return the winding rule of the original unflattened path being
@@ -158,7 +158,7 @@ public class FlatteningPathIterator implements PathIterator {
         return src.getWindingRule();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the iteration is complete.
      * @return <code>true</code> if all the segments have
      * been read; <code>false</code> otherwise.
@@ -185,7 +185,7 @@ public class FlatteningPathIterator implements PathIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -323,7 +323,7 @@ public class FlatteningPathIterator implements PathIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -358,7 +358,7 @@ public class FlatteningPathIterator implements PathIterator {
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

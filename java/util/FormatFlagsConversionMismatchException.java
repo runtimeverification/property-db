@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown when a conversion and flag are incompatible.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
@@ -43,7 +43,7 @@ public class FormatFlagsConversionMismatchException
 
     private char c;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class with the specified flag
      * and conversion.
      *
@@ -60,7 +60,7 @@ public class FormatFlagsConversionMismatchException
         this.c = c;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the incompatible flag.
      *
      * @return  The flag
@@ -69,7 +69,7 @@ public class FormatFlagsConversionMismatchException
         return f;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the incompatible conversion.
      *
      * @return  The conversion

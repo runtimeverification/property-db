@@ -27,7 +27,7 @@ package java.util.spi;
 
 import java.util.Locale;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide localized time zone names for the
  * {@link java.util.TimeZone TimeZone} class.
@@ -40,14 +40,14 @@ import java.util.Locale;
  */
 public abstract class TimeZoneNameProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected TimeZoneNameProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a name for the given time zone ID that's suitable for
      * presentation to the user in the specified locale. The given time
      * zone ID is "GMT" or one of the names defined using "Zone" entries

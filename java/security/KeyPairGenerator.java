@@ -34,7 +34,7 @@ import java.security.Provider.Service;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The KeyPairGenerator class is used to generate pairs of
  * public and private keys. Key pair generators are constructed using the
  * <code>getInstance</code> factory methods (static methods that
@@ -118,7 +118,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
     // The provider
     Provider provider;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a KeyPairGenerator object for the specified algorithm.
      *
      * @param algorithm the standard string name of the algorithm.
@@ -131,7 +131,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         this.algorithm = algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the standard name of the algorithm for this key pair generator.
      * See Appendix A in the <a href=
      * "../../../technotes/guides/security/crypto/CryptoSpec.html#AppA">
@@ -157,7 +157,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         return kpg;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyPairGenerator object that generates public/private
      * key pairs for the specified algorithm.
      *
@@ -214,7 +214,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         throw failure;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyPairGenerator object that generates public/private
      * key pairs for the specified algorithm.
      *
@@ -256,7 +256,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         return getInstance(instance, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyPairGenerator object that generates public/private
      * key pairs for the specified algorithm.
      *
@@ -292,7 +292,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         return getInstance(instance, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this key pair generator object.
      *
      * @return the provider of this key pair generator object
@@ -306,7 +306,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         // empty, overridden in Delegate
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes the key pair generator for a certain keysize using
      * a default parameter set and the <code>SecureRandom</code>
      * implementation of the highest-priority installed provider as the source
@@ -326,7 +326,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         initialize(keysize, JCAUtil.getSecureRandom());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes the key pair generator for a certain keysize with
      * the given source of randomness (and a default parameter set).
      *
@@ -353,7 +353,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         // same name.)
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes the key pair generator using the specified parameter
      * set and the <code>SecureRandom</code>
      * implementation of the highest-priority installed provider as the source
@@ -386,7 +386,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         initialize(params, JCAUtil.getSecureRandom());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes the key pair generator with the given parameter
      * set and source of randomness.
      *
@@ -425,7 +425,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         // same name.)
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a key pair.
      *
      * <p>If this KeyPairGenerator has not been initialized explicitly,
@@ -445,7 +445,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
         return generateKeyPair();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a key pair.
      *
      * <p>If this KeyPairGenerator has not been initialized explicitly,
@@ -546,7 +546,7 @@ public abstract class KeyPairGenerator extends KeyPairGeneratorSpi {
             initType = I_NONE;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Update the active spi of this class and return the next
          * implementation for failover. If no more implemenations are
          * available, this method returns null. However, the active spi of

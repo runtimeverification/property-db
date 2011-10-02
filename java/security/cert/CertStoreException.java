@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.GeneralSecurityException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An exception indicating one of a variety of problems retrieving
  * certificates and CRLs from a <code>CertStore</code>.
  * <p>
@@ -52,7 +52,7 @@ public class CertStoreException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 2395296107471573245L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertStoreException</code> with <code>null</code> as
      * its detail message.
      */
@@ -60,7 +60,7 @@ public class CertStoreException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertStoreException</code> with the given detail
      * message. A detail message is a <code>String</code> that describes this
      * particular exception.
@@ -71,7 +71,7 @@ public class CertStoreException extends GeneralSecurityException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertStoreException</code> that wraps the specified
      * throwable. This allows any exception to be converted into a
      * <code>CertStoreException</code>, while retaining information about the
@@ -87,7 +87,7 @@ public class CertStoreException extends GeneralSecurityException {
         super(cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertStoreException</code> with the specified detail
      * message and cause.
      *

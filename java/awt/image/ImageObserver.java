@@ -27,14 +27,14 @@ package java.awt.image;
 
 import java.awt.Image;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An asynchronous update interface for receiving notifications about
  * Image information as the Image is constructed.
  *
  * @author      Jim Graham
  */
 public interface ImageObserver {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is called when information about an image which was
      * previously requested using an asynchronous interface becomes
      * available.  Asynchronous interfaces are method calls such as
@@ -88,7 +88,7 @@ public interface ImageObserver {
     public boolean imageUpdate(Image img, int infoflags,
                                int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * the width of the base image is now available and can be taken
      * from the width argument to the imageUpdate callback method.
@@ -97,7 +97,7 @@ public interface ImageObserver {
      */
     public static final int WIDTH = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * the height of the base image is now available and can be taken
      * from the height argument to the imageUpdate callback method.
@@ -106,7 +106,7 @@ public interface ImageObserver {
      */
     public static final int HEIGHT = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * the properties of the image are now available.
      * @see Image#getProperty
@@ -114,7 +114,7 @@ public interface ImageObserver {
      */
     public static final int PROPERTIES = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * more pixels needed for drawing a scaled variation of the image
      * are available.  The bounding box of the new pixels can be taken
@@ -125,7 +125,7 @@ public interface ImageObserver {
      */
     public static final int SOMEBITS = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * another complete frame of a multi-frame image which was previously
      * drawn is now available to be drawn again.  The x, y, width, and height
@@ -135,7 +135,7 @@ public interface ImageObserver {
      */
     public static final int FRAMEBITS = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * a static image which was previously drawn is now complete and can
      * be drawn again in its final form.  The x, y, width, and height
@@ -145,7 +145,7 @@ public interface ImageObserver {
      */
     public static final int ALLBITS = 32;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * an image which was being tracked asynchronously has encountered
      * an error.  No further information will become available and
@@ -156,7 +156,7 @@ public interface ImageObserver {
      */
     public static final int ERROR = 64;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This flag in the infoflags argument to imageUpdate indicates that
      * an image which was being tracked asynchronously was aborted before
      * production was complete.  No more information will become available

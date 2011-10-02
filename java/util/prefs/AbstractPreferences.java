@@ -35,7 +35,7 @@ import java.lang.Long;
 import java.lang.Float;
 import java.lang.Double;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides a skeletal implementation of the {@link Preferences}
  * class, greatly easing the task of implementing it.
  *
@@ -121,27 +121,27 @@ import java.lang.Double;
  * @since   1.4
  */
 public abstract class AbstractPreferences extends Preferences {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Our name relative to parent.
      */
     private final String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Our absolute path name.
      */
     private final String absolutePath;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Our parent node.
      */
     final AbstractPreferences parent;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Our root node.
      */
     private final AbstractPreferences root; // Relative to this node
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field should be <tt>true</tt> if this node did not exist in the
      * backing store prior to the creation of this object.  The field
      * is initialized to false, but may be set to true by a subclass
@@ -151,30 +151,30 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected boolean newNode = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * All known unremoved children of this node.  (This "cache" is consulted
      * prior to calling childSpi() or getChild().
      */
     private Map kidCache  = new HashMap();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field is used to keep track of whether or not this node has
      * been removed.  Once it's set to true, it will never be reset to false.
      */
     private boolean removed = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registered preference change listeners.
      */
     private PreferenceChangeListener[] prefListeners =
         new PreferenceChangeListener[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registered node change listeners.
      */
     private NodeChangeListener[] nodeListeners = new NodeChangeListener[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An object whose monitor is used to lock this node.  This object
      * is used in preference to the node itself to reduce the likelihood of
      * intentional or unintentional denial of service due to a locked node.
@@ -183,7 +183,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected final Object lock = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a preference node with the specified parent and the specified
      * name relative to its parent.
      *
@@ -217,7 +217,7 @@ public abstract class AbstractPreferences extends Preferences {
         this.parent = parent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>put</tt> method as per the specification in
      * {@link Preferences#put(String,String)}.
      *
@@ -253,7 +253,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>get</tt> method as per the specification in
      * {@link Preferences#get(String,String)}.
      *
@@ -292,7 +292,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>remove(String)</tt> method as per the specification
      * in {@link Preferences#remove(String)}.
      *
@@ -316,7 +316,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>clear</tt> method as per the specification in
      * {@link Preferences#clear()}.
      *
@@ -338,7 +338,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putInt</tt> method as per the specification in
      * {@link Preferences#putInt(String,int)}.
      *
@@ -358,7 +358,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, Integer.toString(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getInt</tt> method as per the specification in
      * {@link Preferences#getInt(String,int)}.
      *
@@ -393,7 +393,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putLong</tt> method as per the specification in
      * {@link Preferences#putLong(String,long)}.
      *
@@ -413,7 +413,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, Long.toString(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getLong</tt> method as per the specification in
      * {@link Preferences#getLong(String,long)}.
      *
@@ -448,7 +448,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putBoolean</tt> method as per the specification in
      * {@link Preferences#putBoolean(String,boolean)}.
      *
@@ -468,7 +468,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, String.valueOf(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getBoolean</tt> method as per the specification in
      * {@link Preferences#getBoolean(String,boolean)}.
      *
@@ -506,7 +506,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putFloat</tt> method as per the specification in
      * {@link Preferences#putFloat(String,float)}.
      *
@@ -526,7 +526,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, Float.toString(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getFloat</tt> method as per the specification in
      * {@link Preferences#getFloat(String,float)}.
      *
@@ -561,7 +561,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putDouble</tt> method as per the specification in
      * {@link Preferences#putDouble(String,double)}.
      *
@@ -581,7 +581,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, Double.toString(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getDouble</tt> method as per the specification in
      * {@link Preferences#getDouble(String,double)}.
      *
@@ -616,7 +616,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>putByteArray</tt> method as per the specification in
      * {@link Preferences#putByteArray(String,byte[])}.
      *
@@ -632,7 +632,7 @@ public abstract class AbstractPreferences extends Preferences {
         put(key, Base64.byteArrayToBase64(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>getByteArray</tt> method as per the specification in
      * {@link Preferences#getByteArray(String,byte[])}.
      *
@@ -663,7 +663,7 @@ public abstract class AbstractPreferences extends Preferences {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>keys</tt> method as per the specification in
      * {@link Preferences#keys()}.
      *
@@ -687,7 +687,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>children</tt> method as per the specification in
      * {@link Preferences#childrenNames()}.
      *
@@ -722,7 +722,7 @@ public abstract class AbstractPreferences extends Preferences {
 
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns all known unremoved children of this node.
      *
      * @return all known unremoved children of this node.
@@ -735,7 +735,7 @@ public abstract class AbstractPreferences extends Preferences {
     private static final AbstractPreferences[] EMPTY_ABSTRACT_PREFS_ARRAY
         = new AbstractPreferences[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>parent</tt> method as per the specification in
      * {@link Preferences#parent()}.
      *
@@ -756,7 +756,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>node</tt> method as per the specification in
      * {@link Preferences#node(String)}.
      *
@@ -817,7 +817,7 @@ public abstract class AbstractPreferences extends Preferences {
         return root.node(new StringTokenizer(path.substring(1), "/", true));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * tokenizer contains <name> {'/' <name>}*
      */
     private Preferences node(StringTokenizer path) {
@@ -844,7 +844,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>nodeExists</tt> method as per the specification in
      * {@link Preferences#nodeExists(String)}.
      *
@@ -883,7 +883,7 @@ public abstract class AbstractPreferences extends Preferences {
                                                    true));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * tokenizer contains <name> {'/' <name>}*
      */
     private boolean nodeExists(StringTokenizer path)
@@ -907,7 +907,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
 
      * Implements the <tt>removeNode()</tt> method as per the specification in
      * {@link Preferences#removeNode()}.
@@ -978,7 +978,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>name</tt> method as per the specification in
      * {@link Preferences#name()}.
      *
@@ -991,7 +991,7 @@ public abstract class AbstractPreferences extends Preferences {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>absolutePath</tt> method as per the specification in
      * {@link Preferences#absolutePath()}.
      *
@@ -1006,7 +1006,7 @@ public abstract class AbstractPreferences extends Preferences {
         return absolutePath;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>isUserNode</tt> method as per the specification in
      * {@link Preferences#isUserNode()}.
      *
@@ -1114,7 +1114,7 @@ public abstract class AbstractPreferences extends Preferences {
 
     // "SPI" METHODS
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Put the given key-value association into this preference node.  It is
      * guaranteed that <tt>key</tt> and <tt>value</tt> are non-null and of
      * legal length.  Also, it is guaranteed that this node has not been
@@ -1124,7 +1124,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract void putSpi(String key, String value);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the value associated with the specified key at this preference
      * node, or <tt>null</tt> if there is no association for this key, or the
      * association cannot be determined at this time.  It is guaranteed that
@@ -1145,7 +1145,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract String getSpi(String key);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove the association (if any) for the specified key at this
      * preference node.  It is guaranteed that <tt>key</tt> is non-null.
      * Also, it is guaranteed that this node has not been removed.
@@ -1155,7 +1155,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract void removeSpi(String key);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes this preference node, invalidating it and any preferences that
      * it contains.  The named child will have no descendants at the time this
      * invocation is made (i.e., the {@link Preferences#removeNode()} method
@@ -1179,7 +1179,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract void removeNodeSpi() throws BackingStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns all of the keys that have an associated value in this
      * preference node.  (The returned array will be of size zero if
      * this node has no preferences.)  It is guaranteed that this node has not
@@ -1198,7 +1198,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract String[] keysSpi() throws BackingStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the names of the children of this preference node.  (The
      * returned array will be of size zero if this node has no children.)
      * This method need not return the names of any nodes already cached,
@@ -1219,7 +1219,7 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract String[] childrenNamesSpi()
         throws BackingStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the named child if it exists, or <tt>null</tt> if it does not.
      * It is guaranteed that <tt>nodeName</tt> is non-null, non-empty,
      * does not contain the slash character ('/'), and is no longer than
@@ -1260,7 +1260,7 @@ public abstract class AbstractPreferences extends Preferences {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the named child of this preference node, creating it if it does
      * not already exist.  It is guaranteed that <tt>name</tt> is non-null,
      * non-empty, does not contain the slash character ('/'), and is no longer
@@ -1293,7 +1293,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract AbstractPreferences childSpi(String name);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute path name of this preferences node.
      */
     public String toString() {
@@ -1301,7 +1301,7 @@ public abstract class AbstractPreferences extends Preferences {
                " Preference Node: " + this.absolutePath();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>sync</tt> method as per the specification in
      * {@link Preferences#sync()}.
      *
@@ -1339,7 +1339,7 @@ public abstract class AbstractPreferences extends Preferences {
             cachedKids[i].sync2();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is invoked with this node locked.  The contract of this
      * method is to synchronize any cached preferences stored at this node
      * with any stored in the backing store.  (It is perfectly possible that
@@ -1359,7 +1359,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract void syncSpi() throws BackingStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>flush</tt> method as per the specification in
      * {@link Preferences#flush()}.
      *
@@ -1399,7 +1399,7 @@ public abstract class AbstractPreferences extends Preferences {
             cachedKids[i].flush2();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is invoked with this node locked.  The contract of this
      * method is to force any cached changes in the contents of this
      * preference node to the backing store, guaranteeing their persistence.
@@ -1420,7 +1420,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     protected abstract void flushSpi() throws BackingStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> iff this node (or an ancestor) has been
      * removed with the {@link #removeNode()} method.  This method
      * locks this node prior to returning the contents of the private
@@ -1435,7 +1435,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queue of pending notification events.  When a preference or node
      * change event for which there are one or more listeners occurs,
      * it is placed on this queue and the queue is notified.  A background
@@ -1445,7 +1445,7 @@ public abstract class AbstractPreferences extends Preferences {
      */
     private static final List eventQueue = new LinkedList();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * These two classes are used to distinguish NodeChangeEvents on
      * eventQueue so the event dispatch thread knows whether to call
      * childAdded or childRemoved.
@@ -1463,7 +1463,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A single background thread ("the event notification thread") monitors
      * the event queue and delivers events that are placed on the queue.
      */
@@ -1508,7 +1508,7 @@ public abstract class AbstractPreferences extends Preferences {
 
     private static Thread eventDispatchThread = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method starts the event dispatch thread the first time it
      * is called.  The event dispatch thread will be started only
      * if someone registers a listener.
@@ -1522,7 +1522,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return this node's preference/node change listeners.  Even though
      * we're using a copy-on-write lists, we use synchronized accessors to
      * ensure information transmission from the writing thread to the
@@ -1539,7 +1539,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enqueue a preference change event for delivery to registered
      * preference change listeners unless there are no registered
      * listeners.  Invoked with this.lock held.
@@ -1553,7 +1553,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enqueue a "node added" event for delivery to registered node change
      * listeners unless there are no registered listeners.  Invoked with
      * this.lock held.
@@ -1567,7 +1567,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enqueue a "node removed" event for delivery to registered node change
      * listeners unless there are no registered listeners.  Invoked with
      * this.lock held.
@@ -1581,7 +1581,7 @@ public abstract class AbstractPreferences extends Preferences {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>exportNode</tt> method as per the specification in
      * {@link Preferences#exportNode(OutputStream)}.
      *
@@ -1597,7 +1597,7 @@ public abstract class AbstractPreferences extends Preferences {
         XmlSupport.export(os, this, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implements the <tt>exportSubtree</tt> method as per the specification in
      * {@link Preferences#exportSubtree(OutputStream)}.
      *

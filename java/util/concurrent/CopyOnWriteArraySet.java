@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@link java.util.Set} that uses an internal {@link CopyOnWriteArrayList}
  * for all of its operations.  Thus, it shares the same basic properties:
  * <ul>
@@ -93,14 +93,14 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
 
     private final CopyOnWriteArrayList<E> al;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an empty set.
      */
     public CopyOnWriteArraySet() {
         al = new CopyOnWriteArrayList<E>();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a set containing all of the elements of the specified
      * collection.
      *
@@ -112,7 +112,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         al.addAllAbsent(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this set.
      *
      * @return the number of elements in this set
@@ -121,7 +121,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.size();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains no elements.
      *
      * @return <tt>true</tt> if this set contains no elements
@@ -130,7 +130,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.isEmpty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
@@ -143,7 +143,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.contains(o);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this set.
      * If this set makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the
@@ -163,7 +163,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.toArray();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this set; the
      * runtime type of the returned array is that of the specified array.
      * If the set fits in the specified array, it is returned therein.
@@ -209,7 +209,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.toArray(a);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this set.
      * The set will be empty after this call returns.
      */
@@ -217,7 +217,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         al.clear();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified element from this set if it is present.
      * More formally, removes an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -233,7 +233,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.remove(o);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element <tt>e</tt> to this set if
      * the set contains no element <tt>e2</tt> such that
@@ -249,7 +249,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.addIfAbsent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains all of the elements of the
      * specified collection.  If the specified collection is also a set, this
      * method returns <tt>true</tt> if it is a <i>subset</i> of this set.
@@ -264,7 +264,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.containsAll(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds all of the elements in the specified collection to this set if
      * they're not already present.  If the specified collection is also a
      * set, the <tt>addAll</tt> operation effectively modifies this set so
@@ -281,7 +281,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.addAllAbsent(c) > 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this set all of its elements that are contained in the
      * specified collection.  If the specified collection is also a set,
      * this operation effectively modifies this set so that its value is the
@@ -300,7 +300,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.removeAll(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retains only the elements in this set that are contained in the
      * specified collection.  In other words, removes from this set all of
      * its elements that are not contained in the specified collection.  If
@@ -321,7 +321,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.retainAll(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements contained in this set
      * in the order in which these elements were added.
      *
@@ -336,7 +336,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.iterator();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this set for equality.
      * Returns {@code true} if the specified object is the same object
      * as this object, or if it is also a {@link Set} and the elements
@@ -384,7 +384,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return k == len;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Test for equality, coping with nulls.
      */
     private static boolean eq(Object o1, Object o2) {

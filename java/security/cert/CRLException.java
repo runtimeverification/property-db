@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.GeneralSecurityException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * CRL (Certificate Revocation List) Exception.
  *
  * @author Hemma Prafullchandra
@@ -36,7 +36,7 @@ public class CRLException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -6694728944094197147L;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * Constructs a CRLException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -45,7 +45,7 @@ public class CRLException extends GeneralSecurityException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a CRLException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -56,7 +56,7 @@ public class CRLException extends GeneralSecurityException {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CRLException</code> with the specified
      * detail message and cause.
      *
@@ -71,7 +71,7 @@ public class CRLException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CRLException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

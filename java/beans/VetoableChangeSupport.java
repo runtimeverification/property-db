@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is a utility class that can be used by beans that support constrained
  * properties.  You can use an instance of this class as a member field
  * of your bean and delegate various work to it.
@@ -44,7 +44,7 @@ import java.util.Map.Entry;
 public class VetoableChangeSupport implements Serializable {
     private VetoableChangeListenerMap map = new VetoableChangeListenerMap();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>VetoableChangeSupport</code> object.
      *
      * @param sourceBean  The bean to be given as the source for any events.
@@ -56,7 +56,7 @@ public class VetoableChangeSupport implements Serializable {
         source = sourceBean;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add a VetoableChangeListener to the listener list.
      * The listener is registered for all properties.
      * The same listener object may be added more than once, and will be called
@@ -81,7 +81,7 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove a VetoableChangeListener from the listener list.
      * This removes a VetoableChangeListener that was registered
      * for all properties.
@@ -107,7 +107,7 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the list of VetoableChangeListeners. If named vetoable change listeners
      * were added, then VetoableChangeListenerProxy wrappers will returned
      * <p>
@@ -119,7 +119,7 @@ public class VetoableChangeSupport implements Serializable {
         return this.map.getListeners();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add a VetoableChangeListener for a specific property.  The listener
      * will be invoked only when a call on fireVetoableChange names that
      * specific property.
@@ -144,7 +144,7 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove a VetoableChangeListener for a specific property.
      * If <code>listener</code> was added more than once to the same event
      * source for the specified property, it will be notified one less time
@@ -169,7 +169,7 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the listeners which have been associated
      * with the named property.
      *
@@ -184,7 +184,7 @@ public class VetoableChangeSupport implements Serializable {
         return this.map.getListeners(propertyName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Report a vetoable property update to any registered listeners.  If
      * anyone vetos the change, then fire a new event reverting everyone to
      * the old value and then rethrow the PropertyVetoException.
@@ -209,7 +209,7 @@ public class VetoableChangeSupport implements Serializable {
         fireVetoableChange(evt);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Report a int vetoable property update to any registered listeners.
      * No event is fired if old and new are equal.
      * <p>
@@ -230,7 +230,7 @@ public class VetoableChangeSupport implements Serializable {
         fireVetoableChange(propertyName, Integer.valueOf(oldValue), Integer.valueOf(newValue));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Report a boolean vetoable property update to any registered listeners.
      * No event is fired if old and new are equal.
      * <p>
@@ -251,7 +251,7 @@ public class VetoableChangeSupport implements Serializable {
         fireVetoableChange(propertyName, Boolean.valueOf(oldValue), Boolean.valueOf(newValue));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fire a vetoable property update to any registered listeners.  If
      * anyone vetos the change, then fire a new event reverting everyone to
      * the old value and then rethrow the PropertyVetoException.
@@ -306,7 +306,7 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if there are any listeners for a specific property, including
      * those registered on all properties.  If <code>propertyName</code>
      * is null, only check for listeners registered on all properties.
@@ -318,7 +318,7 @@ public class VetoableChangeSupport implements Serializable {
         return this.map.hasListeners(propertyName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Null terminated list of <code>VetoableChangeListeners</code>.
      * <p>
      * At serialization time we skip non-serializable listeners and
@@ -380,12 +380,12 @@ public class VetoableChangeSupport implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The object to be provided as the "source" for any generated events.
      */
     private Object source;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField children                                   Hashtable
      * @serialField source                                     Object
      * @serialField propertyChangeSupportSerializedDataVersion int
@@ -396,19 +396,19 @@ public class VetoableChangeSupport implements Serializable {
             new ObjectStreamField("vetoableChangeSupportSerializedDataVersion", Integer.TYPE)
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serialization version ID, so we're compatible with JDK 1.1
      */
     static final long serialVersionUID = -5090210921595982017L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is a {@link ChangeListenerMap ChangeListenerMap} implementation
      * that works with {@link VetoableChangeListener VetoableChangeListener} objects.
      */
     private static final class VetoableChangeListenerMap extends ChangeListenerMap<VetoableChangeListener> {
         private static final VetoableChangeListener[] EMPTY = {};
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates an array of {@link VetoableChangeListener VetoableChangeListener} objects.
          * This method uses the same instance of the empty array
          * when {@code length} equals {@code 0}.
@@ -423,7 +423,7 @@ public class VetoableChangeSupport implements Serializable {
                     : EMPTY;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a {@link VetoableChangeListenerProxy VetoableChangeListenerProxy}
          * object for the specified property.
          *

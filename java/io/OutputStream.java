@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * This abstract class is the superclass of all classes representing
  * an output stream of bytes. An output stream accepts output bytes
@@ -48,7 +48,7 @@ package java.io;
  * @since   JDK1.0
  */
 public abstract class OutputStream implements Closeable, Flushable {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified byte to this output stream. The general
      * contract for <code>write</code> is that one byte is written
@@ -69,7 +69,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      */
     public abstract void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this output stream. The general contract for <code>write(b)</code>
@@ -85,7 +85,7 @@ public abstract class OutputStream implements Closeable, Flushable {
         write(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this output stream.
@@ -129,7 +129,7 @@ public abstract class OutputStream implements Closeable, Flushable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out. The general contract of <code>flush</code> is
@@ -152,7 +152,7 @@ public abstract class OutputStream implements Closeable, Flushable {
     public void flush() throws IOException {
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this output stream and releases any system resources
      * associated with this stream.

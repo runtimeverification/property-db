@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown when the format width is a negative value other
  * than <tt>-1</tt> or is otherwise unsupported.
  *
@@ -37,7 +37,7 @@ public class IllegalFormatWidthException extends IllegalFormatException {
 
     private int w;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class with the specified width.
      *
      * @param  w
@@ -47,7 +47,7 @@ public class IllegalFormatWidthException extends IllegalFormatException {
         this.w = w;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the width
      *
      * @return  The width

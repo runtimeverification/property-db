@@ -27,7 +27,7 @@ package java.rmi.server;
 
 import java.rmi.RemoteException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>SkeletonNotFoundException</code> is thrown if the
  * <code>Skeleton</code> corresponding to the remote object being
  * exported is not found.  Skeletons are no longer required, so this
@@ -43,7 +43,7 @@ public class SkeletonNotFoundException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -7860299673822761231L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SkeletonNotFoundException</code> with the specified
      * detail message.
      *
@@ -54,7 +54,7 @@ public class SkeletonNotFoundException extends RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SkeletonNotFoundException</code> with the specified
      * detail message and nested exception.
      *

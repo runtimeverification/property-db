@@ -39,7 +39,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is for property permissions.
  *
  * <P>
@@ -91,31 +91,31 @@ import sun.security.util.SecurityConstants;
 
 public final class PropertyPermission extends BasicPermission {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Read action.
      */
     private final static int READ    = 0x1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Write action.
      */
     private final static int WRITE   = 0x2;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * All actions (read,write);
      */
     private final static int ALL     = READ|WRITE;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * No actions.
      */
     private final static int NONE    = 0x0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The actions mask.
      *
      */
     private transient int mask;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The actions string.
      *
      * @serial
@@ -123,7 +123,7 @@ public final class PropertyPermission extends BasicPermission {
     private String actions; // Left null as long as possible, then
                             // created and re-used in the getAction function.
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * initialize a PropertyPermission object. Common to all constructors.
      * Also called during de-serialization.
      *
@@ -146,7 +146,7 @@ public final class PropertyPermission extends BasicPermission {
         this.mask = mask;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new PropertyPermission object with the specified name.
      * The name is the name of the system property, and
      * <i>actions</i> contains a comma-separated list of the
@@ -167,7 +167,7 @@ public final class PropertyPermission extends BasicPermission {
         init(getMask(actions));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if this PropertyPermission object "implies" the specified
      * permission.
      * <P>
@@ -197,7 +197,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks two PropertyPermission objects for equality. Checks that <i>obj</i> is
      * a PropertyPermission, and has the same name and actions as this object.
      * <P>
@@ -218,7 +218,7 @@ public final class PropertyPermission extends BasicPermission {
             (this.getName().equals(that.getName()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this object.
      * The hash code used is the hash code of this permissions name, that is,
      * <code>getName().hashCode()</code>, where <code>getName</code> is
@@ -232,7 +232,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts an actions String to an actions mask.
      *
      * @param action the action string.
@@ -324,7 +324,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the canonical string representation of the actions.
      * Always returns present actions in the following order:
      * read, write.
@@ -349,7 +349,7 @@ public final class PropertyPermission extends BasicPermission {
         return sb.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the "canonical string representation" of the actions.
      * That is, this method always returns present actions in the following order:
      * read, write. For example, if this PropertyPermission object
@@ -366,7 +366,7 @@ public final class PropertyPermission extends BasicPermission {
         return actions;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the current action mask.
      * Used by the PropertyPermissionCollection
      *
@@ -377,7 +377,7 @@ public final class PropertyPermission extends BasicPermission {
         return mask;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new PermissionCollection object for storing
      * PropertyPermission objects.
      * <p>
@@ -393,7 +393,7 @@ public final class PropertyPermission extends BasicPermission {
 
     private static final long serialVersionUID = 885438825399942851L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * WriteObject is called to save the state of the PropertyPermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
@@ -408,7 +408,7 @@ public final class PropertyPermission extends BasicPermission {
         s.defaultWriteObject();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * readObject is called to restore the state of the PropertyPermission from
      * a stream.
      */
@@ -421,7 +421,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A PropertyPermissionCollection stores a set of PropertyPermission
  * permissions.
  *
@@ -438,13 +438,13 @@ final class PropertyPermissionCollection extends PermissionCollection
 implements Serializable
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Key is property name; value is PropertyPermission.
      * Not serialized; see serialization section at end of class.
      */
     private transient Map perms;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Boolean saying if "*" is in the collection.
      *
      * @see #serialPersistentFields
@@ -452,7 +452,7 @@ implements Serializable
     // No sync access; OK for this to be stale.
     private boolean all_allowed;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an empty PropertyPermissions object.
      *
      */
@@ -462,7 +462,7 @@ implements Serializable
         all_allowed = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a permission to the PropertyPermissions. The key for the hash is
      * the name.
      *
@@ -509,7 +509,7 @@ implements Serializable
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
      *
@@ -586,7 +586,7 @@ implements Serializable
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of all the PropertyPermission objects in the
      * container.
      *
@@ -610,7 +610,7 @@ implements Serializable
     // @serial
     //
     // private Hashtable permissions;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialField permissions java.util.Hashtable
      *     A table of the PropertyPermissions.
      * @serialField all_allowed boolean
@@ -621,7 +621,7 @@ implements Serializable
         new ObjectStreamField("all_allowed", Boolean.TYPE),
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serialData Default fields.
      */
     /*

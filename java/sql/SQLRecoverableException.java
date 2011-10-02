@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The subclass of {@link SQLException} thrown in situations where a
  * previously failed operation might be able to succeed if the application performs
  *  some recovery steps and retries the entire transaction or in the case of a
@@ -38,7 +38,7 @@ package java.sql;
  */
 public class SQLRecoverableException extends java.sql.SQLException {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLRecoverableException</code> object.
          * The <code>reason</code>, <code>SQLState</code> are initialized
          * to <code>null</code> and the vendor code is initialized to 0.
@@ -53,7 +53,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
                 super();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLRecoverableException</code> object
          *  with a given <code>reason</code>. The <code>SQLState</code>
          * is initialized to <code>null</code> and the vender code is initialized
@@ -70,7 +70,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
                 super(reason);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLRecoverableException</code> object
          * with a given <code>reason</code> and <code>SQLState</code>.
          *
@@ -87,7 +87,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
                 super(reason, SQLState);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLRecoverableException</code> object
          *  with a given <code>reason</code>, <code>SQLState</code>  and
          * <code>vendorCode</code>.
@@ -105,7 +105,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
                 super(reason, SQLState, vendorCode);
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLRecoverableException</code> object
      * with a given  <code>cause</code>.
      * The <code>SQLState</code> is initialized
@@ -122,7 +122,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
         super(cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLRecoverableException</code> object
      * with a given
      * <code>reason</code> and  <code>cause</code>.
@@ -138,7 +138,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
         super(reason, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLRecoverableException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
@@ -154,7 +154,7 @@ public class SQLRecoverableException extends java.sql.SQLException {
         super(reason, SQLState, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLRecoverableException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>

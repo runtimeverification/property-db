@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>Hash table and linked list implementation of the <tt>Set</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashSet</tt> in that it maintains a doubly-linked list running through
@@ -121,7 +121,7 @@ public class LinkedHashSet<E>
 
     private static final long serialVersionUID = -2851667679971038690L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and load factor.
      *
@@ -134,7 +134,7 @@ public class LinkedHashSet<E>
         super(initialCapacity, loadFactor, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and the default load factor (0.75).
      *
@@ -146,7 +146,7 @@ public class LinkedHashSet<E>
         super(initialCapacity, .75f, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty linked hash set with the default initial
      * capacity (16) and load factor (0.75).
      */
@@ -154,7 +154,7 @@ public class LinkedHashSet<E>
         super(16, .75f, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new linked hash set with the same elements as the
      * specified collection.  The linked hash set is created with an initial
      * capacity sufficient to hold the elements in the specified collection

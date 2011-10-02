@@ -27,7 +27,7 @@ package java.lang.management;
 
 import javax.management.openmbean.CompositeData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The management interface for the memory system of
  * the Java virtual machine.
  *
@@ -199,7 +199,7 @@ import javax.management.openmbean.CompositeData;
  * @since   1.5
  */
 public interface MemoryMXBean {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the approximate number of objects for which
      * finalization is pending.
      *
@@ -208,7 +208,7 @@ public interface MemoryMXBean {
      */
     public int getObjectPendingFinalizationCount();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current memory usage of the heap that
      * is used for object allocation.  The heap consists
      * of one or more memory pools.  The <tt>used</tt>
@@ -234,7 +234,7 @@ public interface MemoryMXBean {
      */
     public MemoryUsage getHeapMemoryUsage();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current memory usage of non-heap memory that
      * is used by the Java virtual machine.
      * The non-heap memory consists of one or more memory pools.
@@ -257,7 +257,7 @@ public interface MemoryMXBean {
      */
     public MemoryUsage getNonHeapMemoryUsage();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if verbose output for the memory system is enabled.
      *
      * @return <tt>true</tt> if verbose output for the memory
@@ -265,7 +265,7 @@ public interface MemoryMXBean {
      */
     public boolean isVerbose();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enables or disables verbose output for the memory
      * system.  The verbose output information and the output stream
      * to which the verbose information is emitted are implementation
@@ -285,7 +285,7 @@ public interface MemoryMXBean {
      */
     public void setVerbose(boolean value);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Runs the garbage collector.
      * The call <code>gc()</code> is effectively equivalent to the
      * call:

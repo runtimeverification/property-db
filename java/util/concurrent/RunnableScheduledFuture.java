@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@link ScheduledFuture} that is {@link Runnable}. Successful
  * execution of the <tt>run</tt> method causes completion of the
  * <tt>Future</tt> and allows access to its results.
@@ -47,7 +47,7 @@ package java.util.concurrent;
  */
 public interface RunnableScheduledFuture<V> extends RunnableFuture<V>, ScheduledFuture<V> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if this is a periodic task. A periodic task may
      * re-run according to some schedule. A non-periodic task can be
      * run only once.

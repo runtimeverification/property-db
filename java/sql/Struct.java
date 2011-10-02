@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>The standard mapping in the Java programming language for an SQL
  * structured type. A <code>Struct</code> object contains a
  * value for each attribute of the SQL structured type that
@@ -40,7 +40,7 @@ package java.sql;
 
 public interface Struct {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the SQL type name of the SQL structured type
    * that this <code>Struct</code> object represents.
    *
@@ -54,7 +54,7 @@ public interface Struct {
    */
   String getSQLTypeName() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Produces the ordered values of the attributes of the SQL
    * structured type that this <code>Struct</code> object represents.
    * As individual attributes are processed, this method uses the type map
@@ -78,7 +78,7 @@ public interface Struct {
    */
   Object[] getAttributes() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Produces the ordered values of the attributes of the SQL
    * structured type that this <code>Struct</code> object represents.
    *  As individual attrbutes are proccessed, this method uses the given type map

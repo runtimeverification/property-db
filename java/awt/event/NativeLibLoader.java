@@ -27,7 +27,7 @@ package java.awt.event;
 
 class NativeLibLoader {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is copied from java.awt.Toolkit since we need the library
      * loaded in sun.awt.image also:
      *

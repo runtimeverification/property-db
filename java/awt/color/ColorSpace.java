@@ -23,7 +23,7 @@
  * questions.
  */
 
-/** {@collect.stats}********************************************************************
+/** {@collect.stats} ********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -39,7 +39,7 @@ import sun.java2d.cmm.PCMM;
 import sun.java2d.cmm.CMSManager;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This abstract class is used to serve as a color space tag to identify the
  * specific color space of a Color object or, via a ColorModel object,
  * of an Image, a BufferedImage, or a GraphicsDevice.  It contains
@@ -110,132 +110,132 @@ public abstract class ColorSpace implements java.io.Serializable {
     private static ColorSpace GRAYspace;
     private static ColorSpace LINEAR_RGBspace;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of XYZ color spaces.
      */
     public static final int TYPE_XYZ = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of Lab color spaces.
      */
     public static final int TYPE_Lab = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of Luv color spaces.
      */
     public static final int TYPE_Luv = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of YCbCr color spaces.
      */
     public static final int TYPE_YCbCr = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of Yxy color spaces.
      */
     public static final int TYPE_Yxy = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of RGB color spaces.
      */
     public static final int TYPE_RGB = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of GRAY color spaces.
      */
     public static final int TYPE_GRAY = 6;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of HSV color spaces.
      */
     public static final int TYPE_HSV = 7;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of HLS color spaces.
      */
     public static final int TYPE_HLS = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of CMYK color spaces.
      */
     public static final int TYPE_CMYK = 9;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Any of the family of CMY color spaces.
      */
     public static final int TYPE_CMY = 11;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 2 component color spaces.
      */
     public static final int TYPE_2CLR = 12;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 3 component color spaces.
      */
     public static final int TYPE_3CLR = 13;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 4 component color spaces.
      */
     public static final int TYPE_4CLR = 14;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 5 component color spaces.
      */
     public static final int TYPE_5CLR = 15;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 6 component color spaces.
      */
     public static final int TYPE_6CLR = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 7 component color spaces.
      */
     public static final int TYPE_7CLR = 17;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 8 component color spaces.
      */
     public static final int TYPE_8CLR = 18;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 9 component color spaces.
      */
     public static final int TYPE_9CLR = 19;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 10 component color spaces.
      */
     public static final int TYPE_ACLR = 20;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 11 component color spaces.
      */
     public static final int TYPE_BCLR = 21;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 12 component color spaces.
      */
     public static final int TYPE_CCLR = 22;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 13 component color spaces.
      */
     public static final int TYPE_DCLR = 23;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 14 component color spaces.
      */
     public static final int TYPE_ECLR = 24;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generic 15 component color spaces.
      */
     public static final int TYPE_FCLR = 25;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The sRGB color space defined at
      * <A href="http://www.w3.org/pub/WWW/Graphics/Color/sRGB.html">
      * http://www.w3.org/pub/WWW/Graphics/Color/sRGB.html
@@ -243,29 +243,29 @@ public abstract class ColorSpace implements java.io.Serializable {
      */
     public static final int CS_sRGB = 1000;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A built-in linear RGB color space.  This space is based on the
      * same RGB primaries as CS_sRGB, but has a linear tone reproduction curve.
      */
     public static final int CS_LINEAR_RGB = 1004;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The CIEXYZ conversion color space defined above.
      */
     public static final int CS_CIEXYZ = 1001;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Photo YCC conversion color space.
      */
     public static final int CS_PYCC = 1002;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The built-in linear gray scale color space.
      */
     public static final int CS_GRAY = 1003;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a ColorSpace object given a color space type
      * and the number of components.
      * @param type one of the <CODE>ColorSpace</CODE> type constants
@@ -277,7 +277,7 @@ public abstract class ColorSpace implements java.io.Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a ColorSpace representing one of the specific
      * predefined color spaces.
      * @param colorspace a specific color space identified by one of
@@ -364,7 +364,7 @@ public abstract class ColorSpace implements java.io.Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the ColorSpace is CS_sRGB.
      * @return <CODE>true</CODE> if this is a <CODE>CS_sRGB</CODE> color
      *         space, <code>false</code> if it is not
@@ -374,7 +374,7 @@ public abstract class ColorSpace implements java.io.Serializable {
         return (this == sRGBspace);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in this ColorSpace
      * into a value in the default CS_sRGB color space.
      * <p>
@@ -398,7 +398,7 @@ public abstract class ColorSpace implements java.io.Serializable {
     public abstract float[] toRGB(float[] colorvalue);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in the default CS_sRGB
      * color space into this ColorSpace.
      * <p>
@@ -422,7 +422,7 @@ public abstract class ColorSpace implements java.io.Serializable {
     public abstract float[] fromRGB(float[] rgbvalue);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in this ColorSpace
      * into the CS_CIEXYZ conversion color space.
      * <p>
@@ -449,7 +449,7 @@ public abstract class ColorSpace implements java.io.Serializable {
     public abstract float[] toCIEXYZ(float[] colorvalue);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in the CS_CIEXYZ conversion
      * color space into this ColorSpace.
      * <p>
@@ -476,7 +476,7 @@ public abstract class ColorSpace implements java.io.Serializable {
      */
     public abstract float[] fromCIEXYZ(float[] colorvalue);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color space type of this ColorSpace (for example
      * TYPE_RGB, TYPE_XYZ, ...).  The type defines the
      * number of components of the color space and the interpretation,
@@ -492,7 +492,7 @@ public abstract class ColorSpace implements java.io.Serializable {
         return type;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of components of this ColorSpace.
      * @return The number of components in this <CODE>ColorSpace</CODE>.
      */
@@ -500,7 +500,7 @@ public abstract class ColorSpace implements java.io.Serializable {
         return numComponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the component given the component index.
      *
      * @param idx the component index
@@ -563,7 +563,7 @@ public abstract class ColorSpace implements java.io.Serializable {
         return compName[idx];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum normalized color component value for the
      * specified component.  The default implementation in this abstract
      * class returns 0.0 for all components.  Subclasses should override
@@ -583,7 +583,7 @@ public abstract class ColorSpace implements java.io.Serializable {
         return 0.0f;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum normalized color component value for the
      * specified component.  The default implementation in this abstract
      * class returns 1.0 for all components.  Subclasses should override

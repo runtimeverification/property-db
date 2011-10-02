@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Abstract class for reading character streams.  The only methods that a
  * subclass must implement are read(char[], int, int) and close().  Most
@@ -52,7 +52,7 @@ package java.io;
 
 public abstract class Reader implements Readable, Closeable {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The object used to synchronize operations on this stream.  For
      * efficiency, a character-stream object may use an object other than
@@ -63,7 +63,7 @@ public abstract class Reader implements Readable, Closeable {
      */
     protected Object lock;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new character-stream reader whose critical sections will
      * synchronize on the reader itself.
@@ -73,7 +73,7 @@ public abstract class Reader implements Readable, Closeable {
         this.lock = this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new character-stream reader whose critical sections will
      * synchronize on the given object.
@@ -88,7 +88,7 @@ public abstract class Reader implements Readable, Closeable {
         this.lock = lock;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Attempts to read characters into the specified character buffer.
      * The buffer is used as a repository of characters as-is: the only
@@ -113,7 +113,7 @@ public abstract class Reader implements Readable, Closeable {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a single character.
      * {@description.close}
@@ -141,7 +141,7 @@ public abstract class Reader implements Readable, Closeable {
             return cb[0];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into an array.
      * {@description.close}
@@ -162,7 +162,7 @@ public abstract class Reader implements Readable, Closeable {
         return read(cbuf, 0, cbuf.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
@@ -183,21 +183,21 @@ public abstract class Reader implements Readable, Closeable {
      */
     abstract public int read(char cbuf[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Maximum skip-buffer size
      * {@description.close}
      */
     private static final int maxSkipBufferSize = 8192;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skip buffer, null until allocated
      * {@description.close}
      */
     private char skipBuffer[] = null;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips characters.
      * {@description.close}
@@ -231,7 +231,7 @@ public abstract class Reader implements Readable, Closeable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream is ready to be read.
      * {@description.close}
@@ -246,7 +246,7 @@ public abstract class Reader implements Readable, Closeable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream supports the mark() operation. The default
      * implementation always returns false. Subclasses should override this
@@ -259,7 +259,7 @@ public abstract class Reader implements Readable, Closeable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
@@ -281,7 +281,7 @@ public abstract class Reader implements Readable, Closeable {
         throw new IOException("mark() not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the stream.  If the stream has been marked, then attempt to
      * reposition it at the mark.
@@ -303,7 +303,7 @@ public abstract class Reader implements Readable, Closeable {
         throw new IOException("reset() not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes the stream and releases any system resources associated with
      * it.

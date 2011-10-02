@@ -200,7 +200,7 @@ class GradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Release the resources allocated for the operation.
      */
     public void dispose() {
@@ -210,14 +210,14 @@ class GradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the ColorModel of the output.
      */
     public ColorModel getColorModel() {
         return model;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a Raster containing the colors generated for the graphics
      * operation.
      * @param x,y,w,h The area in device space for which colors are

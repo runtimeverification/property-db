@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.awt.IllegalComponentStateException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An event which indicates that a mouse action occurred in a component.
  * A mouse action is considered to occur in a particular component if and only
  * if the mouse cursor is over the unobscured part of the component's bounds
@@ -173,92 +173,92 @@ import java.awt.IllegalComponentStateException;
  */
 public class MouseEvent extends InputEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The first number in the range of ids used for mouse events.
      */
     public static final int MOUSE_FIRST         = 500;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The last number in the range of ids used for mouse events.
      */
     public static final int MOUSE_LAST          = 507;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse clicked" event. This <code>MouseEvent</code>
      * occurs when a mouse button is pressed and released.
      */
     public static final int MOUSE_CLICKED = MOUSE_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse pressed" event. This <code>MouseEvent</code>
      * occurs when a mouse button is pushed down.
      */
     public static final int MOUSE_PRESSED = 1 + MOUSE_FIRST; //Event.MOUSE_DOWN
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse released" event. This <code>MouseEvent</code>
      * occurs when a mouse button is let up.
      */
     public static final int MOUSE_RELEASED = 2 + MOUSE_FIRST; //Event.MOUSE_UP
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse moved" event. This <code>MouseEvent</code>
      * occurs when the mouse position changes.
      */
     public static final int MOUSE_MOVED = 3 + MOUSE_FIRST; //Event.MOUSE_MOVE
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse entered" event. This <code>MouseEvent</code>
      * occurs when the mouse cursor enters the unobscured part of component's
      * geometry.
      */
     public static final int MOUSE_ENTERED = 4 + MOUSE_FIRST; //Event.MOUSE_ENTER
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse exited" event. This <code>MouseEvent</code>
      * occurs when the mouse cursor exits the unobscured part of component's
      * geometry.
      */
     public static final int MOUSE_EXITED = 5 + MOUSE_FIRST; //Event.MOUSE_EXIT
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse dragged" event. This <code>MouseEvent</code>
      * occurs when the mouse position changes while a mouse button is pressed.
      */
     public static final int MOUSE_DRAGGED = 6 + MOUSE_FIRST; //Event.MOUSE_DRAG
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "mouse wheel" event.  This is the only <code>MouseWheelEvent</code>.
      * It occurs when a mouse equipped with a wheel has its wheel rotated.
      * @since 1.4
      */
     public static final int MOUSE_WHEEL = 7 + MOUSE_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates no mouse buttons; used by {@link #getButton}.
      * @since 1.4
      */
     public static final int NOBUTTON = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates mouse button #1; used by {@link #getButton}.
      * @since 1.4
      */
     public static final int BUTTON1 = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates mouse button #2; used by {@link #getButton}.
      * @since 1.4
      */
     public static final int BUTTON2 = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates mouse button #3; used by {@link #getButton}.
      * @since 1.4
      */
     public static final int BUTTON3 = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The mouse event's x coordinate.
      * The x value is relative to the component that fired the event.
      *
@@ -267,7 +267,7 @@ public class MouseEvent extends InputEvent {
      */
     int x;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The mouse event's y coordinate.
      * The y value is relative to the component that fired the event.
      *
@@ -276,7 +276,7 @@ public class MouseEvent extends InputEvent {
      */
     int y;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The mouse event's x absolute coordinate.
      * In a virtual device multi-screen environment in which the
      * desktop area could span multiple physical screen devices,
@@ -288,7 +288,7 @@ public class MouseEvent extends InputEvent {
    */
     private int xAbs;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The mouse event's y absolute coordinate.
      * In a virtual device multi-screen environment in which the
      * desktop area could span multiple physical screen devices,
@@ -300,7 +300,7 @@ public class MouseEvent extends InputEvent {
      */
     private int yAbs;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates the number of quick consecutive clicks of
      * a mouse button.
      * clickCount will be valid for only three mouse events :<BR>
@@ -315,7 +315,7 @@ public class MouseEvent extends InputEvent {
      */
     int clickCount;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates which, if any, of the mouse buttons has changed state.
      *
      * The only legal values are the following constants:
@@ -328,7 +328,7 @@ public class MouseEvent extends InputEvent {
      */
     int button;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A property used to indicate whether a Popup Menu
      * should appear  with a certain gestures.
      * If <code>popupTrigger</code> = <code>false</code>,
@@ -354,13 +354,13 @@ public class MouseEvent extends InputEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs for fields that may be
        accessed from C.
      */
     private static native void initIDs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute x, y position of the event.
      * In a virtual device multi-screen environment in which the
      * desktop area could span multiple physical screen devices,
@@ -378,7 +378,7 @@ public class MouseEvent extends InputEvent {
       return new Point(xAbs, yAbs);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute horizontal x position of the event.
      * In a virtual device multi-screen environment in which the
      * desktop area could span multiple physical screen devices,
@@ -395,7 +395,7 @@ public class MouseEvent extends InputEvent {
         return xAbs;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute vertical y position of the event.
      * In a virtual device multi-screen environment in which the
      * desktop area could span multiple physical screen devices,
@@ -412,7 +412,7 @@ public class MouseEvent extends InputEvent {
         return yAbs;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MouseEvent</code> object with the
      * specified source component,
      * type, modifiers, coordinates, and click count.
@@ -474,7 +474,7 @@ public class MouseEvent extends InputEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MouseEvent</code> object with the
      * specified source component,
      * type, modifiers, coordinates, and click count.
@@ -514,7 +514,7 @@ public class MouseEvent extends InputEvent {
      }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MouseEvent</code> object with the
      * specified source component,
      * type, modifiers, coordinates, absolute coordinates, and click count.
@@ -580,7 +580,7 @@ public class MouseEvent extends InputEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the horizontal x position of the event relative to the
      * source component.
      *
@@ -591,7 +591,7 @@ public class MouseEvent extends InputEvent {
         return x;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the vertical y position of the event relative to the
      * source component.
      *
@@ -602,7 +602,7 @@ public class MouseEvent extends InputEvent {
         return y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the x,y position of the event relative to the source component.
      *
      * @return a <code>Point</code> object containing the x and y coordinates
@@ -619,7 +619,7 @@ public class MouseEvent extends InputEvent {
         return new Point(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the event's coordinates to a new position
      * by adding specified <code>x</code> (horizontal) and <code>y</code>
      * (vertical) offsets.
@@ -634,7 +634,7 @@ public class MouseEvent extends InputEvent {
         this.y += y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of mouse clicks associated with this event.
      *
      * @return integer value for the number of clicks
@@ -643,7 +643,7 @@ public class MouseEvent extends InputEvent {
         return clickCount;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns which, if any, of the mouse buttons has changed state.
      *
      * @return one of the following constants:
@@ -657,7 +657,7 @@ public class MouseEvent extends InputEvent {
         return button;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not this mouse event is the popup menu
      * trigger event for the platform.
      * <p><b>Note</b>: Popup menus are triggered differently
@@ -673,7 +673,7 @@ public class MouseEvent extends InputEvent {
         return popupTrigger;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>String</code> describing the modifier keys and
      * mouse buttons that were down during the event, such as "Shift",
      * or "Ctrl+Shift". These strings can be localized by changing
@@ -733,7 +733,7 @@ public class MouseEvent extends InputEvent {
         return buf.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter string identifying this event.
      * This method is useful for event-logging and for debugging.
      *
@@ -790,7 +790,7 @@ public class MouseEvent extends InputEvent {
         return str.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets new modifiers by the old ones.
      * Also sets button.
      */
@@ -845,7 +845,7 @@ public class MouseEvent extends InputEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets old modifiers by the new ones.
      */
     private void setOldModifiers() {
@@ -892,7 +892,7 @@ public class MouseEvent extends InputEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets new modifiers by the old ones.
      * @serial
      */

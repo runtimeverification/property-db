@@ -33,7 +33,7 @@ import java.io.IOException;
 import javax.accessibility.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>TextField</code> object is a text component
  * that allows for the editing of a single line of text.
  * <p>
@@ -96,7 +96,7 @@ import javax.accessibility.*;
  */
 public class TextField extends TextComponent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of columns in the text field.
      * A column is an approximate average character
      * width that is platform-dependent.
@@ -108,7 +108,7 @@ public class TextField extends TextComponent {
      */
     int columns;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The echo character, which is used when
      * the user wishes to disguise the characters
      * typed into the text field.
@@ -131,7 +131,7 @@ public class TextField extends TextComponent {
      */
     private static final long serialVersionUID = -2966288784432217853L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method ids
      */
     private static native void initIDs();
@@ -144,7 +144,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new text field.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
      * returns true.
@@ -154,7 +154,7 @@ public class TextField extends TextComponent {
         this("", 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new text field initialized with the specified text.
      * @param      text       the text to be displayed. If
      *             <code>text</code> is <code>null</code>, the empty
@@ -167,7 +167,7 @@ public class TextField extends TextComponent {
         this(text, (text != null) ? text.length() : 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new empty text field with the specified number
      * of columns.  A column is an approximate average character
      * width that is platform-dependent.
@@ -182,7 +182,7 @@ public class TextField extends TextComponent {
         this("", columns);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new text field initialized with the specified text
      * to be displayed, and wide enough to hold the specified
      * number of columns. A column is an approximate average character
@@ -202,7 +202,7 @@ public class TextField extends TextComponent {
         this.columns = (columns >= 0) ? columns : 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -212,7 +212,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the TextField's peer.  The peer allows us to modify the
      * appearance of the TextField without changing its functionality.
      */
@@ -224,7 +224,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the character that is to be used for echoing.
      * <p>
      * An echo character is useful for text fields where
@@ -246,7 +246,7 @@ public class TextField extends TextComponent {
         return echoChar;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the echo character for this text field.
      * <p>
      * An echo character is useful for text fields where
@@ -271,7 +271,7 @@ public class TextField extends TextComponent {
         setEchoCharacter(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEchoChar(char)</code>.
      */
@@ -286,7 +286,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the text that is presented by this
      * text component to be the specified text.
      * @param       t   the new text.
@@ -301,7 +301,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether or not this text field has a
      * character set for echoing.
      * <p>
@@ -318,7 +318,7 @@ public class TextField extends TextComponent {
         return echoChar != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of columns in this text field. A column is an
      * approximate average character width that is platform-dependent.
      * @return     the number of columns.
@@ -329,7 +329,7 @@ public class TextField extends TextComponent {
         return columns;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of columns in this text field. A column is an
      * approximate average character width that is platform-dependent.
      * @param      columns   the number of columns.
@@ -356,7 +356,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the preferred size of this text field
      * with the specified number of columns.
      * @param     columns the number of columns
@@ -369,7 +369,7 @@ public class TextField extends TextComponent {
         return preferredSize(columns);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize(int)</code>.
      */
@@ -383,7 +383,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the preferred size of this text field.
      * @return     the preferred dimensions for
      *                         displaying this text field.
@@ -393,7 +393,7 @@ public class TextField extends TextComponent {
         return preferredSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize()</code>.
      */
@@ -406,7 +406,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minumum dimensions for a text field with
      * the specified number of columns.
      * @param    columns   the number of columns in
@@ -417,7 +417,7 @@ public class TextField extends TextComponent {
         return minimumSize(columns);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize(int)</code>.
      */
@@ -431,7 +431,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minumum dimensions for this text field.
      * @return     the minimum dimensions for
      *                  displaying this text field.
@@ -441,7 +441,7 @@ public class TextField extends TextComponent {
         return minimumSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize()</code>.
      */
@@ -454,7 +454,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified action listener to receive
      * action events from this text field.
      * If l is null, no exception is thrown and no action is performed.
@@ -475,7 +475,7 @@ public class TextField extends TextComponent {
         newEventsOnly = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified action listener so that it no longer
      * receives action events from this text field.
      * If l is null, no exception is thrown and no action is performed.
@@ -495,7 +495,7 @@ public class TextField extends TextComponent {
         actionListener = AWTEventMulticaster.remove(actionListener, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the action listeners
      * registered on this textfield.
      *
@@ -512,7 +512,7 @@ public class TextField extends TextComponent {
         return (ActionListener[])(getListeners(ActionListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>TextField</code>.
@@ -567,7 +567,7 @@ public class TextField extends TextComponent {
         return super.eventEnabled(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes events on this text field. If the event
      * is an instance of <code>ActionEvent</code>,
      * it invokes the <code>processActionEvent</code>
@@ -590,7 +590,7 @@ public class TextField extends TextComponent {
         super.processEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes action events occurring on this text field by
      * dispatching them to any registered
      * <code>ActionListener</code> objects.
@@ -620,7 +620,7 @@ public class TextField extends TextComponent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>TextField</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -641,14 +641,14 @@ public class TextField extends TextComponent {
     /*
      * Serialization support.
      */
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The textField Serialized Data Version.
      *
      * @serial
      */
     private int textFieldSerializedDataVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to stream.  Writes
      * a list of serializable ActionListener(s) as optional data.
      * The non-serializable ActionListener(s) are detected and
@@ -672,7 +672,7 @@ public class TextField extends TextComponent {
         s.writeObject(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Read the ObjectInputStream and if it isn't null,
      * add a listener to receive action events fired by the
      * TextField.  Unrecognized keys or values will be
@@ -716,7 +716,7 @@ public class TextField extends TextComponent {
 ////////////////
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the AccessibleContext associated with this TextField.
      * For text fields, the AccessibleContext takes the form of an
      * AccessibleAWTTextField.
@@ -733,7 +733,7 @@ public class TextField extends TextComponent {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class implements accessibility support for the
      * <code>TextField</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to text field user-interface elements.
@@ -746,7 +746,7 @@ public class TextField extends TextComponent {
          */
         private static final long serialVersionUID = 6219164359235943158L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleStateSet describing the states

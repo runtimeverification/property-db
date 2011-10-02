@@ -27,7 +27,7 @@ package java.awt.datatransfer;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Defines the interface for classes that can be used to provide data
  * for a transfer operation.
  * <p>
@@ -41,7 +41,7 @@ import java.io.IOException;
 
 public interface Transferable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of DataFlavor objects indicating the flavors the data
      * can be provided in.  The array should be ordered according to preference
      * for providing the data (from most richly descriptive to least descriptive).
@@ -49,7 +49,7 @@ public interface Transferable {
      */
     public DataFlavor[] getTransferDataFlavors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not the specified data flavor is supported for
      * this object.
      * @param flavor the requested flavor for the data
@@ -57,7 +57,7 @@ public interface Transferable {
      */
     public boolean isDataFlavorSupported(DataFlavor flavor);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an object which represents the data to be transferred.  The class
      * of the object returned is defined by the representation class of the flavor.
      *

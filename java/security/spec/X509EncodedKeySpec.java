@@ -25,7 +25,7 @@
 
 package java.security.spec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents the ASN.1 encoding of a public key,
  * encoded according to the ASN.1 type <code>SubjectPublicKeyInfo</code>.
  * The <code>SubjectPublicKeyInfo</code> syntax is defined in the X.509
@@ -51,7 +51,7 @@ package java.security.spec;
 
 public class X509EncodedKeySpec extends EncodedKeySpec {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new X509EncodedKeySpec with the given encoded key.
      *
      * @param encodedKey the key, which is assumed to be
@@ -64,7 +64,7 @@ public class X509EncodedKeySpec extends EncodedKeySpec {
         super(encodedKey);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the key bytes, encoded according to the X.509 standard.
      *
      * @return the X.509 encoding of the key. Returns a new array
@@ -74,7 +74,7 @@ public class X509EncodedKeySpec extends EncodedKeySpec {
         return super.getEncoded();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the encoding format associated with this
      * key specification.
      *

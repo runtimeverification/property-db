@@ -29,7 +29,7 @@ package java.util.logging;
 import java.io.*;
 import java.net.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This <tt>Handler</tt> publishes log records to <tt>System.err</tt>.
  * By default the <tt>SimpleFormatter</tt> is used to generate brief summaries.
  * <p>
@@ -78,7 +78,7 @@ public class ConsoleHandler extends StreamHandler {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a <tt>ConsoleHandler</tt> for <tt>System.err</tt>.
      * <p>
      * The <tt>ConsoleHandler</tt> is configured based on
@@ -92,7 +92,7 @@ public class ConsoleHandler extends StreamHandler {
         sealed = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Publish a <tt>LogRecord</tt>.
      * <p>
      * The logging request was made initially to a <tt>Logger</tt> object,
@@ -106,7 +106,7 @@ public class ConsoleHandler extends StreamHandler {
         flush();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Override <tt>StreamHandler.close</tt> to do a flush but not
      * to close the output stream.  That is, we do <b>not</b>
      * close <tt>System.err</tt>.

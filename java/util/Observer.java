@@ -24,7 +24,7 @@
  */
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class can implement the <code>Observer</code> interface when it
  * wants to be informed of changes in observable objects.
  *
@@ -33,7 +33,7 @@ package java.util;
  * @since   JDK1.0
  */
 public interface Observer {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is called whenever the observed object is changed. An
      * application calls an <tt>Observable</tt> object's
      * <code>notifyObservers</code> method to have all the object's

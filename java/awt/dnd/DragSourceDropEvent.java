@@ -25,7 +25,7 @@
 
 package java.awt.dnd;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DragSourceDropEvent</code> is delivered
  * from the <code>DragSourceContextPeer</code>,
  * via the <code>DragSourceContext</code>, to the <code>dragDropEnd</code>
@@ -45,7 +45,7 @@ public class DragSourceDropEvent extends DragSourceEvent {
 
     private static final long serialVersionUID = -5571321229470821891L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragSourceDropEvent</code> for a drop,
      * given the
      * <code>DragSourceContext</code>, the drop action,
@@ -75,7 +75,7 @@ public class DragSourceDropEvent extends DragSourceEvent {
         dropAction  = action;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragSourceDropEvent</code> for a drop, given the
      * <code>DragSourceContext</code>, the drop action, a <code>boolean</code>
      * indicating if the drop was successful, and coordinates.
@@ -103,7 +103,7 @@ public class DragSourceDropEvent extends DragSourceEvent {
         dropAction  = action;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragSourceDropEvent</code>
      * for a drag that does not result in a drop.
      * The coordinates for this <code>DragSourceDropEvent</code>
@@ -123,7 +123,7 @@ public class DragSourceDropEvent extends DragSourceEvent {
         dropSuccess = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns a <code>boolean</code> indicating
      * if the drop was successful.
      *
@@ -136,7 +136,7 @@ public class DragSourceDropEvent extends DragSourceEvent {
 
     public boolean getDropSuccess() { return dropSuccess; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns an <code>int</code> representing
      * the action performed by the target on the subject of the drop.
      *
@@ -152,14 +152,14 @@ public class DragSourceDropEvent extends DragSourceEvent {
      * fields
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>true</code> if the drop was successful.
      *
      * @serial
      */
     private boolean dropSuccess;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The drop action.
      *
      * @serial

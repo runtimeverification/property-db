@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A specification of certification path algorithm parameters.
  * The purpose of this interface is to group (and provide type safety for)
  * all <code>CertPath</code> parameter specifications. All
@@ -39,7 +39,7 @@ package java.security.cert;
  */
 public interface CertPathParameters extends Cloneable {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Makes a copy of this <code>CertPathParameters</code>. Changes to the
    * copy will not affect the original and vice versa.
    *

@@ -27,7 +27,7 @@ package java.io;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * This class implements a character buffer that can be used as an Writer.
  * The buffer automatically grows when data is written to the stream.  The data
@@ -45,21 +45,21 @@ import java.util.Arrays;
  */
 public
 class CharArrayWriter extends Writer {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The buffer where data is stored.
      * {@description.close}
      */
     protected char buf[];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The number of chars in the buffer.
      * {@description.close}
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new CharArrayWriter.
      * {@description.close}
@@ -68,7 +68,7 @@ class CharArrayWriter extends Writer {
         this(32);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new CharArrayWriter with the specified initial size.
      * {@description.close}
@@ -84,7 +84,7 @@ class CharArrayWriter extends Writer {
         buf = new char[initialSize];
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a character to the buffer.
      * {@description.close}
@@ -100,7 +100,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes characters to the buffer.
      * {@description.close}
@@ -125,7 +125,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write a portion of a string to the buffer.
      * {@description.close}
@@ -144,7 +144,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the contents of the buffer to another character stream.
      * {@description.close}
@@ -158,7 +158,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends the specified character sequence to this writer.
      *
@@ -192,7 +192,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends a subsequence of the specified character sequence to this writer.
      *
@@ -232,7 +232,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends the specified character to this writer.
      *
@@ -255,7 +255,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the buffer so that you can use it again without
      * throwing away the already allocated buffer.
@@ -265,7 +265,7 @@ class CharArrayWriter extends Writer {
         count = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns a copy of the input data.
      * {@description.close}
@@ -278,7 +278,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the current size of the buffer.
      * {@description.close}
@@ -289,7 +289,7 @@ class CharArrayWriter extends Writer {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts input data to a string.
      * {@description.close}
@@ -301,14 +301,14 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flush the stream.
      * {@description.close}
      */
     public void flush() { }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Close the stream.
      * {@description.close}

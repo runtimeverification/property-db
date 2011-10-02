@@ -25,7 +25,7 @@
 
 package java.security.spec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A (transparent) specification of the key material
  * that constitutes a cryptographic key.
  *

@@ -29,7 +29,7 @@ import java.io.FilterInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An input stream that also maintains a checksum of the data being read.
  * The checksum can then be used to verify the integrity of the input data.
  *
@@ -40,7 +40,7 @@ public
 class CheckedInputStream extends FilterInputStream {
     private Checksum cksum;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an input stream using the specified Checksum.
      * @param in the input stream
      * @param cksum the Checksum
@@ -50,7 +50,7 @@ class CheckedInputStream extends FilterInputStream {
         this.cksum = cksum;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a byte. Will block if no input is available.
      * @return the byte read, or -1 if the end of the stream is reached.
      * @exception IOException if an I/O error has occurred
@@ -63,7 +63,7 @@ class CheckedInputStream extends FilterInputStream {
         return b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads into an array of bytes. If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
@@ -86,7 +86,7 @@ class CheckedInputStream extends FilterInputStream {
         return len;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Skips specified number of bytes of input.
      * @param n the number of bytes to skip
      * @return the actual number of bytes skipped
@@ -106,7 +106,7 @@ class CheckedInputStream extends FilterInputStream {
         return total;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Checksum for this input stream.
      * @return the Checksum value
      */

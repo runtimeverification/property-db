@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Thrown when serialization or deserialization is not active.
  * {@description.close}
@@ -37,7 +37,7 @@ public class NotActiveException extends ObjectStreamException {
 
     private static final long serialVersionUID = -3893467273049808895L;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructor to create a new NotActiveException with the reason given.
      * {@description.close}
@@ -48,7 +48,7 @@ public class NotActiveException extends ObjectStreamException {
         super(reason);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructor to create a new NotActiveException without a reason.
      * {@description.close}

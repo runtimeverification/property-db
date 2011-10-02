@@ -28,7 +28,7 @@ package java.security.cert;
 import java.security.InvalidAlgorithmParameterException;
 import java.util.Collection;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the {@link CertStore CertStore} class. All <code>CertStore</code>
  * implementations must include a class (the SPI class) that extends
@@ -57,7 +57,7 @@ import java.util.Collection;
  */
 public abstract class CertStoreSpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The sole constructor.
      *
      * @param params the initialization parameters (may be <code>null</code>)
@@ -67,7 +67,7 @@ public abstract class CertStoreSpi {
     public CertStoreSpi(CertStoreParameters params)
     throws InvalidAlgorithmParameterException { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Collection</code> of <code>Certificate</code>s that
      * match the specified selector. If no <code>Certificate</code>s
      * match the selector, an empty <code>Collection</code> will be returned.
@@ -95,7 +95,7 @@ public abstract class CertStoreSpi {
     public abstract Collection<? extends Certificate> engineGetCertificates
             (CertSelector selector) throws CertStoreException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Collection</code> of <code>CRL</code>s that
      * match the specified selector. If no <code>CRL</code>s
      * match the selector, an empty <code>Collection</code> will be returned.

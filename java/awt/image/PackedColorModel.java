@@ -28,7 +28,7 @@ package java.awt.image;
 import java.awt.Transparency;
 import java.awt.color.ColorSpace;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>PackedColorModel</code> class is an abstract
  * {@link ColorModel} class that works with pixel values which represent
  * color and alpha information as separate samples and which pack all
@@ -89,7 +89,7 @@ public abstract class PackedColorModel extends ColorModel {
     int[] maskOffsets;
     float[] scaleFactors;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>PackedColorModel</code> from a color mask array,
      * which specifies which bits in an <code>int</code> pixel representation
      * contain each of the color samples, and an alpha mask.  Color
@@ -150,7 +150,7 @@ public abstract class PackedColorModel extends ColorModel {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>PackedColorModel</code> from the specified
      * masks which indicate which bits in an <code>int</code> pixel
      * representation contain the alpha, red, green and blue color samples.
@@ -220,7 +220,7 @@ public abstract class PackedColorModel extends ColorModel {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask indicating which bits in a pixel
      * contain the specified color/alpha sample.  For color
      * samples, <code>index</code> corresponds to the placement of color
@@ -244,7 +244,7 @@ public abstract class PackedColorModel extends ColorModel {
         return maskArray[index];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a mask array indicating which bits in a pixel
      * contain the color and alpha samples.
      * @return the mask array , which indicates which bits of the
@@ -293,7 +293,7 @@ public abstract class PackedColorModel extends ColorModel {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SampleModel</code> with the specified width and
      * height that has a data layout compatible with this
      * <code>ColorModel</code>.
@@ -311,7 +311,7 @@ public abstract class PackedColorModel extends ColorModel {
                                                 maskArray);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if the specified <code>SampleModel</code> is compatible
      * with this <code>ColorModel</code>.  If <code>sm</code> is
      * <code>null</code>, this method returns <code>false</code>.
@@ -352,7 +352,7 @@ public abstract class PackedColorModel extends ColorModel {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link WritableRaster} representing the alpha channel of
      * an image, extracted from the input <code>WritableRaster</code>.
      * This method assumes that <code>WritableRaster</code> objects
@@ -379,7 +379,7 @@ public abstract class PackedColorModel extends ColorModel {
                                           band);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified <code>Object</code> is an instance
      * of <code>PackedColorModel</code> and equals this
      * <code>PackedColorModel</code>.

@@ -47,7 +47,7 @@ import java.util.MissingResourceException;
 import sun.text.CompactByteArray;
 import sun.text.SupplementaryCharacterData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the class that represents the list of known words used by
  * DictionaryBasedBreakIterator.  The conceptual data structure used
  * here is a trie: there is a node hanging off the root node for every
@@ -64,31 +64,31 @@ class BreakDictionary {
     // data members
     //=========================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
       * The version of the dictionary that was read in.
       */
     private static int supportedVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maps from characters to column numbers.  The main use of this is to
      * avoid making room in the array for empty columns.
      */
     private CompactByteArray columnMap = null;
     private SupplementaryCharacterData supplementaryCharColumnMap = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of actual columns in the table
      */
     private int numCols;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Columns are organized into groups of 32.  This says how many
      * column groups.  (We could calculate this, but we store the
      * value to avoid having to repeatedly calculate it.)
      */
     private int numColGroups;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The actual compressed state table.  Each conceptual row represents
      * a state, and the cells in it contain the row numbers of the states
      * to transition to for each possible letter.  0 is used to indicate
@@ -101,12 +101,12 @@ class BreakDictionary {
      */
     private short[] table = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This index maps logical row numbers to physical row numbers
      */
     private short[] rowIndex = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A bitmap is used to tell which cells in the comceptual table are
      * populated.  This array contains all the unique bit combinations
      * in that bitmap.  If the table is more than 32 columns wide,
@@ -114,7 +114,7 @@ class BreakDictionary {
      */
     private int[] rowIndexFlags = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This index maps from a logical row number into the bitmap table above.
      * (This keeps us from storing duplicate bitmap combinations.)  Since there
      * are a lot of rows with only one populated cell, instead of wasting space
@@ -124,7 +124,7 @@ class BreakDictionary {
      */
     private short[] rowIndexFlagsIndex = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * For each logical row, this index contains a constant that is added to
      * the logical column number to get the physical column number
      */
@@ -258,7 +258,7 @@ class BreakDictionary {
     // access to the words
     //=========================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Uses the column map to map the character to a column number, then
      * passes the row and column number to getNextState()
      * @param row The current state
@@ -275,7 +275,7 @@ class BreakDictionary {
         return getNextState(row, col);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value in the cell with the specified (logical) row and
      * column numbers.  In DictionaryBasedBreakIterator, the row number is
      * a state number, the column number is an input, and the return value
@@ -301,7 +301,7 @@ class BreakDictionary {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Given (logical) row and column numbers, returns true if the
      * cell in that position is populated
      */
@@ -325,7 +325,7 @@ class BreakDictionary {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Implementation of getNextState() when we know the specified cell is
      * populated.
      * @param row The PHYSICAL row number of the cell

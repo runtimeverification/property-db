@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@code InvocationHandler} is the interface implemented by
  * the <i>invocation handler</i> of a proxy instance.
  *
@@ -40,7 +40,7 @@ package java.lang.reflect;
  */
 public interface InvocationHandler {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes a method invocation on a proxy instance and returns
      * the result.  This method will be invoked on an invocation handler
      * when a method is invoked on a proxy instance that it is

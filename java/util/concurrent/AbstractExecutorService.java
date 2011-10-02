@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides default implementations of {@link ExecutorService}
  * execution methods. This class implements the <tt>submit</tt>,
  * <tt>invokeAny</tt> and <tt>invokeAll</tt> methods using a
@@ -70,7 +70,7 @@ import java.util.*;
  */
 public abstract class AbstractExecutorService implements ExecutorService {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <tt>RunnableFuture</tt> for the given runnable and default
      * value.
      *
@@ -86,7 +86,7 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return new FutureTask<T>(runnable, value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <tt>RunnableFuture</tt> for the given callable task.
      *
      * @param callable the callable task being wrapped
@@ -121,7 +121,7 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return ftask;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * the main mechanics of invokeAny.
      */
     private <T> T doInvokeAny(Collection<? extends Callable<T>> tasks,

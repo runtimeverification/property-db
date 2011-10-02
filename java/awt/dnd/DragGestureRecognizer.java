@@ -37,7 +37,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DragGestureRecognizer</code> is an
  * abstract base class for the specification
  * of a platform-dependent listener that can be associated with a particular
@@ -82,7 +82,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     private static final long serialVersionUID = 8996673345831063337L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new <code>DragGestureRecognizer</code>
      * given the <code>DragSource</code> to be used
      * in this Drag and Drop operation, the <code>Component</code>
@@ -131,7 +131,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new <code>DragGestureRecognizer</code>
      * given the <code>DragSource</code> to be used in this
      * Drag and Drop
@@ -162,7 +162,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         this(ds, c, sa, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new <code>DragGestureRecognizer</code>
      * given the <code>DragSource</code> to be used
      * in this Drag and Drop operation, and
@@ -190,7 +190,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         this(ds, c, DnDConstants.ACTION_NONE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new <code>DragGestureRecognizer</code>
      * given the <code>DragSource</code> to be used in this
      * Drag and Drop operation.
@@ -207,7 +207,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         this(ds, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * register this DragGestureRecognizer's Listeners with the Component
      *
      * subclasses must override this method
@@ -215,7 +215,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     protected abstract void registerListeners();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * unregister this DragGestureRecognizer's Listeners with the Component
      *
      * subclasses must override this method
@@ -223,7 +223,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     protected abstract void unregisterListeners();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the <code>DragSource</code>
      * this <code>DragGestureRecognizer</code>
      * will use in order to process the Drag and Drop
@@ -234,7 +234,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     public DragSource getDragSource() { return dragSource; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the <code>Component</code>
      * that is to be "observed" by the
      * <code>DragGestureRecognizer</code>
@@ -246,7 +246,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     public synchronized Component getComponent() { return component; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * set the Component that the DragGestureRecognizer is associated with
      *
      * registerListeners() and unregisterListeners() are called as a side
@@ -265,7 +265,7 @@ public abstract class DragGestureRecognizer implements Serializable {
             registerListeners();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns an int representing the
      * type of action(s) this Drag and Drop
      * operation will support.
@@ -275,7 +275,7 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     public synchronized int getSourceActions() { return sourceActions; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method sets the permitted source drag action(s)
      * for this Drag and Drop operation.
      * <P>
@@ -286,7 +286,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         sourceActions = actions & (DnDConstants.ACTION_COPY_OR_MOVE | DnDConstants.ACTION_LINK);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the first event in the
      * series of events that initiated
      * the Drag and Drop operation.
@@ -296,14 +296,14 @@ public abstract class DragGestureRecognizer implements Serializable {
 
     public InputEvent getTriggerEvent() { return events.isEmpty() ? null : (InputEvent)events.get(0); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reset the Recognizer, if its currently recognizing a gesture, ignore
      * it.
      */
 
     public void resetRecognizer() { events.clear(); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Register a new <code>DragGestureListener</code>.
      * <P>
      * @param dgl the <code>DragGestureListener</code> to register
@@ -323,7 +323,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * unregister the current DragGestureListener
      * <P>
      * @param dgl the <code>DragGestureListener</code> to unregister
@@ -343,7 +343,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notify the DragGestureListener that a Drag and Drop initiating
      * gesture has occurred. Then reset the state of the Recognizer.
      * <P>
@@ -360,7 +360,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Listeners registered on the Component by this Recognizer shall record
      * all Events that are recognized as part of the series of Events that go
      * to comprise a Drag and Drop initiating gesture via this API.
@@ -382,7 +382,7 @@ public abstract class DragGestureRecognizer implements Serializable {
         events.add(awtie);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializes this <code>DragGestureRecognizer</code>. This method first
      * performs default serialization. Then, this object's
      * <code>DragGestureListener</code> is written out if and only if it can be
@@ -400,7 +400,7 @@ public abstract class DragGestureRecognizer implements Serializable {
                       ? dragGestureListener : null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deserializes this <code>DragGestureRecognizer</code>. This method first
      * performs default deserialization for all non-<code>transient</code>
      * fields. This object's <code>DragGestureListener</code> is then
@@ -420,7 +420,7 @@ public abstract class DragGestureRecognizer implements Serializable {
      * fields
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DragSource</code>
      * associated with this
      * <code>DragGestureRecognizer</code>.
@@ -429,7 +429,7 @@ public abstract class DragGestureRecognizer implements Serializable {
      */
     protected DragSource          dragSource;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>Component</code>
      * associated with this <code>DragGestureRecognizer</code>.
      *
@@ -437,13 +437,13 @@ public abstract class DragGestureRecognizer implements Serializable {
      */
     protected Component           component;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>DragGestureListener</code>
      * associated with this <code>DragGestureRecognizer</code>.
      */
     protected transient DragGestureListener dragGestureListener;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * An <code>int</code> representing
    * the type(s) of action(s) used
    * in this Drag and Drop operation.
@@ -452,7 +452,7 @@ public abstract class DragGestureRecognizer implements Serializable {
    */
   protected int  sourceActions;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * The list of events (in order) that
     * the <code>DragGestureRecognizer</code>
     * "recognized" as a "gesture" that triggers a drag.

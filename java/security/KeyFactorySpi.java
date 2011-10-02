@@ -28,7 +28,7 @@ package java.security;
 import java.security.spec.KeySpec;
 import java.security.spec.InvalidKeySpecException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>KeyFactory</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -69,7 +69,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public abstract class KeyFactorySpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a public key object from the provided key
      * specification (key material).
      *
@@ -83,7 +83,7 @@ public abstract class KeyFactorySpi {
     protected abstract PublicKey engineGeneratePublic(KeySpec keySpec)
         throws InvalidKeySpecException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a private key object from the provided key
      * specification (key material).
      *
@@ -97,7 +97,7 @@ public abstract class KeyFactorySpi {
     protected abstract PrivateKey engineGeneratePrivate(KeySpec keySpec)
         throws InvalidKeySpecException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a specification (key material) of the given key
      * object.
      * <code>keySpec</code> identifies the specification class in which
@@ -122,7 +122,7 @@ public abstract class KeyFactorySpi {
         T engineGetKeySpec(Key key, Class<T> keySpec)
         throws InvalidKeySpecException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a key object, whose provider may be unknown or
      * potentially untrusted, into a corresponding key object of this key
      * factory.

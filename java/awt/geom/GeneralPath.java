@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.awt.Shape;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code GeneralPath} class represents a geometric path
  * constructed from straight lines, and quadratic and cubic
  * (B&eacute;zier) curves.  It can contain multiple subpaths.
@@ -49,7 +49,7 @@ import java.awt.Shape;
  * @since 1.2
  */
 public final class GeneralPath extends Path2D.Float {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new empty single precision {@code GeneralPath} object
      * with a default winding rule of {@link #WIND_NON_ZERO}.
      *
@@ -59,7 +59,7 @@ public final class GeneralPath extends Path2D.Float {
         super(WIND_NON_ZERO, INIT_SIZE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>GeneralPath</code> object with the specified
      * winding rule to control operations that require the interior of the
      * path to be defined.
@@ -73,7 +73,7 @@ public final class GeneralPath extends Path2D.Float {
         super(rule, INIT_SIZE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>GeneralPath</code> object with the specified
      * winding rule and the specified initial capacity to store path
      * coordinates.
@@ -92,7 +92,7 @@ public final class GeneralPath extends Path2D.Float {
         super(rule, initialCapacity);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>GeneralPath</code> object from an arbitrary
      * {@link Shape} object.
      * All of the initial geometry and the winding rule for this path are

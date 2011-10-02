@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Thrown when control information that was read from an object stream
  * violates internal consistency checks.
@@ -38,7 +38,7 @@ public class StreamCorruptedException extends ObjectStreamException {
 
     private static final long serialVersionUID = 8983558202217591746L;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Create a StreamCorruptedException and list a reason why thrown.
      * {@description.close}
@@ -49,7 +49,7 @@ public class StreamCorruptedException extends ObjectStreamException {
         super(reason);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Create a StreamCorruptedException and list no reason why thrown.
      * {@description.close}

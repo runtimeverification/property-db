@@ -32,7 +32,7 @@ import java.security.Provider.Service;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides a cryptographically strong random number
  * generator (RNG).
  *
@@ -86,7 +86,7 @@ import sun.security.jca.GetInstance.Instance;
 
 public class SecureRandom extends java.util.Random {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The provider.
      *
      * @serial
@@ -94,7 +94,7 @@ public class SecureRandom extends java.util.Random {
      */
     private Provider provider = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The provider implementation.
      *
      * @serial
@@ -113,7 +113,7 @@ public class SecureRandom extends java.util.Random {
     // Seed Generator
     private static volatile SecureRandom seedGenerator = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a secure random number generator (RNG) implementing the
      * default random number algorithm.
      *
@@ -150,7 +150,7 @@ public class SecureRandom extends java.util.Random {
         getDefaultPRNG(false, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a secure random number generator (RNG) implementing the
      * default random number algorithm.
      * The SecureRandom instance is seeded with the specified seed bytes.
@@ -211,7 +211,7 @@ public class SecureRandom extends java.util.Random {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a SecureRandom object.
      *
      * @param secureRandomSpi the SecureRandom implementation.
@@ -230,7 +230,7 @@ public class SecureRandom extends java.util.Random {
         this.algorithm = algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a SecureRandom object that implements the specified
      * Random Number Generator (RNG) algorithm.
      *
@@ -274,7 +274,7 @@ public class SecureRandom extends java.util.Random {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a SecureRandom object that implements the specified
      * Random Number Generator (RNG) algorithm.
      *
@@ -325,7 +325,7 @@ public class SecureRandom extends java.util.Random {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a SecureRandom object that implements the specified
      * Random Number Generator (RNG) algorithm.
      *
@@ -369,14 +369,14 @@ public class SecureRandom extends java.util.Random {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the SecureRandomSpi of this SecureRandom object.
      */
     SecureRandomSpi getSecureRandomSpi() {
         return secureRandomSpi;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this SecureRandom object.
      *
      * @return the provider of this SecureRandom object.
@@ -385,7 +385,7 @@ public class SecureRandom extends java.util.Random {
         return provider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the algorithm implemented by this SecureRandom
      * object.
      *
@@ -397,7 +397,7 @@ public class SecureRandom extends java.util.Random {
         return (algorithm != null) ? algorithm : "unknown";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reseeds this random object. The given seed supplements, rather than
      * replaces, the existing seed. Thus, repeated calls are guaranteed
      * never to reduce randomness.
@@ -410,7 +410,7 @@ public class SecureRandom extends java.util.Random {
         secureRandomSpi.engineSetSeed(seed);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reseeds this random object, using the eight bytes contained
      * in the given <code>long seed</code>. The given seed supplements,
      * rather than replaces, the existing seed. Thus, repeated calls
@@ -435,7 +435,7 @@ public class SecureRandom extends java.util.Random {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a user-specified number of random bytes.
      *
      * <p> If a call to <code>setSeed</code> had not occurred previously,
@@ -450,7 +450,7 @@ public class SecureRandom extends java.util.Random {
         secureRandomSpi.engineNextBytes(bytes);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates an integer containing the user-specified number of
      * pseudo-random bits (right justified, with leading zeros).  This
      * method overrides a <code>java.util.Random</code> method, and serves
@@ -476,7 +476,7 @@ public class SecureRandom extends java.util.Random {
         return next >>> (numBytes*8 - numBits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the given number of seed bytes, computed using the seed
      * generation algorithm that this class uses to seed itself.  This
      * call may be used to seed other random number generators.
@@ -499,7 +499,7 @@ public class SecureRandom extends java.util.Random {
         return seedGenerator.generateSeed(numBytes);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the given number of seed bytes, computed using the seed
      * generation algorithm that this class uses to seed itself.  This
      * call may be used to seed other random number generators.
@@ -512,7 +512,7 @@ public class SecureRandom extends java.util.Random {
         return secureRandomSpi.engineGenerateSeed(numBytes);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Helper function to convert a long into a byte array (least significant
      * byte first).
      */
@@ -527,7 +527,7 @@ public class SecureRandom extends java.util.Random {
         return retVal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a default PRNG algorithm by looking through all registered
      * providers. Returns the first PRNG algorithm of the first provider that
      * has registered a SecureRandom implementation, or null if none of the
@@ -548,15 +548,15 @@ public class SecureRandom extends java.util.Random {
     static final long serialVersionUID = 4940670005562187L;
 
     // Retain unused values serialized from JDK1.1
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private byte[] state;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private MessageDigest digest = null;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      *
      * We know that the MessageDigest class does not implement
@@ -565,11 +565,11 @@ public class SecureRandom extends java.util.Random {
      * of the SecureRandom class itself.
      */
     private byte[] randomBytes;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private int randomBytesUsed;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private long counter;

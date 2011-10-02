@@ -26,7 +26,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class specifies the set of domain parameters
  * used with elliptic curve cryptography (ECC).
  *
@@ -43,7 +43,7 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
     private final BigInteger n;
     private final int h;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates elliptic curve domain parameters based on the
      * specified values.
      * @param curve the elliptic curve which this parameter
@@ -79,7 +79,7 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
         this.h = h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the elliptic curve that this parameter defines.
      * @return the elliptic curve that this parameter defines.
      */
@@ -87,7 +87,7 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
         return curve;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the generator which is also known as the base point.
      * @return the generator which is also known as the base point.
      */
@@ -95,7 +95,7 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
         return g;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the order of the generator.
      * @return the order of the generator.
      */
@@ -103,7 +103,7 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cofactor.
      * @return the cofactor.
      */

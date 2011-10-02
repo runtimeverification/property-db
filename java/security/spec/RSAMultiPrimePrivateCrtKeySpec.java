@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class specifies an RSA multi-prime private key, as defined in the
  * PKCS#1 v2.1, using the Chinese Remainder Theorem (CRT) information
  * values for efficiency.
@@ -56,7 +56,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
     private final BigInteger crtCoefficient;
     private final RSAOtherPrimeInfo otherPrimeInfo[];
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Creates a new <code>RSAMultiPrimePrivateCrtKeySpec</code>
     * given the modulus, publicExponent, privateExponent,
     * primeP, primeQ, primeExponentP, primeExponentQ,
@@ -144,7 +144,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the public exponent.
      *
      * @return the public exponent.
@@ -153,7 +153,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.publicExponent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeP.
      *
      * @return the primeP.
@@ -162,7 +162,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeP;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeQ.
      *
      * @return the primeQ.
@@ -171,7 +171,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeQ;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeExponentP.
      *
      * @return the primeExponentP.
@@ -180,7 +180,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeExponentP;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the primeExponentQ.
      *
      * @return the primeExponentQ.
@@ -189,7 +189,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.primeExponentQ;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the crtCoefficient.
      *
      * @return the crtCoefficient.
@@ -198,7 +198,7 @@ public class RSAMultiPrimePrivateCrtKeySpec extends RSAPrivateKeySpec {
         return this.crtCoefficient;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the otherPrimeInfo or null if there are
      * only two prime factors (p and q).
      *

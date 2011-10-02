@@ -46,7 +46,7 @@ import sun.util.calendar.CalendarUtils;
 import sun.util.calendar.BaseCalendar;
 import sun.util.calendar.Gregorian;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>SimpleTimeZone</code> is a concrete subclass of <code>TimeZone</code>
  * that represents a time zone for use with a Gregorian calendar.
  * The class holds an offset from GMT, called <em>raw offset</em>, and start
@@ -148,7 +148,7 @@ import sun.util.calendar.Gregorian;
  */
 
 public class SimpleTimeZone extends TimeZone {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SimpleTimeZone with the given base time zone offset from GMT
      * and time zone ID with no daylight saving time schedule.
      *
@@ -162,7 +162,7 @@ public class SimpleTimeZone extends TimeZone {
         dstSavings = millisPerHour; // In case user sets rules later
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SimpleTimeZone with the given base time zone offset from
      * GMT, time zone ID, and rules for starting and ending the daylight
      * time.
@@ -221,7 +221,7 @@ public class SimpleTimeZone extends TimeZone {
              millisPerHour);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SimpleTimeZone with the given base time zone offset from
      * GMT, time zone ID, and rules for starting and ending the daylight
      * time.
@@ -280,7 +280,7 @@ public class SimpleTimeZone extends TimeZone {
              dstSavings);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SimpleTimeZone with the given base time zone offset from
      * GMT, time zone ID, and rules for starting and ending the daylight
      * time.
@@ -353,7 +353,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time starting year.
      *
      * @param year  The daylight saving starting year.
@@ -364,7 +364,7 @@ public class SimpleTimeZone extends TimeZone {
         invalidateCache();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time start rule. For example, if daylight saving
      * time starts on the first Sunday in April at 2 am in local wall clock
      * time, you can set the start rule by calling:
@@ -393,7 +393,7 @@ public class SimpleTimeZone extends TimeZone {
         invalidateCache();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time start rule to a fixed date within a month.
      * This method is equivalent to:
      * <pre><code>setStartRule(startMonth, startDay, 0, startTime)</code></pre>
@@ -413,7 +413,7 @@ public class SimpleTimeZone extends TimeZone {
         setStartRule(startMonth, startDay, 0, startTime);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time start rule to a weekday before or after the given date within
      * a month, e.g., the first Monday on or after the 8th.
      *
@@ -443,7 +443,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time end rule. For example, if daylight saving time
      * ends on the last Sunday in October at 2 am in wall clock time,
      * you can set the end rule by calling:
@@ -474,7 +474,7 @@ public class SimpleTimeZone extends TimeZone {
         invalidateCache();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time end rule to a fixed date within a month.
      * This method is equivalent to:
      * <pre><code>setEndRule(endMonth, endDay, 0, endTime)</code></pre>
@@ -495,7 +495,7 @@ public class SimpleTimeZone extends TimeZone {
         setEndRule(endMonth, endDay, 0, endTime);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the daylight saving time end rule to a weekday before or after the given date within
      * a month, e.g., the first Monday on or after the 8th.
      *
@@ -524,7 +524,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the offset of this time zone from UTC at the given
      * time. If daylight saving time is in effect at the given time,
      * the offset value is adjusted with the amount of daylight
@@ -539,7 +539,7 @@ public class SimpleTimeZone extends TimeZone {
         return getOffsets(date, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @see TimeZone#getOffsets
      */
     int getOffsets(long date, int[] offsets) {
@@ -575,7 +575,7 @@ public class SimpleTimeZone extends TimeZone {
         return offset;
     }
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * Returns the difference in milliseconds between local time and
      * UTC, taking into account both the raw offset and the effect of
      * daylight saving, for the specified date and time.  This method
@@ -773,7 +773,7 @@ public class SimpleTimeZone extends TimeZone {
         return cal.getTime(cdate) + timeOfDay;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the GMT offset for this time zone.
      * @return the GMT offset value in milliseconds
      * @see #setRawOffset
@@ -785,7 +785,7 @@ public class SimpleTimeZone extends TimeZone {
         return rawOffset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the base time zone offset to GMT.
      * This is the offset to add to UTC to get local time.
      * @see #getRawOffset
@@ -795,7 +795,7 @@ public class SimpleTimeZone extends TimeZone {
         this.rawOffset = offsetMillis;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the amount of time in milliseconds that the clock is advanced
      * during daylight saving time.
      * @param millisSavedDuringDST the number of milliseconds the time is
@@ -812,7 +812,7 @@ public class SimpleTimeZone extends TimeZone {
         dstSavings = millisSavedDuringDST;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the amount of time in milliseconds that the clock is
      * advanced during daylight saving time.
      *
@@ -831,7 +831,7 @@ public class SimpleTimeZone extends TimeZone {
         return 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries if this time zone uses daylight saving time.
      * @return true if this time zone uses daylight saving time;
      * false otherwise.
@@ -841,7 +841,7 @@ public class SimpleTimeZone extends TimeZone {
         return useDaylight;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries if the given date is in daylight saving time.
      * @return true if daylight saving time is in effective at the
      * given date; false otherwise.
@@ -851,7 +851,7 @@ public class SimpleTimeZone extends TimeZone {
         return (getOffset(date.getTime()) != rawOffset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a clone of this <code>SimpleTimeZone</code> instance.
      * @return a clone of this instance.
      */
@@ -860,7 +860,7 @@ public class SimpleTimeZone extends TimeZone {
         return super.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates the hash code for the SimpleDateFormat object.
      * @return the hash code for this object
      */
@@ -870,7 +870,7 @@ public class SimpleTimeZone extends TimeZone {
             endMonth ^ endDay ^ endDayOfWeek ^ endTime ^ rawOffset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the equality of two <code>SimpleTimeZone</code> objects.
      *
      * @param obj  The <code>SimpleTimeZone</code> object to be compared with.
@@ -892,7 +892,7 @@ public class SimpleTimeZone extends TimeZone {
             hasSameRules(that);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if this zone has the same rules and offset as another zone.
      * @param other the TimeZone object to be compared with
      * @return <code>true</code> if the given zone is a SimpleTimeZone and has the
@@ -927,7 +927,7 @@ public class SimpleTimeZone extends TimeZone {
                  startYear == that.startYear));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this time zone.
      * @return a string representation of this time zone.
      */
@@ -954,7 +954,7 @@ public class SimpleTimeZone extends TimeZone {
 
     // =======================privates===============================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The month in which daylight saving time starts.  This value must be
      * between <code>Calendar.JANUARY</code> and
      * <code>Calendar.DECEMBER</code> inclusive.  This value must not equal
@@ -964,7 +964,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startMonth;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field has two possible interpretations:
      * <dl>
      * <dt><code>startMode == DOW_IN_MONTH</code></dt>
@@ -989,7 +989,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startDay;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The day of the week on which daylight saving time starts.  This value
      * must be between <code>Calendar.SUNDAY</code> and
      * <code>Calendar.SATURDAY</code> inclusive.
@@ -999,7 +999,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startDayOfWeek;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The time in milliseconds after midnight at which daylight saving
      * time starts.  This value is expressed as wall time, standard time,
      * or UTC time, depending on the setting of <code>startTimeMode</code>.
@@ -1008,14 +1008,14 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startTime;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The format of startTime, either WALL_TIME, STANDARD_TIME, or UTC_TIME.
      * @serial
      * @since 1.3
      */
     private int startTimeMode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The month in which daylight saving time ends.  This value must be
      * between <code>Calendar.JANUARY</code> and
      * <code>Calendar.UNDECIMBER</code>.  This value must not equal
@@ -1025,7 +1025,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endMonth;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field has two possible interpretations:
      * <dl>
      * <dt><code>endMode == DOW_IN_MONTH</code></dt>
@@ -1050,7 +1050,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endDay;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The day of the week on which daylight saving time ends.  This value
      * must be between <code>Calendar.SUNDAY</code> and
      * <code>Calendar.SATURDAY</code> inclusive.
@@ -1060,7 +1060,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endDayOfWeek;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The time in milliseconds after midnight at which daylight saving
      * time ends.  This value is expressed as wall time, standard time,
      * or UTC time, depending on the setting of <code>endTimeMode</code>.
@@ -1069,7 +1069,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endTime;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The format of endTime, either <code>WALL_TIME</code>,
      * <code>STANDARD_TIME</code>, or <code>UTC_TIME</code>.
      * @serial
@@ -1077,7 +1077,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endTimeMode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The year in which daylight saving time is first observed.  This is an {@link GregorianCalendar#AD AD}
      * value.  If this value is less than 1 then daylight saving time is observed
      * for all <code>AD</code> years.
@@ -1086,7 +1086,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startYear;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The offset in milliseconds between this zone and GMT.  Negative offsets
      * are to the west of Greenwich.  To obtain local <em>standard</em> time,
      * add the offset to GMT time.  To obtain local wall time it may also be
@@ -1095,7 +1095,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int rawOffset;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A boolean value which is true if and only if this zone uses daylight
      * saving time.  If this value is false, several other fields are ignored.
      * @serial
@@ -1105,7 +1105,7 @@ public class SimpleTimeZone extends TimeZone {
     private static final int millisPerHour = 60*60*1000;
     private static final int millisPerDay  = 24*millisPerHour;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field was serialized in JDK 1.1, so we have to keep it that way
      * to maintain serialization compatibility. However, there's no need to
      * recreate the array each time we create a new time zone.
@@ -1117,7 +1117,7 @@ public class SimpleTimeZone extends TimeZone {
     private final static byte staticMonthLength[] = {31,28,31,30,31,30,31,31,30,31,30,31};
     private final static byte staticLeapMonthLength[] = {31,29,31,30,31,30,31,31,30,31,30,31};
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Variables specifying the mode of the start rule.  Takes the following
      * values:
      * <dl>
@@ -1146,7 +1146,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int startMode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Variables specifying the mode of the end rule.  Takes the following
      * values:
      * <dl>
@@ -1175,7 +1175,7 @@ public class SimpleTimeZone extends TimeZone {
      */
     private int endMode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A positive value indicating the amount of time saved during DST in
      * milliseconds.
      * Typically one hour (3600000); sometimes 30 minutes (1800000).
@@ -1187,7 +1187,7 @@ public class SimpleTimeZone extends TimeZone {
 
     private static final Gregorian gcal = CalendarSystem.getGregorianCalendar();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cache values representing a single period of daylight saving
      * time. When the cache values are valid, cacheStart is the start
      * time (inclusive) of daylight saving time and cacheEnd is the
@@ -1203,7 +1203,7 @@ public class SimpleTimeZone extends TimeZone {
     private transient long cacheStart;
     private transient long cacheEnd;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constants specifying values of startMode and endMode.
      */
     private static final int DOM_MODE          = 1; // Exact day of month, "Mar 1"
@@ -1211,7 +1211,7 @@ public class SimpleTimeZone extends TimeZone {
     private static final int DOW_GE_DOM_MODE   = 3; // Day of week after day of month, "Sun>=15"
     private static final int DOW_LE_DOM_MODE   = 4; // Day of week before day of month, "Sun<=21"
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for a mode of start or end time specified as wall clock
      * time.  Wall clock time is standard time for the onset rule, and
      * daylight time for the end rule.
@@ -1219,13 +1219,13 @@ public class SimpleTimeZone extends TimeZone {
      */
     public static final int WALL_TIME = 0; // Zero for backward compatibility
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for a mode of start or end time specified as standard time.
      * @since 1.4
      */
     public static final int STANDARD_TIME = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for a mode of start or end time specified as UTC. European
      * Union rules are specified as UTC time, for example.
      * @since 1.4
@@ -1241,7 +1241,7 @@ public class SimpleTimeZone extends TimeZone {
     // - 2 for JDK 1.3, which includes 2 new fields
     static final int currentSerialVersion = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The version of the serialized data on the stream.  Possible values:
      * <dl>
      * <dt><b>0</b> or not present on stream</dt>
@@ -1325,7 +1325,7 @@ public class SimpleTimeZone extends TimeZone {
     // packed representation below.
     //----------------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Given a set of encoded rules in startDay and startDayOfMonth, decode
      * them and set the startMode appropriately.  Do the same for endDay and
      * endDayOfMonth.  Upon entry, the day of week variables may be zero or
@@ -1341,7 +1341,7 @@ public class SimpleTimeZone extends TimeZone {
         decodeEndRule();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Decode the start rule and validate the parameters.  The parameters are
      * expected to be in encoded form, which represents the various rule modes
      * by negating or zeroing certain values.  Representation formats are:
@@ -1407,7 +1407,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Decode the end rule and validate the parameters.  This method is exactly
      * analogous to decodeStartRule().
      * @see decodeStartRule
@@ -1454,7 +1454,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Make rules compatible to 1.1 FCS code.  Since 1.1 FCS code only understands
      * day-of-week-in-month rules, we must modify other modes of rules to their
      * approximate equivalent in 1.1 FCS terms.  This method is used when streaming
@@ -1552,7 +1552,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Pack the start and end rules into an array of bytes.  Only pack
      * data which is not preserved by makeRulesCompatible.
      */
@@ -1571,7 +1571,7 @@ public class SimpleTimeZone extends TimeZone {
         return rules;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Given an array of bytes produced by packRules, interpret them
      * as the start and end rules.
      */
@@ -1589,7 +1589,7 @@ public class SimpleTimeZone extends TimeZone {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Pack the start and end times into an array of bytes.  This is required
      * as of serial version 2.
      */
@@ -1600,7 +1600,7 @@ public class SimpleTimeZone extends TimeZone {
         return times;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Unpack the start and end times from an array of bytes.  This is required
      * as of serial version 2.
      */
@@ -1609,7 +1609,7 @@ public class SimpleTimeZone extends TimeZone {
         endTime = times[1];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state of this object to a stream (i.e., serialize it).
      *
      * @serialData We write out two formats, a JDK 1.1 compatible format, using
@@ -1649,7 +1649,7 @@ public class SimpleTimeZone extends TimeZone {
         unpackTimes(times);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute this object from a stream (i.e., deserialize it).
      *
      * We handle both JDK 1.1

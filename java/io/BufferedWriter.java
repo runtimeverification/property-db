@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  *
  * {@description.open}
  * Writes text to a character-output stream, buffering characters so as to
@@ -78,7 +78,7 @@ public class BufferedWriter extends Writer {
 
     private static int defaultCharBufferSize = 8192;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Line separator string.  This is the value of the line.separator
      * property at the moment that the stream was created.
@@ -86,7 +86,7 @@ public class BufferedWriter extends Writer {
      */
     private String lineSeparator;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a buffered character-output stream that uses a default-sized
      * output buffer.
@@ -98,7 +98,7 @@ public class BufferedWriter extends Writer {
         this(out, defaultCharBufferSize);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new buffered character-output stream that uses an output
      * buffer of the given size.
@@ -122,7 +122,7 @@ public class BufferedWriter extends Writer {
             new sun.security.action.GetPropertyAction("line.separator"));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Checks to make sure that the stream has not been closed
      * {@description.close}
@@ -132,7 +132,7 @@ public class BufferedWriter extends Writer {
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the output buffer to the underlying character stream, without
      * flushing the stream itself.  This method is non-private only so that it
@@ -149,7 +149,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a single character.
      * {@description.close}
@@ -165,7 +165,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Our own little min method, to avoid loading java.lang.Math if we've run
      * out of file descriptors and we're trying to print a stack trace.
@@ -176,7 +176,7 @@ public class BufferedWriter extends Writer {
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of an array of characters.
      *
@@ -225,7 +225,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of a String.
      *
@@ -258,7 +258,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a line separator.  The line separator string is defined by the
      * system property <tt>line.separator</tt>, and is not necessarily a single
@@ -271,7 +271,7 @@ public class BufferedWriter extends Writer {
         write(lineSeparator);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the stream.
      * {@description.close}

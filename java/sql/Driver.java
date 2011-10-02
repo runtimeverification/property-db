@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface that every driver class must implement.
  * <P>The Java SQL framework allows for multiple database drivers.
  *
@@ -52,7 +52,7 @@ package java.sql;
  */
 public interface Driver {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to make a database connection to the given URL.
      * The driver should return "null" if it realizes it is the wrong kind
      * of driver to connect to the given URL.  This will be common, as when
@@ -79,7 +79,7 @@ public interface Driver {
     Connection connect(String url, java.util.Properties info)
         throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves whether the driver thinks that it can open a connection
      * to the given URL.  Typically drivers will return <code>true</code> if they
      * understand the subprotocol specified in the URL and <code>false</code> if
@@ -93,7 +93,7 @@ public interface Driver {
     boolean acceptsURL(String url) throws SQLException;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets information about the possible properties for this driver.
      * <P>
      * The <code>getPropertyInfo</code> method is intended to allow a generic
@@ -116,21 +116,21 @@ public interface Driver {
                          throws SQLException;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the driver's major version number. Initially this should be 1.
      *
      * @return this driver's major version number
      */
     int getMajorVersion();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the driver's minor version number. Initially this should be 0.
      * @return this driver's minor version number
      */
     int getMinorVersion();
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether this driver is a genuine JDBC
      * Compliant<sup><font size=-2>TM</font></sup> driver.
      * A driver may only report <code>true</code> here if it passes the JDBC

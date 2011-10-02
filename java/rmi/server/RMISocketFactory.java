@@ -28,7 +28,7 @@ package java.rmi.server;
 import java.io.*;
 import java.net.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>RMISocketFactory</code> instance is used by the RMI runtime
  * in order to obtain client and server sockets for RMI calls.  An
  * application may use the <code>setSocketFactory</code> method to
@@ -51,14 +51,14 @@ public abstract class RMISocketFactory
         implements RMIClientSocketFactory, RMIServerSocketFactory
 {
 
-    /** {@collect.stats} Client/server socket factory to be used by RMI runtime */
+    /** {@collect.stats}  Client/server socket factory to be used by RMI runtime */
     private static RMISocketFactory factory = null;
-    /** {@collect.stats} default socket factory used by this RMI implementation */
+    /** {@collect.stats}  default socket factory used by this RMI implementation */
     private static RMISocketFactory defaultSocketFactory;
-    /** {@collect.stats} Handler for socket creation failure */
+    /** {@collect.stats}  Handler for socket creation failure */
     private static RMIFailureHandler handler = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>RMISocketFactory</code>.
      * @since JDK1.1
      */
@@ -66,7 +66,7 @@ public abstract class RMISocketFactory
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a client socket connected to the specified host and port.
      * @param  host   the host name
      * @param  port   the port number
@@ -77,7 +77,7 @@ public abstract class RMISocketFactory
     public abstract Socket createSocket(String host, int port)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a server socket on the specified port (port 0 indicates
      * an anonymous port).
      * @param  port the port number
@@ -89,7 +89,7 @@ public abstract class RMISocketFactory
     public abstract ServerSocket createServerSocket(int port)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the global socket factory from which RMI gets sockets (if the
      * remote object is not associated with a specific client and/or server
      * socket factory). The RMI socket factory can only be set once. Note: The
@@ -117,7 +117,7 @@ public abstract class RMISocketFactory
         factory = fac;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the socket factory set by the <code>setSocketFactory</code>
      * method. Returns <code>null</code> if no socket factory has been
      * set.
@@ -130,7 +130,7 @@ public abstract class RMISocketFactory
         return factory;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reference to the default socket factory used
      * by this RMI implementation.  This will be the factory used
      * by the RMI runtime when <code>getSocketFactory</code>
@@ -146,7 +146,7 @@ public abstract class RMISocketFactory
         return defaultSocketFactory;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the failure handler to be called by the RMI runtime if server
      * socket creation fails.  By default, if no failure handler is installed
      * and server socket creation fails, the RMI runtime does attempt to
@@ -174,7 +174,7 @@ public abstract class RMISocketFactory
         handler = fh;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the handler for socket creation failure set by the
      * <code>setFailureHandler</code> method.
      * @return the failure handler

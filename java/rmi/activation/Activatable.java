@@ -36,7 +36,7 @@ import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.RemoteServer;
 import sun.rmi.server.ActivatableServerRef;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Activatable</code> class provides support for remote
  * objects that require persistent access over time and that
  * can be activated by the system.
@@ -55,10 +55,10 @@ import sun.rmi.server.ActivatableServerRef;
 public abstract class Activatable extends RemoteServer {
 
     private ActivationID id;
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = -3120617863591563455L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an activatable remote object by registering
      * an activation descriptor (with the specified location, data, and
      * restart mode) for this object, and exporting the object with the
@@ -105,7 +105,7 @@ public abstract class Activatable extends RemoteServer {
         id = exportObject(this, location, data, restart, port);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an activatable remote object by registering
      * an activation descriptor (with the specified location, data, and
      * restart mode) for this object, and exporting the object with the
@@ -157,7 +157,7 @@ public abstract class Activatable extends RemoteServer {
         id = exportObject(this, location, data, restart, port, csf, ssf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor used to activate/export the object on a specified
      * port. An "activatable" remote object must have a constructor that
      * takes two arguments: <ul>
@@ -185,7 +185,7 @@ public abstract class Activatable extends RemoteServer {
         exportObject(this, id, port);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor used to activate/export the object on a specified
      * port. An "activatable" remote object must have a constructor that
      * takes two arguments: <ul>
@@ -218,7 +218,7 @@ public abstract class Activatable extends RemoteServer {
         exportObject(this, id, port, csf, ssf);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the object's activation identifier.  The method is
      * protected so that only subclasses can obtain an object's
      * identifier.
@@ -229,7 +229,7 @@ public abstract class Activatable extends RemoteServer {
         return id;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Register an object descriptor for an activatable remote
      * object so that is can be activated on demand.
      *
@@ -250,7 +250,7 @@ public abstract class Activatable extends RemoteServer {
         return sun.rmi.server.ActivatableRef.getStub(desc, id);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Informs the system that the object with the corresponding activation
      * <code>id</code> is currently inactive. If the object is currently
      * active, the object is "unexported" from the RMI runtime (only if
@@ -281,7 +281,7 @@ public abstract class Activatable extends RemoteServer {
         return ActivationGroup.currentGroup().inactiveObject(id);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Revokes previous registration for the activation descriptor
      * associated with <code>id</code>. An object can no longer be
      * activated via that <code>id</code>.
@@ -298,7 +298,7 @@ public abstract class Activatable extends RemoteServer {
         ActivationGroup.getSystem().unregisterObject(id);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers an activation descriptor (with the specified location,
      * data, and restart mode) for the specified object, and exports that
      * object with the specified port.
@@ -346,7 +346,7 @@ public abstract class Activatable extends RemoteServer {
         return exportObject(obj, location, data, restart, port, null, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers an activation descriptor (with the specified location,
      * data, and restart mode) for the specified object, and exports that
      * object with the specified port, and the specified client and server
@@ -456,7 +456,7 @@ public abstract class Activatable extends RemoteServer {
         return id;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Export the activatable remote object to the RMI runtime to make
      * the object available to receive incoming calls. The object is
      * exported on an anonymous port, if <code>port</code> is zero. <p>
@@ -483,7 +483,7 @@ public abstract class Activatable extends RemoteServer {
         return exportObject(obj, new ActivatableServerRef(id, port));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Export the activatable remote object to the RMI runtime to make
      * the object available to receive incoming calls. The object is
      * exported on an anonymous port, if <code>port</code> is zero. <p>
@@ -515,7 +515,7 @@ public abstract class Activatable extends RemoteServer {
         return exportObject(obj, new ActivatableServerRef(id, port, csf, ssf));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Remove the remote object, obj, from the RMI runtime. If
      * successful, the object can no longer accept incoming RMI calls.
      * If the force parameter is true, the object is forcibly unexported
@@ -539,7 +539,7 @@ public abstract class Activatable extends RemoteServer {
         return sun.rmi.transport.ObjectTable.unexportObject(obj, force);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Exports the specified object using the specified server ref.
      */
     private static Remote exportObject(Remote obj, ActivatableServerRef sref)

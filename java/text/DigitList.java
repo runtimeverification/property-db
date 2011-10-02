@@ -42,7 +42,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Digit List. Private to DecimalFormat.
  * Handles the transcoding
  * between numeric values and strings of characters.  Only handles
@@ -71,14 +71,14 @@ import java.math.RoundingMode;
  * @author       Mark Davis, Alan Liu
  */
 final class DigitList implements Cloneable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The maximum number of significant digits in an IEEE 754 double, that
      * is, in a Java double.  This must not be increased, or garbage digits
      * will be generated, and should not be decreased, or accuracy will be lost.
      */
     public static final int MAX_COUNT = 19; // == Long.toString(Long.MAX_VALUE).length()
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * These data members are intentionally public and can be set directly.
      *
      * The value represented is given by placing the decimal point before
@@ -107,7 +107,7 @@ final class DigitList implements Cloneable {
     private RoundingMode roundingMode = RoundingMode.HALF_EVEN;
     private boolean isNegative = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true if the represented number is zero.
      */
     boolean isZero() {
@@ -119,14 +119,14 @@ final class DigitList implements Cloneable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the rounding mode
      */
     void setRoundingMode(RoundingMode r) {
         roundingMode = r;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears out the digits.
      * Use before appending them.
      * Typically, you set a series of digits with append, then at the point
@@ -138,7 +138,7 @@ final class DigitList implements Cloneable {
         count = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends a digit to the list, extending the list when necessary.
      */
     public void append(char digit) {
@@ -150,7 +150,7 @@ final class DigitList implements Cloneable {
         digits[count++] = digit;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Utility routine to get the value of the digit list
      * If (count == 0) this throws a NumberFormatException, which
      * mimics Long.parseLong().
@@ -168,7 +168,7 @@ final class DigitList implements Cloneable {
         return Double.parseDouble(temp.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Utility routine to get the value of the digit list.
      * If (count == 0) this returns 0, unlike Long.parseLong().
      */
@@ -210,7 +210,7 @@ final class DigitList implements Cloneable {
        }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true if the number represented by this object can fit into
      * a long.
      * @param isPositive true if this number should be regarded as positive
@@ -261,7 +261,7 @@ final class DigitList implements Cloneable {
         return !isPositive;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the digit list to a representation of the given double value.
      * This method supports fixed-point notation.
      * @param isNegative Boolean value indicating whether the number is negative.
@@ -274,7 +274,7 @@ final class DigitList implements Cloneable {
         set(isNegative, source, maximumFractionDigits, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the digit list to a representation of the given double value.
      * This method supports both fixed-point and exponential notation.
      * @param isNegative Boolean value indicating whether the number is negative.
@@ -289,7 +289,7 @@ final class DigitList implements Cloneable {
         set(isNegative, Double.toString(source), maximumDigits, fixedPoint);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generate a representation of the form DDDDD, DDDDD.DDDDD, or
      * DDDDDE+/-DDDDD.
      */
@@ -368,7 +368,7 @@ final class DigitList implements Cloneable {
         round(fixedPoint ? (maximumDigits + decimalAt) : maximumDigits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Round the representation to the given number of digits.
      * @param maximumDigits The maximum number of digits to be shown.
      * Upon return, count will be less than or equal to maximumDigits.
@@ -408,7 +408,7 @@ final class DigitList implements Cloneable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true if truncating the representation to the given number
      * of digits will result in an increment to the last digit.  This
      * method implements the rounding modes defined in the
@@ -493,14 +493,14 @@ final class DigitList implements Cloneable {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Utility routine to set the value of the digit list from a long
      */
     public final void set(boolean isNegative, long source) {
         set(isNegative, source, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the digit list to a representation of the given long value.
      * @param isNegative Boolean value indicating whether the number is negative.
      * @param source Value to be converted; must be >= 0 or ==
@@ -545,7 +545,7 @@ final class DigitList implements Cloneable {
         if (maximumDigits > 0) round(maximumDigits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the digit list to a representation of the given BigDecimal value.
      * This method supports both fixed-point and exponential notation.
      * @param isNegative Boolean value indicating whether the number is negative.
@@ -562,7 +562,7 @@ final class DigitList implements Cloneable {
         set(isNegative, s, maximumDigits, fixedPoint);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the digit list to a representation of the given BigInteger value.
      * @param isNegative Boolean value indicating whether the number is negative.
      * @param source Value to be converted; must be >= 0.
@@ -588,7 +588,7 @@ final class DigitList implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * equality test between two digit lists.
      */
     public boolean equals(Object obj) {
@@ -606,7 +606,7 @@ final class DigitList implements Cloneable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates the hash code for the digit list.
      */
     public int hashCode() {
@@ -619,7 +619,7 @@ final class DigitList implements Cloneable {
         return hashcode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a copy of this object.
      * @return a clone of this instance.
      */
@@ -636,7 +636,7 @@ final class DigitList implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if this DigitList represents Long.MIN_VALUE;
      * false, otherwise.  This is required so that getLong() works.
      */

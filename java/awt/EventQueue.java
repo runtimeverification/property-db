@@ -49,7 +49,7 @@ import java.security.ProtectionDomain;
 import sun.misc.SharedSecrets;
 import sun.misc.JavaSecurityAccess;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>EventQueue</code> is a platform-independent class
  * that queues events, both from the underlying peer classes
  * and from trusted application classes.
@@ -143,7 +143,7 @@ public class EventQueue {
      */
     private long mostRecentEventTime = System.currentTimeMillis();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The modifiers field of the current event, if the current event is an
      * InputEvent or ActionEvent.
      */
@@ -173,7 +173,7 @@ public class EventQueue {
          */
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Posts a 1.1-style event to the <code>EventQueue</code>.
      * If there is an existing event on the queue with the same ID
      * and event source, the source <code>Component</code>'s
@@ -188,7 +188,7 @@ public class EventQueue {
         postEventPrivate(theEvent);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Posts a 1.1-style event to the <code>EventQueue</code>.
      * If there is an existing event on the queue with the same ID
      * and event source, the source <code>Component</code>'s
@@ -245,7 +245,7 @@ public class EventQueue {
         return NORM_PRIORITY;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Posts the event to the internal Queue of specified priority,
      * coalescing as appropriate.
      *
@@ -443,7 +443,7 @@ public class EventQueue {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether an event is pending on any of the separate
      * Queues.
      * @return whether an event is pending on any of the separate Queues
@@ -458,7 +458,7 @@ public class EventQueue {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an event from the <code>EventQueue</code> and
      * returns it.  This method will block until an event has
      * been posted by another thread.
@@ -526,7 +526,7 @@ public class EventQueue {
         } while(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first event on the <code>EventQueue</code>
      * without removing it.
      * @return the first event
@@ -541,7 +541,7 @@ public class EventQueue {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first event with the specified id, if any.
      * @param id the id of the type of event desired
      * @return the first event of the specified id or <code>null</code>
@@ -563,7 +563,7 @@ public class EventQueue {
     private static final JavaSecurityAccess javaSecurityAccess =
         SharedSecrets.getJavaSecurityAccess();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Dispatches an event. The manner in which the event is
      * dispatched depends upon the type of the event and the
      * type of the event's source object:
@@ -636,7 +636,7 @@ public class EventQueue {
                     null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called from dispatchEvent() under a correct AccessControlContext  
      */
     private void dispatchEventImpl(final AWTEvent event, final Object src) {
@@ -661,7 +661,7 @@ public class EventQueue {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the timestamp of the most recent event that had a timestamp, and
      * that was dispatched from the <code>EventQueue</code> associated with the
      * calling thread. If an event with a timestamp is currently being
@@ -696,14 +696,14 @@ public class EventQueue {
             : System.currentTimeMillis();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return most recent event time on all threads.
      */
     synchronized long getMostRecentEventTimeEx() {
         return mostRecentEventTime;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the the event currently being dispatched by the
      * <code>EventQueue</code> associated with the calling thread. This is
      * useful if a method needs access to the event, but was not designed to
@@ -724,7 +724,7 @@ public class EventQueue {
             : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the existing <code>EventQueue</code> with the specified one.
      * Any pending events are transferred to the new <code>EventQueue</code>
      * for processing by it.
@@ -781,7 +781,7 @@ public class EventQueue {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Stops dispatching events using this <code>EventQueue</code>.
      * Any pending events are transferred to the previous
      * <code>EventQueue</code> for processing.
@@ -840,7 +840,7 @@ public class EventQueue {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the calling thread is the current AWT
      * <code>EventQueue</code>'s dispatch thread.  Use this
      * call the ensure that a given
@@ -986,7 +986,7 @@ public class EventQueue {
         mostRecentEventTime = Math.max(mostRecentEventTime, mostRecentEventTime2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes <code>runnable</code> to have its <code>run</code>
      * method called in the dispatch thread of
      * {@link Toolkit#getSystemEventQueue the system EventQueue}.
@@ -1003,7 +1003,7 @@ public class EventQueue {
             new InvocationEvent(Toolkit.getDefaultToolkit(), runnable));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes <code>runnable</code> to have its <code>run</code>
      * method called in the dispatch thread of
      * {@link Toolkit#getSystemEventQueue the system EventQueue}.
@@ -1066,7 +1066,7 @@ public class EventQueue {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The Queue object holds pointers to the beginning and end of one internal
  * queue. An EventQueue object is composed of multiple internal Queues, one
  * for each priority supported by the EventQueue. All Events on a particular

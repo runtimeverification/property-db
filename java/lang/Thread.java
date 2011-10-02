@@ -37,7 +37,7 @@ import sun.nio.ch.Interruptible;
 import sun.security.util.SecurityConstants;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <i>thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.
@@ -209,7 +209,7 @@ class Thread implements Runnable {
         return ++threadSeqNumber;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The argument supplied to the current call to
      * java.util.concurrent.locks.LockSupport.park.
      * Set by (private) java.util.concurrent.locks.LockSupport.setBlocker
@@ -232,17 +232,17 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The minimum priority that a thread can have.
      */
     public final static int MIN_PRIORITY = 1;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * The default priority that is assigned to a thread.
      */
     public final static int NORM_PRIORITY = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The maximum priority that a thread can have.
      */
     public final static int MAX_PRIORITY = 10;
@@ -257,20 +257,20 @@ class Thread implements Runnable {
      * init or clone method has successfully completed */
     private volatile Thread me;    // null
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reference to the currently executing thread object.
      *
      * @return  the currently executing thread.
      */
     public static native Thread currentThread();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes the currently executing thread object to temporarily pause
      * and allow other threads to execute.
      */
     public static native void yield();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes the currently executing thread to sleep (temporarily cease
      * execution) for the specified number of milliseconds, subject to
      * the precision and accuracy of system timers and schedulers. The thread
@@ -284,7 +284,7 @@ class Thread implements Runnable {
      */
     public static native void sleep(long millis) throws InterruptedException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes the currently executing thread to sleep (cease execution)
      * for the specified number of milliseconds plus the specified number
      * of nanoseconds, subject to the precision and accuracy of system
@@ -319,7 +319,7 @@ class Thread implements Runnable {
         sleep(millis);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a Thread.
      *
      * @param g the Thread group
@@ -387,7 +387,7 @@ class Thread implements Runnable {
         this.me = this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a clone if the class of this object is {@link Cloneable Cloneable}.
      *
      * @return  a clone if the class of this object is {@code Cloneable}
@@ -424,7 +424,7 @@ class Thread implements Runnable {
         return t;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, null,</code>
      * <i>gname</i><code>)</code>, where <b><i>gname</i></b> is
@@ -437,7 +437,7 @@ class Thread implements Runnable {
         init(null, null, "Thread-" + nextThreadNum(), 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, target,</code>
      * <i>gname</i><code>)</code>, where <i>gname</i> is
@@ -451,7 +451,7 @@ class Thread implements Runnable {
         init(null, target, "Thread-" + nextThreadNum(), 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(group, target,</code>
      * <i>gname</i><code>)</code>, where <i>gname</i> is
@@ -468,7 +468,7 @@ class Thread implements Runnable {
         init(group, target, "Thread-" + nextThreadNum(), 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, null, name)</code>.
      *
@@ -479,7 +479,7 @@ class Thread implements Runnable {
         init(null, null, name, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(group, null, name)</code>
      *
@@ -493,7 +493,7 @@ class Thread implements Runnable {
         init(group, null, name, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, target, name)</code>.
      *
@@ -505,7 +505,7 @@ class Thread implements Runnable {
         init(null, target, name, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object so that it has
      * <code>target</code> as its run object, has the specified
      * <code>name</code> as its name, and belongs to the thread group
@@ -563,7 +563,7 @@ class Thread implements Runnable {
         init(group, target, name, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new <code>Thread</code> object so that it has
      * <code>target</code> as its run object, has the specified
      * <code>name</code> as its name, belongs to the thread group referred to
@@ -625,7 +625,7 @@ class Thread implements Runnable {
         init(group, target, name, stackSize);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes this thread to begin execution; the Java Virtual Machine
      * calls the <code>run</code> method of this thread.
      * <p>
@@ -644,7 +644,7 @@ class Thread implements Runnable {
      * @see        #stop()
      */
     public synchronized void start() {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * This method is not invoked for the main method thread or "system"
          * group threads created/set up by the VM. Any new functionality added
          * to this method in the future may have to also be added to the VM.
@@ -662,7 +662,7 @@ class Thread implements Runnable {
 
     private native void start0();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If this thread was constructed using a separate
      * <code>Runnable</code> run object, then that
      * <code>Runnable</code> object's <code>run</code> method is called;
@@ -680,7 +680,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is called by the system to give a Thread
      * a chance to clean up before it actually exits.
      */
@@ -699,7 +699,7 @@ class Thread implements Runnable {
         uncaughtExceptionHandler = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forces the thread to stop executing.
      * <p>
      * If there is a security manager installed, its <code>checkAccess</code>
@@ -775,7 +775,7 @@ class Thread implements Runnable {
         stop1(new ThreadDeath());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forces the thread to stop executing.
      * <p>
      * If there is a security manager installed, the <code>checkAccess</code>
@@ -829,7 +829,7 @@ class Thread implements Runnable {
         stop1(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Common impl for stop() and stop(Throwable).
      */
     private final synchronized void stop1(Throwable th) {
@@ -858,7 +858,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Interrupts this thread.
      *
      * <p> Unless the current thread is interrupting itself, which is
@@ -912,7 +912,7 @@ class Thread implements Runnable {
         interrupt0();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether the current thread has been interrupted.  The
      * <i>interrupted status</i> of the thread is cleared by this method.  In
      * other words, if this method were to be called twice in succession, the
@@ -933,7 +933,7 @@ class Thread implements Runnable {
         return currentThread().isInterrupted(true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this thread has been interrupted.  The <i>interrupted
      * status</i> of the thread is unaffected by this method.
      *
@@ -950,14 +950,14 @@ class Thread implements Runnable {
         return isInterrupted(false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if some Thread has been interrupted.  The interrupted state
      * is reset or not based on the value of ClearInterrupted that is
      * passed.
      */
     private native boolean isInterrupted(boolean ClearInterrupted);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws {@link NoSuchMethodError}.
      *
      * @deprecated This method was originally designed to destroy this
@@ -979,7 +979,7 @@ class Thread implements Runnable {
         throw new NoSuchMethodError();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this thread is alive. A thread is alive if it has
      * been started and has not yet died.
      *
@@ -988,7 +988,7 @@ class Thread implements Runnable {
      */
     public final native boolean isAlive();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Suspends this thread.
      * <p>
      * First, the <code>checkAccess</code> method of this thread is called
@@ -1018,7 +1018,7 @@ class Thread implements Runnable {
         suspend0();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resumes a suspended thread.
      * <p>
      * First, the <code>checkAccess</code> method of this thread is called
@@ -1044,7 +1044,7 @@ class Thread implements Runnable {
         resume0();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes the priority of this thread.
      * <p>
      * First the <code>checkAccess</code> method of this thread is called
@@ -1082,7 +1082,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this thread's priority.
      *
      * @return  this thread's priority.
@@ -1092,7 +1092,7 @@ class Thread implements Runnable {
         return priority;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes the name of this thread to be equal to the argument
      * <code>name</code>.
      * <p>
@@ -1111,7 +1111,7 @@ class Thread implements Runnable {
         this.name = name.toCharArray();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this thread's name.
      *
      * @return  this thread's name.
@@ -1121,7 +1121,7 @@ class Thread implements Runnable {
         return String.valueOf(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the thread group to which this thread belongs.
      * This method returns null if this thread has died
      * (been stopped).
@@ -1132,7 +1132,7 @@ class Thread implements Runnable {
         return group;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of active threads in the current thread's thread
      * group.
      *
@@ -1143,7 +1143,7 @@ class Thread implements Runnable {
         return currentThread().getThreadGroup().activeCount();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies into the specified array every active thread in
      * the current thread's thread group and its subgroups. This method simply
      * calls the <code>enumerate</code> method of the current thread's thread
@@ -1166,7 +1166,7 @@ class Thread implements Runnable {
         return currentThread().getThreadGroup().enumerate(tarray);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Counts the number of stack frames in this thread. The thread must
      * be suspended.
      *
@@ -1180,7 +1180,7 @@ class Thread implements Runnable {
     @Deprecated
     public native int countStackFrames();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits at most <code>millis</code> milliseconds for this thread to
      * die. A timeout of <code>0</code> means to wait forever.
      *
@@ -1214,7 +1214,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits at most <code>millis</code> milliseconds plus
      * <code>nanos</code> nanoseconds for this thread to die.
      *
@@ -1245,7 +1245,7 @@ class Thread implements Runnable {
         join(millis);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits for this thread to die.
      *
      * @exception  InterruptedException if any thread has interrupted
@@ -1256,7 +1256,7 @@ class Thread implements Runnable {
         join(0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a stack trace of the current thread to the standard error stream.
      * This method is used only for debugging.
      *
@@ -1266,7 +1266,7 @@ class Thread implements Runnable {
         new Exception("Stack trace").printStackTrace();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks this thread as either a daemon thread or a user thread. The
      * Java Virtual Machine exits when the only threads running are all
      * daemon threads.
@@ -1294,7 +1294,7 @@ class Thread implements Runnable {
         daemon = on;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this thread is a daemon thread.
      *
      * @return  <code>true</code> if this thread is a daemon thread;
@@ -1305,7 +1305,7 @@ class Thread implements Runnable {
         return daemon;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if the currently running thread has permission to
      * modify this thread.
      * <p>
@@ -1324,7 +1324,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this thread, including the
      * thread's name, priority, and thread group.
      *
@@ -1341,7 +1341,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the context ClassLoader for this Thread. The context
      * ClassLoader is provided by the creator of the thread for use
      * by code running in this thread when loading classes and resources.
@@ -1384,7 +1384,7 @@ class Thread implements Runnable {
         return contextClassLoader;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the context ClassLoader for this Thread. The context
      * ClassLoader can be set when a thread is created, and allows
      * the creator of the thread to provide the appropriate class loader
@@ -1413,7 +1413,7 @@ class Thread implements Runnable {
         contextClassLoader = cl;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if and only if the current thread holds the
      * monitor lock on the specified object.
      *
@@ -1434,7 +1434,7 @@ class Thread implements Runnable {
     private static final StackTraceElement[] EMPTY_STACK_TRACE
         = new StackTraceElement[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of stack trace elements representing the stack dump
      * of this thread.  This method will return a zero-length array if
      * this thread has not started or has terminated.
@@ -1496,7 +1496,7 @@ class Thread implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a map of stack traces for all live threads.
      * The map keys are threads and each map value is an array of
      * <tt>StackTraceElement</tt> that represents the stack dump
@@ -1560,11 +1560,11 @@ class Thread implements Runnable {
     private static final RuntimePermission SUBCLASS_IMPLEMENTATION_PERMISSION =
                     new RuntimePermission("enableContextClassLoaderOverride");
 
-    /** {@collect.stats} cache of subclass security audit results */
+    /** {@collect.stats}  cache of subclass security audit results */
     private static final SoftCache subclassAudits = new SoftCache(10);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that this (possibly subclass) instance can be constructed
      * without violating security constraints: the subclass must not override
      * security-sensitive non-final methods, or else the
@@ -1589,7 +1589,7 @@ class Thread implements Runnable {
         return result.booleanValue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Performs reflective checks on given subclass to verify that it doesn't
      * override security-sensitive non-final methods.  Returns true if the
      * subclass overrides any of the methods, false otherwise.
@@ -1624,7 +1624,7 @@ class Thread implements Runnable {
     private native static StackTraceElement[][] dumpThreads(Thread[] threads);
     private native static Thread[] getThreads();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the identifier of this Thread.  The thread ID is a positive
      * <tt>long</tt> number generated when this thread was created.
      * The thread ID is unique and remains unchanged during its lifetime.
@@ -1637,7 +1637,7 @@ class Thread implements Runnable {
         return tid;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * A thread state.  A thread can be in one of the following states:
      * <ul>
@@ -1674,14 +1674,14 @@ class Thread implements Runnable {
      * @see #getState
      */
     public enum State {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a thread which has not yet started.
          * {@descriptive.close}
          */
         NEW,
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a runnable thread.  A thread in the runnable
          * state is executing in the Java virtual machine but it may
@@ -1691,7 +1691,7 @@ class Thread implements Runnable {
          */
         RUNNABLE,
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a thread blocked waiting for a monitor lock.
          * A thread in the blocked state is waiting for a monitor lock
@@ -1702,7 +1702,7 @@ class Thread implements Runnable {
          */
         BLOCKED,
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a waiting thread.
          * A thread is in the waiting state due to calling one of the
@@ -1725,7 +1725,7 @@ class Thread implements Runnable {
          */
         WAITING,
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a waiting thread with a specified waiting time.
          * A thread is in the timed waiting state due to calling one of
@@ -1741,7 +1741,7 @@ class Thread implements Runnable {
          */
         TIMED_WAITING,
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Thread state for a terminated thread.
          * The thread has completed execution.
@@ -1750,7 +1750,7 @@ class Thread implements Runnable {
         TERMINATED;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Returns the state of this thread.
      * This method is designed for use in monitoring of the system state,
@@ -1767,7 +1767,7 @@ class Thread implements Runnable {
 
     // Added in JSR-166
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@descriptive.open}
      * Interface for handlers invoked when a <tt>Thread</tt> abruptly
      * terminates due to an uncaught exception.
@@ -1792,7 +1792,7 @@ class Thread implements Runnable {
      * @since 1.5
      */
     public interface UncaughtExceptionHandler {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * {@descriptive.open}
          * Method invoked when the given thread terminates due to the
          * given uncaught exception.
@@ -1812,7 +1812,7 @@ class Thread implements Runnable {
     // null unless explicitly set
     private static volatile UncaughtExceptionHandler defaultUncaughtExceptionHandler;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the default handler invoked when a thread abruptly terminates
      * due to an uncaught exception, and no other handler has been defined
      * for that thread.
@@ -1857,7 +1857,7 @@ class Thread implements Runnable {
          defaultUncaughtExceptionHandler = eh;
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default handler invoked when a thread abruptly terminates
      * due to an uncaught exception. If the returned value is <tt>null</tt>,
      * there is no default.
@@ -1868,7 +1868,7 @@ class Thread implements Runnable {
         return defaultUncaughtExceptionHandler;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the handler invoked when this thread abruptly terminates
      * due to an uncaught exception. If this thread has not had an
      * uncaught exception handler explicitly set then this thread's
@@ -1881,7 +1881,7 @@ class Thread implements Runnable {
             uncaughtExceptionHandler : group;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the handler invoked when this thread abruptly terminates
      * due to an uncaught exception.
      * <p>A thread can take full control of how it responds to uncaught
@@ -1901,7 +1901,7 @@ class Thread implements Runnable {
         uncaughtExceptionHandler = eh;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Dispatch an uncaught exception to the handler. This method is
      * intended to be called only by the JVM.
      */

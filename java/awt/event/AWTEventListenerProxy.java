@@ -28,7 +28,7 @@ package java.awt.event;
 import java.util.EventListenerProxy;
 import java.awt.AWTEvent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class which extends the <code>EventListenerProxy</code>, specifically
  * for adding an <code>AWTEventListener</code> for a specific event mask.
  * Instances of this class can be added as <code>AWTEventListener</code>s to
@@ -47,7 +47,7 @@ public class AWTEventListenerProxy extends java.util.EventListenerProxy
 
     private long eventMask;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor which binds the AWTEventListener to a specific
      * event mask.
      *
@@ -60,7 +60,7 @@ public class AWTEventListenerProxy extends java.util.EventListenerProxy
         this.eventMask = eventMask;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forwards the property change event to the listener delegate.
      *
      * @param evt the property change event
@@ -69,7 +69,7 @@ public class AWTEventListenerProxy extends java.util.EventListenerProxy
         ((AWTEventListener)getListener()).eventDispatched(evt);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the event mask associated with the
      * listener.
      */

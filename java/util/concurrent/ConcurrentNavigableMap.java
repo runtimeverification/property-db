@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@link ConcurrentMap} supporting {@link NavigableMap} operations,
  * and recursively so for its navigable sub-maps.
  *
@@ -52,7 +52,7 @@ import java.util.*;
 public interface ConcurrentNavigableMap<K,V>
     extends ConcurrentMap<K,V>, NavigableMap<K,V>
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
@@ -60,7 +60,7 @@ public interface ConcurrentNavigableMap<K,V>
     ConcurrentNavigableMap<K,V> subMap(K fromKey, boolean fromInclusive,
                                        K toKey,   boolean toInclusive);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
@@ -68,35 +68,35 @@ public interface ConcurrentNavigableMap<K,V>
     ConcurrentNavigableMap<K,V> headMap(K toKey, boolean inclusive);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
     ConcurrentNavigableMap<K,V> tailMap(K fromKey, boolean inclusive);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
     ConcurrentNavigableMap<K,V> subMap(K fromKey, K toKey);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
     ConcurrentNavigableMap<K,V> headMap(K toKey);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
     ConcurrentNavigableMap<K,V> tailMap(K fromKey);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reverse order view of the mappings contained in this map.
      * The descending map is backed by this map, so changes to the map are
      * reflected in the descending map, and vice-versa.
@@ -110,7 +110,7 @@ public interface ConcurrentNavigableMap<K,V>
      */
     ConcurrentNavigableMap<K,V> descendingMap();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -131,7 +131,7 @@ public interface ConcurrentNavigableMap<K,V>
      */
     public NavigableSet<K> navigableKeySet();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -154,7 +154,7 @@ public interface ConcurrentNavigableMap<K,V>
      */
     NavigableSet<K> keySet();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reverse order {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in descending order.
      * The set is backed by the map, so changes to the map are

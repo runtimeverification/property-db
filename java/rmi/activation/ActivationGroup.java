@@ -38,7 +38,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.security.AccessController;
 import sun.security.action.GetIntegerAction;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>ActivationGroup</code> is responsible for creating new
  * instances of "activatable" objects in its group, informing its
  * <code>ActivationMonitor</code> when either: its object's become
@@ -99,34 +99,34 @@ public abstract class ActivationGroup
         extends UnicastRemoteObject
         implements ActivationInstantiator
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the group's identifier
      */
     private ActivationGroupID groupID;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the group's monitor
      */
     private ActivationMonitor monitor;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the group's incarnation number
      */
     private long incarnation;
 
-    /** {@collect.stats} the current activation group for this VM */
+    /** {@collect.stats}  the current activation group for this VM */
     private static ActivationGroup currGroup;
-    /** {@collect.stats} the current group's identifier */
+    /** {@collect.stats}  the current group's identifier */
     private static ActivationGroupID currGroupID;
-    /** {@collect.stats} the current group's activation system */
+    /** {@collect.stats}  the current group's activation system */
     private static ActivationSystem currSystem;
-    /** {@collect.stats} used to control a group being created only once */
+    /** {@collect.stats}  used to control a group being created only once */
     private static boolean canCreate = true;
 
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = -7696947875314805420L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an activation group with the given activation group
      * identifier.  The group is exported as a
      * <code>java.rmi.server.UnicastRemoteObject</code>.
@@ -143,7 +143,7 @@ public abstract class ActivationGroup
         this.groupID = groupID;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The group's <code>inactiveObject</code> method is called
      * indirectly via a call to the <code>Activatable.inactive</code>
      * method. A remote object implementation must call
@@ -188,7 +188,7 @@ public abstract class ActivationGroup
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The group's <code>activeObject</code> method is called when an
      * object is exported (either by <code>Activatable</code> object
      * construction or an explicit call to
@@ -207,7 +207,7 @@ public abstract class ActivationGroup
     public abstract void activeObject(ActivationID id, Remote obj)
         throws ActivationException, UnknownObjectException, RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create and set the activation group for the current VM.  The
      * activation group can only be set if it is not currently set.
      * An activation group is set using the <code>createGroup</code>
@@ -342,7 +342,7 @@ public abstract class ActivationGroup
         return currGroup;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current activation group's identifier.  Returns null
      * if no group is currently active for this VM.
      * @return the activation group's identifier
@@ -352,7 +352,7 @@ public abstract class ActivationGroup
         return currGroupID;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the activation group identifier for the VM.  If an
      * activation group does not exist for this VM, a default
      * activation group is created. A group can be created only once,
@@ -372,7 +372,7 @@ public abstract class ActivationGroup
         return currGroupID;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the activation system for the VM.  The activation system can
      * only be set it if no group is currently active. If the activation
      * system is not set via this call, then the <code>getSystem</code>
@@ -411,7 +411,7 @@ public abstract class ActivationGroup
         currSystem = system;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the activation system for the VM. The activation system
      * may be set by the <code>setSystem</code> method. If the
      * activation system is not set via the <code>setSystem</code>
@@ -450,7 +450,7 @@ public abstract class ActivationGroup
         return currSystem;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This protected method is necessary for subclasses to
      * make the <code>activeObject</code> callback to the group's
      * monitor. The call is simply forwarded to the group's
@@ -470,7 +470,7 @@ public abstract class ActivationGroup
         getMonitor().activeObject(id, mobj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This protected method is necessary for subclasses to
      * make the <code>inactiveGroup</code> callback to the group's
      * monitor. The call is simply forwarded to the group's
@@ -491,7 +491,7 @@ public abstract class ActivationGroup
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the monitor for the activation group.
      */
     private ActivationMonitor getMonitor() throws RemoteException {
@@ -503,7 +503,7 @@ public abstract class ActivationGroup
         throw new RemoteException("monitor not received");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Destroys the current group.
      */
     private static synchronized void destroyGroup() {
@@ -512,7 +512,7 @@ public abstract class ActivationGroup
         // NOTE: don't set currSystem to null since it may be needed
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current group for the VM.
      * @exception ActivationException if current group is null (not active)
      */

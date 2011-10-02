@@ -25,7 +25,7 @@
 
 package java.net;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an error occurred while attempting to bind a
  * socket to a local address and port.  Typically, the port is
  * in use, or the requested local address could not be assigned.
@@ -35,7 +35,7 @@ package java.net;
 
 public class BindException extends SocketException {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new BindException with the specified detail
      * message as to why the bind error occurred.
      * A detail message is a String that gives a specific
@@ -46,7 +46,7 @@ public class BindException extends SocketException {
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a new BindException with no detailed message.
      */
     public BindException() {}

@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>An exception that provides information on  database access
  * warnings. Warnings are silently chained to the object whose method
  * caused it to be reported.
@@ -44,7 +44,7 @@ package java.sql;
  */
 public class SQLWarning extends SQLException {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a  <code>SQLWarning</code> object
      *  with a given <code>reason</code>, <code>SQLState</code>  and
      * <code>vendorCode</code>.
@@ -65,7 +65,7 @@ public class SQLWarning extends SQLException {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLWarning</code> object
      * with a given <code>reason</code> and <code>SQLState</code>.
      *
@@ -83,7 +83,7 @@ public class SQLWarning extends SQLException {
                                   ") SQLState(" + SQLState + ")");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLWarning</code> object
      * with a given <code>reason</code>. The <code>SQLState</code>
      * is initialized to <code>null</code> and the vender code is initialized
@@ -100,7 +100,7 @@ public class SQLWarning extends SQLException {
         DriverManager.println("SQLWarning: reason(" + reason + ")");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a  <code>SQLWarning</code> object.
      * The <code>reason</code>, <code>SQLState</code> are initialized
      * to <code>null</code> and the vendor code is initialized to 0.
@@ -115,7 +115,7 @@ public class SQLWarning extends SQLException {
         DriverManager.println("SQLWarning: ");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLWarning</code> object
      * with a given  <code>cause</code>.
      * The <code>SQLState</code> is initialized
@@ -132,7 +132,7 @@ public class SQLWarning extends SQLException {
         DriverManager.println("SQLWarning");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLWarning</code> object
      * with a given
      * <code>reason</code> and  <code>cause</code>.
@@ -149,7 +149,7 @@ public class SQLWarning extends SQLException {
         DriverManager.println("SQLWarning : reason("+ reason + ")");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLWarning</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
@@ -166,7 +166,7 @@ public class SQLWarning extends SQLException {
                                   ") SQLState(" + SQLState + ")");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a<code>SQLWarning</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>
@@ -185,7 +185,7 @@ public class SQLWarning extends SQLException {
                               ") vendor code(" + vendorCode + ")");
 
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the warning chained to this <code>SQLWarning</code> object by
      * <code>setNextWarning</code>.
      *
@@ -203,7 +203,7 @@ public class SQLWarning extends SQLException {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>SQLWarning</code> object to the end of the chain.
      *
      * @param w the new end of the <code>SQLException</code> chain

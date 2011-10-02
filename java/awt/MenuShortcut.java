@@ -26,7 +26,7 @@ package java.awt;
 
 import java.awt.event.KeyEvent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>MenuShortcut</code>class represents a keyboard accelerator
  * for a MenuItem.
  * <p>
@@ -44,7 +44,7 @@ import java.awt.event.KeyEvent;
  */
 public class MenuShortcut implements java.io.Serializable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The virtual keycode for the menu shortcut.
      * This is the keycode with which the menu shortcut will be created.
      * Note that it is a virtual keycode, not a character,
@@ -61,7 +61,7 @@ public class MenuShortcut implements java.io.Serializable
      */
     int key;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the shft key was pressed.
      * If true, the shift key was pressed.
      * If false, the shift key was not pressed
@@ -77,7 +77,7 @@ public class MenuShortcut implements java.io.Serializable
      */
      private static final long serialVersionUID = 143448358473180225L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new MenuShortcut for the specified virtual keycode.
      * @param key the raw keycode for this MenuShortcut, as would be returned
      * in the keyCode field of a {@link java.awt.event.KeyEvent KeyEvent} if
@@ -88,7 +88,7 @@ public class MenuShortcut implements java.io.Serializable
         this(key, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new MenuShortcut for the specified virtual keycode.
      * @param key the raw keycode for this MenuShortcut, as would be returned
      * in the keyCode field of a {@link java.awt.event.KeyEvent KeyEvent} if
@@ -102,7 +102,7 @@ public class MenuShortcut implements java.io.Serializable
         this.usesShift = useShiftModifier;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the raw keycode of this MenuShortcut.
      * @return the raw keycode of this MenuShortcut.
      * @see java.awt.event.KeyEvent
@@ -112,7 +112,7 @@ public class MenuShortcut implements java.io.Serializable
         return key;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this MenuShortcut must be invoked using the SHIFT key.
      * @return <code>true</code> if this MenuShortcut must be invoked using the
      * SHIFT key, <code>false</code> otherwise.
@@ -122,7 +122,7 @@ public class MenuShortcut implements java.io.Serializable
         return usesShift;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this MenuShortcut is the same as another:
      * equality is defined to mean that both MenuShortcuts use the same key
      * and both either use or don't use the SHIFT key.
@@ -136,7 +136,7 @@ public class MenuShortcut implements java.io.Serializable
                 (s.usesShiftModifier() == usesShift));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this MenuShortcut is the same as another:
      * equality is defined to mean that both MenuShortcuts use the same key
      * and both either use or don't use the SHIFT key.
@@ -152,7 +152,7 @@ public class MenuShortcut implements java.io.Serializable
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hashcode for this MenuShortcut.
      * @return the hashcode for this MenuShortcut.
      * @since 1.2
@@ -161,7 +161,7 @@ public class MenuShortcut implements java.io.Serializable
         return (usesShift) ? (~key) : key;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an internationalized description of the MenuShortcut.
      * @return a string representation of this MenuShortcut.
      * @since JDK1.1
@@ -178,7 +178,7 @@ public class MenuShortcut implements java.io.Serializable
                KeyEvent.getKeyText(key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameter string representing the state of this
      * MenuShortcut. This string is useful for debugging.
      * @return    the parameter string of this MenuShortcut.

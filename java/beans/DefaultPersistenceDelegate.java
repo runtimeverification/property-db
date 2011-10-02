@@ -29,7 +29,7 @@ import java.lang.reflect.*;
 import sun.reflect.misc.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DefaultPersistenceDelegate</code> is a concrete implementation of
  * the abstract <code>PersistenceDelegate</code> class and
  * is the delegate used by default for classes about
@@ -60,7 +60,7 @@ public class DefaultPersistenceDelegate extends PersistenceDelegate {
     private String[] constructor;
     private Boolean definesEquals;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a persistence delegate for a class with a nullary constructor.
      *
      * @see #DefaultPersistenceDelegate(java.lang.String[])
@@ -69,7 +69,7 @@ public class DefaultPersistenceDelegate extends PersistenceDelegate {
         this(new String[0]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a default persistence delegate for a class with a
      * constructor whose arguments are the values of the property
      * names as specified by <code>constructorPropertyNames</code>.
@@ -114,7 +114,7 @@ public class DefaultPersistenceDelegate extends PersistenceDelegate {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the number of arguments in the specified constructor is non-zero and
      * the class of <code>oldInstance</code> explicitly declares an "equals" method
      * this method returns the value of <code>oldInstance.equals(newInstance)</code>.
@@ -136,7 +136,7 @@ public class DefaultPersistenceDelegate extends PersistenceDelegate {
             oldInstance.equals(newInstance);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This default implementation of the <code>instantiate</code> method returns
      * an expression containing the predefined method name "new" which denotes a
      * call to a constructor with the arguments as specified in
@@ -352,7 +352,7 @@ public class DefaultPersistenceDelegate extends PersistenceDelegate {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This default implementation of the <code>initialize</code> method assumes
      * all state held in objects of this type is exposed via the
      * matching pairs of "setter" and "getter" methods in the order

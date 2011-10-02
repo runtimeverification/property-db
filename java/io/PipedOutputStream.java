@@ -27,7 +27,7 @@ package java.io;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A piped output stream can be connected to a piped input stream
  * to create a communications pipe. The piped output stream is the
@@ -59,7 +59,7 @@ class PipedOutputStream extends OutputStream {
            long time until the next GC). */
     private PipedInputStream sink;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a piped output stream connected to the specified piped
      * input stream. Data bytes written to this stream will then be
@@ -73,7 +73,7 @@ class PipedOutputStream extends OutputStream {
         connect(snk);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a piped output stream that is not yet connected to a
      * piped input stream. It must be connected to a piped input stream,
@@ -86,7 +86,7 @@ class PipedOutputStream extends OutputStream {
     public PipedOutputStream() {
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Connects this piped output stream to a receiver. If this object
      * is already connected to some other piped input stream, an
@@ -118,7 +118,7 @@ class PipedOutputStream extends OutputStream {
         snk.connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified <code>byte</code> to the piped output stream.
      * <p>
@@ -137,7 +137,7 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this piped output stream.
@@ -168,7 +168,7 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out.
@@ -185,7 +185,7 @@ class PipedOutputStream extends OutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this piped output stream and releases any system resources
      * associated with this stream.

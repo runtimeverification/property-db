@@ -41,23 +41,23 @@ import java.awt.RenderingHints;
 import java.util.Hashtable;
 import java.util.Vector;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class handles the renderable aspects of an operation with help
  * from its associated instance of a ContextualRenderedImageFactory.
  */
 public class RenderableImageOp implements RenderableImage {
 
-    /** {@collect.stats} A ParameterBlock containing source and parameters. */
+    /** {@collect.stats}  A ParameterBlock containing source and parameters. */
     ParameterBlock paramBlock;
 
-    /** {@collect.stats} The associated ContextualRenderedImageFactory. */
+    /** {@collect.stats}  The associated ContextualRenderedImageFactory. */
     ContextualRenderedImageFactory myCRIF;
 
-    /** {@collect.stats} The bounding box of the results of this RenderableImageOp. */
+    /** {@collect.stats}  The bounding box of the results of this RenderableImageOp. */
     Rectangle2D boundingBox;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a RenderedImageOp given a
      * ContextualRenderedImageFactory object, and
      * a ParameterBlock containing RenderableImage sources and other
@@ -75,7 +75,7 @@ public class RenderableImageOp implements RenderableImage {
         this.paramBlock = (ParameterBlock) paramBlock.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a vector of RenderableImages that are the sources of
      * image data for this RenderableImage. Note that this method may
      * return an empty vector, to indicate that the image has no sources,
@@ -106,7 +106,7 @@ public class RenderableImageOp implements RenderableImage {
         return sources;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a property from the property set of this image.
      * If the property name is not recognized, java.awt.Image.UndefinedProperty
      * will be returned.
@@ -119,7 +119,7 @@ public class RenderableImageOp implements RenderableImage {
         return myCRIF.getProperty(paramBlock, name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a list of names recognized by getProperty.
      * @return a list of property names.
      */
@@ -127,7 +127,7 @@ public class RenderableImageOp implements RenderableImage {
         return myCRIF.getPropertyNames();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if successive renderings (that is, calls to
      * createRendering() or createScaledRendering()) with the same arguments
      * may produce different results.  This method may be used to
@@ -141,7 +141,7 @@ public class RenderableImageOp implements RenderableImage {
         return myCRIF.isDynamic();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the width in user coordinate space.  By convention, the
      * usual width of a RenderableImage is equal to the image's aspect
      * ratio (width divided by height).
@@ -155,7 +155,7 @@ public class RenderableImageOp implements RenderableImage {
         return (float)boundingBox.getWidth();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the height in user coordinate space.  By convention, the
      * usual height of a RenderedImage is equal to 1.0F.
      *
@@ -168,7 +168,7 @@ public class RenderableImageOp implements RenderableImage {
         return (float)boundingBox.getHeight();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minimum X coordinate of the rendering-independent image data.
      */
     public float getMinX() {
@@ -178,7 +178,7 @@ public class RenderableImageOp implements RenderableImage {
         return (float)boundingBox.getMinX();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minimum Y coordinate of the rendering-independent image data.
      */
     public float getMinY() {
@@ -188,7 +188,7 @@ public class RenderableImageOp implements RenderableImage {
         return (float)boundingBox.getMinY();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Change the current ParameterBlock of the operation, allowing
      * editing of image rendering chains.  The effects of such a
      * change will be visible when a new rendering is created from
@@ -204,7 +204,7 @@ public class RenderableImageOp implements RenderableImage {
         return oldParamBlock;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reference to the current parameter block.
      * @return the <code>ParameterBlock</code> of this
      *         <code>RenderableImageOp</code>.
@@ -214,7 +214,7 @@ public class RenderableImageOp implements RenderableImage {
         return paramBlock;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a RenderedImage instance of this image with width w, and
      * height h in pixels.  The RenderContext is built automatically
      * with an appropriate usr2dev transform and an area of interest
@@ -252,7 +252,7 @@ public class RenderableImageOp implements RenderableImage {
         return createRendering(newRC);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a RenderedImage instance of this image with a default
      * width and height in pixels.  The RenderContext is built
      * automatically with an appropriate usr2dev transform and an area
@@ -268,7 +268,7 @@ public class RenderableImageOp implements RenderableImage {
         return createRendering(newRC);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a RenderedImage which represents this
      * RenderableImageOp (including its Renderable sources) rendered
      * according to the given RenderContext.

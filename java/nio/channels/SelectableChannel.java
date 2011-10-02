@@ -30,7 +30,7 @@ import java.nio.channels.spi.AbstractInterruptibleChannel;
 import java.nio.channels.spi.SelectorProvider;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A channel that can be multiplexed via a {@link Selector}.
  *
  * <p> In order to be used with a selector, an instance of this class must
@@ -94,19 +94,19 @@ public abstract class SelectableChannel
     implements Channel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected SelectableChannel() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider that created this channel.
      *
      * @return  The provider that created this channel
      */
     public abstract SelectorProvider provider();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an <a href="SelectionKey.html#opsets">operation set</a>
      * identifying this channel's supported operations.  The bits that are set
      * in this integer value denote exactly the operations that are valid for
@@ -123,7 +123,7 @@ public abstract class SelectableChannel
     //   regLock, lock object to prevent duplicate registrations
     //   boolean isBlocking, protected by regLock
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this channel is currently registered with any
      * selectors.  A newly-created channel is not registered.
      *
@@ -138,7 +138,7 @@ public abstract class SelectableChannel
     //
     // sync(keySet) { return isRegistered; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the key representing the channel's registration with the given
      * selector.  </p>
      *
@@ -150,7 +150,7 @@ public abstract class SelectableChannel
     //
     // sync(keySet) { return findKey(sel); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers this channel with the given selector, returning a selection
      * key.
      *
@@ -223,7 +223,7 @@ public abstract class SelectableChannel
     //   return key;
     // }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers this channel with the given selector, returning a selection
      * key.
      *
@@ -271,7 +271,7 @@ public abstract class SelectableChannel
         return register(sel, ops, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adjusts this channel's blocking mode.
      *
      * <p> If this channel is registered with one or more selectors then an
@@ -311,7 +311,7 @@ public abstract class SelectableChannel
     //   change mode;
     // }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not every I/O operation on this channel will block
      * until it completes.  A newly-created channel is always in blocking mode.
      *
@@ -322,7 +322,7 @@ public abstract class SelectableChannel
      */
     public abstract boolean isBlocking();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the object upon which the {@link #configureBlocking
      * configureBlocking} and {@link #register register} methods synchronize.
      * This is often useful in the implementation of adaptors that require a

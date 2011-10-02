@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.spi.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A selectable channel for datagram-oriented sockets.
  *
  *
@@ -74,14 +74,14 @@ public abstract class DatagramChannel
     implements ByteChannel, ScatteringByteChannel, GatheringByteChannel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected DatagramChannel(SelectorProvider provider) {
         super(provider);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a datagram channel.
      *
      * <p> The new channel is created by invoking the {@link
@@ -99,7 +99,7 @@ public abstract class DatagramChannel
         return SelectorProvider.provider().openDatagramChannel();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an operation set identifying this channel's supported
      * operations.
      *
@@ -117,7 +117,7 @@ public abstract class DatagramChannel
 
     // -- Socket-specific operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves a datagram socket associated with this channel.
      *
      * <p> The returned object will not declare any public methods that are not
@@ -127,7 +127,7 @@ public abstract class DatagramChannel
      */
     public abstract DatagramSocket socket();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this channel's socket is connected.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this channel's socket
@@ -135,7 +135,7 @@ public abstract class DatagramChannel
      */
     public abstract boolean isConnected();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Connects this channel's socket.
      *
      * <p> The channel's socket is configured so that it only receives
@@ -185,7 +185,7 @@ public abstract class DatagramChannel
     public abstract DatagramChannel connect(SocketAddress remote)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disconnects this channel's socket.
      *
      * <p> The channel's socket is configured so that it can receive datagrams
@@ -206,7 +206,7 @@ public abstract class DatagramChannel
      */
     public abstract DatagramChannel disconnect() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Receives a datagram via this channel.
      *
      * <p> If a datagram is immediately available, or if this channel is in
@@ -267,7 +267,7 @@ public abstract class DatagramChannel
      */
     public abstract SocketAddress receive(ByteBuffer dst) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a datagram via this channel.
      *
      * <p> If this channel is in non-blocking mode and there is sufficient room
@@ -333,7 +333,7 @@ public abstract class DatagramChannel
 
     // -- ByteChannel operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a datagram from this channel.
      *
      * <p> This method may only be invoked if this channel's socket is
@@ -348,7 +348,7 @@ public abstract class DatagramChannel
      */
     public abstract int read(ByteBuffer dst) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a datagram from this channel.
      *
      * <p> This method may only be invoked if this channel's socket is
@@ -364,7 +364,7 @@ public abstract class DatagramChannel
     public abstract long read(ByteBuffer[] dsts, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads a datagram from this channel.
      *
      * <p> This method may only be invoked if this channel's socket is
@@ -381,7 +381,7 @@ public abstract class DatagramChannel
         return read(dsts, 0, dsts.length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a datagram to this channel.
      *
      * <p> This method may only be invoked if this channel's socket is
@@ -394,7 +394,7 @@ public abstract class DatagramChannel
      */
     public abstract int write(ByteBuffer src) throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a datagram to this channel.
      *
      * <p> This method may only be invoked if this channel's socket is
@@ -414,7 +414,7 @@ public abstract class DatagramChannel
     public abstract long write(ByteBuffer[] srcs, int offset, int length)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes a datagram to this channel.
      *
      * <p> This method may only be invoked if this channel's socket is

@@ -28,7 +28,7 @@ package java.awt.event;
 import java.awt.ActiveEvent;
 import java.awt.AWTEvent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An event which executes the <code>run()</code> method on a <code>Runnable
  * </code> when dispatched by the AWT event dispatcher thread. This class can
  * be used as a reference implementation of <code>ActiveEvent</code> rather
@@ -52,54 +52,54 @@ import java.awt.AWTEvent;
  */
 public class InvocationEvent extends AWTEvent implements ActiveEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the first integer id for the range of invocation event ids.
      */
     public static final int INVOCATION_FIRST = 1200;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default id for all InvocationEvents.
      */
     public static final int INVOCATION_DEFAULT = INVOCATION_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the last integer id for the range of invocation event ids.
      */
     public static final int INVOCATION_LAST = INVOCATION_DEFAULT;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Runnable whose run() method will be called.
      */
     protected Runnable runnable;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The (potentially null) Object whose notifyAll() method will be called
      * immediately after the Runnable.run() method returns.
      */
     protected Object notifier;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set to true if dispatch() catches Throwable and stores it in the
      * exception instance variable. If false, Throwables are propagated up
      * to the EventDispatchThread's dispatch loop.
      */
     protected boolean catchExceptions;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The (potentially null) Exception thrown during execution of the
      * Runnable.run() method. This variable will also be null if a particular
      * instance does not catch exceptions.
      */
     private Exception exception = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The (potentially null) Throwable thrown during execution of the
      * Runnable.run() method. This variable will also be null if a particular
      * instance does not catch exceptions.
      */
     private Throwable throwable = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The timestamp of when this event occurred.
      *
      * @serial
@@ -112,7 +112,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
      */
     private static final long serialVersionUID = 436056344909459450L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InvocationEvent</code> with the specified
      * source which will execute the runnable's <code>run</code>
      * method when dispatched.
@@ -134,7 +134,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         this(source, runnable, null, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InvocationEvent</code> with the specified
      * source which will execute the runnable's <code>run</code>
      * method when dispatched.  If notifier is non-<code>null</code>,
@@ -170,7 +170,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         this(source, INVOCATION_DEFAULT, runnable, notifier, catchThrowables);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InvocationEvent</code> with the specified
      * source and ID which will execute the runnable's <code>run</code>
      * method when dispatched.  If notifier is non-<code>null</code>,
@@ -206,7 +206,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         this.when = System.currentTimeMillis();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Executes the Runnable's <code>run()</code> method and notifies the
      * notifier (if any) when <code>run()</code> returns.
      */
@@ -233,7 +233,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns any Exception caught while executing the Runnable's <code>run()
      * </code> method.
      *
@@ -245,7 +245,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         return (catchExceptions) ? exception : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns any Throwable caught while executing the Runnable's <code>run()
      * </code> method.
      *
@@ -258,7 +258,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         return (catchExceptions) ? throwable : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the timestamp of when this event occurred.
      *
      * @return this event's timestamp
@@ -268,7 +268,7 @@ public class InvocationEvent extends AWTEvent implements ActiveEvent {
         return when;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter string identifying this event.
      * This method is useful for event-logging and for debugging.
      *

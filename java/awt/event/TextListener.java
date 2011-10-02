@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving text events.
  *
  * The class that is interested in processing a text event
@@ -46,7 +46,7 @@ import java.util.EventListener;
  */
 public interface TextListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the value of the text has changed.
      * The code written for this method performs the operations
      * that need to occur when text changes.

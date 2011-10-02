@@ -28,7 +28,7 @@ package java.awt.event;
 import java.awt.Container;
 import java.awt.Component;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A low-level event which indicates that a container's contents
  * changed because a component was added or removed.
  * <P>
@@ -56,27 +56,27 @@ import java.awt.Component;
  */
 public class ContainerEvent extends ComponentEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The first number in the range of ids used for container events.
      */
     public static final int CONTAINER_FIRST             = 300;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The last number in the range of ids used for container events.
      */
     public static final int CONTAINER_LAST              = 301;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * This event indicates that a component was added to the container.
      */
     public static final int COMPONENT_ADDED     = CONTAINER_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This event indicates that a component was removed from the container.
      */
     public static final int COMPONENT_REMOVED = 1 + CONTAINER_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The non-null component that is being added or
      * removed from the Container.
      *
@@ -90,7 +90,7 @@ public class ContainerEvent extends ComponentEvent {
      */
     private static final long serialVersionUID = -4114942250539772041L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ContainerEvent</code> object.
      * <p>Note that passing in an invalid <code>id</code> results in
      * unspecified behavior. This method throws an
@@ -108,7 +108,7 @@ public class ContainerEvent extends ComponentEvent {
         this.child = child;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the originator of the event.
      *
      * @return the <code>Container</code> object that originated
@@ -119,7 +119,7 @@ public class ContainerEvent extends ComponentEvent {
         return (source instanceof Container) ? (Container)source : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the component that was affected by the event.
      *
      * @return the Component object that was added or removed
@@ -128,7 +128,7 @@ public class ContainerEvent extends ComponentEvent {
         return child;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a parameter string identifying this event.
      * This method is useful for event-logging and for debugging.
      *

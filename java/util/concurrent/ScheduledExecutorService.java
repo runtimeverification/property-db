@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.concurrent.atomic.*;
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An {@link ExecutorService} that can schedule commands to run after a given
  * delay, or to execute periodically.
  *
@@ -96,7 +96,7 @@ import java.util.*;
  */
 public interface ScheduledExecutorService extends ExecutorService {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and executes a one-shot action that becomes enabled
      * after the given delay.
      *
@@ -113,7 +113,7 @@ public interface ScheduledExecutorService extends ExecutorService {
     public ScheduledFuture<?> schedule(Runnable command,
                                        long delay, TimeUnit unit);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and executes a ScheduledFuture that becomes enabled after the
      * given delay.
      *
@@ -128,7 +128,7 @@ public interface ScheduledExecutorService extends ExecutorService {
     public <V> ScheduledFuture<V> schedule(Callable<V> callable,
                                            long delay, TimeUnit unit);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the given
      * period; that is executions will commence after
@@ -158,7 +158,7 @@ public interface ScheduledExecutorService extends ExecutorService {
                                                   long period,
                                                   TimeUnit unit);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the
      * given delay between the termination of one execution and the

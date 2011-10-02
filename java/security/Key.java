@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The Key interface is the top-level interface for all keys. It
  * defines the functionality shared by all key objects. All keys
  * have three characteristics:
@@ -104,14 +104,14 @@ public interface Key extends java.io.Serializable {
 
     // Declare serialVersionUID to be compatible with JDK1.1
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * The class fingerprint that is set to indicate
     * serialization compatibility with a previous
     * version of the class.
     */
     static final long serialVersionUID = 6603384152749567654L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the standard algorithm name for this key. For
      * example, "DSA" would indicate that this key is a DSA key.
      * See Appendix A in the <a href=
@@ -123,7 +123,7 @@ public interface Key extends java.io.Serializable {
      */
     public String getAlgorithm();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the primary encoding format of this key,
      * or null if this key does not support encoding.
      * The primary encoding format is
@@ -142,7 +142,7 @@ public interface Key extends java.io.Serializable {
      */
     public String getFormat();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the key in its primary encoding format, or null
      * if this key does not support encoding.
      *

@@ -29,7 +29,7 @@ import java.io.*;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>AlgorithmParameters</code> class, which is used to manage
  * algorithm parameters.
@@ -50,7 +50,7 @@ import java.security.spec.InvalidParameterSpecException;
 
 public abstract class AlgorithmParametersSpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes this parameters object using the parameters
      * specified in <code>paramSpec</code>.
      *
@@ -63,7 +63,7 @@ public abstract class AlgorithmParametersSpi {
     protected abstract void engineInit(AlgorithmParameterSpec paramSpec)
         throws InvalidParameterSpecException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Imports the specified parameters and decodes them
      * according to the primary decoding format for parameters.
      * The primary decoding format for parameters is ASN.1, if an ASN.1
@@ -76,7 +76,7 @@ public abstract class AlgorithmParametersSpi {
     protected abstract void engineInit(byte[] params)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Imports the parameters from <code>params</code> and
      * decodes them according to the specified decoding format.
      * If <code>format</code> is null, the
@@ -93,7 +93,7 @@ public abstract class AlgorithmParametersSpi {
     protected abstract void engineInit(byte[] params, String format)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a (transparent) specification of this parameters
      * object.
      * <code>paramSpec</code> identifies the specification class in which
@@ -115,7 +115,7 @@ public abstract class AlgorithmParametersSpi {
         T engineGetParameterSpec(Class<T> paramSpec)
         throws InvalidParameterSpecException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameters in their primary encoding format.
      * The primary encoding format for parameters is ASN.1, if an ASN.1
      * specification for this type of parameters exists.
@@ -126,7 +126,7 @@ public abstract class AlgorithmParametersSpi {
      */
     protected abstract byte[] engineGetEncoded() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameters encoded in the specified format.
      * If <code>format</code> is null, the
      * primary encoding format for parameters is used. The primary encoding
@@ -142,7 +142,7 @@ public abstract class AlgorithmParametersSpi {
     protected abstract byte[] engineGetEncoded(String format)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters.

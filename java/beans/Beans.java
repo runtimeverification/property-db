@@ -42,13 +42,13 @@ import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.lang.reflect.Array;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides some general purpose beans control methods.
  */
 
 public class Beans {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Instantiate a JavaBean.
      * </p>
@@ -68,7 +68,7 @@ public class Beans {
         return Beans.instantiate(cls, beanName, null, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Instantiate a JavaBean.
      * </p>
@@ -89,7 +89,7 @@ public class Beans {
         return Beans.instantiate(cls, beanName, beanContext, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Instantiate a bean.
      * <p>
      * The bean is created based on a name relative to a class-loader.
@@ -336,7 +336,7 @@ public class Beans {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * From a given bean, obtain an object representing a specified
      * type view of that source object.
      * <p>
@@ -355,7 +355,7 @@ public class Beans {
         return bean;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if a bean can be viewed as a given target type.
      * The result will be true if the Beans.getInstanceof method
      * can be used on the given bean to obtain an object that
@@ -371,7 +371,7 @@ public class Beans {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Test if we are in design-mode.
      *
      * @return  True if we are running in an application construction
@@ -383,7 +383,7 @@ public class Beans {
         return designTime;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether beans can assume a GUI is available.
      *
      * @return  True if we are running in an environment where beans
@@ -400,7 +400,7 @@ public class Beans {
         return guiAvailable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Used to indicate whether of not we are running in an application
      * builder environment.
      *
@@ -426,7 +426,7 @@ public class Beans {
         designTime = isDesignTime;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Used to indicate whether of not we are running in an environment
      * where GUI interaction is available.
      *
@@ -460,7 +460,7 @@ public class Beans {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This subclass of ObjectInputStream delegates loading of classes to
  * an existing ClassLoader.
  */
@@ -469,7 +469,7 @@ class ObjectInputStreamWithLoader extends ObjectInputStream
 {
     private ClassLoader loader;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loader must be non-null;
      */
 
@@ -483,7 +483,7 @@ class ObjectInputStreamWithLoader extends ObjectInputStream
         this.loader = loader;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use the given ClassLoader rather than using the system class
      */
     protected Class resolveClass(ObjectStreamClass classDesc)
@@ -494,7 +494,7 @@ class ObjectInputStreamWithLoader extends ObjectInputStream
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Package private support class.  This provides a default AppletContext
  * for beans which are applets.
  */
@@ -579,7 +579,7 @@ class BeansAppletContext implements AppletContext {
     }
 }
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Package private support class.  This provides an AppletStub
  * for beans which are applets.
  */

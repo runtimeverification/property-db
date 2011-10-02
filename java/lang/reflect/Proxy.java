@@ -36,7 +36,7 @@ import java.util.Set;
 import java.util.WeakHashMap;
 import sun.misc.ProxyGenerator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@code Proxy} provides static methods for creating dynamic proxy
  * classes and instances, and it is also the superclass of all
  * dynamic proxy classes created by those methods.
@@ -222,40 +222,40 @@ public class Proxy implements java.io.Serializable {
 
     private static final long serialVersionUID = -2222568056686623797L;
 
-    /** {@collect.stats} prefix for all proxy class names */
+    /** {@collect.stats}  prefix for all proxy class names */
     private final static String proxyClassNamePrefix = "$Proxy";
 
-    /** {@collect.stats} parameter types of a proxy class constructor */
+    /** {@collect.stats}  parameter types of a proxy class constructor */
     private final static Class[] constructorParams =
         { InvocationHandler.class };
 
-    /** {@collect.stats} maps a class loader to the proxy class cache for that loader */
+    /** {@collect.stats}  maps a class loader to the proxy class cache for that loader */
     private static Map loaderToCache = new WeakHashMap();
 
-    /** {@collect.stats} marks that a particular proxy class is currently being generated */
+    /** {@collect.stats}  marks that a particular proxy class is currently being generated */
     private static Object pendingGenerationMarker = new Object();
 
-    /** {@collect.stats} next number to use for generation of unique proxy class names */
+    /** {@collect.stats}  next number to use for generation of unique proxy class names */
     private static long nextUniqueNumber = 0;
     private static Object nextUniqueNumberLock = new Object();
 
-    /** {@collect.stats} set of all generated proxy classes, for isProxyClass implementation */
+    /** {@collect.stats}  set of all generated proxy classes, for isProxyClass implementation */
     private static Map proxyClasses =
         Collections.synchronizedMap(new WeakHashMap());
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * the invocation handler for this proxy instance.
      * @serial
      */
     protected InvocationHandler h;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prohibits instantiation.
      */
     private Proxy() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code Proxy} instance from a subclass
      * (typically, a dynamic proxy class) with the specified value
      * for its invocation handler.
@@ -266,7 +266,7 @@ public class Proxy implements java.io.Serializable {
         this.h = h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code java.lang.Class} object for a proxy class
      * given a class loader and an array of interfaces.  The proxy class
      * will be defined by the specified class loader and will implement
@@ -554,7 +554,7 @@ public class Proxy implements java.io.Serializable {
         return proxyClass;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an instance of a proxy class for the specified interfaces
      * that dispatches method invocations to the specified invocation
      * handler.  This method is equivalent to:
@@ -614,7 +614,7 @@ public class Proxy implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if and only if the specified class was dynamically
      * generated to be a proxy class using the {@code getProxyClass}
      * method or the {@code newProxyInstance} method.
@@ -636,7 +636,7 @@ public class Proxy implements java.io.Serializable {
         return proxyClasses.containsKey(cl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the invocation handler for the specified proxy instance.
      *
      * @param   proxy the proxy instance to return the invocation handler for

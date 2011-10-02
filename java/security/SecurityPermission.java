@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is for security permissions.
  * A SecurityPermission contains a name (also referred to as a "target name")
  * but no actions list; you either have the named permission
@@ -295,7 +295,7 @@ public final class SecurityPermission extends BasicPermission {
 
     private static final long serialVersionUID = 5236109936224050470L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new SecurityPermission with the specified name.
      * The name is the symbolic name of the SecurityPermission. An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
@@ -312,7 +312,7 @@ public final class SecurityPermission extends BasicPermission {
         super(name);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new SecurityPermission object with the specified name.
      * The name is the symbolic name of the SecurityPermission, and the
      * actions String is currently unused and should be null.

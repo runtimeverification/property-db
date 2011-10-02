@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.io.IOException;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A token representing the registration of a {@link SelectableChannel} with a
  * {@link Selector}.
  *
@@ -109,7 +109,7 @@ import java.io.IOException;
 
 public abstract class SelectionKey {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class.
      */
     protected SelectionKey() { }
@@ -117,7 +117,7 @@ public abstract class SelectionKey {
 
     // -- Channel and selector operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the channel for which this key was created.  This method will
      * continue to return the channel even after the key is cancelled.  </p>
      *
@@ -125,7 +125,7 @@ public abstract class SelectionKey {
      */
     public abstract SelectableChannel channel();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the selector for which this key was created.  This method will
      * continue to return the selector even after the key is cancelled.  </p>
      *
@@ -133,7 +133,7 @@ public abstract class SelectionKey {
      */
     public abstract Selector selector();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this key is valid.
      *
      * <p> A key is valid upon creation and remains so until it is cancelled,
@@ -143,7 +143,7 @@ public abstract class SelectionKey {
      */
     public abstract boolean isValid();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Requests that the registration of this key's channel with its selector
      * be cancelled.  Upon return the key will be invalid and will have been
      * added to its selector's cancelled-key set.  The key will be removed from
@@ -162,7 +162,7 @@ public abstract class SelectionKey {
 
     // -- Operation-set accessors --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this key's interest set.
      *
      * <p> It is guaranteed that the returned set will only contain operation
@@ -178,7 +178,7 @@ public abstract class SelectionKey {
      */
     public abstract int interestOps();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this key's interest set to the given value.
      *
      * <p> This method may be invoked at any time.  Whether or not it blocks,
@@ -198,7 +198,7 @@ public abstract class SelectionKey {
      */
     public abstract SelectionKey interestOps(int ops);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this key's ready-operation set.
      *
      * <p> It is guaranteed that the returned set will only contain operation
@@ -214,7 +214,7 @@ public abstract class SelectionKey {
 
     // -- Operation bits and bit-testing convenience methods --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Operation-set bit for read operations.
      *
      * <p> Suppose that a selection key's interest set contains
@@ -227,7 +227,7 @@ public abstract class SelectionKey {
      */
     public static final int OP_READ = 1 << 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Operation-set bit for write operations.  </p>
      *
      * <p> Suppose that a selection key's interest set contains
@@ -240,7 +240,7 @@ public abstract class SelectionKey {
      */
     public static final int OP_WRITE = 1 << 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Operation-set bit for socket-connect operations.  </p>
      *
      * <p> Suppose that a selection key's interest set contains
@@ -253,7 +253,7 @@ public abstract class SelectionKey {
      */
     public static final int OP_CONNECT = 1 << 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Operation-set bit for socket-accept operations.  </p>
      *
      * <p> Suppose that a selection key's interest set contains
@@ -266,7 +266,7 @@ public abstract class SelectionKey {
      */
     public static final int OP_ACCEPT = 1 << 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this key's channel is ready for reading.
      *
      * <p> An invocation of this method of the form <tt>k.isReadable()</tt>
@@ -289,7 +289,7 @@ public abstract class SelectionKey {
         return (readyOps() & OP_READ) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this key's channel is ready for writing.
      *
      * <p> An invocation of this method of the form <tt>k.isWritable()</tt>
@@ -312,7 +312,7 @@ public abstract class SelectionKey {
         return (readyOps() & OP_WRITE) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this key's channel has either finished, or failed to
      * finish, its socket-connection operation.
      *
@@ -336,7 +336,7 @@ public abstract class SelectionKey {
         return (readyOps() & OP_CONNECT) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this key's channel is ready to accept a new socket
      * connection.
      *
@@ -370,7 +370,7 @@ public abstract class SelectionKey {
             SelectionKey.class, Object.class, "attachment"
         );
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attaches the given object to this key.
      *
      * <p> An attached object may later be retrieved via the {@link #attachment()
@@ -388,7 +388,7 @@ public abstract class SelectionKey {
         return attachmentUpdater.getAndSet(this, ob);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the current attachment.  </p>
      *
      * @return  The object currently attached to this key,

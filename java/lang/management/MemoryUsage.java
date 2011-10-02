@@ -28,7 +28,7 @@ package java.lang.management;
 import javax.management.openmbean.CompositeData;
 import sun.management.MemoryUsageCompositeData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <tt>MemoryUsage</tt> object represents a snapshot of memory usage.
  * Instances of the <tt>MemoryUsage</tt> class are usually constructed
  * by methods that are used to obtain memory usage
@@ -111,7 +111,7 @@ public class MemoryUsage {
     private final long committed;
     private final long max;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>MemoryUsage</tt> object.
      *
      * @param init      the initial amount of memory in bytes that
@@ -169,7 +169,7 @@ public class MemoryUsage {
         this.max = max;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>MemoryUsage</tt> object from a
      * {@link CompositeData CompositeData}.
      */
@@ -183,7 +183,7 @@ public class MemoryUsage {
         this.max = MemoryUsageCompositeData.getMax(cd);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the amount of memory in bytes that the Java virtual machine
      * initially requests from the operating system for memory management.
      * This method returns <tt>-1</tt> if the initial memory size is undefined.
@@ -195,7 +195,7 @@ public class MemoryUsage {
         return init;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the amount of used memory in bytes.
      *
      * @return the amount of used memory in bytes.
@@ -205,7 +205,7 @@ public class MemoryUsage {
         return used;
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the amount of memory in bytes that is committed for
      * the Java virtual machine to use.  This amount of memory is
      * guaranteed for the Java virtual machine to use.
@@ -217,7 +217,7 @@ public class MemoryUsage {
         return committed;
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum amount of memory in bytes that can be
      * used for memory management.  This method returns <tt>-1</tt>
      * if the maximum memory size is undefined.
@@ -235,7 +235,7 @@ public class MemoryUsage {
         return max;
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a descriptive representation of this memory usage.
      */
     public String toString() {
@@ -248,7 +248,7 @@ public class MemoryUsage {
         return buf.toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <tt>MemoryUsage</tt> object represented by the
      * given <tt>CompositeData</tt>. The given <tt>CompositeData</tt>
      * must contain the following attributes:

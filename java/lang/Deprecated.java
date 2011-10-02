@@ -27,7 +27,7 @@ package java.lang;
 
 import java.lang.annotation.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A program element annotated &#64;Deprecated is one that programmers
  * are discouraged from using, typically because it is dangerous,
  * or because a better alternative exists.  Compilers warn when a

@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when an exception happens during Introspection.
  * <p>
  * Typical causes include not being able to map a string class name
@@ -37,7 +37,7 @@ package java.beans;
 public
 class IntrospectionException extends Exception {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>IntrospectionException</code> with a
      * detailed message.
      *

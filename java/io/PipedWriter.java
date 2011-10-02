@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Piped character-output streams.
  * {@description.close}
@@ -49,7 +49,7 @@ public class PipedWriter extends Writer {
      */
     private boolean closed = false;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a piped writer connected to the specified piped
      * reader. Data characters written to this stream will then be
@@ -63,7 +63,7 @@ public class PipedWriter extends Writer {
         connect(snk);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a piped writer that is not yet connected to a
      * piped reader. It must be connected to a piped reader,
@@ -76,7 +76,7 @@ public class PipedWriter extends Writer {
     public PipedWriter() {
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Connects this piped writer to a receiver. If this object
      * is already connected to some other piped reader, an
@@ -111,7 +111,7 @@ public class PipedWriter extends Writer {
         snk.connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified <code>char</code> to the piped output stream.
      * If a thread was reading data characters from the connected piped input
@@ -134,7 +134,7 @@ public class PipedWriter extends Writer {
         sink.receive(c);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> characters from the specified character array
      * starting at offset <code>off</code> to this piped output stream.
@@ -166,7 +166,7 @@ public class PipedWriter extends Writer {
         sink.receive(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes this output stream and forces any buffered output characters
      * to be written out.
@@ -186,7 +186,7 @@ public class PipedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes this piped output stream and releases any system resources
      * associated with this stream.

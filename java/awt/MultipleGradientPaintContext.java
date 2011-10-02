@@ -42,7 +42,7 @@ import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This is the superclass for all PaintContexts which use a multiple color
  * gradient to fill in their raster.  It provides the actual color
  * interpolation functionality.  Subclasses only have to deal with using
@@ -52,35 +52,35 @@ import java.util.Arrays;
  */
 abstract class MultipleGradientPaintContext implements PaintContext {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The PaintContext's ColorModel.  This is ARGB if colors are not all
      * opaque, otherwise it is RGB.
      */
     protected ColorModel model;
 
-    /** {@collect.stats} Color model used if gradient colors are all opaque. */
+    /** {@collect.stats}  Color model used if gradient colors are all opaque. */
     private static ColorModel xrgbmodel =
         new DirectColorModel(24, 0x00ff0000, 0x0000ff00, 0x000000ff);
 
-    /** {@collect.stats} The cached ColorModel. */
+    /** {@collect.stats}  The cached ColorModel. */
     protected static ColorModel cachedModel;
 
-    /** {@collect.stats} The cached raster, which is reusable among instances. */
+    /** {@collect.stats}  The cached raster, which is reusable among instances. */
     protected static WeakReference<Raster> cached;
 
-    /** {@collect.stats} Raster is reused whenever possible. */
+    /** {@collect.stats}  Raster is reused whenever possible. */
     protected Raster saved;
 
-    /** {@collect.stats} The method to use when painting out of the gradient bounds. */
+    /** {@collect.stats}  The method to use when painting out of the gradient bounds. */
     protected CycleMethod cycleMethod;
 
-    /** {@collect.stats} The ColorSpace in which to perform the interpolation */
+    /** {@collect.stats}  The ColorSpace in which to perform the interpolation */
     protected ColorSpaceType colorSpace;
 
-    /** {@collect.stats} Elements of the inverse transform matrix. */
+    /** {@collect.stats}  Elements of the inverse transform matrix. */
     protected float a00, a01, a10, a11, a02, a12;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This boolean specifies wether we are in simple lookup mode, where an
      * input value between 0 and 1 may be used to directly index into a single
      * array of gradient colors.  If this boolean value is false, then we have
@@ -89,35 +89,35 @@ abstract class MultipleGradientPaintContext implements PaintContext {
      */
     protected boolean isSimpleLookup;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Size of gradients array for scaling the 0-1 index when looking up
      * colors the fast way.
      */
     protected int fastGradientArraySize;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Array which contains the interpolated color values for each interval,
      * used by calculateSingleArrayGradient().  It is protected for possible
      * direct access by subclasses.
      */
     protected int[] gradient;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Array of gradient arrays, one array for each interval.  Used by
      * calculateMultipleArrayGradient().
      */
     private int[][] gradients;
 
-    /** {@collect.stats} Normalized intervals array. */
+    /** {@collect.stats}  Normalized intervals array. */
     private float[] normalizedIntervals;
 
-    /** {@collect.stats} Fractions array. */
+    /** {@collect.stats}  Fractions array. */
     private float[] fractions;
 
-    /** {@collect.stats} Used to determine if gradient colors are all opaque. */
+    /** {@collect.stats}  Used to determine if gradient colors are all opaque. */
     private int transparencyTest;
 
-    /** {@collect.stats} Color space conversion lookup tables. */
+    /** {@collect.stats}  Color space conversion lookup tables. */
     private static final int SRGBtoLinearRGB[] = new int[256];
     private static final int LinearRGBtoSRGB[] = new int[256];
 
@@ -129,14 +129,14 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant number of max colors between any 2 arbitrary colors.
      * Used for creating and indexing gradients arrays.
      */
     protected static final int GRADIENT_SIZE = 256;
     protected static final int GRADIENT_SIZE_INDEX = GRADIENT_SIZE -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maximum length of the fast single-array.  If the estimated array size
      * is greater than this, switch over to the slow lookup method.
      * No particular reason for choosing this number, but it seems to provide
@@ -144,7 +144,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
      */
     private static final int MAX_GRADIENT_ARRAY_SIZE = 5000;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor for MultipleGradientPaintContext superclass.
      */
     protected MultipleGradientPaintContext(MultipleGradientPaint mgp,
@@ -239,7 +239,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This function is the meat of this class.  It calculates an array of
      * gradient colors based on an array of fractions and color values at
      * those fractions.
@@ -312,7 +312,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * FAST LOOKUP METHOD
      *
      * This method calculates the gradient color values and places them in a
@@ -387,7 +387,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         fastGradientArraySize = gradient.length - 1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * SLOW LOOKUP METHOD
      *
      * This method calculates the gradient color values for each interval and
@@ -443,7 +443,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Yet another helper function.  This one linearly interpolates between
      * 2 colors, filling up the output array.
      *
@@ -482,7 +482,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Yet another helper function.  This one extracts the color components
      * of an integer RGB triple, converts them from LinearRGB to SRGB, then
      * recompacts them into an int.
@@ -509,7 +509,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
                 (b1      ));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Helper function to index into the gradients array.  This is necessary
      * because each interval has an array of colors with uniform size 255.
      * However, the color intervals are not necessarily of uniform length, so
@@ -583,7 +583,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         return gradients[gradients.length - 1][GRADIENT_SIZE_INDEX];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Helper function to convert a color component in sRGB space to linear
      * RGB space.  Used to build a static lookup table.
      */
@@ -600,7 +600,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         return Math.round(output * 255.0f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Helper function to convert a color component in linear RGB space to
      * SRGB space.  Used to build a static lookup table.
      */
@@ -618,7 +618,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         return Math.round(output * 255.0f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public final Raster getRaster(int x, int y, int w, int h) {
@@ -655,7 +655,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
                                        int x, int y, int w, int h);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Took this cacheRaster code from GradientPaint. It appears to recycle
      * rasters for use by any other instance, as long as they are sufficiently
      * large.
@@ -678,7 +678,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         return cm.createCompatibleWritableRaster(w, h);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Took this cacheRaster code from GradientPaint. It appears to recycle
      * rasters for use by any other instance, as long as they are sufficiently
      * large.
@@ -705,7 +705,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         cached = new WeakReference<Raster>(ras);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public final void dispose() {
@@ -715,7 +715,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public final ColorModel getColorModel() {

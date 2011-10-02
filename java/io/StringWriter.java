@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A character stream that collects its output in a string buffer, which can
  * then be used to construct a string.
@@ -46,7 +46,7 @@ public class StringWriter extends Writer {
 
     private StringBuffer buf;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Create a new string writer using the default initial string-buffer
      * size.
@@ -57,7 +57,7 @@ public class StringWriter extends Writer {
         lock = buf;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Create a new string writer using the specified initial string-buffer
      * size.
@@ -78,7 +78,7 @@ public class StringWriter extends Writer {
         lock = buf;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write a single character.
      * {@description.close}
@@ -87,7 +87,7 @@ public class StringWriter extends Writer {
         buf.append((char) c);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write a portion of an array of characters.
      * {@description.close}
@@ -106,7 +106,7 @@ public class StringWriter extends Writer {
         buf.append(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write a string.
      * {@description.close}
@@ -115,7 +115,7 @@ public class StringWriter extends Writer {
         buf.append(str);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Write a portion of a string.
      * {@description.close}
@@ -128,7 +128,7 @@ public class StringWriter extends Writer {
         buf.append(str.substring(off, off + len));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends the specified character sequence to this writer.
      *
@@ -162,7 +162,7 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends a subsequence of the specified character sequence to this writer.
      *
@@ -202,7 +202,7 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Appends the specified character to this writer.
      *
@@ -225,7 +225,7 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return the buffer's current value as a string.
      * {@description.close}
@@ -234,7 +234,7 @@ public class StringWriter extends Writer {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Return the string buffer itself.
      * {@description.close}
@@ -245,7 +245,7 @@ public class StringWriter extends Writer {
         return buf;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flush the stream.
      * {@description.close}
@@ -253,7 +253,7 @@ public class StringWriter extends Writer {
     public void flush() {
     }
 
-    /**
+    /** {@collect.stats}
      * {@property.open formal:StringWriter_Close}
      * Closing a <tt>StringWriter</tt> has no effect. The methods in this
      * class can be called after the stream has been closed without generating

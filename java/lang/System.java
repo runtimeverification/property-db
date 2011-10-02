@@ -39,7 +39,7 @@ import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 import sun.reflect.annotation.AnnotationType;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>System</code> class contains several useful class fields
  * and methods. It cannot be instantiated.
  *
@@ -60,11 +60,11 @@ public final class System {
         registerNatives();
     }
 
-    /** {@collect.stats} Don't let anyone instantiate this class */
+    /** {@collect.stats}  Don't let anyone instantiate this class */
     private System() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "standard" input stream. This stream is already
      * open and ready to supply input data. Typically this stream
      * corresponds to keyboard input or another input source specified by
@@ -72,7 +72,7 @@ public final class System {
      */
     public final static InputStream in = nullInputStream();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "standard" output stream. This stream is already
      * open and ready to accept output data. Typically this stream
      * corresponds to display output or another output destination
@@ -99,7 +99,7 @@ public final class System {
      */
     public final static PrintStream out = nullPrintStream();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The "standard" error output stream. This stream is already
      * open and ready to accept output data.
      * <p>
@@ -117,7 +117,7 @@ public final class System {
      */
     private static volatile SecurityManager security = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reassigns the "standard" input stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
@@ -142,7 +142,7 @@ public final class System {
         setIn0(in);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reassigns the "standard" output stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
@@ -166,7 +166,7 @@ public final class System {
         setOut0(out);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reassigns the "standard" error output stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
@@ -191,7 +191,7 @@ public final class System {
     }
 
     private static volatile Console cons = null;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the unique {@link java.io.Console Console} object associated
      * with the current Java virtual machine, if any.
      *
@@ -208,7 +208,7 @@ public final class System {
          return cons;
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the channel inherited from the entity that created this
      * Java virtual machine.
      *
@@ -248,7 +248,7 @@ public final class System {
     private static native void setOut0(PrintStream out);
     private static native void setErr0(PrintStream err);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the System security.
      *
      * <p> If there is a security manager already installed, this method first
@@ -313,7 +313,7 @@ public final class System {
         InetAddressCachePolicy.setIfNotSet(InetAddressCachePolicy.FOREVER);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system security interface.
      *
      * @return  if a security manager has already been established for the
@@ -325,7 +325,7 @@ public final class System {
         return security;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current time in milliseconds.  Note that
      * while the unit of time of the return value is a millisecond,
      * the granularity of the value depends on the underlying
@@ -343,7 +343,7 @@ public final class System {
      */
     public static native long currentTimeMillis();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value of the most precise available system
      * timer, in nanoseconds.
      *
@@ -370,7 +370,7 @@ public final class System {
      */
     public static native long nanoTime();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies an array from the specified source array, beginning at the
      * specified position, to the specified position of the destination array.
      * A subsequence of array components are copied from the source
@@ -466,7 +466,7 @@ public final class System {
                                         Object dest, int destPos,
                                         int length);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the same hash code for the given object as
      * would be returned by the default method hashCode(),
      * whether or not the given object's class overrides
@@ -479,7 +479,7 @@ public final class System {
      */
     public static native int identityHashCode(Object x);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * System properties. The following properties are guaranteed to be defined:
      * <dl>
      * <dt>java.version         <dd>Java version number
@@ -503,7 +503,7 @@ public final class System {
     private static Properties props;
     private static native Properties initProperties(Properties props);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the current system properties.
      * <p>
      * First, if there is a security manager, its
@@ -602,7 +602,7 @@ public final class System {
         return props;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the system properties to the <code>Properties</code>
      * argument.
      * <p>
@@ -636,7 +636,7 @@ public final class System {
         System.props = props;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -672,7 +672,7 @@ public final class System {
         return props.getProperty(key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -708,7 +708,7 @@ public final class System {
         return props.getProperty(key, def);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -748,7 +748,7 @@ public final class System {
         return (String) props.setProperty(key, value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -794,7 +794,7 @@ public final class System {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of the specified environment variable. An
      * environment variable is a system-dependent external named
      * value.
@@ -850,7 +850,7 @@ public final class System {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an unmodifiable string map view of the current system environment.
      * The environment is a system-dependent mapping from names to
      * values which is passed from parent to child processes.
@@ -899,7 +899,7 @@ public final class System {
         return ProcessEnvironment.getenv();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Terminates the currently running Java Virtual Machine. The
      * argument serves as a status code; by convention, a nonzero status
      * code indicates abnormal termination.
@@ -923,7 +923,7 @@ public final class System {
         Runtime.getRuntime().exit(status);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Runs the garbage collector.
      * <p>
      * Calling the <code>gc</code> method suggests that the Java Virtual
@@ -945,7 +945,7 @@ public final class System {
         Runtime.getRuntime().gc();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Runs the finalization methods of any objects pending finalization.
      * <p>
      * Calling this method suggests that the Java Virtual Machine expend
@@ -967,7 +967,7 @@ public final class System {
         Runtime.getRuntime().runFinalization();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Enable or disable finalization on exit; doing so specifies that the
      * finalizers of all objects that have finalizers that have not yet been
      * automatically invoked are to be run before the Java runtime exits.
@@ -997,7 +997,7 @@ public final class System {
         Runtime.getRuntime().runFinalizersOnExit(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loads a code file with the specified filename from the local file
      * system as a dynamic library. The filename
      * argument must be a complete path name.
@@ -1022,7 +1022,7 @@ public final class System {
         Runtime.getRuntime().load0(getCallerClass(), filename);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loads the system library specified by the <code>libname</code>
      * argument. The manner in which a library name is mapped to the
      * actual system library is system dependent.
@@ -1047,7 +1047,7 @@ public final class System {
         Runtime.getRuntime().loadLibrary0(getCallerClass(), libname);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maps a library name into a platform-specific string representing
      * a native library.
      *
@@ -1061,7 +1061,7 @@ public final class System {
      */
     public static native String mapLibraryName(String libname);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The following two methods exist because in, out, and err must be
      * initialized to null.  The compiler, however, cannot be permitted to
      * inline access to them, since they are later set to more sensible values
@@ -1081,7 +1081,7 @@ public final class System {
         throw new NullPointerException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize the system class.  Called after thread initialization.
      */
     private static void initializeSystemClass() {

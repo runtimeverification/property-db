@@ -25,13 +25,13 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@code GenericArrayType} represents an array type whose component
  * type is either a parameterized type or a type variable.
  * @since 1.5
  */
 public interface GenericArrayType extends Type {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Type} object representing the component type
      * of this array. This method creates the component type of the
      * array.  See the declaration of {@link

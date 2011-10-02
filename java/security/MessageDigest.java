@@ -35,7 +35,7 @@ import java.io.ByteArrayInputStream;
 
 import java.nio.ByteBuffer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This MessageDigest class provides applications the functionality of a
  * message digest algorithm, such as MD5 or SHA.
  * Message digests are secure one-way hash functions that take arbitrary-sized
@@ -100,7 +100,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
     // The provider
     private Provider provider;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a message digest with the specified algorithm name.
      *
      * @param algorithm the standard name of the digest algorithm.
@@ -113,7 +113,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         this.algorithm = algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a MessageDigest object that implements the specified digest
      * algorithm.
      *
@@ -160,7 +160,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a MessageDigest object that implements the specified digest
      * algorithm.
      *
@@ -212,7 +212,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a MessageDigest object that implements the specified digest
      * algorithm.
      *
@@ -260,7 +260,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this message digest object.
      *
      * @return the provider of this message digest object
@@ -269,7 +269,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return this.provider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the digest using the specified byte.
      *
      * @param input the byte with which to update the digest.
@@ -279,7 +279,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         state = IN_PROGRESS;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the digest using the specified array of bytes, starting
      * at the specified offset.
      *
@@ -301,7 +301,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         state = IN_PROGRESS;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the digest using the specified array of bytes.
      *
      * @param input the array of bytes.
@@ -311,7 +311,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         state = IN_PROGRESS;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Update the digest using the specified ByteBuffer. The digest is
      * updated using the <code>input.remaining()</code> bytes starting
      * at <code>input.position()</code>.
@@ -329,7 +329,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         state = IN_PROGRESS;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Completes the hash computation by performing final operations
      * such as padding. The digest is reset after this call is made.
      *
@@ -342,7 +342,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Completes the hash computation by performing final operations
      * such as padding. The digest is reset after this call is made.
      *
@@ -369,7 +369,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return numBytes;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Performs a final update on the digest using the specified array
      * of bytes, then completes the digest computation. That is, this
      * method first calls {@link #update(byte[]) update(input)},
@@ -386,7 +386,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return digest();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this message digest object.
      */
     public String toString() {
@@ -405,7 +405,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return (baos.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two digests for equality. Does a simple byte compare.
      *
      * @param digesta one of the digests to compare.
@@ -427,7 +427,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return result == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets the digest for further use.
      */
     public void reset() {
@@ -435,7 +435,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         state = INITIAL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string that identifies the algorithm, independent of
      * implementation details. The name should be a standard
      * Java Security name (such as "SHA", "MD5", and so on).
@@ -450,7 +450,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return this.algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the digest in bytes, or 0 if this operation is
      * not supported by the provider and the implementation is not cloneable.
      *
@@ -473,7 +473,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
         return digestLen;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a clone if the implementation is cloneable.
      *
      * @return a clone if the implementation is cloneable.
@@ -517,7 +517,7 @@ public abstract class MessageDigest extends MessageDigestSpi {
             this.digestSpi = digestSpi;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns a clone if the delegate is cloneable.
          *
          * @return a clone if the delegate is cloneable.

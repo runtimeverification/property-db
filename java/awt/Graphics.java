@@ -30,7 +30,7 @@ import java.util.*;
 import java.awt.image.ImageObserver;
 import java.text.AttributedCharacterIterator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Graphics</code> class is the abstract base class for
  * all graphics contexts that allow an application to draw onto
  * components that are realized on various devices, as well as
@@ -103,7 +103,7 @@ import java.text.AttributedCharacterIterator;
  */
 public abstract class Graphics {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Graphics</code> object.
      * This constructor is the default contructor for a graphics
      * context.
@@ -118,7 +118,7 @@ public abstract class Graphics {
     protected Graphics() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>Graphics</code> object that is
      * a copy of this <code>Graphics</code> object.
      * @return     a new graphics context that is a copy of
@@ -126,7 +126,7 @@ public abstract class Graphics {
      */
     public abstract Graphics create();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>Graphics</code> object based on this
      * <code>Graphics</code> object, but with a new translation and clip area.
      * The new <code>Graphics</code> object has its origin
@@ -168,7 +168,7 @@ public abstract class Graphics {
         return g;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the origin of the graphics context to the point
      * (<i>x</i>,&nbsp;<i>y</i>) in the current coordinate system.
      * Modifies this graphics context so that its new origin corresponds
@@ -181,7 +181,7 @@ public abstract class Graphics {
      */
     public abstract void translate(int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets this graphics context's current color.
      * @return    this graphics context's current color.
      * @see       java.awt.Color
@@ -189,7 +189,7 @@ public abstract class Graphics {
      */
     public abstract Color getColor();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this graphics context's current color to the specified
      * color. All subsequent graphics operations using this graphics
      * context use this specified color.
@@ -199,7 +199,7 @@ public abstract class Graphics {
      */
     public abstract void setColor(Color c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the paint mode of this graphics context to overwrite the
      * destination with this graphics context's current color.
      * This sets the logical pixel operation function to the paint or
@@ -208,7 +208,7 @@ public abstract class Graphics {
      */
     public abstract void setPaintMode();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the paint mode of this graphics context to alternate between
      * this graphics context's current color and the new specified color.
      * This specifies that logical pixel operations are performed in the
@@ -225,7 +225,7 @@ public abstract class Graphics {
      */
     public abstract void setXORMode(Color c1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current font.
      * @return    this graphics context's current font.
      * @see       java.awt.Font
@@ -233,7 +233,7 @@ public abstract class Graphics {
      */
     public abstract Font getFont();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this graphics context's font to the specified font.
      * All subsequent text operations using this graphics context
      * use this font. A null argument is silently ignored.
@@ -245,7 +245,7 @@ public abstract class Graphics {
     */
     public abstract void setFont(Font font);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the font metrics of the current font.
      * @return    the font metrics of this graphics
      *                    context's current font.
@@ -257,7 +257,7 @@ public abstract class Graphics {
         return getFontMetrics(getFont());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the font metrics for the specified font.
      * @return    the font metrics for the specified font.
      * @param     f the specified font
@@ -268,7 +268,7 @@ public abstract class Graphics {
     public abstract FontMetrics getFontMetrics(Font f);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding rectangle of the current clipping area.
      * This method refers to the user clip, which is independent of the
      * clipping associated with device bounds and window visibility.
@@ -287,7 +287,7 @@ public abstract class Graphics {
      */
     public abstract Rectangle getClipBounds();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Intersects the current clip with the specified rectangle.
      * The resulting clipping area is the intersection of the current
      * clipping area and the specified rectangle.  If there is no
@@ -308,7 +308,7 @@ public abstract class Graphics {
      */
     public abstract void clipRect(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current clip to the rectangle specified by the given
      * coordinates.  This method sets the user clip, which is
      * independent of the clipping associated with device bounds
@@ -325,7 +325,7 @@ public abstract class Graphics {
      */
     public abstract void setClip(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current clipping area.
      * This method returns the user clip, which is independent of the
      * clipping associated with device bounds and window visibility.
@@ -343,7 +343,7 @@ public abstract class Graphics {
      */
     public abstract Shape getClip();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the current clipping area to an arbitrary clip shape.
      * Not all objects that implement the <code>Shape</code>
      * interface can be used to set the clip.  The only
@@ -361,7 +361,7 @@ public abstract class Graphics {
      */
     public abstract void setClip(Shape clip);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies an area of the component by a distance specified by
      * <code>dx</code> and <code>dy</code>. From the point specified
      * by <code>x</code> and <code>y</code>, this method
@@ -383,7 +383,7 @@ public abstract class Graphics {
     public abstract void copyArea(int x, int y, int width, int height,
                                   int dx, int dy);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws a line, using the current color, between the points
      * <code>(x1,&nbsp;y1)</code> and <code>(x2,&nbsp;y2)</code>
      * in this graphics context's coordinate system.
@@ -394,7 +394,7 @@ public abstract class Graphics {
      */
     public abstract void drawLine(int x1, int y1, int x2, int y2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills the specified rectangle.
      * The left and right edges of the rectangle are at
      * <code>x</code> and <code>x&nbsp;+&nbsp;width&nbsp;-&nbsp;1</code>.
@@ -415,7 +415,7 @@ public abstract class Graphics {
      */
     public abstract void fillRect(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the outline of the specified rectangle.
      * The left and right edges of the rectangle are at
      * <code>x</code> and <code>x&nbsp;+&nbsp;width</code>.
@@ -446,7 +446,7 @@ public abstract class Graphics {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears the specified rectangle by filling it with the background
      * color of the current drawing surface. This operation does not
      * use the current paint mode.
@@ -467,7 +467,7 @@ public abstract class Graphics {
      */
     public abstract void clearRect(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws an outlined round-cornered rectangle using this graphics
      * context's current color. The left and right edges of the rectangle
      * are at <code>x</code> and <code>x&nbsp;+&nbsp;width</code>,
@@ -486,7 +486,7 @@ public abstract class Graphics {
     public abstract void drawRoundRect(int x, int y, int width, int height,
                                        int arcWidth, int arcHeight);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills the specified rounded corner rectangle with the current color.
      * The left and right edges of the rectangle
      * are at <code>x</code> and <code>x&nbsp;+&nbsp;width&nbsp;-&nbsp;1</code>,
@@ -505,7 +505,7 @@ public abstract class Graphics {
     public abstract void fillRoundRect(int x, int y, int width, int height,
                                        int arcWidth, int arcHeight);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws a 3-D highlighted outline of the specified rectangle.
      * The edges of the rectangle are highlighted so that they
      * appear to be beveled and lit from the upper left corner.
@@ -539,7 +539,7 @@ public abstract class Graphics {
         setColor(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Paints a 3-D highlighted rectangle filled with the current color.
      * The edges of the rectangle will be highlighted so that it appears
      * as if the edges were beveled and lit from the upper left corner.
@@ -573,7 +573,7 @@ public abstract class Graphics {
         setColor(c);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the outline of an oval.
      * The result is a circle or ellipse that fits within the
      * rectangle specified by the <code>x</code>, <code>y</code>,
@@ -592,7 +592,7 @@ public abstract class Graphics {
      */
     public abstract void drawOval(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills an oval bounded by the specified rectangle with the
      * current color.
      * @param       x the <i>x</i> coordinate of the upper left corner
@@ -605,7 +605,7 @@ public abstract class Graphics {
      */
     public abstract void fillOval(int x, int y, int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the outline of a circular or elliptical arc
      * covering the specified rectangle.
      * <p>
@@ -645,7 +645,7 @@ public abstract class Graphics {
     public abstract void drawArc(int x, int y, int width, int height,
                                  int startAngle, int arcAngle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills a circular or elliptical arc covering the specified rectangle.
      * <p>
      * The resulting arc begins at <code>startAngle</code> and extends
@@ -684,7 +684,7 @@ public abstract class Graphics {
     public abstract void fillArc(int x, int y, int width, int height,
                                  int startAngle, int arcAngle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws a sequence of connected lines defined by
      * arrays of <i>x</i> and <i>y</i> coordinates.
      * Each pair of (<i>x</i>,&nbsp;<i>y</i>) coordinates defines a point.
@@ -699,7 +699,7 @@ public abstract class Graphics {
     public abstract void drawPolyline(int xPoints[], int yPoints[],
                                       int nPoints);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws a closed polygon defined by
      * arrays of <i>x</i> and <i>y</i> coordinates.
      * Each pair of (<i>x</i>,&nbsp;<i>y</i>) coordinates defines a point.
@@ -721,7 +721,7 @@ public abstract class Graphics {
     public abstract void drawPolygon(int xPoints[], int yPoints[],
                                      int nPoints);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the outline of a polygon defined by the specified
      * <code>Polygon</code> object.
      * @param        p the polygon to draw.
@@ -732,7 +732,7 @@ public abstract class Graphics {
         drawPolygon(p.xpoints, p.ypoints, p.npoints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills a closed polygon defined by
      * arrays of <i>x</i> and <i>y</i> coordinates.
      * <p>
@@ -755,7 +755,7 @@ public abstract class Graphics {
     public abstract void fillPolygon(int xPoints[], int yPoints[],
                                      int nPoints);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fills the polygon defined by the specified Polygon object with
      * the graphics context's current color.
      * <p>
@@ -768,7 +768,7 @@ public abstract class Graphics {
         fillPolygon(p.xpoints, p.ypoints, p.npoints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the text given by the specified string, using this
      * graphics context's current font and color. The baseline of the
      * leftmost character is at position (<i>x</i>,&nbsp;<i>y</i>) in this
@@ -782,7 +782,7 @@ public abstract class Graphics {
      */
     public abstract void drawString(String str, int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Renders the text of the specified iterator applying its attributes
      * in accordance with the specification of the
      * {@link java.awt.font.TextAttribute TextAttribute} class.
@@ -800,7 +800,7 @@ public abstract class Graphics {
    public abstract void drawString(AttributedCharacterIterator iterator,
                                     int x, int y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the text given by the specified character array, using this
      * graphics context's current font and color. The baseline of the
      * first character is at position (<i>x</i>,&nbsp;<i>y</i>) in this
@@ -822,7 +822,7 @@ public abstract class Graphics {
         drawString(new String(data, offset, length), x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws the text given by the specified byte array, using this
      * graphics context's current font and color. The baseline of the
      * first character is at position (<i>x</i>,&nbsp;<i>y</i>) in this
@@ -847,7 +847,7 @@ public abstract class Graphics {
         drawString(new String(data, 0, offset, length), x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified image as is currently available.
      * The image is drawn with its top-left corner at
      * (<i>x</i>,&nbsp;<i>y</i>) in this graphics context's coordinate
@@ -882,7 +882,7 @@ public abstract class Graphics {
     public abstract boolean drawImage(Image img, int x, int y,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified image as has already been scaled
      * to fit inside the specified rectangle.
      * <p>
@@ -922,7 +922,7 @@ public abstract class Graphics {
                                       int width, int height,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified image as is currently available.
      * The image is drawn with its top-left corner at
      * (<i>x</i>,&nbsp;<i>y</i>) in this graphics context's coordinate
@@ -964,7 +964,7 @@ public abstract class Graphics {
                                       Color bgcolor,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified image as has already been scaled
      * to fit inside the specified rectangle.
      * <p>
@@ -1010,7 +1010,7 @@ public abstract class Graphics {
                                       Color bgcolor,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified area of the specified image as is
      * currently available, scaling it on the fly to fit inside the
      * specified area of the destination drawable surface. Transparent pixels
@@ -1065,7 +1065,7 @@ public abstract class Graphics {
                                       int sx1, int sy1, int sx2, int sy2,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Draws as much of the specified area of the specified image as is
      * currently available, scaling it on the fly to fit inside the
      * specified area of the destination drawable surface.
@@ -1127,7 +1127,7 @@ public abstract class Graphics {
                                       Color bgcolor,
                                       ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disposes of this graphics context and releases
      * any system resources that it is using.
      * A <code>Graphics</code> object cannot be used after
@@ -1156,7 +1156,7 @@ public abstract class Graphics {
      */
     public abstract void dispose();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disposes of this graphics context once it is no longer referenced.
      * @see #dispose
      */
@@ -1164,7 +1164,7 @@ public abstract class Graphics {
         dispose();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>String</code> object representing this
      *                        <code>Graphics</code> object's value.
      * @return       a string representation of this graphics context.
@@ -1173,7 +1173,7 @@ public abstract class Graphics {
         return getClass().getName() + "[font=" + getFont() + ",color=" + getColor() + "]";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding rectangle of the current clipping area.
      * @return      the bounding rectangle of the current clipping area
      *              or <code>null</code> if no clip is set.
@@ -1185,7 +1185,7 @@ public abstract class Graphics {
         return getClipBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the specified rectangular area might intersect
      * the current clipping area.
      * The coordinates of the specified rectangular area are in the
@@ -1222,7 +1222,7 @@ public abstract class Graphics {
         return clipRect.intersects(x, y, width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounding rectangle of the current clipping area.
      * The coordinates in the rectangle are relative to the coordinate
      * system origin of this graphics context.  This method differs

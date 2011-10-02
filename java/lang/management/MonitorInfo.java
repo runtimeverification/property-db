@@ -28,7 +28,7 @@ package java.lang.management;
 import javax.management.openmbean.CompositeData;
 import sun.management.MonitorInfoCompositeData;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Information about an object monitor lock.  An object monitor is locked
  * when entering a synchronization block or method on that object.
  *
@@ -45,7 +45,7 @@ public class MonitorInfo extends LockInfo {
     private int    stackDepth;
     private StackTraceElement stackFrame;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <tt>MonitorInfo</tt> object.
      *
      * @param className the fully qualified name of the class of the lock object.
@@ -76,7 +76,7 @@ public class MonitorInfo extends LockInfo {
         this.stackFrame = stackFrame;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the depth in the stack trace where the object monitor
      * was locked.  The depth is the index to the <tt>StackTraceElement</tt>
      * array returned in the {@link ThreadInfo#getStackTrace} method.
@@ -88,7 +88,7 @@ public class MonitorInfo extends LockInfo {
         return stackDepth;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the stack frame that locked the object monitor.
      *
      * @return <tt>StackTraceElement</tt> that locked the object monitor,
@@ -98,7 +98,7 @@ public class MonitorInfo extends LockInfo {
         return stackFrame;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <tt>MonitorInfo</tt> object represented by the
      * given <tt>CompositeData</tt>.
      * The given <tt>CompositeData</tt> must contain the following attributes

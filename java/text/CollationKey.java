@@ -38,7 +38,7 @@
 
 package java.text;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>CollationKey</code> represents a <code>String</code> under the
  * rules of a specific <code>Collator</code> object. Comparing two
  * <code>CollationKey</code>s returns the relative order of the
@@ -98,7 +98,7 @@ package java.text;
  */
 
 public abstract class CollationKey implements Comparable<CollationKey> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compare this CollationKey to the target CollationKey. The collation rules of the
      * Collator object which created these keys are applied. <strong>Note:</strong>
      * CollationKeys created by different Collators can not be compared.
@@ -110,7 +110,7 @@ public abstract class CollationKey implements Comparable<CollationKey> {
      */
     abstract public int compareTo(CollationKey target);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String that this CollationKey represents.
      */
     public String getSourceString() {
@@ -118,7 +118,7 @@ public abstract class CollationKey implements Comparable<CollationKey> {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts the CollationKey to a sequence of bits. If two CollationKeys
      * could be legitimately compared, then one could compare the byte arrays
      * for each of those keys to obtain the same result.  Byte arrays are
@@ -127,7 +127,7 @@ public abstract class CollationKey implements Comparable<CollationKey> {
     abstract public byte[] toByteArray();
 
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * CollationKey constructor.
    *
    * @param source - the source string.

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides a skeletal implementation of the <tt>Set</tt>
  * interface to minimize the effort required to implement this
  * interface. <p>
@@ -56,7 +56,7 @@ package java.util;
  */
 
 public abstract class AbstractSet<E> extends AbstractCollection<E> implements Set<E> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
@@ -65,7 +65,7 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the given object is also a set, the two sets have
      * the same size, and every member of the given set is contained in
@@ -100,7 +100,7 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this set.  The hash code of a set is
      * defined to be the sum of the hash codes of the elements in the set,
      * where the hash code of a <tt>null</tt> element is defined to be zero.
@@ -128,7 +128,7 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this set all of its elements that are contained in the
      * specified collection (optional operation).  If the specified
      * collection is also a set, this operation effectively modifies this

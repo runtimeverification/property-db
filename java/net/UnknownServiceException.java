@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that an unknown service exception has
  * occurred. Either the MIME type returned by a URL connection does
  * not make sense, or the application is attempting to write to a
@@ -37,14 +37,14 @@ import java.io.IOException;
  * @since   JDK1.0
  */
 public class UnknownServiceException extends IOException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>UnknownServiceException</code> with no
      * detail message.
      */
     public UnknownServiceException() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>UnknownServiceException</code> with the
      * specified detail message.
      *

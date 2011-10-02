@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P> The subclass of {@link SQLException} thrown for the SQLState
  * class value '<i>08</i>', representing
  * that the connection operation that failed will not succeed when
@@ -35,7 +35,7 @@ package java.sql;
  */
 public class SQLNonTransientConnectionException extends java.sql.SQLNonTransientException {
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLNonTransientConnectionException</code> object.
          * The <code>reason</code>, <code>SQLState</code> are initialized
          * to <code>null</code> and the vendor code is initialized to 0.
@@ -51,7 +51,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
                  super();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLNonTransientConnectionException</code> object
          *  with a given <code>reason</code>. The <code>SQLState</code>
          * is initialized to <code>null</code> and the vender code is initialized
@@ -68,7 +68,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
                 super(reason);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLNonTransientConnectionException</code> object
          * with a given <code>reason</code> and <code>SQLState</code>.
          *
@@ -85,7 +85,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
                  super(reason,SQLState);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constructs a <code>SQLNonTransientConnectionException</code> object
          * with a given <code>reason</code>, <code>SQLState</code>  and
          * <code>vendorCode</code>.
@@ -103,7 +103,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
                 super(reason,SQLState,vendorCode);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLNonTransientConnectionException</code> object
          * with a given  <code>cause</code>.
            * The <code>SQLState</code> is initialized
@@ -120,7 +120,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
         super(cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLTransientException</code> object
      * with a given
      * <code>reason</code> and  <code>cause</code>.
@@ -136,7 +136,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
         super(reason,cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>SQLNonTransientConnectionException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
@@ -152,7 +152,7 @@ public class SQLNonTransientConnectionException extends java.sql.SQLNonTransient
         super(reason,SQLState,cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a <code>SQLNonTransientConnectionException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>

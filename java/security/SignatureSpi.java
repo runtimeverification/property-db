@@ -33,7 +33,7 @@ import java.nio.ByteBuffer;
 
 import sun.security.jca.JCAUtil;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Signature</code> class, which is used to provide the
  * functionality of a digital signature algorithm. Digital signatures are used
@@ -51,12 +51,12 @@ import sun.security.jca.JCAUtil;
 
 public abstract class SignatureSpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Application-specified source of randomness.
      */
     protected SecureRandom appRandom = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes this signature object with the specified
      * public key for verification operations.
      *
@@ -69,7 +69,7 @@ public abstract class SignatureSpi {
     protected abstract void engineInitVerify(PublicKey publicKey)
         throws InvalidKeyException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes this signature object with the specified
      * private key for signing operations.
      *
@@ -82,7 +82,7 @@ public abstract class SignatureSpi {
     protected abstract void engineInitSign(PrivateKey privateKey)
         throws InvalidKeyException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes this signature object with the specified
      * private key and source of randomness for signing operations.
      *
@@ -103,7 +103,7 @@ public abstract class SignatureSpi {
             engineInitSign(privateKey);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the data to be signed or verified
      * using the specified byte.
      *
@@ -114,7 +114,7 @@ public abstract class SignatureSpi {
      */
     protected abstract void engineUpdate(byte b) throws SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the data to be signed or verified, using the
      * specified array of bytes, starting at the specified offset.
      *
@@ -128,7 +128,7 @@ public abstract class SignatureSpi {
     protected abstract void engineUpdate(byte[] b, int off, int len)
         throws SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates the data to be signed or verified using the specified
      * ByteBuffer. Processes the <code>data.remaining()</code> bytes
      * starting at at <code>data.position()</code>.
@@ -167,7 +167,7 @@ public abstract class SignatureSpi {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the signature bytes of all the data
      * updated so far.
      * The format of the signature depends on the underlying
@@ -181,7 +181,7 @@ public abstract class SignatureSpi {
      */
     protected abstract byte[] engineSign() throws SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finishes this signature operation and stores the resulting signature
      * bytes in the provided buffer <code>outbuf</code>, starting at
      * <code>offset</code>.
@@ -237,7 +237,7 @@ public abstract class SignatureSpi {
         return sig.length;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies the passed-in signature.
      *
      * @param sigBytes the signature bytes to be verified.
@@ -252,7 +252,7 @@ public abstract class SignatureSpi {
     protected abstract boolean engineVerify(byte[] sigBytes)
         throws SignatureException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies the passed-in signature in the specified array
      * of bytes, starting at the specified offset.
      *
@@ -278,7 +278,7 @@ public abstract class SignatureSpi {
         return engineVerify(sigBytesCopy);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the specified algorithm parameter to the specified
      * value. This method supplies a general-purpose mechanism through
      * which it is possible to set the various parameters of this object.
@@ -306,7 +306,7 @@ public abstract class SignatureSpi {
     protected abstract void engineSetParameter(String param, Object value)
         throws InvalidParameterException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>This method is overridden by providers to initialize
      * this signature engine with the specified parameter set.
      *
@@ -324,7 +324,7 @@ public abstract class SignatureSpi {
             throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>This method is overridden by providers to return the
      * parameters used with this signature engine, or null
      * if this signature engine does not use any parameters.
@@ -346,7 +346,7 @@ public abstract class SignatureSpi {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the value of the specified algorithm parameter.
      * This method supplies a general-purpose mechanism through which it
      * is possible to get the various parameters of this object. A parameter
@@ -372,7 +372,7 @@ public abstract class SignatureSpi {
     protected abstract Object engineGetParameter(String param)
         throws InvalidParameterException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a clone if the implementation is cloneable.
      *
      * @return a clone if the implementation is cloneable.

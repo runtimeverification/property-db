@@ -26,7 +26,7 @@ package java.sql;
 
 import java.util.Map;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The subclass of {@link SQLException} is thrown when one or more client info properties
  * could not be set on a <code>Connection</code>.  In addition to the information provided
  * by <code>SQLException</code>, a <code>SQLClientInfoException</code> provides a list of client info
@@ -52,7 +52,7 @@ public class SQLClientInfoException extends SQLException {
 
         private Map<String, ClientInfoStatus>   failedProperties;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code>  Object.
      * The <code>reason</code>,
      * <code>SQLState</code>, and failedProperties list are initialized to
@@ -69,7 +69,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = null;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given <code>failedProperties</code>.
      * The <code>reason</code> and <code>SQLState</code> are initialized
@@ -94,7 +94,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with
      * a given <code>cause</code> and <code>failedProperties</code>.
      *
@@ -123,7 +123,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given <code>reason</code> and <code>failedProperties</code>.
      * The <code>SQLState</code> is initialized
@@ -151,7 +151,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given <code>reason</code>, <code>cause</code> and
      * <code>failedProperties</code>.
@@ -180,7 +180,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given  <code>reason</code>, <code>SQLState</code>  and
      * <code>failedProperties</code>.
@@ -209,7 +209,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given  <code>reason</code>, <code>SQLState</code>, <code>cause</code>
      * and <code>failedProperties</code>.  The vendor code is initialized to 0.
@@ -238,7 +238,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given  <code>reason</code>, <code>SQLState</code>,
      * <code>vendorCode</code>  and <code>failedProperties</code>.
@@ -268,7 +268,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
      * Constructs a <code>SQLClientInfoException</code> object initialized with a
      * given  <code>reason</code>, <code>SQLState</code>,
      * <code>cause</code>, <code>vendorCode</code> and
@@ -300,7 +300,7 @@ public class SQLClientInfoException extends SQLException {
                 this.failedProperties = failedProperties;
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the list of client info properties that could not be set.  The
      * keys in the Map  contain the names of the client info
      * properties that could not be set and the values contain one of the

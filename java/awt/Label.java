@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import javax.accessibility.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>Label</code> object is a component for placing text in a
  * container. A label displays a single line of read-only text.
  * The text can be changed by the application, but a user cannot edit it
@@ -61,23 +61,23 @@ public class Label extends Component implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the label should be left justified.
      */
     public static final int LEFT        = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the label should be centered.
      */
     public static final int CENTER      = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the label should be right justified.
      * @since   JDK1.0t.
      */
     public static final int RIGHT       = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The text of this label.
      * This text can be modified by the program
      * but never by the user.
@@ -88,7 +88,7 @@ public class Label extends Component implements Accessible {
      */
     String text;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The label's alignment.  The default alignment is set
      * to be left justified.
      *
@@ -106,7 +106,7 @@ public class Label extends Component implements Accessible {
      */
      private static final long serialVersionUID = 3094126758329070636L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty label.
      * The text of the label is the empty string <code>""</code>.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -117,7 +117,7 @@ public class Label extends Component implements Accessible {
         this("", LEFT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new label with the specified string of text,
      * left justified.
      * @param text the string that the label presents.
@@ -132,7 +132,7 @@ public class Label extends Component implements Accessible {
         this(text, LEFT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new label that presents the specified string of
      * text with the specified alignment.
      * Possible values for <code>alignment</code> are <code>Label.LEFT</code>,
@@ -152,7 +152,7 @@ public class Label extends Component implements Accessible {
         setAlignment(alignment);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Read a label from an object input stream.
      * @exception HeadlessException if
      * <code>GraphicsEnvironment.isHeadless()</code> returns
@@ -167,7 +167,7 @@ public class Label extends Component implements Accessible {
         s.defaultReadObject();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a name for this component.  Called by getName() when the
      * name is <code>null</code>.
      */
@@ -177,7 +177,7 @@ public class Label extends Component implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the peer for this label.  The peer allows us to
      * modify the appearance of the label without changing its
      * functionality.
@@ -190,7 +190,7 @@ public class Label extends Component implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current alignment of this label. Possible values are
      * <code>Label.LEFT</code>, <code>Label.RIGHT</code>, and
      * <code>Label.CENTER</code>.
@@ -200,7 +200,7 @@ public class Label extends Component implements Accessible {
         return alignment;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the alignment for this label to the specified alignment.
      * Possible values are <code>Label.LEFT</code>,
      * <code>Label.RIGHT</code>, and <code>Label.CENTER</code>.
@@ -224,7 +224,7 @@ public class Label extends Component implements Accessible {
         throw new IllegalArgumentException("improper alignment: " + alignment);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the text of this label.
      * @return     the text of this label, or <code>null</code> if
      *             the text has been set to <code>null</code>.
@@ -234,7 +234,7 @@ public class Label extends Component implements Accessible {
         return text;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the text for this label to the specified text.
      * @param      text the text that this label displays. If
      *             <code>text</code> is <code>null</code>, it is
@@ -262,7 +262,7 @@ public class Label extends Component implements Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>Label</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -281,7 +281,7 @@ public class Label extends Component implements Accessible {
         return super.paramString() + str + ",text=" + text;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -292,7 +292,7 @@ public class Label extends Component implements Accessible {
 ////////////////
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the AccessibleContext associated with this Label.
      * For labels, the AccessibleContext takes the form of an
      * AccessibleAWTLabel.
@@ -309,7 +309,7 @@ public class Label extends Component implements Accessible {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class implements accessibility support for the
      * <code>Label</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to label user-interface elements.
@@ -326,7 +326,7 @@ public class Label extends Component implements Accessible {
             super();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -345,7 +345,7 @@ public class Label extends Component implements Accessible {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the object

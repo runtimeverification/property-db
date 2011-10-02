@@ -26,7 +26,7 @@
 package java.security;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A computation to be performed with privileges enabled.  The computation is
  * performed by invoking <code>AccessController.doPrivileged</code> on the
  * <code>PrivilegedAction</code> object.  This interface is used only for
@@ -40,7 +40,7 @@ package java.security;
  */
 
 public interface PrivilegedAction<T> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Performs the computation.  This method will be called by
      * <code>AccessController.doPrivileged</code> after enabling privileges.
      *

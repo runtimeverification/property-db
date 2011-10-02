@@ -31,7 +31,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides the actual implementation for the RadialGradientPaint.
  * This is where the pixel processing is done.  A RadialGradienPaint
  * only supports circular gradients, but it should be possible to scale
@@ -42,37 +42,37 @@ import java.awt.image.ColorModel;
  */
 final class RadialGradientPaintContext extends MultipleGradientPaintContext {
 
-    /** {@collect.stats} True when (focus == center).  */
+    /** {@collect.stats}  True when (focus == center).  */
     private boolean isSimpleFocus = false;
 
-    /** {@collect.stats} True when (cycleMethod == NO_CYCLE). */
+    /** {@collect.stats}  True when (cycleMethod == NO_CYCLE). */
     private boolean isNonCyclic = false;
 
-    /** {@collect.stats} Radius of the outermost circle defining the 100% gradient stop. */
+    /** {@collect.stats}  Radius of the outermost circle defining the 100% gradient stop. */
     private float radius;
 
-    /** {@collect.stats} Variables representing center and focus points. */
+    /** {@collect.stats}  Variables representing center and focus points. */
     private float centerX, centerY, focusX, focusY;
 
-    /** {@collect.stats} Radius of the gradient circle squared. */
+    /** {@collect.stats}  Radius of the gradient circle squared. */
     private float radiusSq;
 
-    /** {@collect.stats} Constant part of X, Y user space coordinates. */
+    /** {@collect.stats}  Constant part of X, Y user space coordinates. */
     private float constA, constB;
 
-    /** {@collect.stats} Constant second order delta for simple loop. */
+    /** {@collect.stats}  Constant second order delta for simple loop. */
     private float gDeltaDelta;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This value represents the solution when focusX == X.  It is called
      * trivial because it is easier to calculate than the general case.
      */
     private float trivial;
 
-    /** {@collect.stats} Amount for offset when clamping focus. */
+    /** {@collect.stats}  Amount for offset when clamping focus. */
     private static final float SCALEBACK = .99f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor for RadialGradientPaintContext.
      *
      * @param paint the {@code RadialGradientPaint} from which this context
@@ -163,7 +163,7 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
         gDeltaDelta = 2 * ( a00 *  a00 +  a10 *  a10) / radiusSq;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a Raster containing the colors generated for the graphics
      * operation.
      *
@@ -180,7 +180,7 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This code works in the simplest of cases, where the focus == center
      * point, the gradient is noncyclic, and the gradient lookup method is
      * fast (single array index, no conversion necessary).
@@ -308,7 +308,7 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fill the raster, cycling the gradient colors when a point falls outside
      * of the perimeter of the 100% stop circle.
      *

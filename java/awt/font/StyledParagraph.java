@@ -41,7 +41,7 @@ import sun.font.Decoration;
 import sun.font.FontResolver;
 import sun.text.CodePointIterator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class stores Font, GraphicAttribute, and Decoration intervals
  * on a paragraph of styled text.
  * <p>
@@ -85,7 +85,7 @@ final class StyledParagraph {
 
     private static int INITIAL_SIZE = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new StyledParagraph over the given styled text.
      * @param aci an iterator over the text
      * @param chars the characters extracted from aci
@@ -133,7 +133,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adjust indices in starts to reflect an insertion after pos.
      * Any index in starts greater than pos will be increased by 1.
      */
@@ -144,7 +144,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a StyledParagraph reflecting the insertion of a single character
      * into the text.  This method will attempt to reuse the given paragraph,
      * but may create a new paragraph.
@@ -198,7 +198,7 @@ final class StyledParagraph {
         return oldParagraph;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adjust indices in starts to reflect a deletion after deleteAt.
      * Any index in starts greater than deleteAt will be increased by 1.
      * It is the caller's responsibility to make sure that no 0-length
@@ -211,7 +211,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a StyledParagraph reflecting the insertion of a single character
      * into the text.  This method will attempt to reuse the given paragraph,
      * but may create a new paragraph.
@@ -258,7 +258,7 @@ final class StyledParagraph {
         return oldParagraph;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the index at which there is a different Font, GraphicAttribute, or
      * Dcoration than at the given index.
      * @param index a valid index in the paragraph
@@ -283,7 +283,7 @@ final class StyledParagraph {
         return Math.min(limit1, limit2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the Decoration in effect at the given index.
      * @param index a valid index in the paragraph
      * @return the Decoration at index.
@@ -300,7 +300,7 @@ final class StyledParagraph {
         return (Decoration) decorations.elementAt(run);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the Font or GraphicAttribute in effect at the given index.
      * The client must test the type of the return value to determine what
      * it is.
@@ -319,7 +319,7 @@ final class StyledParagraph {
         return fonts.elementAt(run);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return i such that starts[i] <= index < starts[i+1].  starts
      * must be in increasing order, with at least one element greater
      * than index.
@@ -333,7 +333,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Append the given Object to the given Vector.  Add
      * the given index to the given starts array.  If the
      * starts array does not have room for the index, a
@@ -357,7 +357,7 @@ final class StyledParagraph {
         return starts;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add a new Decoration run with the given Decoration at the
      * given index.
      */
@@ -384,7 +384,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Add a new Font/GraphicAttribute run with the given object at the
      * given index.
      */
@@ -408,7 +408,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolve the given chars into Fonts using FontResolver, then add
      * font runs for each.
      */
@@ -422,7 +422,7 @@ final class StyledParagraph {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a Map with entries from oldStyles, as well as input
      * method entries, if any.
      */
@@ -466,7 +466,7 @@ final class StyledParagraph {
         return oldStyles;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Extract a GraphicAttribute or Font from the given attributes.
      * If attributes does not contain a GraphicAttribute, Font, or
      * Font family entry this method returns null.

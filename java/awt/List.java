@@ -35,7 +35,7 @@ import java.io.IOException;
 import javax.accessibility.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>List</code> component presents the user with a
  * scrolling list of text items. The list can be set up so that
  * the user can choose either one item or multiple items.
@@ -107,7 +107,7 @@ import javax.accessibility.*;
  * @since       JDK1.0
  */
 public class List extends Component implements ItemSelectable, Accessible {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A vector created to contain items which will become
      * part of the List Component.
      *
@@ -117,7 +117,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
     Vector      items = new Vector();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field will represent the number of visible rows in the
      * <code>List</code> Component.  It is specified only once, and
      * that is when the list component is actually
@@ -128,7 +128,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
     int         rows = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>multipleMode</code> is a variable that will
      * be set to <code>true</code> if a list component is to be set to
      * multiple selection mode, that is where the user can
@@ -144,7 +144,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
     boolean     multipleMode = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>selected</code> is an array that will contain
      * the indices of items that have been selected.
      *
@@ -154,7 +154,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
     int         selected[] = new int[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This variable contains the value that will be used
      * when trying to make a particular list item visible.
      *
@@ -174,7 +174,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
      private static final long serialVersionUID = -3304312411574666869L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new scrolling list.
      * By default, there are four visible lines and multiple selections are
      * not allowed.  Note that this is a convenience method for
@@ -188,7 +188,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         this(0, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new scrolling list initialized with the specified
      * number of visible lines. By default, multiple selections are
      * not allowed.  Note that this is a convenience method for
@@ -205,13 +205,13 @@ public class List extends Component implements ItemSelectable, Accessible {
         this(rows, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default number of visible rows is 4.  A list with
      * zero rows is unusable and unsightly.
      */
     final static int    DEFAULT_VISIBLE_ROWS = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new scrolling list initialized to display the specified
      * number of rows. Note that if zero rows are specified, then
      * the list will be created with a default of four rows.
@@ -235,7 +235,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         this.multipleMode = multipleMode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a name for this component.  Called by
      * <code>getName</code> when the name is <code>null</code>.
      */
@@ -245,7 +245,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the peer for the list.  The peer allows us to modify the
      * list's appearance without changing its functionality.
      */
@@ -257,7 +257,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the peer for this list.  The peer allows us to modify the
      * list's appearance without changing its functionality.
      */
@@ -271,7 +271,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of items in the list.
      * @return     the number of items in the list
      * @see        #getItem
@@ -281,7 +281,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return countItems();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getItemCount()</code>.
      */
@@ -290,7 +290,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return items.size();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the item associated with the specified index.
      * @return       an item that is associated with
      *                    the specified index
@@ -309,7 +309,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (String)items.elementAt(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the items in the list.
      * @return       a string array containing items of the list
      * @see          #select
@@ -323,7 +323,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return itemCopies;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified item to the end of scrolling list.
      * @param item the item to be added
      * @since JDK1.1
@@ -332,7 +332,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         addItem(item);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated      replaced by <code>add(String)</code>.
      */
     @Deprecated
@@ -340,7 +340,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         addItem(item, -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified item to the the scrolling list
      * at the position indicated by the index.  The index is
      * zero-based.  If the value of the index is less than zero,
@@ -357,7 +357,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         addItem(item, index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated      replaced by <code>add(String, int)</code>.
      */
     @Deprecated
@@ -382,7 +382,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the item at the specified index in the scrolling list
      * with the new string.
      * @param       newValue   a new string to replace an existing item
@@ -395,7 +395,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         add(newValue, index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all items from this list.
      * @see #remove
      * @see #delItems
@@ -405,7 +405,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         clear();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>removeAll()</code>.
      */
@@ -419,7 +419,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         selected = new int[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the first occurrence of an item from the list.
      * If the specified item is selected, and is the only selected
      * item in the list, the list is set to have no selection.
@@ -438,7 +438,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the item at the specified position
      * from this scrolling list.
      * If the item with the specified position is selected, and is the
@@ -454,7 +454,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         delItem(position);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated     replaced by <code>remove(String)</code>
      *                         and <code>remove(int)</code>.
      */
@@ -463,7 +463,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         delItems(position, position);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the index of the selected item on the list,
      *
      * @return        the index of the selected item;
@@ -478,7 +478,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (sel.length == 1) ? sel[0] : -1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the selected indexes on the list.
      *
      * @return        an array of the selected indexes on this scrolling list;
@@ -495,7 +495,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (int[])selected.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the selected item on this scrolling list.
      *
      * @return        the selected item on the list;
@@ -510,7 +510,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (index < 0) ? null : getItem(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the selected items on this scrolling list.
      *
      * @return        an array of the selected items on this scrolling list;
@@ -528,7 +528,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return str;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the selected items on this scrolling list in an array of Objects.
      * @return        an array of <code>Object</code>s representing the
      *                selected items on this scrolling list;
@@ -540,7 +540,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return getSelectedItems();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects the item at the specified index in the scrolling list.
      *<p>
      * Note that passing out of range parameters is invalid,
@@ -599,7 +599,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         } while (peer != this.peer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deselects the item at the specified index.
      * <p>
      * Note that passing out of range parameters is invalid,
@@ -631,7 +631,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if the specified item in this scrolling list is
      * selected.
      * @param      index   the item to be checked
@@ -645,7 +645,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return isSelected(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>isIndexSelected(int)</code>.
      */
@@ -660,7 +660,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of visible lines in this list.  Note that
      * once the <code>List</code> has been created, this number
      * will never change.
@@ -670,7 +670,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return rows;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether this list allows multiple selections.
      * @return     <code>true</code> if this list allows multiple
      *                 selections; otherwise, <code>false</code>
@@ -681,7 +681,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return allowsMultipleSelections();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>isMultipleMode()</code>.
      */
@@ -690,7 +690,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return multipleMode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the flag that determines whether this list
      * allows multiple selections.
      * When the selection mode is changed from multiple-selection to
@@ -708,7 +708,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         setMultipleSelections(b);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setMultipleMode(boolean)</code>.
      */
@@ -723,7 +723,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the index of the item that was last made visible by
      * the method <code>makeVisible</code>.
      * @return      the index of the item that was last made visible
@@ -733,7 +733,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return visibleIndex;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes the item at the specified index visible.
      * @param       index    the position of the item
      * @see         #getVisibleIndex
@@ -746,7 +746,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the preferred dimensions for a list with the specified
      * number of rows.
      * @param      rows    number of rows in the list
@@ -759,7 +759,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return preferredSize(rows);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize(int)</code>.
      */
@@ -773,7 +773,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the preferred size of this scrolling list.
      * @return     the preferred dimensions for displaying this scrolling list
      * @see        java.awt.Component#getPreferredSize
@@ -783,7 +783,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return preferredSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize()</code>.
      */
@@ -796,7 +796,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the minumum dimensions for a list with the specified
      * number of rows.
      * @param      rows    number of rows in the list
@@ -809,7 +809,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return minimumSize(rows);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize(int)</code>.
      */
@@ -823,7 +823,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the minimum size of this scrolling list.
      * @return       the minimum dimensions needed
      *                        to display this scrolling list
@@ -834,7 +834,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return minimumSize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize()</code>.
      */
@@ -845,7 +845,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified item listener to receive item events from
      * this list.  Item events are sent in response to user input, but not
      * in response to calls to <code>select</code> or <code>deselect</code>.
@@ -871,7 +871,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         newEventsOnly = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified item listener so that it no longer
      * receives item events from this list.
      * If listener <code>l</code> is <code>null</code>,
@@ -893,7 +893,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         itemListener = AWTEventMulticaster.remove(itemListener, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the item listeners
      * registered on this list.
      *
@@ -911,7 +911,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (ItemListener[])(getListeners(ItemListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified action listener to receive action events from
      * this list. Action events occur when a user double-clicks
      * on a list item or types Enter when the list has the keyboard
@@ -937,7 +937,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         newEventsOnly = true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified action listener so that it no longer
      * receives action events from this list. Action events
      * occur when a user double-clicks on a list item.
@@ -960,7 +960,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         actionListener = AWTEventMulticaster.remove(actionListener, l);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the action listeners
      * registered on this list.
      *
@@ -978,7 +978,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return (ActionListener[])(getListeners(ActionListener.class));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>List</code>.
@@ -1044,7 +1044,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return super.eventEnabled(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes events on this scrolling list. If an event is
      * an instance of <code>ItemEvent</code>, it invokes the
      * <code>processItemEvent</code> method. Else, if the
@@ -1074,7 +1074,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         super.processEvent(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes item events occurring on this list by
      * dispatching them to any registered
      * <code>ItemListener</code> objects.
@@ -1105,7 +1105,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Processes action events occurring on this component
      * by dispatching them to any registered
      * <code>ActionListener</code> objects.
@@ -1136,7 +1136,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameter string representing the state of this
      * scrolling list. This string is useful for debugging.
      * @return    the parameter string of this scrolling list
@@ -1145,7 +1145,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return super.paramString() + ",selected=" + getSelectedItem();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * Not for public use in the future.
      * This method is expected to be retained only as a package
@@ -1168,7 +1168,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      * peer before serializing.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>List</code> component's
      * Serialized Data Version.
      *
@@ -1176,7 +1176,7 @@ public class List extends Component implements ItemSelectable, Accessible {
      */
     private int listSerializedDataVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to stream.  Writes
      * a list of serializable <code>ItemListeners</code>
      * and <code>ActionListeners</code> as optional data.
@@ -1215,7 +1215,7 @@ public class List extends Component implements ItemSelectable, Accessible {
       s.writeObject(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the <code>ObjectInputStream</code> and if it
      * isn't <code>null</code> adds a listener to receive
      * both item events and action events (as specified
@@ -1259,7 +1259,7 @@ public class List extends Component implements ItemSelectable, Accessible {
 ////////////////
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>List</code>. For lists, the <code>AccessibleContext</code>
      * takes the form of an <code>AccessibleAWTList</code>.
@@ -1276,7 +1276,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class implements accessibility support for the
      * <code>List</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to list user-interface elements.
@@ -1302,7 +1302,7 @@ public class List extends Component implements ItemSelectable, Accessible {
         public void itemStateChanged(ItemEvent event)  {
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the state set of this object.
          *
          * @return an instance of AccessibleState containing the current state
@@ -1317,7 +1317,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             return states;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1328,7 +1328,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             return AccessibleRole.LIST;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the Accessible child contained at the local coordinate
          * Point, if one exists.
          *
@@ -1338,7 +1338,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             return null; // fredxFIXME Not implemented yet
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement Accessible, than this
          * method should return the number of children of this object.
@@ -1349,7 +1349,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             return List.this.getItemCount();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Return the nth Accessible child of the object.
          *
          * @param i zero-based index of child
@@ -1365,7 +1365,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the AccessibleSelection associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -1379,7 +1379,7 @@ public class List extends Component implements ItemSelectable, Accessible {
 
     // AccessibleSelection methods
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the number of items currently selected.
          * If no items are selected, the return value will be 0.
          *
@@ -1389,7 +1389,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              return List.this.getSelectedIndexes().length;
          }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns an Accessible representing the specified selected item
          * in the object.  If there isn't a selection, or there are
          * fewer items selected than the integer passed in, the return
@@ -1409,7 +1409,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              }
          }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns true if the current child of this object is selected.
          *
          * @param i the zero-based index of the child in this Accessible
@@ -1420,7 +1420,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             return List.this.isIndexSelected(i);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Adds the specified selected item in the object to the object's
          * selection.  If the object supports multiple selections,
          * the specified item is added to any existing selection, otherwise
@@ -1433,7 +1433,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              List.this.select(i);
          }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Removes the specified selected item in the object from the object's
          * selection.  If the specified item isn't currently selected, this
          * method has no effect.
@@ -1444,7 +1444,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              List.this.deselect(i);
          }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Clears the selection in the object, so that nothing in the
          * object is selected.
          */
@@ -1459,7 +1459,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              }
          }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Causes every selected item in the object to be selected
          * if the object supports multiple selections.
          */
@@ -1471,7 +1471,7 @@ public class List extends Component implements ItemSelectable, Accessible {
              }
          }
 
-       /** {@collect.stats}
+       /** {@collect.stats} 
         * This class implements accessibility support for
         * List children.  It provides an implementation of the
         * Java Accessibility API appropriate to list children
@@ -1500,7 +1500,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             //
             // required Accessible methods
             //
-          /** {@collect.stats}
+          /** {@collect.stats} 
            * Gets the AccessibleContext for this object.  In the
            * implementation of the Java Accessibility API for this class,
            * return this object, which acts as its own AccessibleContext.
@@ -1515,7 +1515,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             // required AccessibleContext methods
             //
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the role of this object.
              *
              * @return an instance of AccessibleRole describing the role of
@@ -1526,7 +1526,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return AccessibleRole.LIST_ITEM;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the state set of this object.  The AccessibleStateSet of an
              * object is composed of a set of unique AccessibleState's.  A
              * change in the AccessibleStateSet of an object will cause a
@@ -1547,7 +1547,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return states;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Gets the locale of the component. If the component does not
              * have a locale, then the locale of its parent is returned.
              *
@@ -1563,7 +1563,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getLocale();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the 0-based index of this object in its accessible parent.
              *
              * @return the 0-based index of this object in its parent; -1 if
@@ -1577,7 +1577,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return indexInParent;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns the number of accessible children of the object.
              *
              * @return the number of accessible children of the object.
@@ -1586,7 +1586,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return 0;       // list elements can't have children
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Return the specified Accessible child of the object.  The
              * Accessible children of an Accessible object are zero-based,
              * so the first child of an Accessible child is at index 0, the
@@ -1605,7 +1605,7 @@ public class List extends Component implements ItemSelectable, Accessible {
             // AccessibleComponent delegatation to parent List
             //
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the background color of this object.
              *
              * @return the background color, if supported, of the object;
@@ -1616,7 +1616,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getBackground();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the background color of this object.
              *
              * @param c the new Color for the background
@@ -1626,7 +1626,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setBackground(c);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the foreground color of this object.
              *
              * @return the foreground color, if supported, of the object;
@@ -1637,7 +1637,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getForeground();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the foreground color of this object.
              *
              * @param c the new Color for the foreground
@@ -1647,7 +1647,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setForeground(c);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the Cursor of this object.
              *
              * @return the Cursor, if supported, of the object; otherwise, null
@@ -1657,7 +1657,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getCursor();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the Cursor of this object.
              * <p>
              * The method may have no visual effect if the Java platform
@@ -1670,7 +1670,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setCursor(cursor);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the Font of this object.
              *
              * @return the Font,if supported, for the object; otherwise, null
@@ -1680,7 +1680,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getFont();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the Font of this object.
              *
              * @param f the new Font for the object
@@ -1690,7 +1690,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setFont(f);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Get the FontMetrics of this object.
              *
              * @param f the Font
@@ -1701,7 +1701,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.getFontMetrics(f);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Determine if the object is enabled.  Objects that are enabled
              * will also have the AccessibleState.ENABLED state set in their
              * AccessibleStateSet.
@@ -1716,7 +1716,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return parent.isEnabled();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the enabled state of the object.
              *
              * @param b if true, enables this object; otherwise, disables it
@@ -1726,7 +1726,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setEnabled(b);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Determine if the object is visible.  Note: this means that the
              * object intends to be visible; however, it may not be
              * showing on the screen because one of the objects that this object
@@ -1747,7 +1747,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // return parent.isVisible();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Set the visible state of the object.
              *
              * @param b if true, shows this object; otherwise, hides it
@@ -1758,7 +1758,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 parent.setVisible(b);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Determine if the object is showing.  This is determined by
              * checking the visibility of the object and visibility of the
              * object ancestors.
@@ -1774,7 +1774,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // return parent.isShowing();
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Checks whether the specified point is within this object's
              * bounds, where the point's x and y coordinates are defined to
              * be relative to the coordinate system of the object.
@@ -1790,7 +1790,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // return parent.contains(p);
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns the location of the object on the screen.
              *
              * @return location of object on screen; null if this object
@@ -1803,7 +1803,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return null;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Gets the location of the object relative to the parent in the
              * form of a point specifying the object's top-left corner in the
              * screen's coordinate space.
@@ -1819,7 +1819,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return null;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Sets the location of the object relative to the parent.
              * @param p the new position for the top-left corner
              * @see #getLocation
@@ -1828,7 +1828,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // [[[FIXME]]] maybe - can simply return as no-op
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Gets the bounds of this object in the form of a Rectangle object.
              * The bounds specify this object's width, height, and location
              * relative to its parent.
@@ -1842,7 +1842,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return null;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Sets the bounds of this object in the form of a Rectangle
              * object.  The bounds specify this object's width, height, and
              * location relative to its parent.
@@ -1854,7 +1854,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // no-op; not supported
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns the size of this object in the form of a Dimension
              * object.  The height field of the Dimension object contains this
              * objects's height, and the width field of the Dimension object
@@ -1869,7 +1869,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return null;
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Resizes this object so that it has width and height.
              *
              * @param d - The dimension specifying the new size of the object.
@@ -1879,7 +1879,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // not supported; no-op
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns the <code>Accessible</code> child, if one exists,
              * contained at the local coordinate <code>Point</code>.
              *
@@ -1892,7 +1892,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return null;    // object cannot have children!
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Returns whether this object can accept focus or not.   Objects
              * that can accept focus will also have the
              * <code>AccessibleState.FOCUSABLE</code> state set in their
@@ -1908,7 +1908,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 return false;   // list element cannot receive focus!
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Requests focus for this object.  If this object cannot accept
              * focus, nothing will happen.  Otherwise, the object will attempt
              * to take focus.
@@ -1918,7 +1918,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // nothing to do; a no-op
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Adds the specified focus listener to receive focus events from
              * this component.
              *
@@ -1929,7 +1929,7 @@ public class List extends Component implements ItemSelectable, Accessible {
                 // nothing to do; a no-op
             }
 
-            /** {@collect.stats}
+            /** {@collect.stats} 
              * Removes the specified focus listener so it no longer receives
              * focus events from this component.
              *

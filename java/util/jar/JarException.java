@@ -25,7 +25,7 @@
 
 package java.util.jar;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an error of some sort has occurred while reading from
  * or writing to a JAR file.
  *
@@ -34,13 +34,13 @@ package java.util.jar;
  */
 public
 class JarException extends java.util.zip.ZipException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a JarException with no detail message.
      */
     public JarException() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a JarException with the specified detail message.
      * @param s the detail message
      */

@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that a HTTP request needs to be retried
  * but cannot be retried automatically, due to streaming mode
  * being enabled.
@@ -41,7 +41,7 @@ class HttpRetryException extends IOException {
     private int responseCode;
     private String location;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>HttpRetryException</code> from the
      * specified response code and exception detail message
      *
@@ -53,7 +53,7 @@ class HttpRetryException extends IOException {
         responseCode = code;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>HttpRetryException</code> with detail message
      * responseCode and the contents of the Location response header field.
      *
@@ -67,7 +67,7 @@ class HttpRetryException extends IOException {
         this.location = location;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the http response code
      *
      * @return  The http response code.
@@ -76,7 +76,7 @@ class HttpRetryException extends IOException {
         return responseCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string explaining why the http request could
      * not be retried.
      *
@@ -86,7 +86,7 @@ class HttpRetryException extends IOException {
         return super.getMessage();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the Location header field if the
      * error resulted from redirection.
      *

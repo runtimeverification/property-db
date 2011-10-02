@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Certificate Encoding Exception. This is thrown whenever an error
  * occurs while attempting to encode a certificate.
  *
@@ -35,7 +35,7 @@ public class CertificateEncodingException extends CertificateException {
 
     private static final long serialVersionUID = 6219492851589449162L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a CertificateEncodingException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -44,7 +44,7 @@ public class CertificateEncodingException extends CertificateException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a CertificateEncodingException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -55,7 +55,7 @@ public class CertificateEncodingException extends CertificateException {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateEncodingException</code> with the specified
      * detail message and cause.
      *
@@ -70,7 +70,7 @@ public class CertificateEncodingException extends CertificateException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateEncodingException</code>
      * with the specified cause and a detail message of
      * <tt>(cause==null ? null : cause.toString())</tt>

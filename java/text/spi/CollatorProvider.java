@@ -29,7 +29,7 @@ import java.text.Collator;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide concrete implementations of the
  * {@link java.text.Collator Collator} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class CollatorProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected CollatorProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>Collator</code> instance for the specified locale.
      * @param locale the desired locale.
      * @return the <code>Collator</code> for the desired locale.

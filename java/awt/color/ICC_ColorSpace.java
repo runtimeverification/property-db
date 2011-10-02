@@ -23,7 +23,7 @@
  * questions.
  */
 
-/** {@collect.stats}********************************************************************
+/** {@collect.stats} ********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -40,7 +40,7 @@ import sun.java2d.cmm.CMSManager;
 import sun.java2d.cmm.PCMM;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * The ICC_ColorSpace class is an implementation of the abstract
  * ColorSpace class.  This representation of
@@ -102,7 +102,7 @@ public class ICC_ColorSpace extends ColorSpace {
     private transient ColorTransform xyz2this;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
     * Constructs a new ICC_ColorSpace from an ICC_Profile object.
     * @param profile the specified ICC_Profile object
     * @exception IllegalArgumentException if profile is inappropriate for
@@ -127,7 +127,7 @@ public class ICC_ColorSpace extends ColorSpace {
         setMinMax();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
     * Returns the ICC_Profile for this ICC_ColorSpace.
     * @return the ICC_Profile for this ICC_ColorSpace.
     */
@@ -135,7 +135,7 @@ public class ICC_ColorSpace extends ColorSpace {
         return thisProfile;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in this ColorSpace
      * into a value in the default CS_sRGB color space.
      * <p>
@@ -187,7 +187,7 @@ public class ICC_ColorSpace extends ColorSpace {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in the default CS_sRGB
      * color space into this ColorSpace.
      * <p>
@@ -240,7 +240,7 @@ public class ICC_ColorSpace extends ColorSpace {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in this ColorSpace
      * into the CS_CIEXYZ conversion color space.
      * <p>
@@ -383,7 +383,7 @@ public class ICC_ColorSpace extends ColorSpace {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms a color value assumed to be in the CS_CIEXYZ conversion
      * color space into this ColorSpace.
      * <p>
@@ -528,7 +528,7 @@ public class ICC_ColorSpace extends ColorSpace {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the minimum normalized color component value for the
      * specified component.  For TYPE_XYZ spaces, this method returns
      * minimum values of 0.0 for all components.  For TYPE_Lab spaces,
@@ -552,7 +552,7 @@ public class ICC_ColorSpace extends ColorSpace {
         return minVal[component];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum normalized color component value for the
      * specified component.  For TYPE_XYZ spaces, this method returns
      * maximum values of 1.0 + (32767.0 / 32768.0) for all components.

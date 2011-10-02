@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>Error</code> is a subclass of <code>Throwable</code>
  * that indicates serious problems that a reasonable application
  * should not try to catch. Most such errors are abnormal conditions.
@@ -45,7 +45,7 @@ package java.lang;
 public class Error extends Throwable {
     static final long serialVersionUID = 4980196508277280342L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new error with <code>null</code> as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
@@ -54,7 +54,7 @@ public class Error extends Throwable {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new error with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by
      * a call to {@link #initCause}.
@@ -66,7 +66,7 @@ public class Error extends Throwable {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new error with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
@@ -84,7 +84,7 @@ public class Error extends Throwable {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new error with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).

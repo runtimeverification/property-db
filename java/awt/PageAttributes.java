@@ -27,7 +27,7 @@ package java.awt;
 
 import java.util.Locale;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A set of attributes which control the output of a printed page.
  * <p>
  * Instances of this class control the color state, paper size (media type),
@@ -59,7 +59,7 @@ import java.util.Locale;
  * @since 1.3
  */
 public final class PageAttributes implements Cloneable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible color states.
      * @since 1.3
      */
@@ -71,11 +71,11 @@ public final class PageAttributes implements Cloneable {
             "color", "monochrome"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The ColorType instance to use for specifying color printing.
          */
         public static final ColorType COLOR = new ColorType(I_COLOR);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The ColorType instance to use for specifying monochrome printing.
          */
         public static final ColorType MONOCHROME = new ColorType(I_MONOCHROME);
@@ -85,7 +85,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible paper sizes. These sizes are in
      * compliance with IPP 1.1.
      * @since 1.3
@@ -186,614 +186,614 @@ public final class PageAttributes implements Cloneable {
             "monarch-envelope", "personal-envelope"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS 4A0, 1682 x 2378 mm.
          */
         public static final MediaType ISO_4A0 = new MediaType(I_ISO_4A0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS 2A0, 1189 x 1682 mm.
          */
         public static final MediaType ISO_2A0 = new MediaType(I_ISO_2A0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A0, 841 x 1189 mm.
          */
         public static final MediaType ISO_A0 = new MediaType(I_ISO_A0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A1, 594 x 841 mm.
          */
         public static final MediaType ISO_A1 = new MediaType(I_ISO_A1);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A2, 420 x 594 mm.
          */
         public static final MediaType ISO_A2 = new MediaType(I_ISO_A2);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A3, 297 x 420 mm.
          */
         public static final MediaType ISO_A3 = new MediaType(I_ISO_A3);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A4, 210 x 297 mm.
          */
         public static final MediaType ISO_A4 = new MediaType(I_ISO_A4);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A5, 148 x 210 mm.
          */
         public static final MediaType ISO_A5 = new MediaType(I_ISO_A5);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A6, 105 x 148 mm.
          */
         public static final MediaType ISO_A6 = new MediaType(I_ISO_A6);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A7, 74 x 105 mm.
          */
         public static final MediaType ISO_A7 = new MediaType(I_ISO_A7);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A8, 52 x 74 mm.
          */
         public static final MediaType ISO_A8 = new MediaType(I_ISO_A8);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A9, 37 x 52 mm.
          */
         public static final MediaType ISO_A9 = new MediaType(I_ISO_A9);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN & JIS A10, 26 x 37 mm.
          */
         public static final MediaType ISO_A10 = new MediaType(I_ISO_A10);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B0, 1000 x 1414 mm.
          */
         public static final MediaType ISO_B0 = new MediaType(I_ISO_B0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B1, 707 x 1000 mm.
          */
         public static final MediaType ISO_B1 = new MediaType(I_ISO_B1);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B2, 500 x 707 mm.
          */
         public static final MediaType ISO_B2 = new MediaType(I_ISO_B2);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B3, 353 x 500 mm.
          */
         public static final MediaType ISO_B3 = new MediaType(I_ISO_B3);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B4, 250 x 353 mm.
          */
         public static final MediaType ISO_B4 = new MediaType(I_ISO_B4);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B5, 176 x 250 mm.
          */
         public static final MediaType ISO_B5 = new MediaType(I_ISO_B5);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B6, 125 x 176 mm.
          */
         public static final MediaType ISO_B6 = new MediaType(I_ISO_B6);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B7, 88 x 125 mm.
          */
         public static final MediaType ISO_B7 = new MediaType(I_ISO_B7);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B8, 62 x 88 mm.
          */
         public static final MediaType ISO_B8 = new MediaType(I_ISO_B8);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B9, 44 x 62 mm.
          */
         public static final MediaType ISO_B9 = new MediaType(I_ISO_B9);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN B10, 31 x 44 mm.
          */
         public static final MediaType ISO_B10 = new MediaType(I_ISO_B10);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B0, 1030 x 1456 mm.
          */
         public static final MediaType JIS_B0 = new MediaType(I_JIS_B0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B1, 728 x 1030 mm.
          */
         public static final MediaType JIS_B1 = new MediaType(I_JIS_B1);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B2, 515 x 728 mm.
          */
         public static final MediaType JIS_B2 = new MediaType(I_JIS_B2);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B3, 364 x 515 mm.
          */
         public static final MediaType JIS_B3 = new MediaType(I_JIS_B3);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B4, 257 x 364 mm.
          */
         public static final MediaType JIS_B4 = new MediaType(I_JIS_B4);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B5, 182 x 257 mm.
          */
         public static final MediaType JIS_B5 = new MediaType(I_JIS_B5);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B6, 128 x 182 mm.
          */
         public static final MediaType JIS_B6 = new MediaType(I_JIS_B6);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B7, 91 x 128 mm.
          */
         public static final MediaType JIS_B7 = new MediaType(I_JIS_B7);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B8, 64 x 91 mm.
          */
         public static final MediaType JIS_B8 = new MediaType(I_JIS_B8);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B9, 45 x 64 mm.
          */
         public static final MediaType JIS_B9 = new MediaType(I_JIS_B9);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for JIS B10, 32 x 45 mm.
          */
         public static final MediaType JIS_B10 = new MediaType(I_JIS_B10);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C0, 917 x 1297 mm.
          */
         public static final MediaType ISO_C0 = new MediaType(I_ISO_C0);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C1, 648 x 917 mm.
          */
         public static final MediaType ISO_C1 = new MediaType(I_ISO_C1);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C2, 458 x 648 mm.
          */
         public static final MediaType ISO_C2 = new MediaType(I_ISO_C2);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C3, 324 x 458 mm.
          */
         public static final MediaType ISO_C3 = new MediaType(I_ISO_C3);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C4, 229 x 324 mm.
          */
         public static final MediaType ISO_C4 = new MediaType(I_ISO_C4);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C5, 162 x 229 mm.
          */
         public static final MediaType ISO_C5 = new MediaType(I_ISO_C5);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C6, 114 x 162 mm.
          */
         public static final MediaType ISO_C6 = new MediaType(I_ISO_C6);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C7, 81 x 114 mm.
          */
         public static final MediaType ISO_C7 = new MediaType(I_ISO_C7);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C8, 57 x 81 mm.
          */
         public static final MediaType ISO_C8 = new MediaType(I_ISO_C8);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C9, 40 x 57 mm.
          */
         public static final MediaType ISO_C9 = new MediaType(I_ISO_C9);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO/DIN C10, 28 x 40 mm.
          */
         public static final MediaType ISO_C10 = new MediaType(I_ISO_C10);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for ISO Designated Long, 110 x 220 mm.
          */
         public static final MediaType ISO_DESIGNATED_LONG =
             new MediaType(I_ISO_DESIGNATED_LONG);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Executive, 7 1/4 x 10 1/2 in.
          */
         public static final MediaType EXECUTIVE = new MediaType(I_EXECUTIVE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Folio, 8 1/2 x 13 in.
          */
         public static final MediaType FOLIO = new MediaType(I_FOLIO);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Invoice, 5 1/2 x 8 1/2 in.
          */
         public static final MediaType INVOICE = new MediaType(I_INVOICE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Ledger, 11 x 17 in.
          */
         public static final MediaType LEDGER = new MediaType(I_LEDGER);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American Letter, 8 1/2 x 11 in.
          */
         public static final MediaType NA_LETTER = new MediaType(I_NA_LETTER);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American Legal, 8 1/2 x 14 in.
          */
         public static final MediaType NA_LEGAL = new MediaType(I_NA_LEGAL);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Quarto, 215 x 275 mm.
          */
         public static final MediaType QUARTO = new MediaType(I_QUARTO);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Engineering A, 8 1/2 x 11 in.
          */
         public static final MediaType A = new MediaType(I_A);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Engineering B, 11 x 17 in.
          */
         public static final MediaType B = new MediaType(I_B);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Engineering C, 17 x 22 in.
          */
         public static final MediaType C = new MediaType(I_C);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Engineering D, 22 x 34 in.
          */
         public static final MediaType D = new MediaType(I_D);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Engineering E, 34 x 44 in.
          */
         public static final MediaType E = new MediaType(I_E);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 10 x 15 in.
          */
         public static final MediaType NA_10X15_ENVELOPE =
             new MediaType(I_NA_10X15_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 10 x 14 in.
          */
         public static final MediaType NA_10X14_ENVELOPE =
             new MediaType(I_NA_10X14_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 10 x 13 in.
          */
         public static final MediaType NA_10X13_ENVELOPE =
             new MediaType(I_NA_10X13_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 9 x 12 in.
          */
         public static final MediaType NA_9X12_ENVELOPE =
             new MediaType(I_NA_9X12_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 9 x 11 in.
          */
         public static final MediaType NA_9X11_ENVELOPE =
             new MediaType(I_NA_9X11_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 7 x 9 in.
          */
         public static final MediaType NA_7X9_ENVELOPE =
             new MediaType(I_NA_7X9_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American 6 x 9 in.
          */
         public static final MediaType NA_6X9_ENVELOPE =
             new MediaType(I_NA_6X9_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American #9 Business Envelope,
          * 3 7/8 x 8 7/8 in.
          */
         public static final MediaType NA_NUMBER_9_ENVELOPE =
             new MediaType(I_NA_NUMBER_9_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American #10 Business Envelope,
          * 4 1/8 x 9 1/2 in.
          */
         public static final MediaType NA_NUMBER_10_ENVELOPE =
             new MediaType(I_NA_NUMBER_10_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American #11 Business Envelope,
          * 4 1/2 x 10 3/8 in.
          */
         public static final MediaType NA_NUMBER_11_ENVELOPE =
             new MediaType(I_NA_NUMBER_11_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American #12 Business Envelope,
          * 4 3/4 x 11 in.
          */
         public static final MediaType NA_NUMBER_12_ENVELOPE =
             new MediaType(I_NA_NUMBER_12_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for North American #14 Business Envelope,
          * 5 x 11 1/2 in.
          */
         public static final MediaType NA_NUMBER_14_ENVELOPE =
             new MediaType(I_NA_NUMBER_14_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Invitation Envelope, 220 x 220 mm.
          */
         public static final MediaType INVITE_ENVELOPE =
             new MediaType(I_INVITE_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Italy Envelope, 110 x 230 mm.
          */
         public static final MediaType ITALY_ENVELOPE =
             new MediaType(I_ITALY_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for Monarch Envelope, 3 7/8 x 7 1/2 in.
          */
         public static final MediaType MONARCH_ENVELOPE =
             new MediaType(I_MONARCH_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The MediaType instance for 6 3/4 envelope, 3 5/8 x 6 1/2 in.
          */
         public static final MediaType PERSONAL_ENVELOPE =
             new MediaType(I_PERSONAL_ENVELOPE);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A0.
          */
         public static final MediaType A0 = ISO_A0;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A1.
          */
         public static final MediaType A1 = ISO_A1;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A2.
          */
         public static final MediaType A2 = ISO_A2;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A3.
          */
         public static final MediaType A3 = ISO_A3;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A4.
          */
         public static final MediaType A4 = ISO_A4;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A5.
          */
         public static final MediaType A5 = ISO_A5;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A6.
          */
         public static final MediaType A6 = ISO_A6;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A7.
          */
         public static final MediaType A7 = ISO_A7;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A8.
          */
         public static final MediaType A8 = ISO_A8;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A9.
          */
         public static final MediaType A9 = ISO_A9;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_A10.
          */
         public static final MediaType A10 = ISO_A10;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B0.
          */
         public static final MediaType B0 = ISO_B0;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B1.
          */
         public static final MediaType B1 = ISO_B1;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B2.
          */
         public static final MediaType B2 = ISO_B2;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B3.
          */
         public static final MediaType B3 = ISO_B3;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B4.
          */
         public static final MediaType B4 = ISO_B4;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B4.
          */
         public static final MediaType ISO_B4_ENVELOPE = ISO_B4;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B5.
          */
         public static final MediaType B5 = ISO_B5;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B5.
          */
         public static final MediaType ISO_B5_ENVELOPE = ISO_B5;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B6.
          */
         public static final MediaType B6 = ISO_B6;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B7.
          */
         public static final MediaType B7 = ISO_B7;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B8.
          */
         public static final MediaType B8 = ISO_B8;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B9.
          */
         public static final MediaType B9 = ISO_B9;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_B10.
          */
         public static final MediaType B10 = ISO_B10;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C0.
          */
         public static final MediaType C0 = ISO_C0;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C0.
          */
         public static final MediaType ISO_C0_ENVELOPE = ISO_C0;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C1.
          */
         public static final MediaType C1 = ISO_C1;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C1.
          */
         public static final MediaType ISO_C1_ENVELOPE = ISO_C1;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C2.
          */
         public static final MediaType C2 = ISO_C2;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C2.
          */
         public static final MediaType ISO_C2_ENVELOPE = ISO_C2;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C3.
          */
         public static final MediaType C3 = ISO_C3;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C3.
          */
         public static final MediaType ISO_C3_ENVELOPE = ISO_C3;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C4.
          */
         public static final MediaType C4 = ISO_C4;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C4.
          */
         public static final MediaType ISO_C4_ENVELOPE = ISO_C4;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C5.
          */
         public static final MediaType C5 = ISO_C5;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C5.
          */
         public static final MediaType ISO_C5_ENVELOPE = ISO_C5;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C6.
          */
         public static final MediaType C6 = ISO_C6;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C6.
          */
         public static final MediaType ISO_C6_ENVELOPE = ISO_C6;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C7.
          */
         public static final MediaType C7 = ISO_C7;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C7.
          */
         public static final MediaType ISO_C7_ENVELOPE = ISO_C7;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C8.
          */
         public static final MediaType C8 = ISO_C8;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C8.
          */
         public static final MediaType ISO_C8_ENVELOPE = ISO_C8;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C9.
          */
         public static final MediaType C9 = ISO_C9;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C9.
          */
         public static final MediaType ISO_C9_ENVELOPE = ISO_C9;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C10.
          */
         public static final MediaType C10 = ISO_C10;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_C10.
          */
         public static final MediaType ISO_C10_ENVELOPE = ISO_C10;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ISO_DESIGNATED_LONG.
          */
         public static final MediaType ISO_DESIGNATED_LONG_ENVELOPE =
                 ISO_DESIGNATED_LONG;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for INVOICE.
          */
         public static final MediaType STATEMENT = INVOICE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for LEDGER.
          */
         public static final MediaType TABLOID = LEDGER;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_LETTER.
          */
         public static final MediaType LETTER = NA_LETTER;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_LETTER.
          */
         public static final MediaType NOTE = NA_LETTER;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_LEGAL.
          */
         public static final MediaType LEGAL = NA_LEGAL;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_10X15_ENVELOPE.
          */
         public static final MediaType ENV_10X15 = NA_10X15_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_10X14_ENVELOPE.
          */
         public static final MediaType ENV_10X14 = NA_10X14_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_10X13_ENVELOPE.
          */
         public static final MediaType ENV_10X13 = NA_10X13_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_9X12_ENVELOPE.
          */
         public static final MediaType ENV_9X12 = NA_9X12_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_9X11_ENVELOPE.
          */
         public static final MediaType ENV_9X11 = NA_9X11_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_7X9_ENVELOPE.
          */
         public static final MediaType ENV_7X9 = NA_7X9_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_6X9_ENVELOPE.
          */
         public static final MediaType ENV_6X9 = NA_6X9_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_NUMBER_9_ENVELOPE.
          */
         public static final MediaType ENV_9 = NA_NUMBER_9_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_NUMBER_10_ENVELOPE.
          */
         public static final MediaType ENV_10 = NA_NUMBER_10_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_NUMBER_11_ENVELOPE.
          */
         public static final MediaType ENV_11 = NA_NUMBER_11_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_NUMBER_12_ENVELOPE.
          */
         public static final MediaType ENV_12 = NA_NUMBER_12_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for NA_NUMBER_14_ENVELOPE.
          */
         public static final MediaType ENV_14 = NA_NUMBER_14_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for INVITE_ENVELOPE.
          */
         public static final MediaType ENV_INVITE = INVITE_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ITALY_ENVELOPE.
          */
         public static final MediaType ENV_ITALY = ITALY_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for MONARCH_ENVELOPE.
          */
         public static final MediaType ENV_MONARCH = MONARCH_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for PERSONAL_ENVELOPE.
          */
         public static final MediaType ENV_PERSONAL = PERSONAL_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for INVITE_ENVELOPE.
          */
         public static final MediaType INVITE = INVITE_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for ITALY_ENVELOPE.
          */
         public static final MediaType ITALY = ITALY_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for MONARCH_ENVELOPE.
          */
         public static final MediaType MONARCH = MONARCH_ENVELOPE;
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * An alias for PERSONAL_ENVELOPE.
          */
         public static final MediaType PERSONAL = PERSONAL_ENVELOPE;
@@ -803,7 +803,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible orientations. These orientations
      * are in partial compliance with IPP 1.1.
      * @since 1.3
@@ -816,13 +816,13 @@ public final class PageAttributes implements Cloneable {
             "portrait", "landscape"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The OrientationRequestedType instance to use for specifying a
          * portrait orientation.
          */
         public static final OrientationRequestedType PORTRAIT =
             new OrientationRequestedType(I_PORTRAIT);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The OrientationRequestedType instance to use for specifying a
          * landscape orientation.
          */
@@ -834,7 +834,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible origins.
      * @since 1.3
      */
@@ -846,11 +846,11 @@ public final class PageAttributes implements Cloneable {
             "physical", "printable"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The OriginType instance to use for specifying a physical origin.
          */
         public static final OriginType PHYSICAL = new OriginType(I_PHYSICAL);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The OriginType instance to use for specifying a printable origin.
          */
         public static final OriginType PRINTABLE = new OriginType(I_PRINTABLE);
@@ -860,7 +860,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of possible print qualities. These print
      * qualities are in compliance with IPP 1.1.
      * @since 1.3
@@ -874,19 +874,19 @@ public final class PageAttributes implements Cloneable {
             "high", "normal", "draft"
         };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The PrintQualityType instance to use for specifying a high print
          * quality.
          */
         public static final PrintQualityType HIGH =
             new PrintQualityType(I_HIGH);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The PrintQualityType instance to use for specifying a normal print
          * quality.
          */
         public static final PrintQualityType NORMAL =
             new PrintQualityType(I_NORMAL);
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The PrintQualityType instance to use for specifying a draft print
          * quality.
          */
@@ -905,7 +905,7 @@ public final class PageAttributes implements Cloneable {
     private PrintQualityType printQuality;
     private int[] printerResolution;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a PageAttributes instance with default values for every
      * attribute.
      */
@@ -918,7 +918,7 @@ public final class PageAttributes implements Cloneable {
         setPrinterResolutionToDefault();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a PageAttributes instance which is a copy of the supplied
      * PageAttributes.
      *
@@ -928,7 +928,7 @@ public final class PageAttributes implements Cloneable {
         set(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a PageAttributes instance with the specified values for
      * every attribute.
      *
@@ -958,7 +958,7 @@ public final class PageAttributes implements Cloneable {
         setPrinterResolution(printerResolution);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a copy of this PageAttributes.
      *
      * @return  the newly created copy. It is safe to cast this Object into
@@ -973,7 +973,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all of the attributes of this PageAttributes to the same values as
      * the attributes of obj.
      *
@@ -989,7 +989,7 @@ public final class PageAttributes implements Cloneable {
         printerResolution = obj.printerResolution;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether pages using these attributes will be rendered in
      * color or monochrome. This attribute is updated to the value chosen
      * by the user.
@@ -1000,7 +1000,7 @@ public final class PageAttributes implements Cloneable {
         return color;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether pages using these attributes will be rendered in
      * color or monochrome. Not specifying this attribute is equivalent to
      * specifying ColorType.MONOCHROME.
@@ -1016,7 +1016,7 @@ public final class PageAttributes implements Cloneable {
         this.color = color;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the paper size for pages using these attributes. This
      * attribute is updated to the value chosen by the user.
      *
@@ -1026,7 +1026,7 @@ public final class PageAttributes implements Cloneable {
         return media;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the desired paper size for pages using these attributes. The
      * actual paper size will be determined by the limitations of the target
      * printer. If an exact match cannot be found, an implementation will
@@ -1047,7 +1047,7 @@ public final class PageAttributes implements Cloneable {
         this.media = media;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the paper size for pages using these attributes to the default
      * size for the default locale. The default size for locales in the
      * United States and Canada is MediaType.NA_LETTER. The default size for
@@ -1064,7 +1064,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the print orientation for pages using these attributes. This
      * attribute is updated to the value chosen by the user.
      *
@@ -1075,7 +1075,7 @@ public final class PageAttributes implements Cloneable {
         return orientationRequested;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the print orientation for pages using these attributes. Not
      * specifying the property is equivalent to specifying
      * OrientationRequestedType.PORTRAIT.
@@ -1093,7 +1093,7 @@ public final class PageAttributes implements Cloneable {
         this.orientationRequested = orientationRequested;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the print orientation for pages using these attributes.
      * Specifying <code>3</code> denotes portrait. Specifying <code>4</code>
      * denotes landscape. Specifying any other value will generate an
@@ -1119,7 +1119,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the print orientation for pages using these attributes to the
      * default. The default orientation is portrait.
      */
@@ -1127,7 +1127,7 @@ public final class PageAttributes implements Cloneable {
         setOrientationRequested(OrientationRequestedType.PORTRAIT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether drawing at (0, 0) to pages using these attributes
      * draws at the upper-left corner of the physical page, or at the
      * upper-left corner of the printable area. (Note that these locations
@@ -1141,7 +1141,7 @@ public final class PageAttributes implements Cloneable {
         return origin;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether drawing at (0, 0) to pages using these attributes
      * draws at the upper-left corner of the physical page, or at the
      * upper-left corner of the printable area. (Note that these locations
@@ -1159,7 +1159,7 @@ public final class PageAttributes implements Cloneable {
         this.origin = origin;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the print quality for pages using these attributes. This
      * attribute is updated to the value chosen by the user.
      *
@@ -1170,7 +1170,7 @@ public final class PageAttributes implements Cloneable {
         return printQuality;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the print quality for pages using these attributes. Not
      * specifying the property is equivalent to specifying
      * PrintQualityType.NORMAL.
@@ -1187,7 +1187,7 @@ public final class PageAttributes implements Cloneable {
         this.printQuality = printQuality;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the print quality for pages using these attributes.
      * Specifying <code>3</code> denotes draft. Specifying <code>4</code>
      * denotes normal. Specifying <code>5</code> denotes high. Specifying
@@ -1217,7 +1217,7 @@ public final class PageAttributes implements Cloneable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the print quality for pages using these attributes to the default.
      * The default print quality is normal.
      */
@@ -1225,7 +1225,7 @@ public final class PageAttributes implements Cloneable {
         setPrintQuality(PrintQualityType.NORMAL);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the print resolution for pages using these attributes.
      * Index 0 of the array specifies the cross feed direction resolution
      * (typically the horizontal resolution). Index 1 of the array specifies
@@ -1250,7 +1250,7 @@ public final class PageAttributes implements Cloneable {
         return copy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the desired print resolution for pages using these attributes.
      * The actual resolution will be determined by the limitations of the
      * implementation and the target printer. Index 0 of the array specifies
@@ -1290,7 +1290,7 @@ public final class PageAttributes implements Cloneable {
         this.printerResolution = copy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies the desired cross feed and feed print resolutions in dots per
      * inch for pages using these attributes. The same value is used for both
      * resolutions. The actual resolutions will be determined by the
@@ -1306,7 +1306,7 @@ public final class PageAttributes implements Cloneable {
                                          3 } );
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the printer resolution for pages using these attributes to the
      * default. The default is 72 dpi for both the feed and cross feed
      * resolutions.
@@ -1315,7 +1315,7 @@ public final class PageAttributes implements Cloneable {
         setPrinterResolution(72);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether two PageAttributes are equal to each other.
      * <p>
      * Two PageAttributes are equal if and only if each of their attributes are
@@ -1346,7 +1346,7 @@ public final class PageAttributes implements Cloneable {
                 printerResolution[2] == rhs.printerResolution[2]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this PageAttributes.
      *
      * @return  the hash code.
@@ -1362,7 +1362,7 @@ public final class PageAttributes implements Cloneable {
                 printerResolution[0]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this PageAttributes.
      *
      * @return  the string representation.

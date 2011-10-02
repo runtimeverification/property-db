@@ -25,7 +25,7 @@
 
 package java.awt.dnd;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving drop target events. The methods in
  * this class are empty. This class exists only as a convenience for creating
  * listener objects.
@@ -72,7 +72,7 @@ package java.awt.dnd;
  */
 public abstract class DropTargetAdapter implements DropTargetListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called while a drag operation is ongoing, when the mouse pointer enters
      * the operable part of the drop site for the <code>DropTarget</code>
      * registered with this listener.
@@ -81,7 +81,7 @@ public abstract class DropTargetAdapter implements DropTargetListener {
      */
     public void dragEnter(DropTargetDragEvent dtde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called when a drag operation is ongoing, while the mouse pointer is still
      * over the operable part of the drop site for the <code>DropTarget</code>
      * registered with this listener.
@@ -90,7 +90,7 @@ public abstract class DropTargetAdapter implements DropTargetListener {
      */
     public void dragOver(DropTargetDragEvent dtde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called if the user has modified
      * the current drop gesture.
      *
@@ -98,7 +98,7 @@ public abstract class DropTargetAdapter implements DropTargetListener {
      */
     public void dropActionChanged(DropTargetDragEvent dtde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called while a drag operation is ongoing, when the mouse pointer has
      * exited the operable part of the drop site for the
      * <code>DropTarget</code> registered with this listener.

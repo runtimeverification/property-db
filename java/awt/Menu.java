@@ -32,7 +32,7 @@ import java.awt.peer.MenuPeer;
 import java.awt.event.KeyEvent;
 import javax.accessibility.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>Menu</code> object is a pull-down menu component
  * that is deployed from a menu bar.
  * <p>
@@ -64,7 +64,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A vector of the items that will be part of the Menu.
      *
      * @serial
@@ -72,7 +72,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
      */
     Vector              items = new Vector();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field indicates whether the menu has the
      * tear of property or not.  It will be set to
      * <code>true</code> if the menu has the tear off
@@ -86,7 +86,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
      */
     boolean             tearOff;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field will be set to <code>true</code>
      * if the Menu in question is actually a help
      * menu.  Otherwise it will be set to <code>
@@ -104,7 +104,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
      */
      private static final long serialVersionUID = -8809584163345499784L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new menu with an empty label. This menu is not
      * a tear-off menu.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -116,7 +116,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         this("", false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new menu with the specified label. This menu is not
      * a tear-off menu.
      * @param       label the menu's label in the menu bar, or in
@@ -129,7 +129,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         this(label, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new menu with the specified label,
      * indicating whether the menu can be torn off.
      * <p>
@@ -150,7 +150,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         this.tearOff = tearOff;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a name for this MenuComponent.  Called by getName() when
      * the name is null.
      */
@@ -160,7 +160,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates the menu's peer.  The peer allows us to modify the
      * appearance of the menu without changing its functionality.
      */
@@ -177,7 +177,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the menu's peer.  The peer allows us to modify the appearance
      * of the menu without changing its functionality.
      */
@@ -191,7 +191,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether this menu is a tear-off menu.
      * <p>
      * Tear-off functionality may not be supported by all
@@ -204,7 +204,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return tearOff;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
       * Get the number of items in this menu.
       * @return     the number of items in this menu.
       * @since      JDK1.1
@@ -213,7 +213,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return countItems();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getItemCount()</code>.
      */
@@ -230,7 +230,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return items.size();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the item located at the specified index of this menu.
      * @param     index the position of the item to be returned.
      * @return    the item located at the specified index.
@@ -247,7 +247,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return (MenuItem)items.elementAt(index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified menu item to this menu. If the
      * menu item has been part of another menu, removes it
      * from that menu.
@@ -273,7 +273,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an item with the specified label to this menu.
      *
      * @param       label   the text on the item
@@ -284,7 +284,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         add(new MenuItem(label));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts a menu item into this menu
      * at the specified position.
      *
@@ -327,7 +327,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts a menu item with the specified label into this menu
      * at the specified position.  This is a convenience method for
      * <code>insert(menuItem, index)</code>.
@@ -346,7 +346,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         insert(new MenuItem(label), index);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a separator line, or a hypen, to the menu at the current position.
      * @see         java.awt.Menu#insertSeparator(int)
      */
@@ -354,7 +354,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         add("-");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts a separator at the specified position.
      * @param       index the position at which the
      *                       menu separator should be inserted.
@@ -393,7 +393,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the menu item at the specified index from this menu.
      * @param       index the position of the item to be removed.
      */
@@ -410,7 +410,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified menu item from this menu.
      * @param  item the item to be removed from the menu.
      *         If <code>item</code> is <code>null</code>
@@ -426,7 +426,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all items from this menu.
      * @since       JDK1.0.
      */
@@ -499,14 +499,14 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
      * restoring the parent fields of its children.
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The menu serialized Data Version.
      *
      * @serial
      */
     private int menuSerializedDataVersion = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes default serializable fields to stream.
      *
      * @param s the <code>ObjectOutputStream</code> to write
@@ -519,7 +519,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
       s.defaultWriteObject();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the <code>ObjectInputStream</code>.
      * Unrecognized keys or values will be ignored.
      *
@@ -541,7 +541,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representing the state of this <code>Menu</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -555,7 +555,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return super.paramString() + str;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -565,7 +565,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
 // Accessibility support
 ////////////////
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the AccessibleContext associated with this Menu.
      * For menus, the AccessibleContext takes the form of an
      * AccessibleAWTMenu.
@@ -582,14 +582,14 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
         return accessibleContext;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Defined in MenuComponent. Overridden here.
      */
     int getAccessibleChildIndex(MenuComponent child) {
         return items.indexOf(child);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inner class of Menu used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -607,7 +607,7 @@ public class Menu extends MenuItem implements MenuContainer, Accessible {
          */
         private static final long serialVersionUID = 5228160894980069094L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

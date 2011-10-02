@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A data output stream lets an application write primitive Java data
  * types to an output stream in a portable way. An application can
@@ -38,7 +38,7 @@ package java.io;
  */
 public
 class DataOutputStream extends FilterOutputStream implements DataOutput {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * The number of bytes written to the data output stream so far.
      * {@description.close}
@@ -48,14 +48,14 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
      */
     protected int written;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * bytearr is initialized on demand by writeUTF
      * {@description.close}
      */
     private byte[] bytearr = null;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new data output stream to write data to the specified
      * underlying output stream. The counter <code>written</code> is
@@ -70,7 +70,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         super(out);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Increases the written counter by the specified value
      * until it reaches Integer.MAX_VALUE.
@@ -84,7 +84,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         written = temp;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes the specified byte (the low eight bits of the argument
      * <code>b</code>) to the underlying output stream. If no exception
@@ -103,7 +103,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to the underlying output stream.
@@ -124,7 +124,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes this data output stream. This forces any buffered output
      * bytes to be written out to the stream.
@@ -141,7 +141,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         out.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>boolean</code> to the underlying output stream as
      * a 1-byte value. The value <code>true</code> is written out as the
@@ -160,7 +160,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes out a <code>byte</code> to the underlying output stream as
      * a 1-byte value. If no exception is thrown, the counter
@@ -176,7 +176,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>short</code> to the underlying output stream as two
      * bytes, high byte first. If no exception is thrown, the counter
@@ -193,7 +193,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(2);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>char</code> to the underlying output stream as a
      * 2-byte value, high byte first. If no exception is thrown, the
@@ -210,7 +210,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(2);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes an <code>int</code> to the underlying output stream as four
      * bytes, high byte first. If no exception is thrown, the counter
@@ -231,7 +231,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
 
     private byte writeBuffer[] = new byte[8];
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a <code>long</code> to the underlying output stream as eight
      * bytes, high byte first. In no exception is thrown, the counter
@@ -255,7 +255,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(8);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the float argument to an <code>int</code> using the
      * <code>floatToIntBits</code> method in class <code>Float</code>,
@@ -274,7 +274,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeInt(Float.floatToIntBits(v));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Converts the double argument to a <code>long</code> using the
      * <code>doubleToLongBits</code> method in class <code>Double</code>,
@@ -293,7 +293,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeLong(Double.doubleToLongBits(v));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes out the string to the underlying output stream as a
      * sequence of bytes. Each character in the string is written out, in
@@ -314,7 +314,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the underlying output stream as a sequence of
      * characters. Each character is written to the data output stream as
@@ -338,7 +338,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len * 2);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the underlying output stream using
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
@@ -363,7 +363,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeUTF(str, this);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a string to the specified DataOutput using
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
@@ -444,7 +444,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         return utflen + 2;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the current value of the counter <code>written</code>,
      * the number of bytes written to this data output stream so far.

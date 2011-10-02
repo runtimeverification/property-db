@@ -32,7 +32,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 import java.util.Enumeration;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is an implementation of the ImageProducer interface which
  * uses an array to produce pixel values for an Image.  Here is an example
  * which calculates a 100x100 image representing a fade from black to blue
@@ -116,7 +116,7 @@ public class MemoryImageSource implements ImageProducer {
     boolean animating;
     boolean fullbuffers;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of bytes
      * to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -134,7 +134,7 @@ public class MemoryImageSource implements ImageProducer {
         initialize(w, h, cm, (Object) pix, off, scan, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of bytes
      * to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -156,7 +156,7 @@ public class MemoryImageSource implements ImageProducer {
         initialize(w, h, cm, (Object) pix, off, scan, props);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of integers
      * to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -174,7 +174,7 @@ public class MemoryImageSource implements ImageProducer {
         initialize(w, h, cm, (Object) pix, off, scan, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of integers
      * to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -210,7 +210,7 @@ public class MemoryImageSource implements ImageProducer {
         properties = props;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of integers
      * in the default RGB ColorModel to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -228,7 +228,7 @@ public class MemoryImageSource implements ImageProducer {
                    (Object) pix, off, scan, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an ImageProducer object which uses an array of integers
      * in the default RGB ColorModel to produce data for an Image object.
      * @param w the width of the rectangle of pixels
@@ -250,7 +250,7 @@ public class MemoryImageSource implements ImageProducer {
                    (Object) pix, off, scan, props);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an ImageConsumer to the list of consumers interested in
      * data for this image.
      * @param ic the specified <code>ImageConsumer</code>
@@ -282,7 +282,7 @@ public class MemoryImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines if an ImageConsumer is on the list of consumers currently
      * interested in data for this image.
      * @param ic the specified <code>ImageConsumer</code>
@@ -294,7 +294,7 @@ public class MemoryImageSource implements ImageProducer {
         return theConsumers.contains(ic);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an ImageConsumer from the list of consumers interested in
      * data for this image.
      * @param ic the specified <code>ImageConsumer</code>
@@ -304,7 +304,7 @@ public class MemoryImageSource implements ImageProducer {
         theConsumers.removeElement(ic);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an ImageConsumer to the list of consumers interested in
      * data for this image and immediately starts delivery of the
      * image data through the ImageConsumer interface.
@@ -316,7 +316,7 @@ public class MemoryImageSource implements ImageProducer {
         addConsumer(ic);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Requests that a given ImageConsumer have the image data delivered
      * one more time in top-down, left-right order.
      * @param ic the specified <code>ImageConsumer</code>
@@ -327,7 +327,7 @@ public class MemoryImageSource implements ImageProducer {
         // format or it is multi-frame and TDLR resends aren't critical.
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes this memory image into a multi-frame animation or a
      * single-frame static image depending on the animated parameter.
      * <p>This method should be called immediately after the
@@ -355,7 +355,7 @@ public class MemoryImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies whether this animated memory image should always be
      * updated by sending the complete buffer of pixels whenever
      * there is a change.
@@ -387,7 +387,7 @@ public class MemoryImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a whole new buffer of pixels to any ImageConsumers that
      * are currently interested in the data for this image and notify
      * them that an animation frame is complete.
@@ -401,7 +401,7 @@ public class MemoryImageSource implements ImageProducer {
         newPixels(0, 0, width, height, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a rectangular region of the buffer of pixels to any
      * ImageConsumers that are currently interested in the data for
      * this image and notify them that an animation frame is complete.
@@ -425,7 +425,7 @@ public class MemoryImageSource implements ImageProducer {
         newPixels(x, y, w, h, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sends a rectangular region of the buffer of pixels to any
      * ImageConsumers that are currently interested in the data for
      * this image.
@@ -487,7 +487,7 @@ public class MemoryImageSource implements ImageProducer {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes to a new byte array to hold the pixels for this image.
      * If the animation flag has been turned on through the setAnimated()
      * method, then the new pixels will be immediately delivered to any
@@ -510,7 +510,7 @@ public class MemoryImageSource implements ImageProducer {
         newPixels();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes to a new int array to hold the pixels for this image.
      * If the animation flag has been turned on through the setAnimated()
      * method, then the new pixels will be immediately delivered to any

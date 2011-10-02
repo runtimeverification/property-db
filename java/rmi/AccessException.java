@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>AccessException</code> is thrown by certain methods of the
  * <code>java.rmi.Naming</code> class (specifically <code>bind</code>,
  * <code>rebind</code>, and <code>unbind</code>) and methods of the
@@ -45,7 +45,7 @@ public class AccessException extends java.rmi.RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
      private static final long serialVersionUID = 6314925228044966088L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AccessException</code> with the specified
      * detail message.
      *
@@ -56,7 +56,7 @@ public class AccessException extends java.rmi.RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AccessException</code> with the specified
      * detail message and nested exception.
      *

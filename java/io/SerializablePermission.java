@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * This class is for Serializable permissions. A SerializablePermission
  * contains a name (also referred to as a "target name") but
@@ -95,14 +95,12 @@ public final class SerializablePermission extends BasicPermission {
 
     private static final long serialVersionUID = 8537212141160296410L;
 
-    /**
-     * {@description.open}
+    /** {@collect.stats}
      * @serial
-     * {@description.close}
      */
     private String actions;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new SerializablePermission with the specified name.
      * The name is the symbolic name of the SerializablePermission, such as
@@ -119,7 +117,7 @@ public final class SerializablePermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new SerializablePermission object with the specified name.
      * The name is the symbolic name of the SerializablePermission, and the

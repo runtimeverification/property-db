@@ -27,7 +27,7 @@ package java.security.spec;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class defines an elliptic curve (EC)
  * characteristic 2 finite field.
  *
@@ -43,7 +43,7 @@ public class ECFieldF2m implements ECField {
     private int[] ks;
     private BigInteger rp;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve characteristic 2 finite
      * field which has 2^<code>m</code> elements with normal basis.
      * @param m with 2^<code>m</code> being the number of elements.
@@ -59,7 +59,7 @@ public class ECFieldF2m implements ECField {
         this.rp = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve characteristic 2 finite
      * field which has 2^<code>m</code> elements with
      * polynomial basis.
@@ -104,7 +104,7 @@ public class ECFieldF2m implements ECField {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve characteristic 2 finite
      * field which has 2^<code>m</code> elements with
      * polynomial basis. The reduction polynomial for this
@@ -159,7 +159,7 @@ public class ECFieldF2m implements ECField {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the field size in bits which is <code>m</code>
      * for this characteristic 2 finite field.
      * @return the field size in bits.
@@ -168,7 +168,7 @@ public class ECFieldF2m implements ECField {
         return m;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value <code>m</code> of this characteristic
      * 2 finite field.
      * @return <code>m</code> with 2^<code>m</code> being the
@@ -178,7 +178,7 @@ public class ECFieldF2m implements ECField {
         return m;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a BigInteger whose i-th bit corresponds to the
      * i-th coefficient of the reduction polynomial for polynomial
      * basis or null for normal basis.
@@ -190,7 +190,7 @@ public class ECFieldF2m implements ECField {
         return rp;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an integer array which contains the order of the
      * middle term(s) of the reduction polynomial for polynomial
      * basis or null for normal basis.
@@ -207,7 +207,7 @@ public class ECFieldF2m implements ECField {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this finite field for equality with the
      * specified object.
      * @param obj the object to be compared.
@@ -226,7 +226,7 @@ public class ECFieldF2m implements ECField {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this characteristic 2
      * finite field.
      * @return a hash code value.

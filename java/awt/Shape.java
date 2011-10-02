@@ -30,7 +30,7 @@ import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Shape</code> interface provides definitions for objects
  * that represent some form of geometric shape.  The <code>Shape</code>
  * is described by a {@link PathIterator} object, which can express the
@@ -76,7 +76,7 @@ import java.awt.geom.Rectangle2D;
  * @since 1.2
  */
 public interface Shape {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an integer {@link Rectangle} that completely encloses the
      * <code>Shape</code>.  Note that there is no guarantee that the
      * returned <code>Rectangle</code> is the smallest bounding box that
@@ -95,7 +95,7 @@ public interface Shape {
      */
     public Rectangle getBounds();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a high precision and more accurate bounding box of
      * the <code>Shape</code> than the <code>getBounds</code> method.
      * Note that there is no guarantee that the returned
@@ -114,7 +114,7 @@ public interface Shape {
      */
     public Rectangle2D getBounds2D();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified coordinates are inside the boundary of the
      * <code>Shape</code>.
      * @param x the specified X coordinate to be tested
@@ -126,7 +126,7 @@ public interface Shape {
      */
     public boolean contains(double x, double y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if a specified {@link Point2D} is inside the boundary
      * of the <code>Shape</code>.
      * @param p the specified <code>Point2D</code> to be tested
@@ -137,7 +137,7 @@ public interface Shape {
      */
     public boolean contains(Point2D p);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the <code>Shape</code> intersects the
      * interior of a specified rectangular area.
      * The rectangular area is considered to intersect the <code>Shape</code>
@@ -177,7 +177,7 @@ public interface Shape {
      */
     public boolean intersects(double x, double y, double w, double h);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the <code>Shape</code> intersects the
      * interior of a specified <code>Rectangle2D</code>.
      * The {@code Shape.intersects()} method allows a {@code Shape}
@@ -209,7 +209,7 @@ public interface Shape {
      */
     public boolean intersects(Rectangle2D r);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the <code>Shape</code> entirely contains
      * the specified rectangular area.  All coordinates that lie inside
      * the rectangular area must lie within the <code>Shape</code> for the
@@ -253,7 +253,7 @@ public interface Shape {
      */
     public boolean contains(double x, double y, double w, double h);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the interior of the <code>Shape</code> entirely contains the
      * specified <code>Rectangle2D</code>.
      * The {@code Shape.contains()} method allows a {@code Shape}
@@ -287,7 +287,7 @@ public interface Shape {
      */
     public boolean contains(Rectangle2D r);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator object that iterates along the
      * <code>Shape</code> boundary and provides access to the geometry of the
      * <code>Shape</code> outline.  If an optional {@link AffineTransform}
@@ -313,7 +313,7 @@ public interface Shape {
      */
     public PathIterator getPathIterator(AffineTransform at);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator object that iterates along the <code>Shape</code>
      * boundary and provides access to a flattened view of the
      * <code>Shape</code> outline geometry.

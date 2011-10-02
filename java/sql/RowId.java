@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * The representation (mapping) in the Java programming language of an SQL ROWID
  * value. An SQL ROWID is a built-in type, a value of which can be thought of as
@@ -61,7 +61,7 @@ package java.sql;
  */
 
 public interface RowId {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>RowId</code> to the specified object. The result is
      * <code>true</code> if and only if the argument is not null and is a RowId
      * object that represents the same ROWID as  this object.
@@ -83,7 +83,7 @@ public interface RowId {
      */
     boolean equals(Object obj);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of bytes representing the value of the SQL <code>ROWID</code>
      * designated by this <code>java.sql.RowId</code> object.
      *
@@ -93,7 +93,7 @@ public interface RowId {
      */
      byte[] getBytes();
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
       * Returns a String representing the value of the SQL ROWID designated by this
       * <code>java.sql.RowId</code> object.
       * <p>
@@ -110,7 +110,7 @@ public interface RowId {
       */
      String toString();
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
       * Returns a hash code value of this <code>RowId</code> object.
       *
       * @return a hash code for the <code>RowId</code>

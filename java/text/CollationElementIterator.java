@@ -43,7 +43,7 @@ import java.util.Vector;
 import sun.text.CollatorUtilities;
 import sun.text.normalizer.NormalizerBase;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>CollationElementIterator</code> class is used as an iterator
  * to walk through each character of an international string. Use the iterator
  * to return the ordering priority of the positioned character. The ordering
@@ -99,13 +99,13 @@ import sun.text.normalizer.NormalizerBase;
  */
 public final class CollationElementIterator
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Null order which indicates the end of string is reached by the
      * cursor.
      */
     public final static int NULLORDER = 0xffffffff;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CollationElementIterator constructor.  This takes the source string and
      * the collation object.  The cursor will walk thru the source string based
      * on the predefined collation rules.  If the source string is empty,
@@ -123,7 +123,7 @@ public final class CollationElementIterator
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CollationElementIterator constructor.  This takes the source string and
      * the collation object.  The cursor will walk thru the source string based
      * on the predefined collation rules.  If the source string is empty,
@@ -139,7 +139,7 @@ public final class CollationElementIterator
         text = new NormalizerBase(sourceText, mode);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets the cursor to the beginning of the string.  The next call
      * to next() will return the first collation element in the string.
      */
@@ -156,7 +156,7 @@ public final class CollationElementIterator
         swapOrder = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the next collation element in the string.  <p>This iterator iterates
      * over a sequence of collation elements that were built from the string.
      * Because there isn't necessarily a one-to-one mapping from characters to
@@ -251,7 +251,7 @@ public final class CollationElementIterator
         return strengthOrder(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the previous collation element in the string.  <p>This iterator iterates
      * over a sequence of collation elements that were built from the string.
      * Because there isn't necessarily a one-to-one mapping from characters to
@@ -341,7 +341,7 @@ public final class CollationElementIterator
         return strengthOrder(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the primary component of a collation element.
      * @param order the collation element
      * @return the element's primary component
@@ -351,7 +351,7 @@ public final class CollationElementIterator
         order &= RBCollationTables.PRIMARYORDERMASK;
         return (order >>> RBCollationTables.PRIMARYORDERSHIFT);
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the secondary component of a collation element.
      * @param order the collation element
      * @return the element's secondary component
@@ -361,7 +361,7 @@ public final class CollationElementIterator
         order = order & RBCollationTables.SECONDARYORDERMASK;
         return ((short)(order >> RBCollationTables.SECONDARYORDERSHIFT));
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the tertiary component of a collation element.
      * @param order the collation element
      * @return the element's tertiary component
@@ -371,7 +371,7 @@ public final class CollationElementIterator
         return ((short)(order &= RBCollationTables.TERTIARYORDERMASK));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Get the comparison order in the desired strength.  Ignore the other
      *  differences.
      *  @param order The order value
@@ -389,7 +389,7 @@ public final class CollationElementIterator
         return order;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the iterator to point to the collation element corresponding to
      * the specified character (the parameter is a CHARACTER offset in the
      * original string, not an offset into its corresponding sequence of
@@ -444,7 +444,7 @@ public final class CollationElementIterator
         swapOrder = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the character offset in the original text corresponding to the next
      * collation element.  (That is, getOffset() returns the position in the text
      * corresponding to the collation element that will be returned by the next
@@ -464,7 +464,7 @@ public final class CollationElementIterator
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the maximum length of any expansion sequences that end
      * with the specified comparison order.
      * @param order a collation order returned by previous or next.
@@ -477,7 +477,7 @@ public final class CollationElementIterator
         return ordering.getMaxExpansion(order);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a new string over which to iterate.
      *
      * @param source  the new source text
@@ -498,7 +498,7 @@ public final class CollationElementIterator
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a new string over which to iterate.
      *
      * @param source  the new source text.
@@ -523,7 +523,7 @@ public final class CollationElementIterator
     // privates
     //============================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine if a character is a Thai vowel (which sorts after
      * its base consonant).
      */
@@ -531,14 +531,14 @@ public final class CollationElementIterator
         return (ch >= 0x0e40) && (ch <= 0x0e44);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine if a character is a Thai base consonant
      */
     private final static boolean isThaiBaseConsonant(int ch) {
         return (ch >= 0x0e01) && (ch <= 0x0e2e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine if a character is a Lao vowel (which sorts after
      * its base consonant).
      */
@@ -546,14 +546,14 @@ public final class CollationElementIterator
         return (ch >= 0x0ec0) && (ch <= 0x0ec4);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determine if a character is a Lao base consonant
      */
     private final static boolean isLaoBaseConsonant(int ch) {
         return (ch >= 0x0e81) && (ch <= 0x0eae);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method produces a buffer which contains the collation
      * elements for the two characters, with colFirst's values preceding
      * another character's.  Presumably, the other character precedes colFirst
@@ -617,7 +617,7 @@ public final class CollationElementIterator
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Check if a comparison order is ignorable.
      *  @return true if a character is ignorable, false otherwise.
      */
@@ -626,7 +626,7 @@ public final class CollationElementIterator
         return ((primaryOrder(order) == 0) ? true : false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the ordering priority of the next contracting character in the
      * string.
      * @param ch the starting character of a contracting character token
@@ -698,7 +698,7 @@ public final class CollationElementIterator
         return order;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the ordering priority of the previous contracting character in the
      * string.
      * @param ch the starting character of a contracting character token

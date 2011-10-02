@@ -26,7 +26,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class represents a point on an elliptic curve (EC)
  * in affine coordinates. Other coordinate systems can
  * extend this class to represent this point in other
@@ -41,7 +41,7 @@ public class ECPoint {
     private final BigInteger x;
     private final BigInteger y;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This defines the point at infinity.
      */
     public static final ECPoint POINT_INFINITY = new ECPoint();
@@ -52,7 +52,7 @@ public class ECPoint {
         this.y = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an ECPoint from the specified affine x-coordinate
      * <code>x</code> and affine y-coordinate <code>y</code>.
      * @param x the affine x-coordinate.
@@ -68,7 +68,7 @@ public class ECPoint {
         this.y = y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the affine x-coordinate <code>x</code>.
      * Note: POINT_INFINITY has a null affine x-coordinate.
      * @return the affine x-coordinate.
@@ -77,7 +77,7 @@ public class ECPoint {
         return x;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the affine y-coordinate <code>y</code>.
      * Note: POINT_INFINITY has a null affine y-coordinate.
      * @return the affine y-coordinate.
@@ -86,7 +86,7 @@ public class ECPoint {
         return y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this elliptic curve point for equality with
      * the specified object.
      * @param obj the object to be compared.
@@ -103,7 +103,7 @@ public class ECPoint {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this elliptic curve point.
      * @return a hash code value.
      */

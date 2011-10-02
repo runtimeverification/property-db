@@ -27,7 +27,7 @@ package java.security.interfaces;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface to an RSA public or private key.
  *
  * @author Jan Luehe
@@ -40,7 +40,7 @@ import java.math.BigInteger;
 
 public interface RSAKey {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the modulus.
      *
      * @return the modulus

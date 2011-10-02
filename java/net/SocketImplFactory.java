@@ -25,7 +25,7 @@
 
 package java.net;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This interface defines a factory for socket implementations. It
  * is used by the classes <code>Socket</code> and
  * <code>ServerSocket</code> to create actual socket
@@ -38,7 +38,7 @@ package java.net;
  */
 public
 interface SocketImplFactory {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>SocketImpl</code> instance.
      *
      * @return  a new instance of <code>SocketImpl</code>.

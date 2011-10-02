@@ -25,21 +25,21 @@
 
 package java.util.zip;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that a data format error has occurred.
  *
  * @author      David Connelly
  */
 public
 class DataFormatException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a DataFormatException with no detail message.
      */
     public DataFormatException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a DataFormatException with the specified detail message.
      * A detail message is a String that describes this particular exception.
      * @param s the String containing a detail message

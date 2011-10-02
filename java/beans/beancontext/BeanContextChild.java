@@ -31,7 +31,7 @@ import java.beans.PropertyVetoException;
 
 import java.beans.beancontext.BeanContext;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * JavaBeans wishing to be nested within, and obtain a reference to their
  * execution environment, or context, as defined by the BeanContext
@@ -67,7 +67,7 @@ import java.beans.beancontext.BeanContext;
 
 public interface BeanContextChild {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Objects that implement this interface,
      * shall fire a java.beans.PropertyChangeEvent, with parameters:
@@ -87,7 +87,7 @@ public interface BeanContextChild {
      */
     void setBeanContext(BeanContext bc) throws PropertyVetoException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>BeanContext</code> associated
      * with this <code>BeanContextChild</code>.
      * @return the <code>BeanContext</code> associated
@@ -95,7 +95,7 @@ public interface BeanContextChild {
      */
     BeanContext getBeanContext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>PropertyChangeListener</code>
      * to this <code>BeanContextChild</code>
      * in order to receive a <code>PropertyChangeEvent</code>
@@ -105,7 +105,7 @@ public interface BeanContextChild {
      */
     void addPropertyChangeListener(String name, PropertyChangeListener pcl);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a <code>PropertyChangeListener</code> from this
      * <code>BeanContextChild</code>  so that it no longer
      * receives <code>PropertyChangeEvents</code> when the
@@ -116,7 +116,7 @@ public interface BeanContextChild {
      */
     void removePropertyChangeListener(String name, PropertyChangeListener pcl);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>VetoableChangeListener</code> to
      * this <code>BeanContextChild</code>
      * to receive events whenever the specified property changes.
@@ -125,7 +125,7 @@ public interface BeanContextChild {
      */
     void addVetoableChangeListener(String name, VetoableChangeListener vcl);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a <code>VetoableChangeListener</code> from this
      * <code>BeanContextChild</code> so that it no longer receives
      * events when the specified property changes.

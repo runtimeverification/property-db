@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A character stream whose source is a string.
  * {@description.close}
@@ -42,7 +42,7 @@ public class StringReader extends Reader {
     private int next = 0;
     private int mark = 0;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new string reader.
      * {@description.close}
@@ -54,7 +54,7 @@ public class StringReader extends Reader {
         this.length = s.length();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Check to make sure that the stream has not been closed
      * {@description.close}
@@ -64,7 +64,7 @@ public class StringReader extends Reader {
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a single character.
      * {@description.close}
@@ -83,7 +83,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
@@ -115,7 +115,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips the specified number of characters in the stream. Returns
      * the number of characters that were skipped.
@@ -146,7 +146,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream is ready to be read.
      * {@description.close}
@@ -162,7 +162,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream supports the mark() operation, which it does.
      * {@description.close}
@@ -171,7 +171,7 @@ public class StringReader extends Reader {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the present position in the stream.
      * {@description.close}
@@ -199,7 +199,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@property.open formal:Reader_MarkReset formal:Reader_UnmarkedReset}
      * Resets the stream to the most recent mark, or to the beginning of the
      * string if it has never been marked.
@@ -214,7 +214,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes the stream and releases any system resources associated with
      * it.

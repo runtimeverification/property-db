@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Unchecked exception thrown when the argument corresponding to the format
  * specifier is of an incompatible type.
  *
@@ -42,7 +42,7 @@ public class IllegalFormatConversionException extends IllegalFormatException {
     private char c;
     private Class arg;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of this class with the mismatched conversion and
      * the corresponding argument class.
      *
@@ -59,7 +59,7 @@ public class IllegalFormatConversionException extends IllegalFormatException {
         this.arg = arg;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the inapplicable conversion.
      *
      * @return  The inapplicable conversion
@@ -68,7 +68,7 @@ public class IllegalFormatConversionException extends IllegalFormatException {
         return c;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class of the mismatched argument.
      *
      * @return   The class of the mismatched argument

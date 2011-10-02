@@ -31,7 +31,7 @@ import java.net.SocketAddress;
 import java.nio.channels.spi.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A selectable channel for stream-oriented listening sockets.
  *
  * <p> Server-socket channels are not a complete abstraction of listening
@@ -63,14 +63,14 @@ public abstract class ServerSocketChannel
     extends AbstractSelectableChannel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected ServerSocketChannel(SelectorProvider provider) {
         super(provider);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a server-socket channel.
      *
      * <p> The new channel is created by invoking the {@link
@@ -92,7 +92,7 @@ public abstract class ServerSocketChannel
         return SelectorProvider.provider().openServerSocketChannel();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an operation set identifying this channel's supported
      * operations.
      *
@@ -109,7 +109,7 @@ public abstract class ServerSocketChannel
 
     // -- ServerSocket-specific operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves a server socket associated with this channel.
      *
      * <p> The returned object will not declare any public methods that are not
@@ -119,7 +119,7 @@ public abstract class ServerSocketChannel
      */
     public abstract ServerSocket socket();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Accepts a connection made to this channel's socket.
      *
      * <p> If this channel is in non-blocking mode then this method will

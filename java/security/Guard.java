@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p> This interface represents a guard, which is an object that is used
  * to protect access to another object.
  *
@@ -42,7 +42,7 @@ package java.security;
 
 public interface Guard {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether or not to allow access to the guarded object
      * <code>object</code>. Returns silently if access is allowed.
      * Otherwise, throws a SecurityException.

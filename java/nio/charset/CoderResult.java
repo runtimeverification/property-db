@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A description of the result state of a coder.
  *
  * <p> A charset coder, that is, either a decoder or an encoder, consumes bytes
@@ -101,7 +101,7 @@ public class CoderResult {
         this.length = length;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this coder result.
      *
      * @return  A descriptive string
@@ -111,7 +111,7 @@ public class CoderResult {
         return isError() ? nm + "[" + length + "]" : nm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object describes an underflow condition.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this object denotes underflow
@@ -120,7 +120,7 @@ public class CoderResult {
         return (type == CR_UNDERFLOW);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object describes an overflow condition.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this object denotes overflow
@@ -129,7 +129,7 @@ public class CoderResult {
         return (type == CR_OVERFLOW);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object describes an error condition.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this object denotes either a
@@ -139,7 +139,7 @@ public class CoderResult {
         return (type >= CR_ERROR_MIN);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object describes a malformed-input error.
      * </p>
      *
@@ -150,7 +150,7 @@ public class CoderResult {
         return (type == CR_MALFORMED);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this object describes an unmappable-character
      * error.  </p>
      *
@@ -161,7 +161,7 @@ public class CoderResult {
         return (type == CR_UNMAPPABLE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of the erroneous input described by this
      * object&nbsp;&nbsp;<i>(optional operation)</i>.  </p>
      *
@@ -177,7 +177,7 @@ public class CoderResult {
         return length;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Result object indicating underflow, meaning that either the input buffer
      * has been completely consumed or, if the input buffer is not yet empty,
      * that additional input is required.  </p>
@@ -185,7 +185,7 @@ public class CoderResult {
     public static final CoderResult UNDERFLOW
         = new CoderResult(CR_UNDERFLOW, 0);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Result object indicating overflow, meaning that there is insufficient
      * room in the output buffer.  </p>
      */
@@ -224,7 +224,7 @@ public class CoderResult {
                     return new CoderResult(CR_MALFORMED, len);
                 }};
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Static factory method that returns the unique object describing a
      * malformed-input error of the given length.  </p>
      *
@@ -240,7 +240,7 @@ public class CoderResult {
                     return new CoderResult(CR_UNMAPPABLE, len);
                 }};
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Static factory method that returns the unique result object describing
      * an unmappable-character error of the given length.  </p>
      *
@@ -250,7 +250,7 @@ public class CoderResult {
         return unmappableCache.get(length);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Throws an exception appropriate to the result described by this object.
      * </p>
      *

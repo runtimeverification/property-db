@@ -28,7 +28,7 @@ package java.rmi.server;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>LoaderHandler</code> is an interface used internally by the RMI
  * runtime in previous implementation versions.  It should never be accessed
  * by application code.
@@ -41,10 +41,10 @@ import java.net.URL;
 @Deprecated
 public interface LoaderHandler {
 
-    /** {@collect.stats} package of system <code>LoaderHandler</code> implementation. */
+    /** {@collect.stats}  package of system <code>LoaderHandler</code> implementation. */
     final static String packagePrefix = "sun.rmi.server";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loads a class from the location specified by the
      * <code>java.rmi.server.codebase</code> property.
      *
@@ -63,7 +63,7 @@ public interface LoaderHandler {
     Class<?> loadClass(String name)
         throws MalformedURLException, ClassNotFoundException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Loads a class from a URL.
      *
      * @param codebase  the URL from which to load the class
@@ -82,7 +82,7 @@ public interface LoaderHandler {
     Class<?> loadClass(URL codebase, String name)
         throws MalformedURLException, ClassNotFoundException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the security context of the given class loader.
      *
      * @param loader  a class loader from which to get the security context

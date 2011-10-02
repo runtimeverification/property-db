@@ -26,7 +26,7 @@
 package java.util.regex;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Utility class that implements the standard C ctype functionality.
  *
  * @author Hong Zhang

@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * The <code>DataInput</code> interface provides
  * for reading bytes from a binary stream and
@@ -196,7 +196,7 @@ package java.io;
  */
 public
 interface DataInput {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads some bytes from an input
      * stream and stores them into the buffer
@@ -246,7 +246,7 @@ interface DataInput {
      */
     void readFully(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      *
      * {@description.open}
      * Reads <code>len</code>
@@ -300,7 +300,7 @@ interface DataInput {
      */
     void readFully(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Makes an attempt to skip over
      * <code>n</code> bytes
@@ -330,7 +330,7 @@ interface DataInput {
      */
     int skipBytes(int n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads one input byte and returns
      * <code>true</code> if that byte is nonzero,
@@ -347,7 +347,7 @@ interface DataInput {
      */
     boolean readBoolean() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads and returns one input byte.
      * The byte is treated as a signed value in
@@ -365,7 +365,7 @@ interface DataInput {
      */
     byte readByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads one input byte, zero-extends
      * it to type <code>int</code>, and returns
@@ -387,7 +387,7 @@ interface DataInput {
      */
     int readUnsignedByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads two input bytes and returns
      * a <code>short</code> value. Let <code>a</code>
@@ -410,7 +410,7 @@ interface DataInput {
      */
     short readShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads two input bytes and returns
      * an <code>int</code> value in the range <code>0</code>
@@ -435,7 +435,7 @@ interface DataInput {
      */
     int readUnsignedShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads two input bytes and returns a <code>char</code> value.
      * Let <code>a</code>
@@ -457,7 +457,7 @@ interface DataInput {
      */
     char readChar() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads four input bytes and returns an
      * <code>int</code> value. Let <code>a-d</code>
@@ -479,7 +479,7 @@ interface DataInput {
      */
     int readInt() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads eight input bytes and returns
      * a <code>long</code> value. Let <code>a-h</code>
@@ -508,7 +508,7 @@ interface DataInput {
      */
     long readLong() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads four input bytes and returns
      * a <code>float</code> value. It does this
@@ -530,7 +530,7 @@ interface DataInput {
      */
     float readFloat() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads eight input bytes and returns
      * a <code>double</code> value. It does this
@@ -552,7 +552,7 @@ interface DataInput {
      */
     double readDouble() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads the next line of text from the input stream.
      * It reads successive bytes, converting
@@ -602,7 +602,7 @@ interface DataInput {
      */
     String readLine() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads in a string that has been encoded using a
      * <a href="#modified-utf-8">modified UTF-8</a>
@@ -681,13 +681,14 @@ interface DataInput {
      * method of interface <code>DataOutput</code>
      * may be used to write data that is suitable
      * for reading by this method.
+     * {@description.close}
+     *
      * @return     a Unicode string.
      * @exception  EOFException            if this stream reaches the end
      *               before reading all the bytes.
      * @exception  IOException             if an I/O error occurs.
      * @exception  UTFDataFormatException  if the bytes do not represent a
      *               valid modified UTF-8 encoding of a string.
-     * {@description.close}
      */
     String readUTF() throws IOException;
 }

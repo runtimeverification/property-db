@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.PublicKey;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents the successful result of the PKIX certification
  * path validation algorithm.
  *
@@ -61,7 +61,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
     private PolicyNode policyTree;
     private PublicKey subjectPublicKey;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>PKIXCertPathValidatorResult</code>
      * containing the specified parameters.
      *
@@ -85,7 +85,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
         this.subjectPublicKey = subjectPublicKey;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>TrustAnchor</code> describing the CA that served
      * as a trust anchor for the certification path.
      *
@@ -95,7 +95,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
         return trustAnchor;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the root node of the valid policy tree resulting from the
      * PKIX certification path validation algorithm. The
      * <code>PolicyNode</code> object that is returned and any objects that
@@ -116,7 +116,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
         return policyTree;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the public key of the subject (target) of the certification
      * path, including any inherited public key parameters if applicable.
      *
@@ -126,7 +126,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
         return subjectPublicKey;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of this object.
      *
      * @return the copy
@@ -140,7 +140,7 @@ public class PKIXCertPathValidatorResult implements CertPathValidatorResult {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a printable representation of this
      * <code>PKIXCertPathValidatorResult</code>.
      *

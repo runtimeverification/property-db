@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when an incompatible class change has occurred to some class
  * definition. The definition of some class, on which the currently
  * executing method depends, has since changed.
@@ -35,7 +35,7 @@ package java.lang;
  */
 public
 class IncompatibleClassChangeError extends LinkageError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>IncompatibleClassChangeError</code> with no
      * detail message.
      */
@@ -43,7 +43,7 @@ class IncompatibleClassChangeError extends LinkageError {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>IncompatibleClassChangeError</code> with the
      * specified detail message.
      *

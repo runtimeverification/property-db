@@ -25,13 +25,13 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A VetoableChange event gets fired whenever a bean changes a "constrained"
  * property.  You can register a VetoableChangeListener with a source bean
  * so as to be notified of any constrained property updates.
  */
 public interface VetoableChangeListener extends java.util.EventListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method gets called when a constrained property is changed.
      *
      * @param     evt a <code>PropertyChangeEvent</code> object describing the

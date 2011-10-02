@@ -25,7 +25,7 @@
 
 package java.awt.geom;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>NoninvertibleTransformException</code> class represents
  * an exception that is thrown if an operation is performed requiring
  * the inverse of an {@link AffineTransform} object but the
@@ -33,7 +33,7 @@ package java.awt.geom;
  */
 
 public class NoninvertibleTransformException extends java.lang.Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of
      * <code>NoninvertibleTransformException</code>
      * with the specified detail message.

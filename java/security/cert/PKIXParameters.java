@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Parameters used as input for the PKIX <code>CertPathValidator</code>
  * algorithm.
  * <p>
@@ -98,7 +98,7 @@ public class PKIXParameters implements CertPathParameters {
     private List<CertStore> certStores;
     private CertSelector certSelector;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>PKIXParameters</code> with the specified
      * <code>Set</code> of most-trusted CAs. Each element of the
      * set is a {@link TrustAnchor TrustAnchor}.
@@ -124,7 +124,7 @@ public class PKIXParameters implements CertPathParameters {
         this.certStores = new ArrayList<CertStore>();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>PKIXParameters</code> that
      * populates the set of most-trusted CAs from the trusted
      * certificate entries contained in the specified <code>KeyStore</code>.
@@ -160,7 +160,7 @@ public class PKIXParameters implements CertPathParameters {
         this.certStores = new ArrayList<CertStore>();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an immutable <code>Set</code> of the most-trusted
      * CAs.
      *
@@ -173,7 +173,7 @@ public class PKIXParameters implements CertPathParameters {
         return this.unmodTrustAnchors;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>Set</code> of most-trusted CAs.
      * <p>
      * Note that the <code>Set</code> is copied to protect against
@@ -210,7 +210,7 @@ public class PKIXParameters implements CertPathParameters {
                 (new HashSet<TrustAnchor>(trustAnchors));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an immutable <code>Set</code> of initial
      * policy identifiers (OID strings), indicating that any one of these
      * policies would be acceptable to the certificate user for the purposes of
@@ -228,7 +228,7 @@ public class PKIXParameters implements CertPathParameters {
         return this.unmodInitialPolicies;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the <code>Set</code> of initial policy identifiers
      * (OID strings), indicating that any one of these
      * policies would be acceptable to the certificate user for the purposes of
@@ -261,7 +261,7 @@ public class PKIXParameters implements CertPathParameters {
             this.unmodInitialPolicies = Collections.<String>emptySet();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the list of <code>CertStore</code>s to be used in finding
      * certificates and CRLs. May be <code>null</code>, in which case
      * no <code>CertStore</code>s will be used. The first
@@ -292,7 +292,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>CertStore</code> to the end of the list of
      * <code>CertStore</code>s used in finding certificates and CRLs.
      *
@@ -305,7 +305,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an immutable <code>List</code> of <code>CertStore</code>s that
      * are used to find certificates and CRLs.
      *
@@ -319,7 +319,7 @@ public class PKIXParameters implements CertPathParameters {
                 (new ArrayList<CertStore>(this.certStores));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the RevocationEnabled flag. If this flag is true, the default
      * revocation checking mechanism of the underlying PKIX service provider
      * will be used. If this flag is false, the default revocation checking
@@ -341,7 +341,7 @@ public class PKIXParameters implements CertPathParameters {
         revocationEnabled = val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks the RevocationEnabled flag. If this flag is true, the default
      * revocation checking mechanism of the underlying PKIX service provider
      * will be used. If this flag is false, the default revocation checking
@@ -355,7 +355,7 @@ public class PKIXParameters implements CertPathParameters {
         return revocationEnabled;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the ExplicitPolicyRequired flag. If this flag is true, an
      * acceptable policy needs to be explicitly identified in every certificate.
      * By default, the ExplicitPolicyRequired flag is false.
@@ -367,7 +367,7 @@ public class PKIXParameters implements CertPathParameters {
         explicitPolicyRequired = val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if explicit policy is required. If this flag is true, an
      * acceptable policy needs to be explicitly identified in every certificate.
      * By default, the ExplicitPolicyRequired flag is false.
@@ -379,7 +379,7 @@ public class PKIXParameters implements CertPathParameters {
         return explicitPolicyRequired;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the PolicyMappingInhibited flag. If this flag is true, policy
      * mapping is inhibited. By default, policy mapping is not inhibited (the
      * flag is false).
@@ -391,7 +391,7 @@ public class PKIXParameters implements CertPathParameters {
         policyMappingInhibited = val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks if policy mapping is inhibited. If this flag is true, policy
      * mapping is inhibited. By default, policy mapping is not inhibited (the
      * flag is false).
@@ -402,7 +402,7 @@ public class PKIXParameters implements CertPathParameters {
         return policyMappingInhibited;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets state to determine if the any policy OID should be processed
      * if it is included in a certificate. By default, the any policy OID
      * is not inhibited ({@link #isAnyPolicyInhibited isAnyPolicyInhibited()}
@@ -415,7 +415,7 @@ public class PKIXParameters implements CertPathParameters {
         anyPolicyInhibited = val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether the any policy OID should be processed if it
      * is included in a certificate.
      *
@@ -426,7 +426,7 @@ public class PKIXParameters implements CertPathParameters {
         return anyPolicyInhibited;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the PolicyQualifiersRejected flag. If this flag is true,
      * certificates that include policy qualifiers in a certificate
      * policies extension that is marked critical are rejected.
@@ -453,7 +453,7 @@ public class PKIXParameters implements CertPathParameters {
         policyQualifiersRejected = qualifiersRejected;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the PolicyQualifiersRejected flag. If this flag is true,
      * certificates that include policy qualifiers in a certificate policies
      * extension that is marked critical are rejected.
@@ -471,7 +471,7 @@ public class PKIXParameters implements CertPathParameters {
         return policyQualifiersRejected;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the time for which the validity of the certification path
      * should be determined. If <code>null</code>, the current time is used.
      * <p>
@@ -488,7 +488,7 @@ public class PKIXParameters implements CertPathParameters {
             return (Date) this.date.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the time for which the validity of the certification path
      * should be determined. If <code>null</code>, the current time is used.
      * <p>
@@ -506,7 +506,7 @@ public class PKIXParameters implements CertPathParameters {
             date = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a <code>List</code> of additional certification path checkers. If
      * the specified <code>List</code> contains an object that is not a
      * <code>PKIXCertPathChecker</code>, it is ignored.
@@ -555,7 +555,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>List</code> of certification path checkers.
      * The returned <code>List</code> is immutable, and each
      * <code>PKIXCertPathChecker</code> in the <code>List</code> is cloned
@@ -574,7 +574,7 @@ public class PKIXParameters implements CertPathParameters {
         return Collections.unmodifiableList(tmpList);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>PKIXCertPathChecker</code> to the list of certification
      * path checkers. See the {@link #setCertPathCheckers setCertPathCheckers}
      * method for more details.
@@ -591,7 +591,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the signature provider's name, or <code>null</code>
      * if not set.
      *
@@ -602,7 +602,7 @@ public class PKIXParameters implements CertPathParameters {
         return this.sigProvider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the signature provider's name. The specified provider will be
      * preferred when creating {@link java.security.Signature Signature}
      * objects. If <code>null</code> or not set, the first provider found
@@ -615,7 +615,7 @@ public class PKIXParameters implements CertPathParameters {
         this.sigProvider = sigProvider;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the required constraints on the target certificate.
      * The constraints are returned as an instance of <code>CertSelector</code>.
      * If <code>null</code>, no constraints are defined.
@@ -635,7 +635,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the required constraints on the target certificate.
      * The constraints are specified as an instance of
      * <code>CertSelector</code>. If <code>null</code>, no constraints are
@@ -655,7 +655,7 @@ public class PKIXParameters implements CertPathParameters {
             certSelector = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Makes a copy of this <code>PKIXParameters</code> object. Changes
      * to the copy will not affect the original and vice versa.
      *
@@ -679,7 +679,7 @@ public class PKIXParameters implements CertPathParameters {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters.

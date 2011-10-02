@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate some unexpected internal error has occurred in
  * the Java Virtual Machine.
  *
@@ -34,14 +34,14 @@ package java.lang;
  */
 public
 class InternalError extends VirtualMachineError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InternalError</code> with no detail message.
      */
     public InternalError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InternalError</code> with the specified
      * detail message.
      *

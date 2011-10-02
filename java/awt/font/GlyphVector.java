@@ -40,7 +40,7 @@ import java.awt.Shape;
 import java.awt.font.GlyphMetrics;
 import java.awt.font.GlyphJustificationInfo;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>GlyphVector</code> object is a collection of glyphs
  * containing geometric information for the placement of each glyph
  * in a transformed coordinate space which corresponds to the
@@ -112,7 +112,7 @@ public abstract class GlyphVector implements Cloneable {
     // methods associated with creation-time state
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Font</code> associated with this
      * <code>GlyphVector</code>.
      * @return <code>Font</code> used to create this
@@ -121,7 +121,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Font getFont();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@link FontRenderContext} associated with this
      * <code>GlyphVector</code>.
      * @return <code>FontRenderContext</code> used to create this
@@ -135,20 +135,20 @@ public abstract class GlyphVector implements Cloneable {
     // methods associated with the GlyphVector as a whole
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Assigns default positions to each glyph in this
      * <code>GlyphVector</code>. This can destroy information
      * generated during initial layout of this <code>GlyphVector</code>.
      */
     public abstract void performDefaultLayout();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of glyphs in this <code>GlyphVector</code>.
      * @return number of glyphs in this <code>GlyphVector</code>.
      */
     public abstract int getNumGlyphs();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the glyphcode of the specified glyph.
      * This return value is meaningless to anything other
      * than the <code>Font</code> object that created this
@@ -164,7 +164,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract int getGlyphCode(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of glyphcodes for the specified glyphs.
      * The contents of this return value are meaningless to anything other
      * than the <code>Font</code> used to create this
@@ -189,7 +189,7 @@ public abstract class GlyphVector implements Cloneable {
     public abstract int[] getGlyphCodes(int beginGlyphIndex, int numEntries,
                                         int[] codeReturn);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the character index of the specified glyph.
      * The character index is the index of the first logical
      * character represented by the glyph.  The default
@@ -203,7 +203,7 @@ public abstract class GlyphVector implements Cloneable {
         return glyphIndex;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the character indices of the specified glyphs.
      * The character index is the index of the first logical
      * character represented by the glyph.  Indices are returned
@@ -230,7 +230,7 @@ public abstract class GlyphVector implements Cloneable {
         return codeReturn;
      }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the logical bounds of this <code>GlyphVector</code>.
      * This method is used when positioning this <code>GlyphVector</code>
      * in relation to visually adjacent <code>GlyphVector</code> objects.
@@ -239,7 +239,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Rectangle2D getLogicalBounds();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the visual bounds of this <code>GlyphVector</code>
      * The visual bounds is the bounding box of the outline of this
      * <code>GlyphVector</code>.  Because of rasterization and
@@ -250,7 +250,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Rectangle2D getVisualBounds();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the pixel bounds of this <code>GlyphVector</code> when
      * rendered in a graphics with the given
      * <code>FontRenderContext</code> at the given location.  The
@@ -278,7 +278,7 @@ public abstract class GlyphVector implements Cloneable {
         }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Shape</code> whose interior corresponds to the
      * visual representation of this <code>GlyphVector</code>.
      * @return a <code>Shape</code> that is the outline of this
@@ -286,7 +286,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Shape getOutline();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Shape</code> whose interior corresponds to the
      * visual representation of this <code>GlyphVector</code> when
      * rendered at x,&nbsp;y.
@@ -298,7 +298,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Shape getOutline(float x, float y);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Shape</code> whose interior corresponds to the
      * visual representation of the specified glyph
      * within this <code>GlyphVector</code>.
@@ -314,7 +314,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Shape getGlyphOutline(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Shape</code> whose interior corresponds to the
      * visual representation of the specified glyph
      * within this <code>GlyphVector</code>, offset to x,&nbsp;y.
@@ -338,7 +338,7 @@ public abstract class GlyphVector implements Cloneable {
         return at.createTransformedShape(s);
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position of the specified glyph relative to the
      * origin of this <code>GlyphVector</code>.
      * If <code>glyphIndex</code> equals the number of of glyphs in
@@ -355,7 +355,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Point2D getGlyphPosition(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the position of the specified glyph within this
      * <code>GlyphVector</code>.
      * If <code>glyphIndex</code> equals the number of of glyphs in
@@ -372,7 +372,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract void setGlyphPosition(int glyphIndex, Point2D newPos);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the transform of the specified glyph within this
      * <code>GlyphVector</code>.  The transform is relative to the
      * glyph position.  If no special transform has been applied,
@@ -388,7 +388,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract AffineTransform getGlyphTransform(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the transform of the specified glyph within this
      * <code>GlyphVector</code>.  The transform is relative to the glyph
      * position.  A <code>null</code> argument for <code>newTX</code>
@@ -405,7 +405,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract void setGlyphTransform(int glyphIndex, AffineTransform newTX);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns flags describing the global state of the GlyphVector.
      * Flags not described below are reserved.  The default
      * implementation returns 0 (meaning false) for the position adjustments,
@@ -425,14 +425,14 @@ public abstract class GlyphVector implements Cloneable {
                 return 0;
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A flag used with getLayoutFlags that indicates that this <code>GlyphVector</code> has
      * per-glyph transforms.
      * @since 1.4
      */
     public static final int FLAG_HAS_TRANSFORMS = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A flag used with getLayoutFlags that indicates that this <code>GlyphVector</code> has
      * position adjustments.  When this is true, the glyph positions don't match the
      * accumulated default advances of the glyphs (for example, if kerning has been done).
@@ -440,7 +440,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public static final int FLAG_HAS_POSITION_ADJUSTMENTS = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A flag used with getLayoutFlags that indicates that this <code>GlyphVector</code> has
      * a right-to-left run direction.  This refers to the glyph-to-char mapping and does
      * not imply that the visual locations of the glyphs are necessarily in this order,
@@ -449,7 +449,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public static final int FLAG_RUN_RTL = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A flag used with getLayoutFlags that indicates that this <code>GlyphVector</code> has
      * a complex glyph-to-char mapping (one that does not map glyphs to chars one-to-one in
      * strictly ascending or descending order matching the run direction).
@@ -457,7 +457,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public static final int FLAG_COMPLEX_GLYPHS = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A mask for supported flags from getLayoutFlags.  Only bits covered by the mask
      * should be tested.
      * @since 1.4
@@ -468,7 +468,7 @@ public abstract class GlyphVector implements Cloneable {
         FLAG_RUN_RTL |
         FLAG_COMPLEX_GLYPHS;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of glyph positions for the specified glyphs.
      * This method is used for convenience and performance when
      * processing glyph positions.
@@ -500,7 +500,7 @@ public abstract class GlyphVector implements Cloneable {
     public abstract float[] getGlyphPositions(int beginGlyphIndex, int numEntries,
                                               float[] positionReturn);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the logical bounds of the specified glyph within this
      * <code>GlyphVector</code>.
      * These logical bounds have a total of four edges, with two edges
@@ -521,7 +521,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Shape getGlyphLogicalBounds(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the visual bounds of the specified glyph within the
      * <code>GlyphVector</code>.
      * The bounds returned by this method is positioned around the
@@ -538,7 +538,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract Shape getGlyphVisualBounds(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the pixel bounds of the glyph at index when this
      * <code>GlyphVector</code> is rendered in a <code>Graphics</code> with the
      * given <code>FontRenderContext</code> at the given location. The
@@ -565,7 +565,7 @@ public abstract class GlyphVector implements Cloneable {
                 return new Rectangle(l, t, r - l, b - t);
         }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the metrics of the glyph at the specified index into
      * this <code>GlyphVector</code>.
      * @param glyphIndex the index into this <code>GlyphVector</code>
@@ -579,7 +579,7 @@ public abstract class GlyphVector implements Cloneable {
      */
     public abstract GlyphMetrics getGlyphMetrics(int glyphIndex);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the justification information for the glyph at
      * the specified index into this <code>GlyphVector</code>.
      * @param glyphIndex the index into this <code>GlyphVector</code>
@@ -599,7 +599,7 @@ public abstract class GlyphVector implements Cloneable {
     // general utility methods
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified <code>GlyphVector</code> exactly
      * equals this <code>GlyphVector</code>.
      * @param set the specified <code>GlyphVector</code> to test

@@ -26,7 +26,7 @@
 package java.lang.ref;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Weak reference objects, which do not prevent their referents from being
  * made finalizable, finalized, and then reclaimed.  Weak references are most
  * often used to implement canonicalizing mappings.
@@ -47,7 +47,7 @@ package java.lang.ref;
 
 public class WeakReference<T> extends Reference<T> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new weak reference that refers to the given object.  The new
      * reference is not registered with any queue.
      *
@@ -57,7 +57,7 @@ public class WeakReference<T> extends Reference<T> {
         super(referent);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new weak reference that refers to the given object and is
      * registered with the given queue.
      *

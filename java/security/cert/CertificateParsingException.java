@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Certificate Parsing Exception. This is thrown whenever an
  * invalid DER-encoded certificate is parsed or unsupported DER features
  * are found in the Certificate.
@@ -36,7 +36,7 @@ public class CertificateParsingException extends CertificateException {
 
     private static final long serialVersionUID = -7989222416793322029L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a CertificateParsingException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -45,7 +45,7 @@ public class CertificateParsingException extends CertificateException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a CertificateParsingException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -56,7 +56,7 @@ public class CertificateParsingException extends CertificateException {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateParsingException</code> with the specified
      * detail message and cause.
      *
@@ -71,7 +71,7 @@ public class CertificateParsingException extends CertificateException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>CertificateParsingException</code> with the
      * specified cause and a detail message of
      * <tt>(cause==null ? null : cause.toString())</tt>

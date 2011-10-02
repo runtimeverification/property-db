@@ -37,7 +37,7 @@ package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 import java.lang.reflect.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A reflection-based utility that enables atomic updates to
  * designated {@code volatile} reference fields of designated
  * classes.  This class is designed for use in atomic data structures
@@ -76,7 +76,7 @@ import java.lang.reflect.*;
  */
 public abstract class AtomicReferenceFieldUpdater<T, V>  {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns an updater for objects with the given field.
      * The Class arguments are needed to check that reflective types and
      * generic types match.
@@ -95,13 +95,13 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
                                                         fieldName);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Protected do-nothing constructor for use by subclasses.
      */
     protected AtomicReferenceFieldUpdater() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
@@ -115,7 +115,7 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
      */
     public abstract boolean compareAndSet(T obj, V expect, V update);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
@@ -133,7 +133,7 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
      */
     public abstract boolean weakCompareAndSet(T obj, V expect, V update);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the field of the given object managed by this updater to the
      * given updated value. This operation is guaranteed to act as a volatile
      * store with respect to subsequent invocations of {@code compareAndSet}.
@@ -143,7 +143,7 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
      */
     public abstract void set(T obj, V newValue);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Eventually sets the field of the given object managed by this
      * updater to the given updated value.
      *
@@ -153,7 +153,7 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
      */
     public abstract void lazySet(T obj, V newValue);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current value held in the field of the given object managed
      * by this updater.
      *
@@ -162,7 +162,7 @@ public abstract class AtomicReferenceFieldUpdater<T, V>  {
      */
     public abstract V get(T obj);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the field of the given object managed by this updater
      * to the given value and returns the old value.
      *

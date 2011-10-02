@@ -27,7 +27,7 @@ package java.awt.datatransfer;
 
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>Transferable</code> which implements the capability required
  * to transfer a <code>String</code>.
  *
@@ -53,7 +53,7 @@ public class StringSelection implements Transferable, ClipboardOwner {
 
     private String data;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>Transferable</code> capable of transferring
      * the specified <code>String</code>.
      */
@@ -61,7 +61,7 @@ public class StringSelection implements Transferable, ClipboardOwner {
         this.data = data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of flavors in which this <code>Transferable</code>
      * can provide the data. <code>DataFlavor.stringFlavor</code>
      * is properly supported.
@@ -77,7 +77,7 @@ public class StringSelection implements Transferable, ClipboardOwner {
         return (DataFlavor[])flavors.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the requested flavor is supported by this
      * <code>Transferable</code>.
      *
@@ -98,7 +98,7 @@ public class StringSelection implements Transferable, ClipboardOwner {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Transferable</code>'s data in the requested
      * <code>DataFlavor</code> if possible. If the desired flavor is
      * <code>DataFlavor.stringFlavor</code>, or an equivalent flavor,

@@ -25,7 +25,7 @@
 
 package java.awt.print;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Pageable</code> implementation represents a set of
  * pages to be printed. The <code>Pageable</code> object returns
  * the total number of pages in the set as well as the
@@ -35,7 +35,7 @@ package java.awt.print;
  */
 public interface Pageable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constant is returned from the
      * {@link #getNumberOfPages() getNumberOfPages}
      * method if a <code>Pageable</code> implementation does not know
@@ -43,7 +43,7 @@ public interface Pageable {
      */
     int UNKNOWN_NUMBER_OF_PAGES = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of pages in the set.
      * To enable advanced printing features,
      * it is recommended that <code>Pageable</code>
@@ -54,7 +54,7 @@ public interface Pageable {
      */
     int getNumberOfPages();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>PageFormat</code> of the page specified by
      * <code>pageIndex</code>.
      * @param pageIndex the zero based index of the page whose
@@ -68,7 +68,7 @@ public interface Pageable {
     PageFormat getPageFormat(int pageIndex)
         throws IndexOutOfBoundsException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Printable</code> instance responsible for
      * rendering the page specified by <code>pageIndex</code>.
      * @param pageIndex the zero based index of the page whose

@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Signals that an I/O exception of some sort has occurred. This
  * class is the general class of exceptions produced by failed or
@@ -41,7 +41,7 @@ public
 class IOException extends Exception {
     static final long serialVersionUID = 7818375828146090155L;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an {@code IOException} with {@code null}
      * as its error detail message.
@@ -51,7 +51,7 @@ class IOException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an {@code IOException} with the specified detail message.
      * {@description.close}
@@ -64,7 +64,7 @@ class IOException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an {@code IOException} with the specified detail message
      * and cause.
@@ -89,7 +89,7 @@ class IOException extends Exception {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an {@code IOException} with the specified cause and a
      * detail message of {@code (cause==null ? null : cause.toString())}

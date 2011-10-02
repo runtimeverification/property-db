@@ -27,7 +27,7 @@ package java.lang;
 import java.util.Random;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The class {@code Math} contains methods for performing basic
  * numeric operations such as the elementary exponential, logarithm,
  * square root, and trigonometric functions.
@@ -86,25 +86,25 @@ import java.util.Random;
 
 public final class Math {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Don't let anyone instantiate this class.
      */
     private Math() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code double} value that is closer than any other to
      * <i>e</i>, the base of the natural logarithms.
      */
     public static final double E = 2.7182818284590452354;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code double} value that is closer than any other to
      * <i>pi</i>, the ratio of the circumference of a circle to its
      * diameter.
      */
     public static final double PI = 3.14159265358979323846;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the trigonometric sine of an angle.  Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the
      * result is NaN.
@@ -121,7 +121,7 @@ public final class Math {
         return StrictMath.sin(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the trigonometric cosine of an angle. Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the
      * result is NaN.</ul>
@@ -136,7 +136,7 @@ public final class Math {
         return StrictMath.cos(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the trigonometric tangent of an angle.  Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the result
      * is NaN.
@@ -153,7 +153,7 @@ public final class Math {
         return StrictMath.tan(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the arc sine of a value; the returned angle is in the
      * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
      * <ul><li>If the argument is NaN or its absolute value is greater
@@ -171,7 +171,7 @@ public final class Math {
         return StrictMath.asin(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the arc cosine of a value; the returned angle is in the
      * range 0.0 through <i>pi</i>.  Special case:
      * <ul><li>If the argument is NaN or its absolute value is greater
@@ -187,7 +187,7 @@ public final class Math {
         return StrictMath.acos(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the arc tangent of a value; the returned angle is in the
      * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
      * <ul><li>If the argument is NaN, then the result is NaN.
@@ -204,7 +204,7 @@ public final class Math {
         return StrictMath.atan(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts an angle measured in degrees to an approximately
      * equivalent angle measured in radians.  The conversion from
      * degrees to radians is generally inexact.
@@ -218,7 +218,7 @@ public final class Math {
         return angdeg / 180.0 * PI;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts an angle measured in radians to an approximately
      * equivalent angle measured in degrees.  The conversion from
      * radians to degrees is generally inexact; users should
@@ -234,7 +234,7 @@ public final class Math {
         return angrad * 180.0 / PI;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns Euler's number <i>e</i> raised to the power of a
      * {@code double} value.  Special cases:
      * <ul><li>If the argument is NaN, the result is NaN.
@@ -254,7 +254,7 @@ public final class Math {
         return StrictMath.exp(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the natural logarithm (base <i>e</i>) of a {@code double}
      * value.  Special cases:
      * <ul><li>If the argument is NaN or less than zero, then the result
@@ -275,7 +275,7 @@ public final class Math {
         return StrictMath.log(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the base 10 logarithm of a {@code double} value.
      * Special cases:
      *
@@ -300,7 +300,7 @@ public final class Math {
         return StrictMath.log10(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the correctly rounded positive square root of a
      * {@code double} value.
      * Special cases:
@@ -326,7 +326,7 @@ public final class Math {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cube root of a {@code double} value.  For
      * positive finite {@code x}, {@code cbrt(-x) ==
      * -cbrt(x)}; that is, the cube root of a negative value is
@@ -356,7 +356,7 @@ public final class Math {
         return StrictMath.cbrt(a);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes the remainder operation on two arguments as prescribed
      * by the IEEE 754 standard.
      * The remainder value is mathematically equal to
@@ -382,7 +382,7 @@ public final class Math {
         return StrictMath.IEEEremainder(f1, f2); // delegate to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the smallest (closest to negative infinity)
      * {@code double} value that is greater than or equal to the
      * argument and is equal to a mathematical integer. Special cases:
@@ -405,7 +405,7 @@ public final class Math {
         return StrictMath.ceil(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the largest (closest to positive infinity)
      * {@code double} value that is less than or equal to the
      * argument and is equal to a mathematical integer. Special cases:
@@ -424,7 +424,7 @@ public final class Math {
         return StrictMath.floor(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code double} value that is closest in value
      * to the argument and is equal to a mathematical integer. If two
      * {@code double} values that are mathematical integers are
@@ -443,7 +443,7 @@ public final class Math {
         return StrictMath.rint(a); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the angle <i>theta</i> from the conversion of rectangular
      * coordinates ({@code x},&nbsp;{@code y}) to polar
      * coordinates (r,&nbsp;<i>theta</i>).
@@ -499,7 +499,7 @@ public final class Math {
         return StrictMath.atan2(y, x); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the first argument raised to the power of the
      * second argument. Special cases:
      *
@@ -626,7 +626,7 @@ public final class Math {
         return StrictMath.pow(a, b); // default impl. delegates to StrictMath
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the closest {@code int} to the argument. The
      * result is rounded to an integer by adding 1/2, taking the
      * floor of the result, and casting the result to type {@code int}.
@@ -652,7 +652,7 @@ public final class Math {
         return (int)floor(a + 0.5f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the closest {@code long} to the argument. The result
      * is rounded to an integer by adding 1/2, taking the floor of the
      * result, and casting the result to type {@code long}. In other
@@ -686,7 +686,7 @@ public final class Math {
             randomNumberGenerator = new Random();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code double} value with a positive sign, greater
      * than or equal to {@code 0.0} and less than {@code 1.0}.
      * Returned values are chosen pseudorandomly with (approximately)
@@ -712,7 +712,7 @@ public final class Math {
         return randomNumberGenerator.nextDouble();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute value of an {@code int} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -729,7 +729,7 @@ public final class Math {
         return (a < 0) ? -a : a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute value of a {@code long} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -746,7 +746,7 @@ public final class Math {
         return (a < 0) ? -a : a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute value of a {@code float} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -765,7 +765,7 @@ public final class Math {
         return (a <= 0.0F) ? 0.0F - a : a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the absolute value of a {@code double} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -784,7 +784,7 @@ public final class Math {
         return (a <= 0.0D) ? 0.0D - a : a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the greater of two {@code int} values. That is, the
      * result is the argument closer to the value of
      * {@link Integer#MAX_VALUE}. If the arguments have the same value,
@@ -798,7 +798,7 @@ public final class Math {
         return (a >= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the greater of two {@code long} values. That is, the
      * result is the argument closer to the value of
      * {@link Long#MAX_VALUE}. If the arguments have the same value,
@@ -815,7 +815,7 @@ public final class Math {
     private static long negativeZeroFloatBits = Float.floatToIntBits(-0.0f);
     private static long negativeZeroDoubleBits = Double.doubleToLongBits(-0.0d);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the greater of two {@code float} values.  That is,
      * the result is the argument closer to positive infinity. If the
      * arguments have the same value, the result is that same
@@ -838,7 +838,7 @@ public final class Math {
         return (a >= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the greater of two {@code double} values.  That
      * is, the result is the argument closer to positive infinity. If
      * the arguments have the same value, the result is that same
@@ -861,7 +861,7 @@ public final class Math {
         return (a >= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the smaller of two {@code int} values. That is,
      * the result the argument closer to the value of
      * {@link Integer#MIN_VALUE}.  If the arguments have the same
@@ -875,7 +875,7 @@ public final class Math {
         return (a <= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the smaller of two {@code long} values. That is,
      * the result is the argument closer to the value of
      * {@link Long#MIN_VALUE}. If the arguments have the same
@@ -889,7 +889,7 @@ public final class Math {
         return (a <= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the smaller of two {@code float} values.  That is,
      * the result is the value closer to negative infinity. If the
      * arguments have the same value, the result is that same
@@ -912,7 +912,7 @@ public final class Math {
         return (a <= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the smaller of two {@code double} values.  That
      * is, the result is the value closer to negative infinity. If the
      * arguments have the same value, the result is that same
@@ -935,7 +935,7 @@ public final class Math {
         return (a <= b) ? a : b;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the size of an ulp of the argument.  An ulp of a
      * {@code double} value is the positive distance between this
      * floating-point value and the {@code double} value next
@@ -962,7 +962,7 @@ public final class Math {
         return sun.misc.FpUtils.ulp(d);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the size of an ulp of the argument.  An ulp of a
      * {@code float} value is the positive distance between this
      * floating-point value and the {@code float} value next
@@ -989,7 +989,7 @@ public final class Math {
         return sun.misc.FpUtils.ulp(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the signum function of the argument; zero if the argument
      * is zero, 1.0 if the argument is greater than zero, -1.0 if the
      * argument is less than zero.
@@ -1010,7 +1010,7 @@ public final class Math {
         return sun.misc.FpUtils.signum(d);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the signum function of the argument; zero if the argument
      * is zero, 1.0f if the argument is greater than zero, -1.0f if the
      * argument is less than zero.
@@ -1031,7 +1031,7 @@ public final class Math {
         return sun.misc.FpUtils.signum(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hyperbolic sine of a {@code double} value.
      * The hyperbolic sine of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/2
@@ -1060,7 +1060,7 @@ public final class Math {
         return StrictMath.sinh(x);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hyperbolic cosine of a {@code double} value.
      * The hyperbolic cosine of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>)/2
@@ -1088,7 +1088,7 @@ public final class Math {
         return StrictMath.cosh(x);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hyperbolic tangent of a {@code double} value.
      * The hyperbolic tangent of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/(<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>),
@@ -1128,7 +1128,7 @@ public final class Math {
         return StrictMath.tanh(x);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
      * without intermediate overflow or underflow.
      *
@@ -1157,7 +1157,7 @@ public final class Math {
         return StrictMath.hypot(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <i>e</i><sup>x</sup>&nbsp;-1.  Note that for values of
      * <i>x</i> near 0, the exact sum of
      * {@code expm1(x)}&nbsp;+&nbsp;1 is much closer to the true
@@ -1195,7 +1195,7 @@ public final class Math {
         return StrictMath.expm1(x);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the natural logarithm of the sum of the argument and 1.
      * Note that for small values {@code x}, the result of
      * {@code log1p(x)} is much closer to the true result of ln(1
@@ -1232,7 +1232,7 @@ public final class Math {
         return StrictMath.log1p(x);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first floating-point argument with the sign of the
      * second floating-point argument.  Note that unlike the {@link
      * StrictMath#copySign(double, double) StrictMath.copySign}
@@ -1251,7 +1251,7 @@ public final class Math {
         return sun.misc.FpUtils.rawCopySign(magnitude, sign);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first floating-point argument with the sign of the
      * second floating-point argument.  Note that unlike the {@link
      * StrictMath#copySign(float, float) StrictMath.copySign}
@@ -1270,7 +1270,7 @@ public final class Math {
         return sun.misc.FpUtils.rawCopySign(magnitude, sign);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the unbiased exponent used in the representation of a
      * {@code float}.  Special cases:
      *
@@ -1288,7 +1288,7 @@ public final class Math {
         return sun.misc.FpUtils.getExponent(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the unbiased exponent used in the representation of a
      * {@code double}.  Special cases:
      *
@@ -1306,7 +1306,7 @@ public final class Math {
         return sun.misc.FpUtils.getExponent(d);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the floating-point number adjacent to the first
      * argument in the direction of the second argument.  If both
      * arguments compare as equal the second argument is returned.
@@ -1350,7 +1350,7 @@ public final class Math {
         return sun.misc.FpUtils.nextAfter(start, direction);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the floating-point number adjacent to the first
      * argument in the direction of the second argument.  If both
      * arguments compare as equal a value equivalent to the second argument
@@ -1393,7 +1393,7 @@ public final class Math {
         return sun.misc.FpUtils.nextAfter(start, direction);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the floating-point value adjacent to {@code d} in
      * the direction of positive infinity.  This method is
      * semantically equivalent to {@code nextAfter(d,
@@ -1422,7 +1422,7 @@ public final class Math {
         return sun.misc.FpUtils.nextUp(d);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the floating-point value adjacent to {@code f} in
      * the direction of positive infinity.  This method is
      * semantically equivalent to {@code nextAfter(f,
@@ -1452,7 +1452,7 @@ public final class Math {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code d} &times;
      * 2<sup>{@code scaleFactor}</sup> rounded as if performed
      * by a single correctly rounded floating-point multiply to a
@@ -1486,7 +1486,7 @@ public final class Math {
         return sun.misc.FpUtils.scalb(d, scaleFactor);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return {@code f} &times;
      * 2<sup>{@code scaleFactor}</sup> rounded as if performed
      * by a single correctly rounded floating-point multiply to a

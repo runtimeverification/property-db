@@ -28,7 +28,7 @@ package java.security.spec;
 import java.math.BigInteger;
 import java.security.spec.MGF1ParameterSpec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class specifies a parameter spec for RSA-PSS signature scheme,
  * as defined in the
  * <a href="http://www.ietf.org/rfc/rfc3447.txt">PKCS#1 v2.1</a>
@@ -83,20 +83,20 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
     private int saltLen = 20;
     private int trailerField = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The PSS parameter set with all default values.
      * @since 1.5
      */
     public static final PSSParameterSpec DEFAULT = new PSSParameterSpec();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>PSSParameterSpec</code> as defined in
      * the PKCS #1 standard using the default values.
      */
     private PSSParameterSpec() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>PSSParameterSpec</code> as defined in
      * the PKCS #1 standard using the specified message digest,
      * mask generation function, parameters for mask generation
@@ -141,7 +141,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         this.trailerField = trailerField;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>PSSParameterSpec</code>
      * using the specified salt length and other default values as
      * defined in PKCS#1.
@@ -159,7 +159,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         this.saltLen = saltLen;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the message digest algorithm name.
      *
      * @return the message digest algorithm name.
@@ -169,7 +169,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         return mdName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the mask generation function algorithm name.
      *
      * @return the mask generation function algorithm name.
@@ -180,7 +180,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         return mgfName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parameters for the mask generation function.
      *
      * @return the parameters for the mask generation function.
@@ -190,7 +190,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         return mgfSpec;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the salt length in bits.
      *
      * @return the salt length.
@@ -199,7 +199,7 @@ public class PSSParameterSpec implements AlgorithmParameterSpec {
         return saltLen;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value for the trailer field, i.e. bc in PKCS#1 v2.1.
      *
      * @return the value for the trailer field, i.e. bc in PKCS#1 v2.1.

@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown by a method invocation on a proxy instance if its invocation
  * handler's {@link InvocationHandler#invoke invoke} method throws a
  * checked exception (a {@code Throwable} that is not assignable
@@ -58,13 +58,13 @@ package java.lang.reflect;
 public class UndeclaredThrowableException extends RuntimeException {
     static final long serialVersionUID = 330127114055056639L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * the undeclared checked exception that was thrown
      * @serial
      */
     private Throwable undeclaredThrowable;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an {@code UndeclaredThrowableException} with the
      * specified {@code Throwable}.
      *
@@ -76,7 +76,7 @@ public class UndeclaredThrowableException extends RuntimeException {
         this.undeclaredThrowable = undeclaredThrowable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an {@code UndeclaredThrowableException} with the
      * specified {@code Throwable} and a detail message.
      *
@@ -91,7 +91,7 @@ public class UndeclaredThrowableException extends RuntimeException {
         this.undeclaredThrowable = undeclaredThrowable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code Throwable} instance wrapped in this
      * {@code UndeclaredThrowableException}, which may be {@code null}.
      *
@@ -105,7 +105,7 @@ public class UndeclaredThrowableException extends RuntimeException {
         return undeclaredThrowable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this exception (the {@code Throwable}
      * instance wrapped in this {@code UndeclaredThrowableException},
      * which may be {@code null}).

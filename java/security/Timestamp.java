@@ -30,7 +30,7 @@ import java.security.cert.CertPath;
 import java.security.cert.X509Extension;
 import java.util.Date;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class encapsulates information about a signed timestamp.
  * It is immutable.
  * It includes the timestamp's date and time as well as information about the
@@ -44,14 +44,14 @@ public final class Timestamp implements Serializable {
 
     private static final long serialVersionUID = -5502683707821851294L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The timestamp's date and time
      *
      * @serial
      */
     private Date timestamp;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The TSA's certificate path.
      *
      * @serial
@@ -63,7 +63,7 @@ public final class Timestamp implements Serializable {
      */
     private transient int myhash = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a Timestamp.
      *
      * @param timestamp is the timestamp's date and time. It must not be null.
@@ -78,7 +78,7 @@ public final class Timestamp implements Serializable {
         this.signerCertPath = signerCertPath;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the date and time when the timestamp was generated.
      *
      * @return The timestamp's date and time.
@@ -87,7 +87,7 @@ public final class Timestamp implements Serializable {
         return new Date(timestamp.getTime()); // clone
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the certificate path for the Timestamping Authority.
      *
      * @return The TSA's certificate path.
@@ -96,7 +96,7 @@ public final class Timestamp implements Serializable {
         return signerCertPath;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this timestamp.
      * The hash code is generated using the date and time of the timestamp
      * and the TSA's certificate path.
@@ -110,7 +110,7 @@ public final class Timestamp implements Serializable {
         return myhash;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests for equality between the specified object and this
      * timestamp. Two timestamps are considered equal if the date and time of
      * their timestamp's and their signer's certificate paths are equal.
@@ -132,7 +132,7 @@ public final class Timestamp implements Serializable {
             signerCertPath.equals(that.getSignerCertPath()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this timestamp.
      *
      * @return A string comprising the date and time of the timestamp and

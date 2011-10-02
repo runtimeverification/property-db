@@ -28,7 +28,7 @@ package java.awt.event;
 import java.awt.Adjustable;
 import java.awt.AWTEvent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The adjustment event emitted by Adjustable objects.
  * @see java.awt.Adjustable
  * @see AdjustmentListener
@@ -38,47 +38,47 @@ import java.awt.AWTEvent;
  */
 public class AdjustmentEvent extends AWTEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the first integer id for the range of adjustment event ids.
      */
     public static final int ADJUSTMENT_FIRST    = 601;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the last integer id for the range of adjustment event ids.
      */
     public static final int ADJUSTMENT_LAST     = 601;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The adjustment value changed event.
      */
     public static final int ADJUSTMENT_VALUE_CHANGED = ADJUSTMENT_FIRST; //Event.SCROLL_LINE_UP
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The unit increment adjustment type.
      */
     public static final int UNIT_INCREMENT      = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The unit decrement adjustment type.
      */
     public static final int UNIT_DECREMENT      = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The block decrement adjustment type.
      */
     public static final int BLOCK_DECREMENT     = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The block increment adjustment type.
      */
     public static final int BLOCK_INCREMENT     = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The absolute tracking adjustment type.
      */
     public static final int TRACK               = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The adjustable object that fired the event.
      *
      * @serial
@@ -86,7 +86,7 @@ public class AdjustmentEvent extends AWTEvent {
      */
     Adjustable adjustable;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <code>value</code> will contain the new value of the
      * adjustable object.  This value will always be  in a
      * range associated adjustable object.
@@ -96,7 +96,7 @@ public class AdjustmentEvent extends AWTEvent {
      */
     int value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>adjustmentType</code> describes how the adjustable
      * object value has changed.
      * This value can be increased/decreased by a block or unit amount
@@ -109,7 +109,7 @@ public class AdjustmentEvent extends AWTEvent {
     int adjustmentType;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>isAdjusting</code> is true if the event is one
      * of the series of multiple adjustment events.
      *
@@ -126,7 +126,7 @@ public class AdjustmentEvent extends AWTEvent {
      private static final long serialVersionUID = 5700290645205279921L;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AdjustmentEvent</code> object with the
      * specified <code>Adjustable</code> source, event type,
      * adjustment type, and value.
@@ -146,7 +146,7 @@ public class AdjustmentEvent extends AWTEvent {
         this(source, id, type, value, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AdjustmentEvent</code> object with the
      * specified Adjustable source, event type, adjustment type, and value.
      * <p>Note that passing in an invalid <code>id</code> results in
@@ -174,7 +174,7 @@ public class AdjustmentEvent extends AWTEvent {
         this.isAdjusting = isAdjusting;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Adjustable</code> object where this event originated.
      *
      * @return the <code>Adjustable</code> object where this event originated
@@ -183,7 +183,7 @@ public class AdjustmentEvent extends AWTEvent {
         return adjustable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value in the adjustment event.
      *
      * @return the current value in the adjustment event
@@ -192,7 +192,7 @@ public class AdjustmentEvent extends AWTEvent {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the type of adjustment which caused the value changed
      * event.  It will have one of the following values:
      * <ul>
@@ -208,7 +208,7 @@ public class AdjustmentEvent extends AWTEvent {
         return adjustmentType;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if this is one of multiple
      * adjustment events.
      *

@@ -29,7 +29,7 @@ import javax.management.openmbean.CompositeData;
 import java.util.concurrent.locks.*;
 import java.beans.ConstructorProperties;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Information about a <em>lock</em>.  A lock can be a built-in object monitor,
  * an <em>ownable synchronizer</em>, or the {@link Condition Condition}
  * object associated with synchronizers.
@@ -59,7 +59,7 @@ public class LockInfo {
     private String className;
     private int    identityHashCode;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>LockInfo</tt> object.
      *
      * @param className the fully qualified name of the class of the lock object.
@@ -75,7 +75,7 @@ public class LockInfo {
         this.identityHashCode = identityHashCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * package-private constructors
      */
     LockInfo(Object lock) {
@@ -83,7 +83,7 @@ public class LockInfo {
         this.identityHashCode = System.identityHashCode(lock);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the fully qualified name of the class of the lock object.
      *
      * @return the fully qualified name of the class of the lock object.
@@ -92,7 +92,7 @@ public class LockInfo {
         return className;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the identity hash code of the lock object
      * returned from the {@link System#identityHashCode} method.
      *
@@ -102,7 +102,7 @@ public class LockInfo {
         return identityHashCode;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of a lock.  The returned
      * string representation consists of the name of the class of the
      * lock object, the at-sign character `@', and the unsigned

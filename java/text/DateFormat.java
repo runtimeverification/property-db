@@ -52,7 +52,7 @@ import java.util.TimeZone;
 import java.util.spi.LocaleServiceProvider;
 import sun.util.LocaleServiceProviderPool;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * DateFormat is an abstract class for date/time formatting subclasses which
  * formats and parses dates or time in a language-independent manner.
  * The date/time formatting subclass, such as SimpleDateFormat, allows for
@@ -142,7 +142,7 @@ import sun.util.LocaleServiceProviderPool;
  */
 public abstract class DateFormat extends Format {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The calendar that <code>DateFormat</code> uses to produce the time field
      * values needed to implement date and time formatting.  Subclasses should
      * initialize this to a calendar appropriate for the locale associated with
@@ -151,7 +151,7 @@ public abstract class DateFormat extends Format {
      */
     protected Calendar calendar;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number formatter that <code>DateFormat</code> uses to format numbers
      * in dates and times.  Subclasses should initialize this to a number format
      * appropriate for the locale associated with this <code>DateFormat</code>.
@@ -159,100 +159,100 @@ public abstract class DateFormat extends Format {
      */
     protected NumberFormat numberFormat;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for ERA field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int ERA_FIELD = 0;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for YEAR field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int YEAR_FIELD = 1;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for MONTH field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int MONTH_FIELD = 2;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for DATE field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int DATE_FIELD = 3;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for one-based HOUR_OF_DAY field alignment.
      * Used in FieldPosition of date/time formatting.
      * HOUR_OF_DAY1_FIELD is used for the one-based 24-hour clock.
      * For example, 23:59 + 01:00 results in 24:59.
      */
     public final static int HOUR_OF_DAY1_FIELD = 4;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for zero-based HOUR_OF_DAY field alignment.
      * Used in FieldPosition of date/time formatting.
      * HOUR_OF_DAY0_FIELD is used for the zero-based 24-hour clock.
      * For example, 23:59 + 01:00 results in 00:59.
      */
     public final static int HOUR_OF_DAY0_FIELD = 5;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for MINUTE field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int MINUTE_FIELD = 6;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for SECOND field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int SECOND_FIELD = 7;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for MILLISECOND field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int MILLISECOND_FIELD = 8;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for DAY_OF_WEEK field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int DAY_OF_WEEK_FIELD = 9;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for DAY_OF_YEAR field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int DAY_OF_YEAR_FIELD = 10;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for DAY_OF_WEEK_IN_MONTH field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int DAY_OF_WEEK_IN_MONTH_FIELD = 11;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for WEEK_OF_YEAR field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int WEEK_OF_YEAR_FIELD = 12;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for WEEK_OF_MONTH field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int WEEK_OF_MONTH_FIELD = 13;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for AM_PM field alignment.
      * Used in FieldPosition of date/time formatting.
      */
     public final static int AM_PM_FIELD = 14;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for one-based HOUR field alignment.
      * Used in FieldPosition of date/time formatting.
      * HOUR1_FIELD is used for the one-based 12-hour clock.
      * For example, 11:30 PM + 1 hour results in 12:30 AM.
      */
     public final static int HOUR1_FIELD = 15;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for zero-based HOUR field alignment.
      * Used in FieldPosition of date/time formatting.
      * HOUR0_FIELD is used for the zero-based 12-hour clock.
      * For example, 11:30 PM + 1 hour results in 00:30 AM.
      */
     public final static int HOUR0_FIELD = 16;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Useful constant for TIMEZONE field alignment.
      * Used in FieldPosition of date/time formatting.
      */
@@ -261,7 +261,7 @@ public abstract class DateFormat extends Format {
     // Proclaim serial compatibility with 1.1 FCS
     private static final long serialVersionUID = 7218322306649953788L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overrides Format.
      * Formats a time object into a time string. Examples of time objects
      * are a time value expressed in milliseconds and a Date object.
@@ -298,7 +298,7 @@ public abstract class DateFormat extends Format {
             throw new IllegalArgumentException("Cannot format given Object as a Date");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats a Date into a date/time string.
      * @param date a Date to be formatted into a date/time string.
      * @param toAppendTo the string buffer for the returning date/time string.
@@ -323,7 +323,7 @@ public abstract class DateFormat extends Format {
     public abstract StringBuffer format(Date date, StringBuffer toAppendTo,
                                         FieldPosition fieldPosition);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats a Date into a date/time string.
      * @param date the time value to be formatted into a time string.
      * @return the formatted time string.
@@ -334,7 +334,7 @@ public abstract class DateFormat extends Format {
                       DontCareFieldPosition.INSTANCE).toString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses text from the beginning of the given string to produce a date.
      * The method may not use the entire text of the given string.
      * <p>
@@ -356,7 +356,7 @@ public abstract class DateFormat extends Format {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parse a date/time string according to the given parse position.  For
      * example, a time text "07/10/96 4:5 PM, PDT" will be parsed into a Date
      * that is equivalent to Date(837039928046).
@@ -378,7 +378,7 @@ public abstract class DateFormat extends Format {
      */
     public abstract Date parse(String source, ParsePosition pos);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses text from a string to produce a <code>Date</code>.
      * <p>
      * The method attempts to parse text starting at the index given by
@@ -406,28 +406,28 @@ public abstract class DateFormat extends Format {
         return parse(source, pos);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for full style pattern.
      */
     public static final int FULL = 0;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for long style pattern.
      */
     public static final int LONG = 1;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for medium style pattern.
      */
     public static final int MEDIUM = 2;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for short style pattern.
      */
     public static final int SHORT = 3;
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant for default style pattern.  Its value is MEDIUM.
      */
     public static final int DEFAULT = MEDIUM;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the time formatter with the default formatting style
      * for the default locale.
      * @return a time formatter.
@@ -437,7 +437,7 @@ public abstract class DateFormat extends Format {
         return get(DEFAULT, 0, 1, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the time formatter with the given formatting style
      * for the default locale.
      * @param style the given formatting style. For example,
@@ -449,7 +449,7 @@ public abstract class DateFormat extends Format {
         return get(style, 0, 1, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the time formatter with the given formatting style
      * for the given locale.
      * @param style the given formatting style. For example,
@@ -463,7 +463,7 @@ public abstract class DateFormat extends Format {
         return get(style, 0, 1, aLocale);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date formatter with the default formatting style
      * for the default locale.
      * @return a date formatter.
@@ -473,7 +473,7 @@ public abstract class DateFormat extends Format {
         return get(0, DEFAULT, 2, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date formatter with the given formatting style
      * for the default locale.
      * @param style the given formatting style. For example,
@@ -485,7 +485,7 @@ public abstract class DateFormat extends Format {
         return get(0, style, 2, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date formatter with the given formatting style
      * for the given locale.
      * @param style the given formatting style. For example,
@@ -499,7 +499,7 @@ public abstract class DateFormat extends Format {
         return get(0, style, 2, aLocale);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date/time formatter with the default formatting style
      * for the default locale.
      * @return a date/time formatter.
@@ -509,7 +509,7 @@ public abstract class DateFormat extends Format {
         return get(DEFAULT, DEFAULT, 3, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date/time formatter with the given date and time
      * formatting styles for the default locale.
      * @param dateStyle the given date formatting style. For example,
@@ -524,7 +524,7 @@ public abstract class DateFormat extends Format {
         return get(timeStyle, dateStyle, 3, Locale.getDefault());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the date/time formatter with the given formatting styles
      * for the given locale.
      * @param dateStyle the given date formatting style.
@@ -538,7 +538,7 @@ public abstract class DateFormat extends Format {
         return get(timeStyle, dateStyle, 3, aLocale);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get a default date/time formatter that uses the SHORT style for both the
      * date and the time.
      */
@@ -546,7 +546,7 @@ public abstract class DateFormat extends Format {
         return getDateTimeInstance(SHORT, SHORT);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all locales for which the
      * <code>get*Instance</code> methods of this class can return
      * localized instances.
@@ -566,7 +566,7 @@ public abstract class DateFormat extends Format {
         return pool.getAvailableLocales();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the calendar to be used by this date format.  Initially, the default
      * calendar for the specified or default locale is used.
      * @param newCalendar the new Calendar to be used by the date format
@@ -576,7 +576,7 @@ public abstract class DateFormat extends Format {
         this.calendar = newCalendar;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the calendar associated with this date/time formatter.
      * @return the calendar associated with this date/time formatter.
      */
@@ -585,7 +585,7 @@ public abstract class DateFormat extends Format {
         return calendar;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allows you to set the number formatter.
      * @param newNumberFormat the given new NumberFormat.
      */
@@ -594,7 +594,7 @@ public abstract class DateFormat extends Format {
         this.numberFormat = newNumberFormat;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number formatter which this date/time formatter uses to
      * format and parse a time.
      * @return the number formatter which this date/time formatter uses.
@@ -604,7 +604,7 @@ public abstract class DateFormat extends Format {
         return numberFormat;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the time zone for the calendar of this DateFormat object.
      * @param zone the given new time zone.
      */
@@ -613,7 +613,7 @@ public abstract class DateFormat extends Format {
         calendar.setTimeZone(zone);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the time zone.
      * @return the time zone associated with the calendar of DateFormat.
      */
@@ -622,7 +622,7 @@ public abstract class DateFormat extends Format {
         return calendar.getTimeZone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specify whether or not date/time parsing is to be lenient.  With
      * lenient parsing, the parser may use heuristics to interpret inputs that
      * do not precisely match this object's format.  With strict parsing,
@@ -635,7 +635,7 @@ public abstract class DateFormat extends Format {
         calendar.setLenient(lenient);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tell whether date/time parsing is to be lenient.
      */
     public boolean isLenient()
@@ -643,7 +643,7 @@ public abstract class DateFormat extends Format {
         return calendar.isLenient();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overrides hashCode
      */
     public int hashCode() {
@@ -651,7 +651,7 @@ public abstract class DateFormat extends Format {
         // just enough fields for a reasonable distribution
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overrides equals
      */
     public boolean equals(Object obj) {
@@ -666,7 +666,7 @@ public abstract class DateFormat extends Format {
                 numberFormat.equals(other.numberFormat));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overrides Cloneable
      */
     public Object clone()
@@ -677,7 +677,7 @@ public abstract class DateFormat extends Format {
         return other;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a DateFormat with the given time and/or date style in the given
      * locale.
      * @param timeStyle a value from 0 to 3 indicating the time format,
@@ -727,12 +727,12 @@ public abstract class DateFormat extends Format {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new date format.
      */
     protected DateFormat() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Defines constants that are used as attribute keys in the
      * <code>AttributedCharacterIterator</code> returned
      * from <code>DateFormat.formatToCharacterIterator</code> and as
@@ -756,10 +756,10 @@ public abstract class DateFormat extends Format {
         private static final Field[] calendarToFieldMapping =
                                              new Field[Calendar.FIELD_COUNT];
 
-        /** {@collect.stats} Calendar field. */
+        /** {@collect.stats}  Calendar field. */
         private int calendarField;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the <code>Field</code> constant that corresponds to
          * the <code>Calendar</code> constant <code>calendarField</code>.
          * If there is no direct mapping between the <code>Calendar</code>
@@ -780,7 +780,7 @@ public abstract class DateFormat extends Format {
             return calendarToFieldMapping[calendarField];
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates a <code>Field</code>.
          *
          * @param name the name of the <code>Field</code>
@@ -802,7 +802,7 @@ public abstract class DateFormat extends Format {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the <code>Calendar</code> field associated with this
          * attribute. For example, if this represents the hours field of
          * a <code>Calendar</code>, this would return
@@ -816,7 +816,7 @@ public abstract class DateFormat extends Format {
             return calendarField;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Resolves instances being deserialized to the predefined constants.
          *
          * @throws InvalidObjectException if the constant could not be
@@ -840,114 +840,114 @@ public abstract class DateFormat extends Format {
         // The constants
         //
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the era field.
          */
         public final static Field ERA = new Field("era", Calendar.ERA);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the year field.
          */
         public final static Field YEAR = new Field("year", Calendar.YEAR);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the month field.
          */
         public final static Field MONTH = new Field("month", Calendar.MONTH);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the day of month field.
          */
         public final static Field DAY_OF_MONTH = new
                             Field("day of month", Calendar.DAY_OF_MONTH);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the hour of day field, where the legal values
          * are 1 to 24.
          */
         public final static Field HOUR_OF_DAY1 = new Field("hour of day 1",-1);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the hour of day field, where the legal values
          * are 0 to 23.
          */
         public final static Field HOUR_OF_DAY0 = new
                Field("hour of day", Calendar.HOUR_OF_DAY);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the minute field.
          */
         public final static Field MINUTE =new Field("minute", Calendar.MINUTE);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the second field.
          */
         public final static Field SECOND =new Field("second", Calendar.SECOND);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the millisecond field.
          */
         public final static Field MILLISECOND = new
                 Field("millisecond", Calendar.MILLISECOND);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the day of week field.
          */
         public final static Field DAY_OF_WEEK = new
                 Field("day of week", Calendar.DAY_OF_WEEK);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the day of year field.
          */
         public final static Field DAY_OF_YEAR = new
                 Field("day of year", Calendar.DAY_OF_YEAR);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the day of week field.
          */
         public final static Field DAY_OF_WEEK_IN_MONTH =
                      new Field("day of week in month",
                                             Calendar.DAY_OF_WEEK_IN_MONTH);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the week of year field.
          */
         public final static Field WEEK_OF_YEAR = new
               Field("week of year", Calendar.WEEK_OF_YEAR);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the week of month field.
          */
         public final static Field WEEK_OF_MONTH = new
             Field("week of month", Calendar.WEEK_OF_MONTH);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the time of day indicator
          * (e.g. "a.m." or "p.m.") field.
          */
         public final static Field AM_PM = new
                             Field("am pm", Calendar.AM_PM);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the hour field, where the legal values are
          * 1 to 12.
          */
         public final static Field HOUR1 = new Field("hour 1", -1);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the hour field, where the legal values are
          * 0 to 11.
          */
         public final static Field HOUR0 = new
                             Field("hour", Calendar.HOUR);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Constant identifying the time zone field.
          */
         public final static Field TIME_ZONE = new Field("time zone", -1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Obtains a DateFormat instance from a DateFormatProvider
      * implementation.
      */

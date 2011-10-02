@@ -27,7 +27,7 @@ package java.security;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is a simple holder for a key pair (a public key and a
  * private key). It does not enforce any security, and, when initialized,
  * should be treated like a PrivateKey.
@@ -45,7 +45,7 @@ public final class KeyPair implements java.io.Serializable {
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a key pair from the given public key and private key.
      *
      * <p>Note that this constructor only stores references to the public
@@ -61,7 +61,7 @@ public final class KeyPair implements java.io.Serializable {
         this.privateKey = privateKey;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a reference to the public key component of this key pair.
      *
      * @return a reference to the public key.
@@ -70,7 +70,7 @@ public final class KeyPair implements java.io.Serializable {
         return publicKey;
     }
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
      * Returns a reference to the private key component of this key pair.
      *
      * @return a reference to the private key.

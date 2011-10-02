@@ -27,7 +27,7 @@ package java.sql;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Enumeration for RowId life-time values.
  *
  * @since 1.6
@@ -35,31 +35,31 @@ import java.util.*;
 
 public enum RowIdLifetime {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that this data source does not support the ROWID type.
      */
     ROWID_UNSUPPORTED,
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the lifetime of a RowId from this data source is indeterminate;
      * but not one of ROWID_VALID_TRANSACTION, ROWID_VALID_SESSION, or,
      * ROWID_VALID_FOREVER.
      */
     ROWID_VALID_OTHER,
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the lifetime of a RowId from this data source is at least the
      * containing session.
      */
     ROWID_VALID_SESSION,
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the lifetime of a RowId from this data source is at least the
      * containing transaction.
      */
     ROWID_VALID_TRANSACTION,
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates that the lifetime of a RowId from this data source is, effectively,
      * unlimited.
      */

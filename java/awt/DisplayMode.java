@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>DisplayMode</code> class encapsulates the bit depth, height,
  * width, and refresh rate of a <code>GraphicsDevice</code>. The ability to
  * change graphics device's display mode is platform- and
@@ -49,7 +49,7 @@ public final class DisplayMode {
     private int bitDepth;
     private int refreshRate;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a new display mode object with the supplied parameters.
      * @param width the width of the display, in pixels
      * @param height the height of the display, in pixels
@@ -68,7 +68,7 @@ public final class DisplayMode {
         this.refreshRate = refreshRate;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the height of the display, in pixels.
      * @return the height of the display, in pixels
      */
@@ -76,7 +76,7 @@ public final class DisplayMode {
         return size.height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the width of the display, in pixels.
      * @return the width of the display, in pixels
      */
@@ -84,14 +84,14 @@ public final class DisplayMode {
         return size.width;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the bit depth if multiple bit depths are supported in this
      * display mode.
      * @see #getBitDepth
      */
     public final static int BIT_DEPTH_MULTI = -1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bit depth of the display, in bits per pixel.  This may be
      * <code>BIT_DEPTH_MULTI</code> if multiple bit depths are supported in
      * this display mode.
@@ -103,13 +103,13 @@ public final class DisplayMode {
         return bitDepth;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value of the refresh rate if not known.
      * @see #getRefreshRate
      */
     public final static int REFRESH_RATE_UNKNOWN = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the refresh rate of the display, in hertz.  This may be
      * <code>REFRESH_RATE_UNKNOWN</code> if the information is not available.
      *
@@ -120,7 +120,7 @@ public final class DisplayMode {
         return refreshRate;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether the two display modes are equal.
      * @return whether the two display modes are equal
      */
@@ -134,7 +134,7 @@ public final class DisplayMode {
             && getRefreshRate() == dm.getRefreshRate());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public boolean equals(Object dm) {
@@ -145,7 +145,7 @@ public final class DisplayMode {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      */
     public int hashCode() {

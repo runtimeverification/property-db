@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p> This exception is thrown by the AccessController to indicate
  * that a requested access (to a critical system resource such as the
  * file system or the network) is denied.
@@ -47,7 +47,7 @@ public class AccessControlException extends SecurityException {
     // the permission that caused the exeception to be thrown.
     private Permission perm;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AccessControlException</code> with the
      * specified, detailed message.
      *
@@ -57,7 +57,7 @@ public class AccessControlException extends SecurityException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>AccessControlException</code> with the
      * specified, detailed message, and the requested permission that caused
      * the exception.
@@ -70,7 +70,7 @@ public class AccessControlException extends SecurityException {
         perm = p;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Permission object associated with this exeception, or
      * null if there was no corresponding Permission object.
      *

@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An object that can be used to get information about the types
  * and properties of the columns in a <code>ResultSet</code> object.
  * The following code fragment creates the <code>ResultSet</code> object rs,
@@ -44,7 +44,7 @@ package java.sql;
 
 public interface ResultSetMetaData extends Wrapper {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of columns in this <code>ResultSet</code> object.
      *
      * @return the number of columns
@@ -52,7 +52,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int getColumnCount() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the designated column is automatically numbered.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -61,7 +61,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isAutoIncrement(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether a column's case matters.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -70,7 +70,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isCaseSensitive(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the designated column can be used in a where clause.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -79,7 +79,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isSearchable(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the designated column is a cash value.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -88,7 +88,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isCurrency(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates the nullability of values in the designated column.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -98,25 +98,25 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int isNullable(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The constant indicating that a
      * column does not allow <code>NULL</code> values.
      */
     int columnNoNulls = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The constant indicating that a
      * column allows <code>NULL</code> values.
      */
     int columnNullable = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The constant indicating that the
      * nullability of a column's values is unknown.
      */
     int columnNullableUnknown = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether values in the designated column are signed numbers.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -125,7 +125,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isSigned(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates the designated column's normal maximum width in characters.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -135,7 +135,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int getColumnDisplaySize(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the designated column's suggested title for use in printouts and
      * displays. The suggested title is usually specified by the SQL <code>AS</code>
      * clause.  If a SQL <code>AS</code> is not specified, the value returned from
@@ -148,7 +148,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getColumnLabel(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the designated column's name.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -157,7 +157,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getColumnName(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the designated column's table's schema.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -166,7 +166,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getSchemaName(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the designated column's specified column size.
      * For numeric data, this is the maximum precision.  For character data, this is the length in characters.
      * For datetime datatypes, this is the length in characters of the String representation (assuming the
@@ -180,7 +180,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int getPrecision(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the designated column's number of digits to right of the decimal point.
      * 0 is returned for data types where the scale is not applicable.
      *
@@ -190,7 +190,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int getScale(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the designated column's table name.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -199,7 +199,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getTableName(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the designated column's table's catalog name.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -209,7 +209,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getCatalogName(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the designated column's SQL type.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -219,7 +219,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     int getColumnType(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the designated column's database-specific type name.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -229,7 +229,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     String getColumnTypeName(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the designated column is definitely not writable.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -238,7 +238,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isReadOnly(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether it is possible for a write on the designated column to succeed.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -247,7 +247,7 @@ public interface ResultSetMetaData extends Wrapper {
      */
     boolean isWritable(int column) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether a write on the designated column will definitely succeed.
      *
      * @param column the first column is 1, the second is 2, ...
@@ -258,7 +258,7 @@ public interface ResultSetMetaData extends Wrapper {
 
     //--------------------------JDBC 2.0-----------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>Returns the fully-qualified name of the Java class whose instances
      * are manufactured if the method <code>ResultSet.getObject</code>
      * is called to retrieve a value

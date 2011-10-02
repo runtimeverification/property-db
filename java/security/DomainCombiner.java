@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>DomainCombiner</code> provides a means to dynamically
  * update the ProtectionDomains associated with the current
  * <code>AccessControlContext</code>.
@@ -80,7 +80,7 @@ package java.security;
  */
 public interface DomainCombiner {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Modify or update the provided ProtectionDomains.
      * ProtectionDomains may be added to or removed from the given
      * ProtectionDomains.  The ProtectionDomains may be re-ordered.

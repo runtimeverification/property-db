@@ -34,7 +34,7 @@ import sun.awt.geom.Curve;
 import sun.awt.geom.Crossings;
 import sun.awt.geom.AreaOp;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>Area</code> object stores and manipulates a
  * resolution-independent description of an enclosed area of
  * 2-dimensional space.
@@ -101,7 +101,7 @@ public class Area implements Shape, Cloneable {
 
     private Vector curves;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Default constructor which creates an empty area.
      * @since 1.2
      */
@@ -109,7 +109,7 @@ public class Area implements Shape, Cloneable {
         curves = EmptyCurves;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>Area</code> class creates an area geometry from the
      * specified {@link Shape} object.  The geometry is explicitly
      * closed, if the <code>Shape</code> is not already closed.  The
@@ -195,7 +195,7 @@ public class Area implements Shape, Cloneable {
         return operator.calculate(curves, EmptyCurves);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the shape of the specified <code>Area</code> to the
      * shape of this <code>Area</code>.
      * The resulting shape of this <code>Area</code> will include
@@ -228,7 +228,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subtracts the shape of the specified <code>Area</code> from the
      * shape of this <code>Area</code>.
      * The resulting shape of this <code>Area</code> will include
@@ -261,7 +261,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the shape of this <code>Area</code> to the intersection of
      * its current shape and the shape of the specified <code>Area</code>.
      * The resulting shape of this <code>Area</code> will include
@@ -294,7 +294,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the shape of this <code>Area</code> to be the combined area
      * of its current shape and the shape of the specified <code>Area</code>,
      * minus their intersection.
@@ -328,7 +328,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the geometry from this <code>Area</code> and
      * restores it to an empty area.
      * @since 1.2
@@ -338,7 +338,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this <code>Area</code> object encloses any area.
      * @return    <code>true</code> if this <code>Area</code> object
      * represents an empty area; <code>false</code> otherwise.
@@ -348,7 +348,7 @@ public class Area implements Shape, Cloneable {
         return (curves.size() == 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this <code>Area</code> consists entirely of
      * straight edged polygonal geometry.
      * @return    <code>true</code> if the geometry of this
@@ -366,7 +366,7 @@ public class Area implements Shape, Cloneable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this <code>Area</code> is rectangular in shape.
      * @return    <code>true</code> if the geometry of this
      * <code>Area</code> is rectangular in shape; <code>false</code>
@@ -396,7 +396,7 @@ public class Area implements Shape, Cloneable {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether this <code>Area</code> is comprised of a single
      * closed subpath.  This method returns <code>true</code> if the
      * path contains 0 or 1 subpaths, or <code>false</code> if the path
@@ -441,7 +441,7 @@ public class Area implements Shape, Cloneable {
         return (cachedBounds = r);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a high precision bounding {@link Rectangle2D} that
      * completely encloses this <code>Area</code>.
      * <p>
@@ -458,7 +458,7 @@ public class Area implements Shape, Cloneable {
         return getCachedBounds().getBounds2D();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a bounding {@link Rectangle} that completely encloses
      * this <code>Area</code>.
      * <p>
@@ -478,7 +478,7 @@ public class Area implements Shape, Cloneable {
         return getCachedBounds().getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an exact copy of this <code>Area</code> object.
      * @return    Created clone object
      * @since 1.2
@@ -487,7 +487,7 @@ public class Area implements Shape, Cloneable {
         return new Area(this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether the geometries of the two <code>Area</code> objects
      * are equal.
      * This method will return false if the argument is null.
@@ -511,7 +511,7 @@ public class Area implements Shape, Cloneable {
         return c.isEmpty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transforms the geometry of this <code>Area</code> using the specified
      * {@link AffineTransform}.  The geometry is transformed in place, which
      * permanently changes the enclosed area defined by this object.
@@ -529,7 +529,7 @@ public class Area implements Shape, Cloneable {
         invalidateBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>Area</code> object that contains the same
      * geometry as this <code>Area</code> transformed by the specified
      * <code>AffineTransform</code>.  This <code>Area</code> object
@@ -547,7 +547,7 @@ public class Area implements Shape, Cloneable {
         return a;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -564,7 +564,7 @@ public class Area implements Shape, Cloneable {
         return ((crossings & 1) == 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -572,7 +572,7 @@ public class Area implements Shape, Cloneable {
         return contains(p.getX(), p.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -587,7 +587,7 @@ public class Area implements Shape, Cloneable {
         return (c != null && c.covers(y, y+h));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -595,7 +595,7 @@ public class Area implements Shape, Cloneable {
         return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -610,7 +610,7 @@ public class Area implements Shape, Cloneable {
         return (c == null || !c.isEmpty());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -618,7 +618,7 @@ public class Area implements Shape, Cloneable {
         return intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a {@link PathIterator} for the outline of this
      * <code>Area</code> object.  This <code>Area</code> object is unchanged.
      * @param at an optional <code>AffineTransform</code> to be applied to
@@ -633,7 +633,7 @@ public class Area implements Shape, Cloneable {
         return new AreaIterator(curves, at);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>PathIterator</code> for the flattened outline of
      * this <code>Area</code> object.  Only uncurved path segments
      * represented by the SEG_MOVETO, SEG_LINETO, and SEG_CLOSE point

@@ -29,7 +29,7 @@ import java.lang.annotation.*;
 import java.lang.annotation.ElementType;
 import static java.lang.annotation.ElementType.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Indicates that the named compiler warnings should be suppressed in the
  * annotated element (and in all program elements contained in the annotated
  * element).  Note that the set of warnings suppressed in a given element is
@@ -48,7 +48,7 @@ import static java.lang.annotation.ElementType.*;
 @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
 @Retention(RetentionPolicy.SOURCE)
 public @interface SuppressWarnings {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The set of warnings that are to be suppressed by the compiler in the
      * annotated element.  Duplicate names are permitted.  The second and
      * successive occurrences of a name are ignored.  The presence of

@@ -29,7 +29,7 @@ import java.awt.Point;
 
 import java.util.EventObject;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class is the base class for
  * <code>DragSourceDragEvent</code> and
  * <code>DragSourceDropEvent</code>.
@@ -61,7 +61,7 @@ public class DragSourceEvent extends EventObject {
 
     private static final long serialVersionUID = -763287114604032641L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>boolean</code> indicating whether the cursor location
      * is specified for this event.
      *
@@ -69,7 +69,7 @@ public class DragSourceEvent extends EventObject {
      */
     private final boolean locationSpecified;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The horizontal coordinate for the cursor location at the moment this
      * event occured if the cursor location is specified for this event;
      * otherwise zero.
@@ -78,7 +78,7 @@ public class DragSourceEvent extends EventObject {
      */
     private final int x;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The vertical coordinate for the cursor location at the moment this event
      * occured if the cursor location is specified for this event;
      * otherwise zero.
@@ -87,7 +87,7 @@ public class DragSourceEvent extends EventObject {
      */
     private final int y;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragSourceEvent</code>
      * given a specified <code>DragSourceContext</code>.
      * The coordinates for this <code>DragSourceEvent</code>
@@ -108,7 +108,7 @@ public class DragSourceEvent extends EventObject {
         this.y = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragSourceEvent</code> given a specified
      * <code>DragSourceContext</code>, and coordinates of the cursor
      * location.
@@ -128,7 +128,7 @@ public class DragSourceEvent extends EventObject {
         this.y = y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the <code>DragSourceContext</code> that
      * originated the event.
      * <P>
@@ -139,7 +139,7 @@ public class DragSourceEvent extends EventObject {
         return (DragSourceContext)getSource();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns a <code>Point</code> indicating the cursor
      * location in screen coordinates at the moment this event occured, or
      * <code>null</code> if the cursor location is not specified for this
@@ -157,7 +157,7 @@ public class DragSourceEvent extends EventObject {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the horizontal coordinate of the cursor location in
      * screen coordinates at the moment this event occured, or zero if the
      * cursor location is not specified for this event.
@@ -170,7 +170,7 @@ public class DragSourceEvent extends EventObject {
         return x;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the vertical coordinate of the cursor location in
      * screen coordinates at the moment this event occured, or zero if the
      * cursor location is not specified for this event.

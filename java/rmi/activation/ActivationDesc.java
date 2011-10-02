@@ -28,7 +28,7 @@ package java.rmi.activation;
 import java.io.Serializable;
 import java.rmi.MarshalledObject;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An activation descriptor contains the information necessary to
  * activate an object: <ul>
  * <li> the object's group identifier,
@@ -51,35 +51,35 @@ import java.rmi.MarshalledObject;
  */
 public final class ActivationDesc implements Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the group's identifier
      */
     private ActivationGroupID groupID;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the object's class name
      */
     private String className;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the object's code location
      */
     private String location;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial the object's initialization data
      */
     private MarshalledObject<?> data;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial indicates whether the object should be restarted
      */
     private boolean restart;
 
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = 7455834104417690957L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object descriptor for an object whose class name
      * is <code>className</code>, that can be loaded from the
      * code <code>location</code> and whose initialization
@@ -116,7 +116,7 @@ public final class ActivationDesc implements Serializable {
              className, location, data, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object descriptor for an object whose class name
      * is <code>className</code>, that can be loaded from the
      * code <code>location</code> and whose initialization
@@ -154,7 +154,7 @@ public final class ActivationDesc implements Serializable {
              className, location, data, restart);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object descriptor for an object whose class name
      * is <code>className</code> that can be loaded from the
      * code <code>location</code> and whose initialization
@@ -186,7 +186,7 @@ public final class ActivationDesc implements Serializable {
         this(groupID, className, location, data, false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object descriptor for an object whose class name
      * is <code>className</code> that can be loaded from the
      * code <code>location</code> and whose initialization
@@ -225,7 +225,7 @@ public final class ActivationDesc implements Serializable {
         this.restart = restart;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group identifier for the object specified by this
      * descriptor. A group provides a way to aggregate objects into a
      * single Java virtual machine. RMI creates/activates objects with
@@ -238,7 +238,7 @@ public final class ActivationDesc implements Serializable {
         return groupID;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class name for the object specified by this
      * descriptor.
      * @return the class name
@@ -248,7 +248,7 @@ public final class ActivationDesc implements Serializable {
         return className;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the code location for the object specified by
      * this descriptor.
      * @return the code location
@@ -258,7 +258,7 @@ public final class ActivationDesc implements Serializable {
         return location;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a "marshalled object" containing intialization/activation
      * data for the object specified by this descriptor.
      * @return the object specific "initialization" data
@@ -268,7 +268,7 @@ public final class ActivationDesc implements Serializable {
         return data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the "restart" mode of the object associated with
      * this activation descriptor.
      *
@@ -286,7 +286,7 @@ public final class ActivationDesc implements Serializable {
         return restart;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two activation descriptors for content equality.
      *
      * @param   obj     the Object to compare with
@@ -314,7 +314,7 @@ public final class ActivationDesc implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the same hashCode for similar <code>ActivationDesc</code>s.
      * @return an integer
      * @see java.util.Hashtable

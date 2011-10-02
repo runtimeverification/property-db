@@ -28,7 +28,7 @@ package java.rmi.server;
 import java.io.*;
 import java.net.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>RMIClientSocketFactory</code> instance is used by the RMI runtime
  * in order to obtain client sockets for RMI calls.  A remote object can be
  * associated with an <code>RMIClientSocketFactory</code> when it is
@@ -61,7 +61,7 @@ import java.net.*;
  */
 public interface RMIClientSocketFactory {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a client socket connected to the specified host and port.
      * @param  host   the host name
      * @param  port   the port number

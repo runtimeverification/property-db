@@ -36,7 +36,7 @@ import java.lang.ref.WeakReference;
 import java.nio.charset.CoderMalfunctionError;                  // javadoc
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An engine that can transform a sequence of $itypesPhrase$ into a sequence of
  * $otypesPhrase$.
  *
@@ -158,7 +158,7 @@ public abstract class Charset$Coder$ {
         = { "RESET", "CODING", "CODING_END", "FLUSHED" };
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new $coder$.  The new $coder$ will have the given
      * $otypes-per-itype$ and replacement values. </p>
      *
@@ -203,7 +203,7 @@ public abstract class Charset$Coder$ {
         replaceWith(replacement);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new $coder$.  The new $coder$ will have the given
      * $otypes-per-itype$ values and its replacement will be the
      * $replTypeName$ $defaultReplName$. </p>
@@ -228,7 +228,7 @@ public abstract class Charset$Coder$ {
              $defaultRepl$);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the charset that created this $coder$.  </p>
      *
      * @return  This $coder$'s charset
@@ -237,7 +237,7 @@ public abstract class Charset$Coder$ {
         return charset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this $coder$'s replacement value. </p>
      *
      * @return  This $coder$'s current replacement,
@@ -247,7 +247,7 @@ public abstract class Charset$Coder$ {
         return replacement;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes this $coder$'s replacement value.
      *
      * <p> This method invokes the {@link #implReplaceWith implReplaceWith}
@@ -289,7 +289,7 @@ public abstract class Charset$Coder$ {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports a change to this $coder$'s replacement value.
      *
      * <p> The default implementation of this method does nothing.  This method
@@ -305,7 +305,7 @@ public abstract class Charset$Coder$ {
 
     private WeakReference cachedDecoder = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not the given byte array is a legal replacement value
      * for this encoder.
      *
@@ -341,7 +341,7 @@ public abstract class Charset$Coder$ {
 
 #end[encoder]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this $coder$'s current action for malformed-input errors.  </p>
      *
      * @return The current malformed-input action, which is never <tt>null</tt>
@@ -350,7 +350,7 @@ public abstract class Charset$Coder$ {
         return malformedInputAction;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes this $coder$'s action for malformed-input errors.  </p>
      *
      * <p> This method invokes the {@link #implOnMalformedInput
@@ -371,7 +371,7 @@ public abstract class Charset$Coder$ {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports a change to this $coder$'s malformed-input action.
      *
      * <p> The default implementation of this method does nothing.  This method
@@ -380,7 +380,7 @@ public abstract class Charset$Coder$ {
      */
     protected void implOnMalformedInput(CodingErrorAction newAction) { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this $coder$'s current action for unmappable-character errors.
      * </p>
      *
@@ -391,7 +391,7 @@ public abstract class Charset$Coder$ {
         return unmappableCharacterAction;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Changes this $coder$'s action for unmappable-character errors.
      *
      * <p> This method invokes the {@link #implOnUnmappableCharacter
@@ -414,7 +414,7 @@ public abstract class Charset$Coder$ {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports a change to this $coder$'s unmappable-character action.
      *
      * <p> The default implementation of this method does nothing.  This method
@@ -423,7 +423,7 @@ public abstract class Charset$Coder$ {
      */
     protected void implOnUnmappableCharacter(CodingErrorAction newAction) { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the average number of $otype$s that will be produced for each
      * $itype$ of input.  This heuristic value may be used to estimate the size
      * of the output buffer required for a given input sequence. </p>
@@ -435,7 +435,7 @@ public abstract class Charset$Coder$ {
         return average$ItypesPerOtype$;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum number of $otype$s that will be produced for each
      * $itype$ of input.  This value may be used to compute the worst-case size
      * of the output buffer required for a given input sequence. </p>
@@ -447,7 +447,7 @@ public abstract class Charset$Coder$ {
         return max$ItypesPerOtype$;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * $Code$s as many $itype$s as possible from the given input buffer,
      * writing the results to the given output buffer.
      *
@@ -606,7 +606,7 @@ public abstract class Charset$Coder$ {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flushes this $coder$.
      *
      * <p> Some $coder$s maintain internal state and may need to write some
@@ -659,7 +659,7 @@ public abstract class Charset$Coder$ {
         return CoderResult.UNDERFLOW; // Already flushed
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flushes this $coder$.
      *
      * <p> The default implementation of this method does nothing, and always
@@ -677,7 +677,7 @@ public abstract class Charset$Coder$ {
         return CoderResult.UNDERFLOW;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets this $coder$, clearing any internal state.
      *
      * <p> This method resets charset-independent state and also invokes the
@@ -693,7 +693,7 @@ public abstract class Charset$Coder$ {
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets this $coder$, clearing any charset-specific internal state.
      *
      * <p> The default implementation of this method does nothing.  This method
@@ -701,7 +701,7 @@ public abstract class Charset$Coder$ {
      */
     protected void implReset() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * $Code$s one or more $itype$s into one or more $otype$s.
      *
      * <p> This method encapsulates the basic $coding$ loop, $coding$ as many
@@ -739,7 +739,7 @@ public abstract class Charset$Coder$ {
     protected abstract CoderResult $code$Loop($Itype$Buffer in,
                                               $Otype$Buffer out);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method that $code$s the remaining content of a single input
      * $itype$ buffer into a newly-allocated $otype$ buffer.
      *
@@ -803,7 +803,7 @@ public abstract class Charset$Coder$ {
 
 #if[decoder]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this decoder implements an auto-detecting charset.
      *
      * <p> The default implementation of this method always returns
@@ -817,7 +817,7 @@ public abstract class Charset$Coder$ {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this decoder has yet detected a
      * charset&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -847,7 +847,7 @@ public abstract class Charset$Coder$ {
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the charset that was detected by this
      * decoder&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -900,7 +900,7 @@ public abstract class Charset$Coder$ {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this encoder can encode the given character.
      *
      * <p> This method returns <tt>false</tt> if the given character is a
@@ -930,7 +930,7 @@ public abstract class Charset$Coder$ {
         return canEncode(cb);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this encoder can encode the given character
      * sequence.
      *

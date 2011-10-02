@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The root interface in the <i>collection hierarchy</i>.  A collection
  * represents a group of objects, known as its <i>elements</i>.  Some
  * collections allow duplicate elements and others do not.  Some are ordered
@@ -124,7 +124,7 @@ package java.util;
 public interface Collection<E> extends Iterable<E> {
     // Query Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this collection.  If this collection
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
@@ -133,14 +133,14 @@ public interface Collection<E> extends Iterable<E> {
      */
     int size();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this collection contains no elements.
      *
      * @return <tt>true</tt> if this collection contains no elements
      */
     boolean isEmpty();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this collection contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this collection
      * contains at least one element <tt>e</tt> such that
@@ -156,7 +156,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean contains(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this collection.  There are no
      * guarantees concerning the order in which the elements are returned
      * (unless this collection is an instance of some class that provides a
@@ -166,7 +166,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     Iterator<E> iterator();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this collection.
      * If this collection makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the elements in
@@ -184,7 +184,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     Object[] toArray();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this collection;
      * the runtime type of the returned array is that of the specified array.
      * If the collection fits in the specified array, it is returned therein.
@@ -230,7 +230,7 @@ public interface Collection<E> extends Iterable<E> {
 
     // Modification Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Ensures that this collection contains the specified element (optional
      * operation).  Returns <tt>true</tt> if this collection changed as a
      * result of the call.  (Returns <tt>false</tt> if this collection does
@@ -265,7 +265,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean add(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a single instance of the specified element from this
      * collection, if it is present (optional operation).  More formally,
      * removes an element <tt>e</tt> such that
@@ -288,7 +288,7 @@ public interface Collection<E> extends Iterable<E> {
 
     // Bulk Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this collection contains all of the elements
      * in the specified collection.
      *
@@ -305,7 +305,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean containsAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds all of the elements in the specified collection to this collection
      * (optional operation).  The behavior of this operation is undefined if
      * the specified collection is modified while the operation is in progress.
@@ -331,7 +331,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean addAll(Collection<? extends E> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of this collection's elements that are also contained in the
      * specified collection (optional operation).  After this call returns,
      * this collection will contain no elements in common with the specified
@@ -353,7 +353,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean removeAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retains only the elements in this collection that are contained in the
      * specified collection (optional operation).  In other words, removes from
      * this collection all of its elements that are not contained in the
@@ -374,7 +374,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean retainAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this collection (optional operation).
      * The collection will be empty after this method returns.
      *
@@ -386,7 +386,7 @@ public interface Collection<E> extends Iterable<E> {
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this collection for equality. <p>
      *
      * While the <tt>Collection</tt> interface adds no stipulations to the
@@ -421,7 +421,7 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean equals(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this collection.  While the
      * <tt>Collection</tt> interface adds no stipulations to the general
      * contract for the <tt>Object.hashCode</tt> method, programmers should

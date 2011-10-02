@@ -48,7 +48,7 @@ import java.util.TreeMap;
 import sun.awt.AppContext;
 import sun.reflect.misc.ReflectUtil;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The Introspector class provides a standard way for tools to learn about
  * the properties, events, and methods supported by a target Java Bean.
  * <p>
@@ -156,7 +156,7 @@ public class Introspector {
     //                          Public methods
     //======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Introspect on a Java Bean and learn about all its properties, exposed
      * methods, and events.
      * <p>
@@ -192,7 +192,7 @@ public class Introspector {
         return bi;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Introspect on a Java bean and learn about all its properties, exposed
      * methods, and events, subject to some control flags.
      * <p>
@@ -218,7 +218,7 @@ public class Introspector {
         return getBeanInfo(beanClass, null, flags);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Introspect on a Java bean and learn all about its properties, exposed
      * methods, below a given "stop" point.
      * <p>
@@ -238,7 +238,7 @@ public class Introspector {
         return getBeanInfo(beanClass, stopClass, USE_ALL_BEANINFO);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Only called from the public getBeanInfo methods. This method caches
      * the Introspected BeanInfo based on the arguments.
      */
@@ -258,7 +258,7 @@ public class Introspector {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Utility method to take a string and convert it to normal Java variable
      * name capitalization.  This normally means converting the first
      * character from upper case to lower case, but in the (unusual) special
@@ -284,7 +284,7 @@ public class Introspector {
         return new String(chars);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the list of package names that will be used for
      *          finding BeanInfo classes.
      *
@@ -303,7 +303,7 @@ public class Introspector {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Change the list of package names that will be used for
      *          finding BeanInfo classes.  The behaviour of
      *          this method is undefined if parameter path
@@ -328,7 +328,7 @@ public class Introspector {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flush all of the Introspector's internal caches.  This method is
      * not normally required.  It is normally only needed by advanced
      * tools that update existing "Class" objects in-place and need
@@ -343,7 +343,7 @@ public class Introspector {
         declaredMethodCache.clear();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flush the Introspector's internal cached information for a given class.
      * This method is not normally required.  It is normally only needed
      * by advanced tools that update existing "Class" objects in-place
@@ -411,7 +411,7 @@ public class Introspector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a GenericBeanInfo class from the state of the Introspector
      */
     private BeanInfo getBeanInfo() throws IntrospectionException {
@@ -432,7 +432,7 @@ public class Introspector {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Looks for an explicit BeanInfo class that corresponds to the Class.
      * First it looks in the existing package that the Class is defined in,
      * then it checks to see if the class is its own BeanInfo. Finally,
@@ -501,7 +501,7 @@ public class Introspector {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return An array of PropertyDescriptors describing the editable
      * properties supported by the target bean.
      */
@@ -623,7 +623,7 @@ public class Introspector {
 
     private HashMap pdStore = new HashMap();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the property descriptor to the list store.
      */
     private void addPropertyDescriptor(PropertyDescriptor pd) {
@@ -679,7 +679,7 @@ public class Introspector {
         return descriptors;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Populates the property descriptor table by merging the
      * lists of Property descriptors.
      */
@@ -859,7 +859,7 @@ public class Introspector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the property descriptor to the indexedproperty descriptor only if the
      * types are the same.
      *
@@ -938,7 +938,7 @@ public class Introspector {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return An array of EventSetDescriptors describing the kinds of
      * events fired by the target bean.
      */
@@ -1141,7 +1141,7 @@ public class Introspector {
         events.put(key, composite);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return An array of MethodDescriptors describing the private
      * methods supported by the target bean.
      */
@@ -1253,7 +1253,7 @@ public class Introspector {
         methods.put(longKey, composite);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a key for a method in a method cache.
      */
     private static String makeQualifiedMethodName(String name, String[] params) {
@@ -1343,7 +1343,7 @@ public class Introspector {
     // Package private support methods.
     //======================================================================
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Internal support for finding a target methodName with a given
      * parameter list on a given class.
      */
@@ -1402,14 +1402,14 @@ public class Introspector {
         return method;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find a target methodName on a given class.
      */
     static Method findMethod(Class cls, String methodName, int argCount) {
         return findMethod(cls, methodName, argCount, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Find a target methodName with specific parameter list on a given class.
      * <p>
      * Used in the contructors of the EventSetDescriptor,
@@ -1429,7 +1429,7 @@ public class Introspector {
         return internalFindMethod(cls, methodName, argCount, args);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true if class a is either equivalent to class b, or
      * if class a is a subclass of class b, i.e. if a either "extends"
      * or "implements" b.
@@ -1461,7 +1461,7 @@ public class Introspector {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return true iff the given method throws the given exception.
      */
     private boolean throwsException(Method method, Class exception) {
@@ -1475,7 +1475,7 @@ public class Introspector {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Try to create an instance of a named class.
      * First try the classloader of "sibling", then try the system
      * classloader then the class loader of the current Thread.
@@ -1493,7 +1493,7 @@ public class Introspector {
 
 //===========================================================================
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Package private implementation support class for Introspector's
  * internal use.
  * <p>
@@ -1523,7 +1523,7 @@ class GenericBeanInfo extends SimpleBeanInfo {
         this.targetBeanInfo = targetBeanInfo;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private dup constructor
      * This must isolate the new object from any changes to the old object.
      */

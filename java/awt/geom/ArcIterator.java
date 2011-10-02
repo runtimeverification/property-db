@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A utility class to iterate over the path segments of an arc
  * through the PathIterator interface.
  *
@@ -81,7 +81,7 @@ class ArcIterator implements PathIterator {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the winding rule for determining the insideness of the
      * path.
      * @see #WIND_EVEN_ODD
@@ -91,7 +91,7 @@ class ArcIterator implements PathIterator {
         return WIND_NON_ZERO;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if there are more points to read.
      * @return true if there are more points to read
      */
@@ -99,7 +99,7 @@ class ArcIterator implements PathIterator {
         return index > arcSegs + lineSegs;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -190,7 +190,7 @@ class ArcIterator implements PathIterator {
         return 4.0 / 3.0 * Math.sin(increment) / (1.0 + Math.cos(increment));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -250,7 +250,7 @@ class ArcIterator implements PathIterator {
         return SEG_CUBICTO;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

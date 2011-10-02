@@ -28,7 +28,7 @@ import java.rmi.*;
 import sun.rmi.server.UnicastServerRef;
 import sun.rmi.runtime.Log;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>RemoteServer</code> class is the common superclass to server
  * implementations and provides the framework to support a wide range
  * of remote reference semantics.  Specifically, the functions needed
@@ -44,7 +44,7 @@ public abstract class RemoteServer extends RemoteObject
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -4100238210092549637L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteServer</code>.
      * @since JDK1.1
      */
@@ -52,7 +52,7 @@ public abstract class RemoteServer extends RemoteObject
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteServer</code> with the given reference type.
      *
      * @param ref the remote reference
@@ -62,7 +62,7 @@ public abstract class RemoteServer extends RemoteObject
         super(ref);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of the client host for the
      * remote method invocation being processed in the current thread.
      *
@@ -77,7 +77,7 @@ public abstract class RemoteServer extends RemoteObject
         return sun.rmi.transport.tcp.TCPTransport.getClientHost();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log RMI calls to the output stream <code>out</code>. If
      * <code>out</code> is <code>null</code>, call logging is turned off.
      *
@@ -99,7 +99,7 @@ public abstract class RemoteServer extends RemoteObject
         UnicastServerRef.callLog.setOutputStream(out);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns stream for the RMI call log.
      * @return the call log
      * @see #setLog

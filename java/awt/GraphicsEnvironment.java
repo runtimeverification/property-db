@@ -31,7 +31,7 @@ import java.util.Locale;
 import sun.java2d.HeadlessGraphicsEnvironment;
 import sun.java2d.SunGraphicsEnvironment;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * The <code>GraphicsEnvironment</code> class describes the collection
  * of {@link GraphicsDevice} objects and {@link java.awt.Font} objects
@@ -50,24 +50,24 @@ import sun.java2d.SunGraphicsEnvironment;
 public abstract class GraphicsEnvironment {
     private static GraphicsEnvironment localEnv;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The headless state of the Toolkit and GraphicsEnvironment
      */
     private static Boolean headless;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The headless state assumed by default
      */
     private static Boolean defaultHeadless;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class and cannot be instantiated directly.
      * Instances must be obtained from a suitable factory or query method.
      */
     protected GraphicsEnvironment() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the local <code>GraphicsEnvironment</code>.
      * @return the local <code>GraphicsEnvironment</code>
      */
@@ -100,7 +100,7 @@ public abstract class GraphicsEnvironment {
         return localEnv;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether or not a display, keyboard, and mouse can be
      * supported in this environment.  If this method returns true,
      * a HeadlessException is thrown from areas of the Toolkit
@@ -116,7 +116,7 @@ public abstract class GraphicsEnvironment {
         return getHeadlessProperty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return warning message if headless state is assumed by default;
      * null otherwise
      * @since 1.5
@@ -130,7 +130,7 @@ public abstract class GraphicsEnvironment {
             "but this program performed an operation which requires it.";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return the value of the property "java.awt.headless"
      * @since 1.4
      */
@@ -164,7 +164,7 @@ public abstract class GraphicsEnvironment {
         return headless.booleanValue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check for headless state and throw HeadlessException if headless
      * @since 1.4
      */
@@ -174,7 +174,7 @@ public abstract class GraphicsEnvironment {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not a display, keyboard, and mouse can be
      * supported in this graphics environment.  If this returns true,
      * <code>HeadlessException</code> will be thrown from areas of the
@@ -193,7 +193,7 @@ public abstract class GraphicsEnvironment {
         return getHeadlessProperty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all of the screen <code>GraphicsDevice</code>
      * objects.
      * @return an array containing all the <code>GraphicsDevice</code>
@@ -204,7 +204,7 @@ public abstract class GraphicsEnvironment {
     public abstract GraphicsDevice[] getScreenDevices()
         throws HeadlessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default screen <code>GraphicsDevice</code>.
      * @return the <code>GraphicsDevice</code> that represents the
      * default screen device
@@ -214,7 +214,7 @@ public abstract class GraphicsEnvironment {
     public abstract GraphicsDevice getDefaultScreenDevice()
         throws HeadlessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Graphics2D</code> object for rendering into the
      * specified {@link BufferedImage}.
      * @param img the specified <code>BufferedImage</code>
@@ -224,7 +224,7 @@ public abstract class GraphicsEnvironment {
      */
     public abstract Graphics2D createGraphics(BufferedImage img);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing a one-point size instance of all fonts
      * available in this <code>GraphicsEnvironment</code>.  Typical usage
      * would be to allow a user to select a particular font.  Then, the
@@ -252,7 +252,7 @@ public abstract class GraphicsEnvironment {
      */
     public abstract Font[] getAllFonts();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing the names of all font families in this
      * <code>GraphicsEnvironment</code> localized for the default locale,
      * as returned by <code>Locale.getDefault()</code>.
@@ -273,7 +273,7 @@ public abstract class GraphicsEnvironment {
      */
     public abstract String[] getAvailableFontFamilyNames();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing the names of all font families in this
      * <code>GraphicsEnvironment</code> localized for the specified locale.
      * <p>
@@ -297,7 +297,7 @@ public abstract class GraphicsEnvironment {
      */
     public abstract String[] getAvailableFontFamilyNames(Locale l);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers a <i>created</i> <code>Font</code>in this
      * <code>GraphicsEnvironment</code>.
      * A created font is one that was returned from calling
@@ -334,7 +334,7 @@ public abstract class GraphicsEnvironment {
         return sun.font.FontManager.registerFont(font);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates a preference for locale-specific fonts in the mapping of
      * logical fonts to physical fonts. Calling this method indicates that font
      * rendering should primarily use fonts specific to the primary writing
@@ -358,7 +358,7 @@ public abstract class GraphicsEnvironment {
         sun.font.FontManager.preferLocaleFonts();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates a preference for proportional over non-proportional (e.g.
      * dual-spaced CJK fonts) fonts in the mapping of logical fonts to
      * physical fonts. If the default mapping contains fonts for which
@@ -378,7 +378,7 @@ public abstract class GraphicsEnvironment {
         sun.font.FontManager.preferProportionalFonts();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Point where Windows should be centered.
      * It is recommended that centered Windows be checked to ensure they fit
      * within the available display area using getMaximumWindowBounds().
@@ -397,7 +397,7 @@ public abstract class GraphicsEnvironment {
                          (usableBounds.height / 2) + usableBounds.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the maximum bounds for centered Windows.
      * These bounds account for objects in the native windowing system such as
      * task bars and menu bars.  The returned bounds will reside on a single

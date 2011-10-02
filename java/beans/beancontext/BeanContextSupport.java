@@ -59,7 +59,7 @@ import java.util.Locale;
 import java.util.Map;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This helper class provides a utility implementation of the
  * java.beans.beancontext.BeanContext interface.
  * </p>
@@ -81,7 +81,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     // Fix for bug 4282900 to pass JCK regression test
     static final long serialVersionUID = -4879613978649577204L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Construct a BeanContextSupport instance
      *
@@ -110,7 +110,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         initialize();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an instance using the specified Locale and design mode.
      *
      * @param peer      The peer <tt>BeanContext</tt> we
@@ -129,7 +129,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         this (peer, lcle, dtime, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an instance using the specified locale
      *
      * @param peer      The peer BeanContext we are
@@ -149,7 +149,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         this (peer, lcle, false, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an instance using with a default locale
      *
      * @param peer      The peer <tt>BeanContext</tt> we are
@@ -161,7 +161,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         this (peer, null, false, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create an instance that is not a delegate of another object
      */
 
@@ -169,14 +169,14 @@ public class      BeanContextSupport extends BeanContextChildSupport
         this (null, null, false, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the instance of <tt>BeanContext</tt> that
      * this object is providing the implementation for.
      * @return the BeanContext instance
      */
     public BeanContext getBeanContextPeer() { return (BeanContext)getBeanContextChildPeer(); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * The instantiateChild method is a convenience hook
      * in BeanContext to simplify
@@ -200,7 +200,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return Beans.instantiate(bc.getClass().getClassLoader(), beanName, bc);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of children currently nested in
      * this BeanContext.
      *
@@ -212,7 +212,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether or not this
      * <tt>BeanContext</tt> is empty.
      * A <tt>BeanContext</tt> is considered
@@ -226,7 +226,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether or not the specified object
      * is currently a child of this <tt>BeanContext</tt>.
      * @param o the Object in question
@@ -238,7 +238,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether or not the specified object
      * is currently a child of this <tt>BeanContext</tt>.
      * @param o the Object in question
@@ -250,7 +250,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets all JavaBean or <tt>BeanContext</tt> instances
      * currently nested in this <tt>BeanContext</tt>.
      * @return an <tt>Iterator</tt> of the nested children
@@ -261,7 +261,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets all JavaBean or <tt>BeanContext</tt>
      * instances currently nested in this BeanContext.
      */
@@ -271,7 +271,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets an array containing all children of
      * this <tt>BeanContext</tt> that match
      * the types contained in arry.
@@ -286,9 +286,9 @@ public class      BeanContextSupport extends BeanContextChildSupport
     }
 
 
-    /** {@collect.stats}**********************************************************************/
+    /** {@collect.stats} **********************************************************************/
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * protected final subclass that encapsulates an iterator but implements
      * a noop remove() method.
      */
@@ -303,7 +303,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         private Iterator src;
     }
 
-    /** {@collect.stats}**********************************************************************/
+    /** {@collect.stats} **********************************************************************/
 
     /*
      * protected nested class containing per child information, an instance
@@ -345,7 +345,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         private transient boolean  removePending;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Subclasses can override this method to insert their own subclass
      * of Child without having to override add() or the other Collection
@@ -360,9 +360,9 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return new BCSChild(targetChild, peer);
     }
 
-    /** {@collect.stats}**********************************************************************/
+    /** {@collect.stats} **********************************************************************/
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds/nests a child within this <tt>BeanContext</tt>.
      * <p>
      * Invoked as a side effect of java.beans.Beans.instantiate().
@@ -474,7 +474,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a child from this BeanContext.  If the child object is not
      * for adding then this method throws an IllegalStateException.
      * @param targetChild The child objects to remove
@@ -484,7 +484,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return remove(targetChild, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * internal remove used when removal caused by
      * unexpected <tt>setBeanContext</tt> or
      * by <tt>remove()</tt> invocation.
@@ -556,7 +556,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests to see if all objects in the
      * specified <tt>Collection</tt> are children of
      * this <tt>BeanContext</tt>.
@@ -577,7 +577,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * add Collection to set of Children (Unsupported)
      * implementations must synchronized on the hierarchy lock and "children" protected field
      * @throws UnsupportedOperationException
@@ -586,7 +586,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * remove all specified children (Unsupported)
      * implementations must synchronized on the hierarchy lock and "children" protected field
      * @throws UnsupportedOperationException
@@ -596,7 +596,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * retain only specified children (Unsupported)
      * implementations must synchronized on the hierarchy lock and "children" protected field
      * @throws UnsupportedOperationException
@@ -605,7 +605,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * clear the children (Unsupported)
      * implementations must synchronized on the hierarchy lock and "children" protected field
      * @throws UnsupportedOperationException
@@ -614,7 +614,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         throw new UnsupportedOperationException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a BeanContextMembershipListener
      *
      * @param  bcml the BeanContextMembershipListener to add
@@ -632,7 +632,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a BeanContextMembershipListener
      *
      * @param  bcml the BeanContextMembershipListener to remove
@@ -650,7 +650,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @param name the name of the resource requested.
      * @param bcc  the child object making the request.
      *
@@ -670,7 +670,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         } else throw new IllegalArgumentException("Not a valid child");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @param name the name of the resource requested.
      * @param bcc  the child object making the request.
      *
@@ -689,7 +689,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         } else throw new IllegalArgumentException("Not a valid child");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the new design time value for this <tt>BeanContext</tt>.
      * @param dTime the new designTime value
      */
@@ -702,7 +702,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reports whether or not this object is in
      * currently in design time mode.
      * @return <tt>true</tt> if in design time mode,
@@ -710,7 +710,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
      */
     public synchronized boolean isDesignTime() { return designTime; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the locale of this BeanContext.
      * @param newLocale the new locale. This method call will have
      *        no effect if newLocale is <CODE>null</CODE>.
@@ -729,14 +729,14 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the locale for this <tt>BeanContext</tt>.
      *
      * @return the current Locale of the <tt>BeanContext</tt>
      */
     public synchronized Locale getLocale() { return locale; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * This method is typically called from the environment in order to determine
      * if the implementor "needs" a GUI.
@@ -776,7 +776,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * notify this instance that it may no longer render a GUI.
      */
 
@@ -795,7 +795,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Notify this instance that it may now render a GUI
      */
 
@@ -814,7 +814,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Used to determine if the <tt>BeanContext</tt>
      * child is avoiding using its GUI.
      * @return is this instance avoiding using its GUI?
@@ -824,7 +824,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return !okToUseGui && needsGui();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Is this <tt>BeanContext</tt> in the
      * process of being serialized?
      * @return if this <tt>BeanContext</tt> is
@@ -832,14 +832,14 @@ public class      BeanContextSupport extends BeanContextChildSupport
      */
     public boolean isSerializing() { return serializing; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator of all children
      * of this <tt>BeanContext</tt>.
      * @return an iterator for all the current BCSChild values
      */
     protected Iterator bcsChildren() { synchronized(children) { return children.values().iterator();  } }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * called by writeObject after defaultWriteObject() but prior to
      * serialization of currently serializable children.
      *
@@ -854,7 +854,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     protected void bcsPreSerializationHook(ObjectOutputStream oos) throws IOException {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * called by readObject after defaultReadObject() but prior to
      * deserialization of any children.
      *
@@ -869,7 +869,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     protected void bcsPreDeserializationHook(ObjectInputStream ois) throws IOException, ClassNotFoundException {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called by readObject with the newly deserialized child and BCSChild.
      * @param child the newly deserialized child
      * @param bcsc the newly deserialized BCSChild
@@ -880,7 +880,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Used by writeObject to serialize a Collection.
      * @param oos the <tt>ObjectOutputStream</tt>
      * to use during serialization
@@ -910,7 +910,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * used by readObject to deserialize a collection.
      * @param ois the ObjectInputStream to use
      * @param coll the Collection
@@ -925,7 +925,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Used to serialize all children of
      * this <tt>BeanContext</tt>.
      * @param oos the <tt>ObjectOutputStream</tt>
@@ -968,7 +968,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serialize the BeanContextSupport, if this instance has a distinct
      * peer (that is this object is acting as a delegate for another) then
      * the children of this instance are not serialized here due to a
@@ -1001,7 +1001,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * When an instance of this class is used as a delegate for the
      * implementation of the BeanContext protocols (and its subprotocols)
      * there exists a 'chicken and egg' problem during deserialization
@@ -1050,7 +1050,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * deserialize contents ... if this instance has a distinct peer the
      * children are *not* serialized here, the peer's readObject() must call
      * readChildren() after deserializing this instance.
@@ -1072,7 +1072,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * subclasses may envelope to monitor veto child property changes.
      */
 
@@ -1092,7 +1092,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * subclasses may envelope to monitor child property changes.
      */
 
@@ -1115,7 +1115,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Subclasses of this class may override, or envelope, this method to
      * add validation behavior for the BeanContext to examine child objects
@@ -1129,7 +1129,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * <p>
      * Subclasses of this class may override, or envelope, this method to
      * add validation behavior for the BeanContext to examine child objects
@@ -1143,7 +1143,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * subclasses may override this method to simply extend add() semantics
      * after the child has been added and before the event notification has
      * occurred. The method is called with the child synchronized.
@@ -1152,7 +1152,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     protected void childJustAddedHook(Object child, BCSChild bcsc) {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * subclasses may override this method to simply extend remove() semantics
      * after the child has been removed and before the event notification has
      * occurred. The method is called with the child synchronized.
@@ -1161,7 +1161,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
     protected void childJustRemovedHook(Object child, BCSChild bcsc) {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Component (if any) associated with the specified child.
      * @param child the specified child
      * @return the Component (if any) associated with the specified child.
@@ -1174,7 +1174,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Serializable (if any) associated with the specified Child
      * @param child the specified child
      * @return the Serializable (if any) associated with the specified Child
@@ -1187,7 +1187,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the PropertyChangeListener
      * (if any) of the specified child
      * @param child the specified child
@@ -1201,7 +1201,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the VetoableChangeListener
      * (if any) of the specified child
      * @param child the specified child
@@ -1215,7 +1215,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the BeanContextMembershipListener
      * (if any) of the specified child
      * @param child the specified child
@@ -1229,7 +1229,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the BeanContextChild (if any) of the specified child
      * @param child the specified child
      * @return  the BeanContextChild (if any) of the specified child
@@ -1252,7 +1252,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fire a BeanContextshipEvent on the BeanContextMembershipListener interface
      */
 
@@ -1265,7 +1265,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
             ((BeanContextMembershipListener)copy[i]).childrenAdded(bcme);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Fire a BeanContextshipEvent on the BeanContextMembershipListener interface
      */
 
@@ -1278,7 +1278,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
             ((BeanContextMembershipListener)copy[i]).childrenRemoved(bcme);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * protected method called from constructor and readObject to initialize
      * transient state of BeanContextSupport instance.
      *
@@ -1322,7 +1322,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         };
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a copy of the this BeanContext's children.
      * @return a copy of the current nested children
      */
@@ -1330,7 +1330,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
         synchronized(children) { return children.keySet().toArray(); }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests to see if two class objects,
      * or their names are equal.
      * @param first the first object
@@ -1347,7 +1347,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
      */
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * all accesses to the <code> protected HashMap children </code> field
      * shall be synchronized on that object.
      */
@@ -1355,7 +1355,7 @@ public class      BeanContextSupport extends BeanContextChildSupport
 
     private             int             serializable  = 0; // children serializable
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * all accesses to the <code> protected ArrayList bcmListeners </code> field
      * shall be synchronized on that object.
      */
@@ -1363,19 +1363,19 @@ public class      BeanContextSupport extends BeanContextChildSupport
 
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The current locale of this BeanContext.
      */
     protected           Locale          locale;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <tt>boolean</tt> indicating if this
      * instance may now render a GUI.
      */
     protected           boolean         okToUseGui;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <tt>boolean</tt> indicating whether or not
      * this object is currently in design time mode.
      */

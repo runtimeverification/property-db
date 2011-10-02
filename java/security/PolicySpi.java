@@ -26,7 +26,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Policy</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -44,7 +44,7 @@ package java.security;
 
 public abstract class PolicySpi {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check whether the policy has granted a Permission to a ProtectionDomain.
      *
      * @param domain the ProtectionDomain to check.
@@ -57,7 +57,7 @@ public abstract class PolicySpi {
     protected abstract boolean engineImplies
         (ProtectionDomain domain, Permission permission);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Refreshes/reloads the policy configuration. The behavior of this method
      * depends on the implementation. For example, calling <code>refresh</code>
      * on a file-based policy will cause the file to be re-read.
@@ -68,7 +68,7 @@ public abstract class PolicySpi {
      */
     protected void engineRefresh() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a PermissionCollection object containing the set of
      * permissions granted to the specified CodeSource.
      *
@@ -92,7 +92,7 @@ public abstract class PolicySpi {
         return Policy.UNSUPPORTED_EMPTY_COLLECTION;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return a PermissionCollection object containing the set of
      * permissions granted to the specified ProtectionDomain.
      *

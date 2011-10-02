@@ -26,7 +26,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A parameter that contains a URI pointing to data intended for a
  * PolicySpi or ConfigurationSpi implementation.
  *
@@ -37,7 +37,7 @@ public class URIParameter implements
 
     private java.net.URI uri;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a URIParameter with the URI pointing to
      * data intended for an SPI implementation.
      *
@@ -52,7 +52,7 @@ public class URIParameter implements
         this.uri = uri;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the URI.
      *
      * @return uri the URI.

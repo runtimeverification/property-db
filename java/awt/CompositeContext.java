@@ -28,7 +28,7 @@ package java.awt;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>CompositeContext</code> interface defines the encapsulated
  * and optimized environment for a compositing operation.
  * <code>CompositeContext</code> objects maintain state for
@@ -39,12 +39,12 @@ import java.awt.image.WritableRaster;
  */
 
 public interface CompositeContext {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Releases resources allocated for a context.
      */
     public void dispose();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Composes the two source {@link Raster} objects and
      * places the result in the destination
      * {@link WritableRaster}.  Note that the destination

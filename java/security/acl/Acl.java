@@ -28,7 +28,7 @@ package java.security.acl;
 import java.util.Enumeration;
 import java.security.Principal;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interface representing an Access Control List (ACL).  An Access
  * Control List is a data structure used to guard access to
  * resources.<p>
@@ -90,7 +90,7 @@ import java.security.Principal;
 
 public interface Acl extends Owner {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the name of this ACL.
      *
      * @param caller the principal invoking this method. It must be an
@@ -106,7 +106,7 @@ public interface Acl extends Owner {
     public void setName(Principal caller, String name)
       throws NotOwnerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of this ACL.
      *
      * @return the name of this ACL.
@@ -115,7 +115,7 @@ public interface Acl extends Owner {
      */
     public String getName();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an ACL entry to this ACL. An entry associates a principal
      * (e.g., an individual or a group) with a set of
      * permissions. Each principal can have at most one positive ACL
@@ -139,7 +139,7 @@ public interface Acl extends Owner {
     public boolean addEntry(Principal caller, AclEntry entry)
       throws NotOwnerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes an ACL entry from this ACL.
      *
      * @param caller the principal invoking this method. It must be an
@@ -155,7 +155,7 @@ public interface Acl extends Owner {
     public boolean removeEntry(Principal caller, AclEntry entry)
           throws NotOwnerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration for the set of allowed permissions for the
      * specified principal (representing an entity such as an individual or
      * a group). This set of allowed permissions is calculated as
@@ -202,7 +202,7 @@ public interface Acl extends Owner {
      */
     public Enumeration<Permission> getPermissions(Principal user);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of the entries in this ACL. Each element in
      * the enumeration is of type AclEntry.
      *
@@ -210,7 +210,7 @@ public interface Acl extends Owner {
      */
     public Enumeration<AclEntry> entries();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not the specified principal has the specified
      * permission. If it does, true is returned, otherwise false is returned.
      *
@@ -231,7 +231,7 @@ public interface Acl extends Owner {
      */
     public boolean checkPermission(Principal principal, Permission permission);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of the
      * ACL contents.
      *

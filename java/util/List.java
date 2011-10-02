@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An ordered collection (also known as a <i>sequence</i>).  The user of this
  * interface has precise control over where in the list each element is
  * inserted.  The user can access elements by their integer index (position in
@@ -107,7 +107,7 @@ package java.util;
 public interface List<E> extends Collection<E> {
     // Query Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this list.  If this list contains
      * more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
@@ -116,14 +116,14 @@ public interface List<E> extends Collection<E> {
      */
     int size();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this list contains no elements.
      *
      * @return <tt>true</tt> if this list contains no elements
      */
     boolean isEmpty();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
@@ -138,14 +138,14 @@ public interface List<E> extends Collection<E> {
      */
     boolean contains(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * @return an iterator over the elements in this list in proper sequence
      */
     Iterator<E> iterator();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element).
      *
@@ -163,7 +163,7 @@ public interface List<E> extends Collection<E> {
      */
     Object[] toArray();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
      * the returned array is that of the specified array.  If the list fits
@@ -206,7 +206,7 @@ public interface List<E> extends Collection<E> {
 
     // Modification Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified element to the end of this list (optional
      * operation).
      *
@@ -230,7 +230,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean add(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the first occurrence of the specified element from this list,
      * if it is present (optional operation).  If this list does not contain
      * the element, it is unchanged.  More formally, removes the element with
@@ -254,7 +254,7 @@ public interface List<E> extends Collection<E> {
 
     // Bulk Modification Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this list contains all of the elements of the
      * specified collection.
      *
@@ -271,7 +271,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean containsAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the specified
      * collection's iterator (optional operation).  The behavior of this
@@ -294,7 +294,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean addAll(Collection<? extends E> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
      * element currently at that position (if any) and any subsequent
@@ -323,7 +323,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean addAll(int index, Collection<? extends E> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this list all of its elements that are contained in the
      * specified collection (optional operation).
      *
@@ -341,7 +341,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean removeAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retains only the elements in this list that are contained in the
      * specified collection (optional operation).  In other words, removes
      * from this list all of its elements that are not contained in the
@@ -361,7 +361,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean retainAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
      *
@@ -373,7 +373,7 @@ public interface List<E> extends Collection<E> {
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this list for equality.  Returns
      * <tt>true</tt> if and only if the specified object is also a list, both
      * lists have the same size, and all corresponding pairs of elements in
@@ -389,7 +389,7 @@ public interface List<E> extends Collection<E> {
      */
     boolean equals(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this list.  The hash code of a list
      * is defined to be the result of the following calculation:
      * <pre>
@@ -411,7 +411,7 @@ public interface List<E> extends Collection<E> {
 
     // Positional Access Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the element at the specified position in this list.
      *
      * @param index index of the element to return
@@ -421,7 +421,7 @@ public interface List<E> extends Collection<E> {
      */
     E get(int index);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
      *
@@ -441,7 +441,7 @@ public interface List<E> extends Collection<E> {
      */
     E set(int index, E element);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the specified position in this list
      * (optional operation).  Shifts the element currently at that position
      * (if any) and any subsequent elements to the right (adds one to their
@@ -462,7 +462,7 @@ public interface List<E> extends Collection<E> {
      */
     void add(int index, E element);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the element at the specified position in this list (optional
      * operation).  Shifts any subsequent elements to the left (subtracts one
      * from their indices).  Returns the element that was removed from the
@@ -480,7 +480,7 @@ public interface List<E> extends Collection<E> {
 
     // Search Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
@@ -497,7 +497,7 @@ public interface List<E> extends Collection<E> {
      */
     int indexOf(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index <tt>i</tt> such that
@@ -517,7 +517,7 @@ public interface List<E> extends Collection<E> {
 
     // List Iterators
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
      *
@@ -526,7 +526,7 @@ public interface List<E> extends Collection<E> {
      */
     ListIterator<E> listIterator();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
      * The specified index indicates the first element that would be
@@ -545,7 +545,7 @@ public interface List<E> extends Collection<E> {
 
     // View
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a view of the portion of this list between the specified
      * <tt>fromIndex</tt>, inclusive, and <tt>toIndex</tt>, exclusive.  (If
      * <tt>fromIndex</tt> and <tt>toIndex</tt> are equal, the returned list is

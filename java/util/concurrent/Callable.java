@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A task that returns a result and may throw an exception.
  * Implementors define a single method with no arguments called
  * <tt>call</tt>.
@@ -55,7 +55,7 @@ package java.util.concurrent;
  * @param <V> the result type of method <tt>call</tt>
  */
 public interface Callable<V> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes a result, or throws an exception if unable to do so.
      *
      * @return computed result

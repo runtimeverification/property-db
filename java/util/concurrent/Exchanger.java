@@ -38,7 +38,7 @@ package java.util.concurrent;
 import java.util.concurrent.atomic.*;
 import java.util.concurrent.locks.LockSupport;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A synchronization point at which threads can pair and swap elements
  * within pairs.  Each thread presents some object on entry to the
  * {@link #exchange exchange} method, matches with a partner thread,
@@ -209,10 +209,10 @@ public class Exchanger<V> {
      * workshop.  Available at: http://hdl.handle.net/1802/2104
      */
 
-    /** {@collect.stats} The number of CPUs, for sizing and spin control */
+    /** {@collect.stats}  The number of CPUs, for sizing and spin control */
     private static final int NCPU = Runtime.getRuntime().availableProcessors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The capacity of the arena.  Set to a value that provides more
      * than enough space to handle contention.  On small machines
      * most slots won't be used, but it is still not wasted because
@@ -225,7 +225,7 @@ public class Exchanger<V> {
      */
     private static final int CAPACITY = 32;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The value of "max" that will hold all threads without
      * contention.  When this value is less than CAPACITY, some
      * otherwise wasted expansion can be avoided.
@@ -233,7 +233,7 @@ public class Exchanger<V> {
     private static final int FULL =
         Math.max(0, Math.min(CAPACITY, NCPU / 2) - 1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times to spin (doing nothing except polling a
      * memory location) before blocking or giving up while waiting to
      * be fulfilled.  Should be zero on uniprocessors.  On
@@ -248,7 +248,7 @@ public class Exchanger<V> {
      */
     private static final int SPINS = (NCPU == 1) ? 0 : 2000;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times to spin before blocking in timed waits.
      * Timed waits spin more slowly because checking the time takes
      * time.  The best value relies mainly on the relative rate of
@@ -257,7 +257,7 @@ public class Exchanger<V> {
      */
     private static final int TIMED_SPINS = SPINS / 20;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sentinel item representing cancellation of a wait due to
      * interruption, timeout, or elapsed spin-waits.  This value is
      * placed in holes on cancellation, and used as a return value
@@ -265,14 +265,14 @@ public class Exchanger<V> {
      */
     private static final Object CANCEL = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value representing null arguments/returns from public
      * methods.  This disambiguates from internal requirement that
      * holes start out as null to mean they are not yet set.
      */
     private static final Object NULL_ITEM = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Nodes hold partially exchanged data.  This class
      * opportunistically subclasses AtomicReference to represent the
      * hole.  So get() returns hole, and compareAndSet CAS'es value
@@ -280,13 +280,13 @@ public class Exchanger<V> {
      * of the use of non-V CANCEL sentinels.
      */
     private static final class Node extends AtomicReference<Object> {
-        /** {@collect.stats} The element offered by the Thread creating this node. */
+        /** {@collect.stats}  The element offered by the Thread creating this node. */
         public final Object item;
 
-        /** {@collect.stats} The Thread waiting to be signalled; null until waiting. */
+        /** {@collect.stats}  The Thread waiting to be signalled; null until waiting. */
         public volatile Thread waiter;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Creates node with given item and empty hole.
          * @param item the item
          */
@@ -295,7 +295,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A Slot is an AtomicReference with heuristic padding to lessen
      * cache effects of this heavily CAS'ed location.  While the
      * padding adds noticeable space, all slots are created only on
@@ -308,13 +308,13 @@ public class Exchanger<V> {
         long q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, qa, qb, qc, qd, qe;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Slot array.  Elements are lazily initialized when needed.
      * Declared volatile to enable double-checked lazy construction.
      */
     private volatile Slot[] arena = new Slot[CAPACITY];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The maximum slot index being used.  The value sometimes
      * increases when a thread experiences too many CAS contentions,
      * and sometimes decreases when a spin-wait elapses.  Changes
@@ -323,7 +323,7 @@ public class Exchanger<V> {
      */
     private final AtomicInteger max = new AtomicInteger();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Main exchange function, handling the different policy variants.
      * Uses Object, not "V" as argument and return value to simplify
      * handling of sentinel values.  Callers from public methods decode
@@ -374,7 +374,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash index for the current thread.  Uses a one-step
      * FNV-1a hash code (http://www.isthe.com/chongo/tech/comp/fnv/)
      * based on the current thread's Thread.getId().  These hash codes
@@ -410,7 +410,7 @@ public class Exchanger<V> {
         return index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new slot at given index.  Called only when the slot
      * appears to be null.  Relies on double-check using builtin
      * locks, since they rarely contend.  This in turn relies on the
@@ -428,7 +428,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tries to cancel a wait for the given node waiting in the given
      * slot, if so, helping clear the node from its slot to avoid
      * garbage retention.
@@ -448,7 +448,7 @@ public class Exchanger<V> {
     // Three forms of waiting. Each just different enough not to merge
     // code with others.
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Spin-waits for hole for a non-0 slot.  Fails if spin elapses
      * before hole filled.  Does not check interrupt, relying on check
      * in public exchange method to abort if interrupted on entry.
@@ -469,7 +469,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits for (by spinning and/or blocking) and gets the hole
      * filled in by another thread.  Fails if interrupted before
      * hole filled.
@@ -504,7 +504,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits for (at index 0) and gets the hole filled in by another
      * thread.  Fails if timed out or interrupted before hole filled.
      * Same basic logic as untimed version, but a bit messier.
@@ -542,7 +542,7 @@ public class Exchanger<V> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sweeps through arena checking for any waiting threads.  Called
      * only upon return from timeout while waiting in slot 0.  When a
      * thread gives up on a timed wait, it is possible that a
@@ -575,13 +575,13 @@ public class Exchanger<V> {
         return CANCEL;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new Exchanger.
      */
     public Exchanger() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits for another thread to arrive at this exchange point (unless
      * the current thread is {@linkplain Thread#interrupt interrupted}),
      * and then transfers the given object to it, receiving its object
@@ -626,7 +626,7 @@ public class Exchanger<V> {
         throw new InterruptedException();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits for another thread to arrive at this exchange point (unless
      * the current thread is {@linkplain Thread#interrupt interrupted} or
      * the specified waiting time elapses), and then transfers the given

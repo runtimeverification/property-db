@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that the code has attempted to cast an object
  * to a subclass of which it is not an instance. For example, the
  * following code generates a <code>ClassCastException</code>:
@@ -39,14 +39,14 @@ package java.lang;
  */
 public
 class ClassCastException extends RuntimeException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassCastException</code> with no detail message.
      */
     public ClassCastException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassCastException</code> with the specified
      * detail message.
      *

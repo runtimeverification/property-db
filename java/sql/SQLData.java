@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface used for the custom mapping of an SQL user-defined type (UDT) to
  * a class in the Java programming language. The class object for a class
  * implementing the <code>SQLData</code> interface will be entered in the
@@ -63,7 +63,7 @@ package java.sql;
  */
 public interface SQLData {
 
- /** {@collect.stats}
+ /** {@collect.stats} 
   * Returns the fully-qualified
   * name of the SQL user-defined type that this object represents.
   * This method is called by the JDBC driver to get the name of the
@@ -79,7 +79,7 @@ public interface SQLData {
   */
   String getSQLTypeName() throws SQLException;
 
- /** {@collect.stats}
+ /** {@collect.stats} 
   * Populates this object with data read from the database.
   * The implementation of the method must follow this protocol:
   * <UL>
@@ -112,7 +112,7 @@ public interface SQLData {
   */
   void readSQL (SQLInput stream, String typeName) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
   * Writes this object to the given SQL data stream, converting it back to
   * its SQL value in the data source.
   * The implementation of the method must follow this protocol:<BR>

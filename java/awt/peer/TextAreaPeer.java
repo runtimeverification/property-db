@@ -26,7 +26,7 @@ package java.awt.peer;
 
 import java.awt.Dimension;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -39,22 +39,22 @@ public interface TextAreaPeer extends TextComponentPeer {
     Dimension getPreferredSize(int rows, int columns);
     Dimension getMinimumSize(int rows, int columns);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * DEPRECATED:  Replaced by insert(String, int).
      */
     void insertText(String txt, int pos);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * DEPRECATED:  Replaced by ReplaceRange(String, int, int).
      */
     void replaceText(String txt, int start, int end);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * DEPRECATED:  Replaced by getPreferredSize(int, int).
      */
     Dimension preferredSize(int rows, int cols);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * DEPRECATED:  Replaced by getMinimumSize(int, int).
      */
     Dimension minimumSize(int rows, int cols);

@@ -33,7 +33,7 @@ import sun.net.idn.StringPrep;
 import sun.net.idn.Punycode;
 import sun.text.normalizer.UCharacterIterator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides methods to convert internationalized domain names (IDNs) between
  * a normal Unicode representation and an ASCII Compatible Encoding (ACE) representation.
  * Internationalized domain names can use characters from the entire range of
@@ -73,18 +73,18 @@ import sun.text.normalizer.UCharacterIterator;
  *
  */
 public final class IDN {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flag to allow processing of unassigned code points
      */
     public static final int ALLOW_UNASSIGNED = 0x01;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flag to turn on the check against STD-3 ASCII rules
      */
     public static final int USE_STD3_ASCII_RULES = 0x02;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a string from Unicode to ASCII Compatible Encoding (ACE),
      * as defined by the ToASCII operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -124,7 +124,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a string from Unicode to ASCII Compatible Encoding (ACE),
      * as defined by the ToASCII operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -145,7 +145,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a string from ASCII Compatible Encoding (ACE) to Unicode,
      * as defined by the ToUnicode operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -178,7 +178,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a string from ASCII Compatible Encoding (ACE) to Unicode,
      * as defined by the ToUnicode operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *

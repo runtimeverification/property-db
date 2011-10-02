@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A bean implementor who wishes to provide explicit information about
  * their bean may provide a BeanInfo class that implements this BeanInfo
  * interface and provides explicit information about the methods,
@@ -51,7 +51,7 @@ package java.beans;
 
 public interface BeanInfo {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the beans <code>BeanDescriptor</code>.
      *
      * @return  A BeanDescriptor providing overall information about
@@ -61,7 +61,7 @@ public interface BeanInfo {
      */
     BeanDescriptor getBeanDescriptor();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the beans <code>EventSetDescriptor</code>s.
      *
      * @return  An array of EventSetDescriptors describing the kinds of
@@ -70,7 +70,7 @@ public interface BeanInfo {
      */
     EventSetDescriptor[] getEventSetDescriptors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A bean may have a "default" event that is the event that will
      * mostly commonly be used by humans when using the bean.
      * @return Index of default event in the EventSetDescriptor array
@@ -79,7 +79,7 @@ public interface BeanInfo {
      */
     int getDefaultEventIndex();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the beans <code>PropertyDescriptor</code>s.
      *
      * @return An array of PropertyDescriptors describing the editable
@@ -93,7 +93,7 @@ public interface BeanInfo {
      */
     PropertyDescriptor[] getPropertyDescriptors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A bean may have a "default" property that is the property that will
      * mostly commonly be initially chosen for update by human's who are
      * customizing the bean.
@@ -103,7 +103,7 @@ public interface BeanInfo {
      */
     int getDefaultPropertyIndex();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the beans <code>MethodDescriptor</code>s.
      *
      * @return An array of MethodDescriptors describing the externally
@@ -112,7 +112,7 @@ public interface BeanInfo {
      */
     MethodDescriptor[] getMethodDescriptors();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method allows a BeanInfo object to return an arbitrary collection
      * of other BeanInfo objects that provide additional information on the
      * current bean.
@@ -126,7 +126,7 @@ public interface BeanInfo {
      */
     BeanInfo[] getAdditionalBeanInfo();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns an image object that can be used to
      * represent the bean in toolboxes, toolbars, etc.   Icon images
      * will typically be GIFs, but may in future include other formats.
@@ -149,22 +149,22 @@ public interface BeanInfo {
      */
     java.awt.Image getIcon(int iconKind);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant to indicate a 16 x 16 color icon.
      */
     final static int ICON_COLOR_16x16 = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant to indicate a 32 x 32 color icon.
      */
     final static int ICON_COLOR_32x32 = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant to indicate a 16 x 16 monochrome icon.
      */
     final static int ICON_MONO_16x16 = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constant to indicate a 32 x 32 monochrome icon.
      */
     final static int ICON_MONO_32x32 = 4;

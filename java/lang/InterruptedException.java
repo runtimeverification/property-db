@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when a thread is waiting, sleeping, or otherwise occupied,
  * and the thread is interrupted, either before or during the activity.
  * Occasionally a method may wish to test whether the current
@@ -48,14 +48,14 @@ package java.lang;
  */
 public
 class InterruptedException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InterruptedException</code> with no detail  message.
      */
     public InterruptedException() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>InterruptedException</code> with the
      * specified detail message.
      *

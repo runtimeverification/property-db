@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An iterator for lists that allows the programmer
  * to traverse the list in either direction, modify
  * the list during iteration, and obtain the iterator's
@@ -60,7 +60,7 @@ package java.util;
 public interface ListIterator<E> extends Iterator<E> {
     // Query Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this list iterator has more elements when
      * traversing the list in the forward direction. (In other words,
      * returns {@code true} if {@link #next} would return an element rather
@@ -71,7 +71,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     boolean hasNext();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next element in the list and advances the cursor position.
      * This method may be called repeatedly to iterate through the list,
      * or intermixed with calls to {@link #previous} to go back and forth.
@@ -83,7 +83,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     E next();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this list iterator has more elements when
      * traversing the list in the reverse direction.  (In other words,
      * returns {@code true} if {@link #previous} would return an element
@@ -94,7 +94,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     boolean hasPrevious();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the previous element in the list and moves the cursor
      * position backwards.  This method may be called repeatedly to
      * iterate through the list backwards, or intermixed with calls to
@@ -108,7 +108,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     E previous();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the element that would be returned by a
      * subsequent call to {@link #next}. (Returns list size if the list
      * iterator is at the end of the list.)
@@ -119,7 +119,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     int nextIndex();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the index of the element that would be returned by a
      * subsequent call to {@link #previous}. (Returns -1 if the list
      * iterator is at the beginning of the list.)
@@ -133,7 +133,7 @@ public interface ListIterator<E> extends Iterator<E> {
 
     // Modification Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from the list the last element that was returned by {@link
      * #next} or {@link #previous} (optional operation).  This call can
      * only be made once per call to {@code next} or {@code previous}.
@@ -149,7 +149,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     void remove();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Replaces the last element returned by {@link #next} or
      * {@link #previous} with the specified element (optional operation).
      * This call can be made only if neither {@link #remove} nor {@link
@@ -171,7 +171,7 @@ public interface ListIterator<E> extends Iterator<E> {
      */
     void set(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into the list (optional operation).
      * The element is inserted immediately before the next element that
      * would be returned by {@link #next}, if any, and after the next

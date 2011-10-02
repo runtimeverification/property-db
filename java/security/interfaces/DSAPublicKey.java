@@ -27,7 +27,7 @@ package java.security.interfaces;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The interface to a DSA public key. DSA (Digital Signature Algorithm)
  * is defined in NIST's FIPS-186.
  *
@@ -42,14 +42,14 @@ public interface DSAPublicKey extends DSAKey, java.security.PublicKey {
 
     // Declare serialVersionUID to be compatible with JDK1.1
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * The class fingerprint that is set to indicate
     * serialization compatibility with a previous
     * version of the class.
     */
     static final long serialVersionUID = 1234526332779022332L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of the public key, <code>y</code>.
      *
      * @return the value of the public key, <code>y</code>.

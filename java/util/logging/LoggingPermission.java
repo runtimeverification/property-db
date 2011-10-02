@@ -28,7 +28,7 @@ package java.util.logging;
 
 import java.security.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The permission which the SecurityManager will check when code
  * that is running with a SecurityManager calls one of the logging
  * control methods (such as Logger.setLevel).
@@ -56,7 +56,7 @@ public final class LoggingPermission extends java.security.BasicPermission {
 
     private static final long serialVersionUID = 63564341580231582L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new LoggingPermission object.
      *
      * @param name Permission name.  Must be "control".

@@ -28,7 +28,7 @@ package java.awt.event;
 import java.awt.Component;
 import java.awt.Rectangle;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The component-level paint event.
  * This event is a special type which is used to ensure that
  * paint/update method calls are serialized along with the other
@@ -42,27 +42,27 @@ import java.awt.Rectangle;
  */
 public class PaintEvent extends ComponentEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the first integer id for the range of paint event ids.
      */
     public static final int PAINT_FIRST         = 800;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marks the last integer id for the range of paint event ids.
      */
     public static final int PAINT_LAST          = 801;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The paint event type.
      */
     public static final int PAINT = PAINT_FIRST;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The update event type.
      */
     public static final int UPDATE = PAINT_FIRST + 1; //801
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is the rectangle that represents the area on the source
      * component that requires a repaint.
      * This rectangle should be non null.
@@ -79,7 +79,7 @@ public class PaintEvent extends ComponentEvent {
      */
     private static final long serialVersionUID = 1267492026433337593L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>PaintEvent</code> object with the specified
      * source component and type.
      * <p>Note that passing in an invalid <code>id</code> results in
@@ -97,7 +97,7 @@ public class PaintEvent extends ComponentEvent {
         this.updateRect = updateRect;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the rectangle representing the area which needs to be
      * repainted in response to this event.
      */
@@ -105,7 +105,7 @@ public class PaintEvent extends ComponentEvent {
         return updateRect;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the rectangle representing the area which needs to be
      * repainted in response to this event.
      * @param updateRect the rectangle area which needs to be repainted

@@ -28,7 +28,7 @@ package java.awt.image;
 import java.awt.image.ImageConsumer;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class provides an easy way to create an ImageFilter which modifies
  * the pixels of an image in the default RGB ColorModel.  It is meant to
  * be used in conjunction with a FilteredImageSource object to produce
@@ -66,21 +66,21 @@ import java.awt.image.ColorModel;
  */
 public abstract class RGBImageFilter extends ImageFilter {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>ColorModel</code> to be replaced by
      * <code>newmodel</code> when the user calls
      * {@link #substituteColorModel(ColorModel, ColorModel) substituteColorModel}.
      */
     protected ColorModel origmodel;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>ColorModel</code> with which to
      * replace <code>origmodel</code> when the user calls
      * <code>substituteColorModel</code>.
      */
     protected ColorModel newmodel;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This boolean indicates whether or not it is acceptable to apply
      * the color filtering of the filterRGB method to the color table
      * entries of an IndexColorModel object in lieu of pixel by pixel
@@ -93,7 +93,7 @@ public abstract class RGBImageFilter extends ImageFilter {
      */
     protected boolean canFilterIndexColorModel;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the ColorModel is an IndexColorModel and the subclass has
      * set the canFilterIndexColorModel flag to true, we substitute
      * a filtered version of the color model here and wherever
@@ -121,7 +121,7 @@ public abstract class RGBImageFilter extends ImageFilter {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers two ColorModel objects for substitution.  If the oldcm
      * is encountered during any of the setPixels methods, the newcm
      * is substituted and the pixels passed through
@@ -134,7 +134,7 @@ public abstract class RGBImageFilter extends ImageFilter {
         newmodel = newcm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters an IndexColorModel object by running each entry in its
      * color tables through the filterRGB function that RGBImageFilter
      * subclasses must provide.  Uses coordinates of -1 to indicate that
@@ -175,7 +175,7 @@ public abstract class RGBImageFilter extends ImageFilter {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Filters a buffer of pixels in the default RGB ColorModel by passing
      * them one by one through the filterRGB method.
      * @param x the X coordinate of the upper-left corner of the region
@@ -205,7 +205,7 @@ public abstract class RGBImageFilter extends ImageFilter {
                            pixels, off, scansize);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the ColorModel object is the same one that has already
      * been converted, then simply passes the pixels through with the
      * converted ColorModel. Otherwise converts the buffer of byte
@@ -240,7 +240,7 @@ public abstract class RGBImageFilter extends ImageFilter {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * If the ColorModel object is the same one that has already
      * been converted, then simply passes the pixels through with the
      * converted ColorModel, otherwise converts the buffer of integer
@@ -277,7 +277,7 @@ public abstract class RGBImageFilter extends ImageFilter {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Subclasses must specify a method to convert a single input pixel
      * in the default RGB ColorModel to a single output pixel.
      * @param x the X coordinate of the pixel

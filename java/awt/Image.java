@@ -33,7 +33,7 @@ import java.awt.image.ReplicateScaleFilter;
 
 import sun.awt.image.SurfaceManager;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The abstract class <code>Image</code> is the superclass of all
  * classes that represent graphical images. The image must be
  * obtained in a platform-specific manner.
@@ -44,7 +44,7 @@ import sun.awt.image.SurfaceManager;
  */
 public abstract class Image {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * convenience object; we can use this single static object for
      * all images that do not create their own image caps; it holds the
      * default (unaccelerated) properties.
@@ -52,7 +52,7 @@ public abstract class Image {
     private static ImageCapabilities defaultImageCaps =
         new ImageCapabilities(false);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Priority for accelerating this image.  Subclasses are free to
      * set different default priorities and applications are free to
      * set the priority for specific images via the
@@ -61,7 +61,7 @@ public abstract class Image {
      */
     protected float accelerationPriority = .5f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the width of the image. If the width is not yet known,
      * this method returns <code>-1</code> and the specified
      * <code>ImageObserver</code> object is notified later.
@@ -73,7 +73,7 @@ public abstract class Image {
      */
     public abstract int getWidth(ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines the height of the image. If the height is not yet known,
      * this method returns <code>-1</code> and the specified
      * <code>ImageObserver</code> object is notified later.
@@ -85,7 +85,7 @@ public abstract class Image {
      */
     public abstract int getHeight(ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the object that produces the pixels for the image.
      * This method is called by the image filtering classes and by
      * methods that perform image conversion and scaling.
@@ -95,7 +95,7 @@ public abstract class Image {
      */
     public abstract ImageProducer getSource();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a graphics context for drawing to an off-screen image.
      * This method can only be called for off-screen images.
      * @return  a graphics context to draw to the off-screen image.
@@ -106,7 +106,7 @@ public abstract class Image {
      */
     public abstract Graphics getGraphics();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets a property of this image by name.
      * <p>
      * Individual property names are defined by the various image
@@ -129,13 +129,13 @@ public abstract class Image {
      */
     public abstract Object getProperty(String name, ImageObserver observer);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>UndefinedProperty</code> object should be returned whenever a
      * property which was not defined for a particular image is fetched.
      */
     public static final Object UndefinedProperty = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a scaled version of this image.
      * A new <code>Image</code> object is returned which will render
      * the image at the specified <code>width</code> and
@@ -177,27 +177,27 @@ public abstract class Image {
         return Toolkit.getDefaultToolkit().createImage(prod);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use the default image-scaling algorithm.
      * @since JDK1.1
      */
     public static final int SCALE_DEFAULT = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Choose an image-scaling algorithm that gives higher priority
      * to scaling speed than smoothness of the scaled image.
      * @since JDK1.1
      */
     public static final int SCALE_FAST = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Choose an image-scaling algorithm that gives higher priority
      * to image smoothness than scaling speed.
      * @since JDK1.1
      */
     public static final int SCALE_SMOOTH = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use the image scaling algorithm embodied in the
      * <code>ReplicateScaleFilter</code> class.
      * The <code>Image</code> object is free to substitute a different filter
@@ -208,7 +208,7 @@ public abstract class Image {
      */
     public static final int SCALE_REPLICATE = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use the Area Averaging image scaling algorithm.  The
      * image object is free to substitute a different filter that
      * performs the same algorithm yet integrates more efficiently
@@ -218,7 +218,7 @@ public abstract class Image {
      */
     public static final int SCALE_AREA_AVERAGING = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Flushes all reconstructable resources being used by this Image object.
      * This includes any pixel data that is being cached for rendering to
      * the screen as well as any system resources that are being used
@@ -261,7 +261,7 @@ public abstract class Image {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an ImageCapabilities object which can be
      * inquired as to the capabilities of this
      * Image on the specified GraphicsConfiguration.
@@ -296,7 +296,7 @@ public abstract class Image {
         return defaultImageCaps;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a hint for this image about how important acceleration is.
      * This priority hint is used to compare to the priorities of other
      * Image objects when determining how to use scarce acceleration
@@ -327,7 +327,7 @@ public abstract class Image {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current value of the acceleration priority hint.
      * @see #setAccelerationPriority(float priority) setAccelerationPriority
      * @return value between 0 and 1, inclusive, which represents the current

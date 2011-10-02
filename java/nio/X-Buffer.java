@@ -31,7 +31,7 @@ package java.nio;
 import java.io.IOException;
 #end[char]
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * $A$ $fulltype$ buffer.
  *
  * <p> This class defines {#if[byte]?six:four} categories of operations upon
@@ -286,7 +286,7 @@ public abstract class $Type$Buffer
 
 #if[byte]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new direct $fulltype$ buffer.
      *
      * <p> The new buffer's position will be zero, its limit will be its
@@ -307,7 +307,7 @@ public abstract class $Type$Buffer
 
 #end[byte]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allocates a new $fulltype$ buffer.
      *
      * <p> The new buffer's position will be zero, its limit will be its
@@ -329,7 +329,7 @@ public abstract class $Type$Buffer
         return new Heap$Type$Buffer(capacity, capacity);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wraps $a$ $fulltype$ array into a buffer.
      *
      * <p> The new buffer will be backed by the given $fulltype$ array;
@@ -370,7 +370,7 @@ public abstract class $Type$Buffer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wraps $a$ $fulltype$ array into a buffer.
      *
      * <p> The new buffer will be backed by the given $fulltype$ array;
@@ -392,7 +392,7 @@ public abstract class $Type$Buffer
 
 #if[char]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to read characters into the specified character buffer.
      * The buffer is used as a repository of characters as-is: the only
      * changes made are the results of a put operation. No flipping or
@@ -426,7 +426,7 @@ public abstract class $Type$Buffer
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wraps a character sequence into a buffer.
      *
      * <p> The content of the new, read-only buffer will be the content of the
@@ -463,7 +463,7 @@ public abstract class $Type$Buffer
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Wraps a character sequence into a buffer.
      *
      * <p> The content of the new, read-only buffer will be the content of the
@@ -483,7 +483,7 @@ public abstract class $Type$Buffer
 
 #end[char]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new $fulltype$ buffer whose content is a shared subsequence of
      * this buffer's content.
      *
@@ -502,7 +502,7 @@ public abstract class $Type$Buffer
      */
     public abstract $Type$Buffer slice();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new $fulltype$ buffer that shares this buffer's content.
      *
      * <p> The content of the new buffer will be that of this buffer.  Changes
@@ -519,7 +519,7 @@ public abstract class $Type$Buffer
      */
     public abstract $Type$Buffer duplicate();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new, read-only $fulltype$ buffer that shares this buffer's
      * content.
      *
@@ -542,7 +542,7 @@ public abstract class $Type$Buffer
 
     // -- Singleton get/put methods --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative <i>get</i> method.  Reads the $fulltype$ at this buffer's
      * current position, and then increments the position. </p>
      *
@@ -553,7 +553,7 @@ public abstract class $Type$Buffer
      */
     public abstract $type$ get();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> Writes the given $fulltype$ into this buffer at the current
@@ -572,7 +572,7 @@ public abstract class $Type$Buffer
      */
     public abstract $Type$Buffer put($type$ $x$);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Absolute <i>get</i> method.  Reads the $fulltype$ at the given
      * index. </p>
      *
@@ -587,7 +587,7 @@ public abstract class $Type$Buffer
      */
     public abstract $type$ get(int index);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Absolute <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> Writes the given $fulltype$ into this buffer at the given
@@ -613,7 +613,7 @@ public abstract class $Type$Buffer
 
     // -- Bulk get operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>get</i> method.
      *
      * <p> This method transfers $fulltype$s from this buffer into the given
@@ -672,7 +672,7 @@ public abstract class $Type$Buffer
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>get</i> method.
      *
      * <p> This method transfers $fulltype$s from this buffer into the given
@@ -695,7 +695,7 @@ public abstract class $Type$Buffer
 
     // -- Bulk put operations --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> This method transfers the $fulltype$s remaining in the given source
@@ -747,7 +747,7 @@ public abstract class $Type$Buffer
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> This method transfers $fulltype$s into this buffer from the given
@@ -807,7 +807,7 @@ public abstract class $Type$Buffer
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> This method transfers the entire content of the given source
@@ -832,7 +832,7 @@ public abstract class $Type$Buffer
 
 #if[char]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> This method transfers $fulltype$s from the given string into this
@@ -891,7 +891,7 @@ public abstract class $Type$Buffer
         return this;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Relative bulk <i>put</i> method&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> This method transfers the entire content of the given source string
@@ -918,7 +918,7 @@ public abstract class $Type$Buffer
 
     // -- Other stuff --
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this buffer is backed by an accessible $fulltype$
      * array.
      *
@@ -933,7 +933,7 @@ public abstract class $Type$Buffer
         return (hb != null) && !isReadOnly;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the $fulltype$ array that backs this
      * buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -960,7 +960,7 @@ public abstract class $Type$Buffer
         return hb;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the offset within this buffer's backing array of the first
      * element of the buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -988,7 +988,7 @@ public abstract class $Type$Buffer
         return offset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compacts this buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
      * <p> The $fulltype$s between the buffer's current position and its limit,
@@ -1029,7 +1029,7 @@ public abstract class $Type$Buffer
      */
     public abstract $Type$Buffer compact();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this $fulltype$ buffer is direct. </p>
      *
      * @return  <tt>true</tt> if, and only if, this buffer is direct
@@ -1038,7 +1038,7 @@ public abstract class $Type$Buffer
 
 #if[!char]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string summarizing the state of this buffer.  </p>
      *
      * @return  A summary string
@@ -1061,7 +1061,7 @@ public abstract class $Type$Buffer
 
     // ## Should really use unchecked accessors here for speed
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the current hash code of this buffer.
      *
      * <p> The hash code of a $type$ buffer depends only upon its remaining
@@ -1082,7 +1082,7 @@ public abstract class $Type$Buffer
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this buffer is equal to another object.
      *
      * <p> Two $type$ buffers are equal if, and only if,
@@ -1128,7 +1128,7 @@ public abstract class $Type$Buffer
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this buffer to another.
      *
      * <p> Two $type$ buffers are compared by comparing their sequences of
@@ -1162,7 +1162,7 @@ public abstract class $Type$Buffer
 
 #if[char]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string containing the characters in this buffer.
      *
      * <p> The first character of the resulting string will be the character at
@@ -1181,7 +1181,7 @@ public abstract class $Type$Buffer
 
     // --- Methods to support CharSequence ---
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the length of this character buffer.
      *
      * <p> When viewed as a character sequence, the length of a character
@@ -1195,7 +1195,7 @@ public abstract class $Type$Buffer
         return remaining();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the character at the given index relative to the current
      * position. </p>
      *
@@ -1213,7 +1213,7 @@ public abstract class $Type$Buffer
         return get(position() + checkIndex(index, 1));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new character buffer that represents the specified subsequence
      * of this buffer, relative to the current position.
      *
@@ -1248,7 +1248,7 @@ public abstract class $Type$Buffer
 
     // --- Methods to support Appendable ---
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified character sequence  to this
      * buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -1286,7 +1286,7 @@ public abstract class $Type$Buffer
             return put(csq.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends a subsequence of the  specified character sequence  to this
      * buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -1323,7 +1323,7 @@ public abstract class $Type$Buffer
         return put(cs.subSequence(start, end).toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified $fulltype$  to this
      * buffer&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -1357,7 +1357,7 @@ public abstract class $Type$Buffer
 
 #if[!byte]
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this buffer's byte order.
      *
      * <p> The byte order of $a$ $fulltype$ buffer created by allocation or by
@@ -1380,7 +1380,7 @@ public abstract class $Type$Buffer
     boolean nativeByteOrder                             // package-private
         = (Bits.byteOrder() == ByteOrder.BIG_ENDIAN);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves this buffer's byte order.
      *
      * <p> The byte order is used when reading or writing multibyte values, and
@@ -1394,7 +1394,7 @@ public abstract class $Type$Buffer
         return bigEndian ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Modifies this buffer's byte order.  </p>
      *
      * @param  bo

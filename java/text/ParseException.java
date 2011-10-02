@@ -38,7 +38,7 @@
 
 package java.text;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Signals that an error has been reached unexpectedly
  * while parsing.
  * @see java.lang.Exception
@@ -49,7 +49,7 @@ package java.text;
 public
 class ParseException extends Exception {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a ParseException with the specified detail message and
      * offset.
      * A detail message is a String that describes this particular exception.
@@ -61,7 +61,7 @@ class ParseException extends Exception {
         this.errorOffset = errorOffset;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the position where the error was found.
      */
     public int getErrorOffset () {
@@ -69,7 +69,7 @@ class ParseException extends Exception {
     }
 
     //============ privates ============
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The zero-based character offset into the string being parsed at which
      * the error was found during parsing.
      * @serial

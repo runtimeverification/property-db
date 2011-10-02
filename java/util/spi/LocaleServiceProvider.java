@@ -27,7 +27,7 @@ package java.util.spi;
 
 import java.util.Locale;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * This is the super class of all the locale sensitive service provider
  * interfaces (SPIs).
@@ -114,14 +114,14 @@ import java.util.Locale;
  */
 public abstract class LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected LocaleServiceProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all locales for which this locale service provider
      * can provide localized objects or names.
      *

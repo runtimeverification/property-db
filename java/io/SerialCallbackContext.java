@@ -25,7 +25,7 @@
   
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Context during upcalls from object stream to class-defined
  * readObject/writeObject methods. 
@@ -43,7 +43,7 @@ package java.io;
 final class SerialCallbackContext {
     private final Object obj;
     private final ObjectStreamClass desc;
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Thread this context is in use by.
      * As this only works in one thread, we do not need to worry about thread-safety.

@@ -28,7 +28,7 @@ package java.util.zip;
 import java.io.OutputStream;
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements a stream filter for writing compressed data in
  * the GZIP file format.
  * @author      David Connelly
@@ -36,7 +36,7 @@ import java.io.IOException;
  */
 public
 class GZIPOutputStream extends DeflaterOutputStream {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CRC-32 of uncompressed data.
      */
     protected CRC32 crc = new CRC32();
@@ -52,7 +52,7 @@ class GZIPOutputStream extends DeflaterOutputStream {
      */
     private final static int TRAILER_SIZE = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream with the specified buffer size.
      * @param out the output stream
      * @param size the output buffer size
@@ -66,7 +66,7 @@ class GZIPOutputStream extends DeflaterOutputStream {
         crc.reset();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new output stream with a default buffer size.
      * @param out the output stream
      * @exception IOException If an I/O error has occurred.
@@ -75,7 +75,7 @@ class GZIPOutputStream extends DeflaterOutputStream {
         this(out, 512);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes array of bytes to the compressed output stream. This method
      * will block until all the bytes are written.
      * @param buf the data to be written
@@ -90,7 +90,7 @@ class GZIPOutputStream extends DeflaterOutputStream {
         crc.update(buf, off, len);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Finishes writing compressed data to the output stream without closing
      * the underlying stream. Use this method when applying multiple filters
      * in succession to the same output stream.

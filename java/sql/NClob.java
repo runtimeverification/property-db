@@ -27,7 +27,7 @@ package java.sql;
 
 import java.sql.Clob;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The mapping in the Java<sup><font size=-2>TM</font></sup> programming language
  * for the SQL <code>NCLOB</code> type.
  * An SQL <code>NCLOB</code> is a built-in type

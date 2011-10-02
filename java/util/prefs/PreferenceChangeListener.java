@@ -25,7 +25,7 @@
 
 package java.util.prefs;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A listener for receiving preference change events.
  *
  * @author  Josh Bloch
@@ -35,7 +35,7 @@ package java.util.prefs;
  * @since   1.4
  */
 public interface PreferenceChangeListener extends java.util.EventListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method gets called when a preference is added, removed or when
      * its value is changed.
      * <p>

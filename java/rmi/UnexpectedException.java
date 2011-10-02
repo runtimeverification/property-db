@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>UnexpectedException</code> is thrown if the client of a
  * remote method call receives, as a result of the call, a checked
  * exception that is not among the checked exception types declared in the
@@ -39,7 +39,7 @@ public class UnexpectedException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 1800467484195073863L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnexpectedException</code> with the specified
      * detail message.
      *
@@ -50,7 +50,7 @@ public class UnexpectedException extends RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>UnexpectedException</code> with the specified
      * detail message and nested exception.
      *

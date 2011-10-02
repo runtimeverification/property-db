@@ -44,7 +44,7 @@ import java.security.PrivilegedActionException;
 import java.security.AccessControlException;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Factory and utility methods for {@link Executor}, {@link
  * ExecutorService}, {@link ScheduledExecutorService}, {@link
  * ThreadFactory}, and {@link Callable} classes defined in this
@@ -70,7 +70,7 @@ import sun.security.util.SecurityConstants;
  */
 public class Executors {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that reuses a fixed number of threads
      * operating off a shared unbounded queue.  At any point, at most
      * <tt>nThreads</tt> threads will be active processing tasks.
@@ -91,7 +91,7 @@ public class Executors {
                                       new LinkedBlockingQueue<Runnable>());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that reuses a fixed number of threads
      * operating off a shared unbounded queue, using the provided
      * ThreadFactory to create new threads when needed.  At any point,
@@ -117,7 +117,7 @@ public class Executors {
                                       threadFactory);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an Executor that uses a single worker thread operating
      * off an unbounded queue. (Note however that if this single
      * thread terminates due to a failure during execution prior to
@@ -137,7 +137,7 @@ public class Executors {
                                     new LinkedBlockingQueue<Runnable>()));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an Executor that uses a single worker thread operating
      * off an unbounded queue, and uses the provided ThreadFactory to
      * create a new thread when needed. Unlike the otherwise
@@ -159,7 +159,7 @@ public class Executors {
                                     threadFactory));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that creates new threads as needed, but
      * will reuse previously constructed threads when they are
      * available.  These pools will typically improve the performance
@@ -181,7 +181,7 @@ public class Executors {
                                       new SynchronousQueue<Runnable>());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that creates new threads as needed, but
      * will reuse previously constructed threads when they are
      * available, and uses the provided
@@ -197,7 +197,7 @@ public class Executors {
                                       threadFactory);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a single-threaded executor that can schedule commands
      * to run after a given delay, or to execute periodically.
      * (Note however that if this single
@@ -215,7 +215,7 @@ public class Executors {
             (new ScheduledThreadPoolExecutor(1));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a single-threaded executor that can schedule commands
      * to run after a given delay, or to execute periodically.  (Note
      * however that if this single thread terminates due to a failure
@@ -236,7 +236,7 @@ public class Executors {
             (new ScheduledThreadPoolExecutor(1, threadFactory));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that can schedule commands to run after a
      * given delay, or to execute periodically.
      * @param corePoolSize the number of threads to keep in the pool,
@@ -248,7 +248,7 @@ public class Executors {
         return new ScheduledThreadPoolExecutor(corePoolSize);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a thread pool that can schedule commands to run after a
      * given delay, or to execute periodically.
      * @param corePoolSize the number of threads to keep in the pool,
@@ -265,7 +265,7 @@ public class Executors {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an object that delegates all defined {@link
      * ExecutorService} methods to the given executor, but not any
      * other methods that might otherwise be accessible using
@@ -281,7 +281,7 @@ public class Executors {
         return new DelegatedExecutorService(executor);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an object that delegates all defined {@link
      * ScheduledExecutorService} methods to the given executor, but
      * not any other methods that might otherwise be accessible using
@@ -297,7 +297,7 @@ public class Executors {
         return new DelegatedScheduledExecutorService(executor);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a default thread factory used to create new threads.
      * This factory creates all new threads used by an Executor in the
      * same {@link ThreadGroup}. If there is a {@link
@@ -317,7 +317,7 @@ public class Executors {
         return new DefaultThreadFactory();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a thread factory used to create new threads that
      * have the same permissions as the current thread.
      * This factory creates threads with the same settings as {@link
@@ -353,7 +353,7 @@ public class Executors {
         return new PrivilegedThreadFactory();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that, when
      * called, runs the given task and returns the given result.  This
      * can be useful when applying methods requiring a
@@ -369,7 +369,7 @@ public class Executors {
         return new RunnableAdapter<T>(task, result);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that, when
      * called, runs the given task and returns <tt>null</tt>.
      * @param task the task to run
@@ -382,7 +382,7 @@ public class Executors {
         return new RunnableAdapter<Object>(task, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that, when
      * called, runs the given privileged action and returns its result.
      * @param action the privileged action to run
@@ -396,7 +396,7 @@ public class Executors {
             public Object call() { return action.run(); }};
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that, when
      * called, runs the given privileged exception action and returns
      * its result.
@@ -411,7 +411,7 @@ public class Executors {
             public Object call() throws Exception { return action.run(); }};
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that will, when
      * called, execute the given <tt>callable</tt> under the current
      * access control context. This method should normally be
@@ -431,7 +431,7 @@ public class Executors {
         return new PrivilegedCallable<T>(callable);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Callable} object that will, when
      * called, execute the given <tt>callable</tt> under the current
      * access control context, with the current context class loader
@@ -457,7 +457,7 @@ public class Executors {
 
     // Non-public classes supporting the public methods
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A callable that runs given task and returns given result
      */
     static final class RunnableAdapter<T> implements Callable<T> {
@@ -473,7 +473,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A callable that runs under established access control settings
      */
     static final class PrivilegedCallable<T> implements Callable<T> {
@@ -499,7 +499,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A callable that runs under established access control settings and
      * current ClassLoader
      */
@@ -551,7 +551,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The default thread factory
      */
     static class DefaultThreadFactory implements ThreadFactory {
@@ -581,7 +581,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Thread factory capturing access control context and class loader
      */
     static class PrivilegedThreadFactory extends DefaultThreadFactory {
@@ -619,7 +619,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A wrapper class that exposes only the ExecutorService methods
      * of an ExecutorService implementation.
      */
@@ -674,7 +674,7 @@ public class Executors {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A wrapper class that exposes only the ScheduledExecutorService
      * methods of a ScheduledExecutorService implementation.
      */
@@ -701,6 +701,6 @@ public class Executors {
     }
 
 
-    /** {@collect.stats} Cannot instantiate. */
+    /** {@collect.stats}  Cannot instantiate. */
     private Executors() {}
 }

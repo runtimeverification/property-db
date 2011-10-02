@@ -33,7 +33,7 @@ import java.io.Writer;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The mapping in the JavaTM programming language for the SQL XML type.
  * XML is a built-in type that stores an XML value
  * as a column value in a row of a database table.
@@ -190,7 +190,7 @@ import javax.xml.transform.Source;
  */
 public interface SQLXML
 {
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * This method closes this object and releases the resources that it held.
    * The SQL XML object becomes invalid and neither readable or writeable
    * when this method is called.
@@ -206,7 +206,7 @@ public interface SQLXML
    */
   void free() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the XML value designated by this SQLXML instance as a stream.
    * The bytes of the input stream are interpreted according to appendix F of the XML 1.0 specification.
    * The behavior of this method is the same as ResultSet.getBinaryStream()
@@ -224,7 +224,7 @@ public interface SQLXML
    */
   InputStream getBinaryStream() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a stream that can be used to write the XML value that this SQLXML instance represents.
    * The stream begins at position 0.
    * The bytes of the stream are interpreted according to appendix F of the XML 1.0 specification
@@ -243,7 +243,7 @@ public interface SQLXML
    */
   OutputStream setBinaryStream() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the XML value designated by this SQLXML instance as a java.io.Reader object.
    * The format of this stream is defined by org.xml.sax.InputSource,
    * where the characters in the stream represent the unicode code points for
@@ -267,7 +267,7 @@ public interface SQLXML
    */
   Reader getCharacterStream() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves a stream to be used to write the XML value that this SQLXML instance represents.
    * The format of this stream is defined by org.xml.sax.InputSource,
    * where the characters in the stream represent the unicode code points for
@@ -291,7 +291,7 @@ public interface SQLXML
    */
   Writer setCharacterStream() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Returns a string representation of the XML value designated by this SQLXML instance.
    * The format of this String is defined by org.xml.sax.InputSource,
    * where the characters in the stream represent the unicode code points for
@@ -315,7 +315,7 @@ public interface SQLXML
    */
   String getString() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Sets the XML value designated by this SQLXML instance to the given String representation.
    * The format of this String is defined by org.xml.sax.InputSource,
    * where the characters in the stream represent the unicode code points for
@@ -339,7 +339,7 @@ public interface SQLXML
    */
   void setString(String value) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Returns a Source for reading the XML value designated by this SQLXML instance.
    * Sources are used as inputs to XML parsers and XSLT transformers.
    * <p>
@@ -381,7 +381,7 @@ public interface SQLXML
    */
   <T extends Source> T getSource(Class<T> sourceClass) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Returns a Result for setting the XML value designated by this SQLXML instance.
    * <p>
    * The systemID of the Result is implementation dependent.

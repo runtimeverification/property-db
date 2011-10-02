@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Exception thrown when a blocking operation times out.  Blocking
  * operations for which a timeout is specified need a means to
  * indicate that the timeout has occurred. For many such operations it
@@ -49,13 +49,13 @@ package java.util.concurrent;
 public class TimeoutException extends Exception {
     private static final long serialVersionUID = 1900926677490660714L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>TimeoutException</tt> with no specified detail
      * message.
      */
     public TimeoutException() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <tt>TimeoutException</tt> with the specified detail
      * message.
      *

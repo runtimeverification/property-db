@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * ObjectInput extends the DataInput interface to include the reading of
  * objects. DataInput includes methods for the input of primitive types,
@@ -39,7 +39,7 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectInput extends DataInput {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Read and return an object. The class that implements this interface
      * defines where the object is "read" from.
@@ -54,7 +54,7 @@ public interface ObjectInput extends DataInput {
     public Object readObject()
         throws ClassNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a byte of data.
      * {@description.close}
@@ -68,7 +68,7 @@ public interface ObjectInput extends DataInput {
      */
     public int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
@@ -83,7 +83,7 @@ public interface ObjectInput extends DataInput {
      */
     public int read(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
@@ -100,7 +100,7 @@ public interface ObjectInput extends DataInput {
      */
     public int read(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips n bytes of input.
      * {@description.close}
@@ -110,7 +110,7 @@ public interface ObjectInput extends DataInput {
      */
     public long skip(long n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the number of bytes that can be read
      * {@description.close}
@@ -120,7 +120,7 @@ public interface ObjectInput extends DataInput {
      */
     public int available() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes the input stream.
      * {@description.close}

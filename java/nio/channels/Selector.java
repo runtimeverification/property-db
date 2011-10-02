@@ -30,7 +30,7 @@ import java.nio.channels.spi.SelectorProvider;
 import java.util.Set;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A multiplexor of {@link SelectableChannel} objects.
  *
  * <p> A selector may be created by invoking the {@link #open open} method of
@@ -204,12 +204,12 @@ import java.util.Set;
 
 public abstract class Selector {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes a new instance of this class.
      */
     protected Selector() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Opens a selector.
      *
      * <p> The new selector is created by invoking the {@link
@@ -226,21 +226,21 @@ public abstract class Selector {
         return SelectorProvider.provider().openSelector();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tells whether or not this selector is open.  </p>
      *
      * @return <tt>true</tt> if, and only if, this selector is open
      */
     public abstract boolean isOpen();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider that created this channel.  </p>
      *
      * @return  The provider that created this channel
      */
     public abstract SelectorProvider provider();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this selector's key set.
      *
      * <p> The key set is not directly modifiable.  A key is removed only after
@@ -257,7 +257,7 @@ public abstract class Selector {
      */
     public abstract Set<SelectionKey> keys();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns this selector's selected-key set.
      *
      * <p> Keys may be removed from, but not directly added to, the
@@ -273,7 +273,7 @@ public abstract class Selector {
      */
     public abstract Set<SelectionKey> selectedKeys();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects a set of keys whose corresponding channels are ready for I/O
      * operations.
      *
@@ -295,7 +295,7 @@ public abstract class Selector {
      */
     public abstract int selectNow() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects a set of keys whose corresponding channels are ready for I/O
      * operations.
      *
@@ -328,7 +328,7 @@ public abstract class Selector {
     public abstract int select(long timeout)
         throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Selects a set of keys whose corresponding channels are ready for I/O
      * operations.
      *
@@ -348,7 +348,7 @@ public abstract class Selector {
      */
     public abstract int select() throws IOException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes the first selection operation that has not yet returned to return
      * immediately.
      *
@@ -369,7 +369,7 @@ public abstract class Selector {
      */
     public abstract Selector wakeup();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this selector.
      *
      * <p> If a thread is currently blocked in one of this selector's selection

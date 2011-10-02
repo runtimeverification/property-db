@@ -30,7 +30,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>GradientPaint</code> class provides a way to fill
  * a {@link Shape} with a linear color gradient pattern.
  * If {@link Point} P1 with {@link Color} C1 and <code>Point</code> P2 with
@@ -62,7 +62,7 @@ public class GradientPaint implements Paint {
     Color color2;
     boolean cyclic;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a simple acyclic <code>GradientPaint</code> object.
      * @param x1 x coordinate of the first specified
      * <code>Point</code> in user space
@@ -94,7 +94,7 @@ public class GradientPaint implements Paint {
         this.color2 = color2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a simple acyclic <code>GradientPaint</code> object.
      * @param pt1 the first specified <code>Point</code> in user space
      * @param color1 <code>Color</code> at the first specified
@@ -120,7 +120,7 @@ public class GradientPaint implements Paint {
         this.color2 = color2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs either a cyclic or acyclic <code>GradientPaint</code>
      * object depending on the <code>boolean</code> parameter.
      * @param x1 x coordinate of the first specified
@@ -149,7 +149,7 @@ public class GradientPaint implements Paint {
         this.cyclic = cyclic;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs either a cyclic or acyclic <code>GradientPaint</code>
      * object depending on the <code>boolean</code> parameter.
      * @param pt1 the first specified <code>Point</code>
@@ -174,7 +174,7 @@ public class GradientPaint implements Paint {
         this.cyclic = cyclic;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the point P1 that anchors the first color.
      * @return a {@link Point2D} object that is a copy of the point
      * that anchors the first color of this
@@ -184,7 +184,7 @@ public class GradientPaint implements Paint {
         return new Point2D.Float(p1.x, p1.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color C1 anchored by the point P1.
      * @return a <code>Color</code> object that is the color
      * anchored by P1.
@@ -193,7 +193,7 @@ public class GradientPaint implements Paint {
         return color1;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the point P2 which anchors the second color.
      * @return a {@link Point2D} object that is a copy of the point
      * that anchors the second color of this
@@ -203,7 +203,7 @@ public class GradientPaint implements Paint {
         return new Point2D.Float(p2.x, p2.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color C2 anchored by the point P2.
      * @return a <code>Color</code> object that is the color
      * anchored by P2.
@@ -212,7 +212,7 @@ public class GradientPaint implements Paint {
         return color2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if the gradient cycles repeatedly
      * between the two colors C1 and C2.
      * @return <code>true</code> if the gradient cycles repeatedly
@@ -222,7 +222,7 @@ public class GradientPaint implements Paint {
         return cyclic;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a {@link PaintContext} used to 
      * generate a linear color gradient pattern.
      * See the {@link Paint#createContext specification} of the 
@@ -260,7 +260,7 @@ public class GradientPaint implements Paint {
                                         color1, color2, cyclic);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the transparency mode for this <code>GradientPaint</code>.
      * @return an integer value representing this <code>GradientPaint</code>
      * object's transparency mode.

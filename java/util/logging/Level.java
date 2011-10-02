@@ -26,7 +26,7 @@
 package java.util.logging;
 import java.util.ResourceBundle;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The Level class defines a set of standard logging levels that
  * can be used to control logging output.  The logging Level objects
  * are ordered and are specified by ordered integers.  Enabling logging
@@ -62,28 +62,28 @@ public class Level implements java.io.Serializable {
     private static java.util.ArrayList<Level> known = new java.util.ArrayList<Level>();
     private static String defaultBundle = "sun.util.logging.resources.logging";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial  The non-localized name of the level.
      */
     private final String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial  The integer value of the level.
      */
     private final int value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The resource bundle name to be used in localizing the level name.
      */
     private final String resourceBundleName;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * OFF is a special level that can be used to turn off logging.
      * This level is initialized to <CODE>Integer.MAX_VALUE</CODE>.
      */
     public static final Level OFF = new Level("OFF",Integer.MAX_VALUE, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * SEVERE is a message level indicating a serious failure.
      * <p>
      * In general SEVERE messages should describe events that are
@@ -94,7 +94,7 @@ public class Level implements java.io.Serializable {
      */
     public static final Level SEVERE = new Level("SEVERE",1000, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * WARNING is a message level indicating a potential problem.
      * <p>
      * In general WARNING messages should describe events that will
@@ -104,7 +104,7 @@ public class Level implements java.io.Serializable {
      */
     public static final Level WARNING = new Level("WARNING", 900, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * INFO is a message level for informational messages.
      * <p>
      * Typically INFO messages will be written to the console
@@ -115,7 +115,7 @@ public class Level implements java.io.Serializable {
      */
     public static final Level INFO = new Level("INFO", 800, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CONFIG is a message level for static configuration messages.
      * <p>
      * CONFIG messages are intended to provide a variety of static
@@ -127,7 +127,7 @@ public class Level implements java.io.Serializable {
      */
     public static final Level CONFIG = new Level("CONFIG", 700, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * FINE is a message level providing tracing information.
      * <p>
      * All of FINE, FINER, and FINEST are intended for relatively
@@ -148,7 +148,7 @@ public class Level implements java.io.Serializable {
      */
     public static final Level FINE = new Level("FINE", 500, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * FINER indicates a fairly detailed tracing message.
      * By default logging calls for entering, returning, or throwing
      * an exception are traced at this level.
@@ -156,19 +156,19 @@ public class Level implements java.io.Serializable {
      */
     public static final Level FINER = new Level("FINER", 400, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * FINEST indicates a highly detailed tracing message.
      * This level is initialized to <CODE>300</CODE>.
      */
     public static final Level FINEST = new Level("FINEST", 300, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * ALL indicates that all messages should be logged.
      * This level is initialized to <CODE>Integer.MIN_VALUE</CODE>.
      */
     public static final Level ALL = new Level("ALL", Integer.MIN_VALUE, defaultBundle);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a named Level with a given integer value.
      * <p>
      * Note that this constructor is "protected" to allow subclassing.
@@ -184,7 +184,7 @@ public class Level implements java.io.Serializable {
         this(name, value, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a named Level with a given integer value and a
      * given localization resource name.
      * <p>
@@ -207,7 +207,7 @@ public class Level implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the level's localization resource bundle name, or
      * null if no localization bundle is defined.
      *
@@ -217,7 +217,7 @@ public class Level implements java.io.Serializable {
         return resourceBundleName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the non-localized string name of the Level.
      *
      * @return non-localized name
@@ -226,7 +226,7 @@ public class Level implements java.io.Serializable {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Return the localized string name of the Level, for
      * the current default locale.
      * <p>
@@ -244,14 +244,14 @@ public class Level implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return the non-localized name of the Level, for example "INFO".
      */
     public final String toString() {
         return name;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the integer value for this level.  This integer value
      * can be used for efficient ordering comparisons between
      * Level objects.
@@ -283,7 +283,7 @@ public class Level implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parse a level name string into a Level.
      * <p>
      * The argument string may consist of either a level name
@@ -353,7 +353,7 @@ public class Level implements java.io.Serializable {
         throw new IllegalArgumentException("Bad level \"" + name + "\"");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compare two objects for value equality.
      * @return true if and only if the two objects have the same level value.
      */
@@ -366,7 +366,7 @@ public class Level implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generate a hashcode.
      * @return a hashcode based on the level value
      */

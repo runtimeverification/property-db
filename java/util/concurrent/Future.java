@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <tt>Future</tt> represents the result of an asynchronous
  * computation.  Methods are provided to check if the computation is
  * complete, to wait for its completion, and to retrieve the result of
@@ -97,7 +97,7 @@ package java.util.concurrent;
  */
 public interface Future<V> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to cancel execution of this task.  This attempt will
      * fail if the task has already completed, has already been cancelled,
      * or could not be cancelled for some other reason. If successful,
@@ -120,7 +120,7 @@ public interface Future<V> {
      */
     boolean cancel(boolean mayInterruptIfRunning);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this task was cancelled before it completed
      * normally.
      *
@@ -128,7 +128,7 @@ public interface Future<V> {
      */
     boolean isCancelled();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this task completed.
      *
      * Completion may be due to normal termination, an exception, or
@@ -139,7 +139,7 @@ public interface Future<V> {
      */
     boolean isDone();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits if necessary for the computation to complete, and then
      * retrieves its result.
      *
@@ -152,7 +152,7 @@ public interface Future<V> {
      */
     V get() throws InterruptedException, ExecutionException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Waits if necessary for at most the given time for the computation
      * to complete, and then retrieves its result, if available.
      *

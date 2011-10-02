@@ -27,7 +27,7 @@ package java.awt;
 
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>GraphicsConfigTemplate</code> class is used to obtain a valid
  * {@link GraphicsConfiguration}.  A user instantiates one of these
  * objects and then sets all non-default attributes as desired.  The
@@ -47,14 +47,14 @@ public abstract class GraphicsConfigTemplate implements Serializable {
      */
     private static final long serialVersionUID = -8061369279557787079L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This class is an abstract class so only subclasses can be
      * instantiated.
      */
     public GraphicsConfigTemplate() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value used for "Enum" (Integer) type.  States that this
      * feature is required for the <code>GraphicsConfiguration</code>
      * object.  If this feature is not available, do not select the
@@ -62,7 +62,7 @@ public abstract class GraphicsConfigTemplate implements Serializable {
      */
     public static final int REQUIRED    = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value used for "Enum" (Integer) type.  States that this
      * feature is desired for the <code>GraphicsConfiguration</code>
      * object.  A selection with this feature is preferred over a
@@ -71,7 +71,7 @@ public abstract class GraphicsConfigTemplate implements Serializable {
      */
     public static final int PREFERRED   = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value used for "Enum" (Integer) type.  States that this
      * feature is not necessary for the selection of the
      * <code>GraphicsConfiguration</code> object.  A selection
@@ -80,7 +80,7 @@ public abstract class GraphicsConfigTemplate implements Serializable {
      */
     public static final int UNNECESSARY = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the "best" configuration possible that passes the
      * criteria defined in the <code>GraphicsConfigTemplate</code>.
      * @param gc the array of <code>GraphicsConfiguration</code>
@@ -92,7 +92,7 @@ public abstract class GraphicsConfigTemplate implements Serializable {
     public abstract GraphicsConfiguration
       getBestConfiguration(GraphicsConfiguration[] gc);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>boolean</code> indicating whether or
      * not the specified <code>GraphicsConfiguration</code> can be
      * used to create a drawing surface that supports the indicated

@@ -32,7 +32,7 @@ import java.rmi.MarshalledObject;
 import java.util.Arrays;
 import java.util.Properties;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An activation group descriptor contains the information necessary to
  * create/recreate an activation group in which to activate objects.
  * Such a descriptor contains: <ul>
@@ -58,37 +58,37 @@ import java.util.Properties;
  */
 public final class ActivationGroupDesc implements Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The group's fully package qualified class name.
      */
     private String className;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The location from where to load the group's class.
      */
     private String location;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The group's initialization data.
      */
     private MarshalledObject<?> data;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The controlling options for executing the VM in
      * another process.
      */
     private CommandEnvironment env;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial A properties map which will override those set
      * by default in the subprocess environment.
      */
     private Properties props;
 
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = -4936225423168276595L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a group descriptor that uses the system defaults for group
      * implementation and code location.  Properties specify Java
      * environment overrides (which will override system properties in
@@ -113,7 +113,7 @@ public final class ActivationGroupDesc implements Serializable {
         this(null, null, null, overrides, cmd);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Specifies an alternate group implementation and execution
      * environment to be used for the group.
      *
@@ -144,7 +144,7 @@ public final class ActivationGroupDesc implements Serializable {
         this.className = className;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's class name (possibly <code>null</code>).  A
      * <code>null</code> group class name indicates the system's default
      * <code>ActivationGroup</code> implementation.
@@ -155,7 +155,7 @@ public final class ActivationGroupDesc implements Serializable {
         return className;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's code location.
      * @return the group's code location
      * @since 1.2
@@ -164,7 +164,7 @@ public final class ActivationGroupDesc implements Serializable {
         return location;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's initialization data.
      * @return the group's initialization data
      * @since 1.2
@@ -173,7 +173,7 @@ public final class ActivationGroupDesc implements Serializable {
         return data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's property-override list.
      * @return the property-override list, or <code>null</code>
      * @since 1.2
@@ -182,7 +182,7 @@ public final class ActivationGroupDesc implements Serializable {
         return (props != null) ? (Properties) props.clone() : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's command-environment control object.
      * @return the command-environment object, or <code>null</code>
      * @since 1.2
@@ -192,7 +192,7 @@ public final class ActivationGroupDesc implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Startup options for ActivationGroup implementations.
      *
      * This class allows overriding default system properties and
@@ -202,17 +202,17 @@ public final class ActivationGroupDesc implements Serializable {
     public static class CommandEnvironment implements Serializable {
         private static final long serialVersionUID = 6165754737887770191L;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * @serial
          */
         private String command;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * @serial
          */
         private String[] options;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Create a CommandEnvironment with all the necessary
          * information.
          *
@@ -241,7 +241,7 @@ public final class ActivationGroupDesc implements Serializable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Fetch the configured path-qualified java command name.
          *
          * @return the configured name, or <code>null</code> if configured to
@@ -252,7 +252,7 @@ public final class ActivationGroupDesc implements Serializable {
             return (this.command);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Fetch the configured java command options.
          *
          * @return An array of the command options which will be passed
@@ -266,7 +266,7 @@ public final class ActivationGroupDesc implements Serializable {
             return (String[]) options.clone();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Compares two command environments for content equality.
          *
          * @param       obj     the Object to compare with
@@ -287,7 +287,7 @@ public final class ActivationGroupDesc implements Serializable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Return identical values for similar
          * <code>CommandEnvironment</code>s.
          * @return an integer
@@ -299,7 +299,7 @@ public final class ActivationGroupDesc implements Serializable {
             return (command == null ? 0 : command.hashCode());
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * <code>readObject</code> for custom serialization.
          *
          * <p>This method reads this object's serialized form for this
@@ -320,7 +320,7 @@ public final class ActivationGroupDesc implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two activation group descriptors for content equality.
      *
      * @param   obj     the Object to compare with
@@ -346,7 +346,7 @@ public final class ActivationGroupDesc implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Produce identical numbers for similar <code>ActivationGroupDesc</code>s.
      * @return an integer
      * @see java.util.Hashtable

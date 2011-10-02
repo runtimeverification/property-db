@@ -33,7 +33,7 @@ import java.awt.image.WritableRaster;
 
 import sun.awt.image.SunVolatileImage;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>GraphicsConfiguration</code> class describes the
  * characteristics of a graphics destination such as a printer or monitor.
  * There can be many <code>GraphicsConfiguration</code> objects associated
@@ -111,7 +111,7 @@ public abstract class GraphicsConfiguration {
     private static BufferCapabilities defaultBufferCaps;
     private static ImageCapabilities defaultImageCaps;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is an abstract class that cannot be instantiated directly.
      * Instances must be obtained from a suitable factory or query method.
      *
@@ -123,7 +123,7 @@ public abstract class GraphicsConfiguration {
     protected GraphicsConfiguration() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@link GraphicsDevice} associated with this
      * <code>GraphicsConfiguration</code>.
      * @return a <code>GraphicsDevice</code> object that is
@@ -131,7 +131,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract GraphicsDevice getDevice();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link BufferedImage} with a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>.  This
      * method has nothing to do with memory-mapping
@@ -146,7 +146,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract BufferedImage createCompatibleImage(int width, int height);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>BufferedImage</code> that supports the specified
      * transparency and has a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>.  This
@@ -182,7 +182,7 @@ public abstract class GraphicsConfiguration {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link VolatileImage} with a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>.
      * The returned <code>VolatileImage</code>
@@ -208,7 +208,7 @@ public abstract class GraphicsConfiguration {
         return vi;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link VolatileImage} with a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>.
      * The returned <code>VolatileImage</code>
@@ -240,7 +240,7 @@ public abstract class GraphicsConfiguration {
         return vi;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link VolatileImage} with a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>, using
      * the specified image capabilities.
@@ -268,7 +268,7 @@ public abstract class GraphicsConfiguration {
                                              Transparency.OPAQUE);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link VolatileImage} with a data layout and color model
      * compatible with this <code>GraphicsConfiguration</code>, using
      * the specified image capabilities and transparency value.
@@ -309,7 +309,7 @@ public abstract class GraphicsConfiguration {
         return vi;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@link ColorModel} associated with this
      * <code>GraphicsConfiguration</code>.
      * @return a <code>ColorModel</code> object that is associated with
@@ -317,7 +317,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract ColorModel getColorModel();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ColorModel</code> associated with this
      * <code>GraphicsConfiguration</code> that supports the specified
      * transparency.
@@ -332,7 +332,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract ColorModel getColorModel(int transparency);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default {@link AffineTransform} for this
      * <code>GraphicsConfiguration</code>. This
      * <code>AffineTransform</code> is typically the Identity transform
@@ -353,7 +353,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract AffineTransform getDefaultTransform();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Returns a <code>AffineTransform</code> that can be concatenated
      * with the default <code>AffineTransform</code>
@@ -383,7 +383,7 @@ public abstract class GraphicsConfiguration {
      */
     public abstract AffineTransform getNormalizingTransform();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounds of the <code>GraphicsConfiguration</code>
      * in the device coordinates. In a multi-screen environment
      * with a virtual device, the bounds can have negative X
@@ -400,7 +400,7 @@ public abstract class GraphicsConfiguration {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the buffering capabilities of this
      * <code>GraphicsConfiguration</code>.
      * @return the buffering capabilities of this graphics
@@ -415,7 +415,7 @@ public abstract class GraphicsConfiguration {
         return defaultBufferCaps;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the image capabilities of this
      * <code>GraphicsConfiguration</code>.
      * @return the image capabilities of this graphics

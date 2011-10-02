@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown to indicate that a malformed URL has occurred. Either no
  * legal protocol could be found in a specification string or the
  * string could not be parsed.
@@ -36,13 +36,13 @@ import java.io.IOException;
  * @since   JDK1.0
  */
 public class MalformedURLException extends IOException {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MalformedURLException</code> with no detail message.
      */
     public MalformedURLException() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MalformedURLException</code> with the
      * specified detail message.
      *

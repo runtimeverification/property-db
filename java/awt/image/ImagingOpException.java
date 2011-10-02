@@ -26,14 +26,14 @@
 package java.awt.image;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>ImagingOpException</code> is thrown if one of the
  * {@link BufferedImageOp} or {@link RasterOp} filter methods cannot
  * process the image.
  */
 public class ImagingOpException extends java.lang.RuntimeException {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>ImagingOpException</code> object with the
      * specified message.
      * @param s the message to generate when a

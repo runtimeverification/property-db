@@ -30,7 +30,7 @@ import java.lang.ref.Reference;
 import java.lang.reflect.Method;
 import java.lang.reflect.Constructor;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A PropertyDescriptor describes one property that a Java Bean
  * exports via a pair of accessor methods.
  */
@@ -51,7 +51,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
     private String writeMethodName;
     private String readMethodName;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a PropertyDescriptor for a property that follows
      * the standard Java convention by having getFoo and setFoo
      * accessor methods.  Thus if the argument name is "fred", it will
@@ -73,7 +73,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
              Introspector.SET_PREFIX + NameGenerator.capitalize(propertyName));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor takes the name of a simple property, and method
      * names for reading and writing the property.
      *
@@ -118,7 +118,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         this.bound = (null != Introspector.findMethod(beanClass, name, args.length, args));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This constructor takes the name of a simple property, and Method
      * objects for reading and writing the property.
      *
@@ -140,7 +140,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         setWriteMethod(writeMethod);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates <code>PropertyDescriptor</code> for the specified bean
      * with the specified name and methods to read/write the property value.
      *
@@ -163,7 +163,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         this.baseName = base;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the Class object for the property.
      *
      * @return The Java type info for the property.  Note that
@@ -196,7 +196,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
                 : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method that should be used to read the property value.
      *
      * @return The method that should be used to read the property value.
@@ -238,7 +238,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return readMethod;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the method that should be used to read the property value.
      *
      * @param readMethod The new read method.
@@ -258,7 +258,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         this.readMethodRef = getSoftReference(readMethod);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method that should be used to write the property value.
      *
      * @return The method that should be used to write the property value.
@@ -302,7 +302,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return writeMethod;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the method that should be used to write the property value.
      *
      * @param writeMethod The new write method.
@@ -335,7 +335,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
                 : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Overridden to ensure that a super class doesn't take precedent
      */
     void setClass0(Class clz) {
@@ -346,7 +346,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         super.setClass0(clz);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates to "bound" properties will cause a "PropertyChange" event to
      * get fired when the property is changed.
      *
@@ -356,7 +356,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return bound;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Updates to "bound" properties will cause a "PropertyChange" event to
      * get fired when the property is changed.
      *
@@ -366,7 +366,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         this.bound = bound;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempted updates to "Constrained" properties will cause a "VetoableChange"
      * event to get fired when the property is changed.
      *
@@ -376,7 +376,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return constrained;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempted updates to "Constrained" properties will cause a "VetoableChange"
      * event to get fired when the property is changed.
      *
@@ -387,7 +387,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Normally PropertyEditors will be found using the PropertyEditorManager.
      * However if for some reason you want to associate a particular
      * PropertyEditor with a given property, then you can do it with
@@ -399,7 +399,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         this.propertyEditorClassRef = getWeakReference((Class)propertyEditorClass);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets any explicit PropertyEditor Class that has been registered
      * for this property.
      *
@@ -415,7 +415,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
                 : null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an instance of a property editor using the current
      * property editor class.
      * <p>
@@ -458,7 +458,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>PropertyDescriptor</code> against the specified object.
      * Returns true if the objects are the same. Two <code>PropertyDescriptor</code>s
      * are the same if the read, write, property types, property editor and
@@ -494,7 +494,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package private helper method for Descriptor .equals methods.
      *
      * @param a first method to compare
@@ -515,7 +515,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private constructor.
      * Merge two property descriptors.  Where they conflict, give the
      * second argument (y) priority over the first argument (x).
@@ -623,7 +623,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
         constrained = old.constrained;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the property type that corresponds to the read and write method.
      * The type precedence is given to the readMethod.
      *
@@ -665,7 +665,7 @@ public class PropertyDescriptor extends FeatureDescriptor {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for the object.
      * See {@link java.lang.Object#hashCode} for a complete description.
      *

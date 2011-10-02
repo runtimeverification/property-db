@@ -25,7 +25,7 @@
 
 package java.security.spec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents a public or private key in encoded format.
  *
  * @author Jan Luehe
@@ -44,7 +44,7 @@ public abstract class EncodedKeySpec implements KeySpec {
 
     private byte[] encodedKey;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new EncodedKeySpec with the given encoded key.
      *
      * @param encodedKey the encoded key. The contents of the
@@ -56,7 +56,7 @@ public abstract class EncodedKeySpec implements KeySpec {
         this.encodedKey = encodedKey.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the encoded key.
      *
      * @return the encoded key. Returns a new array each time
@@ -66,7 +66,7 @@ public abstract class EncodedKeySpec implements KeySpec {
         return this.encodedKey.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the encoding format associated with this
      * key specification.
      *

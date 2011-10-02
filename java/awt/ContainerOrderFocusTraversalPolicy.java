@@ -26,7 +26,7 @@ package java.awt;
 
 import java.util.logging.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A FocusTraversalPolicy that determines traversal order based on the order
  * of child Components in a Container. From a particular focus cycle root, the
  * policy makes a pre-order traversal of the Component hierarchy, and traverses
@@ -69,7 +69,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
 
     private boolean implicitDownCycleTraversal = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Component that should receive the focus after aComponent.
      * aContainer must be a focus cycle root of aComponent or a focus traversal policy provider.
      * <p>
@@ -193,7 +193,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Component that should receive the focus before aComponent.
      * aContainer must be a focus cycle root of aComponent or a <a
      * href="doc-files/FocusSpec.html#FocusTraversalPolicyProviders">focus traversal policy
@@ -294,7 +294,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * forward direction.
@@ -346,7 +346,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the last Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * reverse direction.
@@ -402,7 +402,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default Component to focus. This Component will be the first
      * to receive focus when traversing down into a new focus traversal cycle
      * rooted at aContainer. The default implementation of this method
@@ -419,7 +419,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return getFirstComponent(aContainer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets whether this ContainerOrderFocusTraversalPolicy transfers focus
      * down-cycle implicitly. If <code>true</code>, during normal forward focus
      * traversal, the Component traversed after a focus cycle root will be the
@@ -439,7 +439,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         this.implicitDownCycleTraversal = implicitDownCycleTraversal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether this ContainerOrderFocusTraversalPolicy transfers focus
      * down-cycle implicitly. If <code>true</code>, during normal forward focus
      * traversal, the Component traversed after a focus cycle root will be the
@@ -456,7 +456,7 @@ public class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy
         return implicitDownCycleTraversal;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether a Component is an acceptable choice as the new
      * focus owner. By default, this method will accept a Component if and
      * only if it is visible, displayable, enabled, and focusable.

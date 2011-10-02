@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving ancestor moved and resized events.
  * The class that is interested in processing these events either implements
  * this interface (and all the methods it contains) or extends the abstract
@@ -50,12 +50,12 @@ import java.util.EventListener;
  * @since       1.3
  */
 public interface HierarchyBoundsListener extends EventListener {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called when an ancestor of the source is moved.
      */
     public void ancestorMoved(HierarchyEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called when an ancestor of the source is resized.
      */
     public void ancestorResized(HierarchyEvent e);

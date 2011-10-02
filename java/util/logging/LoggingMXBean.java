@@ -25,7 +25,7 @@
 
 package java.util.logging;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The management interface for the logging facility.
  *
  * <p>There is a single global instance of the <tt>LoggingMXBean</tt>.
@@ -52,7 +52,7 @@ package java.util.logging;
  */
 public interface LoggingMXBean {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the list of currently registered loggers. This method
      * calls {@link LogManager#getLoggerNames} and returns a list
      * of the logger names.
@@ -62,7 +62,7 @@ public interface LoggingMXBean {
      */
     public java.util.List<String> getLoggerNames();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name of the log level associated with the specified logger.
      * If the specified logger does not exist, <tt>null</tt>
      * is returned.
@@ -88,7 +88,7 @@ public interface LoggingMXBean {
      */
     public String getLoggerLevel( String loggerName );
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the specified logger to the specified new level.
      * If the <tt>levelName</tt> is not <tt>null</tt>, the level
      * of the specified logger is set to the parsed <tt>Level</tt>
@@ -114,7 +114,7 @@ public interface LoggingMXBean {
      */
     public void setLoggerLevel( String loggerName, String levelName );
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of the parent for the specified logger.
      * If the specified logger does not exist, <tt>null</tt> is returned.
      * If the specified logger is the root <tt>Logger</tt> in the namespace,

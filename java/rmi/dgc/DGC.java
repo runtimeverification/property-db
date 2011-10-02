@@ -27,7 +27,7 @@ package java.rmi.dgc;
 import java.rmi.*;
 import java.rmi.server.ObjID;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The DGC abstraction is used for the server side of the distributed
  * garbage collection algorithm. This interface contains the two
  * methods: dirty and clean. A dirty call is made when a remote
@@ -51,7 +51,7 @@ import java.rmi.server.ObjID;
  */
 public interface DGC extends Remote {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The dirty call requests leases for the remote object references
      * associated with the object identifiers contained in the array
      * 'ids'. The 'lease' contains a client's unique VM identifier (VMID)
@@ -96,7 +96,7 @@ public interface DGC extends Remote {
     Lease dirty(ObjID[] ids, long sequenceNum, Lease lease)
         throws RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The clean call removes the 'vmid' from the reference list of
      * each remote object indicated in 'id's.  The sequence number is
      * used to detect late clean calls.  If the argument 'strong' is

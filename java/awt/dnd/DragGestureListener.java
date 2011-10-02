@@ -29,7 +29,7 @@ package java.awt.dnd;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This interface is sourced from a <code>DragGestureRecognizer</code>
  * and is invoked
  * when an object of that (sub)class detects a drag initiating
@@ -45,7 +45,7 @@ import java.util.EventListener;
 
  public interface DragGestureListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <code>DragGestureRecognizer</code> has detected
      * a platform-dependent drag initiating gesture and
      * is notifying this listener

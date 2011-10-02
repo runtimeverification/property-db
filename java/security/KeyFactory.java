@@ -35,7 +35,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Key factories are used to convert <I>keys</I> (opaque
  * cryptographic keys of type <code>Key</code>) into <I>key specifications</I>
  * (transparent representations of the underlying key material), and vice
@@ -101,7 +101,7 @@ public class KeyFactory {
     // null once provider is selected
     private Iterator<Service> serviceIterator;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a KeyFactory object.
      *
      * @param keyFacSpi the delegate
@@ -127,7 +127,7 @@ public class KeyFactory {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyFactory object that converts
      * public/private keys of the specified algorithm.
      *
@@ -159,7 +159,7 @@ public class KeyFactory {
         return new KeyFactory(algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyFactory object that converts
      * public/private keys of the specified algorithm.
      *
@@ -201,7 +201,7 @@ public class KeyFactory {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a KeyFactory object that converts
      * public/private keys of the specified algorithm.
      *
@@ -238,7 +238,7 @@ public class KeyFactory {
             instance.provider, algorithm);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the provider of this key factory object.
      *
      * @return the provider of this key factory object
@@ -251,7 +251,7 @@ public class KeyFactory {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name of the algorithm
      * associated with this <tt>KeyFactory</tt>.
      *
@@ -262,7 +262,7 @@ public class KeyFactory {
         return this.algorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Update the active KeyFactorySpi of this class and return the next
      * implementation for failover. If no more implemenations are
      * available, this method returns null. However, the active spi of
@@ -298,7 +298,7 @@ public class KeyFactory {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a public key object from the provided key specification
      * (key material).
      *
@@ -336,7 +336,7 @@ public class KeyFactory {
                 ("Could not generate public key", failure);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a private key object from the provided key specification
      * (key material).
      *
@@ -374,7 +374,7 @@ public class KeyFactory {
                 ("Could not generate private key", failure);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a specification (key material) of the given key object.
      * <code>keySpec</code> identifies the specification class in which
      * the key material should be returned. It could, for example, be
@@ -421,7 +421,7 @@ public class KeyFactory {
                 ("Could not get key spec", failure);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates a key object, whose provider may be unknown or potentially
      * untrusted, into a corresponding key object of this key factory.
      *

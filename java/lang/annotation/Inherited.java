@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Indicates that an annotation type is automatically inherited.  If
  * an Inherited meta-annotation is present on an annotation type
  * declaration, and the user queries the annotation type on a class

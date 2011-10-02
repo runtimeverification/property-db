@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * InvocationTargetException is a checked exception that wraps
  * an exception thrown by an invoked method or constructor.
  *
@@ -40,12 +40,12 @@ package java.lang.reflect;
  * @see Constructor
  */
 public class InvocationTargetException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use serialVersionUID from JDK 1.1.X for interoperability
      */
     private static final long serialVersionUID = 4085088731926701167L;
 
-     /** {@collect.stats}
+     /** {@collect.stats} 
      * This field holds the target if the
      * InvocationTargetException(Throwable target) constructor was
      * used to instantiate the object
@@ -55,7 +55,7 @@ public class InvocationTargetException extends Exception {
      */
     private Throwable target;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an {@code InvocationTargetException} with
      * {@code null} as the target exception.
      */
@@ -63,7 +63,7 @@ public class InvocationTargetException extends Exception {
         super((Throwable)null);  // Disallow initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a InvocationTargetException with a target exception.
      *
      * @param target the target exception
@@ -73,7 +73,7 @@ public class InvocationTargetException extends Exception {
         this.target = target;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a InvocationTargetException with a target exception
      * and a detail message.
      *
@@ -85,7 +85,7 @@ public class InvocationTargetException extends Exception {
         this.target = target;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the thrown target exception.
      *
      * <p>This method predates the general-purpose exception chaining facility.
@@ -98,7 +98,7 @@ public class InvocationTargetException extends Exception {
         return target;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this exception (the thrown target exception,
      * which may be {@code null}).
      *

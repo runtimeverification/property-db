@@ -32,7 +32,7 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>The basic service for managing a set of JDBC drivers.<br>
  * <B>NOTE:</B> The {@link <code>DataSource</code>} interface, new in the
  * JDBC 2.0 API, provides another way to connect to a data source.
@@ -79,7 +79,7 @@ import java.security.PrivilegedAction;
 public class DriverManager {
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The <code>SQLPermission</code> constant that allows the
      * setting of the logging stream.
      * @since 1.3
@@ -89,7 +89,7 @@ public class DriverManager {
 
     //--------------------------JDBC 2.0-----------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the log writer.
      *
      * The <code>getLogWriter</code> and <code>setLogWriter</code>
@@ -103,7 +103,7 @@ public class DriverManager {
             return logWriter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the logging/tracing <code>PrintWriter</code> object
      * that is used by the <code>DriverManager</code> and all drivers.
      * <P>
@@ -146,7 +146,7 @@ public class DriverManager {
 
     //---------------------------------------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to establish a connection to the given database URL.
      * The <code>DriverManager</code> attempts to select an appropriate driver from
      * the set of registered JDBC drivers.
@@ -169,7 +169,7 @@ public class DriverManager {
         return (getConnection(url, info, callerCL));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to establish a connection to the given database URL.
      * The <code>DriverManager</code> attempts to select an appropriate driver from
      * the set of registered JDBC drivers.
@@ -200,7 +200,7 @@ public class DriverManager {
         return (getConnection(url, info, callerCL));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to establish a connection to the given database URL.
      * The <code>DriverManager</code> attempts to select an appropriate driver from
      * the set of registered JDBC drivers.
@@ -222,7 +222,7 @@ public class DriverManager {
         return (getConnection(url, info, callerCL));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attempts to locate a driver that understands the given URL.
      * The <code>DriverManager</code> attempts to select an appropriate driver from
      * the set of registered JDBC drivers.
@@ -280,7 +280,7 @@ public class DriverManager {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Registers the given driver with the <code>DriverManager</code>.
      * A newly-loaded driver class should call
      * the method <code>registerDriver</code> to make itself
@@ -312,7 +312,7 @@ public class DriverManager {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Drops a driver from the <code>DriverManager</code>'s list.
      *  Applets can only deregister drivers from their own classloaders.
      *
@@ -354,7 +354,7 @@ public class DriverManager {
         readDrivers = (java.util.Vector) writeDrivers.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves an Enumeration with all of the currently loaded JDBC drivers
      * to which the current caller has access.
      *
@@ -396,7 +396,7 @@ public class DriverManager {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the maximum time in seconds that a driver will wait
      * while attempting to connect to a database.
      *
@@ -407,7 +407,7 @@ public class DriverManager {
         loginTimeout = seconds;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the maximum time in seconds that a driver can wait
      * when attempting to log in to a database.
      *
@@ -418,7 +418,7 @@ public class DriverManager {
         return (loginTimeout);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the logging/tracing PrintStream that is used
      * by the <code>DriverManager</code>
      * and all drivers.
@@ -451,7 +451,7 @@ public class DriverManager {
             logWriter = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the logging/tracing PrintStream that is used by the <code>DriverManager</code>
      * and all drivers.
      *
@@ -463,7 +463,7 @@ public class DriverManager {
         return logStream;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a message to the current JDBC log stream.
      *
      * @param message a log or tracing message

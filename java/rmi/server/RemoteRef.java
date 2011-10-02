@@ -27,7 +27,7 @@ package java.rmi.server;
 
 import java.rmi.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <code>RemoteRef</code> represents the handle for a remote object. A
  * <code>RemoteStub</code> uses a remote reference to carry out a
  * remote method invocation to a remote object.
@@ -38,10 +38,10 @@ import java.rmi.*;
  */
 public interface RemoteRef extends java.io.Externalizable {
 
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class. */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class. */
     static final long serialVersionUID = 3632638527362204081L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize the server package prefix: assumes that the
      * implementation of server ref classes (e.g., UnicastRef,
      * UnicastServerRef) are located in the package defined by the
@@ -49,7 +49,7 @@ public interface RemoteRef extends java.io.Externalizable {
      */
     final static String packagePrefix = "sun.rmi.server";
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoke a method. This form of delegating method invocation
      * to the reference allows the reference to take care of
      * setting up the connection to the remote host, marshaling
@@ -77,7 +77,7 @@ public interface RemoteRef extends java.io.Externalizable {
                   long opnum)
         throws Exception;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an appropriate call object for a new remote method
      * invocation on this object.  Passing operation array and index,
      * allows the stubs generator to assign the operation indexes and
@@ -105,7 +105,7 @@ public interface RemoteRef extends java.io.Externalizable {
     RemoteCall newCall(RemoteObject obj, Operation[] op, int opnum, long hash)
         throws RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Executes the remote call.
      *
      * Invoke will raise any "user" exceptions which
@@ -130,7 +130,7 @@ public interface RemoteRef extends java.io.Externalizable {
     @Deprecated
     void invoke(RemoteCall call) throws Exception;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Allows the remote reference to clean up (or reuse) the connection.
      * Done should only be called if the invoke returns successfully
      * (non-exceptionally) to the stub.
@@ -151,7 +151,7 @@ public interface RemoteRef extends java.io.Externalizable {
     @Deprecated
     void done(RemoteCall call) throws RemoteException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the class name of the ref type to be serialized onto
      * the stream 'out'.
      * @param out the output stream to which the reference will be serialized
@@ -161,7 +161,7 @@ public interface RemoteRef extends java.io.Externalizable {
      */
     String getRefClass(java.io.ObjectOutput out);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for a remote object.  Two remote object stubs
      * that refer to the same remote object will have the same hash code
      * (in order to support remote objects as keys in hash tables).
@@ -172,7 +172,7 @@ public interface RemoteRef extends java.io.Externalizable {
      */
     int remoteHashCode();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two remote objects for equality.
      * Returns a boolean that indicates whether this remote object is
      * equivalent to the specified Object. This method is used when a
@@ -184,7 +184,7 @@ public interface RemoteRef extends java.io.Externalizable {
      */
     boolean remoteEquals(RemoteRef obj);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a String that represents the reference of this remote
      * object.
      * @return string representing remote object reference

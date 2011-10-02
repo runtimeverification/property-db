@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.ArrayList;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A MethodDescriptor describes a particular method that a Java Bean
  * supports for external access from other components.
  */
@@ -48,7 +48,7 @@ public class MethodDescriptor extends FeatureDescriptor {
 
     private ParameterDescriptor parameterDescriptors[];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MethodDescriptor</code> from a
      * <code>Method</code>.
      *
@@ -59,7 +59,7 @@ public class MethodDescriptor extends FeatureDescriptor {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>MethodDescriptor</code> from a
      * <code>Method</code> providing descriptive information for each
      * of the method's parameters.
@@ -75,7 +75,7 @@ public class MethodDescriptor extends FeatureDescriptor {
         this.parameterDescriptors = parameterDescriptors;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the method that this MethodDescriptor encapsualtes.
      *
      * @return The low-level description of the method
@@ -155,7 +155,7 @@ public class MethodDescriptor extends FeatureDescriptor {
         return clss;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the ParameterDescriptor for each of this MethodDescriptor's
      * method's parameters.
      *

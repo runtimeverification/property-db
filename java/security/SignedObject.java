@@ -27,7 +27,7 @@ package java.security;
 
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p> SignedObject is a class for the purpose of creating authentic
  * runtime objects whose integrity cannot be compromised without being
  * detected.
@@ -130,7 +130,7 @@ public final class SignedObject implements Serializable {
     private byte[] signature;
     private String thealgorithm;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a SignedObject from any Serializable object.
      * The given object is signed with the given signing key, using the
      * designated signature engine.
@@ -161,7 +161,7 @@ public final class SignedObject implements Serializable {
             this.sign(signingKey, signingEngine);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the encapsulated object.
      * The encapsulated object is de-serialized before it is returned.
      *
@@ -183,7 +183,7 @@ public final class SignedObject implements Serializable {
         return obj;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the signature on the signed object, in the form of a
      * byte array.
      *
@@ -194,7 +194,7 @@ public final class SignedObject implements Serializable {
         return this.signature.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the name of the signature algorithm.
      *
      * @return the signature algorithm name.
@@ -203,7 +203,7 @@ public final class SignedObject implements Serializable {
         return this.thealgorithm;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Verifies that the signature in this SignedObject is the valid
      * signature for the object stored inside, with the given
      * verification key, using the designated verification engine.
@@ -244,7 +244,7 @@ public final class SignedObject implements Serializable {
             this.thealgorithm = signingEngine.getAlgorithm();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * readObject is called to restore the state of the SignedObject from
      * a stream.
      */

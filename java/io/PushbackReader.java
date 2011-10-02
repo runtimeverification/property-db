@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * A character-stream reader that allows characters to be pushed back into the
  * stream.
@@ -38,21 +38,21 @@ package java.io;
 
 public class PushbackReader extends FilterReader {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Pushback buffer
      * {@description.close}
      */
     private char[] buf;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Current position in buffer
      * {@description.close}
      */
     private int pos;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new pushback reader with a pushback buffer of the given size.
      * {@description.close}
@@ -70,7 +70,7 @@ public class PushbackReader extends FilterReader {
         this.pos = size;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates a new pushback reader with a one-character pushback buffer.
      * {@description.close}
@@ -81,7 +81,7 @@ public class PushbackReader extends FilterReader {
         this(in, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Checks to make sure that the stream has not been closed.
      * {@description.close}
@@ -91,7 +91,7 @@ public class PushbackReader extends FilterReader {
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads a single character.
      * {@description.close}
@@ -111,7 +111,7 @@ public class PushbackReader extends FilterReader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
@@ -160,7 +160,7 @@ public class PushbackReader extends FilterReader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Pushes back a single character by copying it to the front of the
      * pushback buffer.
@@ -184,7 +184,7 @@ public class PushbackReader extends FilterReader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Pushes back a portion of an array of characters by copying it to the
      * front of the pushback buffer.
@@ -213,7 +213,7 @@ public class PushbackReader extends FilterReader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Pushes back an array of characters by copying it to the front of the
      * pushback buffer.
@@ -233,7 +233,7 @@ public class PushbackReader extends FilterReader {
         unread(cbuf, 0, cbuf.length);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream is ready to be read.
      * {@description.close}
@@ -247,7 +247,7 @@ public class PushbackReader extends FilterReader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Marks the present position in the stream.
      * {@description.close}
@@ -262,7 +262,7 @@ public class PushbackReader extends FilterReader {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Resets the stream.
      * {@description.close}
@@ -277,7 +277,7 @@ public class PushbackReader extends FilterReader {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Tells whether this stream supports the mark() operation, which it does
      * not.
@@ -287,7 +287,7 @@ public class PushbackReader extends FilterReader {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Closes the stream and releases any system resources associated with
      * it.
@@ -307,7 +307,7 @@ public class PushbackReader extends FilterReader {
         buf = null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Skips characters.
      * {@description.close}

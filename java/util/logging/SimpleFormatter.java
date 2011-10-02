@@ -30,7 +30,7 @@ import java.io.*;
 import java.text.*;
 import java.util.Date;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Print a brief summary of the LogRecord in a human readable
  * format.  The summary will typically be 1 or 2 lines.
  *
@@ -50,7 +50,7 @@ public class SimpleFormatter extends Formatter {
     private String lineSeparator = java.security.AccessController.doPrivileged(
                new sun.security.action.GetPropertyAction("line.separator"));
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Format the given LogRecord.
      * <p>
      * This method can be overridden in a subclass.

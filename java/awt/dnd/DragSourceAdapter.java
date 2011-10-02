@@ -25,7 +25,7 @@
 
 package java.awt.dnd;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract adapter class for receiving drag source events. The methods in
  * this class are empty. This class exists only as a convenience for creating
  * listener objects.
@@ -57,7 +57,7 @@ package java.awt.dnd;
 public abstract class DragSourceAdapter
     implements DragSourceListener, DragSourceMotionListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot enters a platform-dependent drop site.
      * This method is invoked when all the following conditions are true:
      * <UL>
@@ -71,7 +71,7 @@ public abstract class DragSourceAdapter
      */
     public void dragEnter(DragSourceDragEvent dsde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot moves over a platform-dependent drop site.
      * This method is invoked when all the following conditions are true:
      * <UL>
@@ -86,14 +86,14 @@ public abstract class DragSourceAdapter
      */
     public void dragOver(DragSourceDragEvent dsde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called whenever the mouse is moved during a drag operation.
      *
      * @param dsde the <code>DragSourceDragEvent</code>
      */
     public void dragMouseMoved(DragSourceDragEvent dsde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called when the user has modified the drop gesture.
      * This method is invoked when the state of the input
      * device(s) that the user is interacting with changes.
@@ -104,7 +104,7 @@ public abstract class DragSourceAdapter
      */
     public void dropActionChanged(DragSourceDragEvent dsde) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called as the cursor's hotspot exits a platform-dependent drop site.
      * This method is invoked when any of the following conditions are true:
      * <UL>
@@ -126,7 +126,7 @@ public abstract class DragSourceAdapter
      */
     public void dragExit(DragSourceEvent dse) {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method is invoked to signify that the Drag and Drop
      * operation is complete. The getDropSuccess() method of
      * the <code>DragSourceDropEvent</code> can be used to

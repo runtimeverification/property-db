@@ -25,7 +25,7 @@
 
 package java.lang.instrument;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown by an implementation of
  * {@link java.lang.instrument.Instrumentation#redefineClasses Instrumentation.redefineClasses}
  * when one of the specified classes cannot be modified.
@@ -34,7 +34,7 @@ package java.lang.instrument;
  * @since   1.5
  */
 public class UnmodifiableClassException extends Exception {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnmodifiableClassException</code> with no
      * detail message.
      */
@@ -43,7 +43,7 @@ public class UnmodifiableClassException extends Exception {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnmodifiableClassException</code> with the
      * specified detail message.
      *

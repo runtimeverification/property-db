@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when the Java Virtual Machine attempts to read a class
  * file and determines that the file is malformed or otherwise cannot
  * be interpreted as a class file.
@@ -35,14 +35,14 @@ package java.lang;
  */
 public
 class ClassFormatError extends LinkageError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassFormatError</code> with no detail message.
      */
     public ClassFormatError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ClassFormatError</code> with the specified
      * detail message.
      *

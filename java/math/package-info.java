@@ -23,7 +23,7 @@
  * questions.
  */
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Provides classes for performing arbitrary-precision integer
  * arithmetic ({@code BigInteger}) and arbitrary-precision decimal
  * arithmetic ({@code BigDecimal}).  {@code BigInteger} is analogous

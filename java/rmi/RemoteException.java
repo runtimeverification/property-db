@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>RemoteException</code> is the common superclass for a number of
  * communication-related exceptions that may occur during the execution of a
  * remote method call.  Each method of a remote interface, an interface that
@@ -51,7 +51,7 @@ public class RemoteException extends java.io.IOException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -5148567311918794206L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The cause of the remote exception.
      *
      * <p>This field predates the general-purpose exception chaining facility.
@@ -62,14 +62,14 @@ public class RemoteException extends java.io.IOException {
      */
     public Throwable detail;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteException</code>.
      */
     public RemoteException() {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteException</code> with the specified
      * detail message.
      *
@@ -80,7 +80,7 @@ public class RemoteException extends java.io.IOException {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>RemoteException</code> with the specified detail
      * message and cause.  This constructor sets the {@link #detail}
      * field to the specified <code>Throwable</code>.
@@ -94,7 +94,7 @@ public class RemoteException extends java.io.IOException {
         detail = cause;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the detail message, including the message from the cause, if
      * any, of this exception.
      *
@@ -109,7 +109,7 @@ public class RemoteException extends java.io.IOException {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the cause of this exception.  This method returns the value
      * of the {@link #detail} field.
      *

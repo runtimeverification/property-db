@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.concurrent.locks.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A cancellable asynchronous computation.  This class provides a base
  * implementation of {@link Future}, with methods to start and cancel
  * a computation, query to see if the computation is complete, and
@@ -60,10 +60,10 @@ import java.util.concurrent.locks.*;
  * @param <V> The result type returned by this FutureTask's <tt>get</tt> method
  */
 public class FutureTask<V> implements RunnableFuture<V> {
-    /** {@collect.stats} Synchronization control for FutureTask */
+    /** {@collect.stats}  Synchronization control for FutureTask */
     private final Sync sync;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>FutureTask</tt> that will, upon running, execute the
      * given <tt>Callable</tt>.
      *
@@ -76,7 +76,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
         sync = new Sync(callable);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>FutureTask</tt> that will, upon running, execute the
      * given <tt>Runnable</tt>, and arrange that <tt>get</tt> will return the
      * given result on successful completion.
@@ -104,14 +104,14 @@ public class FutureTask<V> implements RunnableFuture<V> {
         return sync.innerCancel(mayInterruptIfRunning);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws CancellationException {@inheritDoc}
      */
     public V get() throws InterruptedException, ExecutionException {
         return sync.innerGet();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws CancellationException {@inheritDoc}
      */
     public V get(long timeout, TimeUnit unit)
@@ -119,7 +119,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
         return sync.innerGet(unit.toNanos(timeout));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Protected method invoked when this task transitions to state
      * <tt>isDone</tt> (whether normally or via cancellation). The
      * default implementation does nothing.  Subclasses may override
@@ -130,7 +130,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
      */
     protected void done() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the result of this Future to the given value unless
      * this future has already been set or has been cancelled.
      * This method is invoked internally by the <tt>run</tt> method
@@ -141,7 +141,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
         sync.innerSet(v);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes this future to report an <tt>ExecutionException</tt>
      * with the given throwable as its cause, unless this Future has
      * already been set or has been cancelled.
@@ -158,7 +158,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
     // 6270645: Javadoc comments should be inherited from most derived
     //          superinterface or superclass
     // is fixed.
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this Future to the result of its computation
      * unless it has been cancelled.
      */
@@ -166,7 +166,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
         sync.innerRun();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Executes the computation without setting its result, and then
      * resets this Future to initial state, failing to do so if the
      * computation encounters an exception or is cancelled.  This is
@@ -178,7 +178,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
         return sync.innerRunAndReset();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Synchronization control for FutureTask. Note that this must be
      * a non-static inner class in order to invoke the protected
      * <tt>done</tt> method. For clarity, all inner class support
@@ -189,23 +189,23 @@ public class FutureTask<V> implements RunnableFuture<V> {
     private final class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = -7828117401763700385L;
 
-        /** {@collect.stats} State value representing that task is ready to run */
+        /** {@collect.stats}  State value representing that task is ready to run */
         private static final int READY     = 0;
-        /** {@collect.stats} State value representing that task is running */
+        /** {@collect.stats}  State value representing that task is running */
         private static final int RUNNING   = 1;
-        /** {@collect.stats} State value representing that task ran */
+        /** {@collect.stats}  State value representing that task ran */
         private static final int RAN       = 2;
-        /** {@collect.stats} State value representing that task was cancelled */
+        /** {@collect.stats}  State value representing that task was cancelled */
         private static final int CANCELLED = 4;
 
-        /** {@collect.stats} The underlying callable */
+        /** {@collect.stats}  The underlying callable */
         private final Callable<V> callable;
-        /** {@collect.stats} The result to return from get() */
+        /** {@collect.stats}  The result to return from get() */
         private V result;
-        /** {@collect.stats} The exception to throw from get() */
+        /** {@collect.stats}  The exception to throw from get() */
         private Throwable exception;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The thread running task. When nulled after set/cancel, this
          * indicates that the results are accessible.  Must be
          * volatile, to ensure visibility upon completion.
@@ -220,14 +220,14 @@ public class FutureTask<V> implements RunnableFuture<V> {
             return (state & (RAN | CANCELLED)) != 0;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements AQS base acquire to succeed if ran or cancelled
          */
         protected int tryAcquireShared(int ignore) {
             return innerIsDone() ? 1 : -1;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Implements AQS base release to always signal after setting
          * final done status by nulling runner thread.
          */

@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Capabilities and properties of buffers.
  *
  * @see java.awt.image.BufferStrategy#getCapabilities()
@@ -39,7 +39,7 @@ public class BufferCapabilities implements Cloneable {
     private ImageCapabilities backCaps;
     private FlipContents flipContents;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new object for specifying buffering capabilities
      * @param frontCaps the capabilities of the front buffer; cannot be
      * <code>null</code>
@@ -61,14 +61,14 @@ public class BufferCapabilities implements Cloneable {
         this.flipContents = flipContents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return the image capabilities of the front (displayed) buffer
      */
     public ImageCapabilities getFrontBufferCapabilities() {
         return frontCaps;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return the image capabilities of all back buffers (intermediate buffers
      * are considered back buffers)
      */
@@ -76,7 +76,7 @@ public class BufferCapabilities implements Cloneable {
         return backCaps;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return whether or not the buffer strategy uses page flipping; a set of
      * buffers that uses page flipping
      * can swap the contents internally between the front buffer and one or
@@ -90,7 +90,7 @@ public class BufferCapabilities implements Cloneable {
         return (getFlipContents() != null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return the resulting contents of the back buffer after page-flipping.
      * This value is <code>null</code> when the <code>isPageFlipping</code>
      * returns <code>false</code>, implying blitting.  It can be one of
@@ -108,7 +108,7 @@ public class BufferCapabilities implements Cloneable {
         return flipContents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return whether page flipping is only available in full-screen mode.  If this
      * is <code>true</code>, full-screen exclusive mode is required for
      * page-flipping.
@@ -119,7 +119,7 @@ public class BufferCapabilities implements Cloneable {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return whether or not
      * page flipping can be performed using more than two buffers (one or more
      * intermediate buffers as well as the front and back buffer).
@@ -129,7 +129,7 @@ public class BufferCapabilities implements Cloneable {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @return a copy of this BufferCapabilities object.
      */
     public Object clone() {
@@ -142,7 +142,7 @@ public class BufferCapabilities implements Cloneable {
     }
 
     // Inner class FlipContents
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A type-safe enumeration of the possible back buffer contents after
      * page-flipping
      * @since 1.4
@@ -157,7 +157,7 @@ public class BufferCapabilities implements Cloneable {
         private static final String NAMES[] =
             { "undefined", "background", "prior", "copied" };
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * When flip contents are <code>UNDEFINED</code>, the
          * contents of the back buffer are undefined after flipping.
          * @see #isPageFlipping
@@ -169,7 +169,7 @@ public class BufferCapabilities implements Cloneable {
         public static final FlipContents UNDEFINED =
             new FlipContents(I_UNDEFINED);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * When flip contents are <code>BACKGROUND</code>, the
          * contents of the back buffer are cleared with the background color after
          * flipping.
@@ -182,7 +182,7 @@ public class BufferCapabilities implements Cloneable {
         public static final FlipContents BACKGROUND =
             new FlipContents(I_BACKGROUND);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * When flip contents are <code>PRIOR</code>, the
          * contents of the back buffer are the prior contents of the front buffer
          * (a true page flip).
@@ -195,7 +195,7 @@ public class BufferCapabilities implements Cloneable {
         public static final FlipContents PRIOR =
             new FlipContents(I_PRIOR);
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * When flip contents are <code>COPIED</code>, the
          * contents of the back buffer are copied to the front buffer when
          * flipping.

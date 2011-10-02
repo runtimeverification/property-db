@@ -48,7 +48,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>DragGestureEvent</code> is passed
  * to <code>DragGestureListener</code>'s
  * dragGestureRecognized() method
@@ -65,7 +65,7 @@ public class DragGestureEvent extends EventObject {
 
     private static final long serialVersionUID = 9080172649166731306L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>DragGestureEvent</code> given the
      * <code>DragGestureRecognizer</code> firing this event,
      * an <code>int</code> representing
@@ -107,7 +107,7 @@ public class DragGestureEvent extends EventObject {
         origin     = ori;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the source as a <code>DragGestureRecognizer</code>.
      * <P>
      * @return the source as a <code>DragGestureRecognizer</code>
@@ -117,7 +117,7 @@ public class DragGestureEvent extends EventObject {
         return (DragGestureRecognizer)getSource();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Component</code> associated
      * with this <code>DragGestureEvent</code>.
      * <P>
@@ -126,7 +126,7 @@ public class DragGestureEvent extends EventObject {
 
     public Component getComponent() { return component; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>DragSource</code>.
      * <P>
      * @return the <code>DragSource</code>
@@ -134,7 +134,7 @@ public class DragGestureEvent extends EventObject {
 
     public DragSource getDragSource() { return dragSource; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Point</code> in the coordinates
      * of the <code>Component</code> over which the drag originated.
      * <P>
@@ -145,7 +145,7 @@ public class DragGestureEvent extends EventObject {
         return origin;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an <code>Iterator</code> for the events
      * comprising the gesture.
      * <P>
@@ -154,7 +154,7 @@ public class DragGestureEvent extends EventObject {
 
     public Iterator<InputEvent> iterator() { return events.iterator(); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an <code>Object</code> array of the
      * events comprising the drag gesture.
      * <P>
@@ -163,7 +163,7 @@ public class DragGestureEvent extends EventObject {
 
     public Object[] toArray() { return events.toArray(); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of the events comprising the drag gesture.
      * <P>
      * @param array the array of <code>EventObject</code> sub(types)
@@ -173,7 +173,7 @@ public class DragGestureEvent extends EventObject {
 
     public Object[] toArray(Object[] array) { return events.toArray(array); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an <code>int</code> representing the
      * action selected by the user.
      * <P>
@@ -182,7 +182,7 @@ public class DragGestureEvent extends EventObject {
 
     public int getDragAction() { return action; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the initial event that triggered the gesture.
      * <P>
      * @return the first "triggering" event in the sequence of the gesture
@@ -192,7 +192,7 @@ public class DragGestureEvent extends EventObject {
         return getSourceAsDragGestureRecognizer().getTriggerEvent();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Starts the drag operation given the <code>Cursor</code> for this drag
      * operation and the <code>Transferable</code> representing the source data
      * for this drag operation.
@@ -220,7 +220,7 @@ public class DragGestureEvent extends EventObject {
         dragSource.startDrag(this, dragCursor, transferable, null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Starts the drag given the initial <code>Cursor</code> to display,
      * the <code>Transferable</code> object,
      * and the <code>DragSourceListener</code> to use.
@@ -240,7 +240,7 @@ public class DragGestureEvent extends EventObject {
         dragSource.startDrag(this, dragCursor, transferable, dsl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Start the drag given the initial <code>Cursor</code> to display,
      * a drag <code>Image</code>, the offset of
      * the <code>Image</code>,
@@ -264,7 +264,7 @@ public class DragGestureEvent extends EventObject {
         dragSource.startDrag(this,  dragCursor, dragImage, imageOffset, transferable, dsl);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializes this <code>DragGestureEvent</code>. Performs default
      * serialization and then writes out this object's <code>List</code> of
      * gesture events if and only if the <code>List</code> can be serialized.
@@ -283,7 +283,7 @@ public class DragGestureEvent extends EventObject {
         s.writeObject(SerializationTester.test(events) ? events : null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deserializes this <code>DragGestureEvent</code>. This method first
      * performs default deserialization for all non-<code>transient</code>
      * fields. An attempt is then made to deserialize this object's
@@ -327,28 +327,28 @@ public class DragGestureEvent extends EventObject {
 
     private transient List events;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The DragSource associated with this DragGestureEvent.
      *
      * @serial
      */
     private DragSource dragSource;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Component associated with this DragGestureEvent.
      *
      * @serial
      */
     private Component  component;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The origin of the drag.
      *
      * @serial
      */
     private Point      origin;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The user's preferred action.
      *
      * @serial

@@ -25,7 +25,7 @@
 
 package java.awt.image;
 
-/** {@collect.stats}
+/** {@collect.stats} 
   * An interface for objects that wish to be informed when tiles
   * of a WritableRenderedImage become modifiable by some writer via
   * a call to getWritableTile, and when they become unmodifiable via
@@ -38,7 +38,7 @@ package java.awt.image;
   */
 public interface TileObserver {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
     * A tile is about to be updated (it is either about to be grabbed
     * for writing, or it is being released from writing).
     *

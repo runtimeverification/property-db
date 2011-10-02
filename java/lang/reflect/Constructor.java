@@ -37,7 +37,7 @@ import sun.reflect.annotation.AnnotationParser;
 import java.lang.annotation.AnnotationFormatError;
 import java.lang.reflect.Modifier;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * {@code Constructor} provides information about, and access to, a single
  * constructor for a class.
  *
@@ -111,7 +111,7 @@ public final
     // and potentially many Constructor objects pointing to it.)
     private Constructor<T>      root;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private constructor used by ReflectAccess to enable
      * instantiation of these objects in Java code from the java.lang
      * package via sun.reflect.LangReflectAccess.
@@ -135,7 +135,7 @@ public final
         this.parameterAnnotations = parameterAnnotations;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Package-private routine (exposed to java.lang.Class via
      * ReflectAccess) which returns a copy of this Constructor. The copy's
      * "root" field points to this Constructor.
@@ -160,7 +160,7 @@ public final
         return res;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code Class} object representing the class that declares
      * the constructor represented by this {@code Constructor} object.
      */
@@ -168,7 +168,7 @@ public final
         return clazz;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the name of this constructor, as a string.  This is
      * always the same as the simple name of the constructor's declaring
      * class.
@@ -177,7 +177,7 @@ public final
         return getDeclaringClass().getName();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Java language modifiers for the constructor
      * represented by this {@code Constructor} object, as an integer. The
      * {@code Modifier} class should be used to decode the modifiers.
@@ -188,7 +188,7 @@ public final
         return modifiers;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code TypeVariable} objects that represent the
      * type variables declared by the generic declaration represented by this
      * {@code GenericDeclaration} object, in declaration order.  Returns an
@@ -211,7 +211,7 @@ public final
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code Class} objects that represent the formal
      * parameter types, in declaration order, of the constructor
      * represented by this {@code Constructor} object.  Returns an array of
@@ -225,7 +225,7 @@ public final
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code Type} objects that represent the formal
      * parameter types, in declaration order, of the method represented by
      * this {@code Constructor} object. Returns an array of length 0 if the
@@ -259,7 +259,7 @@ public final
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code Class} objects that represent the types
      * of exceptions declared to be thrown by the underlying constructor
      * represented by this {@code Constructor} object.  Returns an array of
@@ -273,7 +273,7 @@ public final
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of {@code Type} objects that represent the
      * exceptions declared to be thrown by this {@code Constructor} object.
      * Returns an array of length 0 if the underlying method declares
@@ -307,7 +307,7 @@ public final
               return getExceptionTypes();
       }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this {@code Constructor} against the specified object.
      * Returns true if the objects are the same.  Two {@code Constructor} objects are
      * the same if they were declared by the same class and have the
@@ -332,7 +332,7 @@ public final
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for this {@code Constructor}. The hashcode is
      * the same as the hashcode for the underlying constructor's
      * declaring class name.
@@ -341,7 +341,7 @@ public final
         return getDeclaringClass().getName().hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this {@code Constructor}.  The string is
      * formatted as the constructor access modifiers, if any,
      * followed by the fully-qualified name of the declaring class,
@@ -387,7 +387,7 @@ public final
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string describing this {@code Constructor},
      * including type parameters.  The string is formatted as the
      * constructor access modifiers, if any, followed by an
@@ -465,7 +465,7 @@ public final
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Uses the constructor represented by this {@code Constructor} object to
      * create and initialize a new instance of the constructor's
      * declaring class, with the specified initialization parameters.
@@ -532,7 +532,7 @@ public final
         return (T) constructorAccessor.newInstance(initargs);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this constructor was declared to take
      * a variable number of arguments; returns {@code false}
      * otherwise.
@@ -545,7 +545,7 @@ public final
         return (getModifiers() & Modifier.VARARGS) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this constructor is a synthetic
      * constructor; returns {@code false} otherwise.
      *
@@ -608,7 +608,7 @@ public final
         return parameterAnnotations;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -621,7 +621,7 @@ public final
 
     private static final Annotation[] EMPTY_ANNOTATION_ARRAY=new Annotation[0];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {
@@ -640,7 +640,7 @@ public final
         return declaredAnnotations;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of arrays that represent the annotations on the formal
      * parameters, in declaration order, of the method represented by
      * this {@code Constructor} object. (Returns an array of length zero if the

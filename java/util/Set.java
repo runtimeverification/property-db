@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A collection that contains no duplicate elements.  More formally, sets
  * contain no pair of elements <code>e1</code> and <code>e2</code> such that
  * <code>e1.equals(e2)</code>, and at most one null element.  As implied by
@@ -85,7 +85,7 @@ package java.util;
 public interface Set<E> extends Collection<E> {
     // Query Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this set (its cardinality).  If this
      * set contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
@@ -94,14 +94,14 @@ public interface Set<E> extends Collection<E> {
      */
     int size();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains no elements.
      *
      * @return <tt>true</tt> if this set contains no elements
      */
     boolean isEmpty();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
@@ -116,7 +116,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean contains(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this set.  The elements are
      * returned in no particular order (unless this set is an instance of some
      * class that provides a guarantee).
@@ -125,7 +125,7 @@ public interface Set<E> extends Collection<E> {
      */
     Iterator<E> iterator();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this set.
      * If this set makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the
@@ -143,7 +143,7 @@ public interface Set<E> extends Collection<E> {
      */
     Object[] toArray();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this set; the
      * runtime type of the returned array is that of the specified array.
      * If the set fits in the specified array, it is returned therein.
@@ -190,7 +190,7 @@ public interface Set<E> extends Collection<E> {
 
     // Modification Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified element to this set if it is not already present
      * (optional operation).  More formally, adds the specified element
      * <tt>e</tt> to this set if the set contains no element <tt>e2</tt>
@@ -223,7 +223,7 @@ public interface Set<E> extends Collection<E> {
     boolean add(E e);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified element from this set if it is present
      * (optional operation).  More formally, removes an element <tt>e</tt>
      * such that
@@ -247,7 +247,7 @@ public interface Set<E> extends Collection<E> {
 
     // Bulk Operations
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this set contains all of the elements of the
      * specified collection.  If the specified collection is also a set, this
      * method returns <tt>true</tt> if it is a <i>subset</i> of this set.
@@ -265,7 +265,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean containsAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds all of the elements in the specified collection to this set if
      * they're not already present (optional operation).  If the specified
      * collection is also a set, the <tt>addAll</tt> operation effectively
@@ -289,7 +289,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean addAll(Collection<? extends E> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retains only the elements in this set that are contained in the
      * specified collection (optional operation).  In other words, removes
      * from this set all of its elements that are not contained in the
@@ -310,7 +310,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean retainAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes from this set all of its elements that are contained in the
      * specified collection (optional operation).  If the specified
      * collection is also a set, this operation effectively modifies this
@@ -331,7 +331,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean removeAll(Collection<?> c);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the elements from this set (optional operation).
      * The set will be empty after this call returns.
      *
@@ -343,7 +343,7 @@ public interface Set<E> extends Collection<E> {
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the specified object is also a set, the two sets
      * have the same size, and every member of the specified set is
@@ -357,7 +357,7 @@ public interface Set<E> extends Collection<E> {
      */
     boolean equals(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this set.  The hash code of a set is
      * defined to be the sum of the hash codes of the elements in the set,
      * where the hash code of a <tt>null</tt> element is defined to be zero.

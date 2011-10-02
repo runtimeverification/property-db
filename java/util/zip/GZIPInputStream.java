@@ -31,7 +31,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.io.EOFException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements a stream filter for reading compressed data in
  * the GZIP file format.
  *
@@ -41,19 +41,19 @@ import java.io.EOFException;
  */
 public
 class GZIPInputStream extends InflaterInputStream {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * CRC-32 for uncompressed data.
      */
     protected CRC32 crc = new CRC32();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates end of input stream.
      */
     protected boolean eos;
 
     private boolean closed = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check to make sure that this stream has not been closed
      */
     private void ensureOpen() throws IOException {
@@ -62,7 +62,7 @@ class GZIPInputStream extends InflaterInputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream with the specified buffer size.
      * @param in the input stream
      * @param size the input buffer size
@@ -76,7 +76,7 @@ class GZIPInputStream extends InflaterInputStream {
         crc.reset();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new input stream with a default buffer size.
      * @param in the input stream
      * @exception IOException if an I/O error has occurred
@@ -85,7 +85,7 @@ class GZIPInputStream extends InflaterInputStream {
         this(in, 512);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads uncompressed data into an array of bytes. If <code>len</code> is not
      * zero, the method will block until some input can be decompressed; otherwise,
      * no bytes are read and <code>0</code> is returned.
@@ -116,7 +116,7 @@ class GZIPInputStream extends InflaterInputStream {
         return len;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this input stream and releases any system resources associated
      * with the stream.
      * @exception IOException if an I/O error has occurred
@@ -129,7 +129,7 @@ class GZIPInputStream extends InflaterInputStream {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * GZIP header magic number.
      */
     public final static int GZIP_MAGIC = 0x8b1f;

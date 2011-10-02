@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An exception  thrown as a <code>DataTruncation</code> exception
  * (on writes) or reported as a
  * <code>DataTruncation</code> warning (on reads)
@@ -38,7 +38,7 @@ package java.sql;
 
 public class DataTruncation extends SQLWarning {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DataTruncation</code> object
      * with the SQLState initialized
      * to 01004 when <code>read</code> is set to <code>true</code> and 22001
@@ -69,7 +69,7 @@ public class DataTruncation extends SQLWarning {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>DataTruncation</code> object
      * with the SQLState initialized
      * to 01004 when <code>read</code> is set to <code>true</code> and 22001
@@ -101,7 +101,7 @@ public class DataTruncation extends SQLWarning {
         this.transferSize = transferSize;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves the index of the column or parameter that was truncated.
      *
      * <P>This may be -1 if the column or parameter index is unknown, in
@@ -113,7 +113,7 @@ public class DataTruncation extends SQLWarning {
         return index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether the value truncated was a parameter value or
          * a column value.
      *
@@ -124,7 +124,7 @@ public class DataTruncation extends SQLWarning {
         return parameter;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether or not the value was truncated on a read.
      *
      * @return <code>true</code> if the value was truncated when read from
@@ -134,7 +134,7 @@ public class DataTruncation extends SQLWarning {
         return read;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of bytes of data that should have been transferred.
      * This number may be approximate if data conversions were being
      * performed.  The value may be <code>-1</code> if the size is unknown.
@@ -145,7 +145,7 @@ public class DataTruncation extends SQLWarning {
         return dataSize;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of bytes of data actually transferred.
      * The value may be <code>-1</code> if the size is unknown.
      *
@@ -155,32 +155,32 @@ public class DataTruncation extends SQLWarning {
         return transferSize;
     }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
         * @serial
         */
     private int index;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
         * @serial
         */
     private boolean parameter;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
         * @serial
         */
     private boolean read;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
         * @serial
         */
     private int dataSize;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
         * @serial
         */
     private int transferSize;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private static final long serialVersionUID = 6464298989504059473L;

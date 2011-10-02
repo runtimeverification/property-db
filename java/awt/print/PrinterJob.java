@@ -42,7 +42,7 @@ import javax.print.attribute.standard.OrientationRequested;
 
 import sun.security.action.GetPropertyAction;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>PrinterJob</code> class is the principal class that controls
  * printing. An application calls methods in this class to set up a job,
  * optionally to invoke a print dialog with the user, and then to print
@@ -52,7 +52,7 @@ public abstract class PrinterJob {
 
  /* Public Class Methods */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a <code>PrinterJob</code> which is initially
      * associated with the default printer.
      * If no printers are available on the system, a PrinterJob will still
@@ -91,7 +91,7 @@ public abstract class PrinterJob {
         });
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A convenience method which looks up 2D print services.
      * Services returned from this method may be installed on
      * <code>PrinterJob</code>s which support print services.
@@ -109,7 +109,7 @@ public abstract class PrinterJob {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A convenience method which locates factories for stream print
      * services which can image 2D graphics.
      * Sample usage :
@@ -150,14 +150,14 @@ public abstract class PrinterJob {
 
  /* Public Methods */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <code>PrinterJob</code> object should be created using the
      * static {@link #getPrinterJob() <code>getPrinterJob</code>} method.
      */
     public PrinterJob() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the service (printer) for this printer job.
      * Implementations of this class which do not support print services
      * may return null.  null will also be returned if no printers are
@@ -171,7 +171,7 @@ public abstract class PrinterJob {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Associate this PrinterJob with a new PrintService.
      * This method is overridden by subclasses which support
      * specifying a Print Service.
@@ -193,7 +193,7 @@ public abstract class PrinterJob {
                          "Setting a service is not supported on this class");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>painter</code> to render the pages.  The pages in the
      * document to be printed by this
      * <code>PrinterJob</code> are rendered by the {@link Printable}
@@ -204,7 +204,7 @@ public abstract class PrinterJob {
      */
     public abstract void setPrintable(Printable painter);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calls <code>painter</code> to render the pages in the specified
      * <code>format</code>.  The pages in the document to be printed by
      * this <code>PrinterJob</code> are rendered by the
@@ -217,7 +217,7 @@ public abstract class PrinterJob {
      */
     public abstract void setPrintable(Printable painter, PageFormat format);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Queries <code>document</code> for the number of pages and
      * the <code>PageFormat</code> and <code>Printable</code> for each
      * page held in the <code>Pageable</code> instance,
@@ -232,7 +232,7 @@ public abstract class PrinterJob {
     public abstract void setPageable(Pageable document)
         throws NullPointerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Presents a dialog to the user for changing the properties of
      * the print job.
      * This method will display a native dialog if a native print
@@ -253,7 +253,7 @@ public abstract class PrinterJob {
      */
     public abstract boolean printDialog() throws HeadlessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A convenience method which displays a cross-platform print dialog
      * for all services which are capable of printing 2D graphics using the
      * <code>Pageable</code> interface. The selected printer when the
@@ -308,7 +308,7 @@ public abstract class PrinterJob {
         return printDialog();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Displays a dialog that allows modification of a
      * <code>PageFormat</code> instance.
      * The <code>page</code> argument is used to initialize controls
@@ -333,7 +333,7 @@ public abstract class PrinterJob {
     public abstract PageFormat pageDialog(PageFormat page)
         throws HeadlessException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A convenience method which displays a cross-platform page setup dialog.
      * The choices available will reflect the print service currently
      * set on this PrinterJob.
@@ -371,7 +371,7 @@ public abstract class PrinterJob {
         return pageDialog(defaultPage());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clones the <code>PageFormat</code> argument and alters the
      * clone to describe a default page size and orientation.
      * @param page the <code>PageFormat</code> to be cloned and altered
@@ -380,7 +380,7 @@ public abstract class PrinterJob {
      */
     public abstract PageFormat defaultPage(PageFormat page);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>PageFormat</code> instance and
      * sets it to a default size and orientation.
      * @return a <code>PageFormat</code> set to a default size and
@@ -390,7 +390,7 @@ public abstract class PrinterJob {
         return defaultPage(new PageFormat());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Calculates a <code>PageFormat</code> with values consistent with those
      * supported by the current <code>PrintService</code> for this job
      * (ie the value returned by <code>getPrintService()</code>) and media,
@@ -489,7 +489,7 @@ public abstract class PrinterJob {
         return pf;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the clone of <code>page</code> with its settings
      * adjusted to be compatible with the current printer of this
      * <code>PrinterJob</code>.  For example, the returned
@@ -505,7 +505,7 @@ public abstract class PrinterJob {
      */
     public abstract PageFormat validatePage(PageFormat page);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Prints a set of pages.
      * @exception PrinterException an error in the print system
      *            caused the job to be aborted.
@@ -515,7 +515,7 @@ public abstract class PrinterJob {
      */
     public abstract void print() throws PrinterException;
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * Prints a set of pages using the settings in the attribute
      * set. The default implementation ignores the attribute set.
      * <p>
@@ -558,27 +558,27 @@ public abstract class PrinterJob {
         print();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the number of copies to be printed.
      * @param copies the number of copies to be printed
      * @see #getCopies
      */
     public abstract void setCopies(int copies);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the number of copies to be printed.
      * @return the number of copies to be printed.
      * @see #setCopies
      */
     public abstract int getCopies();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name of the printing user.
      * @return the name of the printing user
      */
     public abstract String getUserName();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the name of the document to be printed.
      * The document name can not be <code>null</code>.
      * @param jobName the name of the document to be printed
@@ -586,14 +586,14 @@ public abstract class PrinterJob {
      */
     public abstract void setJobName(String jobName);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the name of the document to be printed.
      * @return the name of the document to be printed.
      * @see #setJobName
      */
     public abstract String getJobName();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cancels a print job that is in progress.  If
      * {@link #print() print} has been called but has not
      * returned then this method signals
@@ -603,7 +603,7 @@ public abstract class PrinterJob {
      */
     public abstract void cancel();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <code>true</code> if a print job is
      * in progress, but is going to be cancelled
      * at the next opportunity; otherwise returns

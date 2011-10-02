@@ -28,7 +28,7 @@ package java.awt;
 import sun.awt.AppContext;
 import sun.awt.SunToolkit;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A wrapping tag for a nested AWTEvent which indicates that the event was
  * sent from another AppContext. The destination AppContext should handle the
  * event even if it is currently blocked waiting for a SequencedEvent or

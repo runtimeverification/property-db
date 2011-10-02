@@ -26,7 +26,7 @@
 
 package java.util.logging;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A Filter can be used to provide fine grain control over
  * what is logged, beyond the control provided by log levels.
  * <p>
@@ -40,7 +40,7 @@ package java.util.logging;
 
 public interface Filter {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Check if a given log record should be published.
      * @param record  a LogRecord
      * @return true if the log record should be published.

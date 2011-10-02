@@ -27,7 +27,7 @@ package java.security.acl;
 
 import java.security.Principal;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interface for managing owners of Access Control Lists (ACLs) or ACL
  * configurations. (Note that the Acl interface in the
  * <code> java.security.acl </code> package extends this Owner
@@ -39,7 +39,7 @@ import java.security.Principal;
  */
 public interface Owner {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds an owner. Only owners can modify ACL contents. The caller
      * principal must be an owner of the ACL in order to invoke this method.
      * That is, only an owner can add another owner. The initial owner is
@@ -57,7 +57,7 @@ public interface Owner {
     public boolean addOwner(Principal caller, Principal owner)
       throws NotOwnerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Deletes an owner. If this is the last owner in the ACL, an exception is
      * raised.<p>
      *
@@ -81,7 +81,7 @@ public interface Owner {
     public boolean deleteOwner(Principal caller, Principal owner)
       throws NotOwnerException, LastOwnerException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if the given principal is an owner of the ACL.
      *
      * @param owner the principal to be checked to determine whether or not

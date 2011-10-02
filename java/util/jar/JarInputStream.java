@@ -29,7 +29,7 @@ import java.util.zip.*;
 import java.io.*;
 import sun.security.util.ManifestEntryVerifier;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>JarInputStream</code> class is used to read the contents of
  * a JAR file from any input stream. It extends the class
  * <code>java.util.zip.ZipInputStream</code> with support for reading
@@ -49,7 +49,7 @@ class JarInputStream extends ZipInputStream {
     private ManifestEntryVerifier mev;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarInputStream</code> and reads the optional
      * manifest. If a manifest is present, also attempts to verify
      * the signatures if the JarInputStream is signed.
@@ -60,7 +60,7 @@ class JarInputStream extends ZipInputStream {
         this(in, true);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarInputStream</code> and reads the optional
      * manifest. If a manifest is present and verify is true, also attempts
      * to verify the signatures if the JarInputStream is signed.
@@ -108,7 +108,7 @@ class JarInputStream extends ZipInputStream {
         return baos.toByteArray();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Manifest</code> for this JAR file, or
      * <code>null</code> if none.
      *
@@ -119,7 +119,7 @@ class JarInputStream extends ZipInputStream {
         return man;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the next ZIP file entry and positions the stream at the
      * beginning of the entry data. If verification has been enabled,
      * any invalid signature detected while positioning the stream for
@@ -151,7 +151,7 @@ class JarInputStream extends ZipInputStream {
         return e;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads the next JAR file entry and positions the stream at the
      * beginning of the entry data. If verification has been enabled,
      * any invalid signature detected while positioning the stream for
@@ -166,7 +166,7 @@ class JarInputStream extends ZipInputStream {
         return (JarEntry)getNextEntry();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reads from the current JAR file entry into an array of bytes.
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
@@ -201,7 +201,7 @@ class JarInputStream extends ZipInputStream {
         return n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarEntry</code> (<code>ZipEntry</code>) for the
      * specified JAR file entry name. The manifest attributes of
      * the specified JAR file entry name will be copied to the new

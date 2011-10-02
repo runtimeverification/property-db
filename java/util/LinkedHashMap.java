@@ -26,7 +26,7 @@
 package java.util;
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>Hash table and linked list implementation of the <tt>Map</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashMap</tt> in that it maintains a doubly-linked list running through
@@ -151,12 +151,12 @@ public class LinkedHashMap<K,V>
 
     private static final long serialVersionUID = 3801124242820219131L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The head of the doubly linked list.
      */
     private transient Entry<K,V> header;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The iteration ordering method for this linked hash map: <tt>true</tt>
      * for access-order, <tt>false</tt> for insertion-order.
      *
@@ -164,7 +164,7 @@ public class LinkedHashMap<K,V>
      */
     private final boolean accessOrder;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the specified initial capacity and load factor.
      *
@@ -178,7 +178,7 @@ public class LinkedHashMap<K,V>
         accessOrder = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the specified initial capacity and a default load factor (0.75).
      *
@@ -190,7 +190,7 @@ public class LinkedHashMap<K,V>
         accessOrder = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the default initial capacity (16) and load factor (0.75).
      */
@@ -199,7 +199,7 @@ public class LinkedHashMap<K,V>
         accessOrder = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with
      * the same mappings as the specified map.  The <tt>LinkedHashMap</tt>
      * instance is created with a default load factor (0.75) and an initial
@@ -213,7 +213,7 @@ public class LinkedHashMap<K,V>
         accessOrder = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an empty <tt>LinkedHashMap</tt> instance with the
      * specified initial capacity, load factor and ordering mode.
      *
@@ -231,7 +231,7 @@ public class LinkedHashMap<K,V>
         this.accessOrder = accessOrder;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called by superclass constructors and pseudoconstructors (clone,
      * readObject) before any entries are inserted into the map.  Initializes
      * the chain.
@@ -241,7 +241,7 @@ public class LinkedHashMap<K,V>
         header.before = header.after = header;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Transfers all entries to new table array.  This method is called
      * by superclass resize.  It is overridden for performance, as it is
      * faster to iterate using our linked list.
@@ -256,7 +256,7 @@ public class LinkedHashMap<K,V>
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
      *
@@ -278,7 +278,7 @@ public class LinkedHashMap<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -301,7 +301,7 @@ public class LinkedHashMap<K,V>
         return e.value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
      */
@@ -310,7 +310,7 @@ public class LinkedHashMap<K,V>
         header.before = header.after = header;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * LinkedHashMap entry.
      */
     private static class Entry<K,V> extends HashMap.Entry<K,V> {
@@ -321,7 +321,7 @@ public class LinkedHashMap<K,V>
             super(hash, key, value, next);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Removes this entry from the linked list.
          */
         private void remove() {
@@ -329,7 +329,7 @@ public class LinkedHashMap<K,V>
             after.before = before;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Inserts this entry before the specified existing entry in the list.
          */
         private void addBefore(Entry<K,V> existingEntry) {
@@ -339,7 +339,7 @@ public class LinkedHashMap<K,V>
             after.before = this;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * This method is invoked by the superclass whenever the value
          * of a pre-existing entry is read by Map.get or modified by Map.set.
          * If the enclosing Map is access-ordered, it moves the entry
@@ -363,7 +363,7 @@ public class LinkedHashMap<K,V>
         Entry<K,V> nextEntry    = header.after;
         Entry<K,V> lastReturned = null;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The modCount value that the iterator believes that the backing
          * List should have.  If this expectation is violated, the iterator
          * has detected concurrent modification.
@@ -414,7 +414,7 @@ public class LinkedHashMap<K,V>
     Iterator<V> newValueIterator() { return new ValueIterator(); }
     Iterator<Map.Entry<K,V>> newEntryIterator() { return new EntryIterator(); }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This override alters behavior of superclass put method. It causes newly
      * allocated entry to get inserted at the end of the linked list and
      * removes the eldest entry if appropriate.
@@ -432,7 +432,7 @@ public class LinkedHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This override differs from addEntry in that it doesn't resize the
      * table or remove the eldest entry.
      */
@@ -444,7 +444,7 @@ public class LinkedHashMap<K,V>
         size++;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this map should remove its eldest entry.
      * This method is invoked by <tt>put</tt> and <tt>putAll</tt> after
      * inserting a new entry into the map.  It provides the implementor

@@ -24,28 +24,28 @@
  */
 package java.rmi.dgc;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A lease contains a unique VM identifier and a lease duration. A
  * Lease object is used to request and grant leases to remote object
  * references.
  */
 public final class Lease implements java.io.Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial Virtual Machine ID with which this Lease is associated.
      * @see #getVMID
      */
     private VMID vmid;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial Duration of this lease.
      * @see #getValue
      */
     private long value;
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -5713411624328831948L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a lease with a specific VMID and lease duration. The
      * vmid may be null.
      * @param id VMID associated with this lease
@@ -57,7 +57,7 @@ public final class Lease implements java.io.Serializable {
         value = duration;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the client VMID associated with the lease.
      * @return client VMID
      */
@@ -66,7 +66,7 @@ public final class Lease implements java.io.Serializable {
         return vmid;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the lease duration.
      * @return lease duration
      */

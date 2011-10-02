@@ -28,7 +28,7 @@ package java.security.cert;
 import java.util.Iterator;
 import java.util.Set;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An immutable valid policy tree node as defined by the PKIX certification
  * path validation algorithm.
  *
@@ -64,7 +64,7 @@ import java.util.Set;
  */
 public interface PolicyNode {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the parent of this node, or <code>null</code> if this is the
      * root node.
      *
@@ -73,7 +73,7 @@ public interface PolicyNode {
      */
     PolicyNode getParent();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the children of this node. Any attempts to
      * modify the children of this node through the
      * <code>Iterator</code>'s remove method must throw an
@@ -83,7 +83,7 @@ public interface PolicyNode {
      */
     Iterator<? extends PolicyNode> getChildren();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the depth of this node in the valid policy tree.
      *
      * @return the depth of this node (0 for the root node, 1 for its
@@ -91,7 +91,7 @@ public interface PolicyNode {
      */
     int getDepth();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the valid policy represented by this node.
      *
      * @return the <code>String</code> OID of the valid policy
@@ -100,7 +100,7 @@ public interface PolicyNode {
      */
     String getValidPolicy();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the set of policy qualifiers associated with the
      * valid policy represented by this node.
      *
@@ -110,7 +110,7 @@ public interface PolicyNode {
      */
     Set<? extends PolicyQualifierInfo> getPolicyQualifiers();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the set of expected policies that would satisfy this
      * node's valid policy in the next certificate to be processed.
      *
@@ -121,7 +121,7 @@ public interface PolicyNode {
      */
     Set<String> getExpectedPolicies();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the criticality indicator of the certificate policy extension
      * in the most recently processed certificate.
      *

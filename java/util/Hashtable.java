@@ -26,7 +26,7 @@
 package java.util;
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements a hashtable, which maps keys to values. Any
  * non-<code>null</code> object can be used as a key or as a value. <p>
  *
@@ -120,17 +120,17 @@ public class Hashtable<K,V>
     extends Dictionary<K,V>
     implements Map<K,V>, Cloneable, java.io.Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The hash table data.
      */
     private transient Entry[] table;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The total number of entries in the hash table.
      */
     private transient int count;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The table is rehashed when its size exceeds this threshold.  (The
      * value of this field is (int)(capacity * loadFactor).)
      *
@@ -138,14 +138,14 @@ public class Hashtable<K,V>
      */
     private int threshold;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The load factor for the hashtable.
      *
      * @serial
      */
     private float loadFactor;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of times this Hashtable has been structurally modified
      * Structural modifications are those that change the number of entries in
      * the Hashtable or otherwise modify its internal structure (e.g.,
@@ -154,10 +154,10 @@ public class Hashtable<K,V>
      */
     private transient int modCount = 0;
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = 1421746759512286392L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty hashtable with the specified initial
      * capacity and the specified load factor.
      *
@@ -180,7 +180,7 @@ public class Hashtable<K,V>
         threshold = (int)(initialCapacity * loadFactor);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty hashtable with the specified initial capacity
      * and default load factor (0.75).
      *
@@ -192,7 +192,7 @@ public class Hashtable<K,V>
         this(initialCapacity, 0.75f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty hashtable with a default initial capacity (11)
      * and load factor (0.75).
      */
@@ -200,7 +200,7 @@ public class Hashtable<K,V>
         this(11, 0.75f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new hashtable with the same mappings as the given
      * Map.  The hashtable is created with an initial capacity sufficient to
      * hold the mappings in the given Map and a default load factor (0.75).
@@ -214,7 +214,7 @@ public class Hashtable<K,V>
         putAll(t);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of keys in this hashtable.
      *
      * @return  the number of keys in this hashtable.
@@ -223,7 +223,7 @@ public class Hashtable<K,V>
         return count;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if this hashtable maps no keys to values.
      *
      * @return  <code>true</code> if this hashtable maps no keys to values;
@@ -233,7 +233,7 @@ public class Hashtable<K,V>
         return count == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of the keys in this hashtable.
      *
      * @return  an enumeration of the keys in this hashtable.
@@ -246,7 +246,7 @@ public class Hashtable<K,V>
         return this.<K>getEnumeration(KEYS);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an enumeration of the values in this hashtable.
      * Use the Enumeration methods on the returned object to fetch the elements
      * sequentially.
@@ -261,7 +261,7 @@ public class Hashtable<K,V>
         return this.<V>getEnumeration(VALUES);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if some key maps into the specified value in this hashtable.
      * This operation is more expensive than the {@link #containsKey
      * containsKey} method.
@@ -293,7 +293,7 @@ public class Hashtable<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if this hashtable maps one or more keys to this value.
      *
      * <p>Note that this method is identical in functionality to {@link
@@ -309,7 +309,7 @@ public class Hashtable<K,V>
         return contains(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified object is a key in this hashtable.
      *
      * @param   key   possible key
@@ -331,7 +331,7 @@ public class Hashtable<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -358,7 +358,7 @@ public class Hashtable<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Increases the capacity of and internally reorganizes this
      * hashtable, in order to accommodate and access its entries more
      * efficiently.  This method is called automatically when the
@@ -388,7 +388,7 @@ public class Hashtable<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maps the specified <code>key</code> to the specified
      * <code>value</code> in this hashtable. Neither the key nor the
      * value can be <code>null</code>. <p>
@@ -439,7 +439,7 @@ public class Hashtable<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the key (and its corresponding value) from this
      * hashtable. This method does nothing if the key is not in the hashtable.
      *
@@ -469,7 +469,7 @@ public class Hashtable<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies all of the mappings from the specified map to this hashtable.
      * These mappings will replace any mappings that this hashtable had for any
      * of the keys currently in the specified map.
@@ -483,7 +483,7 @@ public class Hashtable<K,V>
             put(e.getKey(), e.getValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Clears this hashtable so that it contains no keys.
      */
     public synchronized void clear() {
@@ -494,7 +494,7 @@ public class Hashtable<K,V>
         count = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a shallow copy of this hashtable. All the structure of the
      * hashtable itself is copied, but the keys and values are not cloned.
      * This is a relatively expensive operation.
@@ -520,7 +520,7 @@ public class Hashtable<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this <tt>Hashtable</tt> object
      * in the form of a set of entries, enclosed in braces and separated
      * by the ASCII characters "<tt>,&nbsp;</tt>" (comma and space). Each
@@ -572,7 +572,7 @@ public class Hashtable<K,V>
 
     // Views
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Each of these fields are initialized to contain an instance of the
      * appropriate view the first time this view is requested.  The views are
      * stateless, so there's no reason to create more than one of each.
@@ -581,7 +581,7 @@ public class Hashtable<K,V>
     private transient volatile Set<Map.Entry<K,V>> entrySet = null;
     private transient volatile Collection<V> values = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified
@@ -620,7 +620,7 @@ public class Hashtable<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified
@@ -701,7 +701,7 @@ public class Hashtable<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  If the map is
@@ -740,7 +740,7 @@ public class Hashtable<K,V>
 
     // Comparison and hashing
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified Object with this Map for equality,
      * as per the definition in the Map interface.
      *
@@ -782,7 +782,7 @@ public class Hashtable<K,V>
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this Map as per the definition in the
      * Map interface.
      *
@@ -814,7 +814,7 @@ public class Hashtable<K,V>
         return h;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state of the Hashtable to a stream (i.e., serialize it).
      *
      * @serialData The <i>capacity</i> of the Hashtable (the length of the
@@ -844,7 +844,7 @@ public class Hashtable<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the Hashtable from a stream (i.e., deserialize it).
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -880,7 +880,7 @@ public class Hashtable<K,V>
         this.table = table;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The put method used by readObject. This is provided because put
      * is overridable and should not be called in readObject since the
      * subclass will not yet be initialized.
@@ -912,7 +912,7 @@ public class Hashtable<K,V>
         count++;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Hashtable collision list.
      */
     private static class Entry<K,V> implements Map.Entry<K,V> {
@@ -975,7 +975,7 @@ public class Hashtable<K,V>
     private static final int VALUES = 1;
     private static final int ENTRIES = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A hashtable enumerator class.  This class implements both the
      * Enumeration and Iterator interfaces, but individual instances
      * can be created with the Iterator methods disabled.  This is necessary
@@ -989,13 +989,13 @@ public class Hashtable<K,V>
         Entry<K,V> lastReturned = null;
         int type;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Indicates whether this Enumerator is serving as an Iterator
          * or an Enumeration.  (true -> Iterator).
          */
         boolean iterator;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * The modCount value that the iterator believes that the backing
          * Hashtable should have.  If this expectation is violated, the iterator
          * has detected concurrent modification.

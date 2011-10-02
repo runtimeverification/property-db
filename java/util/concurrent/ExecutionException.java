@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Exception thrown when attempting to retrieve the result of a task
  * that aborted by throwing an exception. This exception can be
  * inspected using the {@link #getCause()} method.
@@ -47,14 +47,14 @@ package java.util.concurrent;
 public class ExecutionException extends Exception {
     private static final long serialVersionUID = 7830266012832686185L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <tt>ExecutionException</tt> with no detail message.
      * The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause(Throwable) initCause}.
      */
     protected ExecutionException() { }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <tt>ExecutionException</tt> with the specified detail
      * message. The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause(Throwable) initCause}.
@@ -65,7 +65,7 @@ public class ExecutionException extends Exception {
         super(message);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <tt>ExecutionException</tt> with the specified detail
      * message and cause.
      *
@@ -77,7 +77,7 @@ public class ExecutionException extends Exception {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <tt>ExecutionException</tt> with the specified cause.
      * The detail message is set to:
      * <pre>

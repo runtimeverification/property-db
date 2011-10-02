@@ -29,7 +29,7 @@ import java.security.AccessController;
 import sun.reflect.ReflectionFactory;
 import java.lang.annotation.Annotation;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The AccessibleObject class is the base class for Field, Method and
  * Constructor objects.  It provides the ability to flag a reflected
  * object as suppressing default Java language access control checks
@@ -53,7 +53,7 @@ import java.lang.annotation.Annotation;
  */
 public class AccessibleObject implements AnnotatedElement {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Permission object that is used to check whether a client
      * has sufficient privilege to defeat Java language access
      * control checks.
@@ -61,7 +61,7 @@ public class AccessibleObject implements AnnotatedElement {
     static final private java.security.Permission ACCESS_PERMISSION =
         new ReflectPermission("suppressAccessChecks");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Convenience method to set the {@code accessible} flag for an
      * array of objects with a single security check (for efficiency).
      *
@@ -95,7 +95,7 @@ public class AccessibleObject implements AnnotatedElement {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set the {@code accessible} flag for this object to
      * the indicated boolean value.  A value of {@code true} indicates that
      * the reflected object should suppress Java language access
@@ -140,7 +140,7 @@ public class AccessibleObject implements AnnotatedElement {
         obj.override = flag;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Get the value of the {@code accessible} flag for this object.
      *
      * @return the value of the object's {@code accessible} flag
@@ -149,7 +149,7 @@ public class AccessibleObject implements AnnotatedElement {
         return override;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructor: only used by the Java Virtual Machine.
      */
     protected AccessibleObject() {}
@@ -169,7 +169,7 @@ public class AccessibleObject implements AnnotatedElement {
         AccessController.doPrivileged
             (new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -177,7 +177,7 @@ public class AccessibleObject implements AnnotatedElement {
         throw new AssertionError("All subclasses should override this method");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -186,14 +186,14 @@ public class AccessibleObject implements AnnotatedElement {
         return getAnnotation(annotationClass) != null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @since 1.5
      */
     public Annotation[] getAnnotations() {
         return getDeclaredAnnotations();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {

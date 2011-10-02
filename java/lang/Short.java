@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code Short} class wraps a value of primitive type {@code
  * short} in an object.  An object of type {@code Short} contains a
  * single field whose type is {@code short}.
@@ -42,25 +42,25 @@ package java.lang;
  */
 public final class Short extends Number implements Comparable<Short> {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the minimum value a {@code short} can
      * have, -2<sup>15</sup>.
      */
     public static final short   MIN_VALUE = -32768;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the maximum value a {@code short} can
      * have, 2<sup>15</sup>-1.
      */
     public static final short   MAX_VALUE = 32767;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code Class} instance representing the primitive type
      * {@code short}.
      */
     public static final Class<Short>    TYPE = (Class<Short>) Class.getPrimitiveClass("short");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new {@code String} object representing the
      * specified {@code short}. The radix is assumed to be 10.
      *
@@ -72,7 +72,7 @@ public final class Short extends Number implements Comparable<Short> {
         return Integer.toString((int)s, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses the string argument as a signed {@code short} in the
      * radix specified by the second argument. The characters in the
      * string must all be digits, of the specified radix (as
@@ -118,7 +118,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (short)i;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Parses the string argument as a signed decimal {@code
      * short}. The characters in the string must all be decimal
      * digits, except that the first character may be an ASCII minus
@@ -139,7 +139,7 @@ public final class Short extends Number implements Comparable<Short> {
         return parseShort(s, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Short} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -169,7 +169,7 @@ public final class Short extends Number implements Comparable<Short> {
         return new Short(parseShort(s, radix));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Short} object holding the
      * value given by the specified {@code String}. The argument
      * is interpreted as representing a signed decimal
@@ -206,7 +206,7 @@ public final class Short extends Number implements Comparable<Short> {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Short} instance representing the specified
      * {@code short} value.
      * If a new {@code Short} instance is not required, this method
@@ -228,7 +228,7 @@ public final class Short extends Number implements Comparable<Short> {
         return new Short(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Decodes a {@code String} into a {@code Short}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -277,14 +277,14 @@ public final class Short extends Number implements Comparable<Short> {
         return (short)i;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The value of the {@code Short}.
      *
      * @serial
      */
     private final short value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a newly allocated {@code Short} object that
      * represents the specified {@code short} value.
      *
@@ -295,7 +295,7 @@ public final class Short extends Number implements Comparable<Short> {
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a newly allocated {@code Short} object that
      * represents the {@code short} value indicated by the
      * {@code String} parameter. The string is converted to a
@@ -312,7 +312,7 @@ public final class Short extends Number implements Comparable<Short> {
         this.value = parseShort(s, 10);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as a
      * {@code byte}.
      */
@@ -320,7 +320,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (byte)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as a
      * {@code short}.
      */
@@ -328,7 +328,7 @@ public final class Short extends Number implements Comparable<Short> {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as an
      * {@code int}.
      */
@@ -336,7 +336,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (int)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as a
      * {@code long}.
      */
@@ -344,7 +344,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (long)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as a
      * {@code float}.
      */
@@ -352,7 +352,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (float)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Short} as a
      * {@code double}.
      */
@@ -360,7 +360,7 @@ public final class Short extends Number implements Comparable<Short> {
         return (double)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code String} object representing this
      * {@code Short}'s value.  The value is converted to signed
      * decimal representation and returned as a string, exactly as if
@@ -374,14 +374,14 @@ public final class Short extends Number implements Comparable<Short> {
         return String.valueOf((int)value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code for this {@code Short}.
      */
     public int hashCode() {
         return (int)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is a {@code Short} object that
@@ -398,7 +398,7 @@ public final class Short extends Number implements Comparable<Short> {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two {@code Short} objects numerically.
      *
      * @param   anotherShort   the {@code Short} to be compared.
@@ -415,14 +415,14 @@ public final class Short extends Number implements Comparable<Short> {
         return this.value - anotherShort.value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of bits used to represent a {@code short} value in two's
      * complement binary form.
      * @since 1.5
      */
     public static final int SIZE = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value obtained by reversing the order of the bytes in the
      * two's complement representation of the specified {@code short} value.
      *
@@ -434,6 +434,6 @@ public final class Short extends Number implements Comparable<Short> {
         return (short) (((i & 0xFF00) >> 8) | (i << 8));
     }
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.1. for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.1. for interoperability */
     private static final long serialVersionUID = 7515723908773894738L;
 }

@@ -27,7 +27,7 @@ package java.awt;
 
 import java.awt.geom.Rectangle2D;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A <code>Rectangle</code> specifies an area in a coordinate space that is
  * enclosed by the <code>Rectangle</code> object's upper-left point
  * {@code (x,y)}
@@ -119,7 +119,7 @@ public class Rectangle extends Rectangle2D
     implements Shape, java.io.Serializable
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The X coordinate of the upper-left corner of the <code>Rectangle</code>.
      *
      * @serial
@@ -129,7 +129,7 @@ public class Rectangle extends Rectangle2D
      */
     public int x;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The Y coordinate of the upper-left corner of the <code>Rectangle</code>.
      *
      * @serial
@@ -139,7 +139,7 @@ public class Rectangle extends Rectangle2D
      */
     public int y;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The width of the <code>Rectangle</code>.
      * @serial
      * @see #setSize(int, int)
@@ -148,7 +148,7 @@ public class Rectangle extends Rectangle2D
      */
     public int width;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The height of the <code>Rectangle</code>.
      *
      * @serial
@@ -163,7 +163,7 @@ public class Rectangle extends Rectangle2D
      */
      private static final long serialVersionUID = -4345857070255674764L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -176,7 +176,7 @@ public class Rectangle extends Rectangle2D
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose upper-left corner
      * is at (0,&nbsp;0) in the coordinate space, and whose width and
      * height are both zero.
@@ -185,7 +185,7 @@ public class Rectangle extends Rectangle2D
         this(0, 0, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code>, initialized to match
      * the values of the specified <code>Rectangle</code>.
      * @param r  the <code>Rectangle</code> from which to copy initial values
@@ -196,7 +196,7 @@ public class Rectangle extends Rectangle2D
         this(r.x, r.y, r.width, r.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose upper-left corner is
      * specified as
      * {@code (x,y)} and whose width and height
@@ -214,7 +214,7 @@ public class Rectangle extends Rectangle2D
         this.height = height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose upper-left corner
      * is at (0,&nbsp;0) in the coordinate space, and whose width and
      * height are specified by the arguments of the same name.
@@ -225,7 +225,7 @@ public class Rectangle extends Rectangle2D
         this(0, 0, width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose upper-left corner is
      * specified by the {@link Point} argument, and
      * whose width and height are specified by the
@@ -239,7 +239,7 @@ public class Rectangle extends Rectangle2D
         this(p.x, p.y, d.width, d.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose upper-left corner is the
      * specified <code>Point</code>, and whose width and height are both zero.
      * @param p a <code>Point</code> that is the top left corner
@@ -249,7 +249,7 @@ public class Rectangle extends Rectangle2D
         this(p.x, p.y, 0, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new <code>Rectangle</code> whose top left corner is
      * (0,&nbsp;0) and whose width and height are specified
      * by the <code>Dimension</code> argument.
@@ -259,7 +259,7 @@ public class Rectangle extends Rectangle2D
         this(0, 0, d.width, d.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the X coordinate of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the X coordinate of the bounding <code>Rectangle</code>.
@@ -268,7 +268,7 @@ public class Rectangle extends Rectangle2D
         return x;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the Y coordinate of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the Y coordinate of the bounding <code>Rectangle</code>.
@@ -277,7 +277,7 @@ public class Rectangle extends Rectangle2D
         return y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the width of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the width of the bounding <code>Rectangle</code>.
@@ -286,7 +286,7 @@ public class Rectangle extends Rectangle2D
         return width;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the height of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the height of the bounding <code>Rectangle</code>.
@@ -295,7 +295,7 @@ public class Rectangle extends Rectangle2D
         return height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the bounding <code>Rectangle</code> of this <code>Rectangle</code>.
      * <p>
      * This method is included for completeness, to parallel the
@@ -312,7 +312,7 @@ public class Rectangle extends Rectangle2D
         return new Rectangle(x, y, width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -320,7 +320,7 @@ public class Rectangle extends Rectangle2D
         return new Rectangle(x, y, width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the bounding <code>Rectangle</code> of this <code>Rectangle</code>
      * to match the specified <code>Rectangle</code>.
      * <p>
@@ -335,7 +335,7 @@ public class Rectangle extends Rectangle2D
         setBounds(r.x, r.y, r.width, r.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the bounding <code>Rectangle</code> of this
      * <code>Rectangle</code> to the specified
      * <code>x</code>, <code>y</code>, <code>width</code>,
@@ -357,7 +357,7 @@ public class Rectangle extends Rectangle2D
         reshape(x, y, width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the bounds of this {@code Rectangle} to the integer bounds
      * which encompass the specified {@code x}, {@code y}, {@code width},
      * and {@code height}.
@@ -415,7 +415,7 @@ public class Rectangle extends Rectangle2D
         return (int) (doceil ? Math.ceil(v) : Math.floor(v));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the bounding <code>Rectangle</code> of this
      * <code>Rectangle</code> to the specified
      * <code>x</code>, <code>y</code>, <code>width</code>,
@@ -438,7 +438,7 @@ public class Rectangle extends Rectangle2D
         this.height = height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the location of this <code>Rectangle</code>.
      * <p>
      * This method is included for completeness, to parallel the
@@ -454,7 +454,7 @@ public class Rectangle extends Rectangle2D
         return new Point(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves this <code>Rectangle</code> to the specified location.
      * <p>
      * This method is included for completeness, to parallel the
@@ -469,7 +469,7 @@ public class Rectangle extends Rectangle2D
         setLocation(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves this <code>Rectangle</code> to the specified location.
      * <p>
      * This method is included for completeness, to parallel the
@@ -484,7 +484,7 @@ public class Rectangle extends Rectangle2D
         move(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Moves this <code>Rectangle</code> to the specified location.
      * <p>
      * @param x the X coordinate of the new location
@@ -498,7 +498,7 @@ public class Rectangle extends Rectangle2D
         this.y = y;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates this <code>Rectangle</code> the indicated distance,
      * to the right along the X coordinate axis, and
      * downward along the Y coordinate axis.
@@ -576,7 +576,7 @@ public class Rectangle extends Rectangle2D
         this.y = newv;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the size of this <code>Rectangle</code>, represented by
      * the returned <code>Dimension</code>.
      * <p>
@@ -593,7 +593,7 @@ public class Rectangle extends Rectangle2D
         return new Dimension(width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the size of this <code>Rectangle</code> to match the
      * specified <code>Dimension</code>.
      * <p>
@@ -608,7 +608,7 @@ public class Rectangle extends Rectangle2D
         setSize(d.width, d.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the size of this <code>Rectangle</code> to the specified
      * width and height.
      * <p>
@@ -624,7 +624,7 @@ public class Rectangle extends Rectangle2D
         resize(width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the size of this <code>Rectangle</code> to the specified
      * width and height.
      * <p>
@@ -639,7 +639,7 @@ public class Rectangle extends Rectangle2D
         this.height = height;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this <code>Rectangle</code> contains the
      * specified <code>Point</code>.
      * @param p the <code>Point</code> to test
@@ -652,7 +652,7 @@ public class Rectangle extends Rectangle2D
         return contains(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this <code>Rectangle</code> contains the
      * point at the specified location {@code (x,y)}.
      *
@@ -668,7 +668,7 @@ public class Rectangle extends Rectangle2D
         return inside(x, y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this <code>Rectangle</code> entirely contains
      * the specified <code>Rectangle</code>.
      *
@@ -682,7 +682,7 @@ public class Rectangle extends Rectangle2D
         return contains(r.x, r.y, r.width, r.height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether this <code>Rectangle</code> entirely contains
      * the <code>Rectangle</code>
      * at the specified location {@code (X,Y)} with the
@@ -734,7 +734,7 @@ public class Rectangle extends Rectangle2D
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether or not this <code>Rectangle</code> contains the
      * point at the specified location {@code (X,Y)}.
      *
@@ -768,7 +768,7 @@ public class Rectangle extends Rectangle2D
                 (h < y || h > Y));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether or not this <code>Rectangle</code> and the specified
      * <code>Rectangle</code> intersect. Two rectangles intersect if
      * their intersection is nonempty.
@@ -801,7 +801,7 @@ public class Rectangle extends Rectangle2D
                 (th < ty || th > ry));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes the intersection of this <code>Rectangle</code> with the
      * specified <code>Rectangle</code>. Returns a new <code>Rectangle</code>
      * that represents the intersection of the two rectangles.
@@ -837,7 +837,7 @@ public class Rectangle extends Rectangle2D
         return new Rectangle(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Computes the union of this <code>Rectangle</code> with the
      * specified <code>Rectangle</code>. Returns a new
      * <code>Rectangle</code> that
@@ -899,7 +899,7 @@ public class Rectangle extends Rectangle2D
         return new Rectangle(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a point, specified by the integer arguments {@code newx,newy}
      * to the bounds of this {@code Rectangle}.
      * <p>
@@ -950,7 +950,7 @@ public class Rectangle extends Rectangle2D
         reshape(x1, y1, (int) x2, (int) y2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds the specified {@code Point} to the bounds of this
      * {@code Rectangle}.
      * <p>
@@ -981,7 +981,7 @@ public class Rectangle extends Rectangle2D
         add(pt.x, pt.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Adds a <code>Rectangle</code> to this <code>Rectangle</code>.
      * The resulting <code>Rectangle</code> is the union of the two
      * rectangles.
@@ -1037,7 +1037,7 @@ public class Rectangle extends Rectangle2D
         reshape(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resizes the <code>Rectangle</code> both horizontally and vertically.
      * <p>
      * This method modifies the <code>Rectangle</code> so that it is
@@ -1113,7 +1113,7 @@ public class Rectangle extends Rectangle2D
         reshape((int) x0, (int) y0, (int) x1, (int) y1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1121,7 +1121,7 @@ public class Rectangle extends Rectangle2D
         return (width <= 0) || (height <= 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1153,7 +1153,7 @@ public class Rectangle extends Rectangle2D
         return out;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1166,7 +1166,7 @@ public class Rectangle extends Rectangle2D
         return dest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -1179,7 +1179,7 @@ public class Rectangle extends Rectangle2D
         return dest;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether two rectangles are equal.
      * <p>
      * The result is <code>true</code> if and only if the argument is not
@@ -1202,7 +1202,7 @@ public class Rectangle extends Rectangle2D
         return super.equals(obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>String</code> representing this
      * <code>Rectangle</code> and its values.
      * @return a <code>String</code> representing this

@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An object that creates new threads on demand.  Using thread factories
  * removes hardwiring of calls to {@link Thread#Thread(Runnable) new Thread},
  * enabling applications to use special thread subclasses, priorities, etc.
@@ -58,7 +58,7 @@ package java.util.concurrent;
  */
 public interface ThreadFactory {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new {@code Thread}.  Implementations may also initialize
      * priority, name, daemon status, {@code ThreadGroup}, etc.
      *

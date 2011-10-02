@@ -28,7 +28,7 @@ import java.io.*;
 import java.util.concurrent.atomic.AtomicLong;
 import sun.misc.Unsafe;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An instance of this class is used to generate a stream of
  * pseudorandom numbers. The class uses a 48-bit seed, which is
  * modified using a linear congruential formula. (See Donald Knuth,
@@ -55,10 +55,10 @@ import sun.misc.Unsafe;
  */
 public
 class Random implements java.io.Serializable {
-    /** {@collect.stats} use serialVersionUID from JDK 1.1 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.1 for interoperability */
     static final long serialVersionUID = 3905348978240129619L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The internal state associated with this pseudorandom number generator.
      * (The specs for the methods in this class describe the ongoing
      * computation of this value.)
@@ -69,7 +69,7 @@ class Random implements java.io.Serializable {
     private final static long addend = 0xBL;
     private final static long mask = (1L << 48) - 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new random number generator. This constructor sets
      * the seed of the random number generator to a value very likely
      * to be distinct from any other invocation of this constructor.
@@ -77,7 +77,7 @@ class Random implements java.io.Serializable {
     public Random() { this(++seedUniquifier + System.nanoTime()); }
     private static volatile long seedUniquifier = 8682522807148012L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new random number generator using a single {@code long} seed.
      * The seed is the initial value of the internal state of the pseudorandom
      * number generator which is maintained by method {@link #next}.
@@ -95,7 +95,7 @@ class Random implements java.io.Serializable {
         setSeed(seed);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the seed of this random number generator using a single
      * {@code long} seed. The general contract of {@code setSeed} is
      * that it alters the state of this random number generator object
@@ -120,7 +120,7 @@ class Random implements java.io.Serializable {
         haveNextNextGaussian = false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates the next pseudorandom number. Subclasses should
      * override this, as this is used by all other methods.
      *
@@ -155,7 +155,7 @@ class Random implements java.io.Serializable {
         return (int)(nextseed >>> (48 - bits));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates random bytes and places them into a user-supplied
      * byte array.  The number of random bytes produced is equal to
      * the length of the byte array.
@@ -182,7 +182,7 @@ class Random implements java.io.Serializable {
                 bytes[i++] = (byte)rnd;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, uniformly distributed {@code int}
      * value from this random number generator's sequence. The general
      * contract of {@code nextInt} is that one {@code int} value is
@@ -204,7 +204,7 @@ class Random implements java.io.Serializable {
         return next(32);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a pseudorandom, uniformly distributed {@code int} value
      * between 0 (inclusive) and the specified value (exclusive), drawn from
      * this random number generator's sequence.  The general contract of
@@ -275,7 +275,7 @@ class Random implements java.io.Serializable {
         return val;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, uniformly distributed {@code long}
      * value from this random number generator's sequence. The general
      * contract of {@code nextLong} is that one {@code long} value is
@@ -299,7 +299,7 @@ class Random implements java.io.Serializable {
         return ((long)(next(32)) << 32) + next(32);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, uniformly distributed
      * {@code boolean} value from this random number generator's
      * sequence. The general contract of {@code nextBoolean} is that one
@@ -323,7 +323,7 @@ class Random implements java.io.Serializable {
         return next(1) != 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, uniformly distributed {@code float}
      * value between {@code 0.0} and {@code 1.0} from this random
      * number generator's sequence.
@@ -366,7 +366,7 @@ class Random implements java.io.Serializable {
         return next(24) / ((float)(1 << 24));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, uniformly distributed
      * {@code double} value between {@code 0.0} and
      * {@code 1.0} from this random number generator's sequence.
@@ -413,7 +413,7 @@ class Random implements java.io.Serializable {
     private double nextNextGaussian;
     private boolean haveNextNextGaussian = false;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the next pseudorandom, Gaussian ("normally") distributed
      * {@code double} value with mean {@code 0.0} and standard
      * deviation {@code 1.0} from this random number generator's sequence.
@@ -477,7 +477,7 @@ class Random implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Serializable fields for Random.
      *
      * @serialField    seed long
@@ -493,7 +493,7 @@ class Random implements java.io.Serializable {
         new ObjectStreamField("haveNextNextGaussian", Boolean.TYPE)
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the {@code Random} instance from a stream (that is,
      * deserialize it).
      */
@@ -513,7 +513,7 @@ class Random implements java.io.Serializable {
         haveNextNextGaussian = fields.get("haveNextNextGaussian", false);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the {@code Random} instance to a stream.
      */
     synchronized private void writeObject(ObjectOutputStream s)

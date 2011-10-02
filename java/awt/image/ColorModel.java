@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>ColorModel</code> abstract class encapsulates the
  * methods for translating a pixel value to color components
  * (for example, red, green, and blue) and an alpha component.
@@ -156,7 +156,7 @@ import java.util.WeakHashMap;
 public abstract class ColorModel implements Transparency{
     private long pData;         // Placeholder for data for native functions
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The total number of bits in the pixel.
      */
     protected int pixel_bits;
@@ -171,12 +171,12 @@ public abstract class ColorModel implements Transparency{
     int maxBits;
     boolean is_sRGB = true;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Data type of the array used to represent pixel values.
      */
     protected int transferType;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This is copied from java.awt.Toolkit since we need the library
      * loaded in java.awt.image also:
      *
@@ -216,7 +216,7 @@ public abstract class ColorModel implements Transparency{
     }
     private static ColorModel RGBdefault;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>DirectColorModel</code> that describes the default
      * format for integer RGB values used in many of the methods in the
      * AWT image interfaces for the convenience of the programmer.
@@ -244,7 +244,7 @@ public abstract class ColorModel implements Transparency{
         return RGBdefault;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ColorModel</code> that translates pixels of the
      * specified number of bits to color/alpha components.  The color
      * space is the default RGB <code>ColorSpace</code>, which is sRGB.
@@ -276,7 +276,7 @@ public abstract class ColorModel implements Transparency{
         transferType = ColorModel.getDefaultTransferType(bits);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>ColorModel</code> that translates pixel values
      * to color/alpha components.  Color components will be in the
      * specified <code>ColorSpace</code>. <code>pixel_bits</code> is the
@@ -392,7 +392,7 @@ public abstract class ColorModel implements Transparency{
         this.transferType = transferType;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not alpha is supported in this
      * <code>ColorModel</code>.
      * @return <code>true</code> if alpha is supported in this
@@ -402,7 +402,7 @@ public abstract class ColorModel implements Transparency{
         return supportsAlpha;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether or not the alpha has been premultiplied in the
      * pixel values to be translated by this <code>ColorModel</code>.
      * If the boolean is <code>true</code>, this <code>ColorModel</code>
@@ -418,7 +418,7 @@ public abstract class ColorModel implements Transparency{
         return isAlphaPremultiplied;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the transfer type of this <code>ColorModel</code>.
      * The transfer type is the type of primitive array used to represent
      * pixel values as arrays.
@@ -429,7 +429,7 @@ public abstract class ColorModel implements Transparency{
         return transferType;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bits per pixel described by this
      * <code>ColorModel</code>.
      * @return the number of bits per pixel.
@@ -438,7 +438,7 @@ public abstract class ColorModel implements Transparency{
         return pixel_bits;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of bits for the specified color/alpha component.
      * Color components are indexed in the order specified by the
      * <code>ColorSpace</code>.  Typically, this order reflects the name
@@ -465,7 +465,7 @@ public abstract class ColorModel implements Transparency{
         return nBits[componentIdx];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of the number of bits per color/alpha component.
      * The array contains the color components in the order specified by the
      * <code>ColorSpace</code>, followed by the alpha component, if
@@ -480,7 +480,7 @@ public abstract class ColorModel implements Transparency{
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the transparency.  Returns either OPAQUE, BITMASK,
      * or TRANSLUCENT.
      * @return the transparency of this <code>ColorModel</code>.
@@ -492,7 +492,7 @@ public abstract class ColorModel implements Transparency{
         return transparency;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of components, including alpha, in this
      * <code>ColorModel</code>.  This is equal to the number of color
      * components, optionally plus one, if there is an alpha component.
@@ -502,7 +502,7 @@ public abstract class ColorModel implements Transparency{
         return numComponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of color components in this
      * <code>ColorModel</code>.
      * This is the number of components returned by
@@ -515,7 +515,7 @@ public abstract class ColorModel implements Transparency{
         return numColorComponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -530,7 +530,7 @@ public abstract class ColorModel implements Transparency{
      */
     public abstract int getRed(int pixel);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -545,7 +545,7 @@ public abstract class ColorModel implements Transparency{
      */
     public abstract int getGreen(int pixel);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -560,7 +560,7 @@ public abstract class ColorModel implements Transparency{
      */
     public abstract int getBlue(int pixel);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.  The pixel value is specified as an int.
      * An <code>IllegalArgumentException</code> is thrown if pixel
@@ -571,7 +571,7 @@ public abstract class ColorModel implements Transparency{
      */
     public abstract int getAlpha(int pixel);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color/alpha components of the pixel in the default
      * RGB color model format.  A color conversion is done if necessary.
      * The pixel value is specified as an int.
@@ -593,7 +593,7 @@ public abstract class ColorModel implements Transparency{
             | (getBlue(pixel) << 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is
@@ -660,7 +660,7 @@ public abstract class ColorModel implements Transparency{
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is
@@ -727,7 +727,7 @@ public abstract class ColorModel implements Transparency{
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <code>ColorSpace</code>, sRGB.  A
      * color conversion is done if necessary.  The pixel value is
@@ -794,7 +794,7 @@ public abstract class ColorModel implements Transparency{
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.  The pixel value is specified by an array of data
      * elements of type transferType passed in as an object reference.
@@ -857,7 +857,7 @@ public abstract class ColorModel implements Transparency{
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the color/alpha components for the specified pixel in the
      * default RGB color model format.  A color conversion is done if
      * necessary.  The pixel value is specified by an array of data
@@ -881,7 +881,7 @@ public abstract class ColorModel implements Transparency{
             | (getBlue(inData) << 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an integer pixel representation in
      * the default RGB color model.
@@ -923,7 +923,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of unnormalized color/alpha components given a pixel
      * in this <code>ColorModel</code>.  The pixel value is specified as
      * an <code>int</code>.  An <code>IllegalArgumentException</code>
@@ -960,7 +960,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of unnormalized color/alpha components given a pixel
      * in this <code>ColorModel</code>.  The pixel value is specified by
      * an array of data elements of type transferType passed in as an
@@ -1002,7 +1002,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all of the color/alpha components in unnormalized
      * form, given a normalized component array.  Unnormalized components
      * are unsigned integral values between 0 and 2<sup>n</sup> - 1, where
@@ -1094,7 +1094,7 @@ public abstract class ColorModel implements Transparency{
         return components;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all of the color/alpha components in normalized
      * form, given an unnormalized component array.  Unnormalized components
      * are unsigned integral values between 0 and 2<sup>n</sup> - 1, where
@@ -1197,7 +1197,7 @@ public abstract class ColorModel implements Transparency{
         return normComponents;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a pixel value represented as an <code>int</code> in this
      * <code>ColorModel</code>, given an array of unnormalized color/alpha
      * components.  This method will throw an
@@ -1237,7 +1237,7 @@ public abstract class ColorModel implements Transparency{
                                     "by this color model.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an array of unnormalized color/alpha
      * components.  This array can then be passed to the
@@ -1288,7 +1288,7 @@ public abstract class ColorModel implements Transparency{
                                     "for this color model.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a pixel value represented as an <code>int</code> in this
      * <code>ColorModel</code>, given an array of normalized color/alpha
      * components.  This method will throw an
@@ -1326,7 +1326,7 @@ public abstract class ColorModel implements Transparency{
         return getDataElement(components, 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an array of normalized color/alpha
      * components.  This array can then be passed to the
@@ -1374,7 +1374,7 @@ public abstract class ColorModel implements Transparency{
         return getDataElements(components, 0, obj);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array of all of the color/alpha components in normalized
      * form, given a pixel in this <code>ColorModel</code>.  The pixel
      * value is specified by an array of data elements of type transferType
@@ -1435,7 +1435,7 @@ public abstract class ColorModel implements Transparency{
                                        normComponents, normOffset);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified <code>Object</code> is an instance of
      * <code>ColorModel</code> and if it equals this
      * <code>ColorModel</code>.
@@ -1477,7 +1477,7 @@ public abstract class ColorModel implements Transparency{
         return true;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code for this ColorModel.
      *
      * @return    a hash code for this ColorModel.
@@ -1501,7 +1501,7 @@ public abstract class ColorModel implements Transparency{
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>ColorSpace</code> associated with this
      * <code>ColorModel</code>.
      * @return the <code>ColorSpace</code> of this
@@ -1511,7 +1511,7 @@ public abstract class ColorModel implements Transparency{
         return colorSpace;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Forces the raster data to match the state specified in the
      * <code>isAlphaPremultiplied</code> variable, assuming the data is
      * currently correctly described by this <code>ColorModel</code>.  It
@@ -1538,7 +1538,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
       * Returns <code>true</code> if <code>raster</code> is compatible
       * with this <code>ColorModel</code> and <code>false</code> if it is
       * not.
@@ -1558,7 +1558,7 @@ public abstract class ColorModel implements Transparency{
             "This method has not been implemented for this ColorModel.");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>WritableRaster</code> with the specified width and
      * height that has a data layout (<code>SampleModel</code>) compatible
      * with this <code>ColorModel</code>.
@@ -1580,7 +1580,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>SampleModel</code> with the specified width and
      * height that has a data layout compatible with this
      * <code>ColorModel</code>.
@@ -1601,7 +1601,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model");
     }
 
-    /** {@collect.stats} Checks if the <code>SampleModel</code> is compatible with this
+    /** {@collect.stats}  Checks if the <code>SampleModel</code> is compatible with this
      * <code>ColorModel</code>.
      * Since <code>ColorModel</code> is an abstract class,
      * any instance is an instance of a subclass.  Subclasses must
@@ -1620,7 +1620,7 @@ public abstract class ColorModel implements Transparency{
             ("This method is not supported by this color model");
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Disposes of system resources associated with this
      * <code>ColorModel</code> once this <code>ColorModel</code> is no
      * longer referenced.
@@ -1629,7 +1629,7 @@ public abstract class ColorModel implements Transparency{
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a <code>Raster</code> representing the alpha channel of an
      * image, extracted from the input <code>Raster</code>, provided that
      * pixel values of this <code>ColorModel</code> represent color and
@@ -1658,7 +1658,7 @@ public abstract class ColorModel implements Transparency{
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>String</code> representation of the contents of
      * this <code>ColorModel</code>object.
      * @return a <code>String</code> representing the contents of this

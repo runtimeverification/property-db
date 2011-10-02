@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving mouse motion events on a component.
  * (For clicks and other mouse events, use the <code>MouseListener</code>.)
  * <P>
@@ -53,7 +53,7 @@ import java.util.EventListener;
  */
 public interface MouseMotionListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a mouse button is pressed on a component and then
      * dragged.  <code>MOUSE_DRAGGED</code> events will continue to be
      * delivered to the component where the drag originated until the
@@ -66,7 +66,7 @@ public interface MouseMotionListener extends EventListener {
      */
     public void mouseDragged(MouseEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the mouse cursor has been moved onto a component
      * but no buttons have been pushed.
      */

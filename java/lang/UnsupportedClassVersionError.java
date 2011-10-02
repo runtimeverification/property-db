@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when the Java Virtual Machine attempts to read a class
  * file and determines that the major and minor version numbers
  * in the file are not supported.
@@ -34,7 +34,7 @@ package java.lang;
  */
 public
 class UnsupportedClassVersionError extends ClassFormatError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>UnsupportedClassVersionError</code>
      * with no detail message.
      */
@@ -42,7 +42,7 @@ class UnsupportedClassVersionError extends ClassFormatError {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>UnsupportedClassVersionError</code> with
      * the specified detail message.
      *

@@ -27,7 +27,7 @@ package java.lang;
 
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@link ProcessBuilder#start()} and
  * {@link Runtime#exec(String[],String[],File) Runtime.exec}
  * methods create a native process and return an instance of a
@@ -67,7 +67,7 @@ import java.io.*;
  * @since   JDK1.0
  */
 public abstract class Process {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the output stream connected to the normal input of the
      * subprocess.  Output to the stream is piped into the standard
      * input stream of the process represented by this {@code Process}
@@ -81,7 +81,7 @@ public abstract class Process {
      */
     abstract public OutputStream getOutputStream();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the input stream connected to the normal output of the
      * subprocess.  The stream obtains data piped from the standard
      * output stream of the process represented by this {@code
@@ -96,7 +96,7 @@ public abstract class Process {
      */
     abstract public InputStream getInputStream();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the input stream connected to the error output stream of
      * the subprocess.  The stream obtains data piped from the error
      * output stream of the process represented by this {@code Process}
@@ -111,7 +111,7 @@ public abstract class Process {
      */
     abstract public InputStream getErrorStream();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Causes the current thread to wait, if necessary, until the
      * process represented by this {@code Process} object has
      * terminated.  This method returns immediately if the subprocess
@@ -129,7 +129,7 @@ public abstract class Process {
      */
     abstract public int waitFor() throws InterruptedException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the exit value for the subprocess.
      *
      * @return the exit value of the subprocess represented by this
@@ -140,7 +140,7 @@ public abstract class Process {
      */
     abstract public int exitValue();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Kills the subprocess. The subprocess represented by this
      * {@code Process} object is forcibly terminated.
      */

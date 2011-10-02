@@ -27,7 +27,7 @@ package java.sql;
 
 import java.io.InputStream;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The representation (mapping) in
  * the Java<sup><font size=-2>TM</font></sup> programming
  * language of an SQL
@@ -59,7 +59,7 @@ import java.io.InputStream;
 
 public interface Blob {
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Returns the number of bytes in the <code>BLOB</code> value
    * designated by this <code>Blob</code> object.
    * @return length of the <code>BLOB</code> in bytes
@@ -71,7 +71,7 @@ public interface Blob {
    */
   long length() throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves all or part of the <code>BLOB</code>
    * value that this <code>Blob</code> object represents, as an array of
    * bytes.  This <code>byte</code> array contains up to <code>length</code>
@@ -96,7 +96,7 @@ public interface Blob {
    */
   byte[] getBytes(long pos, int length) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the <code>BLOB</code> value designated by this
    * <code>Blob</code> instance as a stream.
    *
@@ -110,7 +110,7 @@ public interface Blob {
    */
   java.io.InputStream getBinaryStream () throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the byte position at which the specified byte array
    * <code>pattern</code> begins within the <code>BLOB</code>
    * value that this <code>Blob</code> object represents.  The
@@ -129,7 +129,7 @@ public interface Blob {
    */
   long position(byte pattern[], long start) throws SQLException;
 
-  /** {@collect.stats}
+  /** {@collect.stats} 
    * Retrieves the byte position in the <code>BLOB</code> value
    * designated by this <code>Blob</code> object at which
    * <code>pattern</code> begins.  The search begins at position
@@ -150,7 +150,7 @@ public interface Blob {
 
     // -------------------------- JDBC 3.0 -----------------------------------
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes the given array of bytes to the <code>BLOB</code> value that
      * this <code>Blob</code> object represents, starting at position
      * <code>pos</code>, and returns the number of bytes written.
@@ -180,7 +180,7 @@ public interface Blob {
      */
     int setBytes(long pos, byte[] bytes) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Writes all or part of the given <code>byte</code> array to the
      * <code>BLOB</code> value that this <code>Blob</code> object represents
      * and returns the number of bytes written.
@@ -216,7 +216,7 @@ public interface Blob {
      */
     int setBytes(long pos, byte[] bytes, int offset, int len) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves a stream that can be used to write to the <code>BLOB</code>
      * value that this <code>Blob</code> object represents.  The stream begins
      * at position <code>pos</code>.
@@ -245,7 +245,7 @@ public interface Blob {
      */
     java.io.OutputStream setBinaryStream(long pos) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Truncates the <code>BLOB</code> value that this <code>Blob</code>
      * object represents to be <code>len</code> bytes in length.
      * <p>
@@ -265,7 +265,7 @@ public interface Blob {
      */
     void truncate(long len) throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method frees the <code>Blob</code> object and releases the resources that
      * it holds. The object is invalid once the <code>free</code>
      * method is called.
@@ -284,7 +284,7 @@ public interface Blob {
      */
     void free() throws SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an <code>InputStream</code> object that contains a partial <code>Blob</code> value,
      * starting  with the byte specified by pos, which is length bytes in length.
      *

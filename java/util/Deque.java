@@ -35,7 +35,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A linear collection that supports element insertion and removal at
  * both ends.  The name <i>deque</i> is short for "double ended queue"
  * and is usually pronounced "deck".  Most <tt>Deque</tt>
@@ -192,7 +192,7 @@ package java.util;
  */
 
 public interface Deque<E> extends Queue<E> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the front of this deque if it is
      * possible to do so immediately without violating capacity restrictions.
      * When using a capacity-restricted deque, it is generally preferable to
@@ -210,7 +210,7 @@ public interface Deque<E> extends Queue<E> {
      */
     void addFirst(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the end of this deque if it is
      * possible to do so immediately without violating capacity restrictions.
      * When using a capacity-restricted deque, it is generally preferable to
@@ -230,7 +230,7 @@ public interface Deque<E> extends Queue<E> {
      */
     void addLast(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the front of this deque unless it would
      * violate capacity restrictions.  When using a capacity-restricted deque,
      * this method is generally preferable to the {@link #addFirst} method,
@@ -248,7 +248,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean offerFirst(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the end of this deque unless it would
      * violate capacity restrictions.  When using a capacity-restricted deque,
      * this method is generally preferable to the {@link #addLast} method,
@@ -266,7 +266,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean offerLast(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the first element of this deque.  This method
      * differs from {@link #pollFirst pollFirst} only in that it throws an
      * exception if this deque is empty.
@@ -276,7 +276,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E removeFirst();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the last element of this deque.  This method
      * differs from {@link #pollLast pollLast} only in that it throws an
      * exception if this deque is empty.
@@ -286,7 +286,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E removeLast();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the first element of this deque,
      * or returns <tt>null</tt> if this deque is empty.
      *
@@ -294,7 +294,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E pollFirst();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the last element of this deque,
      * or returns <tt>null</tt> if this deque is empty.
      *
@@ -302,7 +302,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E pollLast();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the first element of this deque.
      *
      * This method differs from {@link #peekFirst peekFirst} only in that it
@@ -313,7 +313,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E getFirst();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the last element of this deque.
      * This method differs from {@link #peekLast peekLast} only in that it
      * throws an exception if this deque is empty.
@@ -323,7 +323,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E getLast();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the first element of this deque,
      * or returns <tt>null</tt> if this deque is empty.
      *
@@ -331,7 +331,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E peekFirst();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the last element of this deque,
      * or returns <tt>null</tt> if this deque is empty.
      *
@@ -339,7 +339,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E peekLast();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -357,7 +357,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean removeFirstOccurrence(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the last occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the last element <tt>e</tt> such that
@@ -377,7 +377,7 @@ public interface Deque<E> extends Queue<E> {
 
     // *** Queue methods ***
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, returning
@@ -401,7 +401,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean add(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, returning
@@ -424,7 +424,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean offer(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque).
      * This method differs from {@link #poll poll} only in that it throws an
@@ -437,7 +437,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E remove();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque), or returns
      * <tt>null</tt> if this deque is empty.
@@ -449,7 +449,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E poll();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque (in other words, the first element of this deque).
      * This method differs from {@link #peek peek} only in that it throws an
@@ -462,7 +462,7 @@ public interface Deque<E> extends Queue<E> {
      */
     E element();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque (in other words, the first element of this deque), or
      * returns <tt>null</tt> if this deque is empty.
@@ -477,7 +477,7 @@ public interface Deque<E> extends Queue<E> {
 
     // *** Stack methods ***
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Pushes an element onto the stack represented by this deque (in other
      * words, at the head of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, returning
@@ -498,7 +498,7 @@ public interface Deque<E> extends Queue<E> {
      */
     void push(E e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Pops an element from the stack represented by this deque.  In other
      * words, removes and returns the first element of this deque.
      *
@@ -513,7 +513,7 @@ public interface Deque<E> extends Queue<E> {
 
     // *** Collection methods ***
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -533,7 +533,7 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean remove(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this deque contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this deque contains
      * at least one element <tt>e</tt> such that
@@ -548,14 +548,14 @@ public interface Deque<E> extends Queue<E> {
      */
     boolean contains(Object o);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this deque.
      *
      * @return the number of elements in this deque
      */
     public int size();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this deque in proper sequence.
      * The elements will be returned in order from first (head) to last (tail).
      *
@@ -563,7 +563,7 @@ public interface Deque<E> extends Queue<E> {
      */
     Iterator<E> iterator();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this deque in reverse
      * sequential order.  The elements will be returned in order from
      * last (tail) to first (head).

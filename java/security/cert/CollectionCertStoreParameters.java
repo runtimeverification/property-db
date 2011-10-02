@@ -29,7 +29,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Parameters used as input for the Collection <code>CertStore</code>
  * algorithm.
  * <p>
@@ -57,7 +57,7 @@ public class CollectionCertStoreParameters
 
     private Collection<?> coll;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>CollectionCertStoreParameters</code>
      * which will allow certificates and CRLs to be retrieved from the
      * specified <code>Collection</code>. If the specified
@@ -89,7 +89,7 @@ public class CollectionCertStoreParameters
         coll = collection;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an instance of <code>CollectionCertStoreParameters</code> with
      * the default parameter values (an empty and immutable
      * <code>Collection</code>).
@@ -98,7 +98,7 @@ public class CollectionCertStoreParameters
         coll = Collections.EMPTY_SET;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>Collection</code> from which <code>Certificate</code>s
      * and <code>CRL</code>s are retrieved. This is <b>not</b> a copy of the
      * <code>Collection</code>, it is a reference. This allows the caller to
@@ -111,7 +111,7 @@ public class CollectionCertStoreParameters
         return coll;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of this object. Note that only a reference to the
      * <code>Collection</code> is copied, and not the contents.
      *
@@ -126,7 +126,7 @@ public class CollectionCertStoreParameters
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a formatted string describing the parameters.
      *
      * @return a formatted string describing the parameters

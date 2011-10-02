@@ -28,7 +28,7 @@ package java.lang;
 import java.util.ArrayList;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Package-private utility class containing data structures and logic
  * governing the virtual-machine shutdown sequence.
  *

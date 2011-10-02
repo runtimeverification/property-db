@@ -32,7 +32,7 @@ import java.beans.beancontext.BeanContextServices;
 
 import java.util.Iterator;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <p>
  * This event type is used by the BeanContextServicesListener in order to
  * identify the service being registered.
@@ -41,7 +41,7 @@ import java.util.Iterator;
 
 public class BeanContextServiceAvailableEvent extends BeanContextEvent {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Construct a <code>BeanContextAvailableServiceEvent</code>.
      * @param bcs The context in which the service has become available
      * @param sc A <code>Class</code> reference to the newly available service
@@ -52,7 +52,7 @@ public class BeanContextServiceAvailableEvent extends BeanContextEvent {
         serviceClass = sc;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the source as a reference of type <code>BeanContextServices</code>.
      * @return The context in which the service has become available
      */
@@ -60,13 +60,13 @@ public class BeanContextServiceAvailableEvent extends BeanContextEvent {
         return (BeanContextServices)getBeanContext();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the service class that is the subject of this notification.
      * @return A <code>Class</code> reference to the newly available service
      */
     public Class getServiceClass() { return serviceClass; }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the list of service dependent selectors.
      * @return the current selectors available from the service
      */
@@ -78,7 +78,7 @@ public class BeanContextServiceAvailableEvent extends BeanContextEvent {
      * fields
      */
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A <code>Class</code> reference to the newly available service
      */
     protected Class                      serviceClass;

@@ -28,7 +28,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  *
  * This class implements an IP Socket Address (IP address + port number)
  * It can also be a pair (hostname + port number), in which case an attempt
@@ -65,7 +65,7 @@ public class InetSocketAddress extends SocketAddress {
     private InetSocketAddress() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a socket address where the IP address is the wildcard address
      * and the port number a specified value.
      * <p>
@@ -81,7 +81,7 @@ public class InetSocketAddress extends SocketAddress {
         this(InetAddress.anyLocalAddress(), port);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Creates a socket address from an IP address and a port number.
      * <p>
@@ -107,7 +107,7 @@ public class InetSocketAddress extends SocketAddress {
             this.addr = addr;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Creates a socket address from a hostname and a port number.
      * <p>
@@ -147,7 +147,7 @@ public class InetSocketAddress extends SocketAddress {
         this.port = port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Creates an unresolved socket address from a hostname and a port number.
      * <p>
@@ -197,7 +197,7 @@ public class InetSocketAddress extends SocketAddress {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the port number.
      *
      * @return the port number.
@@ -206,7 +206,7 @@ public class InetSocketAddress extends SocketAddress {
         return port;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *
      * Gets the <code>InetAddress</code>.
      *
@@ -216,7 +216,7 @@ public class InetSocketAddress extends SocketAddress {
         return addr;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the <code>hostname</code>.
      *
      * @return  the hostname part of the address.
@@ -229,7 +229,7 @@ public class InetSocketAddress extends SocketAddress {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hostname, or the String form of the address if it
      * doesn't have a hostname (it was created using a literal).
      * This has the benefit of <b>not</b> attemptimg a reverse lookup.
@@ -249,7 +249,7 @@ public class InetSocketAddress extends SocketAddress {
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether the address has been resolved or not.
      *
      * @return <code>true</code> if the hostname couldn't be resolved into
@@ -259,7 +259,7 @@ public class InetSocketAddress extends SocketAddress {
         return addr == null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a string representation of this InetSocketAddress.
      * This String is constructed by calling toString() on the InetAddress
      * and concatenating the port number (with a colon). If the address
@@ -275,7 +275,7 @@ public class InetSocketAddress extends SocketAddress {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same address as
@@ -307,7 +307,7 @@ public class InetSocketAddress extends SocketAddress {
         return sameIP && (this.port == sockAddr.port);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for this socket address.
      *
      * @return  a hash code value for this socket address.

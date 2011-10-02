@@ -26,7 +26,7 @@
 package java.util;
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class implements the <tt>Map</tt> interface with a hash table, using
  * reference-equality in place of object-equality when comparing keys (and
  * values).  In other words, in an <tt>IdentityHashMap</tt>, two keys
@@ -135,7 +135,7 @@ public class IdentityHashMap<K,V>
     extends AbstractMap<K,V>
     implements Map<K,V>, java.io.Serializable, Cloneable
 {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The initial capacity used by the no-args constructor.
      * MUST be a power of two.  The value 32 corresponds to the
      * (specified) expected maximum size of 21, given a load factor
@@ -143,7 +143,7 @@ public class IdentityHashMap<K,V>
      */
     private static final int DEFAULT_CAPACITY = 32;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The minimum capacity, used if a lower value is implicitly specified
      * by either of the constructors with arguments.  The value 4 corresponds
      * to an expected maximum size of 2, given a load factor of 2/3.
@@ -151,55 +151,55 @@ public class IdentityHashMap<K,V>
      */
     private static final int MINIMUM_CAPACITY = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The maximum capacity, used if a higher value is implicitly specified
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<29.
      */
     private static final int MAXIMUM_CAPACITY = 1 << 29;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The table, resized as necessary. Length MUST always be a power of two.
      */
     private transient Object[] table;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of key-value mappings contained in this identity hash map.
      *
      * @serial
      */
     private int size;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of modifications, to support fast-fail iterators
      */
     private transient volatile int modCount;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The next size value at which to resize (capacity * load factor).
      */
     private transient int threshold;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Value representing null keys inside tables.
      */
     private static final Object NULL_KEY = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Use NULL_KEY for key if it is null.
      */
     private static Object maskNull(Object key) {
         return (key == null ? NULL_KEY : key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns internal representation of null key back to caller as null.
      */
     private static Object unmaskNull(Object key) {
         return (key == NULL_KEY ? null : key);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty identity hash map with a default expected
      * maximum size (21).
      */
@@ -207,7 +207,7 @@ public class IdentityHashMap<K,V>
         init(DEFAULT_CAPACITY);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new, empty map with the specified expected maximum size.
      * Putting more than the expected number of key-value mappings into
      * the map may cause the internal data structure to grow, which may be
@@ -223,7 +223,7 @@ public class IdentityHashMap<K,V>
         init(capacity(expectedMaxSize));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the appropriate capacity for the specified expected maximum
      * size.  Returns the smallest power of two between MINIMUM_CAPACITY
      * and MAXIMUM_CAPACITY, inclusive, that is greater than
@@ -247,7 +247,7 @@ public class IdentityHashMap<K,V>
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initializes object to be an empty map with the specified initial
      * capacity, which is assumed to be a power of two between
      * MINIMUM_CAPACITY and MAXIMUM_CAPACITY inclusive.
@@ -261,7 +261,7 @@ public class IdentityHashMap<K,V>
         table = new Object[2 * initCapacity];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new identity hash map containing the keys-value mappings
      * in the specified map.
      *
@@ -274,7 +274,7 @@ public class IdentityHashMap<K,V>
         putAll(m);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of key-value mappings in this identity hash map.
      *
      * @return the number of key-value mappings in this map
@@ -283,7 +283,7 @@ public class IdentityHashMap<K,V>
         return size;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this identity hash map contains no key-value
      * mappings.
      *
@@ -294,7 +294,7 @@ public class IdentityHashMap<K,V>
         return size == 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns index for Object x.
      */
     private static int hash(Object x, int length) {
@@ -303,14 +303,14 @@ public class IdentityHashMap<K,V>
         return ((h << 1) - (h << 8)) & (length - 1);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Circularly traverses table of size len.
      */
     private static int nextKeyIndex(int i, int len) {
         return (i + 2 < len ? i + 2 : 0);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -342,7 +342,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether the specified object reference is a key in this identity
      * hash map.
      *
@@ -366,7 +366,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests whether the specified object reference is a value in this identity
      * hash map.
      *
@@ -384,7 +384,7 @@ public class IdentityHashMap<K,V>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests if the specified key-value mapping is in the map.
      *
      * @param   key   possible key
@@ -407,7 +407,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Associates the specified value with the specified key in this identity
      * hash map.  If the map previously contained a mapping for the key, the
      * old value is replaced.
@@ -446,7 +446,7 @@ public class IdentityHashMap<K,V>
         return null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resize the table to hold given capacity.
      *
      * @param newCapacity the new capacity, must be a power of two.
@@ -485,7 +485,7 @@ public class IdentityHashMap<K,V>
         table = newTable;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
@@ -504,7 +504,7 @@ public class IdentityHashMap<K,V>
             put(e.getKey(), e.getValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the mapping for this key from this map if present.
      *
      * @param key key whose mapping is to be removed from the map
@@ -537,7 +537,7 @@ public class IdentityHashMap<K,V>
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes the specified key-value mapping from the map if it is present.
      *
      * @param   key   possible key
@@ -569,7 +569,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Rehash all possibly-colliding entries following a
      * deletion. This preserves the linear-probe
      * collision properties required by get, put, etc.
@@ -605,7 +605,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
      */
@@ -617,7 +617,7 @@ public class IdentityHashMap<K,V>
         size = 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this map for equality.  Returns
      * <tt>true</tt> if the given object is also a map and the two maps
      * represent identical object-reference mappings.  More formally, this
@@ -657,7 +657,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this map.  The hash code of a map is
      * defined to be the sum of the hash codes of each entry in the map's
      * <tt>entrySet()</tt> view.  This ensures that <tt>m1.equals(m2)</tt>
@@ -690,7 +690,7 @@ public class IdentityHashMap<K,V>
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a shallow copy of this identity hash map: the keys and values
      * themselves are not cloned.
      *
@@ -828,7 +828,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Since we don't use Entry objects, we use the Iterator
      * itself as an entry.
      */
@@ -898,14 +898,14 @@ public class IdentityHashMap<K,V>
 
     // Views
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This field is initialized to contain an instance of the entry set
      * view the first time this view is requested.  The view is stateless,
      * so there's no reason to create more than one.
      */
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an identity-based set view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.  If the map is modified while an iteration
@@ -992,7 +992,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  If the map is
@@ -1044,7 +1044,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the mappings contained in this map.
      * Each element in the returned set is a reference-equality-based
      * <tt>Map.Entry</tt>.  The set is backed by the map, so changes
@@ -1155,7 +1155,7 @@ public class IdentityHashMap<K,V>
 
     private static final long serialVersionUID = 8188218128353913216L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state of the <tt>IdentityHashMap</tt> instance to a stream
      * (i.e., serialize it).
      *
@@ -1184,7 +1184,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the <tt>IdentityHashMap</tt> instance from a stream (i.e.,
      * deserialize it).
      */
@@ -1207,7 +1207,7 @@ public class IdentityHashMap<K,V>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The put method for readObject.  It does not resize the table,
      * update modCount, etc.
      */

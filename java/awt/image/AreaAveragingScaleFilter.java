@@ -30,7 +30,7 @@ import java.awt.image.ColorModel;
 import java.util.Hashtable;
 import java.awt.Rectangle;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An ImageFilter class for scaling images using a simple area averaging
  * algorithm that produces smoother results than the nearest neighbor
  * algorithm.
@@ -67,7 +67,7 @@ public class AreaAveragingScaleFilter extends ReplicateScaleFilter {
     private int savedy;
     private int savedyrem;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an AreaAveragingScaleFilter that scales the pixels from
      * its source Image as specified by the width and height parameters.
      * @param width the target width to scale the image
@@ -77,7 +77,7 @@ public class AreaAveragingScaleFilter extends ReplicateScaleFilter {
         super(width, height);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Detect if the data is being delivered with the necessary hints
      * to allow the averaging algorithm to do its work.
      * <p>
@@ -227,7 +227,7 @@ public class AreaAveragingScaleFilter extends ReplicateScaleFilter {
         savedy = dy;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Combine the components for the delivered byte pixels into the
      * accumulation arrays and send on any averaged data for rows of
      * pixels that are complete.  If the correct hints were not
@@ -253,7 +253,7 @@ public class AreaAveragingScaleFilter extends ReplicateScaleFilter {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Combine the components for the delivered int pixels into the
      * accumulation arrays and send on any averaged data for rows of
      * pixels that are complete.  If the correct hints were not

@@ -27,7 +27,7 @@ package java.rmi.activation;
 
 import java.rmi.server.UID;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The identifier for a registered activation group serves several
  * purposes: <ul>
  * <li>identifies the group uniquely within the activation system, and
@@ -46,20 +46,20 @@ import java.rmi.server.UID;
  * @since       1.2
  */
 public class ActivationGroupID implements java.io.Serializable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The group's activation system.
      */
     private ActivationSystem system;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial The group's unique id.
      */
     private UID uid = new UID();
 
-    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats}  indicate compatibility with the Java 2 SDK v1.2 version of class */
     private  static final long serialVersionUID = -1648432278909740833L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a unique group id.
      *
      * @param system the group's activation system
@@ -69,7 +69,7 @@ public class ActivationGroupID implements java.io.Serializable {
         this.system = system;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the group's activation system.
      * @return the group's activation system
      * @since 1.2
@@ -78,7 +78,7 @@ public class ActivationGroupID implements java.io.Serializable {
         return system;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hashcode for the group's identifier.  Two group
      * identifiers that refer to the same remote group will have the
      * same hash code.
@@ -90,7 +90,7 @@ public class ActivationGroupID implements java.io.Serializable {
         return uid.hashCode();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two group identifiers for content equality.
      * Returns true if both of the following conditions are true:
      * 1) the unique identifiers are equivalent (by content), and

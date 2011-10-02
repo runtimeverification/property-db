@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>UnknownHostException</code> is thrown if a
  * <code>java.net.UnknownHostException</code> occurs while creating
  * a connection to the remote host for a remote method call.
@@ -37,7 +37,7 @@ public class UnknownHostException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
      private static final long serialVersionUID = -8152710247442114228L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnknownHostException</code> with the specified
      * detail message.
      *
@@ -48,7 +48,7 @@ public class UnknownHostException extends RemoteException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnknownHostException</code> with the specified
      * detail message and nested exception.
      *

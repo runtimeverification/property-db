@@ -35,7 +35,7 @@ import java.security.SecureRandom;
 import java.util.concurrent.atomic.AtomicLong;
 import sun.security.action.GetPropertyAction;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>ObjID</code> is used to identify a remote object exported
  * to an RMI runtime.  When a remote object is exported, it is assigned
  * an object identifier either implicitly or explicitly, depending on
@@ -69,37 +69,37 @@ import sun.security.action.GetPropertyAction;
  */
 public final class ObjID implements Serializable {
 
-    /** {@collect.stats} Object number for well-known <code>ObjID</code> of the registry. */
+    /** {@collect.stats}  Object number for well-known <code>ObjID</code> of the registry. */
     public static final int REGISTRY_ID = 0;
 
-    /** {@collect.stats} Object number for well-known <code>ObjID</code> of the activator. */
+    /** {@collect.stats}  Object number for well-known <code>ObjID</code> of the activator. */
     public static final int ACTIVATOR_ID = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Object number for well-known <code>ObjID</code> of
      * the distributed garbage collector.
      */
     public static final int DGC_ID = 2;
 
-    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats}  indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -6386392263968365220L;
 
     private static final AtomicLong nextObjNum = new AtomicLong(0);
     private static final UID mySpace = new UID();
     private static final SecureRandom secureRandom = new SecureRandom();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial object number
      * @see #hashCode
      */
     private final long objNum;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial address space identifier (unique to host over time)
      */
     private final UID space;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Generates a unique object identifier.
      *
      * <p>If the system property <code>java.rmi.server.randomIDs</code>
@@ -123,7 +123,7 @@ public final class ObjID implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a "well-known" object identifier.
      *
      * <p>An <code>ObjID</code> created via this constructor will not
@@ -137,7 +137,7 @@ public final class ObjID implements Serializable {
         this.objNum = objNum;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an object identifier given data read from a stream.
      */
     private ObjID(long objNum, UID space) {
@@ -145,7 +145,7 @@ public final class ObjID implements Serializable {
         this.space = space;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Marshals a binary representation of this <code>ObjID</code> to
      * an <code>ObjectOutput</code> instance.
      *
@@ -166,7 +166,7 @@ public final class ObjID implements Serializable {
         space.write(out);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs and returns a new <code>ObjID</code> instance by
      * unmarshalling a binary representation from an
      * <code>ObjectInput</code> instance.
@@ -193,7 +193,7 @@ public final class ObjID implements Serializable {
         return new ObjID(num, space);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code value for this object identifier, the
      * object number.
      *
@@ -203,7 +203,7 @@ public final class ObjID implements Serializable {
         return (int) objNum;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the specified object with this <code>ObjID</code> for
      * equality.
      *
@@ -225,7 +225,7 @@ public final class ObjID implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this object identifier.
      *
      * @return  a string representation of this object identifier

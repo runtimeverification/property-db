@@ -30,7 +30,7 @@ package java.nio.channels;
 import java.io.IOException;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A channel that can be asynchronously closed and interrupted.
  *
  * <p> A channel that implements this interface is <i>asynchronously
@@ -65,7 +65,7 @@ public interface InterruptibleChannel
     extends Channel
 {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Closes this channel.
      *
      * <p> Any thread currently blocked in an I/O operation upon this channel

@@ -30,7 +30,7 @@ import sun.misc.FpUtils;
 import sun.misc.FloatConsts;
 import sun.misc.DoubleConsts;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The {@code Float} class wraps a value of primitive type
  * {@code float} in an object. An object of type
  * {@code Float} contains a single field whose type is
@@ -48,28 +48,28 @@ import sun.misc.DoubleConsts;
  * @since JDK1.0
  */
 public final class Float extends Number implements Comparable<Float> {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the positive infinity of type
      * {@code float}. It is equal to the value returned by
      * {@code Float.intBitsToFloat(0x7f800000)}.
      */
     public static final float POSITIVE_INFINITY = 1.0f / 0.0f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the negative infinity of type
      * {@code float}. It is equal to the value returned by
      * {@code Float.intBitsToFloat(0xff800000)}.
      */
     public static final float NEGATIVE_INFINITY = -1.0f / 0.0f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding a Not-a-Number (NaN) value of type
      * {@code float}.  It is equivalent to the value returned by
      * {@code Float.intBitsToFloat(0x7fc00000)}.
      */
     public static final float NaN = 0.0f / 0.0f;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the largest positive finite value of type
      * {@code float}, (2-2<sup>-23</sup>)&middot;2<sup>127</sup>.
      * It is equal to the hexadecimal floating-point literal
@@ -78,7 +78,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final float MAX_VALUE = 0x1.fffffeP+127f; // 3.4028235e+38f
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the smallest positive normal value of type
      * {@code float}, 2<sup>-126</sup>.  It is equal to the
      * hexadecimal floating-point literal {@code 0x1.0p-126f} and also
@@ -88,7 +88,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final float MIN_NORMAL = 0x1.0p-126f; // 1.17549435E-38f
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A constant holding the smallest positive nonzero value of type
      * {@code float}, 2<sup>-149</sup>. It is equal to the
      * hexadecimal floating-point literal {@code 0x0.000002P-126f}
@@ -96,7 +96,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final float MIN_VALUE = 0x0.000002P-126f; // 1.4e-45f
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Maximum exponent a finite {@code float} variable may have.  It
      * is equal to the value returned by {@code
      * Math.getExponent(Float.MAX_VALUE)}.
@@ -105,7 +105,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final int MAX_EXPONENT = 127;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Minimum exponent a normalized {@code float} variable may have.
      * It is equal to the value returned by {@code
      * Math.getExponent(Float.MIN_NORMAL)}.
@@ -114,14 +114,14 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final int MIN_EXPONENT = -126;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of bits used to represent a {@code float} value.
      *
      * @since 1.5
      */
     public static final int SIZE = 32;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The {@code Class} instance representing the primitive type
      * {@code float}.
      *
@@ -129,7 +129,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static final Class<Float> TYPE = Class.getPrimitiveClass("float");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of the {@code float}
      * argument. All characters mentioned below are ASCII characters.
      * <ul>
@@ -199,7 +199,7 @@ public final class Float extends Number implements Comparable<Float> {
         return new FloatingDecimal(f).toJavaFormatString();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hexadecimal string representation of the
      * {@code float} argument. All characters mentioned below are
      * ASCII characters.
@@ -289,7 +289,7 @@ public final class Float extends Number implements Comparable<Float> {
             return Double.toHexString(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Float} object holding the
      * {@code float} value represented by the argument string
      * {@code s}.
@@ -405,7 +405,7 @@ public final class Float extends Number implements Comparable<Float> {
         return new Float(FloatingDecimal.readJavaFormatString(s).floatValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a {@code Float} instance representing the specified
      * {@code float} value.
      * If a new {@code Float} instance is not required, this method
@@ -422,7 +422,7 @@ public final class Float extends Number implements Comparable<Float> {
         return new Float(f);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new {@code float} initialized to the value
      * represented by the specified {@code String}, as performed
      * by the {@code valueOf} method of class {@code Float}.
@@ -439,7 +439,7 @@ public final class Float extends Number implements Comparable<Float> {
         return FloatingDecimal.readJavaFormatString(s).floatValue();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if the specified number is a
      * Not-a-Number (NaN) value, {@code false} otherwise.
      *
@@ -451,7 +451,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (v != v);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if the specified number is infinitely
      * large in magnitude, {@code false} otherwise.
      *
@@ -463,14 +463,14 @@ public final class Float extends Number implements Comparable<Float> {
         return (v == POSITIVE_INFINITY) || (v == NEGATIVE_INFINITY);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The value of the Float.
      *
      * @serial
      */
     private final float value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a newly allocated {@code Float} object that
      * represents the primitive {@code float} argument.
      *
@@ -480,7 +480,7 @@ public final class Float extends Number implements Comparable<Float> {
         this.value = value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a newly allocated {@code Float} object that
      * represents the argument converted to type {@code float}.
      *
@@ -490,7 +490,7 @@ public final class Float extends Number implements Comparable<Float> {
         this.value = (float)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a newly allocated {@code Float} object that
      * represents the floating-point value of type {@code float}
      * represented by the string. The string is converted to a
@@ -506,7 +506,7 @@ public final class Float extends Number implements Comparable<Float> {
         this(valueOf(s).floatValue());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this {@code Float} value is a
      * Not-a-Number (NaN), {@code false} otherwise.
      *
@@ -517,7 +517,7 @@ public final class Float extends Number implements Comparable<Float> {
         return isNaN(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns {@code true} if this {@code Float} value is
      * infinitely large in magnitude, {@code false} otherwise.
      *
@@ -529,7 +529,7 @@ public final class Float extends Number implements Comparable<Float> {
         return isInfinite(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this {@code Float} object.
      * The primitive {@code float} value represented by this object
      * is converted to a {@code String} exactly as if by the method
@@ -542,7 +542,7 @@ public final class Float extends Number implements Comparable<Float> {
         return String.valueOf(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Float} as a {@code byte} (by
      * casting to a {@code byte}).
      *
@@ -553,7 +553,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (byte)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Float} as a {@code short} (by
      * casting to a {@code short}).
      *
@@ -565,7 +565,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (short)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the value of this {@code Float} as an {@code int} (by
      * casting to type {@code int}).
      *
@@ -576,7 +576,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (int)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns value of this {@code Float} as a {@code long} (by
      * casting to type {@code long}).
      *
@@ -587,7 +587,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (long)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code float} value of this {@code Float} object.
      *
      * @return the {@code float} value represented by this object
@@ -596,7 +596,7 @@ public final class Float extends Number implements Comparable<Float> {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code double} value of this {@code Float} object.
      *
      * @return the {@code float} value represented by this
@@ -607,7 +607,7 @@ public final class Float extends Number implements Comparable<Float> {
         return (double)value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code for this {@code Float} object. The
      * result is the integer bit representation, exactly as produced
      * by the method {@link #floatToIntBits(float)}, of the primitive
@@ -620,7 +620,7 @@ public final class Float extends Number implements Comparable<Float> {
         return floatToIntBits(value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
 
      * Compares this object against the specified object.  The result
      * is {@code true} if and only if the argument is not
@@ -665,7 +665,7 @@ public final class Float extends Number implements Comparable<Float> {
                && (floatToIntBits(((Float)obj).value) == floatToIntBits(value));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a representation of the specified floating-point value
      * according to the IEEE 754 floating-point "single format" bit
      * layout.
@@ -707,7 +707,7 @@ public final class Float extends Number implements Comparable<Float> {
         return result;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a representation of the specified floating-point value
      * according to the IEEE 754 floating-point "single format" bit
      * layout, preserving Not-a-Number (NaN) values.
@@ -744,7 +744,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static native int floatToRawIntBits(float value);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the {@code float} value corresponding to a given
      * bit representation.
      * The argument is considered to be a representation of a
@@ -805,7 +805,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static native float intBitsToFloat(int bits);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares two {@code Float} objects numerically.  There are
      * two ways in which comparisons performed by this method differ
      * from those performed by the Java language numerical comparison
@@ -841,7 +841,7 @@ public final class Float extends Number implements Comparable<Float> {
         return Float.compare(value, anotherFloat.value);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares the two specified {@code float} values. The sign
      * of the integer value returned is the same as that of the
      * integer that would be returned by the call:
@@ -873,6 +873,6 @@ public final class Float extends Number implements Comparable<Float> {
                  1));                          // (0.0, -0.0) or (NaN, !NaN)
     }
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -2671257302660747028L;
 }

@@ -26,7 +26,7 @@
 package java.util;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Error thrown when something goes wrong while loading a service provider.
  *
  * <p> This error will be thrown in the following situations:
@@ -62,7 +62,7 @@ public class ServiceConfigurationError
 
     private static final long serialVersionUID = 74132770414881L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new instance with the specified message.
      *
      * @param  msg  The message, or <tt>null</tt> if there is no message
@@ -72,7 +72,7 @@ public class ServiceConfigurationError
         super(msg);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a new instance with the specified message and cause.
      *
      * @param  msg  The message, or <tt>null</tt> if there is no message

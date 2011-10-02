@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Interface for JDBC classes which provide the ability to retrieve the delegate instance when the instance
  * in question is in fact a proxy class.
  * <p>
@@ -41,7 +41,7 @@ package java.sql;
 
 public interface Wrapper {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an object that implements the given interface to allow access to
      * non-standard methods, or standard methods not exposed by the proxy.
      *
@@ -60,7 +60,7 @@ public interface Wrapper {
      */
         <T> T unwrap(java.lang.Class<T> iface) throws java.sql.SQLException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns true if this either implements the interface argument or is directly or indirectly a wrapper
      * for an object that does. Returns false otherwise. If this implements the interface then return true,
      * else if this is a wrapper then return the result of recursively calling <code>isWrapperFor</code> on the wrapped

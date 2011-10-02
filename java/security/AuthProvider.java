@@ -29,7 +29,7 @@ import javax.security.auth.Subject;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.callback.CallbackHandler;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class defines login and logout methods for a provider.
  *
  * <p> While callers may invoke <code>login</code> directly,
@@ -41,7 +41,7 @@ import javax.security.auth.callback.CallbackHandler;
  */
 public abstract class AuthProvider extends Provider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a provider with the specified name, version number,
      * and information.
      *
@@ -53,7 +53,7 @@ public abstract class AuthProvider extends Provider {
         super(name, version, info);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log in to this provider.
      *
      * <p> The provider relies on a <code>CallbackHandler</code>
@@ -87,7 +87,7 @@ public abstract class AuthProvider extends Provider {
     public abstract void login(Subject subject, CallbackHandler handler)
         throws LoginException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Log out from this provider.
      *
      * @exception LoginException if the logout operation fails
@@ -99,7 +99,7 @@ public abstract class AuthProvider extends Provider {
      */
     public abstract void logout() throws LoginException;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set a <code>CallbackHandler</code>.
      *
      * <p> The provider uses this handler if one is not passed to the

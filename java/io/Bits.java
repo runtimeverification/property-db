@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Utility methods for packing/unpacking primitive values in/out of byte arrays
  * using big-endian byte ordering.

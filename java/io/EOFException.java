@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Signals that an end of file or end of stream has been reached
  * unexpectedly during input.
@@ -43,7 +43,7 @@ package java.io;
  */
 public
 class EOFException extends IOException {
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an <code>EOFException</code> with <code>null</code>
      * as its error detail message.
@@ -53,7 +53,7 @@ class EOFException extends IOException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs an <code>EOFException</code> with the specified detail
      * message. The string <code>s</code> may later be retrieved by the

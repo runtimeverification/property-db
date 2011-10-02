@@ -29,7 +29,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An abstract class for service providers that
  * provide concrete implementations of the
  * {@link java.text.NumberFormat NumberFormat} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class NumberFormatProvider extends LocaleServiceProvider {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected NumberFormatProvider() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>NumberFormat</code> instance which formats
      * monetary values for the specified locale.
      *
@@ -60,7 +60,7 @@ public abstract class NumberFormatProvider extends LocaleServiceProvider {
      */
     public abstract NumberFormat getCurrencyInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>NumberFormat</code> instance which formats
      * integer values for the specified locale.
      * The returned number format is configured to
@@ -81,7 +81,7 @@ public abstract class NumberFormatProvider extends LocaleServiceProvider {
      */
     public abstract NumberFormat getIntegerInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new general-purpose <code>NumberFormat</code> instance for
      * the specified locale.
      *
@@ -96,7 +96,7 @@ public abstract class NumberFormatProvider extends LocaleServiceProvider {
      */
     public abstract NumberFormat getNumberInstance(Locale locale);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new <code>NumberFormat</code> instance which formats
      * percentage values for the specified locale.
      *

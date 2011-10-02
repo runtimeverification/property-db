@@ -25,7 +25,7 @@
 
 package java.security;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A runtime exception for Provider exceptions (such as
  * misconfiguration errors or unrecoverable internal errors),
  * which may be subclassed by Providers to
@@ -37,7 +37,7 @@ public class ProviderException extends RuntimeException {
 
     private static final long serialVersionUID = 5256023526693665674L;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a ProviderException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -46,7 +46,7 @@ public class ProviderException extends RuntimeException {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a ProviderException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -57,7 +57,7 @@ public class ProviderException extends RuntimeException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>ProviderException</code> with the specified
      * detail message and cause.
      *
@@ -72,7 +72,7 @@ public class ProviderException extends RuntimeException {
         super(message, cause);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <code>ProviderException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

@@ -26,7 +26,7 @@
 package java.nio.charset;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Checked exception thrown when an input byte sequence is not legal for given
  * charset, or an input character sequence is not a legal sixteen-bit Unicode
  * sequence.

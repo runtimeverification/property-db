@@ -133,9 +133,10 @@ $propertypagecmd = "java -cp $srcpath $upackage.FinishUp ".$dir;
 $destjspath = catfile($dir, $jssuffix);
 $destimgpath = catfile($dir, $imgsuffix);
 
-$error = system $docscmd;
+#$error = 
+system $docscmd;
 #$error = 0;
-if($error == 0){
+#if($error == 0){
   print "...finishing up"."\n";
   mkdir $destjspath;
   #copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
@@ -163,5 +164,5 @@ if($error == 0){
    copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
    copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
   system $propertypagecmd;
-}
+#}
 

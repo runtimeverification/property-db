@@ -38,7 +38,7 @@ import java.util.*;
 import java.util.concurrent.atomic.*;
 
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An unbounded thread-safe {@linkplain Queue queue} based on linked nodes.
  * This queue orders elements FIFO (first-in-first-out).
  * The <em>head</em> of the queue is that element that has been on the
@@ -168,22 +168,22 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Pointer to header node, initialized to a dummy node.  The first
      * actual node is at head.getNext().
      */
     private transient volatile Node<E> head = new Node<E>(null, null);
 
-    /** {@collect.stats} Pointer to last node on list **/
+    /** {@collect.stats}  Pointer to last node on list **/
     private transient volatile Node<E> tail = head;
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>ConcurrentLinkedQueue</tt> that is initially empty.
      */
     public ConcurrentLinkedQueue() {}
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a <tt>ConcurrentLinkedQueue</tt>
      * initially containing the elements of the given collection,
      * added in traversal order of the collection's iterator.
@@ -198,7 +198,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
 
     // Have to override just to update the javadoc
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the tail of this queue.
      *
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -208,7 +208,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return offer(e);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Inserts the specified element at the tail of this queue.
      *
      * @return <tt>true</tt> (as specified by {@link Queue#offer})
@@ -278,7 +278,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the first actual (non-header) node on list.  This is yet
      * another variant of poll/peek; here returning out the first
      * node, not element (so we cannot collapse with peek() without
@@ -306,7 +306,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this queue contains no elements.
      *
      * @return <tt>true</tt> if this queue contains no elements
@@ -315,7 +315,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return first() == null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of elements in this queue.  If this queue
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
@@ -339,7 +339,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return count;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns <tt>true</tt> if this queue contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this queue contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
@@ -358,7 +358,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element <tt>e</tt> such
      * that <tt>o.equals(e)</tt>, if this queue contains one or more such
@@ -381,7 +381,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this queue, in
      * proper sequence.
      *
@@ -405,7 +405,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return al.toArray();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an array containing all of the elements in this queue, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the queue fits in the specified array, it
@@ -466,7 +466,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         return al.toArray(a);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator over the elements in this queue in proper sequence.
      * The returned iterator is a "weakly consistent" iterator that
      * will never throw {@link ConcurrentModificationException},
@@ -481,12 +481,12 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
     }
 
     private class Itr implements Iterator<E> {
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Next node to return item for.
          */
         private Node<E> nextNode;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * nextItem holds on to item fields because once we claim
          * that an element exists in hasNext(), we must return it in
          * the following next() call even if it was in the process of
@@ -494,7 +494,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
          */
         private E nextItem;
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Node of the last returned item, to support remove.
          */
         private Node<E> lastRet;
@@ -503,7 +503,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
             advance();
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Moves to next valid node and returns item to return for
          * next(), or null if no such.
          */
@@ -546,7 +546,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Save the state to a stream (that is, serialize it).
      *
      * @serialData All of the elements (each an <tt>E</tt>) in
@@ -570,7 +570,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
         s.writeObject(null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Reconstitute the Queue instance from a stream (that is,
      * deserialize it).
      * @param s the stream

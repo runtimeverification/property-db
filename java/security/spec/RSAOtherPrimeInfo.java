@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class represents the triplet (prime, exponent, and coefficient)
  * inside RSA's OtherPrimeInfo structure, as defined in the PKCS#1 v2.1.
  * The ASN.1 syntax of RSA's OtherPrimeInfo is as follows:
@@ -57,7 +57,7 @@ public class RSAOtherPrimeInfo {
     private BigInteger crtCoefficient;
 
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
     * Creates a new <code>RSAOtherPrimeInfo</code>
     * given the prime, primeExponent, and
     * crtCoefficient as defined in PKCS#1.
@@ -91,7 +91,7 @@ public class RSAOtherPrimeInfo {
         this.crtCoefficient = crtCoefficient;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the prime.
      *
      * @return the prime.
@@ -100,7 +100,7 @@ public class RSAOtherPrimeInfo {
         return this.prime;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the prime's exponent.
      *
      * @return the primeExponent.
@@ -109,7 +109,7 @@ public class RSAOtherPrimeInfo {
         return this.primeExponent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the prime's crtCoefficient.
      *
      * @return the crtCoefficient.

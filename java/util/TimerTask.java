@@ -25,7 +25,7 @@
 
 package java.util;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A task that can be scheduled for one-time or repeated execution by a Timer.
  *
  * @author  Josh Bloch
@@ -34,64 +34,64 @@ package java.util;
  */
 
 public abstract class TimerTask implements Runnable {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This object is used to control access to the TimerTask internals.
      */
     final Object lock = new Object();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The state of this task, chosen from the constants below.
      */
     int state = VIRGIN;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This task has not yet been scheduled.
      */
     static final int VIRGIN = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This task is scheduled for execution.  If it is a non-repeating task,
      * it has not yet been executed.
      */
     static final int SCHEDULED   = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This non-repeating task has already executed (or is currently
      * executing) and has not been cancelled.
      */
     static final int EXECUTED    = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This task has been cancelled (with a call to TimerTask.cancel).
      */
     static final int CANCELLED   = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Next execution time for this task in the format returned by
      * System.currentTimeMillis, assuming this task is scheduled for execution.
      * For repeating tasks, this field is updated prior to each task execution.
      */
     long nextExecutionTime;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Period in milliseconds for repeating tasks.  A positive value indicates
      * fixed-rate execution.  A negative value indicates fixed-delay execution.
      * A value of 0 indicates a non-repeating task.
      */
     long period = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new timer task.
      */
     protected TimerTask() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The action to be performed by this timer task.
      */
     public abstract void run();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Cancels this timer task.  If the task has been scheduled for one-time
      * execution and has not yet run, or has not yet been scheduled, it will
      * never run.  If the task has been scheduled for repeated execution, it
@@ -121,7 +121,7 @@ public abstract class TimerTask implements Runnable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <i>scheduled</i> execution time of the most recent
      * <i>actual</i> execution of this task.  (If this method is invoked
      * while task execution is in progress, the return value is the scheduled

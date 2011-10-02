@@ -27,7 +27,7 @@ package java.sql;
 
 import java.util.StringTokenizer;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * <P>A thin wrapper around <code>java.util.Date</code> that allows
  * the JDBC API to identify this as an SQL <code>TIMESTAMP</code> value.
  * It adds the ability
@@ -69,7 +69,7 @@ import java.util.StringTokenizer;
  */
 public class Timestamp extends java.util.Date {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Timestamp</code> object initialized
      * with the given values.
      *
@@ -93,7 +93,7 @@ public class Timestamp extends java.util.Date {
         nanos = nano;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>Timestamp</code> object
      * using a milliseconds time value. The
      * integral seconds are stored in the underlying date value; the
@@ -114,7 +114,7 @@ public class Timestamp extends java.util.Date {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this <code>Timestamp</code> object to represent a point in time that is
      * <tt>time</tt> milliseconds after January 1, 1970 00:00:00 GMT.
      *
@@ -132,7 +132,7 @@ public class Timestamp extends java.util.Date {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT
      * represented by this <code>Timestamp</code> object.
      *
@@ -146,12 +146,12 @@ public class Timestamp extends java.util.Date {
     }
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * @serial
      */
     private int nanos;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Converts a <code>String</code> object in JDBC timestamp escape format to a
      * <code>Timestamp</code> value.
      *
@@ -278,7 +278,7 @@ public class Timestamp extends java.util.Date {
         return new Timestamp(year, month, day, hour, minute, second, a_nanos);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Formats a timestamp in JDBC timestamp escape format.
      *         <code>yyyy-mm-dd hh:mm:ss.fffffffff</code>,
      * where <code>ffffffffff</code> indicates nanoseconds.
@@ -377,7 +377,7 @@ public class Timestamp extends java.util.Date {
         return (timestampBuf.toString());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets this <code>Timestamp</code> object's <code>nanos</code> value.
      *
      * @return this <code>Timestamp</code> object's fractional seconds component
@@ -387,7 +387,7 @@ public class Timestamp extends java.util.Date {
         return nanos;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets this <code>Timestamp</code> object's <code>nanos</code> field
      * to the given value.
      *
@@ -403,7 +403,7 @@ public class Timestamp extends java.util.Date {
         nanos = n;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests to see if this <code>Timestamp</code> object is
      * equal to the given <code>Timestamp</code> object.
      *
@@ -424,7 +424,7 @@ public class Timestamp extends java.util.Date {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Tests to see if this <code>Timestamp</code> object is
      * equal to the given object.
      *
@@ -450,7 +450,7 @@ public class Timestamp extends java.util.Date {
       }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether this <code>Timestamp</code> object is
      * earlier than the given <code>Timestamp</code> object.
      *
@@ -462,7 +462,7 @@ public class Timestamp extends java.util.Date {
         return compareTo(ts) < 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Indicates whether this <code>Timestamp</code> object is
      * later than the given <code>Timestamp</code> object.
      *
@@ -474,7 +474,7 @@ public class Timestamp extends java.util.Date {
         return compareTo(ts) > 0;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>Timestamp</code> object to the given
      * <code>Timestamp</code> object.
      *
@@ -502,7 +502,7 @@ public class Timestamp extends java.util.Date {
 
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this <code>Timestamp</code> object to the given
      * <code>Date</code>, which must be a <code>Timestamp</code>
      * object. If the argument is not a <code>Timestamp</code> object,

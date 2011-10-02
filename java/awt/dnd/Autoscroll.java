@@ -28,7 +28,7 @@ package java.awt.dnd;
 import java.awt.Insets;
 import java.awt.Point;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * During DnD operations it is possible that a user may wish to drop the
  * subject of the operation on a region of a scrollable GUI control that is
  * not currently visible to the user.
@@ -54,7 +54,7 @@ import java.awt.Point;
 
 public interface Autoscroll {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * This method returns the <code>Insets</code> describing
      * the autoscrolling region or border relative
      * to the geometry of the implementing Component.
@@ -68,7 +68,7 @@ public interface Autoscroll {
 
     public Insets getAutoscrollInsets();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * notify the <code>Component</code> to autoscroll
      * <P>
      * @param cursorLocn A <code>Point</code> indicating the

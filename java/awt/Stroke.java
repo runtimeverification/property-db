@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Stroke</code> interface allows a
  * {@link Graphics2D} object to obtain a {@link Shape} that is the
  * decorated outline, or stylistic representation of the outline,
@@ -56,7 +56,7 @@ package java.awt;
  * @see Graphics2D#setStroke
  */
 public interface Stroke {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an outline <code>Shape</code> which encloses the area that
      * should be painted when the <code>Shape</code> is stroked according
      * to the rules defined by the

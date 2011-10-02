@@ -30,7 +30,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>TexturePaint</code> class provides a way to fill a
  * {@link Shape} with a texture that is specified as
  * a {@link BufferedImage}. The size of the <code>BufferedImage</code>
@@ -55,7 +55,7 @@ public class TexturePaint implements Paint {
     double sx;
     double sy;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>TexturePaint</code> object.
      * @param txtr the <code>BufferedImage</code> object with the texture
      * used for painting
@@ -71,7 +71,7 @@ public class TexturePaint implements Paint {
         this.sy = anchor.getHeight() / bufImg.getHeight();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the <code>BufferedImage</code> texture used to
      * fill the shapes.
      * @return a <code>BufferedImage</code>.
@@ -80,7 +80,7 @@ public class TexturePaint implements Paint {
         return bufImg;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a copy of the anchor rectangle which positions and
      * sizes the textured image.
      * @return the <code>Rectangle2D</code> used to anchor and
@@ -92,7 +92,7 @@ public class TexturePaint implements Paint {
                                       sy * bufImg.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and returns a {@link PaintContext} used to 
      * generate a tiled image pattern.
      * See the {@link Paint#createContext specification} of the 
@@ -137,7 +137,7 @@ public class TexturePaint implements Paint {
                                               deviceBounds);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the transparency mode for this <code>TexturePaint</code>.
      * @return the transparency mode for this <code>TexturePaint</code>
      * as an integer value.

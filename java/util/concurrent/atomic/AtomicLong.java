@@ -36,7 +36,7 @@
 package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A {@code long} value that may be updated atomically.  See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
@@ -56,7 +56,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
     private static final Unsafe unsafe = Unsafe.getUnsafe();
     private static final long valueOffset;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Records whether the underlying JVM supports lockless
      * compareAndSwap for longs. While the Unsafe.compareAndSwapLong
      * method works in either case, some constructions should be
@@ -64,7 +64,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
      */
     static final boolean VM_SUPPORTS_LONG_CAS = VMSupportsCS8();
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns whether underlying JVM supports lockless CompareAndSet
      * for longs. Called only once and cached in VM_SUPPORTS_LONG_CAS.
      */
@@ -79,7 +79,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
 
     private volatile long value;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicLong with the given initial value.
      *
      * @param initialValue the initial value
@@ -88,13 +88,13 @@ public class AtomicLong extends Number implements java.io.Serializable {
         value = initialValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new AtomicLong with initial value {@code 0}.
      */
     public AtomicLong() {
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the current value.
      *
      * @return the current value
@@ -103,7 +103,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return value;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets to the given value.
      *
      * @param newValue the new value
@@ -112,7 +112,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         value = newValue;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Eventually sets to the given value.
      *
      * @param newValue the new value
@@ -122,7 +122,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         unsafe.putOrderedLong(this, valueOffset, newValue);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets to the given value and returns the old value.
      *
      * @param newValue the new value
@@ -136,7 +136,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -149,7 +149,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapLong(this, valueOffset, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -165,7 +165,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapLong(this, valueOffset, expect, update);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically increments by one the current value.
      *
      * @return the previous value
@@ -179,7 +179,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically decrements by one the current value.
      *
      * @return the previous value
@@ -193,7 +193,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically adds the given value to the current value.
      *
      * @param delta the value to add
@@ -208,7 +208,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically increments by one the current value.
      *
      * @return the updated value
@@ -222,7 +222,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically decrements by one the current value.
      *
      * @return the updated value
@@ -236,7 +236,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Atomically adds the given value to the current value.
      *
      * @param delta the value to add
@@ -251,7 +251,7 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the String representation of the current value.
      * @return the String representation of the current value.
      */

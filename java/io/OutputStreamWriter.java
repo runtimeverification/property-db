@@ -30,7 +30,7 @@ import java.nio.charset.CharsetEncoder;
 import sun.nio.cs.StreamEncoder;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * An OutputStreamWriter is a bridge from character streams to byte streams:
  * Characters written to it are encoded into bytes using a specified {@link
@@ -80,7 +80,7 @@ public class OutputStreamWriter extends Writer {
 
     private final StreamEncoder se;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an OutputStreamWriter that uses the named charset.
      * {@description.close}
@@ -104,7 +104,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an OutputStreamWriter that uses the default character encoding.
      * {@description.close}
@@ -120,7 +120,7 @@ public class OutputStreamWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an OutputStreamWriter that uses the given charset. </p>
      * {@description.close}
@@ -141,7 +141,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, cs);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Creates an OutputStreamWriter that uses the given charset encoder.  </p>
      * {@description.close}
@@ -162,7 +162,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, enc);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Returns the name of the character encoding being used by this stream.
      *
@@ -188,7 +188,7 @@ public class OutputStreamWriter extends Writer {
         return se.getEncoding();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the output buffer to the underlying byte stream, without flushing
      * the byte stream itself.  This method is non-private only so that it may
@@ -199,7 +199,7 @@ public class OutputStreamWriter extends Writer {
         se.flushBuffer();
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a single character.
      * {@description.close}
@@ -210,7 +210,7 @@ public class OutputStreamWriter extends Writer {
         se.write(c);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of an array of characters.
      * {@description.close}
@@ -225,7 +225,7 @@ public class OutputStreamWriter extends Writer {
         se.write(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Writes a portion of a string.
      * {@description.close}
@@ -240,7 +240,7 @@ public class OutputStreamWriter extends Writer {
         se.write(str, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Flushes the stream.
      * {@description.close}

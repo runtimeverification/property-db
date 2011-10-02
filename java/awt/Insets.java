@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * An <code>Insets</code> object is a representation of the borders
  * of a container. It specifies the space that a container must leave
  * at each of its edges. The space can be a border, a blank space, or
@@ -39,7 +39,7 @@ package java.awt;
  */
 public class Insets implements Cloneable, java.io.Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The inset from the top.
      * This value is added to the Top of the rectangle
      * to yield a new location for the Top.
@@ -49,7 +49,7 @@ public class Insets implements Cloneable, java.io.Serializable {
      */
     public int top;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The inset from the left.
      * This value is added to the Left of the rectangle
      * to yield a new location for the Left edge.
@@ -59,7 +59,7 @@ public class Insets implements Cloneable, java.io.Serializable {
      */
     public int left;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The inset from the bottom.
      * This value is subtracted from the Bottom of the rectangle
      * to yield a new location for the Bottom.
@@ -69,7 +69,7 @@ public class Insets implements Cloneable, java.io.Serializable {
      */
     public int bottom;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The inset from the right.
      * This value is subtracted from the Right of the rectangle
      * to yield a new location for the Right edge.
@@ -92,7 +92,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates and initializes a new <code>Insets</code> object with the
      * specified top, left, bottom, and right insets.
      * @param       top   the inset from the top.
@@ -107,7 +107,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         this.right = right;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Set top, left, bottom, and right to the specified values
      *
      * @param       top   the inset from the top.
@@ -123,7 +123,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         this.right = right;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Checks whether two insets objects are equal. Two instances
      * of <code>Insets</code> are equal if the four integer values
      * of the fields <code>top</code>, <code>left</code>,
@@ -141,7 +141,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the hash code for this Insets.
      *
      * @return    a hash code for this Insets.
@@ -155,7 +155,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         return sum3 * (sum3 + 1)/2 + val2;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this <code>Insets</code> object.
      * This method is intended to be used only for debugging purposes, and
      * the content and format of the returned string may vary between
@@ -168,7 +168,7 @@ public class Insets implements Cloneable, java.io.Serializable {
         return getClass().getName() + "[top="  + top + ",left=" + left + ",bottom=" + bottom + ",right=" + right + "]";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a copy of this object.
      * @return     a copy of this <code>Insets</code> object.
      */
@@ -180,7 +180,7 @@ public class Insets implements Cloneable, java.io.Serializable {
             throw new InternalError();
         }
     }
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();

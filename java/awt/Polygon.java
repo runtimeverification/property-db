@@ -31,7 +31,7 @@ import java.awt.geom.Rectangle2D;
 import sun.awt.geom.Crossings;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>Polygon</code> class encapsulates a description of a
  * closed, two-dimensional region within a coordinate space. This
  * region is bounded by an arbitrary number of line segments, each of
@@ -57,7 +57,7 @@ import java.util.Arrays;
  */
 public class Polygon implements Shape, java.io.Serializable {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The total number of points.  The value of <code>npoints</code>
      * represents the number of valid points in this <code>Polygon</code>
      * and might be less than the number of elements in
@@ -70,7 +70,7 @@ public class Polygon implements Shape, java.io.Serializable {
      */
     public int npoints;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array of X coordinates.  The number of elements in
      * this array might be more than the number of X coordinates
      * in this <code>Polygon</code>.  The extra elements allow new points
@@ -84,7 +84,7 @@ public class Polygon implements Shape, java.io.Serializable {
      */
     public int xpoints[];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array of Y coordinates.  The number of elements in
      * this array might be more than the number of Y coordinates
      * in this <code>Polygon</code>.  The extra elements allow new points
@@ -98,7 +98,7 @@ public class Polygon implements Shape, java.io.Serializable {
      */
     public int ypoints[];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The bounds of this {@code Polygon}.
      * This value can be null.
      *
@@ -119,7 +119,7 @@ public class Polygon implements Shape, java.io.Serializable {
      */
     private static final int MIN_LENGTH = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an empty polygon.
      * @since 1.0
      */
@@ -128,7 +128,7 @@ public class Polygon implements Shape, java.io.Serializable {
         ypoints = new int[MIN_LENGTH];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs and initializes a <code>Polygon</code> from the specified
      * parameters.
      * @param xpoints an array of X coordinates
@@ -163,7 +163,7 @@ public class Polygon implements Shape, java.io.Serializable {
         this.ypoints = Arrays.copyOf(ypoints, npoints);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resets this <code>Polygon</code> object to an empty polygon.
      * The coordinate arrays and the data in them are left untouched
      * but the number of points is reset to zero to mark the old
@@ -185,7 +185,7 @@ public class Polygon implements Shape, java.io.Serializable {
         bounds = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invalidates or flushes any internally-cached data that depends
      * on the vertex coordinates of this <code>Polygon</code>.
      * This method should be called after any direct manipulation
@@ -201,7 +201,7 @@ public class Polygon implements Shape, java.io.Serializable {
         bounds = null;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Translates the vertices of the <code>Polygon</code> by
      * <code>deltaX</code> along the x axis and by
      * <code>deltaY</code> along the y axis.
@@ -269,7 +269,7 @@ public class Polygon implements Shape, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Appends the specified coordinates to this <code>Polygon</code>.
      * <p>
      * If an operation that calculates the bounding box of this
@@ -304,7 +304,7 @@ public class Polygon implements Shape, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Gets the bounding box of this <code>Polygon</code>.
      * The bounding box is the smallest {@link Rectangle} whose
      * sides are parallel to the x and y axes of the
@@ -317,7 +317,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return getBoundingBox();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the bounds of this <code>Polygon</code>.
      * @return the bounds of this <code>Polygon</code>.
      * @deprecated As of JDK version 1.1,
@@ -335,7 +335,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return bounds.getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the specified {@link Point} is inside this
      * <code>Polygon</code>.
      * @param p the specified <code>Point</code> to be tested
@@ -348,7 +348,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return contains(p.x, p.y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the specified coordinates are inside this
      * <code>Polygon</code>.
      * <p>
@@ -364,7 +364,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return contains((double) x, (double) y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Determines whether the specified coordinates are contained in this
      * <code>Polygon</code>.
      * @param x the specified X coordinate to be tested
@@ -382,7 +382,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return contains((double) x, (double) y);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -390,7 +390,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return getBounds();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -479,7 +479,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return cross;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -487,7 +487,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return contains(p.getX(), p.getY());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -500,7 +500,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return (cross == null || !cross.isEmpty());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -508,7 +508,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -521,7 +521,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return (cross != null && cross.covers(y, y+h));
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * {@inheritDoc}
      * @since 1.2
      */
@@ -529,7 +529,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator object that iterates along the boundary of this
      * <code>Polygon</code> and provides access to the geometry
      * of the outline of this <code>Polygon</code>.  An optional
@@ -546,7 +546,7 @@ public class Polygon implements Shape, java.io.Serializable {
         return new PolygonPathIterator(this, at);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns an iterator object that iterates along the boundary of
      * the <code>Shape</code> and provides access to the geometry of the
      * outline of the <code>Shape</code>.  Only SEG_MOVETO, SEG_LINETO, and
@@ -585,7 +585,7 @@ public class Polygon implements Shape, java.io.Serializable {
             }
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the winding rule for determining the interior of the
          * path.
          * @return an integer representing the current winding rule.
@@ -595,7 +595,7 @@ public class Polygon implements Shape, java.io.Serializable {
             return WIND_EVEN_ODD;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Tests if there are more points to read.
          * @return <code>true</code> if there are more points to read;
          *          <code>false</code> otherwise.
@@ -604,7 +604,7 @@ public class Polygon implements Shape, java.io.Serializable {
             return index > poly.npoints;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Moves the iterator forwards, along the primary direction of
          * traversal, to the next segment of the path when there are
          * more points in that direction.
@@ -613,7 +613,7 @@ public class Polygon implements Shape, java.io.Serializable {
             index++;
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the coordinates and type of the current path segment in
          * the iteration.
          * The return value is the path segment type:
@@ -643,7 +643,7 @@ public class Polygon implements Shape, java.io.Serializable {
             return (index == 0 ? SEG_MOVETO : SEG_LINETO);
         }
 
-        /** {@collect.stats}
+        /** {@collect.stats} 
          * Returns the coordinates and type of the current path segment in
          * the iteration.
          * The return value is the path segment type:

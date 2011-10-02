@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * Thrown when an unknown but serious exception has occurred in the
  * Java Virtual Machine.
  *
@@ -34,14 +34,14 @@ package java.lang;
  */
 public
 class UnknownError extends VirtualMachineError {
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnknownError</code> with no detail message.
      */
     public UnknownError() {
         super();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs an <code>UnknownError</code> with the specified detail
      * message.
      *

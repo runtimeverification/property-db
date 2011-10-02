@@ -28,7 +28,7 @@ package java.util.jar;
 import java.util.zip.*;
 import java.io.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>JarOutputStream</code> class is used to write the contents
  * of a JAR file to any output stream. It extends the class
  * <code>java.util.zip.ZipOutputStream</code> with support
@@ -45,7 +45,7 @@ public
 class JarOutputStream extends ZipOutputStream {
     private static final int JAR_MAGIC = 0xCAFE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarOutputStream</code> with the specified
      * <code>Manifest</code>. The manifest is written as the first
      * entry to the output stream.
@@ -65,7 +65,7 @@ class JarOutputStream extends ZipOutputStream {
         closeEntry();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a new <code>JarOutputStream</code> with no manifest.
      * @param out the actual output stream
      * @exception IOException if an I/O error has occurred
@@ -74,7 +74,7 @@ class JarOutputStream extends ZipOutputStream {
         super(out);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Begins writing a new JAR file entry and positions the stream
      * to the start of the entry data. This method will also close
      * any previous entry. The default compression method will be

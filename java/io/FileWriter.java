@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Convenience class for writing character files.  The constructors of this
  * class assume that the default character encoding and the default byte-buffer
@@ -57,7 +57,7 @@ package java.io;
 
 public class FileWriter extends OutputStreamWriter {
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a FileWriter object given a file name.
      * {@description.close}
@@ -71,7 +71,7 @@ public class FileWriter extends OutputStreamWriter {
         super(new FileOutputStream(fileName));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a FileWriter object given a file name with a boolean
      * indicating whether or not to append the data written.
@@ -88,7 +88,7 @@ public class FileWriter extends OutputStreamWriter {
         super(new FileOutputStream(fileName, append));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a FileWriter object given a File object.
      * {@description.close}
@@ -102,7 +102,7 @@ public class FileWriter extends OutputStreamWriter {
         super(new FileOutputStream(file));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a FileWriter object given a File object. If the second
      * argument is <code>true</code>, then bytes will be written to the end
@@ -121,7 +121,7 @@ public class FileWriter extends OutputStreamWriter {
         super(new FileOutputStream(file, append));
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a FileWriter object associated with a file descriptor.
      * {@description.close}

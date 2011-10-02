@@ -24,7 +24,7 @@
  */
 package java.security.spec;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class specifies the set of parameters used for
  * generating elliptic curve (EC) domain parameters.
  *
@@ -38,7 +38,7 @@ public class ECGenParameterSpec implements AlgorithmParameterSpec {
 
     private String name;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a parameter specification for EC parameter
      * generation using a standard (or predefined) name
      * <code>stdName</code> in order to generate the corresponding
@@ -57,7 +57,7 @@ public class ECGenParameterSpec implements AlgorithmParameterSpec {
         this.name = stdName;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the standard or predefined name of the
      * to-be-generated EC domain parameters.
      * @return the standard or predefined name.

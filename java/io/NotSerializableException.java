@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * {@description.open}
  * Thrown when an instance is required to have a Serializable interface.
  * The serialization runtime or the class of the instance can throw
@@ -39,7 +39,7 @@ public class NotSerializableException extends ObjectStreamException {
 
     private static final long serialVersionUID = 2906642554793891381L;
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      * Constructs a NotSerializableException object with message string.
      * {@description.close}
@@ -50,7 +50,7 @@ public class NotSerializableException extends ObjectStreamException {
         super(classname);
     }
 
-    /**
+    /** {@collect.stats}
      * {@description.open}
      *  Constructs a NotSerializableException object.
      * {@description.close}

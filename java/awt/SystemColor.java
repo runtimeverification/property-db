@@ -26,7 +26,7 @@ package java.awt;
 
 import java.io.ObjectStreamException;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * A class to encapsulate symbolic colors representing the color of
  * native GUI objects on a system.  For systems which support the dynamic
  * update of the system colors (when the user changes the colors)
@@ -49,194 +49,194 @@ import java.io.ObjectStreamException;
  */
 public final class SystemColor extends Color implements java.io.Serializable {
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * The array index for the
      * {@link #desktop} system color.
      * @see SystemColor#desktop
      */
     public final static int DESKTOP = 0;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #activeCaption} system color.
      * @see SystemColor#activeCaption
      */
     public final static int ACTIVE_CAPTION = 1;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #activeCaptionText} system color.
      * @see SystemColor#activeCaptionText
      */
     public final static int ACTIVE_CAPTION_TEXT = 2;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #activeCaptionBorder} system color.
      * @see SystemColor#activeCaptionBorder
      */
     public final static int ACTIVE_CAPTION_BORDER = 3;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #inactiveCaption} system color.
      * @see SystemColor#inactiveCaption
      */
     public final static int INACTIVE_CAPTION = 4;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #inactiveCaptionText} system color.
      * @see SystemColor#inactiveCaptionText
      */
     public final static int INACTIVE_CAPTION_TEXT = 5;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #inactiveCaptionBorder} system color.
      * @see SystemColor#inactiveCaptionBorder
      */
     public final static int INACTIVE_CAPTION_BORDER = 6;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #window} system color.
      * @see SystemColor#window
      */
     public final static int WINDOW = 7;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #windowBorder} system color.
      * @see SystemColor#windowBorder
      */
     public final static int WINDOW_BORDER = 8;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #windowText} system color.
      * @see SystemColor#windowText
      */
     public final static int WINDOW_TEXT = 9;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #menu} system color.
      * @see SystemColor#menu
      */
     public final static int MENU = 10;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #menuText} system color.
      * @see SystemColor#menuText
      */
     public final static int MENU_TEXT = 11;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #text} system color.
      * @see SystemColor#text
      */
     public final static int TEXT = 12;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #textText} system color.
      * @see SystemColor#textText
      */
     public final static int TEXT_TEXT = 13;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #textHighlight} system color.
      * @see SystemColor#textHighlight
      */
     public final static int TEXT_HIGHLIGHT = 14;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #textHighlightText} system color.
      * @see SystemColor#textHighlightText
      */
     public final static int TEXT_HIGHLIGHT_TEXT = 15;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #textInactiveText} system color.
      * @see SystemColor#textInactiveText
      */
     public final static int TEXT_INACTIVE_TEXT = 16;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #control} system color.
      * @see SystemColor#control
      */
     public final static int CONTROL = 17;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #controlText} system color.
      * @see SystemColor#controlText
      */
     public final static int CONTROL_TEXT = 18;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #controlHighlight} system color.
      * @see SystemColor#controlHighlight
      */
     public final static int CONTROL_HIGHLIGHT = 19;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #controlLtHighlight} system color.
      * @see SystemColor#controlLtHighlight
      */
     public final static int CONTROL_LT_HIGHLIGHT = 20;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #controlShadow} system color.
      * @see SystemColor#controlShadow
      */
     public final static int CONTROL_SHADOW = 21;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #controlDkShadow} system color.
      * @see SystemColor#controlDkShadow
      */
     public final static int CONTROL_DK_SHADOW = 22;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #scrollbar} system color.
      * @see SystemColor#scrollbar
      */
     public final static int SCROLLBAR = 23;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #info} system color.
      * @see SystemColor#info
      */
     public final static int INFO = 24;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The array index for the
      * {@link #infoText} system color.
      * @see SystemColor#infoText
      */
     public final static int INFO_TEXT = 25;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The number of system colors in the array.
      */
     public final static int NUM_COLORS = 26;
 
-    /** {@collect.stats}****************************************************************************************/
+    /** {@collect.stats} ****************************************************************************************/
 
     /*
      * System colors with default initial values, overwritten by toolkit if
@@ -273,146 +273,146 @@ public final class SystemColor extends Color implements java.io.Serializable {
         0xFF000000,  // infoText = Color.black;
     };
 
-   /** {@collect.stats}
+   /** {@collect.stats} 
      * The color rendered for the background of the desktop.
      */
     public final static SystemColor desktop = new SystemColor((byte)DESKTOP);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the window-title background of the currently active window.
      */
     public final static SystemColor activeCaption = new SystemColor((byte)ACTIVE_CAPTION);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the window-title text of the currently active window.
      */
     public final static SystemColor activeCaptionText = new SystemColor((byte)ACTIVE_CAPTION_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the border around the currently active window.
      */
     public final static SystemColor activeCaptionBorder = new SystemColor((byte)ACTIVE_CAPTION_BORDER);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the window-title background of inactive windows.
      */
     public final static SystemColor inactiveCaption = new SystemColor((byte)INACTIVE_CAPTION);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the window-title text of inactive windows.
      */
     public final static SystemColor inactiveCaptionText = new SystemColor((byte)INACTIVE_CAPTION_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the border around inactive windows.
      */
     public final static SystemColor inactiveCaptionBorder = new SystemColor((byte)INACTIVE_CAPTION_BORDER);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of interior regions inside windows.
      */
     public final static SystemColor window = new SystemColor((byte)WINDOW);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the border around interior regions inside windows.
      */
     public final static SystemColor windowBorder = new SystemColor((byte)WINDOW_BORDER);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for text of interior regions inside windows.
      */
     public final static SystemColor windowText = new SystemColor((byte)WINDOW_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of menus.
      */
     public final static SystemColor menu = new SystemColor((byte)MENU);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of menus.
      */
     public final static SystemColor menuText = new SystemColor((byte)MENU_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of text control objects, such as
      * textfields and comboboxes.
      */
     public final static SystemColor text = new SystemColor((byte)TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of text control objects, such as textfields
      * and comboboxes.
      */
     public final static SystemColor textText = new SystemColor((byte)TEXT_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of selected items, such as in menus,
      * comboboxes, and text.
      */
     public final static SystemColor textHighlight = new SystemColor((byte)TEXT_HIGHLIGHT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of selected items, such as in menus, comboboxes,
      * and text.
      */
     public final static SystemColor textHighlightText = new SystemColor((byte)TEXT_HIGHLIGHT_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of inactive items, such as in menus.
      */
     public final static SystemColor textInactiveText = new SystemColor((byte)TEXT_INACTIVE_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of control panels and control objects,
      * such as pushbuttons.
      */
     public final static SystemColor control = new SystemColor((byte)CONTROL);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of control panels and control objects,
      * such as pushbuttons.
      */
     public final static SystemColor controlText = new SystemColor((byte)CONTROL_TEXT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for light areas of 3D control objects, such as pushbuttons.
      * This color is typically derived from the <code>control</code> background color
      * to provide a 3D effect.
      */
     public final static SystemColor controlHighlight = new SystemColor((byte)CONTROL_HIGHLIGHT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for highlight areas of 3D control objects, such as pushbuttons.
      * This color is typically derived from the <code>control</code> background color
      * to provide a 3D effect.
      */
     public final static SystemColor controlLtHighlight = new SystemColor((byte)CONTROL_LT_HIGHLIGHT);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for shadow areas of 3D control objects, such as pushbuttons.
      * This color is typically derived from the <code>control</code> background color
      * to provide a 3D effect.
      */
     public final static SystemColor controlShadow = new SystemColor((byte)CONTROL_SHADOW);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for dark shadow areas on 3D control objects, such as pushbuttons.
      * This color is typically derived from the <code>control</code> background color
      * to provide a 3D effect.
      */
     public final static SystemColor controlDkShadow = new SystemColor((byte)CONTROL_DK_SHADOW);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of scrollbars.
      */
     public final static SystemColor scrollbar = new SystemColor((byte)SCROLLBAR);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the background of tooltips or spot help.
      */
     public final static SystemColor info = new SystemColor((byte)INFO);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The color rendered for the text of tooltips or spot help.
      */
     public final static SystemColor infoText = new SystemColor((byte)INFO_TEXT);
@@ -460,7 +460,7 @@ public final class SystemColor extends Color implements java.io.Serializable {
       updateSystemColors();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Called from <init> & toolkit to update the above systemColors cache.
      */
     private static void updateSystemColors() {
@@ -472,7 +472,7 @@ public final class SystemColor extends Color implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates a symbolic color that represents an indexed entry into system
      * color cache. Used by above static system colors.
      */
@@ -481,7 +481,7 @@ public final class SystemColor extends Color implements java.io.Serializable {
         this.index = index;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a string representation of this <code>Color</code>'s values.
      * This method is intended to be used only for debugging purposes,
      * and the content and format of the returned string may vary between
@@ -494,7 +494,7 @@ public final class SystemColor extends Color implements java.io.Serializable {
         return getClass().getName() + "[i=" + (index) + "]";
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The design of the {@code SystemColor} class assumes that
      * the {@code SystemColor} object instances stored in the
      * static final fields above are the only instances that can
@@ -518,7 +518,7 @@ public final class SystemColor extends Color implements java.io.Serializable {
         return systemColorObjects[value];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a specialized version of the {@code SystemColor}
      * object for writing to the serialized stream.
      * @serialData

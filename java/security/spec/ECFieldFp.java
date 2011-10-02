@@ -27,7 +27,7 @@ package java.security.spec;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This immutable class defines an elliptic curve (EC) prime
  * finite field.
  *
@@ -41,7 +41,7 @@ public class ECFieldFp implements ECField {
 
     private BigInteger p;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Creates an elliptic curve prime finite field
      * with the specified prime <code>p</code>.
      * @param p the prime.
@@ -56,7 +56,7 @@ public class ECFieldFp implements ECField {
         this.p = p;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the field size in bits which is size of prime p
      * for this prime finite field.
      * @return the field size in bits.
@@ -65,7 +65,7 @@ public class ECFieldFp implements ECField {
         return p.bitLength();
     };
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the prime <code>p</code> of this prime finite field.
      * @return the prime.
      */
@@ -73,7 +73,7 @@ public class ECFieldFp implements ECField {
         return p;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Compares this prime finite field for equality with the
      * specified object.
      * @param obj the object to be compared.
@@ -88,7 +88,7 @@ public class ECFieldFp implements ECField {
         return false;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a hash code value for this prime finite field.
      * @return a hash code value.
      */

@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving <code>WindowEvents</code>, including
  * <code>WINDOW_GAINED_FOCUS</code> and <code>WINDOW_LOST_FOCUS</code> events.
  * The class that is interested in processing a <code>WindowEvent</code>
@@ -53,14 +53,14 @@ import java.util.EventListener;
  */
 public interface WindowFocusListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the Window is set to be the focused Window, which means
      * that the Window, or one of its subcomponents, will receive keyboard
      * events.
      */
     public void windowGainedFocus(WindowEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when the Window is no longer the focused Window, which means
      * that keyboard events will no longer be delivered to the Window or any of
      * its subcomponents.

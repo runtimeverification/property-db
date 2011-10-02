@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The listener interface for receiving keyboard focus events on
  * a component.
  * The class that is interested in processing a focus event
@@ -49,12 +49,12 @@ import java.util.EventListener;
  */
 public interface FocusListener extends EventListener {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a component gains the keyboard focus.
      */
     public void focusGained(FocusEvent e);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Invoked when a component loses the keyboard focus.
      */
     public void focusLost(FocusEvent e);

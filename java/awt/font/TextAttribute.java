@@ -45,7 +45,7 @@ import java.text.AttributedCharacterIterator.Attribute;
 import java.util.Map;
 import java.util.HashMap;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * The <code>TextAttribute</code> class defines attribute keys and
  * attribute values used for text rendering.
  * <p>
@@ -259,7 +259,7 @@ public final class TextAttribute extends Attribute {
     // table of all instances in this class, used by readResolve
     private static final Map instanceMap = new HashMap(29);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a <code>TextAttribute</code> with the specified name.
      * @param name the attribute name to assign to this
      * <code>TextAttribute</code>
@@ -271,7 +271,7 @@ public final class TextAttribute extends Attribute {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Resolves instances being deserialized to the predefined constants.
      */
     protected Object readResolve() throws InvalidObjectException {
@@ -298,7 +298,7 @@ public final class TextAttribute extends Attribute {
     // For use with Font.
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the font name.  Values are instances of
      * <b><code>String</code></b>.  The default value is
      * <code>"Default"</code>, which causes the platform default font
@@ -328,7 +328,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute FAMILY =
         new TextAttribute("family");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the weight of a font.  Values are instances
      * of <b><code>Number</code></b>.  The default value is
      * <code>WEIGHT_REGULAR</code>.
@@ -351,21 +351,21 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute WEIGHT =
         new TextAttribute("weight");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The lightest predefined weight.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_EXTRA_LIGHT =
         Float.valueOf(0.5f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard light weight.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_LIGHT =
         Float.valueOf(0.75f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An intermediate weight between <code>WEIGHT_LIGHT</code> and
      * <code>WEIGHT_STANDARD</code>.
      * @see #WEIGHT
@@ -373,21 +373,21 @@ public final class TextAttribute extends Attribute {
     public static final Float WEIGHT_DEMILIGHT =
         Float.valueOf(0.875f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard weight. This is the default value for <code>WEIGHT</code>.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_REGULAR =
         Float.valueOf(1.0f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A moderately heavier weight than <code>WEIGHT_REGULAR</code>.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_SEMIBOLD =
         Float.valueOf(1.25f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An intermediate weight between <code>WEIGHT_REGULAR</code> and
      * <code>WEIGHT_BOLD</code>.
      * @see #WEIGHT
@@ -395,42 +395,42 @@ public final class TextAttribute extends Attribute {
     public static final Float WEIGHT_MEDIUM =
         Float.valueOf(1.5f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A moderately lighter weight than <code>WEIGHT_BOLD</code>.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_DEMIBOLD =
         Float.valueOf(1.75f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard bold weight.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_BOLD =
         Float.valueOf(2.0f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A moderately heavier weight than <code>WEIGHT_BOLD</code>.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_HEAVY =
         Float.valueOf(2.25f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * An extra heavy weight.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_EXTRABOLD =
         Float.valueOf(2.5f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The heaviest predefined weight.
      * @see #WEIGHT
      */
     public static final Float WEIGHT_ULTRABOLD =
         Float.valueOf(2.75f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the width of a font.  Values are instances of
      * <b><code>Number</code></b>.  The default value is
      * <code>WIDTH_REGULAR</code>.
@@ -448,21 +448,21 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute WIDTH =
         new TextAttribute("width");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The most condensed predefined width.
      * @see #WIDTH
      */
     public static final Float WIDTH_CONDENSED =
         Float.valueOf(0.75f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A moderately condensed width.
      * @see #WIDTH
      */
     public static final Float WIDTH_SEMI_CONDENSED =
         Float.valueOf(0.875f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard width. This is the default value for
      * <code>WIDTH</code>.
      * @see #WIDTH
@@ -470,21 +470,21 @@ public final class TextAttribute extends Attribute {
     public static final Float WIDTH_REGULAR =
         Float.valueOf(1.0f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A moderately extended width.
      * @see #WIDTH
      */
     public static final Float WIDTH_SEMI_EXTENDED =
         Float.valueOf(1.25f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The most extended predefined width.
      * @see #WIDTH
      */
     public static final Float WIDTH_EXTENDED =
         Float.valueOf(1.5f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the posture of a font.  Values are instances
      * of <b><code>Number</code></b>. The default value is
      * <code>POSTURE_REGULAR</code>.
@@ -508,7 +508,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute POSTURE =
         new TextAttribute("posture");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard posture, upright.  This is the default value for
      * <code>POSTURE</code>.
      * @see #POSTURE
@@ -516,14 +516,14 @@ public final class TextAttribute extends Attribute {
     public static final Float POSTURE_REGULAR =
         Float.valueOf(0.0f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * The standard italic posture.
      * @see #POSTURE
      */
     public static final Float POSTURE_OBLIQUE =
         Float.valueOf(0.20f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the font size.  Values are instances of
      * <b><code>Number</code></b>.  The default value is 12pt.
      *
@@ -541,7 +541,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute SIZE =
         new TextAttribute("size");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the transform of a font.  Values are
      * instances of <b><code>TransformAttribute</code></b>.  The
      * default value is <code>TransformAttribute.IDENTITY</code>.
@@ -579,7 +579,7 @@ public final class TextAttribute extends Attribute {
      public static final TextAttribute TRANSFORM =
         new TextAttribute("transform");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for superscripting and subscripting.  Values are
      * instances of <b><code>Integer</code></b>.  The default value is
      * 0, which means that no superscript or subscript is used.
@@ -600,21 +600,21 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute SUPERSCRIPT =
         new TextAttribute("superscript");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Standard superscript.
      * @see #SUPERSCRIPT
      */
     public static final Integer SUPERSCRIPT_SUPER =
         Integer.valueOf(1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Standard subscript.
      * @see #SUPERSCRIPT
      */
     public static final Integer SUPERSCRIPT_SUB =
         Integer.valueOf(-1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key used to provide the font to use to render text.
      * Values are instances of {@link java.awt.Font}.  The default
      * value is null, indicating that normal resolution of a
@@ -677,7 +677,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute FONT =
         new TextAttribute("font");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for a user-defined glyph to display in lieu
      * of the font's standard glyph for a character.  Values are
      * intances of GraphicAttribute.  The default value is null,
@@ -705,7 +705,7 @@ public final class TextAttribute extends Attribute {
     // Adornments added to text.
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the paint used to render the text.  Values are
      * instances of <b><code>Paint</code></b>.  The default value is
      * null, indicating that the <code>Paint</code> set on the
@@ -721,7 +721,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute FOREGROUND =
         new TextAttribute("foreground");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the paint used to render the background of
      * the text.  Values are instances of <b><code>Paint</code></b>.
      * The default value is null, indicating that the background
@@ -740,7 +740,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute BACKGROUND =
         new TextAttribute("background");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for underline.  Values are instances of
      * <b><code>Integer</code></b>.  The default value is -1, which
      * means no underline.
@@ -753,7 +753,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute UNDERLINE =
         new TextAttribute("underline");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Standard underline.
      *
      * @see #UNDERLINE
@@ -761,7 +761,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_ON =
         Integer.valueOf(0);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for strikethrough.  Values are instances of
      * <b><code>Boolean</code></b>.  The default value is
      * <code>false</code>, which means no strikethrough.
@@ -774,7 +774,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute STRIKETHROUGH =
         new TextAttribute("strikethrough");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * A single strikethrough.
      *
      * @see #STRIKETHROUGH
@@ -786,7 +786,7 @@ public final class TextAttribute extends Attribute {
     // Attributes use to control layout of text on a line.
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the run direction of the line.  Values are
      * instances of <b><code>Boolean</code></b>.  The default value is
      * null, which indicates that the standard Bidi algorithm for
@@ -809,21 +809,21 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute RUN_DIRECTION =
         new TextAttribute("run_direction");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Left-to-right run direction.
      * @see #RUN_DIRECTION
      */
     public static final Boolean RUN_DIRECTION_LTR =
         Boolean.FALSE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Right-to-left run direction.
      * @see #RUN_DIRECTION
      */
     public static final Boolean RUN_DIRECTION_RTL =
         Boolean.TRUE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the embedding level of the text.  Values are
      * instances of <b><code>Integer</code></b>.  The default value is
      * <code>null</code>, indicating that the the Bidirectional
@@ -847,7 +847,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute BIDI_EMBEDDING =
         new TextAttribute("bidi_embedding");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for the justification of a paragraph.  Values are
      * instances of <b><code>Number</code></b>.  The default value is
      * 1, indicating that justification should use the full width
@@ -871,7 +871,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute JUSTIFICATION =
         new TextAttribute("justification");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Justify the line to the full requested width.  This is the
      * default value for <code>JUSTIFICATION</code>.
      * @see #JUSTIFICATION
@@ -879,7 +879,7 @@ public final class TextAttribute extends Attribute {
     public static final Float JUSTIFICATION_FULL =
         Float.valueOf(1.0f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Do not allow the line to be justified.
      * @see #JUSTIFICATION
      */
@@ -890,7 +890,7 @@ public final class TextAttribute extends Attribute {
     // For use by input method.
     //
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for input method highlight styles.
      *
      * <p>Values are instances of {@link
@@ -916,7 +916,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute INPUT_METHOD_HIGHLIGHT =
         new TextAttribute("input method highlight");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for input method underlines.  Values
      * are instances of <b><code>Integer</code></b>.  The default
      * value is <code>-1</code>, which means no underline.
@@ -939,7 +939,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute INPUT_METHOD_UNDERLINE =
         new TextAttribute("input method underline");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Single pixel solid low underline.
      * @see #INPUT_METHOD_UNDERLINE
      * @since 1.3
@@ -947,7 +947,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_LOW_ONE_PIXEL =
         Integer.valueOf(1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Double pixel solid low underline.
      * @see #INPUT_METHOD_UNDERLINE
      * @since 1.3
@@ -955,7 +955,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_LOW_TWO_PIXEL =
         Integer.valueOf(2);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Single pixel dotted low underline.
      * @see #INPUT_METHOD_UNDERLINE
      * @since 1.3
@@ -963,7 +963,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_LOW_DOTTED =
         Integer.valueOf(3);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Double pixel gray low underline.
      * @see #INPUT_METHOD_UNDERLINE
      * @since 1.3
@@ -971,7 +971,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_LOW_GRAY =
         Integer.valueOf(4);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Single pixel dashed low underline.
      * @see #INPUT_METHOD_UNDERLINE
      * @since 1.3
@@ -979,7 +979,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer UNDERLINE_LOW_DASHED =
         Integer.valueOf(5);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for swapping foreground and background
      * <code>Paints</code>.  Values are instances of
      * <b><code>Boolean</code></b>.  The default value is
@@ -1001,7 +1001,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute SWAP_COLORS =
         new TextAttribute("swap_colors");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Swap foreground and background.
      * @see #SWAP_COLORS
      * @since 1.3
@@ -1009,7 +1009,7 @@ public final class TextAttribute extends Attribute {
     public static final Boolean SWAP_COLORS_ON =
         Boolean.TRUE;
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for converting ASCII decimal digits to other
      * decimal ranges.  Values are instances of {@link NumericShaper}.
      * The default is <code>null</code>, which means do not perform
@@ -1028,7 +1028,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute NUMERIC_SHAPING =
         new TextAttribute("numeric_shaping");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key to request kerning. Values are instances of
      * <b><code>Integer</code></b>.  The default value is
      * <code>0</code>, which does not request kerning.
@@ -1047,7 +1047,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute KERNING =
         new TextAttribute("kerning");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Request standard kerning.
      * @see #KERNING
      * @since 1.6
@@ -1056,7 +1056,7 @@ public final class TextAttribute extends Attribute {
         Integer.valueOf(1);
 
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key for enabling optional ligatures. Values are
      * instances of <b><code>Integer</code></b>.  The default value is
      * <code>0</code>, which means do not use optional ligatures.
@@ -1070,7 +1070,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute LIGATURES =
         new TextAttribute("ligatures");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Request standard optional ligatures.
      * @see #LIGATURES
      * @since 1.6
@@ -1078,7 +1078,7 @@ public final class TextAttribute extends Attribute {
     public static final Integer LIGATURES_ON =
         Integer.valueOf(1);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Attribute key to control tracking.  Values are instances of
      * <b><code>Number</code></b>.  The default value is
      * <code>0</code>, which means no additional tracking.
@@ -1099,7 +1099,7 @@ public final class TextAttribute extends Attribute {
     public static final TextAttribute TRACKING =
         new TextAttribute("tracking");
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Perform tight tracking.
      * @see #TRACKING
      * @since 1.6
@@ -1107,7 +1107,7 @@ public final class TextAttribute extends Attribute {
     public static final Float TRACKING_TIGHT =
         Float.valueOf(-.04f);
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Perform loose tracking.
      * @see #TRACKING
      * @since 1.6

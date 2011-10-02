@@ -37,7 +37,7 @@ package java.awt.image;
 
 import static sun.java2d.StateTrackable.State.*;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class extends <CODE>DataBuffer</CODE> and stores data internally as shorts.
  * <p>
  * <a name="optimizations">
@@ -57,13 +57,13 @@ import static sun.java2d.StateTrackable.State.*;
  */
 public final class DataBufferShort extends DataBuffer
 {
-    /** {@collect.stats} The default data bank. */
+    /** {@collect.stats}  The default data bank. */
     short data[];
 
-    /** {@collect.stats} All data banks */
+    /** {@collect.stats}  All data banks */
     short bankdata[][];
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with a single bank and the
      * specified size.
      *
@@ -76,7 +76,7 @@ public final class DataBufferShort extends DataBuffer
         bankdata[0] = data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with the specified number of
      * banks all of which are the specified size.
      *
@@ -92,7 +92,7 @@ public final class DataBufferShort extends DataBuffer
         data = bankdata[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with a single bank using the
      * specified array.
      * Only the first <CODE>size</CODE> elements should be used by accessors of
@@ -114,7 +114,7 @@ public final class DataBufferShort extends DataBuffer
         bankdata[0] = data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with a single bank using the
      * specified array, size, and offset.  <CODE>dataArray</CODE> must have at least
      * <CODE>offset</CODE> + <CODE>size</CODE> elements.  Only elements <CODE>offset</CODE>
@@ -137,7 +137,7 @@ public final class DataBufferShort extends DataBuffer
         bankdata[0] = data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with the specified arrays.
      * The number of banks will be equal to <CODE>dataArray.length</CODE>.
      * Only the first <CODE>size</CODE> elements of each array should be used by
@@ -157,7 +157,7 @@ public final class DataBufferShort extends DataBuffer
         data = bankdata[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a short-based <CODE>DataBuffer</CODE> with the specified arrays, size,
      * and offsets.
      * The number of banks is equal to <CODE>dataArray.length</CODE>.  Each array must
@@ -182,7 +182,7 @@ public final class DataBufferShort extends DataBuffer
         data = bankdata[0];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the default (first) byte data array.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -197,7 +197,7 @@ public final class DataBufferShort extends DataBuffer
         return data;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the data array for the specified bank.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -213,7 +213,7 @@ public final class DataBufferShort extends DataBuffer
         return bankdata[bank];
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the data arrays for all banks.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -228,7 +228,7 @@ public final class DataBufferShort extends DataBuffer
         return (short[][]) bankdata.clone();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the requested data array element from the first (default) bank.
      *
      * @param i The data array element you want to get.
@@ -240,7 +240,7 @@ public final class DataBufferShort extends DataBuffer
         return (int)(data[i+offset]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns the requested data array element from the specified bank.
      *
      * @param bank The bank from which you want to get a data array element.
@@ -253,7 +253,7 @@ public final class DataBufferShort extends DataBuffer
         return (int)(bankdata[bank][i+offsets[bank]]);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the requested data array element in the first (default) bank
      * to the specified value.
      *
@@ -267,7 +267,7 @@ public final class DataBufferShort extends DataBuffer
         theTrackable.markDirty();
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the requested data array element in the specified bank
      * from the given integer.
      * @param bank The bank in which you want to set the data array element.

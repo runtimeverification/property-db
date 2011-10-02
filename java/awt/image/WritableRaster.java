@@ -37,7 +37,7 @@ package java.awt.image;
 import java.awt.Rectangle;
 import java.awt.Point;
 
-/** {@collect.stats}
+/** {@collect.stats} 
  * This class extends Raster to provide pixel writing capabilities.
  * Refer to the class comment for Raster for descriptions of how
  * a Raster stores pixels.
@@ -48,7 +48,7 @@ import java.awt.Point;
  */
 public class WritableRaster extends Raster {
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a WritableRaster with the given SampleModel.  The
      *  WritableRaster's upper left corner is origin and it is the
      *  same size as the  SampleModel.  A DataBuffer large enough to
@@ -72,7 +72,7 @@ public class WritableRaster extends Raster {
              null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      *  Constructs a WritableRaster with the given SampleModel and DataBuffer.
      *  The WritableRaster's upper left corner is origin and it is the same
      *  size as the SampleModel.  The DataBuffer is not initialized and must
@@ -98,7 +98,7 @@ public class WritableRaster extends Raster {
              null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Constructs a WritableRaster with the given SampleModel, DataBuffer,
      * and parent.  aRegion specifies the bounding rectangle of the new
      * Raster.  When translated into the base Raster's coordinate
@@ -129,7 +129,7 @@ public class WritableRaster extends Raster {
         super(sampleModel,dataBuffer,aRegion,sampleModelTranslate,parent);
     }
 
-    /** {@collect.stats} Returns the parent WritableRaster (if any) of this WritableRaster,
+    /** {@collect.stats}  Returns the parent WritableRaster (if any) of this WritableRaster,
      *  or else null.
      *  @return the parent of this <code>WritableRaster</code>, or
      *          <code>null</code>.
@@ -138,7 +138,7 @@ public class WritableRaster extends Raster {
         return (WritableRaster)parent;
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Create a WritableRaster with the same size, SampleModel and DataBuffer
      * as this one, but with a different location.  The new WritableRaster
      * will possess a reference to the current WritableRaster, accessible
@@ -159,7 +159,7 @@ public class WritableRaster extends Raster {
                                    childMinX,childMinY,null);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Returns a new WritableRaster which shares all or part of this
      * WritableRaster's DataBuffer.  The new WritableRaster will
      * possess a reference to the current WritableRaster, accessible
@@ -256,7 +256,7 @@ public class WritableRaster extends Raster {
                                   this);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the data for a single pixel from a
      * primitive array of type TransferType.  For image data supported by
      * the Java 2D(tm) API, this will be one of DataBuffer.TYPE_BYTE,
@@ -285,7 +285,7 @@ public class WritableRaster extends Raster {
                                     inData, dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the data for a rectangle of pixels from an input Raster.
      * The input Raster must be compatible with this WritableRaster
      * in that they must have the same number of bands, corresponding bands
@@ -327,7 +327,7 @@ public class WritableRaster extends Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the data for a rectangle of pixels from a
      * primitive array of type TransferType.  For image data supported by
      * the Java 2D API, this will be one of DataBuffer.TYPE_BYTE,
@@ -360,7 +360,7 @@ public class WritableRaster extends Raster {
                                     w,h,inData,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies pixels from Raster srcRaster to this WritableRaster.  Each pixel
      * in srcRaster is copied to the same x,y address in this raster, unless
      * the address falls outside the bounds of this raster.  srcRaster
@@ -403,7 +403,7 @@ public class WritableRaster extends Raster {
         setRect(0,0,srcRaster);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Copies pixels from Raster srcRaster to this WritableRaster.
      * For each (x, y) address in srcRaster, the corresponding pixel
      * is copied to address (x+dx, y+dy) in this WritableRaster,
@@ -491,7 +491,7 @@ public class WritableRaster extends Raster {
         }
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a pixel in the DataBuffer using an int array of samples for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -509,7 +509,7 @@ public class WritableRaster extends Raster {
                              iArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a pixel in the DataBuffer using a float array of samples for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -527,7 +527,7 @@ public class WritableRaster extends Raster {
                              fArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a pixel in the DataBuffer using a double array of samples for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -545,7 +545,7 @@ public class WritableRaster extends Raster {
                              dArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all samples for a rectangle of pixels from an int array containing
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -566,7 +566,7 @@ public class WritableRaster extends Raster {
                               w,h,iArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all samples for a rectangle of pixels from a float array containing
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -587,7 +587,7 @@ public class WritableRaster extends Raster {
                               w,h,fArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets all samples for a rectangle of pixels from a double array containing
      * one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -608,7 +608,7 @@ public class WritableRaster extends Raster {
                               w,h,dArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using an int for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -628,7 +628,7 @@ public class WritableRaster extends Raster {
                               dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a float for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -647,7 +647,7 @@ public class WritableRaster extends Raster {
                               b,s,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a double for input.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -666,7 +666,7 @@ public class WritableRaster extends Raster {
                                     b,s,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from an int array containing one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -690,7 +690,7 @@ public class WritableRaster extends Raster {
                                w,h,b,iArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from a float array containing one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -714,7 +714,7 @@ public class WritableRaster extends Raster {
                                w,h,b,fArray,dataBuffer);
     }
 
-    /** {@collect.stats}
+    /** {@collect.stats} 
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from a double array containing one sample per array element.
      * An ArrayIndexOutOfBoundsException may be thrown if the coordinates are
