@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if mark() is invoked after close().
+ *
+ * According to the InputStream.mark() document, mark() after close() does
+ * nothing. This property warns if such useless mark() is invoked.
+ */
+
+InputStream_MarkAfterClose(InputStream i) {
+	event mark before(InputStream i) : call(* InputStream+.mark(..)) && target(i) {}
+	event close before(InputStream i) : call(* InputStream+.close(..)) && target(i) {}
+
+	ere : close mark+
+
+	@match {
+		System.err.println("mark() after close() had no effect.");
+	}
+}

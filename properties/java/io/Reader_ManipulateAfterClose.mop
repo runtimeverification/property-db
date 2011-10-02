@@ -1,0 +1,30 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns read(), ready(), mark(), reset() or skip() after close().
+ *
+ * According to the Reader.close() document, read(), ready(), mark(),
+ * reset() or skip() invocations will throw an IOException, once the stream
+ * has been closed.
+ */
+
+Reader_ManipulateAfterClose(Reader r) {
+	event manipulate before(Reader r) :
+		(
+			call(* Reader+.read(..)) ||
+			call(* Reader+.ready(..)) ||
+			call(* Reader+.mark(..)) ||
+			call(* Reader+.reset(..)) ||
+			call(* Reader+.skip(..))
+		) && target(r) {}
+	event close before(Reader r) : call(* Reader+.close(..)) && target(r) {}
+
+	ere : manipulate* close
+
+	@fail {
+		System.err.println("read(), ready(), mark(), reset() or skip() was invoked after close().");
+		System.exit(1);
+	}
+}

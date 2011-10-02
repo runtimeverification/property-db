@@ -1,0 +1,23 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if ByteArrayInputStream.close() is invoked.
+ *
+ * ByteArrayInputStream.close() has no effect, and other methods in this class
+ * can be called after close() without IOException. This specification warns
+ * when such meaningless close() is invoked, in the hope that it helps the
+ * user to understand the actual behavior.
+ */
+ByteArrayInputStream_Close(ByteArrayInputStream i) {
+	event close before(ByteArrayInputStream i) : call(* ByteArrayInputStream.close(..)) && target(i) {}
+
+	ere : close
+
+	@match {
+		System.err.println("ByteArrayInputStream.close() has no effect.");
+		System.exit(1);
+	}
+}
+

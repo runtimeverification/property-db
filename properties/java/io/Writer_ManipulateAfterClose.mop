@@ -1,0 +1,25 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns write(), or flush() after close().
+ *
+ * According to the Writer.close() document, further write() or flush()
+ * invocations will cause an IOException to be thrown.
+ */
+
+Writer_ManipulateAfterClose(Writer w) {
+	event manipulate before(Writer w) :
+		(
+			call(* Writer+.write*(..)) ||
+			call(* Writer+.flush(..))
+		) && target(w) {}
+	event close before(Writer w) : call(* Writer+.close(..)) && target(w) {}
+
+	ere : manipulate* close
+
+	@fail {
+		System.err.println("write() or flush() was invoked after close().");
+	}
+}

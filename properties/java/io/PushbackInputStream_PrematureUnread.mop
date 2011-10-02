@@ -1,0 +1,34 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Prevents premature invocation of unread().
+ *
+ * A PushbackInputStream is capable of pushing back multiple bytes to the front of
+ * the stream. Typically, it is used for reading indefinite number of bytes until
+ * a delimiter is detected, and pushing back that delimiter so that the very next
+ * read() operation can see the delimiter again.
+ *
+ * Calling unread() at the beginning is a valid behavior, but this specification
+ * raises an error for debugging purpose, since that is not typical.
+ */
+
+PushbackInputStream_PrematureUnread(PushbackInputStream p) {
+	event read before(PushbackInputStream p) : call(* PushbackInputStream+.read(..)) && target(p) {}
+	event unread before(PushbackInputStream p) : call(* PushbackInputStream+.unread(..)) && target(p) {}
+
+	fsm :
+		created [
+			read -> reading
+		]
+		reading [
+			unread -> created
+			read -> reading
+		]
+
+	@fail {
+		System.err.println("Premature unread() was detected.");
+		System.exit(1);
+	}
+}

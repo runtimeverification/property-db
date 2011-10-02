@@ -1,0 +1,32 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Prevents invocations of mark() if the Reader does not support.
+ *
+ * PushbackReader, InputStreamReader, FileReader and PipedReader do not
+ * support mark() and reset(). This specification warns if mark() or reset()
+ * is invoked.
+ */
+
+Reader_MarkReset(Reader r) {
+	event mark before(Reader+ r) : 
+		call(* Reader+.mark(..)) && target(r) 
+		&& if(r instanceof PushbackReader 
+		   || r instanceof InputStreamReader
+		   || r instanceof FileReader
+		   || r instanceof PipedReader) {}
+	event reset before(Reader+ r) : 
+		call(* Reader+.reset(..)) && target(r)
+		&& if(r instanceof PushbackReader 
+		   || r instanceof InputStreamReader
+		   || r instanceof FileReader
+		   || r instanceof PipedReader) {}
+
+	ere: mark | reset
+
+	@match {
+		System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+	}
+}

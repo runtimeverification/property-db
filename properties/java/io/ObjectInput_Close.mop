@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if an ObjectInput instance does not close.
+ *
+ * An ObjectInput instance should be closed.
+ */
+
+ObjectInput_Close(ObjectInput i) {
+	event create before(ObjectInput i) : call(ObjectInput+.new(..)) && target(i) {}
+	event close before(ObjectInput i) : call(* ObjectInput+.close(..)) && target(i) {}
+
+	ere : create close+
+
+	@fail {
+		System.err.println("close() was not called.");
+	}
+}
+

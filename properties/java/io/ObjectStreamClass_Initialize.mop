@@ -1,0 +1,28 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns write operation after close().
+ *
+ * According to the FileOutputStream.close(), a file output stream may no
+ * longer be used for writing bytes, once the stream has been closed.
+ */
+
+ObjectStreamClass_Initialize(ObjectStreamClass c) {
+	event create before(ObjectStreamClass c) : call(ObjectStreamClass+.new()) && target(c) {}
+	event init before(ObjectStreamClass c) :
+		(
+			call(* ObjectStreamClass+.initProxy(..)) ||
+			call(* ObjectStreamClass+.initNonProxy(..)) ||
+			call(* ObjectStreamClass+.readNonProxy(..))
+		) && target(c) {}
+
+	ere : create init+
+
+	@fail {
+		System.err.println("An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
+		System.exit(1);
+	}
+}
+

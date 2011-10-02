@@ -1,0 +1,28 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if a closed object performs input or output operations.
+ *
+ * According to the document, a closed random access file cannot perform input
+ * or output operations and cannot be reopened. This property captures only
+ * input or output operations performed after close(), because reopening a
+ * file is infeasible.
+ */
+
+RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
+	event manipulate before(RandomAccessFile f) :
+		(
+			call(* RandomAccessFile+.read*(..)) ||
+			call(* RandomAccessFile+.write*(..))
+		) && target(f) {}
+	event close before(RandomAccessFile f) : call(* Reader+.close(..)) && target(f) {}
+
+	ere : manipulate* close
+
+	@fail {
+		System.err.println("A closed random access file cannot perform input or output operations");
+	}
+}
+

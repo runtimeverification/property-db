@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if an ObjectOutput instance does not close.
+ *
+ * An ObjectOutput instance should be closed.
+ */
+
+ObjectOutput_close(ObjectOutput o) {
+	event create before(ObjectOutput o) : call(ObjectOutput+.new(..)) && target(o) {}
+	event close before(ObjectOutput o) : call(* ObjectOutput+.close(..)) && target(o) {}
+
+	ere : create close+
+
+	@fail {
+		System.err.println("close() was not called.");
+	}
+}
+

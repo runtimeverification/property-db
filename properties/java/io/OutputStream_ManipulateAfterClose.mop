@@ -1,0 +1,26 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns write operation after close().
+ *
+ * According to the OutputStream.close(), a closed stream cannot perform
+ * output operations and cannot be reopened.
+ */
+
+OutputStream_ManipulateAfterClose(OutputStream o) {
+	event manipulate before(OutputStream o) :
+		(
+			call(* OutputStream+.write(..)) ||
+			call(* OutputStream+.writeBytes(..))
+		) && target(o) {}
+	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
+
+	ere : manipulate* close
+
+	@fail {
+		System.err.println("An output operation was performed on a closed stream."); 
+		System.exit(1);
+	}
+}

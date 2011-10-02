@@ -1,0 +1,25 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if close() is invoked on the object returned by Console.writer().
+ *
+ * Invoking close() on the objects returned by Console.writer() does not close
+ * the underlying the streams. This specification warns if such useless
+ * invocation is detected.
+ */
+
+Console_CloseWriter(Reader w) {
+	event getwriter after returning(Writer w) :
+		call(Writer+ Console+.writer()) {}
+	event close before(Writer w) :
+		call(* Writer+.close(..)) && target(w) {}
+
+	ere : getwriter close
+
+	@match {
+		System.err.println("Invoking close() on the object returned by Console.writer() does not close the underlying stream.");
+	}
+}
+

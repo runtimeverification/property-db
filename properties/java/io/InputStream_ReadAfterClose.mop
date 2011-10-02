@@ -1,0 +1,18 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Prevents method calls after close() is invoked.
+ *
+ * Any operation, such as read(), mark() and reset(), is prohibited once
+ * close() is issued in most subclasses of InputStream, except
+ * ByteArrayInputStream. This specification warns if read() is invoked after
+ * close().
+ */
+InputStream_ReadAfterClose(InputStream i) {
+	@fail {
+		System.exit(1);
+	}
+}
+

@@ -1,0 +1,84 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Raises an error if mark() is invalidated by reading.
+ *
+ * BufferedReader and LineNumberReader support mark() and reset(), but after
+ * reading the specified number of bytes, the mark is not preserved and,
+ * consequently, calling reset() is prevented.
+ *
+ * This specification keeps track of validity of the mark, and raises an error
+ * when the mark is invalidated and read() is invoked.
+ */
+
+Reader_ReadAheadLimit(Reader r) {
+	int limit = 0;
+	int rest = 0;
+	String LOC = null;
+
+	creation event mark before(Reader r, int l) :
+		call(* Reader+.mark(int)) && target(r) && args(l)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){
+			__MONITOR.limit = l;
+			__MONITOR.rest = l;
+		}
+	event read after(Reader r):
+		call(* Reader+.read()) && target(r)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){
+			/* TODO what if read() returns 0 or -1? */
+			__MONITOR.rest -= 1;
+			if(__MONITOR.rest < 0){
+				__MONITOR.LOC = __LOC;
+			}
+		}
+	event read after(Reader r) returning (int m) :
+		call(* Reader+.read(char[], ..)) && target(r)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){
+			/* TODO what if read() returns 0 or -1? */
+			__MONITOR.rest -= m;
+			if(__MONITOR.rest < 0){
+				__MONITOR.LOC = __LOC;
+			}
+		}
+	event reset before(Reader r) :
+		call(* Reader+.reset(..)) && target(r) && condition(rest >= 0)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){
+			__MONITOR.rest = __MONITOR.limit;
+		}
+
+	event badreset before(Reader r) :
+		call(* Reader+.reset(..)) && target(r) && condition(rest < 0)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){
+			__MONITOR.limit = 0;
+			__MONITOR.rest = 0;
+		}
+
+	//ere : read* mark (read | mark | reset)* badreset
+
+	/* TODO the following fsm is incomplete */
+	fsm :
+		unmarked [
+			read -> unmarked
+			mark -> marked
+		]
+		marked [
+			read -> marked
+			reset -> marked
+			mark -> marked
+		]
+
+	@fail {
+		System.err.println("mark() was invalidated.");
+		if(__MONITOR.LOC != null){
+			System.err.println("read at line " + __MONITOR.LOC + " invalidated mark()");
+		}
+		System.exit(1);
+	}
+}

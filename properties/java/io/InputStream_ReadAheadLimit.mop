@@ -1,0 +1,93 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Raises an error if mark() is invalidated by reading.
+ *
+ * BufferedInputStream, DataInputStream and LineNumberInputStream support
+ * mark() and reset(), but after reading the specified number of bytes, the
+ * mark is not preserved and, consequently, calling reset() is prevented.
+ *
+ * This specification keeps track of validity of the mark, and raises an error
+ * when the mark is invalidated and read() is invoked.
+ */
+
+InputStream_ReadAheadLimit(InputStream i) {
+	int limit = 0;
+	int rest = 0;
+	String LOC = null;
+
+	creation event mark before(InputStream i, int l) : 
+		call(* InputStream+.mark(int)) && target(i) && args(l) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		) {
+			__MONITOR.limit = l;
+			__MONITOR.rest = l;
+		}
+	event read after(InputStream i) : 
+		call(* InputStream+.read()) && target(i) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		) {
+			/* TODO what if read() returns 0 or -1? */
+			__MONITOR.rest -= 1;
+			if (__MONITOR.rest < 0) {
+				__MONITOR.LOC = __LOC;
+			}
+		}
+	event read after(InputStream i) returning (int m) : 
+		call(* InputStream+.read(char[], ..)) && target(i) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		) {
+			/* TODO what if read() returns 0 or -1? */
+			__MONITOR.rest -= m;
+			if (__MONITOR.rest < 0) {
+				__MONITOR.LOC = __LOC;
+			}
+		}
+	event reset before(InputStream i) : 
+		call(* InputStream+.reset(..)) && target(i) && condition(rest >= 0) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		) {
+			__MONITOR.rest = __MONITOR.limit;
+		}
+	event badreset before(InputStream i) : 
+		call(* InputStream+.reset(..)) && target(i) && condition(rest < 0) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		)
+			__MONITOR.limit = 0;
+			__MONITOR.rest = 0;
+		}
+
+	/* TODO the following fsm is incomplete */
+	fsm :
+		unmarked [
+			read -> unmarked
+			mark -> marked
+		]
+		marked [
+			read -> marked
+			reset -> marked
+			mark -> marked
+		]
+
+	//ere : read* mark (read | mark | reset)* badreset
+
+	@fail {
+		System.err.println("mark() was invalidated.");
+		if (__MONITOR.LOC != null) {
+			System.err.println("read at line " + __MONITOR.LOC + " invalidated mark()");
+		}
+		System.exit(1);
+	}
+}

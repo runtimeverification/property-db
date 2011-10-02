@@ -1,0 +1,48 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Flushes OutputStream before using the underlying ByteArrayOutputStream.
+ *
+ * When an OutputStream (or its subclass) instance is built on top of an
+ * underlying ByteArrayOutputStream instance, it should be flushed or closed
+ * before the underlying instance's toByteArray() is invoked. Failing to
+ * fulfill this requirement may cause toByteArray() to return incomplete
+ * contents.
+ */
+ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream o) {
+	event outputstreaminit after(OutputStream o, ByteArrayOutputStream b) returning : call(OutputStream+.new(..)) && target(o) && args(b) {}
+	event tobytearray before(ByteArrayOutputStream b) : call(* ByteArrayOutputStream+.toByteArray(..)) && target(b) {}
+	event flush before(OutputStream o) : call(* OutputStream+.flush(..)) && target(o) {}
+	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
+	event write before(OutputStream o) : call(* ObjectOutput+.write*(..)) && target(o) {}
+
+	fsm :
+		initial [
+			outputstreaminit -> outputstreamcreated
+		]
+		outputstreamcreated [
+			write -> writing
+			flush -> flushed
+			close -> closed
+		]
+		writing [
+			write -> writing
+			flush -> flushed
+			close -> closed
+		]
+		flushed [
+			tobytearray -> flushed
+			flush -> flushed
+			write -> writing
+		]
+		closed [
+			tobytearray -> flushed
+		]
+
+	@fail {
+		System.err.println("flush() or close() should be invoked before toByteArray().");
+		System.exit(1);
+	}
+}

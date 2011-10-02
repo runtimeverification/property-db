@@ -1,0 +1,29 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Prevents premature invocations of reset().
+ *
+ * BufferedReader and LineNumberReader allow reset() only after mark() has
+ * been invoked. This specification catches the violation of this.
+ */
+
+Reader_UnmarkedReset(Reader r) {
+	event mark before(Reader r) : 
+		call(* Reader+.mark(..)) && target(r)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){}
+
+	event reset before(Reader r) : 
+		call(* Reader+.reset(..)) && target(r)
+		&& if(r instanceof BufferedReader
+		   || r instanceof LineNumberReader){}
+
+	ere : mark (mark | reset)*
+
+	@fail{
+		System.err.println("BufferedReader and LineNumberReader allow reset() only after mark() has been invoked.");
+		System.exit(1);
+	}
+}
