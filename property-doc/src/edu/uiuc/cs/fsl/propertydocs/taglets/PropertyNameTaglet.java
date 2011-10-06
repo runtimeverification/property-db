@@ -132,7 +132,7 @@ public class PropertyNameTaglet implements Taglet {
         PrintStream htmlps = new PrintStream(htmlfos);
         htmlps.print(getHtmlHeader(pathifiedName));
         htmlps.print("<P><IFRAME SRC='" + buildRelativeUrlFromName(pathifiedName)  
-            + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='300' /></P>");
+            + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='600'></IFRAME></P>");
         htmlps.print(getHtmlFooter(pathifiedName));
         htmlps.close();
       }

@@ -39,7 +39,11 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * as necessary  from the contained input stream,
  * many bytes at a time.
  * {@description.close}
- * {@property.open formal:Reader_MarkReset formal:Reader_ReadAheadLimit formal:Reader_UnmarkedReset}
+ *
+ * {@property.name properties java.io.Reader_MarkReset}
+ * {@property.name properties java.io.Reader_ReadAheadLimit}
+ * {@property.name properties java.io.Reader_UnmarkedReset}
+ * {@property.open Property:java.io.Reader_MarkReset Property:Reader_ReadAheadLimit Property:Reader_UnmarkedReset}
  * The <code>mark</code>
  * operation  remembers a point in the input
  * stream and the <code>reset</code> operation
@@ -154,7 +158,8 @@ class BufferedInputStream extends FilterInputStream {
      * <code>mark</code> method before subsequent calls to the
      * <code>reset</code> method fail.
      * {@description.close}
-     * {@property.open formal:InputStream_ReadAheadLimit}
+     * {@property.name properties java.io.InputStream_ReadAheadLimit}
+     * {@property.open Property:java.io.InputStream_ReadAheadLimit}
      * Whenever the difference between <code>pos</code>
      * and <code>markpos</code> exceeds <code>marklimit</code>,
      * then the  mark may be dropped by setting
@@ -233,7 +238,8 @@ class BufferedInputStream extends FilterInputStream {
      * Fills the buffer with more data, taking into account
      * shuffling and other tricks for dealing with marks.
      * {@description.close}
-     * {@property.open internal formal:BufferedInputStream_SynchronizedFill}
+     * {@property.name properties java.io.BufferedInputStream_SynchronizedFill}
+     * {@property.open internal Property:java.io.BufferedInputStream_SynchronizedFill}
      * Assumes that it is being called by a synchronized method.
      * {@property.close}
      * {@property.open internal}
@@ -470,7 +476,7 @@ class BufferedInputStream extends FilterInputStream {
      * method of <code>InputStream</code>.
      * <p>
      * {@description.close}
-     * {@property.open formal:Reader_ReadAheadLimit formal:Reader_UnmarkedReset}
+     * {@property.open Property:java.io.Reader_ReadAheadLimit Property:java.io.Reader_UnmarkedReset}
      * If <code>markpos</code> is <code>-1</code>
      * (no mark has been set or the mark has been
      * invalidated), an <code>IOException</code>
@@ -496,7 +502,7 @@ class BufferedInputStream extends FilterInputStream {
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods.
      * {@description.close}
-     * {@property.open formal:Reader_MarkReset}
+     * {@property.open Property:java.io.Reader_MarkReset}
      * The <code>markSupported</code>
      * method of <code>BufferedInputStream</code> returns
      * <code>true</code>.
@@ -516,11 +522,13 @@ class BufferedInputStream extends FilterInputStream {
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * {@description.close}
-     * {@property.open formal:InputStream_ManipulateAfterClose}
+     * {@property.name properties java.io.InputStream_ManipulateAfterClose}
+     * {@property.open Property:java.io.InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), available(), reset(),
      * or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.name properties java.io.Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

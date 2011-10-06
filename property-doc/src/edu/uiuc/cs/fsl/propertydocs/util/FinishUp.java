@@ -156,13 +156,13 @@ public class FinishUp {
      ret.append("<TR BGCOLOR=\"white\" CLASS=\"TableRowColor\">");
      ret.append("<TD WIDTH=\"15%\">");
      ret.append(name);
-     ret.append("</TD>");
+     ret.append("</TD>\n");
      ret.append("<TD WIDTH=\"15%\">" + padding + "Words: ");
      ret.append(w);
      ret.append("</TD><TD WIDTH=\"15%\">" + padding + "Percent of " + total + ": ");
      ret.append(scale(w, totalW));
-     ret.append("%</TD>");
-     ret.append("</TR>");
+     ret.append("%</TD>\n");
+     ret.append("</TR>\n");
      return ret;
   }
 
@@ -214,7 +214,7 @@ public class FinishUp {
            table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
            table.append("<TH ALIGN=\"left\" COLSPAN=\"1\"><FONT SIZE=\"+2\">");
            table.append("<B>MOP Property Links for the " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix) 
-                                                         + " Package </B></FONT></TH></TR>");
+                                                         + " Package </B></FONT></TH></TR>\n");
            tableHeadingAdded = true;
          }
          table.append("<TR BGCOLOR=\"white\" CLASS=\"TableRowColor\"><TD WIDTH=\"15%\">");
@@ -224,12 +224,13 @@ public class FinishUp {
          table.append(link);
          table.append("'>");
          table.append(chop(fn)); 
-         table.append("</A></B></TD></TR>"); 
-         table.append("<BR /><BR />");
+         table.append("</A></B></TD></TR>\n"); 
      }
       //if we added a heading, add a footing 
-     if(tableHeadingAdded) table.append("</TABLE>");
-     
+     if(tableHeadingAdded) {
+       table.append("</TABLE>");
+       table.append("<BR /><BR />\n");
+     }
      //recurse to subdirectories
      for(String fn :
          dirFile.list(new FilenameFilter() {
