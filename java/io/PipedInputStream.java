@@ -36,7 +36,7 @@ package java.io;
  * to the corresponding <code>PipedOutputStream</code>
  * by some  other thread.
  * {@description.close}
- * {@property.open formal:PipedStream_SingleThread}
+ * {@property.open Property:java.io.PipedStream_SingleThread}
  * Attempting to use
  * both objects from a single thread is not
  * recommended, as it may deadlock the thread.

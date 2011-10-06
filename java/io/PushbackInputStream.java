@@ -26,13 +26,14 @@
 package java.io;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.PushbackInputStream_PrematureUnread}
  * {@description.open}
  * A <code>PushbackInputStream</code> adds
  * functionality to another input stream, namely
  * the  ability to "push back" or "unread"
  * one byte.
  * {@description.close}
- * {@property.open formal:PushbackInputStream_PrematureUnread}
+ * {@property.open Property:java.io.PushbackInputStream_PrematureUnread}
  * This is useful in situations where
  * it is  convenient for a fragment of code
  * to read an indefinite number of data bytes
@@ -385,7 +386,7 @@ class PushbackInputStream extends FilterInputStream {
      * Marks the current position in this input stream.
      * {@description.close}
      *
-     * {@property.open formal:InputStream_MarkReset}
+     * {@property.open Property:java.io.InputStream_MarkReset}
      * <p> The <code>mark</code> method of <code>PushbackInputStream</code>
      * does nothing.
      * {@new.open}
@@ -406,7 +407,7 @@ class PushbackInputStream extends FilterInputStream {
      * <code>mark</code> method was last called on this input stream.
      * {@description.close}
      *
-     * {@property.open formal:InputStream_MarkReset}
+     * {@property.open Property:java.io.InputStream_MarkReset}
      * <p> The method <code>reset</code> for class
      * <code>PushbackInputStream</code> does nothing except throw an
      * <code>IOException</code>.
@@ -425,11 +426,11 @@ class PushbackInputStream extends FilterInputStream {
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * {@description.close}
-     * {@property.open formal:InputStream_ManipulateAfterClose}
+     * {@property.open Property:java.io.InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), unread(),
      * available(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

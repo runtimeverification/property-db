@@ -52,6 +52,7 @@ import sun.misc.Unsafe;
 import sun.reflect.ReflectionFactory;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.ObjectStreamClass_Initialize}
  * {@description.open}
  * Serialization's descriptor for classes.  It contains the name and
  * serialVersionUID of the class.  The ObjectStreamClass for a specific class
@@ -654,7 +655,7 @@ public class ObjectStreamClass implements Serializable {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:ObjectStreamClass_Initialize}
+     * {@property.open Property:java.io.ObjectStreamClass_Initialize}
      * Creates blank class descriptor which should be initialized via a
      * subsequent call to initProxy(), initNonProxy() or readNonProxy().
      * {@property.close}

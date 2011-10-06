@@ -28,6 +28,7 @@ package java.io;
 import java.io.IOException;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.Closeable_MultipleClose}
  * {@description.open}
  * A <tt>Closeable</tt> is a source or destination of data that can be closed.
  * The close method is invoked to release resources that the object is
@@ -44,7 +45,7 @@ public interface Closeable {
      * Closes this stream and releases any system resources associated
      * with it.
      * {@description.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * If the stream is already closed then invoking this
      * method has no effect.
      * {@property.close}

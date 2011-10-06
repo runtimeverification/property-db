@@ -26,6 +26,7 @@
 package java.io;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.CharArrayReader_Close}
  * {@description.open}
  * This class implements a character buffer that can be used as a
  * character-input stream.
@@ -214,7 +215,7 @@ public class CharArrayReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:Reader_MarkReset}
+     * {@property.open Property:java.io.Reader_MarkReset}
      * Tells whether this stream supports the mark() operation, which it does.
      * {@property.close}
      */
@@ -244,7 +245,7 @@ public class CharArrayReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:Reader_UnmarkedReset}
+     * {@property.open Property:java.io.Reader_UnmarkedReset}
      * Resets the stream to the most recent mark, or to the beginning if it has
      * never been marked.
      * {@property.close}
@@ -263,11 +264,11 @@ public class CharArrayReader extends Reader {
      * Closes the stream and releases any system resources associated with
      * it.
      * {@description.close}
-     * {@property.open formal:Reader_ManipulateAfterClose}
+     * {@property.open Property:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:CharArrayReader_Close}
+     * {@property.open Property:java.io.CharArrayReader_Close}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      */

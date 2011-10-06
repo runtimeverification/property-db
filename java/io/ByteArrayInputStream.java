@@ -26,6 +26,7 @@
 package java.io;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.ByteArrayInputStream_Close}
  * {@description.open}
  * A <code>ByteArrayInputStream</code> contains
  * an internal buffer that contains bytes that
@@ -34,7 +35,7 @@ package java.io;
  * be supplied by the <code>read</code> method.
  * {@description.close}
  * <p>
- * {@property.open formal:ByteArrayInputStream_Close}
+ * {@property.open Property:java.io.ByteArrayInputStream_Close}
  * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -74,7 +75,7 @@ class ByteArrayInputStream extends InputStream {
      * {@description.open}
      * The currently marked position in the stream.
      * {@description.close}
-     * {@property.open formal:InputStream_MarkReset}
+     * {@property.open Property:java.io.InputStream_MarkReset}
      * ByteArrayInputStream objects are marked at position zero by
      * default when constructed.  They may be marked at another
      * position within the buffer by the <code>mark()</code> method.
@@ -82,7 +83,7 @@ class ByteArrayInputStream extends InputStream {
      * <code>reset()</code> method.
      * {@property.close}
      * <p>
-     * {@property.open formal:InputStream_UnmarkedReset}
+     * {@property.open Property:java.io.InputStream_UnmarkedReset}
      * If no mark has been set, then the value of mark is the offset
      * passed to the constructor (or 0 if the offset was not supplied).
      * {@property.close}
@@ -268,7 +269,7 @@ class ByteArrayInputStream extends InputStream {
      * {@description.open}
      * Tests if this <code>InputStream</code> supports mark/reset.
      * {@description.close}
-     * {@property.open formal:InputStream_MarkReset}
+     * {@property.open Property:java.io.InputStream_MarkReset}
      * The
      * <code>markSupported</code> method of <code>ByteArrayInputStream</code>
      * always returns <code>true</code>.
@@ -281,6 +282,7 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
+     * {@property.name properties java.io.ByteArrayInputStream_Close}
      * {@description.open}
      * Set the current marked position in the stream.
      * ByteArrayInputStream objects are marked at position zero by
@@ -288,7 +290,7 @@ class ByteArrayInputStream extends InputStream {
      * position within the buffer by this method.
      * <p>
      * {@description.close}
-     * {@property.open formal:InputStream_UnmarkedReset}
+     * {@property.open Property:java.io.InputStream_UnmarkedReset}
      * If no mark has been set, then the value of the mark is the
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
@@ -307,7 +309,7 @@ class ByteArrayInputStream extends InputStream {
      * {@description.open}
      * Resets the buffer to the marked position.
      * {@description.close}
-     * {@property.open formal:InputStream_UnmarkedReset}
+     * {@property.open Property:java.io.InputStream_UnmarkedReset}
      * The marked position
      * is 0 unless another position was marked or an offset was specified
      * in the constructor.
@@ -321,7 +323,7 @@ class ByteArrayInputStream extends InputStream {
      * {@description.open}
      * Closing a <tt>ByteArrayInputStream</tt> has no effect.
      * {@description.close}
-     * {@property.open formal:ByteArrayInputStream_Close}
+     * {@property.open Property:java.io.ByteArrayInputStream_Close}
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.

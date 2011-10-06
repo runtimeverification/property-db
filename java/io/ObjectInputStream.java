@@ -1004,7 +1004,7 @@ public class ObjectInputStream
      * {@description.open}
      * Closes the input stream.
      * {@description.close}
-     * {@property.open formal:ObjectInput_Close}
+     * {@property.open Property:java.io.ObjectInput_Close}
      * Must be called to release any resources
      * associated with the stream.
      * {@property.close}

@@ -26,6 +26,7 @@
 package java.io;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.ObjectOutput_Close}
  * {@description.open}
  * ObjectOutput extends the DataOutput interface to include writing of objects.
  * DataOutput includes methods for output of primitive types, ObjectOutput
@@ -102,7 +103,7 @@ public interface ObjectOutput extends DataOutput {
      * {@description.open}
      * Closes the stream.
      * {@description.close}
-     * {@property.open formal:ObjectOutput_Close}
+     * {@property.open Property:java.io.ObjectOutput_Close}
      * This method must be called
      * to release any resources associated with the
      * stream.

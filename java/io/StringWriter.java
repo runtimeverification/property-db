@@ -27,12 +27,13 @@ package java.io;
 
 
 /** {@collect.stats}
+ * {@property.name properties java.io.StringWriter_Close}
  * {@description.open}
  * A character stream that collects its output in a string buffer, which can
  * then be used to construct a string.
  * <p>
  * {@description.close}
- * {@property.open formal:StringWriter_Close}
+ * {@property.open Property:java.io.StringWriter_Close}
  * Closing a <tt>StringWriter</tt> has no effect. The methods in this class
  * can be called after the stream has been closed without generating an
  * <tt>IOException</tt>.
@@ -254,7 +255,7 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:StringWriter_Close}
+     * {@property.open Property:java.io.StringWriter_Close}
      * Closing a <tt>StringWriter</tt> has no effect. The methods in this
      * class can be called after the stream has been closed without generating
      * an <tt>IOException</tt>.

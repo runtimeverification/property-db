@@ -28,6 +28,7 @@ package java.io;
 import java.util.Arrays;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.StreamTokenizer_AccessInvalidField}
  * {@description.open}
  * The <code>StreamTokenizer</code> class takes an input stream and
  * parses it into "tokens", allowing the tokens to be
@@ -172,7 +173,7 @@ public class StreamTokenizer {
     private static final int TT_NOTHING = -4;
 
     /** {@collect.stats}
-     * {@property.open formal:StreamTokenizer_AccessInvalidField}
+     * {@property.open Property:java.io.StreamTokenizer_AccessInvalidField}
      * If the current token is a word token, this field contains a
      * string giving the characters of the word token. When the current
      * token is a quoted string token, this field contains the body of
@@ -195,7 +196,7 @@ public class StreamTokenizer {
     public String sval;
 
     /** {@collect.stats}
-     * {@property.open formal:StreamTokenizer_AccessInvalidField}
+     * {@property.open Property:java.io.StreamTokenizer_AccessInvalidField}
      * If the current token is a number, this field contains the value
      * of that number. The current token is a number when the value of
      * the <code>ttype</code> field is <code>TT_NUMBER</code>.
@@ -570,7 +571,7 @@ public class StreamTokenizer {
      * {@description.open}
      * Parses the next token from the input stream of this tokenizer.
      * {@description.close}
-     * {@property.open formal:StreamTokenizer_AccessInvalidField}
+     * {@property.open Property:java.io.StreamTokenizer_AccessInvalidField}
      * The type of the next token is returned in the <code>ttype</code>
      * field. Additional information about the token may be in the
      * <code>nval</code> field or the <code>sval</code> field of this

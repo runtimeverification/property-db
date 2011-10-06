@@ -251,7 +251,7 @@ public class PushbackReader extends FilterReader {
      * {@description.open}
      * Marks the present position in the stream.
      * {@description.close}
-     * {@property.open formal:Reader_MarkReset}
+     * {@property.open Property:java.io.Reader_MarkReset}
      * The <code>mark</code>
      * for class <code>PushbackReader</code> always throws an exception.
      * {@property.close}
@@ -266,7 +266,7 @@ public class PushbackReader extends FilterReader {
      * {@description.open}
      * Resets the stream.
      * {@description.close}
-     * {@property.open formal:Reader_MarkReset}
+     * {@property.open Property:java.io.Reader_MarkReset}
      * The <code>reset</code> method of
      * <code>PushbackReader</code> always throws an exception.
      * {@property.close}
@@ -292,11 +292,11 @@ public class PushbackReader extends FilterReader {
      * Closes the stream and releases any system resources associated with
      * it.
      * {@description.close}
-     * {@property.open formal:Reader_ManipulateAfterClose}
+     * {@property.open Property:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(),
      * unread(), ready(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

@@ -27,6 +27,8 @@ package java.io;
 
 
 /** {@collect.stats}
+ * {@property.name properties java.io.Writer_ManipulateAfterClose}
+ * 
  * {@description.open}
  * Abstract class for writing to character streams.  The only methods that a
  * subclass must implement are write(char[], int, int), flush(), and close().
@@ -346,12 +348,12 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
      * {@description.open}
      * Closes the stream, flushing it first.
      * {@description.close}
-     * {@property.open formal:Writer_ManipulateAfterClose}
+     * {@property.open Property:java.io.Writer_ManipulateAfterClose}
      * Once the stream has been closed,
      * further write() or flush() invocations will cause an IOException to be
      * thrown.
      * {@property.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

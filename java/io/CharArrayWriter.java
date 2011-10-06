@@ -28,13 +28,14 @@ package java.io;
 import java.util.Arrays;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.CharArrayWriter_Close}
  * {@description.open}
  * This class implements a character buffer that can be used as an Writer.
  * The buffer automatically grows when data is written to the stream.  The data
  * can be retrieved using toCharArray() and toString().
  * {@description.close}
  * <P>
- * {@property.open formal:CharArrayWriter}
+ * {@property.open Property:java.io.CharArrayWriter}
  * Note: Invoking close() on this class has no effect, and methods
  * of this class can be called after the stream has closed
  * without generating an IOException.
@@ -312,7 +313,7 @@ class CharArrayWriter extends Writer {
      * {@description.open}
      * Close the stream.
      * {@description.close}
-     * {@property.open formal:CharArrayWriter}
+     * {@property.open Property:java.io.CharArrayWriter}
      * This method does not release the buffer, since its
      * contents might still be required. Note: Invoking this method in this class
      * will have no effect.

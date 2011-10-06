@@ -40,6 +40,8 @@ package java.io;
  */
 public interface ObjectInput extends DataInput {
     /** {@collect.stats}
+     * {@property.name properties java.io.ObjectInput_Close}
+     * {@property.name properties java.io.ObjectInput_Nonblocking}
      * {@description.open}
      * Read and return an object. The class that implements this interface
      * defines where the object is "read" from.
@@ -124,7 +126,7 @@ public interface ObjectInput extends DataInput {
      * {@description.open}
      * Closes the input stream.
      * {@description.close}
-     * {@property.open formal:ObjectInput_Close}
+     * {@property.open Property:java.io.ObjectInput_Close}
      * Must be called
      * to release any resources associated with
      * the stream.

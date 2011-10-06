@@ -31,6 +31,10 @@ import sun.nio.cs.StreamDecoder;
 import sun.nio.cs.StreamEncoder;
 
 /** {@collect.stats}
+ *
+ * {@property.name properties java.io.Console_CloseReader}
+ * {@property.name properties java.io.Console_CloseWriter}
+ * {@property.name properties java.io.Console_FillZeroPassword}
  * {@description.open}
  * Methods to access the character-based console device, if any, associated
  * with the current Java virtual machine.
@@ -62,7 +66,7 @@ import sun.nio.cs.StreamEncoder;
  * block in multithreaded scenarios.
  * {@property.close}
  * <p>
- * {@property.open formal:Console_CloseReader formal:Console_CloseWriter}
+ * {@property.open Property:java.io.Console_CloseReader Property:java.io.Console_CloseWriter}
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}
  * and the {@link #writer()} will not close the underlying stream of those
  * objects.
@@ -84,7 +88,7 @@ import sun.nio.cs.StreamEncoder;
  * If an application needs to read a password or other secure data, it should
  * use {@link #readPassword()} or {@link #readPassword(String, Object...)}
  * {@property.close}
- * {@property.open formal:Console_FillZeroPassword}
+ * {@property.open Property:java.io.Console_FillZeroPassword}
  * and
  * manually zero the returned character array after processing to minimize the
  * lifetime of sensitive data in memory.

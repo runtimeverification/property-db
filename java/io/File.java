@@ -39,6 +39,7 @@ import sun.security.action.GetPropertyAction;
 
 
 /** {@collect.stats}
+ * {@property.name properties java.io.File_LengthOnDirectory}
  * {@description.open}
  * An abstract representation of file and directory pathnames.
  *
@@ -913,7 +914,7 @@ public class File
      * {@description.open}
      * Returns the length of the file denoted by this abstract pathname.
      * {@description.close}
-     * {@property.open formal:File_LengthOnDirectory}
+     * {@property.open Property:java.io.File_LengthOnDirectory}
      * The return value is unspecified if this pathname denotes a directory.
      * {@property.close}
      *
@@ -1854,7 +1855,7 @@ public class File
      *
      * This method provides only part of a temporary-file facility.
      * {@description.close}
-     * {@property.open formal:File_DeleteTempFile}
+     * {@property.open Property:java.io.File_DeleteTempFile}
      * To arrange
      * for a file created by this method to be deleted automatically, use the
      * <code>{@link #deleteOnExit}</code> method.

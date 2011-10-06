@@ -275,7 +275,7 @@ class LineNumberInputStream extends FilterInputStream {
      * {@description.open}
      * Marks the current position in this input stream.
      * {@description.close}
-     * {@property.open formal:InputStream_MarkReset}
+     * {@property.open Property:java.io.InputStream_MarkReset}
      * A subsequent
      * call to the <code>reset</code> method repositions this stream at
      * the last marked position so that subsequent reads re-read the same bytes.

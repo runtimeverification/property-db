@@ -30,6 +30,7 @@ import sun.nio.ch.FileChannelImpl;
 
 
 /** {@collect.stats}
+ * {@property.name properties java.io.RandomAccessFile_ManipulateAfterClose}
  * {@description.open}
  * Instances of this class support both reading and writing to a
  * random access file. A random access file behaves like a large
@@ -623,7 +624,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * Closes this random access file stream and releases any system
      * resources associated with the stream.
      * {@description.close}
-     * {@property.open formal:RandomAccessFile_ManipulateAfterClose}
+     * {@property.open Property:java.io.RandomAccessFile_ManipulateAfterClose}
      * A closed random access
      * file cannot perform input or output operations and cannot be
      * reopened.

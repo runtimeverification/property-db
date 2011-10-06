@@ -27,6 +27,7 @@ package java.io;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 /** {@collect.stats}
+ * {@property.name properties java.io.BufferedInputStream_SynchronizedFill}
  * {@description.open}
  * A <code>BufferedInputStream</code> adds
  * functionality to another input stream-namely,
@@ -43,7 +44,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * {@property.name properties java.io.Reader_MarkReset}
  * {@property.name properties java.io.Reader_ReadAheadLimit}
  * {@property.name properties java.io.Reader_UnmarkedReset}
- * {@property.open Property:java.io.Reader_MarkReset Property:Reader_ReadAheadLimit Property:Reader_UnmarkedReset}
+ * {@property.open Property:java.io.Reader_MarkReset Property:java.io.Reader_ReadAheadLimit Property:java.io.Reader_UnmarkedReset}
  * The <code>mark</code>
  * operation  remembers a point in the input
  * stream and the <code>reset</code> operation

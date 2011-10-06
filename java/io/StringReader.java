@@ -175,7 +175,7 @@ public class StringReader extends Reader {
      * {@description.open}
      * Marks the present position in the stream.
      * {@description.close}
-     * {@property.open formal:Reader_MarkReset}
+     * {@property.open Property:java.io.Reader_MarkReset}
      * Subsequent calls to reset()
      * will reposition the stream to this point.
      * {@property.close}
@@ -200,7 +200,7 @@ public class StringReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:Reader_MarkReset formal:Reader_UnmarkedReset}
+     * {@property.open Property:java.io.Reader_MarkReset Property:java.io.Reader_UnmarkedReset}
      * Resets the stream to the most recent mark, or to the beginning of the
      * string if it has never been marked.
      * {@property.close}
@@ -219,11 +219,11 @@ public class StringReader extends Reader {
      * Closes the stream and releases any system resources associated with
      * it.
      * {@description.close}
-     * {@property.open formal:Reader_ManipulateAfterClose}
+     * {@property.open Property:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(),
      * ready(), mark(), or reset() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:Closeable_MultipleClose}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      */
