@@ -9,10 +9,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
@@ -29,9 +31,14 @@ public class DescriptionOpenTaglet implements Taglet {
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "description.stats");
 
+    private final String GLOBAL = "<global>";
+
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
+
+    private Map<String, Integer> statsDB = new DefaultMap<String, Integer>(0); 
+
   //  private int chars = 0; //number of description chars
-    private int words = 0; //number of description words
+  //  private int words = 0; //number of description words
   //  private int lines = 0; //number of description lines
 
     public String getName()        { return NAME; }
@@ -87,7 +94,7 @@ public class DescriptionOpenTaglet implements Taglet {
       PositionWrapper p = new PositionWrapper(tag.holder().position());
       if(!(seenDocs.contains(p))){
         seenDocs.add(p);
-        handleTags(tag.holder().inlineTags());
+        handleTags(tag);
       }
       // This part is always executed, but for description we simply return the
       // empty String.  For other tags we will output fancy html/javascript
@@ -96,8 +103,12 @@ public class DescriptionOpenTaglet implements Taglet {
        +" STYLE=\"display:inline\">";
     } 
 
-    private void handleTags(Tag[] tags){
+    private void handleTags(Tag t){
+      Tag[] tags = t.holder().inlineTags();
       boolean inDescription = false; 
+      //not sure if trim() is necessary.  I doubt it is, but speed isn't
+      //an issue here
+      String packageName = GenerateUrls.getPackageDoc(t).toString().trim();
     //  int c = 0; //character count
       int w = 0; //word count
     //  int l = 0; //line count
@@ -129,15 +140,15 @@ public class DescriptionOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-    //  chars += c;
-      words += w;
-    //  lines += l;
+      Integer globalWords = statsDB.get(GLOBAL);
+      Integer packageWords = statsDB.get(packageName);
+      statsDB.put(GLOBAL, globalWords + w);
+      statsDB.put(packageName, packageWords + w);
+      //System.out.println("!!!!!!!!" + statsDB);
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-      //  ps.writeInt(chars);
-        ps.writeInt(words);
-      //  ps.writeInt(lines);
+        ps.writeObject(statsDB);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);

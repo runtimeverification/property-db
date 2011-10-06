@@ -36,17 +36,20 @@ public class FinishUp {
         throw new RuntimeException(e);
      }
 
-     int undecidedW = getStat(undecidedStats);
+     Map<String, Integer> undecidedDB = getDB(undecidedStats);
 
-     int descriptionW = getStat(descriptionStats);
+     Map<String, Integer> descriptionDB = getDB(descriptionStats);
 
-     int newW = getStat(newStats);
+     Map<String, Integer> newDB = getDB(newStats);
        
-     int propertyW = getStat(propertyStats);
-     Map<String, Integer> propertyAttributeMap = getAttributeMap(propertyStats);
+     PropertyMap propertyDB = getAttributedDB(propertyStats);
 
-     float totalW = undecidedW + descriptionW + newW + propertyW;
+     System.out.println("undecided: " + undecidedDB);
+     System.out.println("description: " + descriptionDB);
+     System.out.println("new: " + newDB);
+     System.out.println("property: " + propertyDB);
 
+/*
      StringBuilder table 
        = new StringBuilder();
      table.append("<H2> MOP Coverage Statistics and Property Links</H2><HR />");
@@ -81,6 +84,7 @@ public class FinishUp {
      } catch (java.io.IOException e){
        throw new RuntimeException("Cannot create properties-list.html?");
      }
+     */
    }
 
    //This actually gets the number of words.  We used to track words characters and lines.
@@ -97,15 +101,12 @@ public class FinishUp {
      }
    }
 
-   //Retrieve the attribute stats from a tag that has attribute stats
-   //(currently only property has attributes stats)
    @SuppressWarnings("unchecked")
-   private static Map<String, Integer> getAttributeMap(File file){
+   private static Map<String, Integer> getDB(File file){
      Map<String, Integer> ret = null;
      try {
        FileInputStream fis = new FileInputStream(file);
        ObjectInputStream ois = new ObjectInputStream(fis);
-       int throwaway = ois.readInt();
        try {
          ret = (Map<String, Integer>)ois.readObject();
        } catch (ClassNotFoundException cnfe) {
@@ -114,7 +115,25 @@ public class FinishUp {
        return ret;
      } catch (java.io.IOException e){
        //if there is an IOException we assume that the file isn't there which means the tag wasn't seen
-       return new HashMap<String, Integer>();
+       return new DefaultMap<String, Integer>(0);
+     }
+   }
+
+   @SuppressWarnings("unchecked")
+   private static PropertyMap getAttributedDB(File file){
+     PropertyMap ret = null;
+     try {
+       FileInputStream fis = new FileInputStream(file);
+       ObjectInputStream ois = new ObjectInputStream(fis);
+       try {
+         ret = (PropertyMap)ois.readObject();
+       } catch (ClassNotFoundException cnfe) {
+         throw new RuntimeException(cnfe);
+       }
+       return ret;
+     } catch (java.io.IOException e){
+       //if there is an IOException we assume that the file isn't there which means the tag wasn't seen
+       return new PropertyMap(0);
      }
    }
 

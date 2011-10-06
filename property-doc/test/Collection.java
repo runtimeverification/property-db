@@ -30,7 +30,7 @@ package java.util;
  * fdslkgjhfklghjdfklghjfdkgjfdglkfdjgdflg
  * gfjlkdgjdflkgjdflkgjdfklgfjgdlkfgjfdlkgjdfgk
  * fgjlkfdjglkfdjglkdfjglkfdjglkfdjgkldfjglkdfjgl
- *{@descriptive.open}
+ *{@description.open}
  * The root interface in the <i>collection hierarchy</i>.  A collection
  * represents a group of objects, known as its <i>elements</i>.  Some
  * collections allow duplicate elements and others do not.  Some are ordered
@@ -42,35 +42,35 @@ package java.util;
  *
  * <p><i>Bags</i> or <i>multisets</i> (unordered collections that may contain
  * duplicate elements) should implement this interface directly.
- * {@descriptive.close}
+ * {@description.close}
  *
- * {@informal.open}
+ * {@property.open}
  * <p>All general-purpose <tt>Collection</tt> implementation classes (which
  * typically implement <tt>Collection</tt> indirectly through one of its
  * subinterfaces) should provide two "standard" constructors: a void (no
  * arguments) constructor, which creates an empty collection, and a
  * constructor with a single argument of type <tt>Collection</tt>, which
  * creates a new collection with the same elements as its argument.  
- *{@informal.close} {@descriptive.open} In
+ *{@property.close} {@description.open} In
  * effect, the latter constructor allows the user to copy any collection,
  * producing an equivalent collection of the desired implementation type.
  * There is no way to enforce this convention (as interfaces cannot contain
  * constructors) but all of the general-purpose <tt>Collection</tt>
- * implementations in the Java platform libraries comply. {@descriptive.close}
+ * implementations in the Java platform libraries comply. {@description.close}
  *
- * {@informal.open}
+ * {@property.open}
  * <p>The "destructive" methods contained in this interface, that is, the
  * methods that modify the collection on which they operate, are specified to
  * throw <tt>UnsupportedOperationException</tt> if this collection does not
  * support the operation.  If this is the case, these methods may, but are not
  * required to, throw an <tt>UnsupportedOperationException</tt> if the
- * invocation would have no effect on the collection.  {@informal.close}
- * {@descriptive.open} For example, invoking
+ * invocation would have no effect on the collection.  {@property.close}
+ * {@description.open} For example, invoking
  * the {@link #addAll(Collection)} method on an unmodifiable collection may,
  * but is not required to, throw the exception if the collection to be added
- * is empty. {@descriptive.close}
+ * is empty. {@description.close}
  *
- * {@descriptive.open}
+ * {@description.open}
  * <p>Some collection implementations have restrictions on the elements that
  * they may contain.  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
@@ -83,9 +83,9 @@ package java.util;
  * the insertion of an ineligible element into the collection may throw an
  * exception or it may succeed, at the option of the implementation.
  * Such exceptions are marked as "optional" in the specification for this
- * interface. {@descriptive.close}
+ * interface. {@description.close}
  *
- * {@descriptive.open}
+ * {@description.open}
  * <p>It is up to each collection to determine its own synchronization
  * policy.  In the absence of a stronger guarantee by the
  * implementation, undefined behavior may result from the invocation
@@ -93,9 +93,9 @@ package java.util;
  * thread; this includes direct invocations, passing the collection to
  * a method that might perform invocations, and using an existing
  * iterator to examine the collection.
- * {@descriptive.close}
+ * {@description.close}
  *
- *  {@descriptive.open}
+ *  {@description.open}
  * <p>Many methods in Collections Framework interfaces are defined in
  * terms of the {@link Object#equals(Object) equals} method.  For example,
  * the specification for the {@link #contains(Object) contains(Object o)}
@@ -115,9 +115,9 @@ package java.util;
  *
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
- * Java Collections Framework</a> {@descriptive.close}.
+ * Java Collections Framework</a> {@description.close}.
  *
- * {@formal.open} A formalized property is that for all Collections and 
+ * {@property.open} A propertyized property is that for all Collections and 
  * {@link Iterator Iterators}, said Collection should not be modified 
  * between the creation of an associated Iterator and any of said Iterator's
  * uses {@property.shortcut UnsafeIterator}.  Additionally, the 
@@ -125,49 +125,8 @@ package java.util;
  * called and return true before the {@link Iterator#next() next} method 
  * may be called {@property.shortcut HasNext}.  While the latter is a property
  * of Iterators only, it is included here for ease of reference (and to showcase
- * the new propertydocs tools).{@formal.close}
+ * the new propertydocs tools).{@property.close}
  *
- * @property.mop {@property.name UnsafeIterator}
- * // The UnsafeIterator property is 
- * // designed to match a case where a 
- * // Collection that is in the process
- * // of iteration is modified and iteration 
- * // continues.  
- * 
- * SafeIterator(Collection c, Iterator i) {
- *  
- *    event create after(Collection c) 
- *        returning(Iterator i) : 
- *        call(Iterator Collection+.iterator()) 
- *        && target(c) {}
- *    event updatesource after(Collection c) : 
- *       (call(* Collection+.remove*(..)) || 
- *        call(* Collection+.add*(..)) ) 
- *        && target(c) {}
- *    event next before(Iterator i) : 
- *        call(* Iterator.next()) 
- *        && target(i) {}
- * 
- *    fsm :
- *       start [
- *          create -> created
- *       ] 
- *       created [
- *          next -> created
- *          updatesource -> updated
- *       ]
- *       updated [
- *          updatesource -> updated
- *          next -> end
- *       ]
- *       end []
- * 
- *    \@end {
- *       System.out.println(
- *       "incorrect iterator usage");
- *    }
- * }
- * 
  * @property.mop {@property.name HasNext}
  *  // This property requires that hasnext be called before next
  *  // and that hasnext return true.  It is a modification of the
@@ -224,21 +183,21 @@ public interface Collection<E> extends Iterable<E> {
      */
     int size();
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns <tt>true</tt> if this collection contains no elements.
      *
-     * {@descriptive.close}
+     * {@description.close}
      * @return <tt>true</tt> if this collection contains no elements
      */
     boolean isEmpty();
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns <tt>true</tt> if this collection contains the specified element.
-     * More formally, returns <tt>true</tt> if and only if this collection
+     * More propertyly, returns <tt>true</tt> if and only if this collection
      * contains at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      *
-     * {@descriptive.close}
+     * {@description.close}
      * @param o element whose presence in this collection is to be tested
      * @return <tt>true</tt> if this collection contains the specified
      *         element
@@ -249,18 +208,18 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean contains(Object o);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns an iterator over the elements in this collection.  There are no
      * guarantees concerning the order in which the elements are returned
      * (unless this collection is an instance of some class that provides a
      * guarantee).
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return an <tt>Iterator</tt> over the elements in this collection
      */
     Iterator<E> iterator();
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns an array containing all of the elements in this collection.
      * If this collection makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the elements in
@@ -273,13 +232,13 @@ public interface Collection<E> extends Iterable<E> {
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return an array containing all of the elements in this collection
      */
     Object[] toArray();
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns an array containing all of the elements in this collection;
      * the runtime type of the returned array is that of the specified array.
      * If the collection fits in the specified array, it is returned therein.
@@ -292,15 +251,15 @@ public interface Collection<E> extends Iterable<E> {
      * <tt>null</tt>.  (This is useful in determining the length of this
      * collection <i>only</i> if the caller knows that this collection does
      * not contain any <tt>null</tt> elements.)
-     * {@descriptive.close}
+     * {@description.close}
      *
-     * {@informal.open}
+     * {@property.open}
      * <p>If this collection makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the elements in
      * the same order.
-     * {@informal.close}
+     * {@property.close}
      *
-     *{@descriptive.open}
+     *{@description.open}
      * <p>Like the {@link #toArray()} method, this method acts as bridge between
      * array-based and collection-based APIs.  Further, this method allows
      * precise control over the runtime type of the output array, and may,
@@ -316,7 +275,7 @@ public interface Collection<E> extends Iterable<E> {
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
      *
-     * {@descriptive.close}
+     * {@description.close}
      * @param a the array into which the elements of this collection are to be
      *        stored, if it is big enough; otherwise, a new array of the same
      *        runtime type is allocated for this purpose.
@@ -330,7 +289,7 @@ public interface Collection<E> extends Iterable<E> {
 
     // Modification Operations
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Ensures that this collection contains the specified element (optional
      * operation).  Returns <tt>true</tt> if this collection changed as a
      * result of the call.  (Returns <tt>false</tt> if this collection does
@@ -342,15 +301,15 @@ public interface Collection<E> extends Iterable<E> {
      * impose restrictions on the type of elements that may be added.
      * Collection classes should clearly specify in their documentation any
      * restrictions on what elements may be added.<p>
-     * {@descriptive.close}
+     * {@description.close}
      *
-     * {@informal.open}
+     * {@property.open}
      * If a collection refuses to add a particular element for any reason
      * other than that it already contains the element, it <i>must</i> throw
      * an exception (rather than returning <tt>false</tt>).  This preserves
      * the invariant that a collection always contains the specified element
      * after this call returns.
-     * {@informal.close}
+     * {@property.close}
      *
      * @param e element whose presence in this collection is to be ensured
      * @return <tt>true</tt> if this collection changed as a result of the
@@ -368,15 +327,15 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean add(E e);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Removes a single instance of the specified element from this
-     * collection, if it is present (optional operation).  More formally,
+     * collection, if it is present (optional operation).  More propertyly,
      * removes an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>, if
      * this collection contains one or more such elements.  Returns
      * <tt>true</tt> if this collection contained the specified element (or
      * equivalently, if this collection changed as a result of the call).
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param o element to be removed from this collection, if present
      * @return <tt>true</tt> if an element was removed as a result of this call
@@ -392,10 +351,10 @@ public interface Collection<E> extends Iterable<E> {
 
     // Bulk Operations
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns <tt>true</tt> if this collection contains all of the elements
      * in the specified collection.
-     *{@descriptive.close}
+     *{@description.close}
 
      * @param  c collection to be checked for containment in this collection
      * @return <tt>true</tt> if this collection contains all of the elements
@@ -410,14 +369,14 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean containsAll(Collection<?> c);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Adds all of the elements in the specified collection to this collection
      * (optional operation).  The behavior of this operation is undefined if
      * the specified collection is modified while the operation is in progress.
      * (This implies that the behavior of this call is undefined if the
      * specified collection is this collection, and this collection is
      * nonempty.)
-     *{@descriptive.close}
+     *{@description.close}
      *
      * @param c collection containing elements to be added to this collection
      * @return <tt>true</tt> if this collection changed as a result of the call
@@ -437,12 +396,12 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean addAll(Collection<? extends E> c);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Removes all of this collection's elements that are also contained in the
      * specified collection (optional operation).  After this call returns,
      * this collection will contain no elements in common with the specified
      * collection.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param c collection containing elements to be removed from this collection
      * @return <tt>true</tt> if this collection changed as a result of the
@@ -460,12 +419,12 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean removeAll(Collection<?> c);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Retains only the elements in this collection that are contained in the
      * specified collection (optional operation).  In other words, removes from
      * this collection all of its elements that are not contained in the
      * specified collection.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param c collection containing elements to be retained in this collection
      * @return <tt>true</tt> if this collection changed as a result of the call
@@ -482,10 +441,10 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean retainAll(Collection<?> c);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Removes all of the elements from this collection (optional operation).
      * The collection will be empty after this method returns.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @throws UnsupportedOperationException if the <tt>clear</tt> operation
      *         is not supported by this collection
@@ -495,7 +454,7 @@ public interface Collection<E> extends Iterable<E> {
 
     // Comparison and hashing
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Compares the specified object with this collection for equality. <p>
      *
      * While the <tt>Collection</tt> interface adds no stipulations to the
@@ -508,8 +467,8 @@ public interface Collection<E> extends Iterable<E> {
      * the implementor may wish to implement a "value comparison" in place of
      * the default "reference comparison."  (The <tt>List</tt> and
      * <tt>Set</tt> interfaces mandate such value comparisons.)<p>
-     * {@descriptive.close}
-     * {@informal.open}
+     * {@description.close}
+     * {@property.open}
      * The general contract for the <tt>Object.equals</tt> method states that
      * equals must be symmetric (in other words, <tt>a.equals(b)</tt> if and
      * only if <tt>b.equals(a)</tt>).  The contracts for <tt>List.equals</tt>
@@ -520,9 +479,9 @@ public interface Collection<E> extends Iterable<E> {
      * is compared to any list or set.  (By the same logic, it is not possible
      * to write a class that correctly implements both the <tt>Set</tt> and
      * <tt>List</tt> interfaces.)
-     * {@informal.close}
+     * {@property.close}
      *
-     * {@descriptive.close}
+     * {@description.close}
      * @param o object to be compared for equality with this collection
      * @return <tt>true</tt> if the specified object is equal to this
      * collection
@@ -533,18 +492,18 @@ public interface Collection<E> extends Iterable<E> {
      */
     boolean equals(Object o);
 
-    /**{@descriptive.open}
+    /**{@description.open}
      * Returns the hash code value for this collection.  While the
      * <tt>Collection</tt> interface adds no stipulations to the general
      * contract for the <tt>Object.hashCode</tt> method, programmers should
      * take note that any class that overrides the <tt>Object.equals</tt>
      * method must also override the <tt>Object.hashCode</tt> method in order
      * to satisfy the general contract for the <tt>Object.hashCode</tt>method.
-     * {@descriptive.close}
-     * {@informal.open}
+     * {@description.close}
+     * {@property.open}
      * In particular, <tt>c1.equals(c2)</tt> implies that
      * <tt>c1.hashCode()==c2.hashCode()</tt>.
-     *{@informal.close}
+     *{@property.close}
      * @return the hash code value for this collection
      *
      * @see Object#hashCode()

@@ -14,6 +14,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.uiuc.cs.fsl.propertydocs.util.PropertyMap;
+import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
@@ -31,13 +33,13 @@ public class PropertyOpenTaglet implements Taglet {
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "property.stats");
 
+    private final String GLOBAL = "<global>";
+    private final String ALLATTRIBUTES = " <all> ";
+
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 
-    private Map<String, Integer> argumentStats = new HashMap<String, Integer>();
-
- //   private int chars = 0; //number of property chars
-    private int words = 0; //number of property words
- //   private int lines = 0; //number of property lines
+    private PropertyMap statsDB = 
+      new PropertyMap(0); 
 
     public String getName()        { return NAME; }
 
@@ -93,7 +95,7 @@ public class PropertyOpenTaglet implements Taglet {
       PositionWrapper p = new PositionWrapper(tag.holder().position());
       if(!(seenDocs.contains(p))){
         seenDocs.add(p);
-        handleTags(tag.holder().inlineTags());
+        handleTags(tag);
       }
       String[] arguments = tag.text().trim().split("\\s+");
       int num = numLinks(arguments);
@@ -140,34 +142,43 @@ public class PropertyOpenTaglet implements Taglet {
     }
 
 
-    private void handleTags(Tag[] tags){
+    private void handleTags(Tag t){
+      Tag[] tags = t.holder().inlineTags();
       boolean inProperty = false; 
-      boolean inParent = false;
+      //not sure if trim() is necessary.  I doubt it is, but speed isn't
+      //an issue here
+      String packageName = GenerateUrls.getPackageDoc(t).toString().trim();
+
+      DefaultMap<String, Integer> globalStats = statsDB.get(GLOBAL);
+      DefaultMap<String, Integer> packageStats = statsDB.get(packageName);
       //int c = 0; //character count
-      int w = 0; //word count
+      int localW = 0; //word count for a given property tag pair
       //int l = 0; //line count
       String[] arguments = null;
       for(Tag tag: tags){
         if(tag.name().equals("@property.open")){ 
           arguments = tag.text().trim().split("\\s+");
+          localW = 0;
           inProperty = true;
         }
         else if(tag.name().equals("@property.close")){
+          Integer allGlobalW = globalStats.get(ALLATTRIBUTES);
+          Integer allPackageW = packageStats.get(ALLATTRIBUTES);
+          globalStats.put(ALLATTRIBUTES, allGlobalW + localW);
+          packageStats.put(ALLATTRIBUTES, allPackageW + localW);
+          for(String arg : arguments){
+            if(arg.startsWith("Property:")) continue;
+            if(arg.equals("")) continue;
+            Integer argGlobalW = globalStats.get(arg);
+            Integer argPacakgeW = packageStats.get(arg);
+            globalStats.put(arg, argGlobalW + localW);
+            packageStats.put(arg, argPacakgeW + localW);
+          }
           inProperty = false;
         }
         else if(tag.name().equals("Text") && inProperty){
           String text = tag.text().trim();
-          int localW = text.split("\\s+").length;
-        //  c += text.length();
-          w += localW; 
-         // l += text.split("\\n").length; 
-          for(String arg : arguments){
-            if(arg.startsWith("Property:")) continue;
-            if(arg.equals("")) continue;
-            Integer currentStat = argumentStats.get(arg);
-            if(currentStat == null) argumentStats.put(arg, localW);
-            else                     argumentStats.put(arg, currentStat + localW);
-          }
+          localW += text.split("\\s+").length; 
         }
         else if(
             (tag.name().equals("@description.close")
@@ -179,21 +190,17 @@ public class PropertyOpenTaglet implements Taglet {
            System.exit(1);
         }
       } 
+
       if(inProperty) {
          System.err.println("ERROR: @property.open tag in comment near " 
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-    //  chars += c;
-      words += w;
-    //  lines += l;
+
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-      //  ps.writeInt(chars);
-        ps.writeInt(words);
-      //  ps.writeInt(lines);
-        ps.writeObject(argumentStats);
+        ps.writeObject(statsDB);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);

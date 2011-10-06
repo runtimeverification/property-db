@@ -24,7 +24,7 @@ import com.sun.javadoc.Tag;
 import com.sun.tools.doclets.Taglet;
 
 public class GenerateUrls {
-  private static PackageDoc getPackageDoc(Tag tag) {
+  public static PackageDoc getPackageDoc(Tag tag) {
     Doc holder = tag.holder();
     if (holder instanceof ProgramElementDoc) {
       return ((ProgramElementDoc) holder).containingPackage();

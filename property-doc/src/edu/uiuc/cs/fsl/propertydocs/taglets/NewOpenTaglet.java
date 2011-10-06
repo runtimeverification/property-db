@@ -13,9 +13,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
-import edu.uiuc.cs.fsl.propertydocs.util.DiskHash;
 
 /**
 * This Taglet allows for marking the beginning of an new property specification
@@ -30,8 +30,11 @@ public class NewOpenTaglet implements Taglet {
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "new.stats");
 
+    private final String GLOBAL = "<global>";
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
+
+    private Map<String, Integer> statsDB = new DefaultMap<String, Integer>(0); 
 
     public String getName()        { return NAME; }
 
@@ -51,7 +54,7 @@ public class NewOpenTaglet implements Taglet {
     /**this IS an inline tag*/ 
     public boolean isInlineTag()   { return true; }
     
-    private int words = 0; //number of new text words
+  //  private int words = 0; //number of new text words
 
     /**
      * Register this Taglet.
@@ -88,7 +91,7 @@ public class NewOpenTaglet implements Taglet {
       PositionWrapper p = new PositionWrapper(tag.holder().position());
       if(!(seenDocs.contains(p))){
         seenDocs.add(p);
-        handleTags(tag.holder().inlineTags());
+        handleTags(tag);
       }
       // This part is always executed, but for new we simply return the
       // empty String.  For other tags we will output fancy html/javascript
@@ -97,8 +100,13 @@ public class NewOpenTaglet implements Taglet {
        + " STYLE=\"display:inline\">";
     } 
 
-    private void handleTags(Tag[] tags){
+    private void handleTags(Tag t){
+      Tag[] tags = t.holder().inlineTags();
       boolean inNew = false; 
+      //not sure if trim() is necessary.  I doubt it is, but speed isn't
+      //an issue here
+      String packageName = GenerateUrls.getPackageDoc(t).toString().trim();
+
       int w = 0; //word count
       for(Tag tag : tags){
         if(tag.name().equals("@new.open")){ 
@@ -117,11 +125,14 @@ public class NewOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-      words += w;
+      Integer globalWords = statsDB.get(GLOBAL);
+      Integer packageWords = statsDB.get(packageName);
+      statsDB.put(GLOBAL, globalWords + w);
+      statsDB.put(packageName, packageWords + w);
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-        ps.writeInt(words);
+        ps.writeObject(statsDB);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);

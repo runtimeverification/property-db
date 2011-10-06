@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
@@ -31,8 +32,12 @@ public class CollectTaglet implements Taglet {
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
   //  private int chars = 0; //number of undecided chars
-    private int words = 0; //number of undecided words
+  //  private int words = 0; //number of undecided words
   //  private int lines = 0; //number of undecided lines
+      
+    private final String GLOBAL = "<global>";
+
+    private Map<String, Integer> statsDB = new DefaultMap<String, Integer>(0); 
 
     public String getName()        { return NAME; }
 
@@ -87,15 +92,19 @@ public class CollectTaglet implements Taglet {
       PositionWrapper p = new PositionWrapper(tag.holder().position());
       if(!(seenDocs.contains(p))){
         seenDocs.add(p);
-        handleTags(tag.holder().inlineTags());
+        handleTags(tag);
       }
       // This part is always executed, but for undecided we simply return the
       // empty String.  For other tags we will output fancy html/javascript
       return "";
     } 
 
-    private void handleTags(Tag[] tags){
+    private void handleTags(Tag t){
+      Tag[] tags = t.holder().inlineTags();
       boolean inUndecided = true; 
+      //not sure if trim() is necessary.  I doubt it is, but speed isn't
+      //an issue here
+      String packageName = GenerateUrls.getPackageDoc(t).toString().trim();
    //   int c = 0; //character count
       int w = 0; //word count
    //   int l = 0; //lines count
@@ -117,14 +126,15 @@ public class CollectTaglet implements Taglet {
          // l += text.split("\\n").length; 
         }
       } 
-     // chars += c;
-      words += w;
-     // lines += l;
+      Integer globalWords = statsDB.get(GLOBAL);
+      Integer packageWords = statsDB.get(packageName);
+      statsDB.put(GLOBAL, globalWords + w);
+      statsDB.put(packageName, packageWords + w);
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
       //  ps.writeInt(chars);
-        ps.writeInt(words);
+        ps.writeObject(statsDB);
       //  ps.writeInt(lines);
         ps.close();
       } catch (java.io.IOException e){
