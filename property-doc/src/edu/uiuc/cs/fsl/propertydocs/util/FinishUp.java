@@ -17,6 +17,15 @@ public class FinishUp {
    private final static float FACTOR = 1e2f;
    private static String propertiesDir;
 
+   //TODO? should probably really be defined in Util or something instead of in multiple places
+   private static final String GLOBAL = "<global>";
+   private static final String ALLATTRIBUTES = " <all> ";
+
+   private static Map<String, Integer> undecidedDB;
+   private static Map<String, Integer> descriptionDB; 
+   private static Map<String, Integer> newDB;
+   private static PropertyMap propertyDB; 
+
    public static void main(String[] args){
      propertiesDir = args[0] + File.separator + "__properties";
      File propertiesList   = new File(propertiesDir + File.separator + "property-list.html");
@@ -36,42 +45,26 @@ public class FinishUp {
         throw new RuntimeException(e);
      }
 
-     Map<String, Integer> undecidedDB = getDB(undecidedStats);
+     undecidedDB = getDB(undecidedStats);
+     descriptionDB = getDB(descriptionStats);
+     newDB = getDB(newStats);  
+     propertyDB = getAttributedDB(propertyStats);
 
-     Map<String, Integer> descriptionDB = getDB(descriptionStats);
+     //System.out.println("undecided: " + undecidedDB);
+     //System.out.println("description: " + descriptionDB);
+     //System.out.println("new: " + newDB);
+     //System.out.println("property: " + propertyDB);
 
-     Map<String, Integer> newDB = getDB(newStats);
-       
-     PropertyMap propertyDB = getAttributedDB(propertyStats);
-
-     System.out.println("undecided: " + undecidedDB);
-     System.out.println("description: " + descriptionDB);
-     System.out.println("new: " + newDB);
-     System.out.println("property: " + propertyDB);
-
-/*
      StringBuilder table 
        = new StringBuilder();
      table.append("<H2> MOP Coverage Statistics and Property Links</H2><HR />");
-     table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
-     table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
-     table.append("<TH ALIGN=\"left\" COLSPAN=\"4\"><FONT SIZE=\"+2\">");
-     table.append("<B>MOP Coverage Statistics</B></FONT></TH></TR>");
 
-     table.append(formatStat("Undecided Text",  
-                              undecidedW  ,         totalW));
-
-     table.append(formatStat("Description Text",
-                              descriptionW,         totalW)); 
-
-     table.append(formatStat("New Text",   
-                              newW        ,         totalW)); 
-
-     table.append(formatAttributedStat("Property Text",
-                              propertyW,            totalW,      "Property Text",
-                              propertyAttributeMap));
-     
-     table.append("<BR /><BR />");
+     makeTableForPackage("Global", GLOBAL, table);
+     //this assumes that {@collect.stats} is seen in every package that uses our tags!
+     for(String packageName : undecidedDB.keySet()){
+       if(packageName.equals(GLOBAL)) continue;
+       makeTableForPackage(packageName, table);
+     }
 
      generatePropertiesList(table, propertiesDir + File.separator + "html");
 
@@ -83,21 +76,6 @@ public class FinishUp {
        ps.println(HTMLFOOTER); 
      } catch (java.io.IOException e){
        throw new RuntimeException("Cannot create properties-list.html?");
-     }
-     */
-   }
-
-   //This actually gets the number of words.  We used to track words characters and lines.
-   private static int getStat(File file){
-     int ret = 0;
-     try {
-       FileInputStream fis = new FileInputStream(file);
-       ObjectInputStream ois = new ObjectInputStream(fis);
-       ret = ois.readInt();
-       return ret;
-     } catch (java.io.IOException e){
-       //if there is an IOException we assume that the file isn't there which means the tag wasn't seen
-       return ret;
      }
    }
 
@@ -137,6 +115,38 @@ public class FinishUp {
      }
    }
 
+   private static void makeTableForPackage(String name, StringBuilder table){
+     makeTableForPackage(name, name, table);
+   }
+
+   private static void makeTableForPackage(String prettyName, String packageName, StringBuilder table){
+     table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
+     table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
+     table.append("<TH ALIGN=\"left\" COLSPAN=\"4\"><FONT SIZE=\"+2\">");
+     table.append("<B>" + prettyName + " MOP Coverage Statistics </B></FONT></TH></TR>");
+
+     int undecidedW   = undecidedDB.get(packageName);
+     int descriptionW = descriptionDB.get(packageName);
+     int newW         = newDB.get(packageName);
+     int propertyW    = propertyDB.get(packageName).get(ALLATTRIBUTES); 
+     int totalW       = undecidedW + descriptionW + newW + propertyW; 
+
+     table.append(formatStat("Undecided Text",  
+                              undecidedW  ,         totalW));
+
+     table.append(formatStat("Description Text",
+                              descriptionW,         totalW)); 
+
+     table.append(formatStat("New Text",   
+                              newW        ,         totalW)); 
+
+     table.append(formatAttributedStat("Property Text",
+                              propertyW,            totalW,      "Property Text",
+                              propertyDB.get(packageName)));
+     
+     table.append("</TABLE><BR /><BR />");
+   }
+
    private static StringBuilder formatStat(String name, int w, float totalW){
      return formatStat(name, w, totalW, "", "Total Text");
    }
@@ -161,6 +171,7 @@ public class FinishUp {
      StringBuilder ret = new StringBuilder();
      ret.append(formatStat(name, w, totalW));
      for(String key : attributeMap.keySet()){
+       if(key.equals(ALLATTRIBUTES)) continue;
        ret.append(formatStat("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
              + key, attributeMap.get(key), w, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", total)); 
      }
@@ -202,7 +213,7 @@ public class FinishUp {
            table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
            table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
            table.append("<TH ALIGN=\"left\" COLSPAN=\"1\"><FONT SIZE=\"+2\">");
-           table.append("<B>MOP Property Links for the " + ((prefix.equals(""))? "&lt;unnamed&gt;":prefix) 
+           table.append("<B>MOP Property Links for the " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix) 
                                                          + " Package </B></FONT></TH></TR>");
            tableHeadingAdded = true;
          }
@@ -214,6 +225,7 @@ public class FinishUp {
          table.append("'>");
          table.append(chop(fn)); 
          table.append("</A></B></TD></TR>"); 
+         table.append("<BR /><BR />");
      }
       //if we added a heading, add a footing 
      if(tableHeadingAdded) table.append("</TABLE>");

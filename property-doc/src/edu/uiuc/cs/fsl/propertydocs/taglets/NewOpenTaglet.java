@@ -30,7 +30,7 @@ public class NewOpenTaglet implements Taglet {
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "new.stats");
 
-    private final String GLOBAL = "<global>";
+    private static final String GLOBAL = "<global>";
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 

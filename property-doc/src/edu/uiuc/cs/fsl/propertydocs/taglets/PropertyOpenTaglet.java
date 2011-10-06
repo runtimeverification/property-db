@@ -33,8 +33,8 @@ public class PropertyOpenTaglet implements Taglet {
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "property.stats");
 
-    private final String GLOBAL = "<global>";
-    private final String ALLATTRIBUTES = " <all> ";
+    private static final String GLOBAL = "<global>";
+    private static final String ALLATTRIBUTES = " <all> ";
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 
