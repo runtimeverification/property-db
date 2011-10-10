@@ -26,12 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.InputStream_ManipulateAfterClose}
- * {@property.name properties java.io.InputStream_MarkAfterClose}
- * {@property.name properties java.io.InputStream_ReadAfterClose}
- * {@property.name properties java.io.InputStream_ReadAheadLimit}
- * {@property.name properties java.io.InputStream_UnmarkedReset}
- * {@property.name properties java.io.Input_MarkReset}
  * {@description.open}
  * This abstract class is the superclass of all classes representing
  * an input stream of bytes.

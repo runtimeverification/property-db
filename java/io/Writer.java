@@ -27,7 +27,6 @@ package java.io;
 
 
 /** {@collect.stats}
- * {@property.name properties java.io.Writer_ManipulateAfterClose}
  * 
  * {@description.open}
  * Abstract class for writing to character streams.  The only methods that a

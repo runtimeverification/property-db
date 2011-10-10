@@ -26,7 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.PushbackInputStream_PrematureUnread}
  * {@description.open}
  * A <code>PushbackInputStream</code> adds
  * functionality to another input stream, namely

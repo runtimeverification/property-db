@@ -26,7 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.ObjectOutput_Close}
  * {@description.open}
  * ObjectOutput extends the DataOutput interface to include writing of objects.
  * DataOutput includes methods for output of primitive types, ObjectOutput

@@ -26,7 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.ByteArrayInputStream_Close}
  * {@description.open}
  * A <code>ByteArrayInputStream</code> contains
  * an internal buffer that contains bytes that
@@ -282,7 +281,6 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@property.name properties java.io.ByteArrayInputStream_Close}
      * {@description.open}
      * Set the current marked position in the stream.
      * ByteArrayInputStream objects are marked at position zero by

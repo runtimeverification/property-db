@@ -27,7 +27,6 @@ package java.io;
 
 
 /** {@collect.stats}
- * {@property.name properties java.io.StringWriter_Close}
  * {@description.open}
  * A character stream that collects its output in a string buffer, which can
  * then be used to construct a string.

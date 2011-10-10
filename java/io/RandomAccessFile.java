@@ -30,7 +30,6 @@ import sun.nio.ch.FileChannelImpl;
 
 
 /** {@collect.stats}
- * {@property.name properties java.io.RandomAccessFile_ManipulateAfterClose}
  * {@description.open}
  * Instances of this class support both reading and writing to a
  * random access file. A random access file behaves like a large

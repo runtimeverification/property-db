@@ -26,7 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.CharArrayReader_Close}
  * {@description.open}
  * This class implements a character buffer that can be used as a
  * character-input stream.

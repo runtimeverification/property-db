@@ -39,7 +39,6 @@ import sun.security.action.GetPropertyAction;
 
 
 /** {@collect.stats}
- * {@property.name properties java.io.File_LengthOnDirectory}
  * {@description.open}
  * An abstract representation of file and directory pathnames.
  *

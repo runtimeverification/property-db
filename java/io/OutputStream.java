@@ -26,7 +26,6 @@
 package java.io;
 
 /** {@collect.stats}
- * {@property.name properties java.io.OutputStream_ManipulateAfterClose}
  * {@description.open}
  * This abstract class is the superclass of all classes representing
  * an output stream of bytes. An output stream accepts output bytes

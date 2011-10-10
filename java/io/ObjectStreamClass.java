@@ -52,7 +52,6 @@ import sun.misc.Unsafe;
 import sun.reflect.ReflectionFactory;
 
 /** {@collect.stats}
- * {@property.name properties java.io.ObjectStreamClass_Initialize}
  * {@description.open}
  * Serialization's descriptor for classes.  It contains the name and
  * serialVersionUID of the class.  The ObjectStreamClass for a specific class

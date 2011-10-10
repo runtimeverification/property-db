@@ -28,7 +28,6 @@ package java.io;
 import java.util.Arrays;
 
 /** {@collect.stats}
- * {@property.name properties java.io.StreamTokenizer_AccessInvalidField}
  * {@description.open}
  * The <code>StreamTokenizer</code> class takes an input stream and
  * parses it into "tokens", allowing the tokens to be

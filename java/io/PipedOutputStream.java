@@ -28,7 +28,6 @@ package java.io;
 import java.io.*;
 
 /** {@collect.stats}
- * {@property.name properties java.io.PipedStream_SingleThread}
  * {@description.open}
  * A piped output stream can be connected to a piped input stream
  * to create a communications pipe. The piped output stream is the

@@ -28,7 +28,6 @@ package java.io;
 import java.io.IOException;
 
 /** {@collect.stats}
- * {@property.name properties java.io.Closeable_MultipleClose}
  * {@description.open}
  * A <tt>Closeable</tt> is a source or destination of data that can be closed.
  * The close method is invoked to release resources that the object is

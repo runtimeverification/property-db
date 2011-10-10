@@ -28,8 +28,6 @@ package java.io;
 import java.util.Arrays;
 
 /** {@collect.stats}
- * {@property.name properties java.io.ByteArrayOutputStream_Close}
- * {@property.name properties java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
  * {@description.open}
  * This class implements an output stream in which the data is
  * written into a byte array. The buffer automatically grows as data

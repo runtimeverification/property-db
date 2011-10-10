@@ -27,7 +27,6 @@ package java.io;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 /** {@collect.stats}
- * {@property.name properties java.io.BufferedInputStream_SynchronizedFill}
  * {@description.open}
  * A <code>BufferedInputStream</code> adds
  * functionality to another input stream-namely,
@@ -41,9 +40,6 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * many bytes at a time.
  * {@description.close}
  *
- * {@property.name properties java.io.Reader_MarkReset}
- * {@property.name properties java.io.Reader_ReadAheadLimit}
- * {@property.name properties java.io.Reader_UnmarkedReset}
  * {@property.open Property:java.io.Reader_MarkReset Property:java.io.Reader_ReadAheadLimit Property:java.io.Reader_UnmarkedReset}
  * The <code>mark</code>
  * operation  remembers a point in the input
@@ -159,7 +155,6 @@ class BufferedInputStream extends FilterInputStream {
      * <code>mark</code> method before subsequent calls to the
      * <code>reset</code> method fail.
      * {@description.close}
-     * {@property.name properties java.io.InputStream_ReadAheadLimit}
      * {@property.open Property:java.io.InputStream_ReadAheadLimit}
      * Whenever the difference between <code>pos</code>
      * and <code>markpos</code> exceeds <code>marklimit</code>,
@@ -239,7 +234,6 @@ class BufferedInputStream extends FilterInputStream {
      * Fills the buffer with more data, taking into account
      * shuffling and other tricks for dealing with marks.
      * {@description.close}
-     * {@property.name properties java.io.BufferedInputStream_SynchronizedFill}
      * {@property.open internal Property:java.io.BufferedInputStream_SynchronizedFill}
      * Assumes that it is being called by a synchronized method.
      * {@property.close}
@@ -523,12 +517,10 @@ class BufferedInputStream extends FilterInputStream {
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * {@description.close}
-     * {@property.name properties java.io.InputStream_ManipulateAfterClose}
      * {@property.open Property:java.io.InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), available(), reset(),
      * or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.name properties java.io.Closeable_MultipleClose}
      * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}

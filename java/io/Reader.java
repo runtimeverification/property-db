@@ -27,11 +27,6 @@ package java.io;
 
 
 /** {@collect.stats}
- * {@property.name properties java.io.Reader_ManipulateAfterClose}
- * {@property.name properties java.io.Reader_MarkReset}
- * {@property.name properties java.io.Reader_ReadAfterClose}
- * {@property.name properties java.io.Reader_ReadAheadLimit}
- * {@property.name properties java.io.Reader_UnmarkedReset}
  * {@description.open}
  * Abstract class for reading character streams.  The only methods that a
  * subclass must implement are read(char[], int, int) and close().  Most

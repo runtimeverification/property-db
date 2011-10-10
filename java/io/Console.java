@@ -32,9 +32,6 @@ import sun.nio.cs.StreamEncoder;
 
 /** {@collect.stats}
  *
- * {@property.name properties java.io.Console_CloseReader}
- * {@property.name properties java.io.Console_CloseWriter}
- * {@property.name properties java.io.Console_FillZeroPassword}
  * {@description.open}
  * Methods to access the character-based console device, if any, associated
  * with the current Java virtual machine.

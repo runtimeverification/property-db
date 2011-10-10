@@ -40,8 +40,6 @@ package java.io;
  */
 public interface ObjectInput extends DataInput {
     /** {@collect.stats}
-     * {@property.name properties java.io.ObjectInput_Close}
-     * {@property.name properties java.io.ObjectInput_Nonblocking}
      * {@description.open}
      * Read and return an object. The class that implements this interface
      * defines where the object is "read" from.
