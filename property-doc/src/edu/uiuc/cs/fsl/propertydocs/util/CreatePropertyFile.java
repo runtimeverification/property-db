@@ -1,10 +1,4 @@
-package edu.uiuc.cs.fsl.propertydocs.taglets;
-
-import com.sun.tools.doclets.standard.Standard;
-
-import com.sun.tools.doclets.Taglet;
-
-import com.sun.javadoc.Tag;
+package edu.uiuc.cs.fsl.propertydocs.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,102 +6,33 @@ import java.io.PrintStream;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Map;
-import java.util.TimeZone;
+import com.sun.tools.doclets.standard.Standard;
 
-import edu.uiuc.cs.fsl.propertydocs.util.Util;
-import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
+public class CreatePropertyFile {
 
-/**
-* This Taglet allows for generating MOP property documentation
-*
-* @author Patrick Meredith
-*
-*/
+  private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
-public class PropertyNameTaglet implements Taglet {
+  public static final String PROPDIR = "__ANNOTATED_DOC_PROPERTY_PATH__";
 
-    private static final String NAME = "property.name";
+  static {
+    File propertyDir = new File(dir + File.separator + "__properties");
+    if(!propertyDir.exists()) propertyDir.mkdir();
+    File htmlDir = new File(dir + File.separator + "__properties" + File.separator + "html");
+    if(!htmlDir.exists()) htmlDir.mkdir();
+    File mopDir = new File(dir + File.separator + "__properties" + File.separator + "mop");
+    if(!mopDir.exists()) mopDir.mkdir();
+  }
 
-    private static final String dir = Standard.htmlDoclet.configuration().destDirName;
+  public static void forceInit() { /* call this method to force this class to be initialized */ }
 
-
-    static {
-      File propertyDir = new File(dir + File.separator + "__properties");
-      if(!propertyDir.exists()) propertyDir.mkdir();
-      File htmlDir = new File(dir + File.separator + "__properties" + File.separator + "html");
-      if(!htmlDir.exists()) htmlDir.mkdir();
-      File mopDir = new File(dir + File.separator + "__properties" + File.separator + "mop");
-      if(!mopDir.exists()) mopDir.mkdir();
-    }
-
-    private static String getDate(){
-      Calendar calendar = new GregorianCalendar();
-      String timezone = TimeZone.getDefault().getDisplayName();
-      String day = (new String[] {"Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"}) 
-           [calendar.get(Calendar.DAY_OF_WEEK)];
-      String month = (new String[] {"Jan", "Feb", "March", 
-                                    "April", "May", "Jun", 
-                                    "Jul", "Aug", "Sept",
-                                    "Oct", "Nov", "Dec"})
-           [calendar.get(Calendar.MONTH)];
-      int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-      int hour = calendar.get(Calendar.HOUR);
-      int minute = calendar.get(Calendar.MINUTE);
-      int second = calendar.get(Calendar.SECOND);
-      int year = calendar.get(Calendar.YEAR);
-      return day + " " + month + " " + dayOfMonth + " " 
-             + hour + ":" + minute + ":" + second + " "
-             + timezone + " " + year;
-    }
-
-    public String getName()        { return NAME; }
-
-    /** can be used in a field comment*/
-    public boolean inField()       { return true; }
-    /**can be used in a constructor comment*/
-    public boolean inConstructor() { return true; }
-    /**can be used in a method comment*/
-    public boolean inMethod()      { return true; }
-    /**can be used in overview comment*/
-    public boolean inOverview()    { return true; }
-    /**can be used in package comment*/
-    public boolean inPackage()     { return true; }
-    /**can be used in type comment (classes or interfaces)*/
-    public boolean inType()        { return true; }
-    
-    /**this is NOT an inline tag*/ 
-    public boolean isInlineTag()   { return true;}
-    
-    /**
-     * Register this Taglet.
-     * @param tagletMap  the map to register this tag to.
-     */
-    @SuppressWarnings("unchecked")
-    public static void register(Map tagletMap) {
-       PropertyNameTaglet tag = new PropertyNameTaglet();
-       Taglet t = (Taglet) tagletMap.get(tag.getName());
-       if (t != null) {
-           tagletMap.remove(tag.getName());
-       }
-       tagletMap.put(tag.getName(), tag);
-    }
-
-     /**
-     * Given the <code>Tag</code> representation of this custom
-     * tag, return its string representation.
-     * @param tag he <code>Tag</code> representation of this custom tag.
-     */
-    public String toString(Tag tag) {
-      String[] args = tag.text().trim().split("\\s+");
-      String pathifiedName =  args[1].replaceAll("[.]","/");
+  public static void createPropertyFile(String name){
+      String pathifiedName =  name.replaceAll("[.]","/");
       try {
         //copy specified mop file
-        File in = new File(args[0] + File.separator + pathifiedName + ".mop");
+        File in = new File(System.getenv().get(PROPDIR) + File.separator + pathifiedName + ".mop");
         String outName = dir + "__properties" + File.separator 
             + "mop" +  File.separator + pathifiedName + ".mop";
+        if(new File(outName).exists()) return;
         populate(outName);
         File out = new File(outName);
         FileReader fr = new FileReader(in);
@@ -139,46 +64,32 @@ public class PropertyNameTaglet implements Taglet {
       catch (Exception e){
         throw new RuntimeException(e);
       }
-      return "";
-    }
+  }
 
-    //Why the hell doesn't the standard library do this if you try to create
-    //a long path with non-existent intervening directories already?
-    static void populate(String path){
-      String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
-      String currPath = dirs[0];
-      for(int i = 1; i < dirs.length; ++i) {
-        File f = new File(currPath);
-        if(!f.exists()) f.mkdir();  
-        if(!dirs[i].equals("")) currPath += File.separator + dirs[i];
-      }
+  
+  //Why the hell doesn't the standard library do this if you try to create
+  //a long path with non-existent intervening directories already?
+  public static void populate(String path){
+    String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
+    String currPath = dirs[0];
+    for(int i = 1; i < dirs.length; ++i) {
+      File f = new File(currPath);
+      if(!f.exists()) f.mkdir();  
+      if(!dirs[i].equals("")) currPath += File.separator + dirs[i];
     }
+  }
 
-    static String buildRelativeUrlFromName(String path){
-      String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
-      String ret = "..";
-      for(int i = 0; i < dirs.length - 1; ++i) {
-        ret += "/..";
-      }
-      return ret;
+  //perhaps put this in GenerateUrls?  Lazy
+  public static String buildRelativeUrlFromName(String path){
+    String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
+    String ret = "..";
+    for(int i = 0; i < dirs.length - 1; ++i) {
+      ret += "/..";
     }
-    
-    /**
-     * This method should not be called since arrays of inline tags do not
-     * exist.  Method {@link #tostring(Tag)} should be used to convert this
-     * inline tag to a string.
-     * @param tags the array of <code>Tag</code>s representing of this custom tag.
-     */
-    public String toString(Tag[] tags) {
-      StringBuilder ret = new StringBuilder();
-      for(Tag tag : tags) {
-        ret.append(toString(tag));
-      } 
-      return ret.toString();
-    }
+    return ret;
+  }
 
-
-    private static String getHtmlHeader(String name) {
+      private static String getHtmlHeader(String name) {
      return 
       "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n"
     + "<!--NewPage-->\n"
@@ -306,4 +217,3 @@ public class PropertyNameTaglet implements Taglet {
     + "</HTML>\n";
   }
 }
-

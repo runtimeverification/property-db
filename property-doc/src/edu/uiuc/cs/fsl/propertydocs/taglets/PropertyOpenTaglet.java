@@ -14,10 +14,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import edu.uiuc.cs.fsl.propertydocs.util.PropertyMap;
+import edu.uiuc.cs.fsl.propertydocs.util.CreatePropertyFile;
 import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
+import edu.uiuc.cs.fsl.propertydocs.util.PropertyMap;
 
 /**
 * This Taglet allows for opening a property property section in
@@ -28,6 +29,10 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 */
 
 public class PropertyOpenTaglet implements Taglet {
+    static {
+      CreatePropertyFile.forceInit();
+    }
+
     private static final String NAME = "property.open";
   	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
@@ -133,6 +138,7 @@ public class PropertyOpenTaglet implements Taglet {
         if(arg.startsWith("Property:")) {
           String[] parts = arg.split(":");
           if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
+          CreatePropertyFile.createPropertyFile(parts[1]);
           ret += "<A HREF=\\'" + GenerateUrls.buildRelativeUrl(tag) 
             + "__properties/html/" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
         }

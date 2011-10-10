@@ -6,7 +6,10 @@ use File::Copy;
 use Cwd;
 
 $srcpath = catfile(dirname($0), "..", "build");
+#these are the images for the popup balloons
 $imgsuffix = catfile("images","GBubble");
+#here we set up the path for the javascript we use to 
+#produce the popup balloons
 $jssuffix = "js";
 $imgpath = catfile(dirname($0), "..", catfile("resources",$imgsuffix));
 $jspath = catfile(dirname($0), "..", catfile("resources",$jssuffix));
@@ -15,6 +18,11 @@ $tpackage="edu.uiuc.cs.fsl.propertydocs.taglets";
 
 $upackage="edu.uiuc.cs.fsl.propertydocs.util";
 
+#this is code that should be placed in the header of every file javadoc generates
+#it is mostly setting up the properties link and putting in the javascript to 
+#do highlighting
+
+#this command line might be too long to run on windows...
 
 $header ="\"<script type='text/javascript' src='{\@docRoot}/js/balloon.config.js'></script>";
 $header.=" <script type='text/javascript' src='{\@docRoot}/js/balloon.js'></script>";
@@ -111,58 +119,84 @@ $taglets ="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
-$taglets.="-taglet $tpackage.PropertyNameTaglet ";
 
 $docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
 
-$flag = 0;
+$dflag = 0;
+$pflag = 0;
 $dir = ".";
+$property_path = "properties";
+
 foreach(@ARGV){
-  if($flag == 1){
+  if($dflag == 1){
     $dir = $_;
-    $flag = 0;	
+    $dflag = 0;	
+    $docscmd .= " $_";
   }
-  if(/-d/){
-    $flag = 1;
+  elsif(/-d/){
+    $dflag = 1;
+    $docscmd .= " $_";
   }
-  $docscmd .= " $_";
+  #the next two must not be passed to javadoc
+  #so we do not concat them to $docscmd
+  elsif($pflag == 1){
+    $property_path = $_;
+    $pflag = 0;    
+  }
+  elsif(/-propertypath/){
+    $pflag = 1;
+  }
+  #anything else isn't special and should just be passed
+  #to javadoc without alteration
+  else {
+    $docscmd .= " $_";
+  }
 }
+
+
+#sicne we can't give command line args to taglets we 
+#send this info via environment variables... ugly hack
+$ENV{__ANNOTATED_DOC_PROPERTY_PATH__} = $property_path;
 
 $propertypagecmd = "java -cp $srcpath $upackage.FinishUp ".$dir;
 
 $destjspath = catfile($dir, $jssuffix);
 $destimgpath = catfile($dir, $imgsuffix);
 
-#$error = 
 system $docscmd;
-#$error = 0;
-#if($error == 0){
-  print "...finishing up"."\n";
-  mkdir $destjspath;
-  #copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
-   open(BALLOONCONFIG, "<".catfile($jspath, "balloon.config.js"));
-   open(OUT, ">".catfile($destjspath, "balloon.config.js"));
-   #this is a web url, must be forward slash on windows too
-   #so no catfile
-   $repl = '\''.getcwd."/$destimgpath/\'"; 
-   for(<BALLOONCONFIG>){
-     s/'images\/GBubble'/$repl/;
-     print OUT;
-   }  
-   close(OUT);
-   close(BALLOONCONFIG);
-   copy(catfile($jspath, "balloon.js"), catfile($destjspath, "balloon.js"));
-   copy(catfile($jspath, "box.js"), catfile($destjspath, "box.js"));
-   copy(catfile($jspath, "yahoo-dom-event.js"), catfile($destjspath, "yahoo-dom-event.js"));
-  mkdir catfile($dir, "images");
-  mkdir $destimgpath;
-   copy(catfile($imgpath, "balloon.png"), catfile($destimgpath, "balloon.png"));
-   copy(catfile($imgpath, "balloon_ie.png"), catfile($destimgpath, "balloon_ie.png"));
-   copy(catfile($imgpath, "close.png"), catfile($destimgpath, "close.png"));
-   copy(catfile($imgpath, "down_left.png"), catfile($destimgpath, "down_left.png"));
-   copy(catfile($imgpath, "down_right.png"), catfile($destimgpath, "down_right.png"));
-   copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
-   copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
-  system $propertypagecmd;
+#here we move the javascript and images to the generated dir
+#and call the FinishUp class.  The FinishUp class will modify
+#the css with the styles we need, and it will generate 
+#the property-list.html file
+print "...finishing up"."\n";
+mkdir $destjspath;
+#copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
+ open(BALLOONCONFIG, "<".catfile($jspath, "balloon.config.js"));
+ open(OUT, ">".catfile($destjspath, "balloon.config.js"));
+ #this is a web url, must be forward slash on windows too
+ #so no catfile
+ $repl = '\''.getcwd."/$destimgpath/\'"; 
+ #set the image path in the javascript for the popup... this should probably
+ #be changed to a command line option because it currently only works for
+ #html that is hosted locally (the root is wrong for actual webservers)
+ for(<BALLOONCONFIG>){
+   s/'images\/GBubble'/$repl/;
+   print OUT;
+ }  
+ close(OUT);
+ close(BALLOONCONFIG);
+ copy(catfile($jspath, "balloon.js"), catfile($destjspath, "balloon.js"));
+ copy(catfile($jspath, "box.js"), catfile($destjspath, "box.js"));
+ copy(catfile($jspath, "yahoo-dom-event.js"), catfile($destjspath, "yahoo-dom-event.js"));
+mkdir catfile($dir, "images");
+mkdir $destimgpath;
+ copy(catfile($imgpath, "balloon.png"), catfile($destimgpath, "balloon.png"));
+ copy(catfile($imgpath, "balloon_ie.png"), catfile($destimgpath, "balloon_ie.png"));
+ copy(catfile($imgpath, "close.png"), catfile($destimgpath, "close.png"));
+ copy(catfile($imgpath, "down_left.png"), catfile($destimgpath, "down_left.png"));
+ copy(catfile($imgpath, "down_right.png"), catfile($destimgpath, "down_right.png"));
+ copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
+ copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
+system $propertypagecmd;
 #}
 

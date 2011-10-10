@@ -31,7 +31,7 @@ package hello.world;
  <br />
  <br />
  {@property.open}
-  This is a really bad propertyization that doesn't actually link to any property!
+  This is a really bad property section that doesn't actually link to any property!
  {@property.close}
  <br />
  <br />
@@ -58,17 +58,13 @@ package hello.world;
  foo bar car
  {@description.close}
 
- {@property.name foo/bar Foo}
- {@property.name foo/bar java.io.Foo}
- {@property.name foo/bar java.util.util2.Bar}
-
 */
 
 public class Test {
   /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
-   *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo}
+   *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo xyz}
    *    WE HAVE A BUNCH O' PROPERTIES HERE!
    *  {@property.close}
    *  <br />
