@@ -947,7 +947,7 @@ public class File
      * filesystem activities that might affect the file.
      * {@description.close}
      * <P>
-     * {@property.open undecided}
+     * {@property.open uncheckable}
      * Note: this method should <i>not</i> be used for file-locking, as
      * the resulting protocol cannot be made to work reliably. The
      * {@link java.nio.channels.FileLock FileLock}
@@ -1011,7 +1011,7 @@ public class File
      * request.  This method should therefore be used with care.
      * {@description.close}
      *
-     * {@property.open undecided}
+     * {@property.open uncheckable}
      * <P>
      * Note: this method should <i>not</i> be used for file-locking, as
      * the resulting protocol cannot be made to work reliably. The

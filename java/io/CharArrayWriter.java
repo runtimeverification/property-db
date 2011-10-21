@@ -167,15 +167,13 @@ class CharArrayWriter extends Writer {
      *
      * <pre>
      *     out.write(csq.toString()) </pre>
-     * {@description.close}
      *
-     * {@property.open undecided}
      * <p> Depending on the specification of <tt>toString</tt> for the
      * character sequence <tt>csq</tt>, the entire sequence may not be
      * appended. For instance, invoking the <tt>toString</tt> method of a
      * character buffer will return a subsequence whose content depends upon
      * the buffer's position and limit.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  csq
      *         The character sequence to append.  If <tt>csq</tt> is

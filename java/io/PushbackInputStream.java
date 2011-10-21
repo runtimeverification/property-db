@@ -224,11 +224,9 @@ class PushbackInputStream extends FilterInputStream {
     /** {@collect.stats}
      * {@description.open}
      * Pushes back a byte by copying it to the front of the pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
      * After this method returns, the next byte to be read will have the value
      * <code>(byte)b</code>.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b   the <code>int</code> value whose low-order
      *                  byte is to be pushed back.
@@ -247,13 +245,10 @@ class PushbackInputStream extends FilterInputStream {
     /** {@collect.stats}
      * {@description.open}
      * Pushes back a portion of an array of bytes by copying it to the front
-     * of the pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
-     * After this method returns, the next byte to be
+     * of the pushback buffer. After this method returns, the next byte to be
      * read will have the value <code>b[off]</code>, the byte after that will
      * have the value <code>b[off+1]</code>, and so forth.
-     * {@property.close}
+     * {@description.close}
      *
      * @param b the byte array to push back.
      * @param off the start offset of the data.
@@ -276,13 +271,10 @@ class PushbackInputStream extends FilterInputStream {
     /** {@collect.stats}
      * {@description.open}
      * Pushes back an array of bytes by copying it to the front of the
-     * pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
-     * After this method returns, the next byte to be read
+     * pushback buffer. After this method returns, the next byte to be read
      * will have the value <code>b[0]</code>, the byte after that will have the
      * value <code>b[1]</code>, and so forth.
-     * {@property.close}
+     * {@description.close}
      *
      * @param b the byte array to push back
      * @exception IOException If there is not enough room in the pushback

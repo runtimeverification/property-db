@@ -85,7 +85,7 @@ class BufferedInputStream extends FilterInputStream {
      * The index one greater than the index of the last valid byte in
      * the buffer.
      * {@description.close}
-     * {@property.open undecided internal}
+     * {@property.open internal}
      * This value is always
      * in the range <code>0</code> through <code>buf.length</code>;
      * elements <code>buf[0]</code>  through <code>buf[count-1]
@@ -101,7 +101,7 @@ class BufferedInputStream extends FilterInputStream {
      * character to be read from the <code>buf</code> array.
      * <p>
      * {@description.close}
-     * {@property.open undecided internal}
+     * {@property.open internal}
      * This value is always in the range <code>0</code>
      * through <code>count</code>. If it is less
      * than <code>count</code>, then  <code>buf[pos]</code>
@@ -122,7 +122,7 @@ class BufferedInputStream extends FilterInputStream {
      * <code>mark</code> method was called.
      * <p>
      * {@description.close}
-     * {@property.open undecided internal}
+     * {@property.open internal}
      * This value is always
      * in the range <code>-1</code> through <code>pos</code>.
      * If there is no marked position in  the input

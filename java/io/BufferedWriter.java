@@ -34,17 +34,13 @@ package java.io;
  *
  * <p> The buffer size may be specified, or the default size may be accepted.
  * The default is large enough for most purposes.
- * {@description.close}
  *
- * {@todo.open}
  * <p> A newLine() method is provided, which uses the platform's own notion of
  * line separator as defined by the system property <tt>line.separator</tt>.
  * Not all platforms use the newline character ('\n') to terminate lines.
  * Calling this method to terminate each output line is therefore preferred to
  * writing a newline character directly.
- * {@todo.close}
  *
- * {@description.open}
  * <p> In general, a Writer sends its output immediately to the underlying
  * character or byte stream.  Unless prompt output is required, it is advisable
  * to wrap a BufferedWriter around any Writer whose write() operations may be

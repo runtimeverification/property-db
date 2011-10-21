@@ -44,25 +44,19 @@ import java.io.SerialCallbackContext;
  * ObjectInputStream.  Persistent storage of objects can be accomplished by
  * using a file for the stream.  If the stream is a network socket stream, the
  * objects can be reconstituted on another host or in another process.
- * {@description.close}
  *
- * {@property.open undecided}
  * <p>Only objects that support the java.io.Serializable interface can be
  * written to streams.  The class of each serializable object is encoded
  * including the class name and signature of the class, the values of the
  * object's fields and arrays, and the closure of any other objects referenced
  * from the initial objects.
- * {@property.close}
  *
- * {@property.open}
  * <p>The method writeObject is used to write an object to the stream.  Any
  * object, including Strings and arrays, is written with writeObject. Multiple
  * objects or primitives can be written to the stream.  The objects must be
  * read back from the corresponding ObjectInputstream with the same types and
  * in the same order as they were written.
- * {@property.close}
  *
- * {@description.open}
  * <p>Primitive data types can also be written to the stream using the
  * appropriate methods from DataOutput. Strings can also be written using the
  * writeUTF method.
@@ -101,16 +95,11 @@ import java.io.SerialCallbackContext;
  * private void readObjectNoData()
  *     throws ObjectStreamException;
  * </pre>
- * {@description.close}
  *
- * {@property.open undecided}
  * <p>The writeObject method is responsible for writing the state of the object
  * for its particular class so that the corresponding readObject method can
  * restore it.  The method does not need to concern itself with the state
- * belonging to the object's superclasses or subclasses.
- * {@property.close}
- * {@description.open}
- * State is saved by
+ * belonging to the object's superclasses or subclasses. State is saved by
  * writing the individual fields to the ObjectOutputStream using the
  * writeObject method or by using the methods for primitive data types
  * supported by DataOutput.
@@ -1212,10 +1201,13 @@ public class ObjectOutputStream
      * Verifies that this (possibly subclass) instance can be constructed
      * without violating security constraints:
      * {@description.close}
-     * {@property.open undecided}
+     * {@property.open uncheckable}
      * the subclass must not override
      * security-sensitive non-final methods, or else the
      * "enableSubclassImplementation" SerializablePermission is checked.
+	  * {@new.open}
+	  * 
+	  * {@new.close}
      * {@property.close}
      */
     private void verifySubclass() {

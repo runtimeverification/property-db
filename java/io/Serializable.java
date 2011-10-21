@@ -35,7 +35,7 @@ package java.io;
  * and serves only to identify the semantics of being serializable. <p>
  * {@description.close}
  *
- * {@property.open undecided}
+ * {@property.open static}
  * To allow subtypes of non-serializable classes to be serialized, the
  * subtype may assume responsibility for saving and restoring the
  * state of the supertype's public, protected, and (if accessible)
@@ -44,6 +44,10 @@ package java.io;
  * initialize the class's state.  It is an error to declare a class
  * Serializable if this is not the case.  The error will be detected at
  * runtime. <p>
+ * {@new.open}
+ * Declaring a class Serializable when the supertype does not have accessible
+ * no-arg constructor can be detected at compile time.
+ * {@new.close}
  *
  * During deserialization, the fields of non-serializable classes will
  * be initialized using the public or protected no-arg constructor of
@@ -57,9 +61,7 @@ package java.io;
  * support the Serializable interface. In this case the
  * NotSerializableException will be thrown and will identify the class
  * of the non-serializable object. <p>
- * {@description.close}
  *
- * {@property.open undecided}
  * Classes that require special handling during the serialization and
  * deserialization process must implement special methods with these exact
  * signatures: <p>
@@ -145,7 +147,9 @@ package java.io;
  * <PRE>
  * ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
  * </PRE>
+ * {@description.close}
  *
+ * {@property.open static}
  * If a serializable class does not explicitly declare a serialVersionUID, then
  * the serialization runtime will calculate a default serialVersionUID value
  * for that class based on various aspects of the class, as described in the
@@ -164,6 +168,10 @@ package java.io;
  * classes cannot declare an explicit serialVersionUID, so they always have
  * the default computed value, but the requirement for matching
  * serialVersionUID values is waived for array classes.
+ * {@new.open}
+ * A serializable class should declare a private serialVersionUID explicitly
+ * for compatibility.
+ * {@new.close}
  * {@property.close}
  *
  * @author  unascribed

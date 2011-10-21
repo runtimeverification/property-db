@@ -54,7 +54,7 @@ import sun.nio.cs.StreamEncoder;
  * available then an invocation of that method will return <tt>null</tt>.
  * {@property.close}
  * <p>
- * {@property.open undecided}
+ * {@property.open blocking}
  * Read and write operations are synchronized to guarantee the atomic
  * completion of critical operations; therefore invoking methods
  * {@link #readLine()}, {@link #readPassword()}, {@link #format format()},

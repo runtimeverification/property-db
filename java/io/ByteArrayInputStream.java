@@ -48,7 +48,7 @@ public
 class ByteArrayInputStream extends InputStream {
 
     /** {@collect.stats}
-     * {@property.open undecided internal}
+     * {@property.open internal}
      * An array of bytes that was provided
      * by the creator of the stream. Elements <code>buf[0]</code>
      * through <code>buf[count-1]</code> are the
@@ -158,7 +158,7 @@ class ByteArrayInputStream extends InputStream {
      * <code>-1</code> is returned.
      * {@description.close}
      * <p>
-     * {@property.open undecided}
+     * {@property.open blocking}
      * This <code>read</code> method
      * cannot block.
      * {@property.close}

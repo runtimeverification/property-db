@@ -164,11 +164,9 @@ public class PushbackReader extends FilterReader {
      * {@description.open}
      * Pushes back a single character by copying it to the front of the
      * pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
      * After this method returns, the next character to be read
      * will have the value <code>(char)c</code>.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  c  The int value representing a character to be pushed back
      *
@@ -187,14 +185,11 @@ public class PushbackReader extends FilterReader {
     /** {@collect.stats}
      * {@description.open}
      * Pushes back a portion of an array of characters by copying it to the
-     * front of the pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
-     * After this method returns, the next
+     * front of the pushback buffer. After this method returns, the next
      * character to be read will have the value <code>cbuf[off]</code>, the
      * character after that will have the value <code>cbuf[off+1]</code>, and
      * so forth.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  cbuf  Character array
      * @param  off   Offset of first character to push back
@@ -216,13 +211,10 @@ public class PushbackReader extends FilterReader {
     /** {@collect.stats}
      * {@description.open}
      * Pushes back an array of characters by copying it to the front of the
-     * pushback buffer.
-     * {@description.close}
-     * {@property.open undecided}
-     * After this method returns, the next character to be
+     * pushback buffer. After this method returns, the next character to be
      * read will have the value <code>cbuf[0]</code>, the character after that
      * will have the value <code>cbuf[1]</code>, and so forth.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  cbuf  Character array to push back
      *
