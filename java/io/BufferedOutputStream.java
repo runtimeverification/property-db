@@ -49,7 +49,7 @@ class BufferedOutputStream extends FilterOutputStream {
      * {@description.open}
      * The number of valid bytes in the buffer.
      * {@description.close}
-     * {@property.open undecided internal}
+     * {@property.open internal}
      * This value is always
      * in the range <tt>0</tt> through <tt>buf.length</tt>; elements
      * <tt>buf[0]</tt> through <tt>buf[count-1]</tt> contain valid

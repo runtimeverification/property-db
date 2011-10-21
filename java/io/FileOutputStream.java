@@ -333,10 +333,10 @@ class FileOutputStream extends OutputStream
      * be used for writing bytes.
      * {@property.close}
      *
-     * {@property.open undecided}
+     * {@description.open}
      * <p> If this stream has an associated channel then the channel is closed
      * as well.
-     * {@property.close}
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      *

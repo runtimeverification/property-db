@@ -119,7 +119,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
      * integer.
      * {@description.close}
      *
-     * {@property.open undecided}
+     * {@property.open blocking}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
      * {@property.close}

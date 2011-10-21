@@ -72,13 +72,10 @@ class LineNumberInputStream extends FilterInputStream {
      * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
-     * <code>0</code> to <code>255</code>.
-     * {@description.close}
-     * {@property.open undecided}
-     * If no byte is available
+     * <code>0</code> to <code>255</code>. If no byte is available
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
-     * {@property.close}
+     * {@description.close}
      * {@property.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception

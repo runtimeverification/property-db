@@ -205,7 +205,7 @@ interface DataInput {
      * to the length of <code>b</code>.
      * {@description.close}
      * <p>
-     * {@property.open undecided}
+     * {@property.open blocking}
      * This method blocks until one of the
      * following conditions occurs:<p>
      * <ul>
@@ -254,7 +254,7 @@ interface DataInput {
      * an input stream.
      * {@description.close}
      * <p>
-     * {@property.open undecided}
+     * {@property.open blocking}
      * This method
      * blocks until one of the following conditions
      * occurs:<p>
@@ -306,8 +306,6 @@ interface DataInput {
      * <code>n</code> bytes
      * of data from the input
      * stream, discarding the skipped bytes.
-     * {@description.close}
-     * {@property.open undecided}
      * However,
      * it may skip
      * over some smaller number of
@@ -317,8 +315,6 @@ interface DataInput {
      * end of file before <code>n</code> bytes
      * have been skipped is
      * only one possibility.
-     * {@property.close}
-     * {@description.open}
      * This method never throws an <code>EOFException</code>.
      * The actual
      * number of bytes skipped is returned.

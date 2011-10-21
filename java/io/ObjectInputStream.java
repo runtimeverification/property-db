@@ -57,14 +57,10 @@ import static java.io.ObjectStreamClass.processQueue;
  * <p>ObjectInputStream ensures that the types of all objects in the graph
  * created from the stream match the classes present in the Java Virtual
  * Machine.  Classes are loaded as required using the standard mechanisms.
- * {@description.close}
  *
- * {@property.open undecided}
  * <p>Only objects that support the java.io.Serializable or
  * java.io.Externalizable interface can be read from streams.
- * {@property.close}
  *
- * {@description.open}
  * <p>The method <code>readObject</code> is used to read an object from the
  * stream.  Java's safe casting should be used to get the desired type.  In
  * Java, strings and arrays are objects and are treated as objects during
@@ -110,9 +106,7 @@ import static java.io.ObjectStreamClass.processQueue;
  * evolve between the time the stream is written and the time it is read.  It
  * automatically traverses references between objects, saving and restoring
  * entire graphs.
- * {@description.close}
  *
- * {@property.open undecided}
  * <p>Serializable classes that require special handling during the
  * serialization and deserialization process should implement the following
  * methods:<p>
@@ -174,14 +168,10 @@ import static java.io.ObjectStreamClass.processQueue;
  * the case that the fields of that class are accessible (public, package, or
  * protected) or that there are get and set methods that can be used to restore
  * the state.
- * {@property.close}
  *
- * {@description.open}
  * <p>Any exception that occurs while deserializing an object will be caught by
  * the ObjectInputStream and abort the reading process.
- * {@description.close}
  *
- * {@property.open undecided}
  * <p>Implementing the Externalizable interface allows the object to assume
  * complete control over the contents and format of the object's serialized
  * form.  The methods of the Externalizable interface, writeExternal and
@@ -189,9 +179,7 @@ import static java.io.ObjectStreamClass.processQueue;
  * implemented by a class they can write and read their own state using all of
  * the methods of ObjectOutput and ObjectInput.  It is the responsibility of
  * the objects to handle any versioning that occurs.
- * {@property.close}
  *
- * {@description.open}
  * <p>Enum constants are deserialized differently than ordinary serializable or
  * externalizable objects.  The serialized form of an enum constant consists
  * solely of its name; field values of the constant are not transmitted.  To
@@ -473,11 +461,9 @@ public class ObjectInputStream
      * {@description.open}
      * This method is called by trusted subclasses of ObjectOutputStream that
      * constructed ObjectOutputStream using the protected no-arg constructor.
-     * {@description.close}
-     * {@property.open undecided}
      * The subclass is expected to provide an override method with the modifier
      * "final".
-     * {@property.close}
+     * {@description.close}
      *
      * @return  the Object read from the stream.
      * @throws  ClassNotFoundException Class definition of a serialized object
@@ -649,7 +635,7 @@ public class ObjectInputStream
      * similar to resolveObject these validations are called after the entire
      * graph has been reconstituted.
      * {@description.close}
-     * {@property.open undecided}
+     * {@property.open static}
      * Typically, a readObject method will
      * register the object with the stream so that when all of the objects are
      * restored a final set of validations can be performed.
@@ -3638,7 +3624,7 @@ public class ObjectInputStream
          * Assigns next available handle to given object, and returns assigned
          * handle.
          * {@description.close}
-         * {@property.open undecided}
+         * {@property.open internal}
          * Once object has been completely deserialized (and all
          * dependencies on other objects identified), the handle should be
          * "closed" by passing it to finish().
