@@ -13,6 +13,7 @@ $imgsuffix = catfile("images","GBubble");
 $jssuffix = "js";
 $imgpath = catfile(dirname($0), "..", catfile("resources",$imgsuffix));
 $jspath = catfile(dirname($0), "..", catfile("resources",$jssuffix));
+$out_root = "";
 
 $tpackage="edu.uiuc.cs.fsl.propertydocs.taglets";
 
@@ -124,11 +125,23 @@ $docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
 
 $dflag = 0;
 $pflag = 0;
+$rootflag = 0;
 $dir = ".";
 $property_path = "properties";
 
 foreach(@ARGV){
-  if($dflag == 1){
+  #print "$dflag:$pflag:$rootflag";
+  #print "\n";
+  #print;
+  #print "\n";
+  #for some reason rootflag has to be first or this breaks
+  #I blame it on perl being the stupidest, most buggy language ever
+  #created
+  if($rootflag == 1){
+    $out_root = $_;
+    $rootflag = 0;    
+  }
+  elsif($dflag == 1){
     $dir = $_;
     $dflag = 0;	
     $docscmd .= " $_";
@@ -146,6 +159,9 @@ foreach(@ARGV){
   elsif(/-propertypath/){
     $pflag = 1;
   }
+  elsif(/-outroot/){
+    $rootflag = 1;
+  }
   #anything else isn't special and should just be passed
   #to javadoc without alteration
   else {
@@ -153,6 +169,7 @@ foreach(@ARGV){
   }
 }
 
+#print "$out_root $dir $property_path\n";
 
 #sicne we can't give command line args to taglets we 
 #send this info via environment variables... ugly hack
@@ -175,7 +192,7 @@ mkdir $destjspath;
  open(OUT, ">".catfile($destjspath, "balloon.config.js"));
  #this is a web url, must be forward slash on windows too
  #so no catfile
- $repl = '\''.getcwd."/$destimgpath/\'"; 
+ $repl = '\''.$out_root."/$destimgpath/\'"; 
  #set the image path in the javascript for the popup... this should probably
  #be changed to a command line option because it currently only works for
  #html that is hosted locally (the root is wrong for actual webservers)
