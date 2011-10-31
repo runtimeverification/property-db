@@ -26,9 +26,11 @@
 package java.lang;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * Class <code>Object</code> is the root of the class hierarchy.
  * Every class has <code>Object</code> as a superclass. All objects,
  * including arrays, implement the methods of this class.
+ * {@descriptive.close}
  *
  * @author  unascribed
  * @see     java.lang.Class
