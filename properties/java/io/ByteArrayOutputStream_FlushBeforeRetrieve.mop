@@ -49,7 +49,6 @@ ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream 
 
 	@fail {
 		System.err.println("flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
-//		System.err.println("flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.");
 	}
 }
 
