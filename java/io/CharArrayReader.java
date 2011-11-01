@@ -267,7 +267,7 @@ public class CharArrayReader extends Reader {
      * Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open Property:java.io.CharArrayReader_Close}
+     * {@property.open Property:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      */
