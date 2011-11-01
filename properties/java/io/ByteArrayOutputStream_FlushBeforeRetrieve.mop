@@ -12,11 +12,15 @@ import java.io.*;
  * contents.
  */
 ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream o) {
-	event outputstreaminit after(OutputStream o, ByteArrayOutputStream b) returning : call(OutputStream+.new(..)) && target(o) && args(b) {}
-	event tobytearray before(ByteArrayOutputStream b) : call(* ByteArrayOutputStream+.toByteArray(..)) && target(b) {}
+	creation event outputstreaminit after(ByteArrayOutputStream b) returning(OutputStream o) :
+		call(OutputStream+.new(..)) && args(b, ..) {}
+	event write before(OutputStream o) : call(* OutputStream+.write*(..)) && target(o) {}
 	event flush before(OutputStream o) : call(* OutputStream+.flush(..)) && target(o) {}
 	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
-	event write before(OutputStream o) : call(* ObjectOutput+.write*(..)) && target(o) {}
+	event tobytearray before(ByteArrayOutputStream b) :
+		call(* ByteArrayOutputStream+.toByteArray(..)) && target(b) {}
+	event tostring before(ByteArrayOutputStream b) :
+		call(* ByteArrayOutputStream+.toString(..)) && target(b) {}
 
 	fsm :
 		initial [
@@ -33,16 +37,19 @@ ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream 
 			close -> closed
 		]
 		flushed [
-			tobytearray -> flushed
 			flush -> flushed
 			write -> writing
+			tobytearray -> flushed
+			tostring -> flushed
 		]
 		closed [
-			tobytearray -> flushed
+			tobytearray -> closed
+			tostring -> closed
 		]
 
 	@fail {
-		System.err.println("flush() or close() should be invoked before toByteArray().");
-		System.exit(1);
+		System.err.println("flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
+//		System.err.println("flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.");
 	}
 }
+

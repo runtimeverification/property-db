@@ -7,6 +7,8 @@ import java.io.*;
  *
  * BufferedInputStream.fill() assumes that it is called by synchronized
  * methods. This property warns if this requirement is not satisfied.
+ *
+ * This property is described in the comments for BufferedInputStream.fill().
  */
 BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 	event fill before(BufferedInputStream i) : call(* BufferedInputStream.fill(..)) && target(i) {}
@@ -19,5 +21,4 @@ BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 		System.exit(1);
 	}
 }
-
 

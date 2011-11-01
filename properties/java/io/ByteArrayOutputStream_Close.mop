@@ -6,9 +6,11 @@ import java.io.*;
  * Warns if ByteArrayOutputStream.close() is invoked.
  *
  * ByteArrayOutputStream.close() has no effect, and other methods in this class
- * can be called after close() without IOException. This specification warns
- * when such meaningless close() is invoked, in the hope that it helps the
- * user to understand the actual behavior.
+ * can be called after close() without IOException.
+ * http://download.oracle.com/javase/6/docs/api/java/io/ByteArrayOutputStream.html#close()
+ *
+ * This specification warns when such meaningless close() is invoked, in the
+ * hope that it helps the user to understand the actual behavior.
  */
 ByteArrayOutputStream_Close(ByteArrayOutputStream o) {
 	event close before(ByteArrayOutputStream o) : call(* ByteArrayOutputStream.close(..)) && target(o) {}
@@ -17,7 +19,6 @@ ByteArrayOutputStream_Close(ByteArrayOutputStream o) {
 
 	@match {
 		System.err.println("ByteArrayOutputStream.close() has no effect.");
-		System.exit(1);
 	}
 }
 
