@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * {@descriptive.open}
  * Thrown when an application tries to call an abstract method.
  * Normally, this error is caught by the compiler; this error can
@@ -39,7 +39,7 @@ package java.lang;
  */
 public
 class AbstractMethodError extends IncompatibleClassChangeError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Constructs an <code>AbstractMethodError</code> with no detail  message.
      * {@descriptive.close}
@@ -48,7 +48,7 @@ class AbstractMethodError extends IncompatibleClassChangeError {
         super();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Constructs an <code>AbstractMethodError</code> with the specified
      * detail message.

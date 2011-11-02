@@ -25,7 +25,8 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@descriptive.open}
  * The {@code Compiler} class is provided to support Java-to-native-code
  * compilers and related services. By design, the {@code Compiler} class does
  * nothing; it serves as a placeholder for a JIT compiler implementation.
@@ -40,6 +41,7 @@ package java.lang;
  * library is called.
  *
  * <p> If no compiler is available, these methods do nothing.
+ * {@descriptive.close}
  *
  * @author  Frank Yellin
  * @since   JDK1.0
@@ -81,8 +83,10 @@ public final class Compiler  {
             });
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Compiles the specified class.
+     * {@descriptive.close}
      *
      * @param  clazz
      *         A class
@@ -95,8 +99,10 @@ public final class Compiler  {
      */
     public static native boolean compileClass(Class<?> clazz);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Compiles all classes whose name matches the specified string.
+     * {@descriptive.close}
      *
      * @param  string
      *         The name of the classes to compile
@@ -109,9 +115,11 @@ public final class Compiler  {
      */
     public static native boolean compileClasses(String string);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Examines the argument type and its fields and perform some documented
      * operation.  No specific operations are required.
+     * {@descriptive.close}
      *
      * @param  any
      *         An argument
@@ -124,13 +132,17 @@ public final class Compiler  {
      */
     public static native Object command(Object any);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Cause the Compiler to resume operation.
+     * {@descriptive.close}
      */
     public static native void enable();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Cause the Compiler to cease operation.
+     * {@descriptive.close}
      */
     public static native void disable();
 }

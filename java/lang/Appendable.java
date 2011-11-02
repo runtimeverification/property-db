@@ -27,7 +27,7 @@ package java.lang;
 
 import java.io.IOException;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * {@descriptive.open}
  * An object to which <tt>char</tt> sequences and values can be appended.
  * {@descriptive.close}
@@ -45,23 +45,23 @@ import java.io.IOException;
  * multiple 16-bit <tt>char</tt> values.
  * {@descriptive.close}
  *
- * {@informal.open}
+ * {@property.open}
  * <p> Appendables are not necessarily safe for multithreaded access.  Thread
  * safety is the responsibility of classes that extend and implement this
  * interface.
- * {@informal.close}
+ * {@property.close}
  *
- * {@informal.open}
+ * {@property.open}
  * <p> Since this interface may be implemented by existing classes
  * with different styles of error handling there is no guarantee that
  * errors will be propagated to the invoker.
- * {@informal.close}
+ * {@property.close}
  *
  * @since 1.5
  */
 public interface Appendable {
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Appends the specified character sequence to this <tt>Appendable</tt>.
      *
@@ -83,7 +83,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq) throws IOException;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Appends a subsequence of the specified character sequence to this
      * <tt>Appendable</tt>.
@@ -121,7 +121,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq, int start, int end) throws IOException;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Appends the specified character to this <tt>Appendable</tt>.
      * {@descriptive.close}
