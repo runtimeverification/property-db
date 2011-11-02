@@ -13,7 +13,12 @@ BUILDIR=`pwd`/build
 properties=(
 #	ByteArrayInputStream_Close
 #	ByteArrayOutputStream_Close
-	ByteArrayOutputStream_FlushBeforeRetrieve
+#	ByteArrayOutputStream_FlushBeforeRetrieve
+#	CharArrayWriter_Close
+#	Closeable_MultipleClose
+#	Console_CloseReader
+#	Console_CloseWriter
+	Console_FillZeroPassword
 )
 
 function handle_property {

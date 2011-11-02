@@ -19,7 +19,6 @@ CharArrayWriter_Close(CharArrayWriter w) {
 
 	@match {
 		System.err.println("CharArrayWriter.close() has no effect.");
-		System.exit(1);
 	}
 }
 
