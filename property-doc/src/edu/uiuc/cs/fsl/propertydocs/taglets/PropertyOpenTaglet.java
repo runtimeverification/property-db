@@ -184,6 +184,7 @@ public class PropertyOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inProperty){
           String text = tag.text().trim();
+          if(text.length() == 0) continue;
           localW += text.split("\\s+").length; 
         }
         else if(
