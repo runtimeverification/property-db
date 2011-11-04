@@ -192,7 +192,7 @@ mkdir $destjspath;
  open(OUT, ">".catfile($destjspath, "balloon.config.js"));
  #this is a web url, must be forward slash on windows too
  #so no catfile
- $repl = '\''.$out_root."/$destimgpath/\'"; 
+ $repl = '\''.$out_root."/images/GBubble/\'"; 
  #set the image path in the javascript for the popup... this should probably
  #be changed to a command line option because it currently only works for
  #html that is hosted locally (the root is wrong for actual webservers)

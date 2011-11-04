@@ -121,9 +121,8 @@ public class DescriptionOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inDescription){
           String text = tag.text().trim();
-      //    c += text.length();
+          if(text.length() == 0) continue;
           w += text.split("\\s+").length; 
-      //    l += text.split("\\n").length; 
         }
         else if(
             (tag.name().equals("@property.close")

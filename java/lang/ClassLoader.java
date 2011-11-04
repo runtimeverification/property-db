@@ -55,7 +55,7 @@ import sun.misc.VM;
 import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * {@descriptive.open}
  * A class loader is an object that is responsible for loading classes. The
  * class <tt>ClassLoader</tt> is an abstract class.  Given the <a
@@ -203,7 +203,7 @@ public abstract class ClassLoader {
     }
 
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Creates a new class loader using the specified parent class loader for
      * delegation.
@@ -228,7 +228,7 @@ public abstract class ClassLoader {
 	this(checkCreateClassLoader(), parent);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Creates a new class loader using the <tt>ClassLoader</tt> returned by
      * the method {@link #getSystemClassLoader()
@@ -252,10 +252,10 @@ public abstract class ClassLoader {
 
     // -- Class --
 
-    /** {@collect.stats} 
-     * {@informal.open}
+    /** {@collect.stats}
+     * {@property.open runtime}
      * Loads the class with the specified <a href="#name">binary name</a>.
-     * {@informal.close}
+     * {@property.close}
      * {@descriptive.open}
      * This method searches for classes in the same manner as the {@link
      * #loadClass(String, boolean)} method.  It is invoked by the Java virtual
@@ -276,10 +276,10 @@ public abstract class ClassLoader {
         return loadClass(name, false);
     }
 
-    /** {@collect.stats} 
-     * {@informal.open}
+    /** {@collect.stats}
+     * {@property.open runtime}
      * Loads the class with the specified <a href="#name">binary name</a>.
-     * {@informal.close} 
+     * {@property.close} 
      * {@descriptive.open}
      * The
      * default implementation of this method searches for classes in the
@@ -366,10 +366,10 @@ public abstract class ClassLoader {
         domains.add(pd);
     }
 
-    /** {@collect.stats} 
-     * {@informal.open}
+    /** {@collect.stats}
+     * {@property.open runtime}
      * Finds the class with the specified <a href="#name">binary name</a>.
-     * {@informal.close}
+     * {@property.close}
      * {@descriptive.open}
      * This method should be overridden by class loader implementations that
      * follow the delegation model for loading classes, and will be invoked by
@@ -392,7 +392,7 @@ public abstract class ClassLoader {
         throw new ClassNotFoundException(name);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.  This method
@@ -436,7 +436,7 @@ public abstract class ClassLoader {
         return defineClass(null, b, off, len, null);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.
@@ -578,7 +578,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
@@ -595,20 +595,20 @@ public abstract class ClassLoader {
      * <tt>SecurityException</tt> will be thrown.  Note that if
      * <tt>name</tt> is <tt>null</tt>, this check is not performed.
      * {@descriptive.close}
-     * {@informal.open}
+     * {@property.open runtime}
      * You should always pass in the <a href="#name">binary name</a> of the
      * class you are defining as well as the bytes.  This ensures that the
      * class you are defining is indeed the class you think it is.
-     * {@informal.close}
+     * {@property.close}
      *
-     * {@informal.open}
+     * {@property.open runtime}
      * <p> The specified <tt>name</tt> cannot begin with "<tt>java.</tt>", since
      * all classes in the "<tt>java.*</tt> packages can only be defined by the
      * bootstrap class loader.  If <tt>name</tt> is not <tt>null</tt>, it
      * must be equal to the <a href="#name">binary name</a> of the class
      * specified by the byte array "<tt>b</tt>", otherwise a {@link
      * <tt>NoClassDefFoundError</tt>} will be thrown.  </p>
-     * {@informal.close}
+     * {@property.close}
      *
      * @param  name
      *         The expected <a href="#name">binary name</a> of the class, or
@@ -669,7 +669,7 @@ public abstract class ClassLoader {
         return c;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Converts a {@link java.nio.ByteBuffer <tt>ByteBuffer</tt>}
      * into an instance of class <tt>Class</tt>,
@@ -821,7 +821,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * check to make sure the certs for the new class (certs) are the same as
      * the certs for the first class inserted in the package (pcerts)
@@ -868,7 +868,7 @@ public abstract class ClassLoader {
         return true;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Links the specified class.  This (misleadingly named) method may be
      * used by a class loader to link a class.  If the class <tt>c</tt> has
@@ -893,11 +893,11 @@ public abstract class ClassLoader {
 
     private native void resolveClass0(Class c);
 
-    /** {@collect.stats} 
-     * {@informal.open}
+    /** {@collect.stats}
+     * {@property.open runtime}
      * Finds a class with the specified <a href="#name">binary name</a>,
      * loading it if necessary.
-     * {@informal.close}
+     * {@property.close}
      *
      * {@descriptive.open}
      * <p> This method loads the class through the system class loader (see
@@ -942,12 +942,12 @@ public abstract class ClassLoader {
     private native Class findBootstrapClass(String name)
         throws ClassNotFoundException;
 
-    /** {@collect.stats} 
-     * {@informal.open}
+    /** {@collect.stats}
+     * {@property.open runtime}
      * Returns the class with the given <a href="#name">binary name</a> if this
      * loader has been recorded by the Java virtual machine as an initiating
      * loader of a class with that <a href="#name">binary name</a>.  
-     * {@informal.close}
+     * {@property.close}
      * {@descriptive.open}
      * Otherwise
      * <tt>null</tt> is returned.  </p>
@@ -969,7 +969,7 @@ public abstract class ClassLoader {
 
     private native final Class findLoadedClass0(String name);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Sets the signers of a class.  This should be invoked after defining a
      * class.  </p>
@@ -990,7 +990,7 @@ public abstract class ClassLoader {
 
     // -- Resource --
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Finds the resource with the given name.  A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
@@ -1027,7 +1027,7 @@ public abstract class ClassLoader {
         return url;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Finds all the resources with the given name. A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
@@ -1067,7 +1067,7 @@ public abstract class ClassLoader {
         return new CompoundEnumeration(tmp);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Finds the resource with the given name. Class loader implementations
      * should override this method to specify where to find resources.  </p>
@@ -1085,7 +1085,7 @@ public abstract class ClassLoader {
         return null;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Returns an enumeration of {@link java.net.URL <tt>URL</tt>} objects
      * representing all the resources with the given name. Class loader
@@ -1108,7 +1108,7 @@ public abstract class ClassLoader {
         return new CompoundEnumeration(new Enumeration[0]);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Find a resource of the specified name from the search path used to load
      * classes.  This method locates the resource through the system class
@@ -1131,7 +1131,7 @@ public abstract class ClassLoader {
         return system.getResource(name);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Finds all resources of the specified name from the search path used to
      * load classes.  The resources thus found are returned as an
@@ -1163,7 +1163,7 @@ public abstract class ClassLoader {
         return system.getResources(name);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Find resources from the VM's built-in classloader.
      * {@descriptive.close}
@@ -1174,7 +1174,7 @@ public abstract class ClassLoader {
         return res != null ? res.getURL() : null;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Find resources from the VM's built-in classloader.
      * {@descriptive.close}
@@ -1203,7 +1203,7 @@ public abstract class ClassLoader {
 
     private static URLClassPath bootstrapClassPath;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Returns an input stream for reading the specified resource.
      *
@@ -1228,7 +1228,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Open for reading, a resource of the specified name from the search path
      * used to load classes.  This method locates the resource through the
@@ -1255,7 +1255,7 @@ public abstract class ClassLoader {
 
     // -- Hierarchy --
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Returns the parent class loader for delegation. Some implementations may
      * use <tt>null</tt> to represent the bootstrap class loader. This method
@@ -1295,7 +1295,7 @@ public abstract class ClassLoader {
         return parent;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Returns the system class loader for delegation.  This is the default
      * delegation parent for new <tt>ClassLoader</tt> instances, and is
@@ -1435,15 +1435,17 @@ public abstract class ClassLoader {
 
     // -- Package --
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * {@descriptive.open}
      * Defines a package by name in this <tt>ClassLoader</tt>.  This allows
      * class loaders to define the packages for their classes. 
      * {@descriptive.close}
+     * {@property.open}
      * Packages must
      * be created before the class is defined, and package names must be
      * unique within a class loader and cannot be redefined or changed once
      * created.  </p>
+     * {@property.close}
      *
      * @param  name
      *         The package name
@@ -1498,9 +1500,11 @@ public abstract class ClassLoader {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a <tt>Package</tt> that has been defined by this class loader
      * or any of its ancestors.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The package name
@@ -1527,9 +1531,11 @@ public abstract class ClassLoader {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns all of the <tt>Packages</tt> defined by this class loader and
      * its ancestors.  </p>
+     * {@descriptive.close}
      *
      * @return  The array of <tt>Package</tt> objects defined by this
      *          <tt>ClassLoader</tt>
@@ -1561,12 +1567,14 @@ public abstract class ClassLoader {
 
     // -- Native library access --
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the absolute path name of a native library.  The VM invokes this
      * method to locate the native libraries that belong to classes loaded with
      * this class loader. If this method returns <tt>null</tt>, the VM
      * searches the library along the path specified as the
      * "<tt>java.library.path</tt>" property.  </p>
+     * {@descriptive.close}
      *
      * @param  libname
      *         The library name
@@ -1582,7 +1590,8 @@ public abstract class ClassLoader {
         return null;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * The inner class NativeLibrary denotes a loaded native library instance.
      * Every classloader contains a vector of loaded native libraries in the
      * private field <tt>nativeLibraries</tt>.  The native libraries loaded
@@ -1593,6 +1602,7 @@ public abstract class ClassLoader {
      * denoted by the private <tt>jniVersion</tt> field.  This field is set by
      * the VM when it loads the library, and used by the VM to pass the correct
      * version of JNI to the native methods.  </p>
+     * {@descriptive.close}
      *
      * @see      ClassLoader
      * @since    1.2
@@ -1869,13 +1879,15 @@ public abstract class ClassLoader {
     // have been invoked.
     Map classAssertionStatus = null;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the default assertion status for this class loader.  This setting
      * determines whether classes loaded by this class loader and initialized
      * in the future will have assertions enabled or disabled by default.
      * This setting may be overridden on a per-package or per-class basis by
      * invoking {@link #setPackageAssertionStatus(String, boolean)} or {@link
      * #setClassAssertionStatus(String, boolean)}.  </p>
+     * {@descriptive.close}
      *
      * @param  enabled
      *         <tt>true</tt> if classes loaded by this class loader will
@@ -1891,7 +1903,8 @@ public abstract class ClassLoader {
         defaultAssertionStatus = enabled;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the package default assertion status for the named package.  The
      * package default assertion status determines the assertion status for
      * classes initialized in the future that belong to the named package or
@@ -1912,6 +1925,7 @@ public abstract class ClassLoader {
      * <p> Package defaults take precedence over the class loader's default
      * assertion status, and may be overridden on a per-class basis by invoking
      * {@link #setClassAssertionStatus(String, boolean)}.  </p>
+     * {@descriptive.close}
      *
      * @param  packageName
      *         The name of the package whose package default assertion status
@@ -1937,7 +1951,8 @@ public abstract class ClassLoader {
         packageAssertionStatus.put(packageName, Boolean.valueOf(enabled));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the desired assertion status for the named top-level class in this
      * class loader and any nested classes contained therein.  This setting
      * takes precedence over the class loader's default assertion status, and
@@ -1947,6 +1962,7 @@ public abstract class ClassLoader {
      *
      * <p> If the named class is not a top-level class, this invocation will
      * have no effect on the actual assertion status of any class. </p>
+     * {@descriptive.close}
      *
      * @param  className
      *         The fully qualified class name of the top-level class whose
@@ -1968,13 +1984,15 @@ public abstract class ClassLoader {
         classAssertionStatus.put(className, Boolean.valueOf(enabled));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the default assertion status for this class loader to
      * <tt>false</tt> and discards any package defaults or class assertion
      * status settings associated with the class loader.  This method is
      * provided so that class loaders can be made to ignore any command line or
      * persistent assertion status settings and "start with a clean slate."
      * </p>
+     * {@descriptive.close}
      *
      * @since  1.4
      */
@@ -1989,7 +2007,8 @@ public abstract class ClassLoader {
         defaultAssertionStatus = false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the assertion status that would be assigned to the specified
      * class if it were to be initialized at the time this method is invoked.
      * If the named class has had its assertion status set, the most recent
@@ -1998,6 +2017,7 @@ public abstract class ClassLoader {
      * specific pertinent package default assertion status is returned;
      * otherwise, this class loader's default assertion status is returned.
      * </p>
+     * {@descriptive.close}
      *
      * @param  className
      *         The fully qualified class name of the class whose desired

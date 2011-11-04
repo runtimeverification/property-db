@@ -26,7 +26,8 @@
 package java.lang;
 import java.lang.ref.*;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@descriptive.open}
  * This class extends <tt>ThreadLocal</tt> to provide inheritance of values
  * from parent thread to child thread: when a child thread is created, the
  * child receives initial values for all inheritable thread-local variables
@@ -39,6 +40,7 @@ import java.lang.ref.*;
  * ordinary thread-local variables when the per-thread-attribute being
  * maintained in the variable (e.g., User ID, Transaction ID) must be
  * automatically transmitted to any child threads that are created.
+ * {@descriptive.close}
  *
  * @author  Josh Bloch and Doug Lea
  * @see     ThreadLocal
@@ -46,14 +48,18 @@ import java.lang.ref.*;
  */
 
 public class InheritableThreadLocal<T> extends ThreadLocal<T> {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Computes the child's initial value for this inheritable thread-local
      * variable as a function of the parent's value at the time the child
      * thread is created.  This method is called from within the parent
      * thread before the child is started.
+     * {@descriptive.close}
      * <p>
+     * {@property.open}
      * This method merely returns its input argument, and should be overridden
      * if a different behavior is desired.
+     * {@property.close}
      *
      * @param parentValue the parent thread's value
      * @return the child thread's initial value
@@ -62,8 +68,10 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
         return parentValue;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Get the map associated with a ThreadLocal.
+     * {@descriptive.close}
      *
      * @param t the current thread
      */
@@ -71,8 +79,10 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
        return t.inheritableThreadLocals;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Create the map associated with a ThreadLocal.
+     * {@descriptive.close}
      *
      * @param t the current thread
      * @param firstValue value for the initial entry of the table.

@@ -25,7 +25,8 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@descriptive.open}
  * The {@code Integer} class wraps a value of the primitive type
  * {@code int} in an object. An object of type {@code Integer}
  * contains a single field whose type is {@code int}.
@@ -40,6 +41,7 @@ package java.lang;
  * {@link #numberOfTrailingZeros(int) numberOfTrailingZeros}) are
  * based on material from Henry S. Warren, Jr.'s <i>Hacker's
  * Delight</i>, (Addison Wesley, 2002).
+ * {@descriptive.close}
  *
  * @author  Lee Boynton
  * @author  Arthur van Hoff
@@ -48,28 +50,35 @@ package java.lang;
  * @since JDK1.0
  */
 public final class Integer extends Number implements Comparable<Integer> {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * A constant holding the minimum value an {@code int} can
      * have, -2<sup>31</sup>.
+     * {@descriptive.close}
      */
     public static final int   MIN_VALUE = 0x80000000;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * A constant holding the maximum value an {@code int} can
      * have, 2<sup>31</sup>-1.
+     * {@descriptive.close}
      */
     public static final int   MAX_VALUE = 0x7fffffff;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * The {@code Class} instance representing the primitive type
      * {@code int}.
-     *
+     * {@descriptive.close}
      * @since   JDK1.1
      */
     public static final Class<Integer>  TYPE = (Class<Integer>) Class.getPrimitiveClass("int");
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * All possible chars for representing a number as a String
+     * {@descriptive.close}
      */
     final static char[] digits = {
         '0' , '1' , '2' , '3' , '4' , '5' ,
@@ -80,7 +89,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         'u' , 'v' , 'w' , 'x' , 'y' , 'z'
     };
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representation of the first argument in the
      * radix specified by the second argument.
      *
@@ -117,6 +127,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code Integer.toString(n, 16).toUpperCase()}
      * </blockquote>
+     * {@descriptive.close}
      *
      * @param   i       an integer to be converted to a string.
      * @param   radix   the radix to use in the string representation.
@@ -155,7 +166,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return new String(buf, charPos, (33 - charPos));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representation of the integer argument as an
      * unsigned integer in base&nbsp;16.
      *
@@ -183,6 +195,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code Integer.toHexString(n).toUpperCase()}
      * </blockquote>
+     * {@descriptive.close}
      *
      * @param   i   an integer to be converted to a string.
      * @return  the string representation of the unsigned integer value
@@ -193,7 +206,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return toUnsignedString(i, 4);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representation of the integer argument as an
      * unsigned integer in base&nbsp;8.
      *
@@ -215,6 +229,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      *
      * These are the characters <code>'&#92;u0030'</code> through
      * <code>'&#92;u0037'</code>.
+     * {@descriptive.close}
      *
      * @param   i   an integer to be converted to a string.
      * @return  the string representation of the unsigned integer value
@@ -225,7 +240,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return toUnsignedString(i, 3);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representation of the integer argument as an
      * unsigned integer in base&nbsp;2.
      *
@@ -240,6 +256,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * zero character. The characters {@code '0'}
      * (<code>'&#92;u0030'</code>) and {@code '1'}
      * (<code>'&#92;u0031'</code>) are used as binary digits.
+     * {@descriptive.close}
      *
      * @param   i   an integer to be converted to a string.
      * @return  the string representation of the unsigned integer value
@@ -250,8 +267,10 @@ public final class Integer extends Number implements Comparable<Integer> {
         return toUnsignedString(i, 1);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Convert the integer to an unsigned number.
+     * {@descriptive.close}
      */
     private static String toUnsignedString(int i, int shift) {
         char[] buf = new char[32];
@@ -312,12 +331,14 @@ public final class Integer extends Number implements Comparable<Integer> {
         //      ACM PLDI 1994
         //
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code String} object representing the
      * specified integer. The argument is converted to signed decimal
      * representation and returned as a string, exactly as if the
      * argument and radix 10 were given as arguments to the {@link
      * #toString(int, int)} method.
+     * {@descriptive.close}
      *
      * @param   i   an integer to be converted.
      * @return  a string representation of the argument in base&nbsp;10.
@@ -331,7 +352,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return new String(0, size, buf);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Places characters representing the integer i into the
      * character array buf. The characters are placed into
      * the buffer backwards starting with the least significant
@@ -339,6 +361,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * backwards from there.
      *
      * Will fail if i == Integer.MIN_VALUE
+     * {@descriptive.close}
      */
     static void getChars(int i, int index, char[] buf) {
         int q, r;
@@ -384,7 +407,8 @@ public final class Integer extends Number implements Comparable<Integer> {
                 return i+1;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Parses the string argument as a signed integer in the radix
      * specified by the second argument. The characters in the string
      * must all be digits of the specified radix (as determined by
@@ -427,6 +451,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * parseInt("Kona", 10) throws a NumberFormatException
      * parseInt("Kona", 27) returns 411787
      * </pre></blockquote>
+     * {@descriptive.close}
      *
      * @param      s   the {@code String} containing the integer
      *                  representation to be parsed
@@ -495,7 +520,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return negative ? result : -result;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Parses the string argument as a signed decimal integer. The
      * characters in the string must all be decimal digits, except
      * that the first character may be an ASCII minus sign {@code '-'}
@@ -503,6 +529,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * resulting integer value is returned, exactly as if the argument
      * and the radix 10 were given as arguments to the {@link
      * #parseInt(java.lang.String, int)} method.
+     * {@descriptive.close}
      *
      * @param s    a {@code String} containing the {@code int}
      *             representation to be parsed
@@ -514,7 +541,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return parseInt(s,10);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an {@code Integer} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -530,6 +558,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code new Integer(Integer.parseInt(s, radix))}
      * </blockquote>
+     * {@descriptive.close}
      *
      * @param      s   the string to be parsed.
      * @param      radix the radix to be used in interpreting {@code s}
@@ -543,7 +572,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return new Integer(parseInt(s,radix));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an {@code Integer} object holding the
      * value of the specified {@code String}. The argument is
      * interpreted as representing a signed decimal integer, exactly
@@ -558,6 +588,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code new Integer(Integer.parseInt(s))}
      * </blockquote>
+     * {@descriptive.close}
      *
      * @param      s   the string to be parsed.
      * @return     an {@code Integer} object holding the value
@@ -581,13 +612,18 @@ public final class Integer extends Number implements Comparable<Integer> {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an {@code Integer} instance representing the specified
-     * {@code int} value.  If a new {@code Integer} instance is not
+     * {@code int} value.
+     * {@descriptive.close}
+     * {@property.open runtime performance}
+     * If a new {@code Integer} instance is not
      * required, this method should generally be used in preference to
      * the constructor {@link #Integer(int)}, as this method is likely
      * to yield significantly better space and time performance by
      * caching frequently requested values.
+     * {@property.close}
      *
      * @param  i an {@code int} value.
      * @return an {@code Integer} instance representing {@code i}.
@@ -601,16 +637,18 @@ public final class Integer extends Number implements Comparable<Integer> {
         return new Integer(i);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The value of the {@code Integer}.
      *
      * @serial
      */
     private final int value;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Constructs a newly allocated {@code Integer} object that
      * represents the specified {@code int} value.
+     * {@descriptive.close}
      *
      * @param   value   the value to be represented by the
      *                  {@code Integer} object.
@@ -619,12 +657,14 @@ public final class Integer extends Number implements Comparable<Integer> {
         this.value = value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Constructs a newly allocated {@code Integer} object that
      * represents the {@code int} value indicated by the
      * {@code String} parameter. The string is converted to an
      * {@code int} value in exactly the manner used by the
      * {@code parseInt} method for radix 10.
+     * {@descriptive.close}
      *
      * @param      s   the {@code String} to be converted to an
      *                 {@code Integer}.
@@ -636,60 +676,74 @@ public final class Integer extends Number implements Comparable<Integer> {
         this.value = parseInt(s, 10);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as a
      * {@code byte}.
+     * {@descriptive.close}
      */
     public byte byteValue() {
         return (byte)value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as a
      * {@code short}.
+     * {@descriptive.close}
      */
     public short shortValue() {
         return (short)value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as an
      * {@code int}.
+     * {@descriptive.close}
      */
     public int intValue() {
         return value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as a
      * {@code long}.
+     * {@descriptive.close}
      */
     public long longValue() {
         return (long)value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as a
      * {@code float}.
+     * {@descriptive.close}
      */
     public float floatValue() {
         return (float)value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Integer} as a
      * {@code double}.
+     * {@descriptive.close}
      */
     public double doubleValue() {
         return (double)value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code String} object representing this
      * {@code Integer}'s value. The value is converted to signed
      * decimal representation and returned as a string, exactly as if
      * the integer value were given as an argument to the {@link
      * java.lang.Integer#toString(int)} method.
+     * {@descriptive.close}
      *
      * @return  a string representation of the value of this object in
      *          base&nbsp;10.
@@ -698,8 +752,10 @@ public final class Integer extends Number implements Comparable<Integer> {
         return String.valueOf(value);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a hash code for this {@code Integer}.
+     * {@descriptive.close}
      *
      * @return  a hash code value for this object, equal to the
      *          primitive {@code int} value represented by this
@@ -709,11 +765,13 @@ public final class Integer extends Number implements Comparable<Integer> {
         return value;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is an {@code Integer} object that
      * contains the same {@code int} value as this object.
+     * {@descriptive.close}
      *
      * @param   obj   the object to compare with.
      * @return  {@code true} if the objects are the same;
@@ -726,7 +784,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Determines the integer value of the system property with the
      * specified name.
      *
@@ -748,6 +807,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code getInteger(nm, null)}
      * </blockquote>
+     * {@descriptive.close}
      *
      * @param   nm   property name.
      * @return  the {@code Integer} value of the property.
@@ -758,7 +818,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return getInteger(nm, null);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Determines the integer value of the system property with the
      * specified name.
      *
@@ -792,6 +853,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      *
      * to avoid the unnecessary allocation of an {@code Integer}
      * object when the default value is not needed.
+     * {@descriptive.close}
      *
      * @param   nm   property name.
      * @param   val   default value.
@@ -804,7 +866,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return (result == null) ? new Integer(val) : result;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the integer value of the system property with the
      * specified name.  The first argument is treated as the name of a
      * system property.  System properties are accessible through the
@@ -832,6 +895,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * returned if there is no property of the specified name, if the
      * property does not have the correct numeric format, or if the
      * specified name is empty or {@code null}.
+     * {@descriptive.close}
      *
      * @param   nm   property name.
      * @param   val   default value.
@@ -856,7 +920,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return val;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Decodes a {@code String} into an {@code Integer}.
      * Accepts decimal, hexadecimal, and octal numbers given
      * by the following grammar:
@@ -887,8 +952,12 @@ public final class Integer extends Number implements Comparable<Integer> {
      * 8).  This sequence of characters must represent a positive
      * value or a {@link NumberFormatException} will be thrown.  The
      * result is negated if first character of the specified {@code
-     * String} is the minus sign.  No whitespace characters are
+     * String} is the minus sign. 
+     * {@descriptive.close}
+     * {@property.open runtime}
+     * No whitespace characters are
      * permitted in the {@code String}.
+     * {@property.close}
      *
      * @param     nm the {@code String} to decode.
      * @return    an {@code Integer} object holding the {@code int}
@@ -943,8 +1012,10 @@ public final class Integer extends Number implements Comparable<Integer> {
         return result;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Compares two {@code Integer} objects numerically.
+     * {@descriptive.close}
      *
      * @param   anotherInteger   the {@code Integer} to be compared.
      * @return  the value {@code 0} if this {@code Integer} is
@@ -965,20 +1036,24 @@ public final class Integer extends Number implements Comparable<Integer> {
 
     // Bit twiddling
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * The number of bits used to represent an {@code int} value in two's
      * complement binary form.
+     * {@descriptive.close}
      *
      * @since 1.5
      */
     public static final int SIZE = 32;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an {@code int} value with at most a single one-bit, in the
      * position of the highest-order ("leftmost") one-bit in the specified
      * {@code int} value.  Returns zero if the specified value has no
      * one-bits in its two's complement binary representation, that is, if it
      * is equal to zero.
+     * {@descriptive.close}
      *
      * @return an {@code int} value with a single one-bit, in the position
      *     of the highest-order one-bit in the specified value, or zero if
@@ -995,12 +1070,14 @@ public final class Integer extends Number implements Comparable<Integer> {
         return i - (i >>> 1);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an {@code int} value with at most a single one-bit, in the
      * position of the lowest-order ("rightmost") one-bit in the specified
      * {@code int} value.  Returns zero if the specified value has no
      * one-bits in its two's complement binary representation, that is, if it
      * is equal to zero.
+     * {@descriptive.close}
      *
      * @return an {@code int} value with a single one-bit, in the position
      *     of the lowest-order one-bit in the specified value, or zero if
@@ -1012,7 +1089,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return i & -i;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the number of zero bits preceding the highest-order
      * ("leftmost") one-bit in the two's complement binary representation
      * of the specified {@code int} value.  Returns 32 if the
@@ -1025,6 +1103,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <li>floor(log<sub>2</sub>(x)) = {@code 31 - numberOfLeadingZeros(x)}
      * <li>ceil(log<sub>2</sub>(x)) = {@code 32 - numberOfLeadingZeros(x - 1)}
      * </ul>
+     * {@descriptive.close}
      *
      * @return the number of zero bits preceding the highest-order
      *     ("leftmost") one-bit in the two's complement binary representation
@@ -1045,12 +1124,14 @@ public final class Integer extends Number implements Comparable<Integer> {
         return n;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the number of zero bits following the lowest-order ("rightmost")
      * one-bit in the two's complement binary representation of the specified
      * {@code int} value.  Returns 32 if the specified value has no
      * one-bits in its two's complement representation, in other words if it is
      * equal to zero.
+     * {@descriptive.close}
      *
      * @return the number of zero bits following the lowest-order ("rightmost")
      *     one-bit in the two's complement binary representation of the
@@ -1070,10 +1151,12 @@ public final class Integer extends Number implements Comparable<Integer> {
         return n - ((i << 1) >>> 31);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the number of one-bits in the two's complement binary
      * representation of the specified {@code int} value.  This function is
      * sometimes referred to as the <i>population count</i>.
+     * {@descriptive.close}
      *
      * @return the number of one-bits in the two's complement binary
      *     representation of the specified {@code int} value.
@@ -1089,7 +1172,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return i & 0x3f;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value obtained by rotating the two's complement binary
      * representation of the specified {@code int} value left by the
      * specified number of bits.  (Bits shifted out of the left hand, or
@@ -1101,6 +1185,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * no-op, so all but the last five bits of the rotation distance can be
      * ignored, even if the distance is negative: {@code rotateLeft(val,
      * distance) == rotateLeft(val, distance & 0x1F)}.
+     * {@descriptive.close}
      *
      * @return the value obtained by rotating the two's complement binary
      *     representation of the specified {@code int} value left by the
@@ -1111,7 +1196,8 @@ public final class Integer extends Number implements Comparable<Integer> {
         return (i << distance) | (i >>> -distance);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value obtained by rotating the two's complement binary
      * representation of the specified {@code int} value right by the
      * specified number of bits.  (Bits shifted out of the right hand, or
@@ -1123,6 +1209,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * no-op, so all but the last five bits of the rotation distance can be
      * ignored, even if the distance is negative: {@code rotateRight(val,
      * distance) == rotateRight(val, distance & 0x1F)}.
+     * {@descriptive.close}
      *
      * @return the value obtained by rotating the two's complement binary
      *     representation of the specified {@code int} value right by the
@@ -1133,10 +1220,12 @@ public final class Integer extends Number implements Comparable<Integer> {
         return (i >>> distance) | (i << -distance);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value obtained by reversing the order of the bits in the
      * two's complement binary representation of the specified {@code int}
      * value.
+     * {@descriptive.close}
      *
      * @return the value obtained by reversing order of the bits in the
      *     specified {@code int} value.
@@ -1152,10 +1241,12 @@ public final class Integer extends Number implements Comparable<Integer> {
         return i;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the signum function of the specified {@code int} value.  (The
      * return value is -1 if the specified value is negative; 0 if the
      * specified value is zero; and 1 if the specified value is positive.)
+     * {@descriptive.close}
      *
      * @return the signum function of the specified {@code int} value.
      * @since 1.5
@@ -1165,9 +1256,11 @@ public final class Integer extends Number implements Comparable<Integer> {
         return (i >> 31) | (-i >>> 31);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value obtained by reversing the order of the bytes in the
      * two's complement representation of the specified {@code int} value.
+     * 
      *
      * @return the value obtained by reversing the bytes in the specified
      *     {@code int} value.
@@ -1180,6 +1273,10 @@ public final class Integer extends Number implements Comparable<Integer> {
                ((i << 24));
     }
 
-    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats} 
+     * {@descriptive.open}
+     * use serialVersionUID from JDK 1.0.2 for interoperability
+     * {@descriptive.close}
+     */
     private static final long serialVersionUID = 1360826667806852920L;
 }

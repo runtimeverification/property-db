@@ -117,6 +117,7 @@ public class NewOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inNew){
           String text = tag.text().trim();
+          if(text.length() == 0) continue;
           w += text.split("\\s+").length; 
         }
       } 
