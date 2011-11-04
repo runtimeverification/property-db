@@ -15,7 +15,7 @@ import java.io.*;
 CharArrayWriter_Close(CharArrayWriter w) {
 	event close before(CharArrayWriter w) : call(* CharArrayWriter.close(..)) && target(w) {}
 
-	ere : close
+	ere : close+
 
 	@match {
 		System.err.println("CharArrayWriter.close() has no effect.");

@@ -15,7 +15,7 @@ import java.io.*;
 ByteArrayInputStream_Close(ByteArrayInputStream i) {
 	event close before(ByteArrayInputStream i) : call(* ByteArrayInputStream.close(..)) && target(i) {}
 
-	ere : close
+	ere : close+
 
 	@match {
 		System.err.println("ByteArrayInputStream.close() has no effect.");

@@ -18,7 +18,7 @@ Console_CloseReader(Reader r) {
 	event close before(Reader r) :
 		call(* Reader+.close(..)) && target(r) {}
 
-	ere : getreader close
+	ere : getreader close+
 
 	@match {
 		System.err.println("Invoking close() on the object returned by Console.reader() does not close the underlying stream.");

@@ -18,7 +18,7 @@ Console_CloseWriter(Writer w) {
 	event close before(Writer w) :
 		call(* Writer+.close(..)) && target(w) {}
 
-	ere : getwriter close
+	ere : getwriter close+
 
 	@match {
 		System.err.println("Invoking close() on the object returned by Console.writer() does not close the underlying stream.");
