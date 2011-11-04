@@ -29,20 +29,23 @@ function handle_property {
 	classdir=$BUILDIR/$packname/$propname
 	ajdir=$classdir/mop
 
+	# clean up
+	rm -rf $classdir
+
 	# Build .aj from .mop
 	mkdir -p $ajdir
-	$JAVAMOP -d $ajdir $moppath
+	$JAVAMOP -d $ajdir $moppath || exit 1
 
 	# Compile .java and .aj together
 	exampledir=$EXAMPLEDIR/$packname/$propname
-	$AJC -1.6 -d $classdir $ajdir/${propname}MonitorAspect.aj $exampledir/*.java
+	$AJC -1.6 -d $classdir $ajdir/${propname}MonitorAspect.aj $exampledir/*.java || exit 2
 
 	for example in `ls $exampledir/*.java`
 	do
 		fname=`basename $example`
 		entry=${fname%.java}
 		echo "   running $entry {{{"
-		java -cp $classdir:$CLASSPATH $entry
+		java -cp $classdir:$CLASSPATH $entry || exit 3
 		echo "   }}}"
 	done
 }

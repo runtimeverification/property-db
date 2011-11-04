@@ -6,7 +6,7 @@ public class Console_FillZeroPassword_1 {
 		char[] passwd = cons.readPassword();
 		// Zeroing the returned password is recommended to minimize the lifetime
 		// of sensitive data in memory.
-		java.util.Arrays.fill(passwd, ' ');
+//		java.util.Arrays.fill(passwd, ' ');
 	}
 }
 
