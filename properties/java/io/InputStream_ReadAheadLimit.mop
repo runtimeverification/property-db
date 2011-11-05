@@ -5,9 +5,17 @@ import java.io.*;
 /**
  * Raises an error if mark() is invalidated by reading.
  *
- * BufferedInputStream, DataInputStream and LineNumberInputStream support
- * mark() and reset(), but after reading the specified number of bytes, the
- * mark is not preserved and, consequently, calling reset() is prevented.
+ * Some subclasses of InputStream support mark() but the mark position can be
+ * invalidated.
+ * http://download.oracle.com/javase/6/docs/api/java/io/InputStream.html#reset%28%29
+ *
+ * BufferedInputStream support mark() and reset(), but after reading the
+ * specified number of bytes, the mark is not preserved and, consequently,
+ * calling reset() is prevented.
+ *
+ * As for DataInputStream and LineNumberInputStream, mark() and reset() rely
+ * on the underlying stream. Therefore, one cannot assume that the mark for
+ * these classes is not invalidated.
  *
  * This specification keeps track of validity of the mark, and raises an error
  * when the mark is invalidated and read() is invoked.
@@ -24,40 +32,42 @@ InputStream_ReadAheadLimit(InputStream i) {
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			__MONITOR.limit = l;
-			__MONITOR.rest = l;
+			this.limit = l;
+			this.rest = l;
 		}
-	event read after(InputStream i) : 
+	event read after(InputStream i) returning (int m) :
 		call(* InputStream+.read()) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			/* TODO what if read() returns 0 or -1? */
-			__MONITOR.rest -= 1;
-			if (__MONITOR.rest < 0) {
-				__MONITOR.LOC = __LOC;
+			if (m != -1) {
+				this.rest -= 1;
+				if (this.rest < 0) {
+					this.LOC = __LOC;
+				}
 			}
 		}
-	event read after(InputStream i) returning (int m) : 
+	event read after(InputStream i) returning (int m) :
 		call(* InputStream+.read(char[], ..)) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			/* TODO what if read() returns 0 or -1? */
-			__MONITOR.rest -= m;
-			if (__MONITOR.rest < 0) {
-				__MONITOR.LOC = __LOC;
+			if (m != -1) {
+				this.rest -= m;
+				if (this.rest < 0) {
+					this.LOC = __LOC;
+				}
 			}
 		}
-	event reset before(InputStream i) : 
+	event goodreset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && condition(rest >= 0) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			__MONITOR.rest = __MONITOR.limit;
+			this.rest = this.limit;
 		}
 	event badreset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && condition(rest < 0) && if (
@@ -65,29 +75,17 @@ InputStream_ReadAheadLimit(InputStream i) {
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		)
-			__MONITOR.limit = 0;
-			__MONITOR.rest = 0;
+			this.limit = 0;
+			this.rest = 0;
 		}
 
-	/* TODO the following fsm is incomplete */
-	fsm :
-		unmarked [
-			read -> unmarked
-			mark -> marked
-		]
-		marked [
-			read -> marked
-			reset -> marked
-			mark -> marked
-		]
+	ere : badreset
 
-	//ere : read* mark (read | mark | reset)* badreset
-
-	@fail {
-		System.err.println("mark() was invalidated.");
-		if (__MONITOR.LOC != null) {
-			System.err.println("read at line " + __MONITOR.LOC + " invalidated mark()");
+	@match {
+		System.err.println("The position mark has been invalidated.");
+		if (this.LOC != null) {
+			System.err.println("read() at line " + this.LOC + " invalidated the mark");
 		}
-		System.exit(1);
 	}
 }
+

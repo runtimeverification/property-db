@@ -5,6 +5,9 @@ import java.io.*;
 /**
  * Prevents invocations of mark() if the InputStream does not support.
  *
+ * Some subclasses of InputStream do not support mark() and reset().
+ * http://download.oracle.com/javase/6/docs/api/java/io/InputStream.html#reset%28%29
+ *
  * FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream
  * and SequenceInputStream do not support mark() and reset(). This
  * specification warns if mark() or reset() is invoked. Users tend to assume

@@ -18,7 +18,14 @@ properties=(
 #	Closeable_MultipleClose
 #	Console_CloseReader
 #	Console_CloseWriter
-	Console_FillZeroPassword
+#	Console_FillZeroPassword
+#	File_DeleteTempFile
+#	File_LengthOnDirectory
+#	InputStream_ManipulateAfterClose
+#	InputStream_MarkAfterClose
+#	InputStream_MarkReset
+#	InputStream_ReadAheadLimit
+	InputStream_UnmarkedReset
 )
 
 function handle_property {
@@ -45,7 +52,7 @@ function handle_property {
 		fname=`basename $example`
 		entry=${fname%.java}
 		echo "   running $entry {{{"
-		java -cp $classdir:$CLASSPATH $entry || exit 3
+		java -cp $classdir:$CLASSPATH $entry
 		echo "   }}}"
 	done
 }

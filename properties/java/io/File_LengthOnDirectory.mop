@@ -3,11 +3,14 @@ package mop;
 import java.io.*;
 
 /**
- * Checks if a File instance does not represent a directory, before calling length().
+ * Warns if length() is invoked on a File object representing a directory.
  *
  * The return value of length() is unspecified if the File instance denotes a
- * directory. The caller should check that using either isDirectory() or
- * isFile().
+ * directory.
+ * http://download.oracle.com/javase/6/docs/api/java/io/File.html#length%28%29
+ *
+ * This propery warns if length() is called when a File object represents a
+ * directory.
  */
 
 File_LengthOnDirectory(File f) {
@@ -15,14 +18,12 @@ File_LengthOnDirectory(File f) {
 		call(* File+.isDirectory(..)) && target(f) && condition(r) {}
 	event isfile_false after(File f) returning(boolean r) :
 		call(* File+.isFile(..)) && target(f) && condition(!r) {}
-	event directory before(File f)
 	event length before(File f) : call(* File+.length(..)) && target(f) {}
 
 	fsm :
 		initial [
 			isdirectory_true -> directory
 			isfile_false -> directory
-			directory -> directory
 		]
 		directory [
 			length -> error
@@ -31,7 +32,6 @@ File_LengthOnDirectory(File f) {
 		]
 
 	@error {
-		System.err.println("length() was invoked for a File instance that may represent a directory.");
-		System.exit(1);
+		System.err.println("length() was invoked on a File instance that may represent a directory.");
 	}
 }

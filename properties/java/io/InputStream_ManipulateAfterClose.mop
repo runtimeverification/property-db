@@ -8,6 +8,10 @@ import java.io.*;
  * According to the BufferedInputStream.close() document, read(), available(),
  * reset() or skip() invocations will throw an IOException, once the stream
  * has been closed.
+ * http://download.oracle.com/javase/6/docs/api/java/io/BufferedInputStream.html#close%28%29
+ *
+ * This property warns if a closed InputStream object invokes the
+ * aforementioned methods.
  */
 
 InputStream_ManipulateAfterClose(InputStream i) {
@@ -24,6 +28,6 @@ InputStream_ManipulateAfterClose(InputStream i) {
 
 	@fail {
 		System.err.println("read(), available(), reset() or skip() was invoked after close().");
-		System.exit(1);
 	}
 }
+

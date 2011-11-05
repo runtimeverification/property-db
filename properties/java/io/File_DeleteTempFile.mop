@@ -6,6 +6,14 @@ import java.io.*;
  * Checks if a temporary file is explicitly deleted or scheduled to be deleted
  * when the virtual machine terminates.
  *
+ * The documents mentions how to utilize a temporary-file facility, as follows
+ * (http://download.oracle.com/javase/6/docs/api/java/io/File.html#createTempFile%28java.lang.String,%20java.lang.String,%20java.io.File%29):
+ * <blockquote>
+ * This method provides only part of a temporary-file facility. To arrange for
+ * a file created by this method to be deleted automatically, use the
+ * deleteOnExit() method. 
+ * </blockquote>
+ *
  * This specification assumes that a temporary file created by
  * createTempFile() is ephemeral and thus should be deleted either explicitly
  * by delete() or implicitly by deleteOnExit(). An execution that violates
