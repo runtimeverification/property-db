@@ -25,7 +25,10 @@ properties=(
 #	InputStream_MarkAfterClose
 #	InputStream_MarkReset
 #	InputStream_ReadAheadLimit
-	InputStream_UnmarkedReset
+#	InputStream_UnmarkedReset
+#	ObjectInput_Close
+#	ObjectOutput_Close
+	OutputStream_ManipulateAfterClose
 )
 
 function handle_property {

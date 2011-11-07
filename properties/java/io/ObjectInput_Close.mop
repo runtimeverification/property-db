@@ -5,16 +5,19 @@ import java.io.*;
 /**
  * Warns if an ObjectInput instance does not close.
  *
- * An ObjectInput instance should be closed.
+ * An ObjectInput instance must be closed.
+ * http://download.oracle.com/javase/6/docs/api/java/io/ObjectInput.html#close%28%29
  */
 
 ObjectInput_Close(ObjectInput i) {
-	event create before(ObjectInput i) : call(ObjectInput+.new(..)) && target(i) {}
+	event create after() returning(ObjectInput i) :
+		call(ObjectInput+.new(..)) {}
 	event close before(ObjectInput i) : call(* ObjectInput+.close(..)) && target(i) {}
+	event endProg before() : endProgram() {}
 
-	ere : create close+
+	ltl : [](create => o close)
 
-	@fail {
+	@violation {
 		System.err.println("close() was not called.");
 	}
 }

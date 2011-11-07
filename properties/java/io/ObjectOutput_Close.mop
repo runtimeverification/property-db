@@ -5,16 +5,19 @@ import java.io.*;
 /**
  * Warns if an ObjectOutput instance does not close.
  *
- * An ObjectOutput instance should be closed.
+ * An ObjectOutput instance must be closed.
+ * http://download.oracle.com/javase/6/docs/api/java/io/ObjectOutput.html#close%28%29
  */
 
-ObjectOutput_close(ObjectOutput o) {
-	event create before(ObjectOutput o) : call(ObjectOutput+.new(..)) && target(o) {}
+ObjectOutput_Close(ObjectOutput o) {
+	event create after() returning(ObjectOutput o) :
+		call(ObjectOutput+.new(..)) {}
 	event close before(ObjectOutput o) : call(* ObjectOutput+.close(..)) && target(o) {}
+	event endProg before() : endProgram() {}
 
-	ere : create close+
+	ltl : [](create => o close)
 
-	@fail {
+	@violation {
 		System.err.println("close() was not called.");
 	}
 }

@@ -3,24 +3,22 @@ package mop;
 import java.io.*;
 
 /**
- * Warns write operation after close().
+ * Warns write() after close().
  *
  * According to the OutputStream.close(), a closed stream cannot perform
  * output operations and cannot be reopened.
+ * http://download.oracle.com/javase/6/docs/api/java/io/OutputStream.html#close%28%29
  */
 
 OutputStream_ManipulateAfterClose(OutputStream o) {
 	event manipulate before(OutputStream o) :
-		(
-			call(* OutputStream+.write(..)) ||
-			call(* OutputStream+.writeBytes(..))
-		) && target(o) {}
+		call(* OutputStream+.write(..)) && target(o) {}
 	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
 
 	ere : manipulate* close
 
 	@fail {
-		System.err.println("An output operation was performed on a closed stream."); 
-		System.exit(1);
+		System.err.println("write() was invoked after close()."); 
 	}
 }
+

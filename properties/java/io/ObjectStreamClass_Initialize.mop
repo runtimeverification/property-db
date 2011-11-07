@@ -10,19 +10,20 @@ import java.io.*;
  */
 
 ObjectStreamClass_Initialize(ObjectStreamClass c) {
-	event create before(ObjectStreamClass c) : call(ObjectStreamClass+.new()) && target(c) {}
+	event create after() returning(ObjectStreamClass c) :
+		call(ObjectStreamClass+.new()) {}
 	event init before(ObjectStreamClass c) :
 		(
 			call(* ObjectStreamClass+.initProxy(..)) ||
 			call(* ObjectStreamClass+.initNonProxy(..)) ||
 			call(* ObjectStreamClass+.readNonProxy(..))
 		) && target(c) {}
+	event endProg before() : endProgram() {}
 
-	ere : create init+
+	ltl : [](create => o init)
 
-	@fail {
+	@violation {
 		System.err.println("An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
-		System.exit(1);
 	}
 }
 
