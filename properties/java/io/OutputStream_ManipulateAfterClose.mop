@@ -12,7 +12,7 @@ import java.io.*;
 
 OutputStream_ManipulateAfterClose(OutputStream o) {
 	event manipulate before(OutputStream o) :
-		call(* OutputStream+.write(..)) && target(o) {}
+		call(* OutputStream+.write*(..)) && target(o) {}
 	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
 
 	ere : manipulate* close
