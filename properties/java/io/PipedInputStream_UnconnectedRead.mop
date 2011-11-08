@@ -1,0 +1,50 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if an unconnected PipedInputStream object performs a read operation.
+ *
+ * If the pipe is broken, write() fails and a runtime exception is raised.
+ * http://download.oracle.com/javase/6/docs/api/java/io/PipedInputStream.html#read%28%29
+ */
+PipedInputStream_UnconnectedRead(PipedInputStream i) {
+	event create after() returning(PipedInputStream i) :
+		call(PipedInputStream+.new()) {}
+	event create_oi after() returning(PipedInputStream i) :
+		call(PipedInputStream+.new(PipedOutputStream+)) {}
+
+	event create_io before(PipedInputStream i) :
+		call(PipedOutputStream+.new(PipedInputStream+)) && args(i) {}
+
+	event connect_io before(PipedInputStream i) :
+		call(* PipedOutputStream+.connect(PipedInputStream+)) && args(i) {}
+	event connect_oi before(PipedInputStream i) :
+		call(* PipedInputStream+.connect(PipedOutputStream+)) && target(i) {}
+
+	event read before(PipedInputStream i) :
+		(
+			call(* PipedInputStream+.read(..)) ||
+			call(* PipedInputStream+.receive(..)) ||
+			call(* PipedInputStream+.available(..))
+		) && target(i) {}
+
+	fsm :
+		initial [
+			create -> unconnected
+			create_oi -> connected
+		]
+		unconnected [
+			create_io -> connected
+			connect_io -> connected
+			connect_oi -> connected
+		]
+		connected [
+			read -> connected
+		]
+
+	@fail {
+		System.err.println("An unconnected PipedInputStream performed read() operation.");
+	}
+}
+
