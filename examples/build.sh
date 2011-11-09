@@ -28,11 +28,20 @@ properties=(
 #	InputStream_UnmarkedReset
 #	ObjectInput_Close
 #	ObjectOutput_Close
-#	OutputStream_ManipulateAfterClose
+	OutputStream_ManipulateAfterClose
 #	PipedInputStream_UnconnectedRead
 #	PipedOutputStream_UnconnectedWrite
 #	PipedStream_SingleThread
-	PushbackInputStream_UnreadAheadLimit
+# XXX
+#	PushbackInputStream_UnreadAheadLimit
+#	RandomAccessFile_ManipulateAfterClose
+#	Reader_ManipulateAfterClose
+#	Reader_MarkReset
+#	Reader_ReadAheadLimit
+#	Reader_UnmarkedReset
+#	StreamTokenizer_AccessInvalidField
+#	StringWriter_Close
+#	Writer_ManipulateAfterClose
 )
 
 function handle_property {
