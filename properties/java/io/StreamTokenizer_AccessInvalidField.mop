@@ -8,27 +8,35 @@ import java.io.*;
  * nextToken() parses the next token from the input stream, and returns the
  * type of the token: TT_EOF, TT_EOL (the end of line), TT_NUMBER or TT_WORD.
  * The actual value of the token is stored at sval (or nval) only when the type
- * is TT_WORD (or TT_NUMBER). Reading sval for a TT_NUMBER typed token yields
- * an old junk value. This specification prevents this incorrect field access.
+ * is TT_WORD (or TT_NUMBER).
+ * http://download.oracle.com/javase/6/docs/api/java/io/StreamTokenizer.html#nextToken%28%29
+ *
+ * Reading sval for a TT_NUMBER typed token yields an old junk value. This
+ * specification prevents this incorrect field access.
  */
 
 StreamTokenizer_AccessInvalidField(StreamTokenizer s) {
-
 	event nexttoken_word after(StreamTokenizer s) returning(int t) :
-		call(* StreamTokenizer+.nextToken(..)) && target(s) && condition(t == StreamTokenizer.TT_WORD) {}
+		call(* StreamTokenizer+.nextToken(..)) && target(s) &&
+		condition(t == StreamTokenizer.TT_WORD) {}
 
 	event nexttoken_num after(StreamTokenizer s) returning(int t) :
-		call(* StreamTokenizer+.nextToken(..)) && target(s) && condition(t == StreamTokenizer.TT_NUMBER) {}
+		call(* StreamTokenizer+.nextToken(..)) && target(s) &&
+		condition(t == StreamTokenizer.TT_NUMBER) {}
 
 	event nexttoken_eol after(StreamTokenizer s) returning(int t) :
-		call(* StreamTokenizer+.nextToken(..)) && target(s) && condition(t == StreamTokenizer.TT_EOL) {}
+		call(* StreamTokenizer+.nextToken(..)) && target(s) &&
+		condition(t == StreamTokenizer.TT_EOL) {}
 
 	event nexttoken_eof after(StreamTokenizer s) returning(int t) :
-		call(* StreamTokenizer+.nextToken(..)) && target(s) && condition(t == StreamTokenizer.TT_EOF) {}
+		call(* StreamTokenizer+.nextToken(..)) && target(s) &&
+		condition(t == StreamTokenizer.TT_EOF) {}
 
-	event sval before(StreamTokenizer s) : get(* StreamTokenizer.sval) && target(s) {}
+	event sval before(StreamTokenizer s) :
+		get(* StreamTokenizer.sval) && target(s) {}
 
-	event nval before(StreamTokenizer s) : get(* StreamTokenizer.nval) && target(s) {}
+	event nval before(StreamTokenizer s) :
+		get(* StreamTokenizer.nval) && target(s) {}
 
 	fsm :
 		valid [
@@ -55,7 +63,7 @@ StreamTokenizer_AccessInvalidField(StreamTokenizer s) {
 		]
 
 	@fail {
-		System.err.println("The caller attempted to read an invalidated value.");
-		System.exit(1);
+		System.err.println("The caller attempted to read an invalidated value. " + __LOC);
+		__RESET;
 	}
 }

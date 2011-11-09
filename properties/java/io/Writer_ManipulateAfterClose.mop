@@ -7,6 +7,7 @@ import java.io.*;
  *
  * According to the Writer.close() document, further write() or flush()
  * invocations will cause an IOException to be thrown.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Writer.html#close%28%29
  */
 
 Writer_ManipulateAfterClose(Writer w) {

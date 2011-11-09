@@ -8,6 +8,10 @@ import java.io.*;
  * According to the Reader.close() document, read(), ready(), mark(),
  * reset() or skip() invocations will throw an IOException, once the stream
  * has been closed.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Reader.html#close%28%29
+ *
+ * This property warns if a closed Reader object invokes the aforementioned
+ * methods.
  */
 
 Reader_ManipulateAfterClose(Reader r) {
@@ -25,6 +29,5 @@ Reader_ManipulateAfterClose(Reader r) {
 
 	@fail {
 		System.err.println("read(), ready(), mark(), reset() or skip() was invoked after close().");
-		System.exit(1);
 	}
 }

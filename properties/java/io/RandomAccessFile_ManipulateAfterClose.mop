@@ -6,9 +6,11 @@ import java.io.*;
  * Warns if a closed object performs input or output operations.
  *
  * According to the document, a closed random access file cannot perform input
- * or output operations and cannot be reopened. This property captures only
- * input or output operations performed after close(), because reopening a
- * file is infeasible.
+ * or output operations and cannot be reopened.
+ * http://download.oracle.com/javase/6/docs/api/java/io/RandomAccessFile.html#close%28%29
+ *
+ * This property captures only input or output operations performed after
+ * close(), because reopening a file is prevented by the language.
  */
 
 RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
@@ -17,12 +19,12 @@ RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
 			call(* RandomAccessFile+.read*(..)) ||
 			call(* RandomAccessFile+.write*(..))
 		) && target(f) {}
-	event close before(RandomAccessFile f) : call(* Reader+.close(..)) && target(f) {}
+	event close before(RandomAccessFile f) : call(* RandomAccessFile+.close(..)) && target(f) {}
 
 	ere : manipulate* close
 
 	@fail {
-		System.err.println("A closed random access file cannot perform input or output operations");
+		System.err.println("A closed random access file cannot perform input or output operations.");
 	}
 }
 

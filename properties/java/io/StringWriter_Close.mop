@@ -6,18 +6,19 @@ import java.io.*;
  * Warns if StringWriter.close() is invoked.
  *
  * StringWriter.close() has no effect, and other methods in this class
- * can be called after close() without IOException. This specification warns
- * when such meaningless close() is invoked, in the hope that it helps the
- * user to understand the actual behavior.
+ * can be called after close() without IOException.
+ * http://download.oracle.com/javase/6/docs/api/java/io/StringWriter.html#close%28%29
+ *
+ * This specification warns when such meaningless close() is invoked, in the
+ * hope that it helps the user to understand the actual behavior.
  */
 StringWriter_Close(StringWriter w) {
 	event close before(StringWriter w) : call(* StringWriter.close(..)) && target(w) {}
 
-	ere : close
+	ere : close+
 
 	@match {
 		System.err.println("StringWriter.close() has no effect.");
-		System.exit(1);
 	}
 }
 
