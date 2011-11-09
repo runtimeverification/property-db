@@ -20,6 +20,7 @@ InputStream_UnmarkedReset(InputStream i) {
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {}
+
 	event reset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && if (
 			i instanceof BufferedInputStream ||
@@ -29,7 +30,7 @@ InputStream_UnmarkedReset(InputStream i) {
 
 	ere : mark (mark | reset)*
 
-	@fail{
+	@fail {
 		System.err.println("BufferedInputStream, DataInputStream and LineNumberInputStream allow reset() only after mark() has been invoked.");
 	}
 }

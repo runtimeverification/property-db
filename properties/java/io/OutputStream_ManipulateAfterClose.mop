@@ -12,13 +12,16 @@ import java.io.*;
 
 OutputStream_ManipulateAfterClose(OutputStream o) {
 	event manipulate before(OutputStream o) :
-		call(* OutputStream+.write*(..)) && target(o) {}
+		(
+			call(* OutputStream+.write*(..)) ||
+			call(* OutputStream+.flush(..))
+		) && target(o) {}
 	event close before(OutputStream o) : call(* OutputStream+.close(..)) && target(o) {}
 
 	ere : manipulate* close
 
 	@fail {
-		System.err.println("write() was invoked after close()."); 
+		System.err.println("write() or flush() was invoked after close()."); 
 	}
 }
 
