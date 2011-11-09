@@ -32,60 +32,61 @@ InputStream_ReadAheadLimit(InputStream i) {
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			this.limit = l;
-			this.rest = l;
-		}
-	event read after(InputStream i) returning (int m) :
+		this.limit = l;
+		this.rest = l;
+	}
+
+	event read after(InputStream i) returning(int n) :
 		call(* InputStream+.read()) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			if (m != -1) {
-				this.rest -= 1;
-				if (this.rest < 0) {
-					this.LOC = __LOC;
-				}
-			}
+		if (n != -1) {
+			this.rest -= 1;
+			if (this.rest < 0)
+				this.LOC = __LOC;
 		}
-	event read after(InputStream i) returning (int m) :
+	}
+
+	event read after(InputStream i) returning(int n) :
 		call(* InputStream+.read(char[], ..)) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			if (m != -1) {
-				this.rest -= m;
-				if (this.rest < 0) {
-					this.LOC = __LOC;
-				}
-			}
+		if (n != -1) {
+			this.rest -= n;
+			if (this.rest < 0)
+				this.LOC = __LOC;
 		}
+	}
+
 	event goodreset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && condition(rest >= 0) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
 		) {
-			this.rest = this.limit;
-		}
+		this.rest = this.limit;
+	}
+
 	event badreset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && condition(rest < 0) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
 			i instanceof LineNumberInputStream
-		)
-			this.limit = 0;
-			this.rest = 0;
-		}
+		) {
+		this.limit = 0;
+		this.rest = 0;
+	}
 
-	ere : badreset
+	ere : (mark | read | goodreset)* badreset+
 
 	@match {
 		System.err.println("The position mark has been invalidated.");
-		if (this.LOC != null) {
-			System.err.println("read() at line " + this.LOC + " invalidated the mark");
-		}
+		if (this.LOC != null)
+			System.err.println("read() at line " + this.LOC + " invalidated the mark.");
 	}
 }
 
