@@ -29,9 +29,10 @@ properties=(
 #	ObjectInput_Close
 #	ObjectOutput_Close
 #	OutputStream_ManipulateAfterClose
-	PipedInputStream_UnconnectedRead
+#	PipedInputStream_UnconnectedRead
 #	PipedOutputStream_UnconnectedWrite
 #	PipedStream_SingleThread
+	PushbackInputStream_UnreadAheadLimit
 )
 
 function handle_property {

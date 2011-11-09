@@ -30,10 +30,7 @@ package java.io;
  * A <code>PushbackInputStream</code> adds
  * functionality to another input stream, namely
  * the  ability to "push back" or "unread"
- * one byte.
- * {@description.close}
- * {@property.open Property:java.io.PushbackInputStream_PrematureUnread}
- * This is useful in situations where
+ * one byte. This is useful in situations where
  * it is  convenient for a fragment of code
  * to read an indefinite number of data bytes
  * that  are delimited by a particular byte
@@ -41,8 +38,6 @@ package java.io;
  * the  code fragment can "unread" it, so that
  * the next read operation on the input stream
  * will reread the byte that was pushed back.
- * {@property.close}
- * {@description.open}
  * For example, bytes representing the  characters
  * constituting an identifier might be terminated
  * by a byte representing an  operator character;
@@ -227,6 +222,13 @@ class PushbackInputStream extends FilterInputStream {
      * After this method returns, the next byte to be read will have the value
      * <code>(byte)b</code>.
      * {@description.close}
+     * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
+	  * {@new.open}
+	  * If the finite size of the internal pushback buffer is full, unread()
+	  * raises a runtime exception. The buffer size is specified when a
+	  * PushbackInputStream object is created.
+	  * {@new.close}
+	  * {@property.close}
      *
      * @param      b   the <code>int</code> value whose low-order
      *                  byte is to be pushed back.
@@ -249,6 +251,13 @@ class PushbackInputStream extends FilterInputStream {
      * read will have the value <code>b[off]</code>, the byte after that will
      * have the value <code>b[off+1]</code>, and so forth.
      * {@description.close}
+     * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
+	  * {@new.open}
+	  * If the finite size of the internal pushback buffer is full, unread()
+	  * raises a runtime exception. The buffer size is specified when a
+	  * PushbackInputStream object is created.
+	  * {@new.close}
+	  * {@property.close}
      *
      * @param b the byte array to push back.
      * @param off the start offset of the data.
@@ -275,6 +284,13 @@ class PushbackInputStream extends FilterInputStream {
      * will have the value <code>b[0]</code>, the byte after that will have the
      * value <code>b[1]</code>, and so forth.
      * {@description.close}
+     * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
+	  * {@new.open}
+	  * If the finite size of the internal pushback buffer is full, unread()
+	  * raises a runtime exception. The buffer size is specified when a
+	  * PushbackInputStream object is created.
+	  * {@new.close}
+	  * {@property.close}
      *
      * @param b the byte array to push back
      * @exception IOException If there is not enough room in the pushback
