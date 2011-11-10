@@ -21,7 +21,6 @@ Closeable_MultipleClose(Closeable c) {
 
 	@match {
 		System.err.println("close() was invoked multiple times.");
-		System.exit(1);
 	}
 }
 

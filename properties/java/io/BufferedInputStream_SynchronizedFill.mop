@@ -18,7 +18,6 @@ BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 
 	@match {
 		System.err.println("BufferedInputStream.fill() is being called by a non-synchronized method.");
-		System.exit(1);
 	}
 }
 
