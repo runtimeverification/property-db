@@ -1,0 +1,64 @@
+package mop;
+
+import java.io.*;
+import java.lang.reflect.*;
+
+/**
+ * Warns if a Serializable class does not declare a serialVersionUID.
+ *
+ * To allow subtypes of non-serializable classes to be serialized, the subtype
+ * may assume responsibility for saving and restoring the state of the
+ * supertype's public, protected, and (if accessible) package fields. The
+ * subtype may assume this responsibility only if the class it extends has an
+ * accessible no-arg constructor to initialize the class's state. It is an
+ * error to declare a class Serializable if this is not the case.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Serializable.html
+ *
+ * This property detects such error.
+ */
+Serializable_NoArgConstructor() {
+	event staticinit after() : staticinitialization(Serializable+) {
+		Class klass = null;
+		for (StackTraceElement frame : (new Throwable()).getStackTrace()) {
+			String klassname = frame.getClassName();
+			if (!klassname.startsWith("mop.")) {
+				try {
+					klass = Class.forName(klassname);
+				}
+				catch (ClassNotFoundException e) {
+					System.err.println("A serializable class " + klassname + " cannot be found.");
+				}
+				break;
+			}
+		}
+
+		if (klass != null) {
+			Class superklass = klass.getSuperclass();
+			boolean issuperserializable = false;
+			for (Class superitf : superklass.getInterfaces()) {
+				if (superitf.getName().equals("java.io.Serializable")) {
+					issuperserializable = true;
+					break;
+				}
+			}
+
+			if (!issuperserializable) {
+				Constructor[] ctors = superklass.getDeclaredConstructors();
+				boolean noargctorfound = ctors.length == 0;
+
+				for (Constructor ctor : ctors) {
+					int numargs = ctor.getParameterTypes().length;
+					int mod = ctor.getModifiers();
+					if (numargs == 0 && !Modifier.isPrivate(mod)) {
+						noargctorfound = true;
+						break;
+					}
+				}
+
+				if (!noargctorfound)
+					System.err.println("The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
+			}
+		}
+	}
+}
+

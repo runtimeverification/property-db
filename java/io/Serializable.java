@@ -35,7 +35,7 @@ package java.io;
  * and serves only to identify the semantics of being serializable. <p>
  * {@description.close}
  *
- * {@property.open static}
+ * {@property.open Property:java.io.Serializable_NoArgConstructor}
  * To allow subtypes of non-serializable classes to be serialized, the
  * subtype may assume responsibility for saving and restoring the
  * state of the supertype's public, protected, and (if accessible)
@@ -44,10 +44,6 @@ package java.io;
  * initialize the class's state.  It is an error to declare a class
  * Serializable if this is not the case.  The error will be detected at
  * runtime. <p>
- * {@new.open}
- * Declaring a class Serializable when the supertype does not have accessible
- * no-arg constructor can be detected at compile time.
- * {@new.close}
  *
  * During deserialization, the fields of non-serializable classes will
  * be initialized using the public or protected no-arg constructor of
@@ -149,7 +145,7 @@ package java.io;
  * </PRE>
  * {@description.close}
  *
- * {@property.open static}
+ * {@property.open Property:java.io.Serializable_UID}
  * If a serializable class does not explicitly declare a serialVersionUID, then
  * the serialization runtime will calculate a default serialVersionUID value
  * for that class based on various aspects of the class, as described in the

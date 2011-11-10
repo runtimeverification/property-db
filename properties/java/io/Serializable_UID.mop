@@ -1,0 +1,64 @@
+package mop;
+
+import java.io.*;
+import java.lang.reflect.*;
+
+/**
+ * Warns if a Serializable class does not declare a serialVersionUID.
+ *
+ * The serialization runtime associates with each serializable class a version
+ * number, called a serialVersionUID, which is used during deserialization to
+ * verify that the sender and receiver of a serialized object have loaded
+ * classes for that object that are compatible with respect to serialization.
+ *
+ * If a serializable class does not declare a serialVersionUID, then the
+ * serialization runtime calculates a default serialVersionUID. However, it is
+ * strongly recommended that all serializable classes explicitly declare
+ * serialVersionUID values, since the default serialVersionUID computation is
+ * highly sensitive to class details that may vary depending on compiler
+ * implementations, and can thus result in unexpected InvalidClassExceptions
+ * during deserialization.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Serializable.html
+ *
+ * This property warns if a serializable class does not explicitly declare a
+ * serialVersionUID.
+ */
+Serializable_UID() {
+	event staticinit after() : staticinitialization(Serializable+) {
+		Class klass = null;
+		for (StackTraceElement frame : (new Throwable()).getStackTrace()) {
+			String klassname = frame.getClassName();
+			if (!klassname.startsWith("mop.")) {
+				try {
+					klass = Class.forName(klassname);
+				}
+				catch (ClassNotFoundException e) {
+					System.err.println("A serializable class " + klassname + " cannot be found.");
+				}
+				break;
+			}
+		}
+
+		if (klass != null) {
+			try {
+				Field field = klass.getDeclaredField("serialVersionUID");
+				int mod = field.getModifiers();
+				boolean isstatic = Modifier.isStatic(mod);
+				boolean isfinal = Modifier.isFinal(mod);
+				Class fieldtype = field.getType();
+				boolean islong = fieldtype.getName() == "long";
+
+				if (!isstatic)
+					System.err.println("The serialVersionUID field of " + klass.getName() + " is not a static field.");
+				if (!isfinal)
+					System.err.println("The serialVersionUID field of " + klass.getName() + " is not a final field.");
+				if (!islong)
+					System.err.println("The serialVersionUID field of " + klass.getName() + " is not of type long.");
+			}
+			catch (NoSuchFieldException e) {
+				System.err.println("A serializable class " + klass.getName() + " does not declare a serialVersionUID");
+			}
+		}
+	}
+}
+

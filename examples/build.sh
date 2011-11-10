@@ -28,7 +28,7 @@ properties=(
 #	InputStream_UnmarkedReset
 #	ObjectInput_Close
 #	ObjectOutput_Close
-	OutputStream_ManipulateAfterClose
+#	OutputStream_ManipulateAfterClose
 #	PipedInputStream_UnconnectedRead
 #	PipedOutputStream_UnconnectedWrite
 #	PipedStream_SingleThread
@@ -39,6 +39,8 @@ properties=(
 #	Reader_MarkReset
 #	Reader_ReadAheadLimit
 #	Reader_UnmarkedReset
+	Serializable_UID
+#	Serializable_NoArgConstructor
 #	StreamTokenizer_AccessInvalidField
 #	StringWriter_Close
 #	Writer_ManipulateAfterClose
