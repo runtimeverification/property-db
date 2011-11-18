@@ -33,13 +33,13 @@ properties=(
 #	PipedOutputStream_UnconnectedWrite
 #	PipedStream_SingleThread
 # XXX
-#	PushbackInputStream_UnreadAheadLimit
+	PushbackInputStream_UnreadAheadLimit
 #	RandomAccessFile_ManipulateAfterClose
 #	Reader_ManipulateAfterClose
 #	Reader_MarkReset
 #	Reader_ReadAheadLimit
 #	Reader_UnmarkedReset
-	Serializable_UID
+#	Serializable_UID
 #	Serializable_NoArgConstructor
 #	StreamTokenizer_AccessInvalidField
 #	StringWriter_Close
