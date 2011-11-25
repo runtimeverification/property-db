@@ -4,7 +4,11 @@ import java.io.*;
 
 /**
  * Warns if a single thread attempts to use both a PipedInputStream instance
- * and a PipedOutputStream instance when they are connected.
+ * and a PipedOutputStream instance.
+ *
+ * As Java compilers and runtime do not detect the violation of this property
+ * and violating it may lead to deadlock, it is encouraged to enable this
+ * property.
  *
  * According to the manual, attempting to use both objects from a single
  * thread is not recommended, as it may deadlock the thread.
@@ -12,42 +16,25 @@ import java.io.*;
  *
  * This property warns if that attempt is detected.
  */
-PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o) {
-	Thread producer = null;
-	Thread consumer = null;
-
-	creation event create_oi after(PipedOutputStream o) returning(PipedInputStream i) :
+PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
+	creation event create after(PipedOutputStream o) returning(PipedInputStream i) :
 		call(PipedInputStream+.new(PipedOutputStream+)) && args(o) {}
-	creation event create_oic before(PipedInputStream i, PipedOutputStream o) :
+	creation event create before(PipedInputStream i, PipedOutputStream o) :
 		call(* PipedInputStream+.connect(PipedOutputStream+)) && target(i) && args(o) {}
-	creation event create_io after(PipedInputStream i) returning(PipedOutputStream o) :
+	creation event create after(PipedInputStream i) returning(PipedOutputStream o) :
 		call(PipedOutputStream+.new(PipedInputStream+)) && args(i) {}
-	creation event create_ioc before(PipedOutputStream o, PipedInputStream i) :
+	creation event create before(PipedOutputStream o, PipedInputStream i) :
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && target(o) && args(i) {}
 
-	event firstwrite before(PipedOutputStream o, Thread t) :
-		call(* PipedOutputStream+.write(..)) && target(o) && thread(t) &&
-		condition(producer == null && consumer == null) {
-		this.producer = t;
-	}
-	event firstread before(PipedInputStream i, Thread t) :
-		call(* PipedInputStream+.read(..)) && target(i) && thread(t) &&
-		condition(consumer == null && producer == null) {
-		this.consumer = t;
-	}
+	event write before(PipedOutputStream o, Thread t) :
+		call(* PipedOutputStream+.write(..)) && target(o) && thread(t) {}
 
-	event unsafewrite before(PipedOutputStream o, Thread t) :
-		call(* PipedOutputStream+.write(..)) && target(o) && thread(t) &&
-		condition(consumer == t) {
-	}
-	event unsaferead before(PipedInputStream i, Thread t) :
-		call(* PipedInputStream+.read(..)) && target(i) && thread(t) &&
-		condition(producer == t) {
-	}
+	event read before(PipedInputStream i, Thread t) :
+		call(* PipedInputStream+.read(..)) && target(i) && thread(t) {}
 
-	ere: (create_oi | create_oic | create_io | create_ioc) (firstread | firstwrite)* (unsaferead | unsafewrite)
+	ere: create (write* | read*)
 
-	@match {
+	@fail {
 		System.err.println("A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instace, which may deadlock the thread.");
 	}
 }

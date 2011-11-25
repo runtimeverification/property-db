@@ -31,9 +31,9 @@ properties=(
 #	OutputStream_ManipulateAfterClose
 #	PipedInputStream_UnconnectedRead
 #	PipedOutputStream_UnconnectedWrite
-#	PipedStream_SingleThread
+	PipedStream_SingleThread
 # XXX
-	PushbackInputStream_UnreadAheadLimit
+#	PushbackInputStream_UnreadAheadLimit
 #	RandomAccessFile_ManipulateAfterClose
 #	Reader_ManipulateAfterClose
 #	Reader_MarkReset
