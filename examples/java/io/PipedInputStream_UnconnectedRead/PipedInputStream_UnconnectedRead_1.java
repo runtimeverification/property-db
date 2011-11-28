@@ -8,7 +8,6 @@ public class PipedInputStream_UnconnectedRead_1 {
 		// A pipe should be connected first in order to read.
 //		pos.connect(pis);
 
-		pos.write(1);
 		int i = pis.read();
 	}
 }

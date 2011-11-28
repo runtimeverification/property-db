@@ -8,7 +8,6 @@ public class PipedInputStream_UnconnectedRead_2 {
 		PipedOutputStream pos = new PipedOutputStream();
 //		PipedOutputStream pos = new PipedOutputStream(pis);
 
-		pos.write(1);
 		int i = pis.read();
 	}
 }

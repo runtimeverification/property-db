@@ -9,17 +9,17 @@ import java.io.*;
  * http://download.oracle.com/javase/6/docs/api/java/io/PipedInputStream.html#read%28%29
  */
 PipedInputStream_UnconnectedRead(PipedInputStream i) {
-	event create after() returning(PipedInputStream i) :
+	creation event create after() returning(PipedInputStream i) :
 		call(PipedInputStream+.new()) {}
-	event create_oi after() returning(PipedInputStream i) :
+	creation event create_oi after() returning(PipedInputStream i) :
 		call(PipedInputStream+.new(PipedOutputStream+)) {}
 
 	event create_io before(PipedInputStream i) :
 		call(PipedOutputStream+.new(PipedInputStream+)) && args(i) {}
 
-	event connect_io before(PipedInputStream i) :
+	event connect before(PipedInputStream i) :
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && args(i) {}
-	event connect_oi before(PipedInputStream i) :
+	event connect before(PipedInputStream i) :
 		call(* PipedInputStream+.connect(PipedOutputStream+)) && target(i) {}
 
 	event read before(PipedInputStream i) :
@@ -36,8 +36,7 @@ PipedInputStream_UnconnectedRead(PipedInputStream i) {
 		]
 		unconnected [
 			create_io -> connected
-			connect_io -> connected
-			connect_oi -> connected
+			connect -> connected
 		]
 		connected [
 			read -> connected
