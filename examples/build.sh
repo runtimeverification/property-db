@@ -1,7 +1,7 @@
 #!/bin/bash
 
-JAVAMOP=javamop
-AJC=ajc
+JAVAMOP=javamop.bat
+AJC=ajc.bat
 JAVA=java
 
 PACKAGE=java/io
@@ -50,8 +50,8 @@ function handle_property {
 	packname=$1
 	propname=$2
 
-	moppath=$PROPERTYDIR/$packname/$propname.mop
-	classdir=$BUILDIR/$packname/$propname
+	moppath=`cygpath -w $PROPERTYDIR/$packname/$propname.mop`
+	classdir=`cygpath -w $BUILDIR/$packname/$propname`
 	ajdir=$classdir/mop
 
 	# clean up
@@ -62,15 +62,17 @@ function handle_property {
 	$JAVAMOP -d $ajdir $moppath || exit 1
 
 	# Compile .java and .aj together
+	ajpath=$ajdir/${propname}MonitorAspect.aj
 	exampledir=$EXAMPLEDIR/$packname/$propname
-	$AJC -1.6 -d $classdir $ajdir/${propname}MonitorAspect.aj $exampledir/*.java || exit 2
+	examplepaths=`cygpath -w $exampledir/*.java`
+	$AJC -1.6 -d $classdir $ajpath $examplepaths || exit 2
 
 	for example in `ls $exampledir/*.java`
 	do
 		fname=`basename $example`
 		entry=${fname%.java}
 		echo "   running $entry {{{"
-		java -cp $classdir:$CLASSPATH $entry
+		java -cp "$classdir;$CLASSPATH" $entry
 		echo "   }}}"
 	done
 }
