@@ -14,24 +14,13 @@ import java.io.*;
  */
 
 File_LengthOnDirectory(File f) {
-	event isdirectory_true after(File f) returning(boolean r) :
-		call(* File+.isDirectory(..)) && target(f) && condition(r) {}
-	event isfile_false after(File f) returning(boolean r) :
-		call(* File+.isFile(..)) && target(f) && condition(!r) {}
-	event length before(File f) : call(* File+.length(..)) && target(f) {}
+	event bad_length before(File f) :
+		call(* File+.length()) && target(f) && condition(f.isDirectory()) {}
 
-	fsm :
-		initial [
-			isdirectory_true -> directory
-			isfile_false -> directory
-		]
-		directory [
-			length -> error
-		]
-		error [
-		]
+	ere : bad_length
 
-	@error {
-		System.err.println("length() was invoked on a File instance that may represent a directory.");
+	@match {
+		System.err.println("length() was invoked on a File instance that represents a directory.");
 	}
 }
+
