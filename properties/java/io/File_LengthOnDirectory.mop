@@ -3,14 +3,11 @@ package mop;
 import java.io.*;
 
 /**
- * Warns if length() is invoked on a File object representing a directory.
+ * Warns if length() is invoked on a File object that represents a directory.
  *
  * The return value of length() is unspecified if the File instance denotes a
  * directory.
  * http://download.oracle.com/javase/6/docs/api/java/io/File.html#length%28%29
- *
- * This propery warns if length() is called when a File object represents a
- * directory.
  */
 
 File_LengthOnDirectory(File f) {
