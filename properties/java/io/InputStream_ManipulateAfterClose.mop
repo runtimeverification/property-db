@@ -10,8 +10,9 @@ import java.io.*;
  * has been closed.
  * http://download.oracle.com/javase/6/docs/api/java/io/BufferedInputStream.html#close%28%29
  *
- * This property warns if a closed InputStream object invokes the
- * aforementioned methods.
+ * Other subclasses of InputStream are deemed to be similar, except
+ * ByteArrayInputStream and StringBufferInputStream. This property warns if a
+ * closed InputStream object invokes read(), available(), reset() or skip().
  */
 
 InputStream_ManipulateAfterClose(InputStream i) {
@@ -21,8 +22,15 @@ InputStream_ManipulateAfterClose(InputStream i) {
 			call(* InputStream+.available(..)) ||
 			call(* InputStream+.reset(..)) ||
 			call(* InputStream+.skip(..))
-		) && target(i) {}
-	event close before(InputStream i) : call(* InputStream+.close(..)) && target(i) {}
+		) && target(i) && if (!(
+			i instanceof ByteArrayInputStream ||
+			i instanceof StringBufferInputStream
+		)) {}
+	event close before(InputStream i) :
+		call(* InputStream+.close(..)) && target(i) && if (!(
+			i instanceof ByteArrayInputStream ||
+			i instanceof StringBufferInputStream
+		)) {}
 
 	ere : manipulate* close
 
