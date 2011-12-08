@@ -11,8 +11,8 @@ import java.io.*;
  * http://download.oracle.com/javase/6/docs/api/java/io/BufferedInputStream.html#close%28%29
  *
  * Other subclasses of InputStream are deemed to be similar, except
- * ByteArrayInputStream and StringBufferInputStream. This property warns if a
- * closed InputStream object invokes read(), available(), reset() or skip().
+ * ByteArrayInputStream and StringBufferInputStream.
+ * http://docs.oracle.com/javase/6/docs/api/java/io/ByteArrayInputStream.html#close%28%29
  */
 
 InputStream_ManipulateAfterClose(InputStream i) {
