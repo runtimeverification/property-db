@@ -223,12 +223,12 @@ class PushbackInputStream extends FilterInputStream {
      * <code>(byte)b</code>.
      * {@description.close}
      * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
-	  * {@new.open}
-	  * If the finite size of the internal pushback buffer is full, unread()
-	  * raises a runtime exception. The buffer size is specified when a
-	  * PushbackInputStream object is created.
-	  * {@new.close}
-	  * {@property.close}
+     * {@new.open}
+     * If the finite size of the internal pushback buffer is full, unread()
+     * raises a runtime exception. The buffer size is specified when a
+     * PushbackInputStream object is created.
+     * {@new.close}
+     * {@property.close}
      *
      * @param      b   the <code>int</code> value whose low-order
      *                  byte is to be pushed back.
@@ -252,12 +252,12 @@ class PushbackInputStream extends FilterInputStream {
      * have the value <code>b[off+1]</code>, and so forth.
      * {@description.close}
      * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
-	  * {@new.open}
-	  * If the finite size of the internal pushback buffer is full, unread()
-	  * raises a runtime exception. The buffer size is specified when a
-	  * PushbackInputStream object is created.
-	  * {@new.close}
-	  * {@property.close}
+     * {@new.open}
+     * If the finite size of the internal pushback buffer is full, unread()
+     * raises a runtime exception. The buffer size is specified when a
+     * PushbackInputStream object is created.
+     * {@new.close}
+     * {@property.close}
      *
      * @param b the byte array to push back.
      * @param off the start offset of the data.
@@ -285,12 +285,12 @@ class PushbackInputStream extends FilterInputStream {
      * value <code>b[1]</code>, and so forth.
      * {@description.close}
      * {@property.open Property:java.io.PushbackInputStream_UnreadAheadLimit}
-	  * {@new.open}
-	  * If the finite size of the internal pushback buffer is full, unread()
-	  * raises a runtime exception. The buffer size is specified when a
-	  * PushbackInputStream object is created.
-	  * {@new.close}
-	  * {@property.close}
+     * {@new.open}
+     * If the finite size of the internal pushback buffer is full, unread()
+     * raises a runtime exception. The buffer size is specified when a
+     * PushbackInputStream object is created.
+     * {@new.close}
+     * {@property.close}
      *
      * @param b the byte array to push back
      * @exception IOException If there is not enough room in the pushback

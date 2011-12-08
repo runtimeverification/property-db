@@ -280,10 +280,10 @@ public abstract class InputStream implements Closeable {
      * the total number of bytes in the stream, many will not.  It is
      * never correct to use the return value of this method to allocate
      * a buffer intended to hold all data in this stream.
-	  * {@new.open}
-	  * Since JavaMOP does not monitor local variable manipulation, this
-	  * property is not checkable.
-	  * {@new.close}
+     * {@new.open}
+     * Since JavaMOP does not monitor local variable manipulation, this
+     * property is not checkable.
+     * {@new.close}
      * {@property.close}
      *
      * {@description.open}

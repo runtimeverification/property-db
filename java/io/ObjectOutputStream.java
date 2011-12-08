@@ -1205,9 +1205,6 @@ public class ObjectOutputStream
      * the subclass must not override
      * security-sensitive non-final methods, or else the
      * "enableSubclassImplementation" SerializablePermission is checked.
-	  * {@new.open}
-	  * 
-	  * {@new.close}
      * {@property.close}
      */
     private void verifySubclass() {
