@@ -2,12 +2,15 @@ import java.io.*;
 
 public class OutputStream_ManipulateAfterClose_1 {
 	public static void main(String[] args) throws IOException {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		baos.write(1);
-		baos.close();
+		File file = File.createTempFile("javamoptest1", ".tmp");
+		file.deleteOnExit();
+
+		OutputStream output = new FileOutputStream(file);
+		output.write(1);
+		output.close();
 
 		// A closed stream cannot perform output operations.
-		baos.write(2);
+		output.write(2);
 	}
 }
 

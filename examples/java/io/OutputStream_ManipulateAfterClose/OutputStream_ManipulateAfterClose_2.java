@@ -2,14 +2,13 @@ import java.io.*;
 
 public class OutputStream_ManipulateAfterClose_2 {
 	public static void main(String[] args) throws IOException {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		OutputStream output = new ByteArrayOutputStream();
+		output.write(1);
+		output.close();
 
-		ObjectOutputStream oos = new ObjectOutputStream(baos);
-		oos.writeInt(1);
-		oos.close();
-
-		// A closed stream cannot perform output operations.
-		oos.writeInt(2);
+		// ByteArrayOutputStream is an exceptional subclass of OutputStream;
+		// write() after close() is valid.
+		output.write(2);
 	}
 }
 
