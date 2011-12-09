@@ -18,6 +18,15 @@ import java.lang.reflect.*;
  * This property detects such error.
  */
 Serializable_NoArgConstructor() {
+	private String getPackageName(Class cl) {
+		String s = cl.getName();
+		int i = s.lastIndexOf('[');
+		if (i >= 0)
+			s = s.substring(i + 2);
+		i = s.lastIndexOf('.');
+		return (i >= 0) ? s.substring(0, i) : "";
+	}
+
 	event staticinit after() : staticinitialization(Serializable+) {
 		Class klass = null;
 		for (StackTraceElement frame : (new Throwable()).getStackTrace()) {
@@ -34,29 +43,27 @@ Serializable_NoArgConstructor() {
 		}
 
 		if (klass != null) {
-			Class superklass = klass.getSuperclass();
-			boolean issuperserializable = false;
-			for (Class superitf : superklass.getInterfaces()) {
-				if (superitf.getName().equals("java.io.Serializable")) {
-					issuperserializable = true;
+			Class nonserialzable = klass;
+			while (Serializable.class.isAssignableFrom(nonserialzable)) {
+				nonserialzable = nonserialzable.getSuperclass();
+				if (nonserialzable == null)
 					break;
-				}
 			}
 
-			if (!issuperserializable) {
-				Constructor[] ctors = superklass.getDeclaredConstructors();
-				boolean noargctorfound = ctors.length == 0;
+			if (nonserialzable != null) {
+				boolean samepackage = klass.getClassLoader() == nonserialzable.getClassLoader() &&
+					getPackageName(klass).equals(getPackageName(nonserialzable));
 
-				for (Constructor ctor : ctors) {
-					int numargs = ctor.getParameterTypes().length;
+				boolean inaccessible = true;
+				try {
+					Constructor ctor = nonserialzable.getDeclaredConstructor((Class[]) null);
 					int mod = ctor.getModifiers();
-					if (numargs == 0 && !Modifier.isPrivate(mod)) {
-						noargctorfound = true;
-						break;
-					}
+					inaccessible = (mod & Modifier.PRIVATE) != 0 ||
+						((mod & (Modifier.PUBLIC | Modifier.PROTECTED)) == 0 && !samepackage);
 				}
-
-				if (!noargctorfound)
+				catch (NoSuchMethodException e) {
+				}
+				if (inaccessible)
 					System.err.println("The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
 			}
 		}
