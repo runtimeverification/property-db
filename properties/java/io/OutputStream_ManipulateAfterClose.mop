@@ -3,7 +3,7 @@ package mop;
 import java.io.*;
 
 /**
- * Warns write() after close().
+ * Warns write() or flush() after close().
  *
  * According to the OutputStream.close(), a closed stream cannot perform
  * output operations and cannot be reopened in general.
@@ -21,7 +21,7 @@ OutputStream_ManipulateAfterClose(OutputStream o) {
 			call(* OutputStream+.flush(..))
 		) && target(o) &&
 		!target(ByteArrayOutputStream) {}
-	event close before(OutputStream o) :
+	creation event close before(OutputStream o) :
 		call(* OutputStream+.close(..)) && target(o) && 
 		!target(ByteArrayOutputStream) {}
 
