@@ -846,7 +846,7 @@ public class ObjectOutputStream
      * {@description.open}
      * Closes the stream.
      * {@description.close}
-     * {@property.open Property:java.io.ObjectOutput_Close}
+     * {@property.open formal:java.io.ObjectOutput_Close}
      * This method must be called to release any resources
      * associated with the stream.
      * {@property.close}

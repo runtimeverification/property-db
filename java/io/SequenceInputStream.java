@@ -241,7 +241,7 @@ class SequenceInputStream extends InputStream {
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * {@description.close}
-     * {@property.open Property:java.io.InputStream_ManipulateAfterClose}
+     * {@property.open formal:java.io.InputStream_ManipulateAfterClose}
      * A closed <code>SequenceInputStream</code>
      * cannot  perform input operations and cannot
      * be reopened.

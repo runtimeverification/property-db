@@ -623,7 +623,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * Closes this random access file stream and releases any system
      * resources associated with the stream.
      * {@description.close}
-     * {@property.open Property:java.io.RandomAccessFile_ManipulateAfterClose}
+     * {@property.open formal:java.io.RandomAccessFile_ManipulateAfterClose}
      * A closed random access
      * file cannot perform input or output operations and cannot be
      * reopened.

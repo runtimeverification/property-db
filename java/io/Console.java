@@ -63,7 +63,7 @@ import sun.nio.cs.StreamEncoder;
  * block in multithreaded scenarios.
  * {@property.close}
  * <p>
- * {@property.open Property:java.io.Console_CloseReader Property:java.io.Console_CloseWriter}
+ * {@property.open formal:java.io.Console_CloseReader formal:java.io.Console_CloseWriter}
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}
  * and the {@link #writer()} will not close the underlying stream of those
  * objects.
@@ -85,7 +85,7 @@ import sun.nio.cs.StreamEncoder;
  * If an application needs to read a password or other secure data, it should
  * use {@link #readPassword()} or {@link #readPassword(String, Object...)}
  * {@property.close}
- * {@property.open Property:java.io.Console_FillZeroPassword}
+ * {@property.open formal:java.io.Console_FillZeroPassword}
  * and
  * manually zero the returned character array after processing to minimize the
  * lifetime of sensitive data in memory.

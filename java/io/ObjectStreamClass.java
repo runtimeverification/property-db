@@ -654,7 +654,7 @@ public class ObjectStreamClass implements Serializable {
     }
 
     /** {@collect.stats}
-     * {@property.open Property:java.io.ObjectStreamClass_Initialize}
+     * {@property.open formal:java.io.ObjectStreamClass_Initialize}
      * Creates blank class descriptor which should be initialized via a
      * subsequent call to initProxy(), initNonProxy() or readNonProxy().
      * {@property.close}

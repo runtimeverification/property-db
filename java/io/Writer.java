@@ -347,12 +347,12 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
      * {@description.open}
      * Closes the stream, flushing it first.
      * {@description.close}
-     * {@property.open Property:java.io.Writer_ManipulateAfterClose}
+     * {@property.open formal:java.io.Writer_ManipulateAfterClose}
      * Once the stream has been closed,
      * further write() or flush() invocations will cause an IOException to be
      * thrown.
      * {@property.close}
-     * {@property.open Property:java.io.Closeable_MultipleClose}
+     * {@property.open formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

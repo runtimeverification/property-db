@@ -332,20 +332,20 @@ public abstract class InputStream implements Closeable {
      * invalidated.
      * {@description.close}
      *
-     * {@property.open Property:java.io.InputStream_MarkReset}
+     * {@property.open formal:java.io.InputStream_MarkReset}
      * <p> The general contract of <code>mark</code> is that, if the method
      * <code>markSupported</code> returns <code>true</code>, the stream somehow
      * remembers all the bytes read after the call to <code>mark</code> and
      * stands ready to supply those same bytes again if and whenever the method
      * <code>reset</code> is called.
      * {@property.close}
-     * {@property.open Property:java.io.InputStream_ReadAheadLimit}
+     * {@property.open formal:java.io.InputStream_ReadAheadLimit}
      * However, the stream is not required to
      * remember any data at all if more than <code>readlimit</code> bytes are
      * read from the stream before <code>reset</code> is called.
      * {@property.close}
      *
-     * {@property.open Property:java.io.InputStream_MarkAfterClose}
+     * {@property.open formal:java.io.InputStream_MarkAfterClose}
      * <p> Marking a closed stream should not have any effect on the stream.
      * {@property.close}
      *
@@ -370,7 +370,7 @@ public abstract class InputStream implements Closeable {
      * <p><ul>
      * {@description.close}
      *
-     * {@property.open Property:java.io.InputStream_MarkReset Property:java.io.InputStream_UnmarkedReset}
+     * {@property.open formal:java.io.InputStream_MarkReset formal:java.io.InputStream_UnmarkedReset}
      * <li> If the method <code>markSupported</code> returns
      * <code>true</code>, then:
      *

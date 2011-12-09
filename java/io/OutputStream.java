@@ -157,7 +157,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      * Closes this output stream and releases any system resources
      * associated with this stream.
      * {@description.close}
-     * {@property.open Property:java.io.OutputStream_ManipulateAfterClose}
+     * {@property.open formal:java.io.OutputStream_ManipulateAfterClose}
      * The general contract of <code>close</code>
      * is that it closes the output stream. A closed stream cannot perform
      * output operations and cannot be reopened.

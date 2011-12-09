@@ -35,7 +35,7 @@ package java.io;
  * and serves only to identify the semantics of being serializable. <p>
  * {@description.close}
  *
- * {@property.open Property:java.io.Serializable_NoArgConstructor}
+ * {@property.open formal:java.io.Serializable_NoArgConstructor}
  * To allow subtypes of non-serializable classes to be serialized, the
  * subtype may assume responsibility for saving and restoring the
  * state of the supertype's public, protected, and (if accessible)
@@ -145,7 +145,7 @@ package java.io;
  * </PRE>
  * {@description.close}
  *
- * {@property.open Property:java.io.Serializable_UID}
+ * {@property.open formal:java.io.Serializable_UID}
  * If a serializable class does not explicitly declare a serialVersionUID, then
  * the serialization runtime will calculate a default serialVersionUID value
  * for that class based on various aspects of the class, as described in the
