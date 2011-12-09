@@ -36,7 +36,7 @@ import java.io.*;
  * read from the connected <code>PipedInputStream</code> by some
  * other thread.
  * {@description.close}
- * {@property.open formal:java.io.PipedStream_SingleThread}
+ * {@property.open runtime formal:java.io.PipedStream_SingleThread}
  * Attempting to use both objects from a single thread
  * is not recommended as it may deadlock the thread.
  * {@property.close}
@@ -190,7 +190,7 @@ class PipedOutputStream extends OutputStream {
      * Closes this piped output stream and releases any system resources
      * associated with this stream.
      * {@description.close}
-     * {@property.open formal:java.io.OutputStream_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.OutputStream_ManipulateAfterClose}
      * This stream may no longer be used for
      * writing bytes.
      * {@property.close}

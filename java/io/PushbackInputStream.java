@@ -222,7 +222,7 @@ class PushbackInputStream extends FilterInputStream {
      * After this method returns, the next byte to be read will have the value
      * <code>(byte)b</code>.
      * {@description.close}
-     * {@property.open formal:java.io.PushbackInputStream_UnreadAheadLimit}
+     * {@property.open runtime formal:java.io.PushbackInputStream_UnreadAheadLimit}
      * {@new.open}
      * If the finite size of the internal pushback buffer is full, unread()
      * raises a runtime exception. The buffer size is specified when a
@@ -251,7 +251,7 @@ class PushbackInputStream extends FilterInputStream {
      * read will have the value <code>b[off]</code>, the byte after that will
      * have the value <code>b[off+1]</code>, and so forth.
      * {@description.close}
-     * {@property.open formal:java.io.PushbackInputStream_UnreadAheadLimit}
+     * {@property.open runtime formal:java.io.PushbackInputStream_UnreadAheadLimit}
      * {@new.open}
      * If the finite size of the internal pushback buffer is full, unread()
      * raises a runtime exception. The buffer size is specified when a
@@ -284,7 +284,7 @@ class PushbackInputStream extends FilterInputStream {
      * will have the value <code>b[0]</code>, the byte after that will have the
      * value <code>b[1]</code>, and so forth.
      * {@description.close}
-     * {@property.open formal:java.io.PushbackInputStream_UnreadAheadLimit}
+     * {@property.open runtime formal:java.io.PushbackInputStream_UnreadAheadLimit}
      * {@new.open}
      * If the finite size of the internal pushback buffer is full, unread()
      * raises a runtime exception. The buffer size is specified when a
@@ -393,7 +393,7 @@ class PushbackInputStream extends FilterInputStream {
      * Marks the current position in this input stream.
      * {@description.close}
      *
-     * {@property.open formal:java.io.InputStream_MarkReset}
+     * {@property.open runtime formal:java.io.InputStream_MarkReset}
      * <p> The <code>mark</code> method of <code>PushbackInputStream</code>
      * does nothing.
      * {@new.open}
@@ -414,7 +414,7 @@ class PushbackInputStream extends FilterInputStream {
      * <code>mark</code> method was last called on this input stream.
      * {@description.close}
      *
-     * {@property.open formal:java.io.InputStream_MarkReset}
+     * {@property.open runtime formal:java.io.InputStream_MarkReset}
      * <p> The method <code>reset</code> for class
      * <code>PushbackInputStream</code> does nothing except throw an
      * <code>IOException</code>.
@@ -433,11 +433,11 @@ class PushbackInputStream extends FilterInputStream {
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * {@description.close}
-     * {@property.open formal:java.io.InputStream_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), unread(),
      * available(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:java.io.Closeable_MultipleClose}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

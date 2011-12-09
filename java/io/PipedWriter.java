@@ -191,7 +191,7 @@ public class PipedWriter extends Writer {
      * Closes this piped output stream and releases any system resources
      * associated with this stream.
      * {@description.close}
-     * {@property.open formal:java.io.Writer_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.Writer_ManipulateAfterClose}
      * This stream may no longer be used for
      * writing characters.
      * {@property.close}

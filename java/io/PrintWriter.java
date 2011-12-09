@@ -331,7 +331,7 @@ public class PrintWriter extends Writer {
      * Closes the stream and releases any system resources associated
      * with it.
      * {@description.close}
-     * {@property.open formal:java.io.Closeable_MultipleClose}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *

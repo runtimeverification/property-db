@@ -44,7 +44,7 @@ public interface Closeable {
      * Closes this stream and releases any system resources associated
      * with it.
      * {@description.close}
-     * {@property.open formal:java.io.Closeable_MultipleClose}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * If the stream is already closed then invoking this
      * method has no effect.
      * {@property.close}

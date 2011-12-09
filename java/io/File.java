@@ -913,7 +913,7 @@ public class File
      * {@description.open}
      * Returns the length of the file denoted by this abstract pathname.
      * {@description.close}
-     * {@property.open formal:java.io.File_LengthOnDirectory}
+     * {@property.open runtime formal:java.io.File_LengthOnDirectory}
      * The return value is unspecified if this pathname denotes a directory.
      * {@property.close}
      *
@@ -1854,7 +1854,7 @@ public class File
      *
      * This method provides only part of a temporary-file facility.
      * {@description.close}
-     * {@property.open formal:java.io.File_DeleteTempFile}
+     * {@property.open runtime formal:java.io.File_DeleteTempFile}
      * To arrange
      * for a file created by this method to be deleted automatically, use the
      * <code>{@link #deleteOnExit}</code> method.

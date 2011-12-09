@@ -212,7 +212,7 @@ class FilterInputStream extends InputStream {
      * the last marked position so that subsequent reads re-read the same bytes.
      * <p>
      * {@description.close}
-     * {@property.open formal:java.io.InputStream_ReadAheadLimit}
+     * {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
      * The <code>readlimit</code> argument tells this input stream to
      * allow that many bytes to be read before the mark position gets
      * invalidated.

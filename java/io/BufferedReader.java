@@ -489,7 +489,7 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:java.io.Reader_MarkReset}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
      * Tells whether this stream supports the mark() operation, which it does.
      * {@property.close}
      */
@@ -502,7 +502,7 @@ public class BufferedReader extends Reader {
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
      * {@property.close}
      *
      * @param readAheadLimit   Limit on the number of characters that may be
@@ -533,7 +533,7 @@ public class BufferedReader extends Reader {
      * {@description.open}
      * Resets the stream to the most recent mark.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
      * {@property.close}
      *
      * @exception  IOException  If the stream has never been marked,

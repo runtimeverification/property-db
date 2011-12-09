@@ -124,7 +124,7 @@ public interface ObjectInput extends DataInput {
      * {@description.open}
      * Closes the input stream.
      * {@description.close}
-     * {@property.open formal:java.io.ObjectInput_Close}
+     * {@property.open runtime formal:java.io.ObjectInput_Close}
      * Must be called
      * to release any resources associated with
      * the stream.

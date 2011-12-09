@@ -214,7 +214,7 @@ public class CharArrayReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:java.io.Reader_MarkReset}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
      * Tells whether this stream supports the mark() operation, which it does.
      * {@property.close}
      */
@@ -244,7 +244,7 @@ public class CharArrayReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:java.io.Reader_UnmarkedReset}
+     * {@property.open runtime formal:java.io.Reader_UnmarkedReset}
      * Resets the stream to the most recent mark, or to the beginning if it has
      * never been marked.
      * {@property.close}
@@ -263,11 +263,11 @@ public class CharArrayReader extends Reader {
      * Closes the stream and releases any system resources associated with
      * it.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:java.io.Closeable_MultipleClose}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      */

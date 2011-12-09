@@ -32,7 +32,7 @@ package java.io;
  * then be used to construct a string.
  * <p>
  * {@description.close}
- * {@property.open formal:java.io.StringWriter_Close}
+ * {@property.open runtime formal:java.io.StringWriter_Close}
  * Closing a <tt>StringWriter</tt> has no effect. The methods in this class
  * can be called after the stream has been closed without generating an
  * <tt>IOException</tt>.
@@ -254,7 +254,7 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@property.open formal:java.io.StringWriter_Close}
+     * {@property.open runtime formal:java.io.StringWriter_Close}
      * Closing a <tt>StringWriter</tt> has no effect. The methods in this
      * class can be called after the stream has been closed without generating
      * an <tt>IOException</tt>.

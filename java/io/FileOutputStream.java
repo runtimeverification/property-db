@@ -328,7 +328,7 @@ class FileOutputStream extends OutputStream
      * Closes this file output stream and releases any system resources
      * associated with this stream.
      * {@description.close}
-     * {@property.open formal:java.io.OutputStream_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.OutputStream_ManipulateAfterClose}
      * This file output stream may no longer
      * be used for writing bytes.
      * {@property.close}

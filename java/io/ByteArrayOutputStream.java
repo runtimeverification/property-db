@@ -36,7 +36,7 @@ import java.util.Arrays;
  * <code>toString()</code>.
  * {@description.close}
  * <p>
- * {@property.open formal:java.io.ByteArrayOutputStream_Close}
+ * {@property.open runtime formal:java.io.ByteArrayOutputStream_Close}
  * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -137,7 +137,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * stream's write method using <code>out.write(buf, 0, count)</code>.
      * {@description.close}
      *
-     * {@property.open formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * When an OutputStream (or its subclass) instance is built on top of an
      * underlying ByteArrayOutputStream instance, it should be flushed or closed
      * before the contents of the ByteArrayOutputStream instance is retrieved.
@@ -171,7 +171,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * have been copied into it.
      * {@description.close}
      *
-     * {@property.open formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * {@property.close}
      *
      * @return  the current contents of this output stream, as a byte array.
@@ -208,7 +208,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * required.
      * {@description.close}
      *
-     * {@property.open formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * {@property.close}
      *
      * @return String decoded from the buffer's contents.
@@ -231,7 +231,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * over the decoding process is required.
      * {@description.close}
      *
-     * {@property.open formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * {@property.close}
      *
      * @param  charsetName  the name of a supported
@@ -259,7 +259,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * </pre></blockquote>
      * {@description.close}
      *
-     * {@property.open formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * {@property.close}
      *
      * @deprecated This method does not properly convert bytes into characters.
@@ -283,7 +283,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * {@description.open}
      * Closing a <tt>ByteArrayOutputStream</tt> has no effect.
      * {@description.close}
-     * {@property.open formal:java.io.ByteArrayOutputStream_Close}
+     * {@property.open runtime formal:java.io.ByteArrayOutputStream_Close}
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.

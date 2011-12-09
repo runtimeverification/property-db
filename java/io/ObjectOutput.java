@@ -102,7 +102,7 @@ public interface ObjectOutput extends DataOutput {
      * {@description.open}
      * Closes the stream.
      * {@description.close}
-     * {@property.open formal:java.io.ObjectOutput_Close}
+     * {@property.open runtime formal:java.io.ObjectOutput_Close}
      * This method must be called
      * to release any resources associated with the
      * stream.

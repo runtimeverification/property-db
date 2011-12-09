@@ -264,7 +264,7 @@ public abstract class Reader implements Readable, Closeable {
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_MarkReset}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
      * Not all
      * character-input streams support the mark() operation.
      * {@property.close}
@@ -286,7 +286,7 @@ public abstract class Reader implements Readable, Closeable {
      * Resets the stream.  If the stream has been marked, then attempt to
      * reposition it at the mark.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_UnmarkedReset}
+     * {@property.open runtime formal:java.io.Reader_UnmarkedReset}
      * If the stream has not been marked, then
      * attempt to reset it in some way appropriate to the particular stream,
      * for example by repositioning it to its starting point.  Not all
@@ -308,11 +308,11 @@ public abstract class Reader implements Readable, Closeable {
      * Closes the stream and releases any system resources associated with
      * it.
      * {@description.close}
-     * {@property.open formal:java.io.Reader_ManipulateAfterClose}
+     * {@property.open runtime formal:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.
      * {@property.close}
-     * {@property.open formal:java.io.Closeable_MultipleClose}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
      * {@property.close}
      *
