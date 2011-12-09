@@ -4,7 +4,8 @@ import java.io.*;
 import java.lang.reflect.*;
 
 /**
- * Warns if a Serializable class does not declare a serialVersionUID.
+ * Warns if a class is serializable, its superclass is not serializable, and
+ * the class cannot access the superclass' no-arg constructor.
  *
  * To allow subtypes of non-serializable classes to be serialized, the subtype
  * may assume responsibility for saving and restoring the state of the
