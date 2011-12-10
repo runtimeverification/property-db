@@ -34,7 +34,7 @@ package java.io;
  * be supplied by the <code>read</code> method.
  * {@description.close}
  * <p>
- * {@property.open runtime formal:java.io.ByteArrayInputStream_Close}
+ * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
  * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -321,7 +321,7 @@ class ByteArrayInputStream extends InputStream {
      * {@description.open}
      * Closing a <tt>ByteArrayInputStream</tt> has no effect.
      * {@description.close}
-     * {@property.open runtime formal:java.io.ByteArrayInputStream_Close}
+     * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.

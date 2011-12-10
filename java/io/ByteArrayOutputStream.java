@@ -36,7 +36,7 @@ import java.util.Arrays;
  * <code>toString()</code>.
  * {@description.close}
  * <p>
- * {@property.open runtime formal:java.io.ByteArrayOutputStream_Close}
+ * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
  * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -283,7 +283,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * {@description.open}
      * Closing a <tt>ByteArrayOutputStream</tt> has no effect.
      * {@description.close}
-     * {@property.open runtime formal:java.io.ByteArrayOutputStream_Close}
+     * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
