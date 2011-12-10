@@ -12,6 +12,8 @@ import java.io.*;
  * Although calling close() multiple times does not do any harm, this property
  * raises a warning in the hope that the warning helps developers to find a
  * glitch in their programs.
+ *
+* @severity suggestion
  */
 
 Closeable_MultipleClose(Closeable c) {

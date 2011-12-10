@@ -11,6 +11,8 @@ import java.io.*;
  * PushbackReader, InputStreamReader, FileReader and PipedReader do not
  * support mark() and reset(). This specification warns if mark() or reset()
  * is invoked.
+ *
+ * @severity error
  */
 
 Reader_MarkReset(Reader r) {

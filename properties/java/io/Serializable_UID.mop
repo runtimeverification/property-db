@@ -22,6 +22,8 @@ import java.lang.reflect.*;
  *
  * This property warns if a serializable class does not explicitly declare a
  * serialVersionUID.
+ *
+ * @severity warning
  */
 Serializable_UID() {
 	event staticinit after() : staticinitialization(Serializable+) {

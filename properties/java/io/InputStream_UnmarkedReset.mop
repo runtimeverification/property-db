@@ -11,6 +11,8 @@ import java.io.*;
  * BufferedInputStream, DataInputStream and LineNumberInputStream allow reset()
  * only after mark() has been invoked. This specification catches the
  * violation of this.
+ *
+ * @severity error
  */
 
 InputStream_UnmarkedReset(InputStream i) {

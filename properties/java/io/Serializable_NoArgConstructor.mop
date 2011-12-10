@@ -16,6 +16,8 @@ import java.lang.reflect.*;
  * http://download.oracle.com/javase/6/docs/api/java/io/Serializable.html
  *
  * This property detects such error.
+ *
+ * @severity error
  */
 Serializable_NoArgConstructor() {
 	private String getPackageName(Class cl) {
