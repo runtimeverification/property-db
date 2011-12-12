@@ -9,6 +9,11 @@ import java.io.*;
  * invocations will cause an IOException to be thrown.
  * http://download.oracle.com/javase/6/docs/api/java/io/Writer.html#close%28%29
  *
+ * Other subclasses of Writer are deemed to be similar, except CharArrayWriter
+ * and StringWriter.
+ * http://docs.oracle.com/javase/6/docs/api/java/io/CharArrayWriter.html#close%28%29
+ * http://docs.oracle.com/javase/6/docs/api/java/io/StringWriter.html#close%28%29
+ *
  * @severity error
  */
 
@@ -17,12 +22,15 @@ Writer_ManipulateAfterClose(Writer w) {
 		(
 			call(* Writer+.write*(..)) ||
 			call(* Writer+.flush(..))
-		) && target(w) {}
-	event close before(Writer w) : call(* Writer+.close(..)) && target(w) {}
+		) && target(w) &&
+		!target(CharArrayWriter) && !target(StringWriter) {}
+	creation event close before(Writer w) :
+		call(* Writer+.close(..)) && target(w) &&
+		!target(CharArrayWriter) && !target(StringWriter) {}
 
-	ere : manipulate* close
+	ere : close manipulate+
 
-	@fail {
+	@match {
 		System.err.println("write() or flush() was invoked after close().");
 	}
 }
