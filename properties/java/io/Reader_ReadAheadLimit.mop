@@ -15,8 +15,6 @@ import java.io.*;
  *
  * This specification keeps track of validity of the mark, and raises an error
  * when the mark is invalidated and read() is invoked.
- *
- * @severity error
  */
 
 Reader_ReadAheadLimit(Reader r) {

@@ -13,8 +13,6 @@ import java.io.*;
  *
  * Reading sval for a TT_NUMBER typed token yields an old junk value. This
  * specification prevents this incorrect field access.
- *
- * @severity warning
  */
 
 StreamTokenizer_AccessInvalidField(StreamTokenizer s) {

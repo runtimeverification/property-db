@@ -13,8 +13,6 @@ import java.io.*;
  * Other subclasses of InputStream are deemed to be similar, except
  * ByteArrayInputStream and StringBufferInputStream.
  * http://docs.oracle.com/javase/6/docs/api/java/io/ByteArrayInputStream.html#close%28%29
- *
- * @severity error
  */
 
 InputStream_ManipulateAfterClose(InputStream i) {

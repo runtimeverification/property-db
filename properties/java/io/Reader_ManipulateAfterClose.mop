@@ -12,8 +12,6 @@ import java.io.*;
  *
  * This property warns if a closed Reader object invokes the aforementioned
  * methods.
- *
- * @severity error
  */
 
 Reader_ManipulateAfterClose(Reader r) {

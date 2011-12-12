@@ -15,8 +15,6 @@ import java.io.*;
  * http://download.oracle.com/javase/6/docs/api/java/io/PipedInputStream.html
  *
  * This property warns if that attempt is detected.
- *
- * @severity warning
  */
 PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 	creation event create after(PipedOutputStream o) returning(PipedInputStream i) :

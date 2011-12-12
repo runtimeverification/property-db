@@ -8,8 +8,6 @@ import java.io.*;
  * The return value of length() is unspecified if the File instance denotes a
  * directory.
  * http://download.oracle.com/javase/6/docs/api/java/io/File.html#length%28%29
- *
- * @severity error
  */
 
 File_LengthOnDirectory(File f) {

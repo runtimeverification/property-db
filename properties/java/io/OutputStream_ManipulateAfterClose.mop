@@ -12,8 +12,6 @@ import java.io.*;
  * ByteArrayOutputStream is an exceptional subclass in that methods in this
  * class can be called after the stream has been closed.
  * http://docs.oracle.com/javase/6/docs/api/java/io/ByteArrayOutputStream.html#close%28%29
- *
- * @severity error
  */
 
 OutputStream_ManipulateAfterClose(OutputStream o) {

@@ -10,8 +10,6 @@ import java.io.*;
  *
  * BufferedReader and LineNumberReader allow reset() only after mark() has
  * been invoked. This specification catches the violation of this.
- *
- * @severity error
  */
 
 Reader_UnmarkedReset(Reader r) {
