@@ -1,0 +1,22 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Suggests if the constructor of Byte is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Byte.html
+ *
+ * @severity suggestion
+ */
+Byte_StaticFactory() {
+    event constructor_create after() returning(Byte b): 
+        call(Byte+.new(byte)) {
+		System.err.println("Using the constructor Byte(byte value) might be inefficient. Use valueOf(byte) if it is appropriate.");
+    }
+    
+}
+

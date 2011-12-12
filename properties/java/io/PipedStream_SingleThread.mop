@@ -37,7 +37,7 @@ PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 	ere: create (write* | read*)
 
 	@fail {
-		System.err.println("A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instace, which may deadlock the thread.");
+		System.err.println("A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instance, which may deadlock the thread.");
 	}
 }
 

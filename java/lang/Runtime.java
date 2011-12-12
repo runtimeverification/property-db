@@ -129,7 +129,7 @@ public class Runtime {
      *
      *   </ul>
      *
-     * {@property.open runtime}
+     * {@property.open runtime formal:ShutdownHook_PrematureStart}
      * <p> A <i>shutdown hook</i> is simply an initialized but unstarted
      * thread.
      * {@property.close}
@@ -186,53 +186,6 @@ public class Runtime {
      * attempting to access nonexistent memory.  If the virtual machine aborts
      * then no guarantee can be made about whether or not any shutdown hooks
      * will be run. <p>
-     *
-     * {@formal.open}
-     * {@property.shortcut ShutdownHook_PrematureStart}
-     * The thread that is added as a shutdown hook should not be started by
-     * a user. 
-     * {@formal.close}
-     * @property.mop {@property.name ShutdownHook_PrematureStart}
-package mop;
-
-import java.lang.*;
-
-// Prevents registering a shutdown hook that has been started.
-//
-// addShutdownHook() registers a shutdown hook, an initialized but unstarted
-// thread that will be started when the VM begins the shutdown sequence. Since
-// a shutdown hook is started by the VM, it should not be started prematurely
-// by the user code. This specification captures the premature start.
-// 
-// Once the shutdown sequence has begun, registering or unregistering a hook
-// is banned. This specification also captures the violation of this.
-
-ShutdownHook_PrematureStart(Thread t) {
-
-	creation event good_register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) && condition(t.getState() == Thread.State.NEW) {}
-
-	creation event bad_register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) && condition(t.getState() != Thread.State.NEW) {}
-
-	event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) {}
-
-	event userstart before(Thread t) : call(* Thread+.start(..)) && target(t) {}
-
-	fsm :
-		unregistered [
-			good_register -> registered
-			bad_register -> err
-		]
-		registered [
-			unregister -> unregistered
-			userstart -> err
-		]
-		err [
-		]
-
-	\@err {
-		System.err.println("A virtual-machine shutdown hook has been started by the user code.");
-	}
-}
      *
      * @param   hook
      *          An initialized but unstarted <tt>{@link Thread}</tt> object

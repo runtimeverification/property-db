@@ -44,6 +44,7 @@ public class Object {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the runtime class of this {@code Object}. The returned
      * {@code Class} object is the object that is locked by {@code
      * static synchronized} methods of the represented class.
@@ -57,6 +58,7 @@ public class Object {
      * {@code Number n = 0;                             }<br>
      * {@code Class<? extends Number> c = n.getClass(); }
      * </p>
+     * {@descriptive.close}
      *
      * @return The {@code Class} object that represents the runtime
      *         class of this object.
