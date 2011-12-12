@@ -14,6 +14,8 @@ import java.io.*;
  * that OpenJDK implementation will always raise an exception if a stream does
  * not support mark(), but this is not guaranteed. In fact,
  * PushbackInputStream.mark() does nothing.
+ *
+ * @severity error
  */
 
 InputStream_MarkReset(InputStream i) {

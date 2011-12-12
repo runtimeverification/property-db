@@ -19,6 +19,8 @@ import java.io.*;
  * by delete() or implicitly by deleteOnExit(). An execution that violates
  * this property is not necessarily faulty but may not be what the user
  * intended.
+ *
+ * @severity suggestion
  */
 
 File_DeleteTempFile(File f) {

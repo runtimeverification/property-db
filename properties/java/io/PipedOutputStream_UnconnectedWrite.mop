@@ -7,6 +7,8 @@ import java.io.*;
  *
  * If the pipe is broken, write() fails and a runtime exception is raised.
  * http://download.oracle.com/javase/6/docs/api/java/io/PipedOutputStream.html#write%28int%29
+ *
+ * @severity error
  */
 PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
 	creation event create after() returning(PipedOutputStream o) :

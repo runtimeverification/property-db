@@ -7,6 +7,8 @@ import java.io.*;
  *
  * According to the InputStream.mark() document, mark() after close() does
  * nothing. This property warns if such useless mark() is invoked.
+ *
+ * @severity warning
  */
 
 InputStream_MarkAfterClose(InputStream i) {

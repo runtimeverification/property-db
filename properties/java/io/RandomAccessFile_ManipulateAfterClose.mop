@@ -11,6 +11,8 @@ import java.io.*;
  *
  * This property captures only input or output operations performed after
  * close(), because reopening a file is prevented by the language.
+ *
+ * @severity error
  */
 
 RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {

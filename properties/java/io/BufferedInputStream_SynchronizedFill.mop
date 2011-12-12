@@ -9,6 +9,8 @@ import java.io.*;
  * methods. This property warns if this requirement is not satisfied.
  *
  * This property is described in the comments for BufferedInputStream.fill().
+ *
+ * @severity error
  */
 BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 	event fill before(BufferedInputStream i) : call(* BufferedInputStream.fill(..)) && target(i) {}

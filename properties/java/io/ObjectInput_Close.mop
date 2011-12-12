@@ -7,6 +7,8 @@ import java.io.*;
  *
  * An ObjectInput instance must be closed.
  * http://download.oracle.com/javase/6/docs/api/java/io/ObjectInput.html#close%28%29
+ *
+ * @severity error
  */
 
 ObjectInput_Close(ObjectInput i) {

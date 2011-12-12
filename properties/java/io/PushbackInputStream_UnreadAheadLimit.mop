@@ -18,6 +18,8 @@ import java.io.*;
  * This property records the capacity of the pushback buffer, keeps track of
  * read() and unread() operations, and warns if the buffer is full but
  * unread() is invoked.
+ *
+ * @severity error
  */
 
 PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {

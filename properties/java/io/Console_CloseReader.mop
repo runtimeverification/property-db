@@ -10,6 +10,8 @@ import java.io.*;
  * http://download.oracle.com/javase/6/docs/api/java/io/Console.html
  *
  * This specification warns if such useless invocation is detected.
+ *
+ * @severity suggestion
  */
 
 Console_CloseReader(Reader r) {

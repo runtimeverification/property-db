@@ -10,6 +10,8 @@ import java.io.*;
  * before the underlying instance's toByteArray() is invoked. Failing to
  * fulfill this requirement may cause toByteArray() to return incomplete
  * contents.
+ *
+ * @severity warning
  */
 ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream o) {
 	creation event outputstreaminit after(ByteArrayOutputStream b) returning(OutputStream o) :
