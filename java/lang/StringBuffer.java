@@ -69,11 +69,13 @@ package java.lang;
  * buffer array. If the internal buffer overflows, it is
  * automatically made larger.
  *
+ * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
  * As of  release JDK 5, this class has been supplemented with an equivalent
  * class designed for use by a single thread, {@link StringBuilder}.  The
  * <tt>StringBuilder</tt> class should generally be used in preference to
  * this one, as it supports all of the same operations but it is faster, as
  * it performs no synchronization.
+ * {@property.close}
  *
  * @author      Arthur van Hoff
  * @see     java.lang.StringBuilder

@@ -1,0 +1,34 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Warns when arguments to parseByte are wrong.
+ *
+ * According to the manual, the first argument cannot be null or of length zero.
+ * Also, radix should be in the range.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Byte.html
+ *
+ * @severity warning
+ */
+Byte_BadParsingArgs() {
+
+    event bad_arg before(String s, int radix) : 
+        call(* Byte.parseByte(String, int)) && args(s, radix) {
+        if(s == null || s.length() == 0){
+        	System.err.println("Wrong argument to Byte.parseByte(String s, int radix)");
+        } else if(radix < java.lang.Character.MIN_RADIX || radix > java.lang.Character.MAX_RADIX){
+        	System.err.println("Wrong argument to Byte.parseByte(String s, int radix)");
+        } else {
+            for(int j = 0; j < s.length(); j++){
+                if(Character.digit(s.charAt(j), radix) == -1){
+                    if(!(j == 0 && s.length() > 1 && s.charAt(0) == '-')){
+                        System.err.println("Wrong argument to Byte.parseByte(String s, int radix)");
+                    }
+                } 
+            }
+        }
+    }
+}
+
