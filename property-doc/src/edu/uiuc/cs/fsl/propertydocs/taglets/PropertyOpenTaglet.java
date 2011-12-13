@@ -123,10 +123,18 @@ public class PropertyOpenTaglet implements Taglet {
        + " STYLE=\"display:inline\">";
     } 
 
+
+    private boolean isLink(String arg){
+      return arg.startsWith("Property:") ||
+             arg.startsWith("property:") ||
+             arg.startsWith("Formal:")   ||
+             arg.startsWith("formal:");
+    }
+
     private int numLinks(String[] args){
       int i = 0;
       for(String arg : args){
-        if(arg.startsWith("Property:")) ++i;
+        if(isLink(arg)) ++i;
         if(i > 1) return i;
       }
       return i;
@@ -135,7 +143,7 @@ public class PropertyOpenTaglet implements Taglet {
     private String handleLinks(String[] args, PositionWrapper p, Tag tag){
       String ret = "";
       for(String arg : args){
-        if(arg.startsWith("Property:")) {
+        if(isLink(arg)) {
           String[] parts = arg.split(":");
           if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
           CreatePropertyFile.createPropertyFile(parts[1]);
@@ -173,7 +181,7 @@ public class PropertyOpenTaglet implements Taglet {
           globalStats.put(ALLATTRIBUTES, allGlobalW + localW);
           packageStats.put(ALLATTRIBUTES, allPackageW + localW);
           for(String arg : arguments){
-            if(arg.startsWith("Property:")) continue;
+            if(isLink("arg")) continue;
             if(arg.equals("")) continue;
             Integer argGlobalW = globalStats.get(arg);
             Integer argPacakgeW = packageStats.get(arg);

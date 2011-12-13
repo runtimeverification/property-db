@@ -35,7 +35,7 @@
  <br />
  <br />
  <br />
- {@property.open Property:Foo}
+ {@property.open formal:Foo}
  1 property
  {@property.close}
  <br />
