@@ -115,6 +115,9 @@ class PushbackInputStream extends FilterInputStream {
      * there is no pushed-back byte  (the field
      * <code>pushBack</code> is initialized to
      * <code>-1</code>).
+     * {@new.open}
+     * This constructor creates the pushback buffer that holds only one byte.
+     * {@new.close}
      * {@description.close}
      *
      * @param   in   the input stream from which bytes will be read.
@@ -397,7 +400,7 @@ class PushbackInputStream extends FilterInputStream {
      * <p> The <code>mark</code> method of <code>PushbackInputStream</code>
      * does nothing.
      * {@new.open}
-     * This function is supposed to raise an exception but does not.
+     * This method does not mark the current position; the first sentence is incorrect.
      * {@new.close}
      * {@property.close}
      *

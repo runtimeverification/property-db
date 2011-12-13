@@ -31,10 +31,10 @@ package java.io;
  * an input stream of bytes.
  * {@description.close}
  *
- * {@enforced.open}
+ * {@property.open enforced}
  * <p> Applications that need to define a subclass of <code>InputStream</code>
  * must always provide a method that returns the next byte of input.
- * {@enforced.close}
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
