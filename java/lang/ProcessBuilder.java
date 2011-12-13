@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * This class is used to create operating system processes.
  *
  * <p>Each <code>ProcessBuilder</code> instance manages a collection

@@ -334,11 +334,13 @@ public final class RuntimePermission extends BasicPermission {
     private static final long serialVersionUID = 7399184964622342223L;
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Creates a new RuntimePermission with the specified name.
      * The name is the symbolic name of the RuntimePermission, such as
      * "exit", "setFactory", etc. An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
+     * {@descriptive.close}
      *
      * @param name the name of the RuntimePermission.
      *
@@ -351,10 +353,12 @@ public final class RuntimePermission extends BasicPermission {
         super(name);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Creates a new RuntimePermission object with the specified name.
      * The name is the symbolic name of the RuntimePermission, and the
      * actions String is currently unused and should be null.
+     * {@descriptive.close}
      *
      * @param name the name of the RuntimePermission.
      * @param actions should be null.

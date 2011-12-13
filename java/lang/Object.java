@@ -69,9 +69,12 @@ public class Object {
     public final native Class<?> getClass();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a hash code value for the object. This method is
      * supported for the benefit of hashtables such as those provided by
      * <code>java.util.Hashtable</code>.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * The general contract of <code>hashCode</code> is:
      * <ul>
@@ -91,6 +94,8 @@ public class Object {
      *     programmer should be aware that producing distinct integer results
      *     for unequal objects may improve the performance of hashtables.
      * </ul>
+     * {@property.close}
+     * {@descriptive.open}
      * <p>
      * As much as is reasonably practical, the hashCode method defined by
      * class <tt>Object</tt> does return distinct integers for distinct
@@ -98,6 +103,7 @@ public class Object {
      * address of the object into an integer, but this implementation
      * technique is not required by the
      * Java<font size="-2"><sup>TM</sup></font> programming language.)
+     * {@descriptive.close}
      *
      * @return  a hash code value for this object.
      * @see     java.lang.Object#equals(java.lang.Object)
@@ -106,7 +112,10 @@ public class Object {
     public native int hashCode();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Indicates whether some other object is "equal to" this one.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * The <code>equals</code> method implements an equivalence relation
      * on non-null object references:
@@ -132,6 +141,8 @@ public class Object {
      * <li>For any non-null reference value <code>x</code>,
      *     <code>x.equals(null)</code> should return <code>false</code>.
      * </ul>
+     * {@property.close}
+     * {@descriptive.open}
      * <p>
      * The <tt>equals</tt> method for class <code>Object</code> implements
      * the most discriminating possible equivalence relation on objects;
@@ -139,11 +150,14 @@ public class Object {
      * <code>y</code>, this method returns <code>true</code> if and only
      * if <code>x</code> and <code>y</code> refer to the same object
      * (<code>x == y</code> has the value <code>true</code>).
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * Note that it is generally necessary to override the <tt>hashCode</tt>
      * method whenever this method is overridden, so as to maintain the
      * general contract for the <tt>hashCode</tt> method, which states
      * that equal objects must have equal hash codes.
+     * {@property.close}
      *
      * @param   obj   the reference object with which to compare.
      * @return  <code>true</code> if this object is the same as the obj
@@ -156,6 +170,7 @@ public class Object {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Creates and returns a copy of this object.  The precise meaning
      * of "copy" may depend on the class of the object. The general
      * intent is that, for any object <tt>x</tt>, the expression:
@@ -172,9 +187,14 @@ public class Object {
      * <pre>
      * x.clone().equals(x)</pre></blockquote>
      * will be <tt>true</tt>, this is not an absolute requirement.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * By convention, the returned object should be obtained by calling
-     * <tt>super.clone</tt>.  If a class and all of its superclasses (except
+     * <tt>super.clone</tt>.
+     * {@property.close}
+     * {@descriptive.open}
+     * If a class and all of its superclasses (except
      * <tt>Object</tt>) obey this convention, it will be the case that
      * <tt>x.clone().getClass() == x.getClass()</tt>.
      * <p>
@@ -199,11 +219,14 @@ public class Object {
      * the corresponding fields of this object, as if by assignment; the
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
+     * {@descriptive.close}
+     * {@property.open rumtime}
      * <p>
      * The class <tt>Object</tt> does not itself implement the interface
      * <tt>Cloneable</tt>, so calling the <tt>clone</tt> method on an object
      * whose class is <tt>Object</tt> will result in throwing an
      * exception at run time.
+     * {@property.close}
      *
      * @return     a clone of this instance.
      * @exception  CloneNotSupportedException  if the object's class does not
@@ -216,6 +239,7 @@ public class Object {
     protected native Object clone() throws CloneNotSupportedException;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representation of the object. In general, the
      * <code>toString</code> method returns a string that
      * "textually represents" this object. The result should
@@ -233,6 +257,7 @@ public class Object {
      * <pre>
      * getClass().getName() + '@' + Integer.toHexString(hashCode())
      * </pre></blockquote>
+     * {@descriptive.close}
      *
      * @return  a string representation of the object.
      */
@@ -241,6 +266,7 @@ public class Object {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
      * is chosen to be awakened. The choice is arbitrary and occurs at
@@ -254,8 +280,13 @@ public class Object {
      * awakened thread enjoys no reliable privilege or disadvantage in being
      * the next thread to lock this object.
      * <p>
+     * {@descriptive.close}
+     * {@property.open runtime}
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. A thread becomes the owner of the
+     * of this object's monitor.
+     * {@property.close} 
+     * {@descriptive.open}
+     * A thread becomes the owner of the
      * object's monitor in one of three ways:
      * <ul>
      * <li>By executing a synchronized instance method of that object.
@@ -266,6 +297,7 @@ public class Object {
      * </ul>
      * <p>
      * Only one thread at a time can own an object's monitor.
+     * {@descriptive.close}
      *
      * @exception  IllegalMonitorStateException  if the current thread is not
      *               the owner of this object's monitor.
@@ -275,6 +307,7 @@ public class Object {
     public final native void notify();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Wakes up all threads that are waiting on this object's monitor. A
      * thread waits on an object's monitor by calling one of the
      * <code>wait</code> methods.
@@ -285,11 +318,17 @@ public class Object {
      * be actively competing to synchronize on this object; for example,
      * the awakened threads enjoy no reliable privilege or disadvantage in
      * being the next thread to lock this object.
+     * {@descriptive.close}
+     * {@property.open}
      * <p>
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. See the <code>notify</code> method for a
+     * of this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * See the <code>notify</code> method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
+     * {@descriptive.close}
      *
      * @exception  IllegalMonitorStateException  if the current thread is not
      *               the owner of this object's monitor.
@@ -299,12 +338,17 @@ public class Object {
     public final native void notifyAll();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Causes the current thread to wait until either another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or a
      * specified amount of time has elapsed.
+     * {@descriptive.close}
+     * {@property.open runtime}
      * <p>
      * The current thread must own this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
      * <p>
      * This method causes the current thread (call it <var>T</var>) to
      * place itself in the wait set for this object and then to relinquish
@@ -364,11 +408,17 @@ public class Object {
      * into the wait set for this object, unlocks only this object; any
      * other objects on which the current thread may be synchronized remain
      * locked while the thread waits.
+     * {@descriptive.close}
+     * {@property.open runtime}
      * <p>
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. See the <code>notify</code> method for a
+     * of this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * See the <code>notify</code> method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
+     * {@descriptive.close}
      *
      * @param      timeout   the maximum time to wait in milliseconds.
      * @exception  IllegalArgumentException      if the value of timeout is
@@ -386,6 +436,7 @@ public class Object {
     public final native void wait(long timeout) throws InterruptedException;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Causes the current thread to wait until another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or
@@ -403,8 +454,13 @@ public class Object {
      * In all other respects, this method does the same thing as the
      * method {@link #wait(long)} of one argument. In particular,
      * <tt>wait(0, 0)</tt> means the same thing as <tt>wait(0)</tt>.
+     * {@descriptive.close}
+     * {@property.open runtime}
      * <p>
-     * The current thread must own this object's monitor. The thread
+     * The current thread must own this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * The thread
      * releases ownership of this monitor and waits until either of the
      * following two conditions has occurred:
      * <ul>
@@ -428,10 +484,16 @@ public class Object {
      *         ... // Perform action appropriate to condition
      *     }
      * </pre>
+     * {@descriptive.close}
+     * {@property.open runtime}
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. See the <code>notify</code> method for a
+     * of this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * See the <code>notify</code> method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
+     * {@descriptive.close}
      *
      * @param      timeout   the maximum time to wait in milliseconds.
      * @param      nanos      additional time, in nanoseconds range
@@ -465,13 +527,19 @@ public class Object {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Causes the current thread to wait until another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object.
      * In other words, this method behaves exactly as if it simply
      * performs the call <tt>wait(0)</tt>.
      * <p>
-     * The current thread must own this object's monitor. The thread
+     * {@descriptive.close}
+     * {@property.open runtime}
+     * The current thread must own this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * The thread
      * releases ownership of this monitor and waits until another thread
      * notifies threads waiting on this object's monitor to wake up
      * either through a call to the <code>notify</code> method or the
@@ -487,10 +555,16 @@ public class Object {
      *         ... // Perform action appropriate to condition
      *     }
      * </pre>
+     * {@descriptive.close}
+     * {@property.open runtime}
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. See the <code>notify</code> method for a
+     * of this object's monitor.
+     * {@property.close}
+     * {@descriptive.open}
+     * See the <code>notify</code> method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
+     * {@descriptive.close}
      *
      * @exception  IllegalMonitorStateException  if the current thread is not
      *               the owner of the object's monitor.
@@ -507,6 +581,7 @@ public class Object {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Called by the garbage collector on an object when garbage collection
      * determines that there are no more references to the object.
      * A subclass overrides the <code>finalize</code> method to dispose of
@@ -550,6 +625,7 @@ public class Object {
      * Any exception thrown by the <code>finalize</code> method causes
      * the finalization of this object to be halted, but is otherwise
      * ignored.
+     * {@descriptive.close}
      *
      * @throws Throwable the <code>Exception</code> raised by this method
      */
