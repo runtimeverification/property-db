@@ -21,11 +21,12 @@ RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
 			call(* RandomAccessFile+.read*(..)) ||
 			call(* RandomAccessFile+.write*(..))
 		) && target(f) {}
-	event close before(RandomAccessFile f) : call(* RandomAccessFile+.close(..)) && target(f) {}
+	creation event close before(RandomAccessFile f) :
+		call(* RandomAccessFile+.close(..)) && target(f) {}
 
-	ere : manipulate* close
+	ere : close manipulate+
 
-	@fail {
+	@match {
 		System.err.println("A closed random access file cannot perform input or output operations.");
 	}
 }
