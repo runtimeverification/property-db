@@ -99,7 +99,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
      * {@descriptive.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:Byte_StaticFactory}
      * If a new {@code Byte} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Byte(byte)}, as this method is likely to yield

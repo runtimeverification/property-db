@@ -27,13 +27,18 @@ package java.lang;
 
 
 /** {@collect.stats} 
- * A mutable sequence of characters.  This class provides an API compatible
+ * {@descriptive.open}
+ * A mutable sequence of characters.  
+ * {@descriptive.close}
+ * {@property.open runtime performance}
+ * This class provides an API compatible
  * with <code>StringBuffer</code>, but with no guarantee of synchronization.
  * This class is designed for use as a drop-in replacement for
  * <code>StringBuffer</code> in places where the string buffer was being
  * used by a single thread (as is generally the case).   Where possible,
  * it is recommended that this class be used in preference to
  * <code>StringBuffer</code> as it will be faster under most implementations.
+ * {@property.close}
  *
  * <p>The principal operations on a <code>StringBuilder</code> are the
  * <code>append</code> and <code>insert</code> methods, which are
@@ -60,9 +65,11 @@ package java.lang;
  * the capacity, it is not necessary to allocate a new internal
  * buffer. If the internal buffer overflows, it is automatically made larger.
  *
+ * {@property.open runtime}
  * <p>Instances of <code>StringBuilder</code> are not safe for
  * use by multiple threads. If such synchronization is required then it is
  * recommended that {@link java.lang.StringBuffer} be used.
+ * {@property.close}
  *
  * @author      Michael McCloskey
  * @see         java.lang.StringBuffer
