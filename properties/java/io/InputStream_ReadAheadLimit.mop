@@ -64,15 +64,6 @@ InputStream_ReadAheadLimit(InputStream i) {
 		}
 	}
 
-	event goodreset before(InputStream i) : 
-		call(* InputStream+.reset(..)) && target(i) && condition(rest >= 0) && if (
-			i instanceof BufferedInputStream ||
-			i instanceof DataInputStream ||
-			i instanceof LineNumberInputStream
-		) {
-		this.rest = this.limit;
-	}
-
 	event badreset before(InputStream i) : 
 		call(* InputStream+.reset(..)) && target(i) && condition(rest < 0) && if (
 			i instanceof BufferedInputStream ||
@@ -81,6 +72,15 @@ InputStream_ReadAheadLimit(InputStream i) {
 		) {
 		this.limit = 0;
 		this.rest = 0;
+	}
+
+	event goodreset before(InputStream i) : 
+		call(* InputStream+.reset(..)) && target(i) && condition(rest >= 0) && if (
+			i instanceof BufferedInputStream ||
+			i instanceof DataInputStream ||
+			i instanceof LineNumberInputStream
+		) {
+		this.rest = this.limit;
 	}
 
 	ere : (mark | read | goodreset)* badreset+

@@ -57,14 +57,6 @@ Reader_ReadAheadLimit(Reader r) {
 		}
 	}
 
-	event goodreset before(Reader r) :
-		call(* Reader+.reset(..)) && target(r) && condition(rest >= 0) && if (
-			r instanceof BufferedReader ||
-			r instanceof LineNumberReader
-		) {
-		this.rest = this.limit;
-	}
-
 	event badreset before(Reader r) :
 		call(* Reader+.reset(..)) && target(r) && condition(rest < 0) && if (
 			r instanceof BufferedReader ||
@@ -72,6 +64,14 @@ Reader_ReadAheadLimit(Reader r) {
 		) {
 		this.limit = 0;
 		this.rest = 0;
+	}
+
+	event goodreset before(Reader r) :
+		call(* Reader+.reset(..)) && target(r) && condition(rest >= 0) && if (
+			r instanceof BufferedReader ||
+			r instanceof LineNumberReader
+		) {
+		this.rest = this.limit;
 	}
 
 	ere : (mark | read | goodreset)* badreset+
