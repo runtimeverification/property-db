@@ -56,6 +56,7 @@ import sun.util.calendar.ZoneInfo;
 import sun.util.resources.LocaleData;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <code>Calendar</code> class is an abstract class that provides methods
  * for converting between a specific instant in time and a set of {@link
  * #fields calendar fields} such as <code>YEAR</code>, <code>MONTH</code>,
@@ -203,7 +204,9 @@ import sun.util.resources.LocaleData;
  *
  * The calendar fields can be changed using three methods:
  * <code>set()</code>, <code>add()</code>, and <code>roll()</code>.</p>
+ * {@description.close}
  *
+ * {@property.open}
  * <p><strong><code>set(f, value)</code></strong> changes calendar field
  * <code>f</code> to <code>value</code>.  In addition, it sets an
  * internal member variable to indicate that calendar field <code>f</code> has
@@ -219,7 +222,9 @@ import sun.util.resources.LocaleData;
  * the call to the <code>set</code> method
  * after the calendar fields have been recomputed. The specifics are determined by
  * the concrete calendar class.</p>
+ * {@property.close}
  *
+ * {@description.open}
  * <p><em>Example</em>: Consider a <code>GregorianCalendar</code>
  * originally set to August 31, 1999. Calling <code>set(Calendar.MONTH,
  * Calendar.SEPTEMBER)</code> sets the date to September 31,
@@ -252,11 +257,15 @@ import sun.util.resources.LocaleData;
  *   that are not expected to be invariant. The calendar system
  *   determines what fields are expected to be invariant.</p>
  * </blockquote>
+ * {@description.close}
  *
+ * {@property.open}
  * <p>In addition, unlike <code>set()</code>, <code>add()</code> forces
  * an immediate recomputation of the calendar's milliseconds and all
  * fields.</p>
+ * {@property.close}
  *
+ * {@property.open}
  * <p><em>Example</em>: Consider a <code>GregorianCalendar</code>
  * originally set to August 31, 1999. Calling <code>add(Calendar.MONTH,
  * 13)</code> sets the calendar to September 30, 2000. <strong>Add rule
@@ -268,7 +277,9 @@ import sun.util.resources.LocaleData;
  * it is a smaller field, <code>DAY_OF_WEEK</code> is not adjusted by
  * rule 2, since it is expected to change when the month changes in a
  * <code>GregorianCalendar</code>.</p>
+ * {@property.close}
  *
+ * {@description.open}
  * <p><strong><code>roll(f, delta)</code></strong> adds
  * <code>delta</code> to field <code>f</code> without changing larger
  * fields. This is equivalent to calling <code>add(f, delta)</code> with
@@ -296,6 +307,7 @@ import sun.util.resources.LocaleData;
  * <code>add()</code> or <code>roll()</code>, depending on whether larger
  * fields should be affected, the user interface can behave as most users
  * will intuitively expect.</p>
+ * {@description.close}
  *
  * @see          java.lang.System#currentTimeMillis()
  * @see          Date
@@ -358,9 +370,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     // ranges when they are regenerated.
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * era, e.g., AD or BC in the Julian calendar. This is a calendar-specific
      * value; see subclass documentation.
+     * {@description.close}
      *
      * @see GregorianCalendar#AD
      * @see GregorianCalendar#BC
@@ -368,17 +382,21 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int ERA = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * year. This is a calendar-specific value; see subclass documentation.
+     * {@description.close}
      */
     public final static int YEAR = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * month. This is a calendar-specific value. The first month of
      * the year in the Gregorian and Julian calendars is
      * <code>JANUARY</code> which is 0; the last depends on the number
      * of months in a year.
+     * {@description.close}
      *
      * @see #JANUARY
      * @see #FEBRUARY
@@ -397,12 +415,14 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int MONTH = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * week number within the current year.  The first week of the year, as
      * defined by <code>getFirstDayOfWeek()</code> and
      * <code>getMinimalDaysInFirstWeek()</code>, has value 1.  Subclasses define
      * the value of <code>WEEK_OF_YEAR</code> for days before the first week of
      * the year.
+     * {@description.close}
      *
      * @see #getFirstDayOfWeek
      * @see #getMinimalDaysInFirstWeek
@@ -410,12 +430,14 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int WEEK_OF_YEAR = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * week number within the current month.  The first week of the month, as
      * defined by <code>getFirstDayOfWeek()</code> and
      * <code>getMinimalDaysInFirstWeek()</code>, has value 1.  Subclasses define
      * the value of <code>WEEK_OF_MONTH</code> for days before the first week of
      * the month.
+     * {@description.close}
      *
      * @see #getFirstDayOfWeek
      * @see #getMinimalDaysInFirstWeek
@@ -423,34 +445,42 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int WEEK_OF_MONTH = 4;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * day of the month. This is a synonym for <code>DAY_OF_MONTH</code>.
      * The first day of the month has value 1.
+     * {@description.close}
      *
      * @see #DAY_OF_MONTH
      */
     public final static int DATE = 5;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * day of the month. This is a synonym for <code>DATE</code>.
      * The first day of the month has value 1.
+     * {@description.close}
      *
      * @see #DATE
      */
     public final static int DAY_OF_MONTH = 5;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the day
      * number within the current year.  The first day of the year has value 1.
+     * {@description.close}
      */
     public final static int DAY_OF_YEAR = 6;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the day
      * of the week.  This field takes values <code>SUNDAY</code>,
      * <code>MONDAY</code>, <code>TUESDAY</code>, <code>WEDNESDAY</code>,
      * <code>THURSDAY</code>, <code>FRIDAY</code>, and <code>SATURDAY</code>.
+     * {@description.close}
      *
      * @see #SUNDAY
      * @see #MONDAY
@@ -463,6 +493,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int DAY_OF_WEEK = 7;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * ordinal number of the day of the week within the current month. Together
      * with the <code>DAY_OF_WEEK</code> field, this uniquely specifies a day
@@ -481,6 +512,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * within the month than positive values.  For example, if a month has 31
      * days, <code>DAY_OF_WEEK_IN_MONTH -1</code> will overlap
      * <code>DAY_OF_WEEK_IN_MONTH 5</code> and the end of <code>4</code>.
+     * {@description.close}
      *
      * @see #DAY_OF_WEEK
      * @see #WEEK_OF_MONTH
@@ -488,9 +520,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int DAY_OF_WEEK_IN_MONTH = 8;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating
      * whether the <code>HOUR</code> is before or after noon.
      * E.g., at 10:04:15.250 PM the <code>AM_PM</code> is <code>PM</code>.
+     * {@description.close}
      *
      * @see #AM
      * @see #PM
@@ -499,10 +533,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int AM_PM = 9;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * hour of the morning or afternoon. <code>HOUR</code> is used for the
      * 12-hour clock (0 - 11). Noon and midnight are represented by 0, not by 12.
      * E.g., at 10:04:15.250 PM the <code>HOUR</code> is 10.
+     * {@description.close}
      *
      * @see #AM_PM
      * @see #HOUR_OF_DAY
@@ -510,36 +546,45 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public final static int HOUR = 10;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * hour of the day. <code>HOUR_OF_DAY</code> is used for the 24-hour clock.
      * E.g., at 10:04:15.250 PM the <code>HOUR_OF_DAY</code> is 22.
+     * {@description.close}
      *
      * @see #HOUR
      */
     public final static int HOUR_OF_DAY = 11;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * minute within the hour.
      * E.g., at 10:04:15.250 PM the <code>MINUTE</code> is 4.
+     * {@description.close}
      */
     public final static int MINUTE = 12;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * second within the minute.
      * E.g., at 10:04:15.250 PM the <code>SECOND</code> is 15.
+     * {@description.close}
      */
     public final static int SECOND = 13;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * millisecond within the second.
      * E.g., at 10:04:15.250 PM the <code>MILLISECOND</code> is 250.
+     * {@description.close}
      */
     public final static int MILLISECOND = 14;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code>
      * indicating the raw offset from GMT in milliseconds.
      * <p>
@@ -547,10 +592,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * zone of this <code>Calendar</code> if the
      * <code>TimeZone</code> implementation subclass supports
      * historical GMT offset changes.
+     * {@description.close}
      */
     public final static int ZONE_OFFSET = 15;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Field number for <code>get</code> and <code>set</code> indicating the
      * daylight savings offset in milliseconds.
      * <p>
@@ -558,152 +605,201 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * the time zone of this <code>Calendar</code> if the
      * <code>TimeZone</code> implementation subclass supports
      * historical Daylight Saving Time schedule changes.
+     * {@description.close}
      */
     public final static int DST_OFFSET = 16;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of distinct fields recognized by <code>get</code> and <code>set</code>.
      * Field numbers range from <code>0..FIELD_COUNT-1</code>.
+     * {@description.close}
      */
     public final static int FIELD_COUNT = 17;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Sunday.
+     * {@description.close}
      */
     public final static int SUNDAY = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Monday.
+     * {@description.close}
      */
     public final static int MONDAY = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Tuesday.
+     * {@description.close}
      */
     public final static int TUESDAY = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Wednesday.
+     * {@description.close}
      */
     public final static int WEDNESDAY = 4;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Thursday.
+     * {@description.close}
      */
     public final static int THURSDAY = 5;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Friday.
+     * {@description.close}
      */
     public final static int FRIDAY = 6;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #DAY_OF_WEEK} field indicating
      * Saturday.
+     * {@description.close}
      */
     public final static int SATURDAY = 7;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * first month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int JANUARY = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * second month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int FEBRUARY = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * third month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int MARCH = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * fourth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int APRIL = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * fifth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int MAY = 4;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * sixth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int JUNE = 5;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * seventh month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int JULY = 6;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * eighth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int AUGUST = 7;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * ninth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int SEPTEMBER = 8;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * tenth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int OCTOBER = 9;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * eleventh month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int NOVEMBER = 10;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * twelfth month of the year in the Gregorian and Julian calendars.
+     * {@description.close}
      */
     public final static int DECEMBER = 11;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #MONTH} field indicating the
      * thirteenth month of the year. Although <code>GregorianCalendar</code>
      * does not use this value, lunar calendars do.
+     * {@description.close}
      */
     public final static int UNDECIMBER = 12;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #AM_PM} field indicating the
      * period of the day from midnight to just before noon.
+     * {@description.close}
      */
     public final static int AM = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Value of the {@link #AM_PM} field indicating the
      * period of the day from noon to just before midnight.
+     * {@description.close}
      */
     public final static int PM = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * A style specifier for {@link #getDisplayNames(int, int, Locale)
      * getDisplayNames} indicating names in all styles, such as
      * "January" and "Jan".
+     * {@description.close}
      *
      * @see #SHORT
      * @see #LONG
@@ -712,9 +808,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public static final int ALL_STYLES = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * A style specifier for {@link #getDisplayName(int, int, Locale)
      * getDisplayName} and {@link #getDisplayNames(int, int, Locale)
      * getDisplayNames} indicating a short name, such as "Jan".
+     * {@description.close}
      *
      * @see #LONG
      * @since 1.6
@@ -722,9 +820,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     public static final int SHORT = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * A style specifier for {@link #getDisplayName(int, int, Locale)
      * getDisplayName} and {@link #getDisplayNames(int, int, Locale)
      * getDisplayNames} indicating a long name, such as "January".
+     * {@description.close}
      *
      * @see #SHORT
      * @since 1.6
@@ -743,64 +843,80 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     // to return a result to the user, or use a result for a computation.
 
     /** {@collect.stats} 
+     * {@description.open}
      * The calendar field values for the currently set time for this calendar.
      * This is an array of <code>FIELD_COUNT</code> integers, with index values
      * <code>ERA</code> through <code>DST_OFFSET</code>.
+     * {@description.close}
      * @serial
      */
     protected int           fields[];
 
     /** {@collect.stats} 
+     * {@description.open}
      * The flags which tell if a specified calendar field for the calendar is set.
      * A new object has no fields set.  After the first call to a method
      * which generates the fields, they all remain set after that.
      * This is an array of <code>FIELD_COUNT</code> booleans, with index values
      * <code>ERA</code> through <code>DST_OFFSET</code>.
+     * {@description.close}
      * @serial
      */
     protected boolean       isSet[];
 
     /** {@collect.stats} 
+     * {@description.open}
      * Pseudo-time-stamps which specify when each field was set. There
      * are two special values, UNSET and COMPUTED. Values from
      * MINIMUM_USER_SET to Integer.MAX_VALUE are legal user set values.
+     * {@description.close}
      */
     transient private int   stamp[];
 
     /** {@collect.stats} 
+     * {@description.open}
      * The currently set time for this calendar, expressed in milliseconds after
      * January 1, 1970, 0:00:00 GMT.
+     * {@description.close}
      * @see #isTimeSet
      * @serial
      */
     protected long          time;
 
     /** {@collect.stats} 
+     * {@description.open}
      * True if then the value of <code>time</code> is valid.
      * The time is made invalid by a change to an item of <code>field[]</code>.
+     * {@description.close}
      * @see #time
      * @serial
      */
     protected boolean       isTimeSet;
 
     /** {@collect.stats} 
+     * {@description.open}
      * True if <code>fields[]</code> are in sync with the currently set time.
      * If false, then the next attempt to get the value of a field will
      * force a recomputation of all fields from the current value of
      * <code>time</code>.
+     * {@description.close}
      * @serial
      */
     protected boolean       areFieldsSet;
 
     /** {@collect.stats} 
+     * {@description.open}
      * True if all fields have been set.
+     * {@description.close}
      * @serial
      */
     transient boolean       areAllFieldsSet;
 
     /** {@collect.stats} 
+     * {@description.open}
      * <code>True</code> if this calendar allows out-of-range field values during computation
      * of <code>time</code> from <code>fields[]</code>.
+     * {@description.close}
      * @see #setLenient
      * @see #isLenient
      * @serial
@@ -808,65 +924,85 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     private boolean         lenient = true;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The <code>TimeZone</code> used by this calendar. <code>Calendar</code>
      * uses the time zone data to translate between locale and GMT time.
+     * {@description.close}
      * @serial
      */
     private TimeZone        zone;
 
     /** {@collect.stats} 
+     * {@description.open}
      * <code>True</code> if zone references to a shared TimeZone object.
+     * {@description.close}
      */
     transient private boolean sharedZone = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The first day of the week, with possible values <code>SUNDAY</code>,
      * <code>MONDAY</code>, etc.  This is a locale-dependent value.
+     * {@description.close}
      * @serial
      */
     private int             firstDayOfWeek;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of days required for the first week in a month or year,
      * with possible values from 1 to 7.  This is a locale-dependent value.
+     * {@description.close}
      * @serial
      */
     private int             minimalDaysInFirstWeek;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Cache to hold the firstDayOfWeek and minimalDaysInFirstWeek
      * of a Locale.
+     * {@description.close}
      */
     private static Hashtable<Locale, int[]> cachedLocaleData = new Hashtable<Locale, int[]>(3);
 
     // Special values of stamp[]
     /** {@collect.stats} 
+     * {@description.open}
      * The corresponding fields[] has no value.
+     * {@description.close}
      */
     private static final int        UNSET = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The value of the corresponding fields[] has been calculated internally.
+     * {@description.close}
      */
     private static final int        COMPUTED = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The value of the corresponding fields[] has been set externally. Stamp
      * values which are greater than 1 represents the (pseudo) time when the
      * corresponding fields[] value was set.
+     * {@description.close}
      */
     private static final int        MINIMUM_USER_STAMP = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The mask value that represents all of the fields.
+     * {@description.close}
      */
     static final int ALL_FIELDS = (1 << FIELD_COUNT) - 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The next available value for <code>stamp[]</code>, an internal array.
      * This actually should not be written out to the stream, and will probably
      * be removed from the stream in the near future.  In the meantime,
      * a value of <code>MINIMUM_USER_STAMP</code> should be used.
+     * {@description.close}
      * @serial
      */
     private int             nextStamp = MINIMUM_USER_STAMP;
@@ -882,6 +1018,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     static final int        currentSerialVersion = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The version of the serialized data on the stream.  Possible values:
      * <dl>
      * <dt><b>0</b> or not present on stream</dt>
@@ -898,6 +1035,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * When streaming out this class, the most recent format
      * and the highest allowable <code>serialVersionOnStream</code>
      * is written.
+     * {@description.close}
      * @serial
      * @since JDK1.1.6
      */
@@ -927,8 +1065,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     final static int DST_OFFSET_MASK    = (1 << DST_OFFSET);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a Calendar with the default time zone
      * and locale.
+     * {@description.close}
      * @see     TimeZone#getDefault
      */
     protected Calendar()
@@ -938,7 +1078,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a calendar with the specified time zone and locale.
+     * {@description.close}
      *
      * @param zone the time zone to use
      * @param aLocale the locale for the week data
@@ -954,9 +1096,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets a calendar using the default time zone and locale. The
      * <code>Calendar</code> returned is based on the current time
      * in the default time zone with the default locale.
+     * {@description.close}
      *
      * @return a Calendar.
      */
@@ -968,9 +1112,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets a calendar using the specified time zone and default locale.
      * The <code>Calendar</code> returned is based on the current time
      * in the given time zone with the default locale.
+     * {@description.close}
      *
      * @param zone the time zone to use
      * @return a Calendar.
@@ -981,9 +1127,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets a calendar using the default time zone and specified locale.
      * The <code>Calendar</code> returned is based on the current time
      * in the default time zone with the given locale.
+     * {@description.close}
      *
      * @param aLocale the locale for the week data
      * @return a Calendar.
@@ -996,9 +1144,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets a calendar with the specified time zone and locale.
      * The <code>Calendar</code> returned is based on the current time
      * in the given time zone with the given locale.
+     * {@description.close}
      *
      * @param zone the time zone to use
      * @param aLocale the locale for the week data
@@ -1029,10 +1179,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array of all locales for which the <code>getInstance</code>
      * methods of this class can return localized instances.
      * The array returned must contain at least a <code>Locale</code>
      * instance equal to {@link java.util.Locale#US Locale.US}.
+     * {@description.close}
      *
      * @return An array of locales for which localized
      *         <code>Calendar</code> instances are available.
@@ -1043,9 +1195,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts the current calendar field values in {@link #fields fields[]}
      * to the millisecond time value
      * {@link #time}.
+     * {@description.close}
      *
      * @see #complete()
      * @see #computeFields()
@@ -1053,21 +1207,28 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     protected abstract void computeTime();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts the current millisecond time value {@link #time}
      * to calendar field values in {@link #fields fields[]}.
      * This allows you to sync up the calendar field values with
-     * a new time that is set for the calendar.  The time is <em>not</em>
+     * a new time that is set for the calendar.
+     * {@description.close}
+     * {@property.open internal}
+     * The time is <em>not</em>
      * recomputed first; to recompute the time, then the fields, call the
      * {@link #complete()} method.
+     * {@property.close}
      *
      * @see #computeTime()
      */
     protected abstract void computeFields();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>Date</code> object representing this
      * <code>Calendar</code>'s time value (millisecond offset from the <a
      * href="#Epoch">Epoch</a>").
+     * {@description.close}
      *
      * @return a <code>Date</code> representing the time value.
      * @see #setTime(Date)
@@ -1078,11 +1239,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets this Calendar's time with the given <code>Date</code>.
      * <p>
      * Note: Calling <code>setTime()</code> with
      * <code>Date(Long.MAX_VALUE)</code> or <code>Date(Long.MIN_VALUE)</code>
      * may yield incorrect field values from <code>get()</code>.
+     * {@description.close}
      *
      * @param date the given Date.
      * @see #getTime()
@@ -1093,7 +1256,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns this Calendar's time value in milliseconds.
+     * {@description.close}
      *
      * @return the current time as UTC milliseconds from the epoch.
      * @see #getTime()
@@ -1107,7 +1272,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets this Calendar's current time from the given long value.
+     * {@description.close}
      *
      * @param millis the new time in UTC milliseconds from the epoch.
      * @see #setTime(Date)
@@ -1128,6 +1295,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the given calendar field. In lenient mode,
      * all calendar fields are normalized. In non-lenient mode, all
      * calendar fields are validated and this method throws an
@@ -1135,6 +1303,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * normalization and validation are handled by the
      * {@link #complete()} method, which process is calendar
      * system dependent.
+     * {@description.close}
      *
      * @param field the given calendar field.
      * @return the value for the given calendar field.
@@ -1150,8 +1319,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the given calendar field. This method does
      * not involve normalization or validation of the field value.
+     * {@description.close}
      *
      * @param field the given calendar field.
      * @return the value for the given calendar field.
@@ -1163,9 +1334,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the value of the given calendar field. This method does
      * not affect any setting state of the field in this
      * <code>Calendar</code> instance.
+     * {@description.close}
      *
      * @throws IndexOutOfBoundsException if the specified field is out of range
      *             (<code>field &lt; 0 || field &gt;= FIELD_COUNT</code>).
@@ -1180,8 +1353,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the given calendar field to the given value. The value is not
      * interpreted by this method regardless of the leniency mode.
+     * {@description.close}
      *
      * @param field the given calendar field.
      * @param value the value to be set for the given calendar field.
@@ -1209,10 +1384,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the values for the calendar fields <code>YEAR</code>,
      * <code>MONTH</code>, and <code>DAY_OF_MONTH</code>.
      * Previous values of other calendar fields are retained.  If this is not desired,
      * call {@link #clear()} first.
+     * {@description.close}
      *
      * @param year the value used to set the <code>YEAR</code> calendar field.
      * @param month the value used to set the <code>MONTH</code> calendar field.
@@ -1230,11 +1407,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the values for the calendar fields <code>YEAR</code>,
      * <code>MONTH</code>, <code>DAY_OF_MONTH</code>,
      * <code>HOUR_OF_DAY</code>, and <code>MINUTE</code>.
      * Previous values of other fields are retained.  If this is not desired,
      * call {@link #clear()} first.
+     * {@description.close}
      *
      * @param year the value used to set the <code>YEAR</code> calendar field.
      * @param month the value used to set the <code>MONTH</code> calendar field.
@@ -1256,11 +1435,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the values for the fields <code>YEAR</code>, <code>MONTH</code>,
      * <code>DAY_OF_MONTH</code>, <code>HOUR</code>, <code>MINUTE</code>, and
      * <code>SECOND</code>.
      * Previous values of other fields are retained.  If this is not desired,
      * call {@link #clear()} first.
+     * {@description.close}
      *
      * @param year the value used to set the <code>YEAR</code> calendar field.
      * @param month the value used to set the <code>MONTH</code> calendar field.
@@ -1285,6 +1466,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets all the calendar field values and the time value
      * (millisecond offset from the <a href="#Epoch">Epoch</a>) of
      * this <code>Calendar</code> undefined. This means that {@link
@@ -1295,6 +1477,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * default field values for date/time calculations. For example,
      * <code>GregorianCalendar</code> uses 1970 if the
      * <code>YEAR</code> field value is undefined.
+     * {@description.close}
      *
      * @see #clear(int)
      */
@@ -1309,6 +1492,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the given calendar field value and the time value
      * (millisecond offset from the <a href="#Epoch">Epoch</a>) of
      * this <code>Calendar</code> undefined. This means that {@link
@@ -1325,6 +1509,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * the hour of day value of this <code>Calendar</code>. Use {@link
      * #set(int,int) set(Calendar.HOUR_OF_DAY, 0)} to reset the hour
      * value.
+     * {@description.close}
      *
      * @param field the calendar field to be cleared.
      * @see #clear()
@@ -1340,9 +1525,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines if the given calendar field has a value set,
      * including cases that the value has been set by internal fields
      * calculations triggered by a <code>get</code> method call.
+     * {@description.close}
      *
      * @return <code>true</code> if the given calendar field has a value set;
      * <code>false</code> otherwise.
@@ -1353,6 +1540,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the calendar
      * <code>field</code> value in the given <code>style</code> and
      * <code>locale</code>.  If no string representation is
@@ -1372,6 +1560,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * <p>The default implementation supports the calendar fields for
      * which a {@link DateFormatSymbols} has names in the given
      * <code>locale</code>.
+     * {@description.close}
      *
      * @param field
      *        the calendar field for which the string representation
@@ -1411,6 +1600,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>Map</code> containing all names of the calendar
      * <code>field</code> in the given <code>style</code> and
      * <code>locale</code> and their corresponding field values. For
@@ -1433,6 +1623,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * #ALL_STYLES}, this method returns a <code>Map</code> containing
      * all strings returned by {@link DateFormatSymbols#getShortMonths()}
      * and {@link DateFormatSymbols#getMonths()}.
+     * {@description.close}
      *
      * @param field
      *        the calendar field for which the display names are returned
@@ -1530,11 +1721,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fills in any unset fields in the calendar fields. First, the {@link
      * #computeTime()} method is called if the time value (millisecond offset
      * from the <a href="#Epoch">Epoch</a>) has not been calculated from
      * calendar field values. Then, the {@link #computeFields()} method is
      * called to calculate all calendar field values.
+     * {@description.close}
      */
     protected void complete()
     {
@@ -1547,9 +1740,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the value of the specified calendar field has been set
      * externally by calling one of the setter methods rather than by the
      * internal time calculation.
+     * {@description.close}
      *
      * @return <code>true</code> if the field has been set externally,
      * <code>false</code> otherwise.
@@ -1564,8 +1759,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a field mask (bit mask) indicating all calendar fields that
      * have the state of externally or internally set.
+     * {@description.close}
      *
      * @return a bit mask indicating set state fields
      */
@@ -1580,10 +1777,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the state of the specified calendar fields to
      * <em>computed</em>. This state means that the specified calendar fields
      * have valid values that have been set by internal time calculation
      * rather than by calling one of the setter methods.
+     * {@description.close}
      *
      * @param fieldMask the field to be marked as computed.
      * @exception IndexOutOfBoundsException if the specified
@@ -1615,11 +1814,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the state of the calendar fields that are <em>not</em> specified
      * by <code>fieldMask</code> to <em>unset</em>. If <code>fieldMask</code>
      * specifies all the calendar fields, then the state of this
      * <code>Calendar</code> becomes that all the calendar fields are in sync
      * with the time value (millisecond offset from the Epoch).
+     * {@description.close}
      *
      * @param fieldMask the field mask indicating which calendar fields are in
      * sync with the time value.
@@ -1647,37 +1848,46 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the calendar fields are partially in sync with the time
      * value or fully in sync but not stamp values are not normalized yet.
+     * {@description.close}
      */
     final boolean isPartiallyNormalized() {
         return areFieldsSet && !areAllFieldsSet;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the calendar fields are fully in sync with the time
      * value.
+     * {@description.close}
      */
     final boolean isFullyNormalized() {
         return areFieldsSet && areAllFieldsSet;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Marks this Calendar as not sync'd.
+     * {@description.close}
      */
     final void setUnnormalized() {
         areFieldsSet = areAllFieldsSet = false;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the specified <code>field</code> is on in the
      * <code>fieldMask</code>.
+     * {@description.close}
      */
     static final boolean isFieldSet(int fieldMask, int field) {
         return (fieldMask & (1 << field)) != 0;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a field mask indicating which calendar field values
      * to be used to calculate the time value. The calendar fields are
      * returned as a bit mask, each bit of which corresponds to a field, i.e.,
@@ -1693,6 +1903,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * <code>false</code>), then the default value of the field has to be
      * used, which case means that the field has been selected because the
      * selected combination involves the field.
+     * {@description.close}
      *
      * @return a bit mask of selected fields
      * @see #isExternallySet(int)
@@ -1850,10 +2061,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the pseudo-time-stamp for two fields, given their
      * individual pseudo-time-stamps.  If either of the fields
      * is unset, then the aggregate is unset.  Otherwise, the
      * aggregate is the later of the two stamps.
+     * {@description.close}
      */
     private static final int aggregateStamp(int stamp_a, int stamp_b) {
         if (stamp_a == UNSET || stamp_b == UNSET) {
@@ -1863,6 +2076,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this <code>Calendar</code> to the specified
      * <code>Object</code>.  The result is <code>true</code> if and only if
      * the argument is a <code>Calendar</code> object of the same calendar
@@ -1883,6 +2097,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * @param obj the object to compare with.
      * @return <code>true</code> if this object is equal to <code>obj</code>;
      * <code>false</code> otherwise.
+     * {@description.close}
      */
     public boolean equals(Object obj) {
         if (this == obj)
@@ -1903,7 +2118,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code for this calendar.
+     * {@description.close}
      *
      * @return a hash code value for this object.
      * @since 1.2
@@ -1919,6 +2136,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether this <code>Calendar</code> represents a time
      * before the time represented by the specified
      * <code>Object</code>. This method is equivalent to:
@@ -1927,6 +2145,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * </blockquote></pre>
      * if and only if <code>when</code> is a <code>Calendar</code>
      * instance. Otherwise, the method returns <code>false</code>.
+     * {@description.close}
      *
      * @param when the <code>Object</code> to be compared
      * @return <code>true</code> if the time of this
@@ -1940,6 +2159,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether this <code>Calendar</code> represents a time
      * after the time represented by the specified
      * <code>Object</code>. This method is equivalent to:
@@ -1948,6 +2168,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * </blockquote></pre>
      * if and only if <code>when</code> is a <code>Calendar</code>
      * instance. Otherwise, the method returns <code>false</code>.
+     * {@description.close}
      *
      * @param when the <code>Object</code> to be compared
      * @return <code>true</code> if the time of this <code>Calendar</code> is
@@ -1961,9 +2182,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the time values (millisecond offsets from the <a
      * href="#Epoch">Epoch</a>) represented by two
      * <code>Calendar</code> objects.
+     * {@description.close}
      *
      * @param anotherCalendar the <code>Calendar</code> to be compared.
      * @return the value <code>0</code> if the time represented by the argument
@@ -1984,10 +2207,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds or subtracts the specified amount of time to the given calendar field,
      * based on the calendar's rules. For example, to subtract 5 days from
      * the current time of the calendar, you can achieve it by calling:
      * <p><code>add(Calendar.DAY_OF_MONTH, -5)</code>.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @param amount the amount of date or time to be added to the field.
@@ -1997,6 +2222,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public void add(int field, int amount);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds or subtracts (up/down) a single unit of time on the given time
      * field without changing larger fields. For example, to roll the current
      * date up by one day, you can achieve it by calling:
@@ -2009,6 +2235,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * rolling the month on the date 01/31/96 will result in 02/29/96.
      * When rolling on the hour-in-day or Calendar.HOUR_OF_DAY field, it will
      * roll the hour value in the range between 0 and 23, which is zero-based.
+     * {@description.close}
      *
      * @param field the time field.
      * @param up indicates if the value of the specified time field is to be
@@ -2019,6 +2246,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public void roll(int field, boolean up);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified (signed) amount to the specified calendar field
      * without changing larger fields.  A negative amount means to roll
      * down.
@@ -2029,6 +2257,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * rolling through February will leave it set to 28.  The <code>GregorianCalendar</code>
      * version of this function takes care of this problem.  Other subclasses
      * should also provide overrides of this function that do the right thing.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @param amount the signed amount to add to the calendar <code>field</code>.
@@ -2050,7 +2279,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the time zone with the given time zone value.
+     * {@description.close}
      *
      * @param value the given time zone.
      */
@@ -2071,7 +2302,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the time zone.
+     * {@description.close}
      *
      * @return the time zone object associated with this calendar.
      */
@@ -2087,25 +2320,31 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the time zone (without cloning).
+     * {@description.close}
      */
     TimeZone getZone() {
         return zone;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the sharedZone flag to <code>shared</code>.
+     * {@description.close}
      */
     void setZoneShared(boolean shared) {
         sharedZone = shared;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Specifies whether or not date/time interpretation is to be lenient.  With
      * lenient interpretation, a date such as "February 942, 1996" will be
      * treated as being equivalent to the 941st day after February 1, 1996.
      * With strict (non-lenient) interpretation, such dates will cause an exception to be
      * thrown. The default is lenient.
+     * {@description.close}
      *
      * @param lenient <code>true</code> if the lenient mode is to be turned
      * on; <code>false</code> if it is to be turned off.
@@ -2118,7 +2357,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tells whether date/time interpretation is to be lenient.
+     * {@description.close}
      *
      * @return <code>true</code> if the interpretation mode of this calendar is lenient;
      * <code>false</code> otherwise.
@@ -2130,8 +2371,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S.,
      * <code>MONDAY</code> in France.
+     * {@description.close}
      *
      * @param value the given first day of the week.
      * @see #getFirstDayOfWeek()
@@ -2147,8 +2390,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S.,
      * <code>MONDAY</code> in France.
+     * {@description.close}
      *
      * @return the first day of the week.
      * @see #setFirstDayOfWeek(int)
@@ -2160,10 +2405,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets what the minimal days required in the first week of the year are;
      * For example, if the first week is defined as one that contains the first
      * day of the first month of a year, call this method with value 1. If it
      * must be a full week, use value 7.
+     * {@description.close}
      *
      * @param value the given minimal days required in the first week
      * of the year.
@@ -2179,11 +2426,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets what the minimal days required in the first week of the year are;
      * e.g., if the first week is defined as one that contains the first day
      * of the first month of a year, this method returns 1. If
      * the minimal days required must be a full week, this method
      * returns 7.
+     * {@description.close}
      *
      * @return the minimal days required in the first week of the year.
      * @see #setMinimalDaysInFirstWeek(int)
@@ -2194,11 +2443,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum value for the given calendar field of this
      * <code>Calendar</code> instance. The minimum value is defined as
      * the smallest value returned by the {@link #get(int) get} method
      * for any possible time value.  The minimum value depends on
      * calendar system specific parameters of the instance.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the minimum value for the given calendar field.
@@ -2211,11 +2462,13 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public int getMinimum(int field);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum value for the given calendar field of this
      * <code>Calendar</code> instance. The maximum value is defined as
      * the largest value returned by the {@link #get(int) get} method
      * for any possible time value. The maximum value depends on
      * calendar system specific parameters of the instance.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the maximum value for the given calendar field.
@@ -2228,12 +2481,14 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public int getMaximum(int field);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the highest minimum value for the given calendar field
      * of this <code>Calendar</code> instance. The highest minimum
      * value is defined as the largest value returned by {@link
      * #getActualMinimum(int)} for any possible time value. The
      * greatest minimum value depends on calendar system specific
      * parameters of the instance.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the highest minimum value for the given calendar field.
@@ -2246,6 +2501,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public int getGreatestMinimum(int field);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the lowest maximum value for the given calendar field
      * of this <code>Calendar</code> instance. The lowest maximum
      * value is defined as the smallest value returned by {@link
@@ -2256,6 +2512,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * <code>DAY_OF_MONTH</code> field, because the 28th is the last
      * day of the shortest month of this calendar, February in a
      * common year.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the lowest maximum value for the given calendar field.
@@ -2268,6 +2525,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     abstract public int getLeastMaximum(int field);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum value that the specified calendar field
      * could have, given the time value of this <code>Calendar</code>.
      *
@@ -2276,6 +2534,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * calendar field. Subclasses should, if possible, override this
      * with a more efficient implementation - in many cases, they can
      * simply return <code>getMinimum()</code>.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the minimum of the given calendar field for the time
@@ -2320,6 +2579,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum value that the specified calendar field
      * could have, given the time value of this
      * <code>Calendar</code>. For example, the actual maximum value of
@@ -2330,6 +2590,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * algorithm to determine the actual maximum value for the
      * calendar field. Subclasses should, if possible, override this
      * with a more efficient implementation.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the maximum of the given calendar field for the time
@@ -2379,7 +2640,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and returns a copy of this object.
+     * {@description.close}
      *
      * @return a copy of this object.
      */
@@ -2413,7 +2676,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the name of the specified calendar field.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the calendar field name
@@ -2425,10 +2690,12 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return a string representation of this calendar. This method
      * is intended to be used only for debugging purposes, and the
      * format of the returned string may vary between implementations.
      * The returned string may be empty but may not be <code>null</code>.
+     * {@description.close}
      *
      * @return  a string representation of this calendar.
      */
@@ -2466,9 +2733,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Both firstDayOfWeek and minimalDaysInFirstWeek are locale-dependent.
      * They are used to figure out the week count for a specific date for
      * a given locale. These must be set when a Calendar is constructed.
+     * {@description.close}
      * @param desiredLocale the given locale.
      */
     private void setWeekCountData(Locale desiredLocale)
@@ -2487,9 +2756,14 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Recomputes the time and updates the status fields isTimeSet
-     * and areFieldsSet.  Callers should check isTimeSet and only
+     * and areFieldsSet.
+     * {@description.close}
+     * {@property.open internal}
+     * Callers should check isTimeSet and only
      * call this method if isTimeSet is false.
+     * {@property.close}
      */
     private void updateTime() {
         computeTime();
@@ -2513,8 +2787,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adjusts the stamp[] values before nextStamp overflow. nextStamp
      * is set to the next stamp value upon the return.
+     * {@description.close}
      */
     private final void adjustStamp() {
         int max = MINIMUM_USER_STAMP;
@@ -2548,8 +2824,10 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the WEEK_OF_MONTH and WEEK_OF_YEAR fields to new values with the
      * new parameter value if they have been calculated internally.
+     * {@description.close}
      */
     private void invalidateWeekFields()
     {
@@ -2582,6 +2860,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of this object to a stream (i.e., serialize it).
      *
      * Ideally, <code>Calendar</code> would only write out its state data and
@@ -2593,6 +2872,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      * the field values and state flags.  However, <code>nextStamp</code> can be
      * removed from the serialization stream; this will probably happen in the
      * near future.
+     * {@description.close}
      */
     private void writeObject(ObjectOutputStream stream)
          throws IOException
@@ -2644,7 +2924,9 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitutes this object from a stream (i.e., deserialize it).
+     * {@description.close}
      */
     private void readObject(ObjectInputStream stream)
          throws IOException, ClassNotFoundException

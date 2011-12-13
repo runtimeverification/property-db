@@ -28,6 +28,7 @@ package java.util;
 import java.lang.reflect.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class contains various methods for manipulating arrays (such as
  * sorting and searching).  This class also contains a static factory
  * that allows arrays to be viewed as lists.
@@ -46,6 +47,7 @@ import java.lang.reflect.*;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -61,12 +63,14 @@ public class Arrays {
     // Sorting
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of longs into ascending numerical order.
      * The sorting algorithm is a tuned quicksort, adapted from Jon
      * L. Bentley and M. Douglas McIlroy's "Engineering a Sort Function",
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -75,6 +79,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of longs into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -85,6 +90,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -100,12 +106,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of ints into ascending numerical order.
      * The sorting algorithm is a tuned quicksort, adapted from Jon
      * L. Bentley and M. Douglas McIlroy's "Engineering a Sort Function",
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -114,6 +122,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of ints into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -124,6 +133,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -139,12 +149,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of shorts into ascending numerical order.
      * The sorting algorithm is a tuned quicksort, adapted from Jon
      * L. Bentley and M. Douglas McIlroy's "Engineering a Sort Function",
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -153,6 +165,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of shorts into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -163,6 +176,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -178,12 +192,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of chars into ascending numerical order.
      * The sorting algorithm is a tuned quicksort, adapted from Jon
      * L. Bentley and M. Douglas McIlroy's "Engineering a Sort Function",
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -192,6 +208,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of chars into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -202,6 +219,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -217,12 +235,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of bytes into ascending numerical order.
      * The sorting algorithm is a tuned quicksort, adapted from Jon
      * L. Bentley and M. Douglas McIlroy's "Engineering a Sort Function",
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -231,6 +251,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of bytes into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -241,6 +262,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -256,6 +278,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of doubles into ascending numerical order.
      * <p>
      * The <code>&lt;</code> relation does not provide a total order on
@@ -277,6 +300,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -285,6 +309,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of doubles into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -309,6 +334,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -324,6 +350,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of floats into ascending numerical order.
      * <p>
      * The <code>&lt;</code> relation does not provide a total order on
@@ -345,6 +372,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      */
@@ -353,6 +381,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of floats into
      * ascending numerical order.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
@@ -377,6 +406,7 @@ public class Arrays {
      * Software-Practice and Experience, Vol. 23(11) P. 1249-1265 (November
      * 1993).  This algorithm offers n*log(n) performance on many data sets
      * that cause other quicksorts to degrade to quadratic performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -481,7 +511,9 @@ public class Arrays {
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of longs into ascending order.
+     * {@description.close}
      */
     private static void sort1(long x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -538,7 +570,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(long x[], int a, int b) {
         long t = x[a];
@@ -547,7 +581,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(long x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -555,7 +591,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed longs.
+     * {@description.close}
      */
     private static int med3(long x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -564,7 +602,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of integers into ascending order.
+     * {@description.close}
      */
     private static void sort1(int x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -621,7 +661,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(int x[], int a, int b) {
         int t = x[a];
@@ -630,7 +672,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(int x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -638,7 +682,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed integers.
+     * {@description.close}
      */
     private static int med3(int x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -647,7 +693,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of shorts into ascending order.
+     * {@description.close}
      */
     private static void sort1(short x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -704,7 +752,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(short x[], int a, int b) {
         short t = x[a];
@@ -713,7 +763,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(short x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -721,7 +773,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed shorts.
+     * {@description.close}
      */
     private static int med3(short x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -731,7 +785,9 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of chars into ascending order.
+     * {@description.close}
      */
     private static void sort1(char x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -788,7 +844,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(char x[], int a, int b) {
         char t = x[a];
@@ -797,7 +855,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(char x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -805,7 +865,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed chars.
+     * {@description.close}
      */
     private static int med3(char x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -815,7 +877,9 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of bytes into ascending order.
+     * {@description.close}
      */
     private static void sort1(byte x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -872,7 +936,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(byte x[], int a, int b) {
         byte t = x[a];
@@ -881,7 +947,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(byte x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -889,7 +957,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed bytes.
+     * {@description.close}
      */
     private static int med3(byte x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -899,7 +969,9 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of doubles into ascending order.
+     * {@description.close}
      */
     private static void sort1(double x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -956,7 +1028,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(double x[], int a, int b) {
         double t = x[a];
@@ -965,7 +1039,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(double x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -973,7 +1049,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed doubles.
+     * {@description.close}
      */
     private static int med3(double x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -983,7 +1061,9 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified sub-array of floats into ascending order.
+     * {@description.close}
      */
     private static void sort1(float x[], int off, int len) {
         // Insertion sort on smallest arrays
@@ -1040,7 +1120,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(float x[], int a, int b) {
         float t = x[a];
@@ -1049,7 +1131,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a .. (a+n-1)] with x[b .. (b+n-1)].
+     * {@description.close}
      */
     private static void vecswap(float x[], int a, int b, int n) {
         for (int i=0; i<n; i++, a++, b++)
@@ -1057,7 +1141,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the median of the three indexed floats.
+     * {@description.close}
      */
     private static int med3(float x[], int a, int b, int c) {
         return (x[a] < x[b] ?
@@ -1067,14 +1153,23 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of objects into ascending order, according to
      * the {@linkplain Comparable natural ordering}
-     * of its elements.  All elements in the array
-     * must implement the {@link Comparable} interface.  Furthermore, all
+     * of its elements.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the array
+     * must implement the {@link Comparable} interface.
+     * {@property.close}
+     * {@property.open}
+     * Furthermore, all
      * elements in the array must be <i>mutually comparable</i> (that is,
      * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
      *
@@ -1082,6 +1177,7 @@ public class Arrays {
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
      * n*log(n) performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @throws  ClassCastException if the array contains elements that are not
@@ -1093,18 +1189,27 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of objects into
      * ascending order, according to the
      * {@linkplain Comparable natural ordering} of its
      * elements.  The range to be sorted extends from index
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
-     * (If <tt>fromIndex==toIndex</tt>, the range to be sorted is empty.)  All
+     * (If <tt>fromIndex==toIndex</tt>, the range to be sorted is empty.)
+     * {@description.close}
+     * {@property.open}
+     * All
      * elements in this range must implement the {@link Comparable}
-     * interface.  Furthermore, all elements in this range must be <i>mutually
+     * interface.
+     * {@property.close}
+     * {@property.open}
+     * Furthermore, all elements in this range must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the array).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
      *
@@ -1112,6 +1217,7 @@ public class Arrays {
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
      * n*log(n) performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1131,17 +1237,21 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tuning parameter: list size at or below which insertion sort will be
      * used in preference to mergesort or quicksort.
+     * {@description.close}
      */
     private static final int INSERTIONSORT_THRESHOLD = 7;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Src is the source array that starts at index 0
      * Dest is the (possibly larger) array destination with a possible offset
      * low is the index in dest to start sorting
      * high is the end index in dest to end sorting
      * off is the offset to generate corresponding low, high in src
+     * {@description.close}
      */
     private static void mergeSort(Object[] src,
                                   Object[] dest,
@@ -1185,7 +1295,9 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(Object[] x, int a, int b) {
         Object t = x[a];
@@ -1194,12 +1306,18 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified array of objects according to the order induced by
-     * the specified comparator.  All elements in the array must be
+     * the specified comparator.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the array must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
      *
@@ -1207,6 +1325,7 @@ public class Arrays {
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
      * n*log(n) performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param c the comparator to determine the order of the array.  A
@@ -1224,15 +1343,21 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified range of the specified array of objects according
      * to the order induced by the specified comparator.  The range to be
      * sorted extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
-     * range to be sorted is empty.)  All elements in the range must be
+     * range to be sorted is empty.)
+     * {@description.close}
+     * {@property.open}
+     * All elements in the range must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
      *
@@ -1240,6 +1365,7 @@ public class Arrays {
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
      * n*log(n) performance.
+     * {@description.close}
      *
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1265,11 +1391,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Src is the source array that starts at index 0
      * Dest is the (possibly larger) array destination with a possible offset
      * low is the index in dest to start sorting
      * high is the end index in dest to end sorting
      * off is the offset into src corresponding to low in dest
+     * {@description.close}
      */
     private static void mergeSort(Object[] src,
                                   Object[] dest,
@@ -1311,8 +1439,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check that fromIndex and toIndex are in range, and throw an
      * appropriate exception if they aren't.
+     * {@description.close}
      */
     private static void rangeCheck(int arrayLen, int fromIndex, int toIndex) {
         if (fromIndex > toIndex)
@@ -1327,12 +1457,20 @@ public class Arrays {
     // Searching
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of longs for the specified value using the
-     * binary search algorithm.  The array must be sorted (as
+     * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted (as
      * by the {@link #sort(long[])} method) prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the array contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1350,15 +1488,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of longs for the specified value using the
      * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted (as
      * by the {@link #sort(long[], int, int)} method)
      * prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the range contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1408,12 +1553,20 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of ints for the specified value using the
-     * binary search algorithm.  The array must be sorted (as
+     * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted (as
      * by the {@link #sort(int[])} method) prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the array contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1431,15 +1584,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of ints for the specified value using the
      * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted (as
      * by the {@link #sort(int[], int, int)} method)
      * prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the range contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1489,12 +1649,20 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of shorts for the specified value using
-     * the binary search algorithm.  The array must be sorted
+     * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted
      * (as by the {@link #sort(short[])} method) prior to making this call.  If
-     * it is not sorted, the results are undefined.  If the array contains
+     * it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1512,15 +1680,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of shorts for the specified value using
      * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted
      * (as by the {@link #sort(short[], int, int)} method)
      * prior to making this call.  If
-     * it is not sorted, the results are undefined.  If the range contains
+     * it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1570,12 +1745,20 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of chars for the specified value using the
-     * binary search algorithm.  The array must be sorted (as
+     * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted (as
      * by the {@link #sort(char[])} method) prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the array contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1593,15 +1776,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of chars for the specified value using the
      * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted (as
      * by the {@link #sort(char[], int, int)} method)
      * prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the range contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1651,12 +1841,20 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of bytes for the specified value using the
-     * binary search algorithm.  The array must be sorted (as
+     * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted (as
      * by the {@link #sort(byte[])} method) prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the array contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1674,15 +1872,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of bytes for the specified value using the
      * binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted (as
      * by the {@link #sort(byte[], int, int)} method)
      * prior to making this call.  If it
-     * is not sorted, the results are undefined.  If the range contains
+     * is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1732,13 +1937,21 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of doubles for the specified value using
-     * the binary search algorithm.  The array must be sorted
+     * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted
      * (as by the {@link #sort(double[])} method) prior to making this call.
-     * If it is not sorted, the results are undefined.  If the array contains
+     * If it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.  This method considers all NaN values to be
      * equivalent and equal.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1756,16 +1969,23 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of doubles for the specified value using
      * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted
      * (as by the {@link #sort(double[], int, int)} method)
      * prior to making this call.
-     * If it is not sorted, the results are undefined.  If the range contains
+     * If it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.  This method considers all NaN values to be
      * equivalent and equal.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1823,13 +2043,21 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array of floats for the specified value using
-     * the binary search algorithm.  The array must be sorted
+     * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted
      * (as by the {@link #sort(float[])} method) prior to making this call.  If
-     * it is not sorted, the results are undefined.  If the array contains
+     * it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the array contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.  This method considers all NaN values to be
      * equivalent and equal.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1847,16 +2075,23 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array of floats for the specified value using
      * the binary search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted
      * (as by the {@link #sort(float[], int, int)} method)
      * prior to making this call.  If
-     * it is not sorted, the results are undefined.  If the range contains
+     * it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the range contains
      * multiple elements with the specified value, there is no guarantee which
      * one will be found.  This method considers all NaN values to be
      * equivalent and equal.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1915,8 +2150,12 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array for the specified object using the binary
-     * search algorithm.  The array must be sorted into ascending order
+     * search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted into ascending order
      * according to the
      * {@linkplain Comparable natural ordering}
      * of its elements (as by the
@@ -1925,9 +2164,12 @@ public class Arrays {
      * (If the array contains elements that are not mutually comparable (for
      * example, strings and integers), it <i>cannot</i> be sorted according
      * to the natural ordering of its elements, hence results are undefined.)
+     * {@property.close}
+     * {@description.open}
      * If the array contains multiple
      * elements equal to the specified object, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -1947,9 +2189,12 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array for the specified object using the binary
      * search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted into ascending order
      * according to the
      * {@linkplain Comparable natural ordering}
@@ -1959,9 +2204,12 @@ public class Arrays {
      * (If the range contains elements that are not mutually comparable (for
      * example, strings and integers), it <i>cannot</i> be sorted according
      * to the natural ordering of its elements, hence results are undefined.)
+     * {@property.close}
+     * {@description.open}
      * If the range contains multiple
      * elements equal to the specified object, there is no guarantee which
      * one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2014,15 +2262,22 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified array for the specified object using the binary
-     * search algorithm.  The array must be sorted into ascending order
+     * search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The array must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(Object[], Comparator) sort(T[], Comparator)}
      * method) prior to making this call.  If it is
      * not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
      * If the array contains multiple
      * elements equal to the specified object, there is no guarantee which one
      * will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param key the value to be searched for
@@ -2047,17 +2302,23 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches a range of
      * the specified array for the specified object using the binary
      * search algorithm.
+     * {@description.close}
+     * {@property.open}
      * The range must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(Object[], int, int, Comparator)
      * sort(T[], int, int, Comparator)}
      * method) prior to making this call.
      * If it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
      * If the range contains multiple elements equal to the specified object,
      * there is no guarantee which one will be found.
+     * {@description.close}
      *
      * @param a the array to be searched
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2121,12 +2382,14 @@ public class Arrays {
     // Equality Testing
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of longs are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2150,12 +2413,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of ints are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2179,12 +2444,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of shorts are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2208,12 +2475,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of chars are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2237,12 +2506,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of bytes are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2266,12 +2537,14 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of booleans are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
      * of elements in the two arrays are equal.  In other words, two arrays
      * are equal if they contain the same elements in the same order.  Also,
      * two array references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2295,6 +2568,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of doubles are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
@@ -2306,6 +2580,7 @@ public class Arrays {
      * <pre>    <tt>new Double(d1).equals(new Double(d2))</tt></pre>
      * (Unlike the <tt>==</tt> operator, this method considers
      * <tt>NaN</tt> equals to itself, and 0.0d unequal to -0.0d.)
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2330,6 +2605,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of floats are
      * <i>equal</i> to one another.  Two arrays are considered equal if both
      * arrays contain the same number of elements, and all corresponding pairs
@@ -2341,6 +2617,7 @@ public class Arrays {
      * <pre>    <tt>new Float(f1).equals(new Float(f2))</tt></pre>
      * (Unlike the <tt>==</tt> operator, this method considers
      * <tt>NaN</tt> equals to itself, and 0.0f unequal to -0.0f.)
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2366,6 +2643,7 @@ public class Arrays {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays of Objects are
      * <i>equal</i> to one another.  The two arrays are considered equal if
      * both arrays contain the same number of elements, and all corresponding
@@ -2374,6 +2652,7 @@ public class Arrays {
      * : e1.equals(e2))</tt>.  In other words, the two arrays are equal if
      * they contain the same elements in the same order.  Also, two array
      * references are considered equal if both are <tt>null</tt>.<p>
+     * {@description.close}
      *
      * @param a one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -2403,8 +2682,10 @@ public class Arrays {
     // Filling
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified long value to each element of the specified array
      * of longs.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2415,11 +2696,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified long value to each element of the specified
      * range of the specified array of longs.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2438,8 +2721,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified int value to each element of the specified array
      * of ints.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2450,11 +2735,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified int value to each element of the specified
      * range of the specified array of ints.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2473,8 +2760,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified short value to each element of the specified array
      * of shorts.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2485,11 +2774,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified short value to each element of the specified
      * range of the specified array of shorts.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2508,8 +2799,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified char value to each element of the specified array
      * of chars.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2520,11 +2813,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified char value to each element of the specified
      * range of the specified array of chars.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2543,8 +2838,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified byte value to each element of the specified array
      * of bytes.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2555,11 +2852,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified byte value to each element of the specified
      * range of the specified array of bytes.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2578,8 +2877,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified boolean value to each element of the specified
      * array of booleans.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2590,11 +2891,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified boolean value to each element of the specified
      * range of the specified array of booleans.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2614,8 +2917,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified double value to each element of the specified
      * array of doubles.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2626,11 +2931,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified double value to each element of the specified
      * range of the specified array of doubles.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2649,8 +2956,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified float value to each element of the specified array
      * of floats.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2661,11 +2970,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified float value to each element of the specified
      * range of the specified array of floats.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2684,8 +2995,10 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified Object reference to each element of the specified
      * array of Objects.
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param val the value to be stored in all elements of the array
@@ -2698,11 +3011,13 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Assigns the specified Object reference to each element of the specified
      * range of the specified array of Objects.  The range to be filled
      * extends from index <tt>fromIndex</tt>, inclusive, to index
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be filled is empty.)
+     * {@description.close}
      *
      * @param a the array to be filled
      * @param fromIndex the index of the first element (inclusive) to be
@@ -2725,6 +3040,7 @@ public class Arrays {
 
     // Cloning
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with nulls (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2733,6 +3049,7 @@ public class Arrays {
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
      * The resulting array is of exactly the same class as the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2747,6 +3064,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with nulls (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2755,6 +3073,7 @@ public class Arrays {
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
      * The resulting array is of the class <tt>newType</tt>.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2778,6 +3097,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2785,6 +3105,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>(byte)0</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2802,6 +3123,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2809,6 +3131,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>(short)0</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2826,6 +3149,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2833,6 +3157,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>0</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2850,6 +3175,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2857,6 +3183,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>0L</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2874,6 +3201,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with null characters (if necessary)
      * so the copy has the specified length.  For all indices that are valid
      * in both the original array and the copy, the two arrays will contain
@@ -2881,6 +3209,7 @@ public class Arrays {
      * the original, the copy will contain <tt>'\\u000'</tt>.  Such indices
      * will exist if and only if the specified length is greater than that of
      * the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2898,6 +3227,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2905,6 +3235,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>0f</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2922,6 +3253,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with zeros (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2929,6 +3261,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>0d</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2946,6 +3279,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified array, truncating or padding with <tt>false</tt> (if necessary)
      * so the copy has the specified length.  For all indices that are
      * valid in both the original array and the copy, the two arrays will
@@ -2953,6 +3287,7 @@ public class Arrays {
      * copy but not the original, the copy will contain <tt>false</tt>.
      * Such indices will exist if and only if the specified length
      * is greater than that of the original array.
+     * {@description.close}
      *
      * @param original the array to be copied
      * @param newLength the length of the copy to be returned
@@ -2970,6 +3305,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -2984,6 +3320,7 @@ public class Arrays {
      * of the returned array will be <tt>to - from</tt>.
      * <p>
      * The resulting array is of exactly the same class as the original array.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3002,6 +3339,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3015,6 +3353,7 @@ public class Arrays {
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
      * The resulting array is of the class <tt>newType</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3045,6 +3384,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3057,6 +3397,7 @@ public class Arrays {
      * <tt>(byte)0</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3081,6 +3422,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3093,6 +3435,7 @@ public class Arrays {
      * <tt>(short)0</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3117,6 +3460,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3129,6 +3473,7 @@ public class Arrays {
      * <tt>0</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3153,6 +3498,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3165,6 +3511,7 @@ public class Arrays {
      * <tt>0L</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3189,6 +3536,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3201,6 +3549,7 @@ public class Arrays {
      * <tt>'\\u000'</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3225,6 +3574,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3237,6 +3587,7 @@ public class Arrays {
      * <tt>0f</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3261,6 +3612,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3273,6 +3625,7 @@ public class Arrays {
      * <tt>0d</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3297,6 +3650,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the specified range of the specified array into a new array.
      * The initial index of the range (<tt>from</tt>) must lie between zero
      * and <tt>original.length</tt>, inclusive.  The value at
@@ -3309,6 +3663,7 @@ public class Arrays {
      * <tt>false</tt> is placed in all elements of the copy whose index is
      * greater than or equal to <tt>original.length - from</tt>.  The length
      * of the returned array will be <tt>to - from</tt>.
+     * {@description.close}
      *
      * @param original the array from which a range is to be copied
      * @param from the initial index of the range to be copied, inclusive
@@ -3336,6 +3691,7 @@ public class Arrays {
     // Misc
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a fixed-size list backed by the specified array.  (Changes to
      * the returned list "write through" to the array.)  This method acts
      * as bridge between array-based and collection-based APIs, in
@@ -3347,6 +3703,7 @@ public class Arrays {
      * <pre>
      *     List&lt;String&gt; stooges = Arrays.asList("Larry", "Moe", "Curly");
      * </pre>
+     * {@description.close}
      *
      * @param a the array by which the list will be backed
      * @return a list view of the specified array
@@ -3418,6 +3775,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>long</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3428,6 +3786,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Long}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3447,6 +3806,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two non-null <tt>int</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3457,6 +3817,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Integer}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3474,6 +3835,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>short</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3484,6 +3846,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Short}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3501,6 +3864,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>char</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3511,6 +3875,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Character}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3528,6 +3893,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>byte</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3538,6 +3904,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Byte}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3555,6 +3922,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>boolean</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3565,6 +3933,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Boolean}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3582,6 +3951,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>float</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3592,6 +3962,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Float}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3609,6 +3980,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.
      * For any two <tt>double</tt> arrays <tt>a</tt> and <tt>b</tt>
      * such that <tt>Arrays.equals(a, b)</tt>, it is also the case that
@@ -3619,6 +3991,7 @@ public class Arrays {
      * method on a {@link List} containing a sequence of {@link Double}
      * instances representing the elements of <tt>a</tt> in the same order.
      * If <tt>a</tt> is <tt>null</tt>, this method returns 0.
+     * {@description.close}
      *
      * @param a the array whose hash value to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3637,6 +4010,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the contents of the specified array.  If
      * the array contains other arrays as elements, the hash code is based on
      * their identities rather than their contents.  It is therefore
@@ -3651,6 +4025,7 @@ public class Arrays {
      * <p>The value returned by this method is equal to the value that would
      * be returned by <tt>Arrays.asList(a).hashCode()</tt>, unless <tt>a</tt>
      * is <tt>null</tt>, in which case <tt>0</tt> is returned.
+     * {@description.close}
      *
      * @param a the array whose content-based hash code to compute
      * @return a content-based hash code for <tt>a</tt>
@@ -3670,14 +4045,19 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code based on the "deep contents" of the specified
      * array.  If the array contains other arrays as elements, the
      * hash code is based on their contents and so on, ad infinitum.
+     * {@description.close}
+     * {@property.open}
      * It is therefore unacceptable to invoke this method on an array that
      * contains itself as an element, either directly or indirectly through
      * one or more levels of arrays.  The behavior of such an invocation is
      * undefined.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>For any two arrays <tt>a</tt> and <tt>b</tt> such that
      * <tt>Arrays.deepEquals(a, b)</tt>, it is also the case that
      * <tt>Arrays.deepHashCode(a) == Arrays.deepHashCode(b)</tt>.
@@ -3692,6 +4072,7 @@ public class Arrays {
      * <tt>Arrays.deepHashCode(e)</tt> recursively if <tt>e</tt> is an array
      * of a reference type.  If <tt>a</tt> is <tt>null</tt>, this method
      * returns 0.
+     * {@description.close}
      *
      * @param a the array whose deep-content-based hash code to compute
      * @return a deep-content-based hash code for <tt>a</tt>
@@ -3734,6 +4115,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified arrays are <i>deeply
      * equal</i> to one another.  Unlike the {@link #equals(Object[],Object[])}
      * method, this method is appropriate for use with nested arrays of
@@ -3760,6 +4142,7 @@ public class Arrays {
      * <p>If either of the specified arrays contain themselves as elements
      * either directly or indirectly through one or more levels of arrays,
      * the behavior of this method is undefined.
+     * {@description.close}
      *
      * @param a1 one array to be tested for equality
      * @param a2 the other array to be tested for equality
@@ -3815,6 +4198,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -3822,6 +4206,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(long)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt>
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3845,6 +4230,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -3852,6 +4238,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(int)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt> is
      * <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3875,6 +4262,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -3882,6 +4270,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(short)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt>
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3905,6 +4294,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -3912,6 +4302,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(char)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt>
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3935,6 +4326,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements
@@ -3942,6 +4334,7 @@ public class Arrays {
      * by a space).  Elements are converted to strings as by
      * <tt>String.valueOf(byte)</tt>.  Returns <tt>"null"</tt> if
      * <tt>a</tt> is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3965,6 +4358,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -3972,6 +4366,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(boolean)</tt>.  Returns <tt>"null"</tt> if
      * <tt>a</tt> is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -3995,6 +4390,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -4002,6 +4398,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(float)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt>
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -4025,6 +4422,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * The string representation consists of a list of the array's elements,
      * enclosed in square brackets (<tt>"[]"</tt>).  Adjacent elements are
@@ -4032,6 +4430,7 @@ public class Arrays {
      * space).  Elements are converted to strings as by
      * <tt>String.valueOf(double)</tt>.  Returns <tt>"null"</tt> if <tt>a</tt>
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -4055,6 +4454,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the contents of the specified array.
      * If the array contains other arrays as elements, they are converted to
      * strings by the {@link Object#toString} method inherited from
@@ -4064,6 +4464,7 @@ public class Arrays {
      * <p>The value returned by this method is equal to the value that would
      * be returned by <tt>Arrays.asList(a).toString()</tt>, unless <tt>a</tt>
      * is <tt>null</tt>, in which case <tt>"null"</tt> is returned.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>
@@ -4088,6 +4489,7 @@ public class Arrays {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the "deep contents" of the specified
      * array.  If the array contains other arrays as elements, the string
      * representation contains their contents and so on.  This method is
@@ -4114,6 +4516,7 @@ public class Arrays {
      *
      * <p>This method returns <tt>"null"</tt> if the specified array
      * is <tt>null</tt>.
+     * {@description.close}
      *
      * @param a the array whose string representation to return
      * @return a string representation of <tt>a</tt>

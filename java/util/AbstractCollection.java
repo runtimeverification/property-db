@@ -26,24 +26,33 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class provides a skeletal implementation of the <tt>Collection</tt>
  * interface, to minimize the effort required to implement this interface. <p>
+ * {@description.close}
  *
+ * {@property.open unknown}
  * To implement an unmodifiable collection, the programmer needs only to
  * extend this class and provide implementations for the <tt>iterator</tt> and
  * <tt>size</tt> methods.  (The iterator returned by the <tt>iterator</tt>
  * method must implement <tt>hasNext</tt> and <tt>next</tt>.)<p>
+ * {@property.close}
  *
+ * {@property.open unknown}
  * To implement a modifiable collection, the programmer must additionally
  * override this class's <tt>add</tt> method (which otherwise throws an
  * <tt>UnsupportedOperationException</tt>), and the iterator returned by the
  * <tt>iterator</tt> method must additionally implement its <tt>remove</tt>
  * method.<p>
+ * {@property.close}
  *
+ * {@property.open Property:java.util.Collection_StandardConstructors}
  * The programmer should generally provide a void (no argument) and
  * <tt>Collection</tt> constructor, as per the recommendation in the
  * <tt>Collection</tt> interface specification.<p>
+ * {@property.close}
  *
+ * {@description.open}
  * The documentation for each non-abstract method in this class describes its
  * implementation in detail.  Each of these methods may be overridden if
  * the collection being implemented admits a more efficient implementation.<p>
@@ -51,6 +60,7 @@ package java.util;
  * This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -60,8 +70,10 @@ package java.util;
 
 public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
+     * {@description.close}
      */
     protected AbstractCollection() {
     }
@@ -69,7 +81,9 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     // Query Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements contained in this collection.
+     * {@description.close}
      *
      * @return an iterator over the elements contained in this collection
      */
@@ -80,7 +94,9 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation returns <tt>size() == 0</tt>.
+     * {@description.close}
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -89,8 +105,10 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over the elements in the collection,
      * checking each element in turn for equality with the specified element.
+     * {@description.close}
      *
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -112,6 +130,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation returns an array containing all the elements
      * returned by this collection's iterator, in the same order, stored in
      * consecutive elements of the array, starting with index {@code 0}.
@@ -130,6 +149,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *     list.add(e);
      * return list.toArray();
      * }</pre>
+     * {@description.close}
      */
     public Object[] toArray() {
         // Estimate size of array; be prepared to see more or fewer elements
@@ -146,6 +166,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation returns an array containing all the elements
      * returned by this collection's iterator in the same order, stored in
      * consecutive elements of the array, starting with index {@code 0}.
@@ -166,6 +187,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *     list.add(e);
      * return list.toArray(a);
      * }</pre>
+     * {@description.close}
      *
      * @throws ArrayStoreException  {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -191,9 +213,11 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reallocates the array being used within toArray when the iterator
      * returned more elements than expected, and finishes filling it from
      * the iterator.
+     * {@description.close}
      *
      * @param r the array, replete with previously stored elements
      * @param it the in-progress iterator over this collection
@@ -225,8 +249,10 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation always throws an
      * <tt>UnsupportedOperationException</tt>.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
@@ -241,6 +267,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over the collection looking for the
      * specified element.  If it finds the element, it removes the element
      * from the collection using the iterator's remove method.
@@ -249,6 +276,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * <tt>UnsupportedOperationException</tt> if the iterator returned by this
      * collection's iterator method does not implement the <tt>remove</tt>
      * method and this collection contains the specified object.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
@@ -280,10 +308,12 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over the specified collection,
      * checking each element returned by the iterator in turn to see
      * if it's contained in this collection.  If all elements are so
      * contained <tt>true</tt> is returned, otherwise <tt>false</tt>.
+     * {@description.close}
      *
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -300,12 +330,14 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over the specified collection, and adds
      * each object returned by the iterator to this collection, in turn.
      *
      * <p>Note that this implementation will throw an
      * <tt>UnsupportedOperationException</tt> unless <tt>add</tt> is
      * overridden (assuming the specified collection is non-empty).
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
@@ -328,6 +360,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over this collection, checking each
      * element returned by the iterator in turn to see if it's contained
      * in the specified collection.  If it's so contained, it's removed from
@@ -338,6 +371,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * <tt>iterator</tt> method does not implement the <tt>remove</tt> method
      * and this collection contains one or more elements in common with the
      * specified collection.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
@@ -361,6 +395,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over this collection, checking each
      * element returned by the iterator in turn to see if it's contained
      * in the specified collection.  If it's not so contained, it's removed
@@ -371,6 +406,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * <tt>iterator</tt> method does not implement the <tt>remove</tt> method
      * and this collection contains one or more elements not present in the
      * specified collection.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
@@ -394,6 +430,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     /** {@collect.stats} 
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>This implementation iterates over this collection, removing each
      * element using the <tt>Iterator.remove</tt> operation.  Most
      * implementations will probably choose to override this method for
@@ -403,6 +440,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * <tt>UnsupportedOperationException</tt> if the iterator returned by this
      * collection's <tt>iterator</tt> method does not implement the
      * <tt>remove</tt> method and this collection is non-empty.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException {@inheritDoc}
      */
@@ -418,12 +456,14 @@ public abstract class AbstractCollection<E> implements Collection<E> {
     //  String conversion
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of this collection.  The string
      * representation consists of a list of the collection's elements in the
      * order they are returned by its iterator, enclosed in square brackets
      * (<tt>"[]"</tt>).  Adjacent elements are separated by the characters
      * <tt>", "</tt> (comma and space).  Elements are converted to strings as
      * by {@link String#valueOf(Object)}.
+     * {@description.close}
      *
      * @return a string representation of this collection
      */

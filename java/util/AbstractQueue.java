@@ -36,15 +36,21 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class provides skeletal implementations of some {@link Queue}
- * operations. The implementations in this class are appropriate when
+ * operations.
+ * {@description.close}
+ * {@property.open Property:java.util.AbstractQueue_NonNull}
+ * The implementations in this class are appropriate when
  * the base implementation does <em>not</em> allow <tt>null</tt>
  * elements.  Methods {@link #add add}, {@link #remove remove}, and
  * {@link #element element} are based on {@link #offer offer}, {@link
  * #poll poll}, and {@link #peek peek}, respectively, but throw
  * exceptions instead of indicating failure via <tt>false</tt> or
  * <tt>null</tt> returns.
+ * {@property.close}
  *
+ * {@property.open static enforced}
  * <p> A <tt>Queue</tt> implementation that extends this class must
  * minimally define a method {@link Queue#offer} which does not permit
  * insertion of <tt>null</tt> elements, along with methods {@link
@@ -53,10 +59,13 @@ package java.util;
  * Iterator#remove}. Typically, additional methods will be overridden
  * as well. If these requirements cannot be met, consider instead
  * subclassing {@link AbstractCollection}.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -67,12 +76,15 @@ public abstract class AbstractQueue<E>
     implements Queue<E> {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructor for use by subclasses.
+     * {@description.close}
      */
     protected AbstractQueue() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue if it is possible to do so
      * immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
@@ -80,6 +92,7 @@ public abstract class AbstractQueue<E>
      *
      * <p>This implementation returns <tt>true</tt> if <tt>offer</tt> succeeds,
      * else throws an <tt>IllegalStateException</tt>.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -100,12 +113,14 @@ public abstract class AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the head of this queue.  This method differs
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
      *
      * <p>This implementation returns the result of <tt>poll</tt>
      * unless the queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
@@ -119,12 +134,14 @@ public abstract class AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves, but does not remove, the head of this queue.  This method
      * differs from {@link #peek peek} only in that it throws an exception if
      * this queue is empty.
      *
      * <p>This implementation returns the result of <tt>peek</tt>
      * unless the queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
@@ -138,11 +155,13 @@ public abstract class AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this queue.
      * The queue will be empty after this call returns.
      *
      * <p>This implementation repeatedly invokes {@link #poll poll} until it
      * returns <tt>null</tt>.
+     * {@description.close}
      */
     public void clear() {
         while (poll() != null)
@@ -150,12 +169,18 @@ public abstract class AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds all of the elements in the specified collection to this
      * queue.  Attempts to addAll of a queue to itself result in
-     * <tt>IllegalArgumentException</tt>. Further, the behavior of
+     * <tt>IllegalArgumentException</tt>.
+     * {@description.close}
+     * {@property.open synchronization}
+     * Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>This implementation iterates over the specified collection,
      * and adds each element returned by the iterator to this
      * queue, in turn.  A runtime exception encountered while
@@ -163,6 +188,7 @@ public abstract class AbstractQueue<E>
      * <tt>null</tt> element) may result in only some of the elements
      * having been successfully added when the associated exception is
      * thrown.
+     * {@description.close}
      *
      * @param c collection containing elements to be added to this queue
      * @return <tt>true</tt> if this queue changed as a result of the call
