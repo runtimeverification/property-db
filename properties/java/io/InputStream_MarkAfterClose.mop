@@ -15,7 +15,7 @@ InputStream_MarkAfterClose(InputStream i) {
 	event mark before(InputStream i) : call(* InputStream+.mark(..)) && target(i) {}
 	event close before(InputStream i) : call(* InputStream+.close(..)) && target(i) {}
 
-	ere : close mark+
+	ere : close+ mark+
 
 	@match {
 		System.err.println("mark() after close() had no effect.");

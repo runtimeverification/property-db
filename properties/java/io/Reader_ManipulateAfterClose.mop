@@ -27,7 +27,7 @@ Reader_ManipulateAfterClose(Reader r) {
 		) && target(r) {}
 	creation event close before(Reader r) : call(* Reader+.close(..)) && target(r) {}
 
-	ere : close manipulate+
+	ere : close+ manipulate+
 
 	@match {
 		System.err.println("read(), ready(), mark(), reset() or skip() was invoked after close().");

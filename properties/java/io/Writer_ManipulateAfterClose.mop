@@ -28,7 +28,7 @@ Writer_ManipulateAfterClose(Writer w) {
 		call(* Writer+.close(..)) && target(w) &&
 		!target(CharArrayWriter) && !target(StringWriter) {}
 
-	ere : close manipulate+
+	ere : close+ manipulate+
 
 	@match {
 		System.err.println("write() or flush() was invoked after close().");
