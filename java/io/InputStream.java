@@ -66,9 +66,9 @@ public abstract class InputStream implements Closeable {
      * or an exception is thrown.
      * {@property.close}
      *
-     * {@enforced.open}
+     * {@property.open enforced}
      * <p> A subclass must provide an implementation of this method.
-     * {@enforced.close}
+     * {@property.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.

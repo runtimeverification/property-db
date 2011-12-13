@@ -32,11 +32,11 @@ package java.io;
  * and sends them to some sink.
  * {@description.close}
  * <p>
- * {@enforced.open}
+ * {@property.open enforced}
  * Applications that need to define a subclass of
  * <code>OutputStream</code> must always provide at least a method
  * that writes one byte of output.
- * {@enforced.close}
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
@@ -57,10 +57,10 @@ public abstract class OutputStream implements Closeable, Flushable {
      * high-order bits of <code>b</code> are ignored.
      * {@description.close}
      * <p>
-     * {@enforced.open}
+     * {@property.open enforced}
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
-     * {@enforced.close}
+     * {@property.close}
      *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs. In particular,
