@@ -181,7 +181,7 @@ public class PropertyOpenTaglet implements Taglet {
           globalStats.put(ALLATTRIBUTES, allGlobalW + localW);
           packageStats.put(ALLATTRIBUTES, allPackageW + localW);
           for(String arg : arguments){
-            if(isLink("arg")) continue;
+            if(isLink(arg)) continue;
             if(arg.equals("")) continue;
             Integer argGlobalW = globalStats.get(arg);
             Integer argPacakgeW = packageStats.get(arg);
