@@ -86,12 +86,16 @@ import java.util.Map;
  * #start()} will fail.  For example, setting the command attribute to
  * an empty list will not throw an exception unless {@link #start()}
  * is invoked.
- *
+ * {@descriptive.close}
+ * 
+ * {@property.open runtime}
  * <p><strong>Note that this class is not synchronized.</strong>
  * If multiple threads access a <code>ProcessBuilder</code> instance
  * concurrently, and at least one of the threads modifies one of the
  * attributes structurally, it <i>must</i> be synchronized externally.
+ * {@property.close}
  *
+ * {@descriptive.open}
  * <p>Starting a new process which uses the default working directory
  * and environment is easy:
  *
@@ -115,6 +119,7 @@ import java.util.Map;
  * <p>To start a process with an explicit set of environment
  * variables, first call {@link java.util.Map#clear() Map.clear()}
  * before adding environment variables.
+ * {@descriptive.close}
  *
  * @since 1.5
  */
@@ -126,7 +131,8 @@ public final class ProcessBuilder
     private Map<String,String> environment;
     private boolean redirectErrorStream;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Constructs a process builder with the specified operating
      * system program and arguments.  This constructor does <i>not</i>
      * make a copy of the <code>command</code> list.  Subsequent
@@ -134,6 +140,7 @@ public final class ProcessBuilder
      * process builder.  It is not checked whether
      * <code>command</code> corresponds to a valid operating system
      * command.</p>
+     * {@descriptive.close}
      *
      * @param   command  The list containing the program and its arguments
      *
@@ -147,6 +154,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a process builder with the specified operating
      * system program and arguments.  This is a convenience
      * constructor that sets the process builder's command to a string
@@ -154,6 +162,7 @@ public final class ProcessBuilder
      * array, in the same order.  It is not checked whether
      * <code>command</code> corresponds to a valid operating system
      * command.</p>
+     * {@descriptive.close}
      *
      * @param   command  A string array containing the program and its arguments
      */
@@ -164,12 +173,14 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Sets this process builder's operating system program and
      * arguments.  This method does <i>not</i> make a copy of the
      * <code>command</code> list.  Subsequent updates to the list will
      * be reflected in the state of the process builder.  It is not
      * checked whether <code>command</code> corresponds to a valid
      * operating system command.</p>
+     * {@descriptive.close}
      *
      * @param   command  The list containing the program and its arguments
      * @return  This process builder
@@ -185,12 +196,14 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Sets this process builder's operating system program and
      * arguments.  This is a convenience method that sets the command
      * to a string list containing the same strings as the
      * <code>command</code> array, in the same order.  It is not
      * checked whether <code>command</code> corresponds to a valid
      * operating system command.</p>
+     * {@descriptive.close}
      *
      * @param   command  A string array containing the program and its arguments
      * @return  This process builder
@@ -203,10 +216,12 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns this process builder's operating system program and
      * arguments.  The returned list is <i>not</i> a copy.  Subsequent
      * updates to the list will be reflected in the state of this
      * process builder.</p>
+     * {@descriptive.close}
      *
      * @return  This process builder's program and its arguments
      */
@@ -215,6 +230,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns a string map view of this process builder's environment.
      *
      * Whenever a process builder is created, the environment is
@@ -234,12 +250,15 @@ public final class ProcessBuilder
      *
      * <p>If the system does not support environment variables, an
      * empty map is returned.
+     * {@descriptive.close}
      *
+     * {@property.open runtime}
      * <p>The returned map does not permit null keys or values.
      * Attempting to insert or query the presence of a null key or
      * value will throw a {@link NullPointerException}.
      * Attempting to query the presence of a key or value which is not
      * of type {@link String} will throw a {@link ClassCastException}.
+     * {@property.close}
      *
      * <p>The behavior of the returned map is system-dependent.  A
      * system may not allow modifications to environment variables or

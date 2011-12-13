@@ -12,6 +12,7 @@ import java.lang.*;
  *
  * @severity suggestion
  */
+ 
 Byte_StaticFactory() {
     event constructor_create after() returning(Byte b): 
         call(Byte+.new(byte)) {
