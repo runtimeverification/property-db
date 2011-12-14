@@ -26,10 +26,12 @@
 package java.lang.annotation;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The common interface extended by all annotation types.  Note that an
  * interface that manually extends this one does <i>not</i> define
  * an annotation type.  Also note that this interface does not itself
  * define an annotation type.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @since   1.5
@@ -67,6 +69,7 @@ public interface Annotation {
      *    are considered equal if <tt>Arrays.equals(x, y)</tt>, for the
      *    appropriate overloading of {@link java.util.Arrays#equals}.
      * </ul>
+     * {@description.close}
      *
      * @return true if the specified object represents an annotation
      *     that is logically equivalent to this one, otherwise false
@@ -74,6 +77,7 @@ public interface Annotation {
     boolean equals(Object obj);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code of this annotation, as defined below:
      *
      * <p>The hash code of an annotation is the sum of the hash codes
@@ -104,25 +108,30 @@ public interface Annotation {
      *     on the value.  (There is one overloading for each primitive
      *     type, and one for object reference types.)
      * </ul>
+     * {@description.close}
      *
      * @return the hash code of this annotation
      */
     int hashCode();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of this annotation.  The details
      * of the representation are implementation-dependent, but the following
      * may be regarded as typical:
      * <pre>
      *   &#064;com.acme.util.Name(first=Alfred, middle=E., last=Neuman)
      * </pre>
+     * {@description.close}
      *
      * @return a string representation of this annotation
      */
     String toString();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the annotation type of this annotation.
+     * {@description.close}
      */
     Class<? extends Annotation> annotationType();
 }
