@@ -1191,7 +1191,8 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Compares this {@code String} to another {@code String}, ignoring case
      * considerations.  Two strings are considered equal ignoring case if they
      * are of the same length and corresponding characters in the two strings
@@ -1209,6 +1210,7 @@ public final class String
      *        java.lang.Character#toLowerCase(char)} to each character
      *        produces the same result
      * </ul>
+     * {@description.close}
      *
      * @param  anotherString
      *         The {@code String} to compare this {@code String} against
@@ -1226,6 +1228,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares two strings lexicographically.
      * The comparison is based on the Unicode value of each character in
      * the strings. The character sequence represented by this
@@ -1258,6 +1261,7 @@ public final class String
      * <blockquote><pre>
      * this.length()-anotherString.length()
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param   anotherString   the <code>String</code> to be compared.
      * @return  the value <code>0</code> if the argument string is equal to
@@ -1344,6 +1348,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares two strings lexicographically, ignoring case
      * differences. This method returns an integer whose sign is that of
      * calling <code>compareTo</code> with normalized versions of the strings
@@ -1355,6 +1360,7 @@ public final class String
      * and will result in an unsatisfactory ordering for certain locales.
      * The java.text package provides <em>collators</em> to allow
      * locale-sensitive ordering.
+     * {@description.close}
      *
      * @param   str   the <code>String</code> to be compared.
      * @return  a negative integer, zero, or a positive integer as the
@@ -1368,6 +1374,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if two string regions are equal.
      * <p>
      * A substring of this <tt>String</tt> object is compared to a substring
@@ -1388,6 +1395,7 @@ public final class String
      * such that:
      * <tt>this.charAt(toffset+<i>k</i>)&nbsp;!=&nbsp;other.charAt(ooffset+<i>k</i>)</tt>
      * </ul>
+     * {@description.close}
      *
      * @param   toffset   the starting offset of the subregion in this string.
      * @param   other     the string argument.
@@ -1418,6 +1426,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if two string regions are equal.
      * <p>
      * A substring of this <tt>String</tt> object is compared to a substring
@@ -1452,6 +1461,7 @@ public final class String
      *         Character.toUpperCase(other.charAt(ooffset+k))
      * </pre></blockquote>
      * </ul>
+     * {@description.close}
      *
      * @param   ignoreCase   if <code>true</code>, ignore case when comparing
      *                       characters.
@@ -1507,9 +1517,11 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Tests if the substring of this string beginning at the
      * specified index starts with the specified prefix.
+     * {@description.close}
      *
      * @param   prefix    the prefix.
      * @param   toffset   where to begin looking in this string.
@@ -1542,8 +1554,10 @@ public final class String
         return true;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Tests if this string starts with the specified prefix.
+     * {@description.close}
      *
      * @param   prefix   the prefix.
      * @return  <code>true</code> if the character sequence represented by the
@@ -1560,7 +1574,9 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if this string ends with the specified suffix.
+     * {@description.close}
      *
      * @param   suffix   the suffix.
      * @return  <code>true</code> if the character sequence represented by the
@@ -1575,6 +1591,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code for this string. The hash code for a
      * <code>String</code> object is computed as
      * <blockquote><pre>
@@ -1584,6 +1601,7 @@ public final class String
      * <i>i</i>th character of the string, <code>n</code> is the length of
      * the string, and <code>^</code> indicates exponentiation.
      * (The hash value of the empty string is zero.)
+     * {@description.close}
      *
      * @return  a hash code value for this object.
      */
@@ -1603,6 +1621,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the first occurrence of
      * the specified character. If a character with value
      * <code>ch</code> occurs in the character sequence represented by
@@ -1620,6 +1639,7 @@ public final class String
      * </pre></blockquote>
      * is true. In either case, if no such character occurs in this
      * string, then <code>-1</code> is returned.
+     * {@description.close}
      *
      * @param   ch   a character (Unicode code point).
      * @return  the index of the first occurrence of the character in the
@@ -1631,6 +1651,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the first occurrence of the
      * specified character, starting the search at the specified index.
      * <p>
@@ -1661,6 +1682,7 @@ public final class String
      *
      * <p>All indices are specified in <code>char</code> values
      * (Unicode code units).
+     * {@description.close}
      *
      * @param   ch          a character (Unicode code point).
      * @param   fromIndex   the index to start the search from.
@@ -1710,6 +1732,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the last occurrence of
      * the specified character. For values of <code>ch</code> in the
      * range from 0 to 0xFFFF (inclusive), the index (in Unicode code
@@ -1726,6 +1749,7 @@ public final class String
      * string, then <code>-1</code> is returned.  The
      * <code>String</code> is searched backwards starting at the last
      * character.
+     * {@description.close}
      *
      * @param   ch   a character (Unicode code point).
      * @return  the index of the last occurrence of the character in the
@@ -1737,6 +1761,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the last occurrence of
      * the specified character, searching backward starting at the
      * specified index. For values of <code>ch</code> in the range
@@ -1756,6 +1781,7 @@ public final class String
      *
      * <p>All indices are specified in <code>char</code> values
      * (Unicode code units).
+     * {@description.close}
      *
      * @param   ch          a character (Unicode code point).
      * @param   fromIndex   the index to start the search from. There is no
@@ -1806,6 +1832,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the first occurrence of the
      * specified substring. The integer returned is the smallest value
      * <i>k</i> such that:
@@ -1813,6 +1840,7 @@ public final class String
      * this.startsWith(str, <i>k</i>)
      * </pre></blockquote>
      * is <code>true</code>.
+     * {@description.close}
      *
      * @param   str   any string.
      * @return  if the string argument occurs as a substring within this
@@ -1825,6 +1853,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the first occurrence of the
      * specified substring, starting at the specified index.  The integer
      * returned is the smallest value <tt>k</tt> for which:
@@ -1832,6 +1861,7 @@ public final class String
      *     k &gt;= Math.min(fromIndex, this.length()) && this.startsWith(str, k)
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
+     * {@description.close}
      *
      * @param   str         the substring for which to search.
      * @param   fromIndex   the index from which to start the search.
@@ -1844,9 +1874,11 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Code shared by String and StringBuffer to do searches. The
      * source is the character array being searched, and the target
      * is the string being searched for.
+     * {@description.close}
      *
      * @param   source       the characters being searched.
      * @param   sourceOffset offset of the source string.
@@ -1895,6 +1927,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the rightmost occurrence
      * of the specified substring.  The rightmost empty string "" is
      * considered to occur at the index value <code>this.length()</code>.
@@ -1903,6 +1936,7 @@ public final class String
      * this.startsWith(str, k)
      * </pre></blockquote>
      * is true.
+     * {@description.close}
      *
      * @param   str   the substring to search for.
      * @return  if the string argument occurs one or more times as a substring
@@ -1915,6 +1949,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index within this string of the last occurrence of the
      * specified substring, searching backward starting at the specified index.
      * The integer returned is the largest value <i>k</i> such that:
@@ -1922,6 +1957,7 @@ public final class String
      *     k &lt;= Math.min(fromIndex, this.length()) && this.startsWith(str, k)
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
+     * {@description.close}
      *
      * @param   str         the substring to search for.
      * @param   fromIndex   the index to start the search from.
@@ -1934,9 +1970,11 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Code shared by String and StringBuffer to do searches. The
      * source is the character array being searched, and the target
      * is the string being searched for.
+     * {@description.close}
      *
      * @param   source       the characters being searched.
      * @param   sourceOffset offset of the source string.
@@ -1993,6 +2031,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a new string that is a substring of this string. The
      * substring begins with the character at the specified index and
      * extends to the end of this string. <p>
@@ -2002,6 +2041,7 @@ public final class String
      * "Harbison".substring(3) returns "bison"
      * "emptiness".substring(9) returns "" (an empty string)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      beginIndex   the beginning index, inclusive.
      * @return     the specified substring.
@@ -2014,6 +2054,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a new string that is a substring of this string. The
      * substring begins at the specified <code>beginIndex</code> and
      * extends to the character at index <code>endIndex - 1</code>.
@@ -2024,6 +2065,7 @@ public final class String
      * "hamburger".substring(4, 8) returns "urge"
      * "smiles".substring(1, 5) returns "mile"
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      beginIndex   the beginning index, inclusive.
      * @param      endIndex     the ending index, exclusive.
@@ -2050,6 +2092,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a new character sequence that is a subsequence of this sequence.
      *
      * <p> An invocation of this method of the form
@@ -2064,6 +2107,7 @@ public final class String
      *
      * This method is defined so that the <tt>String</tt> class can implement
      * the {@link CharSequence} interface. </p>
+     * {@description.close}
      *
      * @param      beginIndex   the begin index, inclusive.
      * @param      endIndex     the end index, exclusive.
@@ -2082,6 +2126,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Concatenates the specified string to the end of this string.
      * <p>
      * If the length of the argument string is <code>0</code>, then this
@@ -2095,6 +2140,7 @@ public final class String
      * "cares".concat("s") returns "caress"
      * "to".concat("get").concat("her") returns "together"
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param   str   the <code>String</code> that is concatenated to the end
      *                of this <code>String</code>.
@@ -2113,6 +2159,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a new string resulting from replacing all occurrences of
      * <code>oldChar</code> in this string with <code>newChar</code>.
      * <p>
@@ -2135,6 +2182,7 @@ public final class String
      *         returns "starring with a turtle tortoise"
      * "JonL".replace('q', 'x') returns "JonL" (no change)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param   oldChar   the old character.
      * @param   newChar   the new character.
@@ -2170,6 +2218,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tells whether or not this string matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2180,6 +2229,7 @@ public final class String
      * <blockquote><tt> {@link java.util.regex.Pattern}.{@link
      * java.util.regex.Pattern#matches(String,CharSequence)
      * matches}(</tt><i>regex</i><tt>,</tt> <i>str</i><tt>)</tt></blockquote>
+     * {@description.close}
      *
      * @param   regex
      *          the regular expression to which this string is to be matched
@@ -2200,8 +2250,10 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if and only if this string contains the specified
      * sequence of char values.
+     * {@description.close}
      *
      * @param s the sequence to search for
      * @return true if this string contains <code>s</code>, false otherwise
@@ -2213,6 +2265,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the first substring of this string that matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a> with the
      * given replacement.
@@ -2235,6 +2288,7 @@ public final class String
      * {@link java.util.regex.Matcher#replaceFirst}.
      * Use {@link java.util.regex.Matcher#quoteReplacement} to suppress the special
      * meaning of these characters, if desired.
+     * {@description.close}
      *
      * @param   regex
      *          the regular expression to which this string is to be matched
@@ -2256,6 +2310,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces each substring of this string that matches the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a> with the
      * given replacement.
@@ -2278,6 +2333,7 @@ public final class String
      * {@link java.util.regex.Matcher#replaceAll Matcher.replaceAll}.
      * Use {@link java.util.regex.Matcher#quoteReplacement} to suppress the special
      * meaning of these characters, if desired.
+     * {@description.close}
      *
      * @param   regex
      *          the regular expression to which this string is to be matched
@@ -2299,11 +2355,13 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces each substring of this string that matches the literal target
      * sequence with the specified literal replacement sequence. The
      * replacement proceeds from the beginning of the string to the end, for
      * example, replacing "aa" with "b" in the string "aaa" will result in
      * "ba" rather than "ab".
+     * {@description.close}
      *
      * @param  target The sequence of char values to be replaced
      * @param  replacement The replacement sequence of char values
@@ -2318,6 +2376,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Splits this string around matches of the given
      * <a href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2378,7 +2437,7 @@ public final class String
      * java.util.regex.Pattern#split(java.lang.CharSequence,int)
      * split}<tt>(</tt><i>str</i><tt>,</tt>&nbsp;<i>n</i><tt>)</tt>
      * </blockquote>
-     *
+     * {@description.close}
      *
      * @param  regex
      *         the delimiting regular expression
@@ -2402,6 +2461,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Splits this string around matches of the given <a
      * href="../util/regex/Pattern.html#sum">regular expression</a>.
      *
@@ -2423,7 +2483,7 @@ public final class String
      * <tr><td align=center>o</td>
      *     <td><tt>{ "b", "", ":and:f" }</tt></td></tr>
      * </table></blockquote>
-     *
+     * {@description.close}
      *
      * @param  regex
      *         the delimiting regular expression
@@ -2444,6 +2504,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts all of the characters in this <code>String</code> to lower
      * case using the rules of the given <code>Locale</code>.  Case mapping is based
      * on the Unicode Standard version specified by the {@link java.lang.Character Character}
@@ -2487,6 +2548,7 @@ public final class String
      *   <td>lowercased all chars in String</td>
      * </tr>
      * </table>
+     * {@description.close}
      *
      * @param locale use the case transformation rules for this locale
      * @return the <code>String</code>, converted to lowercase.
@@ -2583,6 +2645,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts all of the characters in this <code>String</code> to lower
      * case using the rules of the default locale. This is equivalent to calling
      * <code>toLowerCase(Locale.getDefault())</code>.
@@ -2598,6 +2661,7 @@ public final class String
      * To obtain correct results for locale insensitive strings, use
      * <code>toLowerCase(Locale.ENGLISH)</code>.
      * <p>
+     * {@description.close}
      * @return  the <code>String</code>, converted to lowercase.
      * @see     java.lang.String#toLowerCase(Locale)
      */
@@ -2606,6 +2670,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts all of the characters in this <code>String</code> to upper
      * case using the rules of the given <code>Locale</code>. Case mapping is based
      * on the Unicode Standard version specified by the {@link java.lang.Character Character}
@@ -2646,6 +2711,7 @@ public final class String
      *   <td></td>
      * </tr>
      * </table>
+     * {@description.close}
      * @param locale use the case transformation rules for this locale
      * @return the <code>String</code>, converted to uppercase.
      * @see     java.lang.String#toUpperCase()
@@ -2746,6 +2812,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts all of the characters in this <code>String</code> to upper
      * case using the rules of the default locale. This method is equivalent to
      * <code>toUpperCase(Locale.getDefault())</code>.
@@ -2761,6 +2828,7 @@ public final class String
      * To obtain correct results for locale insensitive strings, use
      * <code>toUpperCase(Locale.ENGLISH)</code>.
      * <p>
+     * {@description.close}
      * @return  the <code>String</code>, converted to uppercase.
      * @see     java.lang.String#toUpperCase(Locale)
      */
@@ -2769,6 +2837,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a copy of the string, with leading and trailing whitespace
      * omitted.
      * <p>
@@ -2794,6 +2863,7 @@ public final class String
      * <p>
      * This method may be used to trim whitespace (as defined above) from
      * the beginning and end of a string.
+     * {@description.close}
      *
      * @return  A copy of this string with leading and trailing white
      *          space removed, or this string if it has no leading or
@@ -2823,8 +2893,10 @@ public final class String
         return this;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Converts this string to a new character array.
+     * {@description.close}
      *
      * @return  a newly allocated character array whose length is the length
      *          of this string and whose contents are initialized to contain
@@ -2837,11 +2909,13 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a formatted string using the specified format string and
      * arguments.
      *
      * <p> The locale always used is the one returned by {@link
      * java.util.Locale#getDefault() Locale.getDefault()}.
+     * {@description.close}
      *
      * @param  format
      *         A <a href="../util/Formatter.html#syntax">format string</a>
@@ -2879,8 +2953,10 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a formatted string using the specified locale, format string,
      * and arguments.
+     * {@description.close}
      *
      * @param  l
      *         The {@linkplain java.util.Locale locale} to apply during
@@ -2923,7 +2999,9 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>Object</code> argument.
+     * {@description.close}
      *
      * @param   obj   an <code>Object</code>.
      * @return  if the argument is <code>null</code>, then a string equal to
@@ -2936,10 +3014,12 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>char</code> array
      * argument. The contents of the character array are copied; subsequent
      * modification of the character array does not affect the newly
      * created string.
+     * {@description.close}
      *
      * @param   data   a <code>char</code> array.
      * @return  a newly allocated string representing the same sequence of
@@ -2950,6 +3030,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of a specific subarray of the
      * <code>char</code> array argument.
      * <p>
@@ -2958,6 +3039,7 @@ public final class String
      * specifies the length of the subarray. The contents of the subarray
      * are copied; subsequent modification of the character array does not
      * affect the newly created string.
+     * {@description.close}
      *
      * @param   data     the character array.
      * @param   offset   the initial offset into the value of the
@@ -2975,8 +3057,10 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a String that represents the character sequence in the
      * array specified.
+     * {@description.close}
      *
      * @param   data     the character array.
      * @param   offset   initial offset of the subarray.
@@ -2990,8 +3074,10 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a String that represents the character sequence in the
      * array specified.
+     * {@description.close}
      *
      * @param   data   the character array.
      * @return  a <code>String</code> that contains the characters of the
@@ -3002,7 +3088,9 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>boolean</code> argument.
+     * {@description.close}
      *
      * @param   b   a <code>boolean</code>.
      * @return  if the argument is <code>true</code>, a string equal to
@@ -3014,8 +3102,10 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>char</code>
      * argument.
+     * {@description.close}
      *
      * @param   c   a <code>char</code>.
      * @return  a string of length <code>1</code> containing
@@ -3027,10 +3117,12 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>int</code> argument.
      * <p>
      * The representation is exactly the one returned by the
      * <code>Integer.toString</code> method of one argument.
+     * {@description.close}
      *
      * @param   i   an <code>int</code>.
      * @return  a string representation of the <code>int</code> argument.
@@ -3041,10 +3133,12 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>long</code> argument.
      * <p>
      * The representation is exactly the one returned by the
      * <code>Long.toString</code> method of one argument.
+     * {@description.close}
      *
      * @param   l   a <code>long</code>.
      * @return  a string representation of the <code>long</code> argument.
@@ -3054,11 +3148,13 @@ public final class String
         return Long.toString(l, 10);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Returns the string representation of the <code>float</code> argument.
      * <p>
      * The representation is exactly the one returned by the
      * <code>Float.toString</code> method of one argument.
+     * {@description.close}
      *
      * @param   f   a <code>float</code>.
      * @return  a string representation of the <code>float</code> argument.
@@ -3069,10 +3165,12 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the string representation of the <code>double</code> argument.
      * <p>
      * The representation is exactly the one returned by the
      * <code>Double.toString</code> method of one argument.
+     * {@description.close}
      *
      * @param   d   a <code>double</code>.
      * @return  a  string representation of the <code>double</code> argument.
@@ -3083,6 +3181,7 @@ public final class String
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a canonical representation for the string object.
      * <p>
      * A pool of strings, initially empty, is maintained privately by the
@@ -3102,6 +3201,7 @@ public final class String
      * interned. String literals are defined in &sect;3.10.5 of the
      * <a href="http://java.sun.com/docs/books/jls/html/">Java Language
      * Specification</a>
+     * {@description.close}
      *
      * @return  a string that has the same contents as this string, but is
      *          guaranteed to be from a pool of unique strings.
