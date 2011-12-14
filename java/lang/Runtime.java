@@ -176,12 +176,10 @@ public class Runtime {
      * particular, be written to be thread-safe and to avoid deadlocks insofar
      * as possible.
      * {@descriptive.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:ShutdownHook_UnsafeSwingCall formal:ShutdownHook_UnsafeAWTCall}
      * They should also not rely blindly upon services that may
      * have registered their own shutdown hooks and therefore may themselves in
      * the process of shutting down.
-     * {@property.close}
-     * {@property.open runtime formal:ShutdownHook_UnsafeAWTCall}
      * Attempts to use other thread-based
      * services such as the AWT event-dispatch thread, for example, may lead to
      * deadlocks.
