@@ -549,7 +549,7 @@ public final class String
      * in the given charset is unspecified.  The {@link
      * java.nio.charset.CharsetDecoder} class should be used when more control
      * over the decoding process is required.
-     * {@porperty.close}
+     * {@property.close}
      *
      * @param  bytes
      *         The bytes to be decoded into characters
