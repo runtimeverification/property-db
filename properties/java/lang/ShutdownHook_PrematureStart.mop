@@ -5,13 +5,14 @@ import java.lang.*;
 /**
  * Prevents registering a shutdown hook that has been started.
  *
- * addShutdownHook() registers a shutdown hook, an initialized but unstarted
- * thread that will be started when the VM begins the shutdown sequence. Since
- * a shutdown hook is started by the VM, it should not be started prematurely
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html
+ * According to the manual, addShutdownHook() registers a shutdown hook, 
+ * an initialized but unstarted thread that will be started 
+ * when the VM begins the shutdown sequence. 
+ * Since a shutdown hook is started by the VM, it should not be started prematurely
  * by the user code. This specification captures the premature start.
  *
- * Once the shutdown sequence has begun, registering or unregistering a hook
- * is banned. This specification also captures the violation of this.
+ * @severity error
  */
 
 ShutdownHook_PrematureStart(Thread t) {
