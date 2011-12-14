@@ -10,7 +10,7 @@ import java.util.*;
  * http://docs.oracle.com/javase/6/docs/api/java/lang/ProcessBuilder.html
  * Attempting to insert or query the presence of a null key or value will throw an exception.
  *
- * @severity suggestion
+ * @severity warning
  */
 
 ProcessBuilder_NullKeyOrValue(ProcessBuilder p, Map map){
