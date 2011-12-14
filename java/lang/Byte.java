@@ -99,7 +99,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
      * {@description.close}
-     * {@property.open runtime performance formal:Byte_StaticFactory}
+     * {@property.open runtime performance formal:java.lang.Byte_StaticFactory}
      * If a new {@code Byte} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Byte(byte)}, as this method is likely to yield
@@ -128,7 +128,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * resulting {@code byte} value is returned.
      * {@description.close}
      * 
-     * {@property.open runtime formal:Byte_BadParsingArgs}
+     * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
      * thrown if any of the following situations occurs:
      * <ul>

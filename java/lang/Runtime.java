@@ -85,7 +85,7 @@ public class Runtime {
      * halts}.
      * {@description.close}
      *
-     * {@property.open runtime formal:ShutdownHook_SystemExit}
+     * {@property.open runtime formal:java.lang.ShutdownHook_SystemExit}
      * <p> If this method is invoked after the virtual machine has begun its
      * shutdown sequence then if shutdown hooks are being run this method will
      * block indefinitely.  If shutdown hooks have already been run and on-exit
@@ -143,7 +143,7 @@ public class Runtime {
      *   </ul>
      * {@description.close}
      *
-     * {@property.open runtime formal:ShutdownHook_PrematureStart}
+     * {@property.open runtime formal:java.lang.ShutdownHook_PrematureStart}
      * <p> A <i>shutdown hook</i> is simply an initialized but unstarted
      * thread.
      * {@property.close}
@@ -163,7 +163,7 @@ public class Runtime {
      * terminates the virtual machine.
      * {@description.close}
      *
-     * {@property.open runtime formal:ShutdownHook_LateRegister}
+     * {@property.open runtime formal:java.lang.ShutdownHook_LateRegister}
      * <p> Once the shutdown sequence has begun it is impossible to register a
      * new shutdown hook or de-register a previously-registered hook.
      * Attempting either of these operations will cause an
@@ -176,7 +176,7 @@ public class Runtime {
      * particular, be written to be thread-safe and to avoid deadlocks insofar
      * as possible.
      * {@description.close}
-     * {@property.open runtime formal:ShutdownHook_UnsafeSwingCall formal:ShutdownHook_UnsafeAWTCall}
+     * {@property.open runtime formal:java.lang.ShutdownHook_UnsafeSwingCall formal:java.lang.ShutdownHook_UnsafeAWTCall}
      * They should also not rely blindly upon services that may
      * have registered their own shutdown hooks and therefore may themselves in
      * the process of shutting down.

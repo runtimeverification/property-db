@@ -45,7 +45,7 @@ import java.io.IOException;
  * multiple 16-bit <tt>char</tt> values.
  * {@description.close}
  *
- * {@property.open runtime formal:Appendable_ThreadSafe}
+ * {@property.open runtime formal:java.lang.Appendable_ThreadSafe}
  * <p> Appendables are not necessarily safe for multithreaded access.  Thread
  * safety is the responsibility of classes that extend and implement this
  * interface.

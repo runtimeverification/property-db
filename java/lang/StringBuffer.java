@@ -71,7 +71,7 @@ package java.lang;
  * automatically made larger.
  * {@description.close}
  *
- * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
+ * {@property.open runtime performance formal:java.lang.StringBuffer_SingleThreadUsage}
  * As of  release JDK 5, this class has been supplemented with an equivalent
  * class designed for use by a single thread, {@link StringBuilder}.  The
  * <tt>StringBuilder</tt> class should generally be used in preference to

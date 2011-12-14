@@ -30,7 +30,7 @@ package java.lang;
  * {@description.open}
  * A mutable sequence of characters.  
  * {@description.close}
- * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
+ * {@property.open runtime performance formal:java.lang.StringBuffer_SingleThreadUsage}
  * This class provides an API compatible
  * with <code>StringBuffer</code>, but with no guarantee of synchronization.
  * This class is designed for use as a drop-in replacement for

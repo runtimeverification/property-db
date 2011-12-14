@@ -88,7 +88,7 @@ public final class Boolean implements java.io.Serializable,
      * {@code value} argument.
      * {@description.close}
      *
-     * {@property.open runtime performance formal:Boolean_StaticFactory}
+     * {@property.open runtime performance formal:java.lang.Boolean_StaticFactory}
      * <p><b>Note: It is rarely appropriate to use this constructor.
      * Unless a <i>new</i> instance is required, the static factory
      * {@link #valueOf(boolean)} is generally a better choice. It is
@@ -158,7 +158,7 @@ public final class Boolean implements java.io.Serializable,
      * is {@code true}, this method returns {@code Boolean.TRUE};
      * if it is {@code false}, this method returns {@code Boolean.FALSE}.
      * {@description.close}
-     * {@property.open runtime performance formal:Boolean_StaticFactory}
+     * {@property.open runtime performance formal:java.lang.Boolean_StaticFactory}
      * If a new {@code Boolean} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Boolean(boolean)}, as this method is likely to yield

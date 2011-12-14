@@ -46,7 +46,7 @@ import java.util.*;
  * <tt>e1</tt> and <tt>e2</tt> of class <tt>C</tt>.  
  * {@description.close}
  * 
- * {@property.open runtime formal:Comparable_CompareToNullException formal:Comparable_CompareToNull}
+ * {@property.open runtime formal:java.lang.Comparable_CompareToNullException formal:java.lang.Comparable_CompareToNull}
  * Note that <tt>null</tt>
  * is not an instance of any class, and <tt>e.compareTo(null)</tt> should
  * throw a <tt>NullPointerException</tt> even though <tt>e.equals(null)</tt>

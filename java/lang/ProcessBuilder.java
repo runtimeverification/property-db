@@ -252,7 +252,7 @@ public final class ProcessBuilder
      * empty map is returned.
      * {@description.close}
      *
-     * {@property.open runtime formal:ProcessBuilder_NullKeyOrValue}
+     * {@property.open runtime formal:java.lang.ProcessBuilder_NullKeyOrValue}
      * <p>The returned map does not permit null keys or values.
      * Attempting to insert or query the presence of a null key or
      * value will throw a {@link NullPointerException}.
