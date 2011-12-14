@@ -1,3 +1,5 @@
+package mop;
+
 import java.lang.*;
 import java.awt.*;
 

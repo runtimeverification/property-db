@@ -1,7 +1,7 @@
 package mop;
 
 import java.lang.*;
-import java.awt.*;
+import java.lang.*;
 
 /**
  * Warns if one registers a new shutdown hook after the shutdown sequence has begun.

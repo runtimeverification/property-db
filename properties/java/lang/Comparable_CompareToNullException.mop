@@ -1,6 +1,7 @@
 package mop;
 
 import java.io.*;
+import java.lang.*;
 
 /**
  * Warns if a comparable object does not throw a NullPointerException when compared to null.
