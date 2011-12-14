@@ -623,17 +623,21 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to create a new class loader.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("createClassLoader")</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkCreateClassLoader</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @exception SecurityException if the calling thread does not
      *             have permission
@@ -645,9 +649,11 @@ class SecurityManager {
         checkPermission(SecurityConstants.CREATE_CLASSLOADER_PERMISSION);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open}
      * reference to the root thread group, used for the checkAccess
      * methods.
+     * {@descriptive.close}
      */
 
     private static ThreadGroup rootGroup = getRootGroup();
@@ -661,6 +667,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to modify the thread argument.
      * <p>
@@ -683,11 +690,14 @@ class SecurityManager {
      * if so, return silently. This is to ensure that code granted
      * that permission (such as the JDK itself) is allowed to
      * manipulate any thread.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If this method is overridden, then
      * <code>super.checkAccess</code> should
      * be called by the first statement in the overridden method, or the
      * equivalent security check should be placed in the overridden method.
+     * {@property.close}
      *
      * @param      t   the thread to be checked.
      * @exception  SecurityException  if the calling thread does not have
@@ -713,6 +723,7 @@ class SecurityManager {
         }
     }
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to modify the thread group argument.
      * <p>
@@ -736,11 +747,14 @@ class SecurityManager {
      * if so, return silently. This is to ensure that code granted
      * that permission (such as the JDK itself) is allowed to
      * manipulate any thread.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If this method is overridden, then
      * <code>super.checkAccess</code> should
      * be called by the first statement in the overridden method, or the
      * equivalent security check should be placed in the overridden method.
+     * {@property.close}
      *
      * @param      g   the thread group to be checked.
      * @exception  SecurityException  if the calling thread does not have
@@ -767,6 +781,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to cause the Java Virtual Machine to
      * halt with the specified status code.
@@ -778,11 +793,14 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("exitVM."+status)</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkExit</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      status   the exit status.
      * @exception SecurityException if the calling thread does not have
@@ -795,7 +813,8 @@ class SecurityManager {
         checkPermission(new RuntimePermission("exitVM."+status));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to create a subprocess.
      * <p>
@@ -807,11 +826,14 @@ class SecurityManager {
      * if cmd is an absolute path, otherwise it calls
      * <code>checkPermission</code> with
      * <code>FilePermission("&lt;&lt;ALL FILES&gt;&gt;","execute")</code>.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkExec</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      cmd   the specified system command.
      * @exception  SecurityException if the calling thread does not have
@@ -835,7 +857,8 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to dynamic link the library code
      * specified by the string argument file. The argument is either a
@@ -847,11 +870,14 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("loadLibrary."+lib)</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkLink</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      lib   the name of the library.
      * @exception  SecurityException if the calling thread does not have
@@ -869,7 +895,8 @@ class SecurityManager {
         checkPermission(new RuntimePermission("loadLibrary."+lib));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to read from the specified file
      * descriptor.
@@ -877,11 +904,14 @@ class SecurityManager {
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("readFileDescriptor")</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkRead</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      fd   the system-dependent file descriptor.
      * @exception  SecurityException  if the calling thread does not have
@@ -898,18 +928,22 @@ class SecurityManager {
         checkPermission(new RuntimePermission("readFileDescriptor"));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to read the file specified by the
      * string argument.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>FilePermission(file,"read")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkRead</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      file   the system-dependent file name.
      * @exception  SecurityException if the calling thread does not have
@@ -923,7 +957,8 @@ class SecurityManager {
             SecurityConstants.FILE_READ_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * specified security context is not allowed to read the file
      * specified by the string argument. The context must be a security
@@ -936,11 +971,14 @@ class SecurityManager {
      * <p> If <code>context</code> is not an instance of
      * <code>AccessControlContext</code> then a
      * <code>SecurityException</code> is thrown.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkRead</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      file      the system-dependent filename.
      * @param      context   a system-dependent security context.
@@ -959,7 +997,8 @@ class SecurityManager {
             context);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to write to the specified file
      * descriptor.
@@ -967,11 +1006,14 @@ class SecurityManager {
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("writeFileDescriptor")</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkWrite</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      fd   the system-dependent file descriptor.
      * @exception SecurityException  if the calling thread does not have
@@ -989,18 +1031,22 @@ class SecurityManager {
 
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to write to the file specified by
      * the string argument.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>FilePermission(file,"write")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkWrite</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      file   the system-dependent filename.
      * @exception  SecurityException  if the calling thread does not
@@ -1014,7 +1060,8 @@ class SecurityManager {
             SecurityConstants.FILE_WRITE_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to delete the specified file.
      * <p>
@@ -1023,11 +1070,14 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>FilePermission(file,"delete")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkDelete</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      file   the system-dependent filename.
      * @exception  SecurityException if the calling thread does not
@@ -1043,6 +1093,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to open a socket connection to the
      * specified host and port number.
@@ -1056,11 +1107,14 @@ class SecurityManager {
      * the port is not equal to -1. If the port is equal to -1, then
      * it calls <code>checkPermission</code> with the
      * <code>SocketPermission(host,"resolve")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkConnect</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      host   the host name port to connect to.
      * @param      port   the protocol port to connect to.
@@ -1087,7 +1141,8 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * specified security context is not allowed to open a socket
      * connection to the specified host and port number.
@@ -1107,11 +1162,14 @@ class SecurityManager {
      * the <code>context</code>'s <code>checkPermission</code> method
      * is called with a
      * <code>SocketPermission(host,"resolve")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkConnect</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      host      the host name port to connect to.
      * @param      port      the protocol port to connect to.
@@ -1144,6 +1202,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to wait for a connection request on
      * the specified local port number.
@@ -1153,11 +1212,14 @@ class SecurityManager {
      * <code>SocketPermission("localhost:"+port,"listen")</code>.
      * If port is zero, this method calls <code>checkPermission</code>
      * with <code>SocketPermission("localhost:1024-","listen").</code>
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkListen</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      port   the local port.
      * @exception  SecurityException  if the calling thread does not have
@@ -1173,7 +1235,8 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not permitted to accept a socket connection from
      * the specified host and port number.
@@ -1183,11 +1246,14 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>SocketPermission(host+":"+port,"accept")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkAccept</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      host   the host name of the socket connection.
      * @param      port   the port number of the socket connection.
@@ -1209,7 +1275,8 @@ class SecurityManager {
             SecurityConstants.SOCKET_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to use
      * (join/leave/send/receive) IP multicast.
@@ -1217,11 +1284,14 @@ class SecurityManager {
      * This method calls <code>checkPermission</code> with the
      * <code>java.net.SocketPermission(maddr.getHostAddress(),
      * "accept,connect")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkMulticast</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      maddr  Internet group address to be used.
      * @exception  SecurityException  if the calling thread is not allowed to
@@ -1240,7 +1310,8 @@ class SecurityManager {
             SecurityConstants.SOCKET_CONNECT_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to use
      * (join/leave/send/receive) IP multicast.
@@ -1248,11 +1319,14 @@ class SecurityManager {
      * This method calls <code>checkPermission</code> with the
      * <code>java.net.SocketPermission(maddr.getHostAddress(),
      * "accept,connect")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkMulticast</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      maddr  Internet group address to be used.
      * @param      ttl        value in use, if it is multicast send.
@@ -1276,7 +1350,8 @@ class SecurityManager {
             SecurityConstants.SOCKET_CONNECT_ACCEPT_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access or modify the system
      * properties.
@@ -1286,12 +1361,15 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>PropertyPermission("*", "read,write")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkPropertiesAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
      * <p>
+     * {@property.close}
      *
      * @exception  SecurityException  if the calling thread does not have
      *             permission to access or modify the system properties.
@@ -1304,7 +1382,8 @@ class SecurityManager {
             SecurityConstants.PROPERTY_RW_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the system property with
      * the specified <code>key</code> name.
@@ -1315,11 +1394,14 @@ class SecurityManager {
      * This method calls <code>checkPermission</code> with the
      * <code>PropertyPermission(key, "read")</code> permission.
      * <p>
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkPropertyAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param      key   a system property key.
      *
@@ -1337,7 +1419,8 @@ class SecurityManager {
             SecurityConstants.PROPERTY_READ_ACTION));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Returns <code>false</code> if the calling
      * thread is not trusted to bring up the top-level window indicated
      * by the <code>window</code> argument. In this case, the caller can
@@ -1354,6 +1437,8 @@ class SecurityManager {
      * <code>AWTPermission("showWindowWithoutWarningBanner")</code> permission,
      * and returns <code>true</code> if a SecurityException is not thrown,
      * otherwise it returns <code>false</code>.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkTopLevelWindow</code>
@@ -1361,6 +1446,7 @@ class SecurityManager {
      * <code>false</code>, and the value of
      * <code>super.checkTopLevelWindow</code> should
      * be returned.
+     * {@property.close}
      *
      * @param      window   the new window that is being created.
      * @return     <code>true</code> if the calling thread is trusted to put up
@@ -1383,19 +1469,23 @@ class SecurityManager {
         return false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to initiate a print job request.
      * <p>
      * This method calls
      * <code>checkPermission</code> with the
      * <code>RuntimePermission("queuePrintJob")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkPrintJobAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
      * <p>
+     * {@property.close}
      *
      * @exception  SecurityException  if the calling thread does not have
      *             permission to initiate a print job request.
@@ -1406,18 +1496,22 @@ class SecurityManager {
         checkPermission(new RuntimePermission("queuePrintJob"));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the system clipboard.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>AWTPermission("accessClipboard")</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkSystemClipboardAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @since   JDK1.1
      * @exception  SecurityException  if the calling thread does not have
@@ -1428,17 +1522,21 @@ class SecurityManager {
         checkPermission(SecurityConstants.ACCESS_CLIPBOARD_PERMISSION);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the AWT event queue.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>AWTPermission("accessEventQueue")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkAwtEventQueueAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @since   JDK1.1
      * @exception  SecurityException  if the calling thread does not have
@@ -1494,7 +1592,8 @@ class SecurityManager {
         return packages;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the package specified by
      * the argument.
@@ -1511,10 +1610,13 @@ class SecurityManager {
      * <code>checkPermission</code> gets called with the
      * <code>RuntimePermission("accessClassInPackage."+pkg)</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If this method is overridden, then
      * <code>super.checkPackageAccess</code> should be called
      * as the first line in the overridden method.
+     * {@property.close}
      *
      * @param      pkg   the package name.
      * @exception  SecurityException  if the calling thread does not have
@@ -1568,6 +1670,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to define classes in the package
      * specified by the argument.
@@ -1583,10 +1686,13 @@ class SecurityManager {
      * <code>checkPermission</code> gets called with the
      * <code>RuntimePermission("defineClassInPackage."+pkg)</code>
      * permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If this method is overridden, then
      * <code>super.checkPackageDefinition</code> should be called
      * as the first line in the overridden method.
+     * {@property.close}
      *
      * @param      pkg   the package name.
      * @exception  SecurityException  if the calling thread does not have
@@ -1635,7 +1741,8 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to set the socket factory used by
      * <code>ServerSocket</code> or <code>Socket</code>, or the stream
@@ -1643,12 +1750,15 @@ class SecurityManager {
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>RuntimePermission("setFactory")</code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkSetFactory</code>
      * at the point the overridden method would normally throw an
      * exception.
      * <p>
+     * {@property.close}
      *
      * @exception  SecurityException  if the calling thread does not have
      *             permission to specify a socket factory or a stream
@@ -1663,7 +1773,8 @@ class SecurityManager {
         checkPermission(new RuntimePermission("setFactory"));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access members.
      * <p>
@@ -1672,12 +1783,15 @@ class SecurityManager {
      * In all other cases, this method calls <code>checkPermission</code>
      * with the <code>RuntimePermission("accessDeclaredMembers")
      * </code> permission.
+     * {@descriptive.close}
+     * {@property.open static}
      * <p>
      * If this method is overridden, then a call to
      * <code>super.checkMemberAccess</code> cannot be made,
      * as the default implementation of <code>checkMemberAccess</code>
      * relies on the code being checked being at a stack depth of
      * 4.
+     * {@property.close}
      *
      * @param clazz the class that reflection is to be performed on.
      *
@@ -1715,7 +1829,8 @@ class SecurityManager {
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Determines whether the permission with the specified permission target
      * name should be granted or denied.
      *
@@ -1729,11 +1844,13 @@ class SecurityManager {
      * <p> See the documentation for
      * <code>{@link java.security.SecurityPermission}</code> for
      * a list of possible permission target names.
-     *
+     * {@descriptive.close}
+     * {@property.open static}
      * <p> If you override this method, then you should make a call to
      * <code>super.checkSecurityAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
+     * {@property.close}
      *
      * @param target the target name of the <code>SecurityPermission</code>.
      *
@@ -1751,12 +1868,14 @@ class SecurityManager {
 
     private native Class currentLoadedClass0();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Returns the thread group into which to instantiate any new
      * thread being created at the time this is being called.
      * By default, it returns the thread group of the current
      * thread. This should be overridden by a specific security
      * manager to return the appropriate thread group.
+     * {@descriptive.close}
      *
      * @return  ThreadGroup that new threads are instantiated into
      * @since   JDK1.1
