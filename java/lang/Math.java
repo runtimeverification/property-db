@@ -781,7 +781,7 @@ public final class Math {
      * calls to this method and is used nowhere else.
      * {@descriptive.close}
      *
-     * {@property.open runtime performace}
+     * {@property.open runtime performance}
      * <p>This method is properly synchronized to allow correct use by
      * more than one thread. However, if many threads need to generate
      * pseudorandom numbers at a great rate, it may reduce contention
