@@ -1260,7 +1260,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * {@description.open}
      * Returns the value obtained by reversing the order of the bytes in the
      * two's complement representation of the specified {@code int} value.
-     * 
+     * {@description.close}
      *
      * @return the value obtained by reversing the bytes in the specified
      *     {@code int} value.

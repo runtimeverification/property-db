@@ -41,6 +41,7 @@ class ArithmeticException extends RuntimeException {
      * {@description.open} 
      * Constructs an <code>ArithmeticException</code> with no detail
      * message.
+     * {@description.close}
      * 
      */
     public ArithmeticException() {

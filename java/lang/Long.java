@@ -739,6 +739,7 @@ public final class Long extends Number implements Comparable<Long> {
      * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code byte}.
+     * {@description.close}
      * 
      */
     public byte byteValue() {
