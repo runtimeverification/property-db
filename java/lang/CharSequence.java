@@ -27,14 +27,14 @@ package java.lang;
 
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * A <tt>CharSequence</tt> is a readable sequence of <code>char</code> values. This
  * interface provides uniform, read-only access to many different kinds of
  * <code>char</code> sequences.
  * A <code>char</code> value represents a character in the <i>Basic
  * Multilingual Plane (BMP)</i> or a surrogate. Refer to <a
  * href="Character.html#unicode">Unicode Character Representation</a> for details.
- * {@descriptive.close}
+ * {@description.close}
  *
  * {@property.open}
  * <p> This interface does not refine the general contracts of the {@link
@@ -56,17 +56,17 @@ package java.lang;
 public interface CharSequence {
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the length of this character sequence.  The length is the number
      * of 16-bit <code>char</code>s in the sequence.</p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the number of <code>char</code>s in this sequence
      */
     int length();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the <code>char</code> value at the specified index.  An index ranges from zero
      * to <tt>length() - 1</tt>.  The first <code>char</code> value of the sequence is at
      * index zero, the next at index one, and so on, as for array
@@ -75,7 +75,7 @@ public interface CharSequence {
      * <p>If the <code>char</code> value specified by the index is a
      * <a href="Character.html#unicode">surrogate</a>, the surrogate
      * value is returned.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   index   the index of the <code>char</code> value to be returned
      *
@@ -88,14 +88,14 @@ public interface CharSequence {
     char charAt(int index);
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a new <code>CharSequence</code> that is a subsequence of this sequence.
      * The subsequence starts with the <code>char</code> value at the specified index and
      * ends with the <code>char</code> value at index <tt>end - 1</tt>.  The length
      * (in <code>char</code>s) of the
      * returned sequence is <tt>end - start</tt>, so if <tt>start == end</tt>
      * then an empty sequence is returned. </p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   start   the start index, inclusive
      * @param   end     the end index, exclusive
@@ -110,11 +110,11 @@ public interface CharSequence {
     CharSequence subSequence(int start, int end);
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string containing the characters in this sequence in the same
      * order as this sequence.  The length of the string will be the length of
      * this sequence. </p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  a string consisting of exactly this sequence of characters
      */

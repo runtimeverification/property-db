@@ -26,11 +26,11 @@
 package java.lang;
 
 /** {@collect.stats} 
- * {@descriptive.open}
+ * {@description.open}
  * Thrown when an exceptional arithmetic condition has occurred. For
  * example, an integer "divide by zero" throws an
  * instance of this class.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
@@ -38,7 +38,7 @@ package java.lang;
 public
 class ArithmeticException extends RuntimeException {
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Constructs an <code>ArithmeticException</code> with no detail
      * message.
      * 
@@ -48,10 +48,10 @@ class ArithmeticException extends RuntimeException {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs an <code>ArithmeticException</code> with the specified
      * detail message.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

@@ -30,7 +30,7 @@ import java.util.Arrays;
 import sun.misc.VM;
 
 /** {@collect.stats} 
- * {@descriptive.open}
+ * {@description.open}
  * A thread group represents a set of threads. In addition, a thread
  * group can also include other thread groups. The thread groups form
  * a tree in which every thread group except the initial thread group
@@ -39,7 +39,7 @@ import sun.misc.VM;
  * A thread is allowed to access information about its own thread
  * group, but not to access information about its thread group's
  * parent thread group or any other thread groups.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
@@ -82,13 +82,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Constructs a new thread group. The parent of this new group is
      * the thread group of the currently running thread.
      * <p>
      * The <code>checkAccess</code> method of the parent thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   name   the name of the new thread group.
      * @exception  SecurityException  if the current thread cannot create a
@@ -101,13 +101,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Creates a new thread group. The parent of this new group is the
      * specified thread group.
      * <p>
      * The <code>checkAccess</code> method of the parent thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param     parent   the parent thread group.
      * @param     name     the name of the new thread group.
@@ -143,9 +143,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the name of this thread group.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the name of this thread group.
      * @since   JDK1.0
@@ -155,13 +155,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the parent of this thread group.
      * <p>
      * First, if the parent is not <code>null</code>, the
      * <code>checkAccess</code> method of the parent thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the parent of this thread group. The top-level thread group
      *          is the only thread group whose parent is <code>null</code>.
@@ -179,11 +179,11 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the maximum priority of this thread group. Threads that are
      * part of this group cannot have a higher priority than the maximum
      * priority.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the maximum priority that a thread in this thread group
      *          can have.
@@ -195,11 +195,11 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Tests if this thread group is a daemon thread group. A
      * daemon thread group is automatically destroyed when its last
      * thread is stopped or its last thread group is destroyed.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  <code>true</code> if this thread group is a daemon thread group;
      *          <code>false</code> otherwise.
@@ -210,9 +210,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Tests if this thread group has been destroyed.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  true if this object is destroyed
      * @since   JDK1.1
@@ -222,7 +222,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Changes the daemon status of this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
@@ -230,7 +230,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * A daemon thread group is automatically destroyed when its last
      * thread is stopped or its last thread group is destroyed.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      daemon   if <code>true</code>, marks this thread group as
      *                      a daemon thread group; otherwise, marks this
@@ -247,7 +247,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Sets the maximum priority of the group. Threads in the thread
      * group that already have a higher priority are not affected.
      * <p>
@@ -266,7 +266,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * priority is simply set to <code>pri</code>.) Then this method is
      * called recursively, with <code>pri</code> as its argument, for
      * every thread group that belongs to this thread group.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      pri   the new priority of the thread group.
      * @exception  SecurityException  if the current thread cannot modify
@@ -298,10 +298,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Tests if this thread group is either the thread group
      * argument or one of its ancestor thread groups.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   g   a thread group.
      * @return  <code>true</code> if this thread group is the thread group
@@ -319,14 +319,14 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Determines if the currently running thread has permission to
      * modify this thread group.
      * <p>
      * If there is a security manager, its <code>checkAccess</code> method
      * is called with this thread group as its argument. This may result
      * in throwing a <code>SecurityException</code>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed to
      *               access this thread group.
@@ -341,11 +341,11 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns an estimate of the number of active threads in this
      * thread group.  The result might not reflect concurrent activity,
      * and might be affected by the presence of certain system threads.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * Due to the inherently imprecise nature of the result, it is
@@ -382,13 +382,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Copies into the specified array every active thread in this
      * thread group and its subgroups.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * An application might use the <code>activeCount</code> method to
@@ -419,7 +419,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Copies into the specified array every active thread in this
      * thread group. If the <code>recurse</code> flag is
      * <code>true</code>, references to every active thread in this
@@ -428,7 +428,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * An application might use the <code>activeCount</code> method to
@@ -494,10 +494,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Returns an estimate of the number of active groups in this
      * thread group.  The result might not reflect concurrent activity.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * Due to the inherently imprecise nature of the result, it is
@@ -530,13 +530,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Copies into the specified array references to every active
      * subgroup in this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * An application might use the <code>activeGroupCount</code> method to
@@ -567,7 +567,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Copies into the specified array references to every active
      * subgroup in this thread group. If the <code>recurse</code> flag is
      * <code>true</code>, references to all active subgroups of the
@@ -575,7 +575,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * <p>
      * An application might use the <code>activeGroupCount</code> method to
@@ -640,7 +640,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Stops all threads in this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
@@ -648,7 +648,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * This method then calls the <code>stop</code> method on all the
      * threads in this thread group and in all of its subgroups.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed
      *               to access this thread group or any of the threads in
@@ -667,7 +667,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Interrupts all threads in this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
@@ -675,7 +675,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * This method then calls the <code>interrupt</code> method on all the
      * threads in this thread group and in all of its subgroups.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed
      *               to access this thread group or any of the threads in
@@ -706,7 +706,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Suspends all threads in this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
@@ -714,7 +714,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * This method then calls the <code>suspend</code> method on all the
      * threads in this thread group and in all of its subgroups.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed
      *               to access this thread group or any of the threads in
@@ -733,13 +733,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Helper method: recursively stops or suspends (as directed by the
      * boolean argument) all of the threads in this thread group and its
      * subgroups, except the current thread.  This method returns true
      * if (and only if) the current thread is found to be in this thread
      * group or one of its subgroups.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private boolean stopOrSuspend(boolean suspend) {
         boolean suicide = false;
@@ -769,7 +769,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Resumes all threads in this thread group.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
@@ -777,7 +777,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * This method then calls the <code>resume</code> method on all the
      * threads in this thread group and in all of its sub groups.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed to
      *               access this thread group or any of the threads in the
@@ -813,14 +813,14 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Destroys this thread group and all of its subgroups. This thread
      * group must be empty, indicating that all threads that had been in
      * this thread group have since stopped.
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @exception  IllegalThreadStateException  if the thread group is not
      *               empty or if the thread group has already been destroyed.
@@ -860,9 +860,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Adds the specified Thread group to this group.
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * @param g the specified Thread group to be added
      * @exception IllegalThreadStateException If the Thread group has been destroyed.
@@ -886,9 +886,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Removes the specified Thread group from this group.
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * @param g the Thread group to be removed
      * @return if this Thread has already been destroyed.
@@ -921,13 +921,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
 
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Increments the count of unstarted threads in the thread group.
      * Unstarted threads are not added to the thread group so that they
      * can be collected if they are never started, but they must be
      * counted so that daemon thread groups with unstarted threads in
      * them are not destroyed.
-     * {@descriptive.close}
+     * {@description.close}
      */
     void addUnstarted() {
         synchronized(this) {
@@ -939,9 +939,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Adds the specified Thread to this group.
-     * {@descriptive.close}
+     * {@description.close}
      * @param t the Thread to be added
      * @exception IllegalThreadStateException If the Thread group has been destroyed.
      */
@@ -965,9 +965,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Removes the specified Thread from this group.
-     * {@descriptive.close}
+     * {@description.close}
      * @param t the Thread to be removed
      * @return if the Thread has already been destroyed.
      */
@@ -997,10 +997,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Prints information about this thread group to the standard
      * output. This method is useful only for debugging.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since   JDK1.0
      */
@@ -1035,7 +1035,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Called by the Java Virtual Machine when a thread in this
      * thread group stops because of an uncaught exception, and the thread
      * does not have a specific {@link Thread.UncaughtExceptionHandler}
@@ -1065,7 +1065,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * Applications can override this method in subclasses of
      * <code>ThreadGroup</code> to provide alternative handling of
      * uncaught exceptions.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   t   the thread that is about to exit.
      * @param   e   the uncaught exception.
@@ -1088,9 +1088,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Used by VM to control lowmem implicit suspension.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param b boolean to allow or disallow suspension
      * @return true on success
@@ -1109,9 +1109,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of this Thread group.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  a string representation of this thread group.
      * @since   JDK1.0

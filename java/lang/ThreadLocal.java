@@ -28,7 +28,7 @@ import java.lang.ref.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /** {@collect.stats} 
- * {@descriptive.open}
+ * {@description.open}
  * This class provides thread-local variables.  These variables differ from
  * their normal counterparts in that each thread that accesses one (via its
  * <tt>get</tt> or <tt>set</tt> method) has its own, independently initialized
@@ -66,14 +66,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * instance is accessible; after a thread goes away, all of its copies of
  * thread-local instances are subject to garbage collection (unless other
  * references to these copies exist).
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  Josh Bloch and Doug Lea
  * @since   1.2
  */
 public class ThreadLocal<T> {
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * ThreadLocals rely on per-thread linear-probe hash maps attached
      * to each thread (Thread.threadLocals and
      * inheritableThreadLocals).  The ThreadLocal objects act as keys,
@@ -82,25 +82,25 @@ public class ThreadLocal<T> {
      * in the common case where consecutively constructed ThreadLocals
      * are used by the same threads, while remaining well-behaved in
      * less common cases.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private final int threadLocalHashCode = nextHashCode();
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * The next hash code to be given out. Updated atomically. Starts at
      * zero.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private static AtomicInteger nextHashCode =
         new AtomicInteger();
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * The difference between successively generated hash codes - turns
      * implicit sequential thread-local IDs into near-optimally spread
      * multiplicative hash values for power-of-two-sized tables.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private static final int HASH_INCREMENT = 0x61c88647;
 
@@ -112,7 +112,7 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the current thread's "initial value" for this
      * thread-local variable.  This method will be invoked the first
      * time a thread accesses the variable with the {@link #get}
@@ -127,7 +127,7 @@ public class ThreadLocal<T> {
      * value other than <tt>null</tt>, <tt>ThreadLocal</tt> must be
      * subclassed, and this method overridden.  Typically, an
      * anonymous inner class will be used.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the initial value for this thread-local
      */
@@ -136,20 +136,20 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Creates a thread local variable.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public ThreadLocal() {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value in the current thread's copy of this
      * thread-local variable.  If the variable has no value for the
      * current thread, it is first initialized to the value returned
      * by an invocation of the {@link #initialValue} method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the current thread's value of this thread-local
      */
@@ -165,10 +165,10 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Variant of set() to establish initialValue. Used instead
      * of set() in case user has overridden the set() method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the initial value
      */
@@ -184,12 +184,12 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Sets the current thread's copy of this thread-local variable
      * to the specified value.  Most subclasses will have no need to
      * override this method, relying solely on the {@link #initialValue}
      * method to set the values of thread-locals.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param value the value to be stored in the current thread's copy of
      *        this thread-local.
@@ -204,7 +204,7 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Removes the current thread's value for this thread-local
      * variable.  If this thread-local variable is subsequently
      * {@linkplain #get read} by the current thread, its value will be
@@ -212,7 +212,7 @@ public class ThreadLocal<T> {
      * unless its value is {@linkplain #set set} by the current thread
      * in the interim.  This may result in multiple invocations of the
      * <tt>initialValue</tt> method in the current thread.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since 1.5
      */
@@ -223,10 +223,10 @@ public class ThreadLocal<T> {
      }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Get the map associated with a ThreadLocal. Overridden in
      * InheritableThreadLocal.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param  t the current thread
      * @return the map
@@ -236,10 +236,10 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Create the map associated with a ThreadLocal. Overridden in
      * InheritableThreadLocal.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param t the current thread
      * @param firstValue value for the initial entry of the map
@@ -250,10 +250,10 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Factory method to create map of inherited thread locals.
      * Designed to be called only from Thread constructor.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param  parentMap the map associated with parent thread
      * @return a map containing the parent's inheritable bindings
@@ -263,21 +263,21 @@ public class ThreadLocal<T> {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Method childValue is visibly defined in subclass
      * InheritableThreadLocal, but is internally defined here for the
      * sake of providing createInheritedMap factory method without
      * needing to subclass the map class in InheritableThreadLocal.
      * This technique is preferable to the alternative of embedding
      * instanceof tests in methods.
-     * {@descriptive.close}
+     * {@description.close}
      */
     T childValue(T parentValue) {
         throw new UnsupportedOperationException();
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * ThreadLocalMap is a customized hash map suitable only for
      * maintaining thread local values. No operations are exported
      * outside of the ThreadLocal class. The class is package private to
@@ -286,25 +286,25 @@ public class ThreadLocal<T> {
      * WeakReferences for keys. However, since reference queues are not
      * used, stale entries are guaranteed to be removed only when
      * the table starts running out of space.
-     * {@descriptive.close}
+     * {@description.close}
      */
     static class ThreadLocalMap {
 
         /** {@collect.stats}
-         * {@descriptive.open} 
+         * {@description.open} 
          * The entries in this hash map extend WeakReference, using
          * its main ref field as the key (which is always a
          * ThreadLocal object).  Note that null keys (i.e. entry.get()
          * == null) mean that the key is no longer referenced, so the
          * entry can be expunged from table.  Such entries are referred to
          * as "stale entries" in the code that follows.
-         * {@descriptive.close}
+         * {@description.close}
          */
         static class Entry extends WeakReference<ThreadLocal> {
             /** {@collect.stats}
-             * {@descriptive.open}
+             * {@description.open}
              * The value associated with this ThreadLocal.
-             * {@descriptive.close}
+             * {@description.close}
              */
             Object value;
 
@@ -315,67 +315,67 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * The initial capacity -- MUST be a power of two.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private static final int INITIAL_CAPACITY = 16;
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * The table, resized as necessary.
          * table.length MUST always be a power of two.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private Entry[] table;
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * The number of entries in the table.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private int size = 0;
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * The next size value at which to resize.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private int threshold; // Default to 0
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Set the resize threshold to maintain at worst a 2/3 load factor.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private void setThreshold(int len) {
             threshold = len * 2 / 3;
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Increment i modulo len.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private static int nextIndex(int i, int len) {
             return ((i + 1 < len) ? i + 1 : 0);
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Decrement i modulo len.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private static int prevIndex(int i, int len) {
             return ((i - 1 >= 0) ? i - 1 : len - 1);
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Construct a new map initially containing (firstKey, firstValue).
          * ThreadLocalMaps are constructed lazily, so we only create
          * one when we have at least one entry to put in it.
-         * {@descriptive.close}
+         * {@description.close}
          */
         ThreadLocalMap(ThreadLocal firstKey, Object firstValue) {
             table = new Entry[INITIAL_CAPACITY];
@@ -386,10 +386,10 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Construct a new map including all Inheritable ThreadLocals
          * from given parent map. Called only by createInheritedMap.
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param parentMap the map associated with parent thread.
          */
@@ -417,13 +417,13 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Get the entry associated with key.  This method
          * itself handles only the fast path: a direct hit of existing
          * key. It otherwise relays to getEntryAfterMiss.  This is
          * designed to maximize performance for direct hits, in part
          * by making this method readily inlinable.
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param  key the thread local object
          * @return the entry associated with key, or null if no such
@@ -438,10 +438,10 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Version of getEntry method for use when key is not found in
          * its direct hash slot.
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param  key the thread local object
          * @param  i the table index for key's hash code
@@ -466,9 +466,9 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats}
-         * {@descriptive.open} 
+         * {@description.open} 
          * Set the value associated with key.
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param key the thread local object
          * @param value the value to be set
@@ -507,9 +507,9 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Remove the entry for key.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private void remove(ThreadLocal key) {
             Entry[] tab = table;
@@ -527,7 +527,7 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Replace a stale entry encountered during a set operation
          * with an entry for the specified key.  The value passed in
          * the value parameter is stored in the entry, whether or not
@@ -536,7 +536,7 @@ public class ThreadLocal<T> {
          * As a side effect, this method expunges all stale entries in the
          * "run" containing the stale entry.  (A run is a sequence of entries
          * between two null slots.)
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param  key the key
          * @param  value the value to be associated with key
@@ -602,12 +602,12 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats}
-         * {@descriptive.open} 
+         * {@description.open} 
          * Expunge a stale entry by rehashing any possibly colliding entries
          * lying between staleSlot and the next null slot.  This also expunges
          * any other stale entries encountered before the trailing null.  See
          * Knuth, Section 6.4
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param staleSlot index of slot known to have null key
          * @return the index of the next null slot after staleSlot
@@ -651,7 +651,7 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats}
-         * {@descriptive.open} 
+         * {@description.open} 
          * Heuristically scan some cells looking for stale entries.
          * This is invoked when either a new element is added, or
          * another stale one has been expunged. It performs a
@@ -659,7 +659,7 @@ public class ThreadLocal<T> {
          * scanning (fast but retains garbage) and a number of scans
          * proportional to number of elements, that would find all
          * garbage but would cause some insertions to take O(n) time.
-         * {@descriptive.close}
+         * {@description.close}
          *
          * @param i a position known NOT to hold a stale entry. The
          * scan starts at the element after i.
@@ -693,11 +693,11 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Re-pack and/or re-size the table. First scan the entire
          * table removing stale entries. If this doesn't sufficiently
          * shrink the size of the table, double the table size.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private void rehash() {
             expungeStaleEntries();
@@ -708,9 +708,9 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats}
-         * {@descriptive.open} 
+         * {@description.open} 
          * Double the capacity of the table.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private void resize() {
             Entry[] oldTab = table;
@@ -741,9 +741,9 @@ public class ThreadLocal<T> {
         }
 
         /** {@collect.stats} 
-         * {@descriptive.open}
+         * {@description.open}
          * Expunge all stale entries in the table.
-         * {@descriptive.close}
+         * {@description.close}
          */
         private void expungeStaleEntries() {
             Entry[] tab = table;

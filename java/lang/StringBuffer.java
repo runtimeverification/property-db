@@ -27,7 +27,7 @@ package java.lang;
 
 
 /** {@collect.stats} 
- * {@descriptive.open}
+ * {@description.open}
  * A thread-safe, mutable sequence of characters.
  * A string buffer is like a {@link String}, but can be modified. At any
  * point in time it contains some particular sequence of characters, but
@@ -69,7 +69,7 @@ package java.lang;
  * the capacity, it is not necessary to allocate a new internal
  * buffer array. If the internal buffer overflows, it is
  * automatically made larger.
- * {@descriptive.close}
+ * {@description.close}
  *
  * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
  * As of  release JDK 5, this class has been supplemented with an equivalent
@@ -90,27 +90,27 @@ package java.lang;
 {
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * use serialVersionUID from JDK 1.0.2 for interoperability
-     * {@descriptive.close}
+     * {@description.close}
      *  */
     static final long serialVersionUID = 3388685877147921107L;
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string buffer with no characters in it and an
      * initial capacity of 16 characters.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public StringBuffer() {
         super(16);
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string buffer with no characters in it and
      * the specified initial capacity.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      capacity  the initial capacity.
      * @exception  NegativeArraySizeException  if the <code>capacity</code>
@@ -121,11 +121,11 @@ package java.lang;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Constructs a string buffer initialized to the contents of the
      * specified string. The initial capacity of the string buffer is
      * <code>16</code> plus the length of the string argument.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   str   the initial contents of the buffer.
      * @exception NullPointerException if <code>str</code> is <code>null</code>
@@ -136,7 +136,7 @@ package java.lang;
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string buffer that contains the same characters
      * as the specified <code>CharSequence</code>. The initial capacity of
      * the string buffer is <code>16</code> plus the length of the
@@ -145,7 +145,7 @@ package java.lang;
      * If the length of the specified <code>CharSequence</code> is
      * less than or equal to zero, then an empty buffer of capacity
      * <code>16</code> is returned.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      seq   the sequence to copy.
      * @exception NullPointerException if <code>seq</code> is <code>null</code>
@@ -259,7 +259,7 @@ package java.lang;
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Appends the specified <tt>StringBuffer</tt> to this sequence.
      * <p>
      * The characters of the <tt>StringBuffer</tt> argument are appended,
@@ -278,7 +278,7 @@ package java.lang;
      * <p>
      * This method synchronizes on <code>this</code> (the destination)
      * object but does not synchronize on the source (<code>sb</code>).
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   sb   the <tt>StringBuffer</tt> to append.
      * @return  a reference to this object.
@@ -291,7 +291,7 @@ package java.lang;
 
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Appends the specified <code>CharSequence</code> to this
      * sequence.
      * <p>
@@ -307,7 +307,7 @@ package java.lang;
      *
      * <p>If <code>s</code> is <code>null</code>, then the four characters
      * <code>"null"</code> are appended.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   s the <code>CharSequence</code> to append.
      * @return  a reference to this object.
@@ -623,9 +623,9 @@ package java.lang;
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Serializable fields for StringBuffer.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @serialField value  char[]
      *              The backing character array of this StringBuffer.
@@ -643,10 +643,10 @@ package java.lang;
     };
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private synchronized void writeObject(java.io.ObjectOutputStream s)
         throws java.io.IOException {
@@ -658,10 +658,10 @@ package java.lang;
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

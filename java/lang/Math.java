@@ -28,7 +28,7 @@ import java.util.Random;
 
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * The class {@code Math} contains methods for performing basic
  * numeric operations such as the elementary exponential, logarithm,
  * square root, and trigonometric functions.
@@ -43,7 +43,7 @@ import java.util.Random;
  * <p>By default many of the {@code Math} methods simply call
  * the equivalent method in {@code StrictMath} for their
  * implementation.
- * {@descriptive.close}
+ * {@description.close}
  * {@property.open performance}
  * Code generators are encouraged to use
  * platform-specific native libraries or microprocessor instructions,
@@ -94,37 +94,37 @@ import java.util.Random;
 public final class Math {
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Don't let anyone instantiate this class.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private Math() {}
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The {@code double} value that is closer than any other to
      * <i>e</i>, the base of the natural logarithms.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final double E = 2.7182818284590452354;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The {@code double} value that is closer than any other to
      * <i>pi</i>, the ratio of the circumference of a circle to its
      * diameter.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final double PI = 3.14159265358979323846;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the trigonometric sine of an angle.  Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the
      * result is NaN.
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
-     *{@descriptive.close}
+     *{@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -139,11 +139,11 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the trigonometric cosine of an angle. Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the
      * result is NaN.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -158,13 +158,13 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the trigonometric tangent of an angle.  Special cases:
      * <ul><li>If the argument is NaN or an infinity, then the result
      * is NaN.
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -179,14 +179,14 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the arc sine of a value; the returned angle is in the
      * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
      * <ul><li>If the argument is NaN or its absolute value is greater
      * than 1, then the result is NaN.
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -201,12 +201,12 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the arc cosine of a value; the returned angle is in the
      * range 0.0 through <i>pi</i>.  Special case:
      * <ul><li>If the argument is NaN or its absolute value is greater
      * than 1, then the result is NaN.</ul>
-     * {@descriptive.open}
+     * {@description.open}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -221,13 +221,13 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the arc tangent of a value; the returned angle is in the
      * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
      * <ul><li>If the argument is NaN, then the result is NaN.
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -242,11 +242,11 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Converts an angle measured in degrees to an approximately
      * equivalent angle measured in radians.  The conversion from
      * degrees to radians is generally inexact.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   angdeg   an angle, in degrees
      * @return  the measurement of the angle {@code angdeg}
@@ -258,10 +258,10 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Converts an angle measured in radians to an approximately
      * equivalent angle measured in degrees.  
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open}
      * The conversion from
      * radians to degrees is generally inexact; users should
@@ -279,7 +279,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns Euler's number <i>e</i> raised to the power of a
      * {@code double} value.  Special cases:
      * <ul><li>If the argument is NaN, the result is NaN.
@@ -287,7 +287,7 @@ public final class Math {
      * positive infinity.
      * <li>If the argument is negative infinity, then the result is
      * positive zero.</ul>
-     * {@descriptive.open}
+     * {@description.open}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -303,7 +303,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the natural logarithm (base <i>e</i>) of a {@code double}
      * value.  Special cases:
      * <ul><li>If the argument is NaN or less than zero, then the result
@@ -312,7 +312,7 @@ public final class Math {
      * positive infinity.
      * <li>If the argument is positive zero or negative zero, then the
      * result is negative infinity.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -328,7 +328,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the base 10 logarithm of a {@code double} value.
      * Special cases:
      *
@@ -341,7 +341,7 @@ public final class Math {
      * <li> If the argument is equal to 10<sup><i>n</i></sup> for
      * integer <i>n</i>, then the result is <i>n</i>.
      * </ul>
-     * {@descriptive.open}
+     * {@description.open}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -357,7 +357,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the correctly rounded positive square root of a
      * {@code double} value.
      * Special cases:
@@ -369,7 +369,7 @@ public final class Math {
      * result is the same as the argument.</ul>
      * Otherwise, the result is the {@code double} value closest to
      * the true mathematical square root of the argument value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a value.
      * @return  the positive square root of {@code a}.
@@ -385,7 +385,7 @@ public final class Math {
 
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the cube root of a {@code double} value.  For
      * positive finite {@code x}, {@code cbrt(-x) ==
      * -cbrt(x)}; that is, the cube root of a negative value is
@@ -404,7 +404,7 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -419,7 +419,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Computes the remainder operation on two arguments as prescribed
      * by the IEEE 754 standard.
      * The remainder value is mathematically equal to
@@ -435,7 +435,7 @@ public final class Math {
      * result is NaN.
      * <li>If the first argument is finite and the second argument is
      * infinite, then the result is the same as the first argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   f1   the dividend.
      * @param   f2   the divisor.
@@ -447,7 +447,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the smallest (closest to negative infinity)
      * {@code double} value that is greater than or equal to the
      * argument and is equal to a mathematical integer. Special cases:
@@ -459,7 +459,7 @@ public final class Math {
      * greater than -1.0, then the result is negative zero.</ul> Note
      * that the value of {@code Math.ceil(x)} is exactly the
      * value of {@code -Math.floor(-x)}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a value.
      * @return  the smallest (closest to negative infinity)
@@ -471,7 +471,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the largest (closest to positive infinity)
      * {@code double} value that is less than or equal to the
      * argument and is equal to a mathematical integer. Special cases:
@@ -480,7 +480,7 @@ public final class Math {
      * argument.  <li>If the argument is NaN or an infinity or
      * positive zero or negative zero, then the result is the same as
      * the argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a value.
      * @return  the largest (closest to positive infinity)
@@ -492,7 +492,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the {@code double} value that is closest in value
      * to the argument and is equal to a mathematical integer. If two
      * {@code double} values that are mathematical integers are
@@ -502,7 +502,7 @@ public final class Math {
      * integer, then the result is the same as the argument.
      * <li>If the argument is NaN or an infinity or positive zero or negative
      * zero, then the result is the same as the argument.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a {@code double} value.
      * @return  the closest floating-point value to {@code a} that is
@@ -513,7 +513,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the angle <i>theta</i> from the conversion of rectangular
      * coordinates ({@code x},&nbsp;{@code y}) to polar
      * coordinates (r,&nbsp;<i>theta</i>).
@@ -554,7 +554,7 @@ public final class Math {
      * closest to -<i>pi</i>/4.
      * <li>If both arguments are negative infinity, then the result is the
      * {@code double} value closest to -3*<i>pi</i>/4.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * {@property.open}
      * <p>The computed result must be within 2 ulps of the exact result.
@@ -573,7 +573,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of the first argument raised to the power of the
      * second argument. Special cases:
      *
@@ -688,7 +688,7 @@ public final class Math {
      * floor}. A value is a fixed point of a one-argument
      * method if and only if the result of applying the method to the
      * value is equal to the value.)
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -704,7 +704,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the closest {@code int} to the argument. The
      * result is rounded to an integer by adding 1/2, taking the
      * floor of the result, and casting the result to type {@code int}.
@@ -719,7 +719,7 @@ public final class Math {
      * <li>If the argument is positive infinity or any value greater than or
      * equal to the value of {@code Integer.MAX_VALUE}, the result is
      * equal to the value of {@code Integer.MAX_VALUE}.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a floating-point value to be rounded to an integer.
      * @return  the value of the argument rounded to the nearest
@@ -732,7 +732,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the closest {@code long} to the argument. The result
      * is rounded to an integer by adding 1/2, taking the floor of the
      * result, and casting the result to type {@code long}. In other
@@ -747,7 +747,7 @@ public final class Math {
      * <li>If the argument is positive infinity or any value greater than or
      * equal to the value of {@code Long.MAX_VALUE}, the result is
      * equal to the value of {@code Long.MAX_VALUE}.</ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   a floating-point value to be rounded to a
      *          {@code long}.
@@ -768,7 +768,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code double} value with a positive sign, greater
      * than or equal to {@code 0.0} and less than {@code 1.0}.
      * Returned values are chosen pseudorandomly with (approximately)
@@ -779,7 +779,7 @@ public final class Math {
      * <blockquote>{@code new java.util.Random}</blockquote> This
      * new pseudorandom-number generator is used thereafter for all
      * calls to this method and is used nowhere else.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open runtime performance}
      * <p>This method is properly synchronized to allow correct use by
@@ -798,7 +798,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the absolute value of an {@code int} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -807,7 +807,7 @@ public final class Math {
      * {@link Integer#MIN_VALUE}, the most negative representable
      * {@code int} value, the result is that same value, which is
      * negative.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   the argument whose absolute value is to be determined
      * @return  the absolute value of the argument.
@@ -817,7 +817,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the absolute value of a {@code long} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -826,7 +826,7 @@ public final class Math {
      * {@link Long#MIN_VALUE}, the most negative representable
      * {@code long} value, the result is that same value, which
      * is negative.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   the argument whose absolute value is to be determined
      * @return  the absolute value of the argument.
@@ -836,7 +836,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the absolute value of a {@code float} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -847,7 +847,7 @@ public final class Math {
      * <li>If the argument is NaN, the result is NaN.</ul>
      * In other words, the result is the same as the value of the expression:
      * <p>{@code Float.intBitsToFloat(0x7fffffff & Float.floatToIntBits(a))}
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   the argument whose absolute value is to be determined
      * @return  the absolute value of the argument.
@@ -857,7 +857,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the absolute value of a {@code double} value.
      * If the argument is not negative, the argument is returned.
      * If the argument is negative, the negation of the argument is returned.
@@ -868,7 +868,7 @@ public final class Math {
      * <li>If the argument is NaN, the result is NaN.</ul>
      * In other words, the result is the same as the value of the expression:
      * <p>{@code Double.longBitsToDouble((Double.doubleToLongBits(a)<<1)>>>1)}
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   the argument whose absolute value is to be determined
      * @return  the absolute value of the argument.
@@ -878,12 +878,12 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the greater of two {@code int} values. That is, the
      * result is the argument closer to the value of
      * {@link Integer#MAX_VALUE}. If the arguments have the same value,
      * the result is that same value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -894,12 +894,12 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the greater of two {@code long} values. That is, the
      * result is the argument closer to the value of
      * {@link Long#MAX_VALUE}. If the arguments have the same value,
      * the result is that same value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -913,7 +913,7 @@ public final class Math {
     private static long negativeZeroDoubleBits = Double.doubleToLongBits(-0.0d);
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the greater of two {@code float} values.  That is,
      * the result is the argument closer to positive infinity. If the
      * arguments have the same value, the result is that same
@@ -922,7 +922,7 @@ public final class Math {
      * negative zero to be strictly smaller than positive zero. If one
      * argument is positive zero and the other negative zero, the
      * result is positive zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -938,7 +938,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the greater of two {@code double} values.  That
      * is, the result is the argument closer to positive infinity. If
      * the arguments have the same value, the result is that same
@@ -947,7 +947,7 @@ public final class Math {
      * negative zero to be strictly smaller than positive zero. If one
      * argument is positive zero and the other negative zero, the
      * result is positive zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -963,12 +963,12 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the smaller of two {@code int} values. That is,
      * the result the argument closer to the value of
      * {@link Integer#MIN_VALUE}.  If the arguments have the same
      * value, the result is that same value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -979,12 +979,12 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the smaller of two {@code long} values. That is,
      * the result is the argument closer to the value of
      * {@link Long#MIN_VALUE}. If the arguments have the same
      * value, the result is that same value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -995,7 +995,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the smaller of two {@code float} values.  That is,
      * the result is the value closer to negative infinity. If the
      * arguments have the same value, the result is that same
@@ -1004,7 +1004,7 @@ public final class Math {
      * negative zero to be strictly smaller than positive zero.  If
      * one argument is positive zero and the other is negative zero,
      * the result is negative zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -1020,7 +1020,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the smaller of two {@code double} values.  That
      * is, the result is the value closer to negative infinity. If the
      * arguments have the same value, the result is that same
@@ -1029,7 +1029,7 @@ public final class Math {
      * negative zero to be strictly smaller than positive zero. If one
      * argument is positive zero and the other is negative zero, the
      * result is negative zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   a   an argument.
      * @param   b   another argument.
@@ -1045,7 +1045,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the size of an ulp of the argument.  An ulp of a
      * {@code double} value is the positive distance between this
      * floating-point value and the {@code double} value next
@@ -1062,7 +1062,7 @@ public final class Math {
      * <li> If the argument is &plusmn;{@code Double.MAX_VALUE}, then
      * the result is equal to 2<sup>971</sup>.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param d the floating-point value whose ulp is to be returned
      * @return the size of an ulp of the argument
@@ -1074,7 +1074,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the size of an ulp of the argument.  An ulp of a
      * {@code float} value is the positive distance between this
      * floating-point value and the {@code float} value next
@@ -1091,7 +1091,7 @@ public final class Math {
      * <li> If the argument is &plusmn;{@code Float.MAX_VALUE}, then
      * the result is equal to 2<sup>104</sup>.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param f the floating-point value whose ulp is to be returned
      * @return the size of an ulp of the argument
@@ -1103,7 +1103,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the signum function of the argument; zero if the argument
      * is zero, 1.0 if the argument is greater than zero, -1.0 if the
      * argument is less than zero.
@@ -1114,7 +1114,7 @@ public final class Math {
      * <li> If the argument is positive zero or negative zero, then the
      *      result is the same as the argument.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param d the floating-point value whose signum is to be returned
      * @return the signum function of the argument
@@ -1126,7 +1126,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the signum function of the argument; zero if the argument
      * is zero, 1.0f if the argument is greater than zero, -1.0f if the
      * argument is less than zero.
@@ -1137,7 +1137,7 @@ public final class Math {
      * <li> If the argument is positive zero or negative zero, then the
      *      result is the same as the argument.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param f the floating-point value whose signum is to be returned
      * @return the signum function of the argument
@@ -1149,7 +1149,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the hyperbolic sine of a {@code double} value.
      * The hyperbolic sine of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/2
@@ -1167,7 +1167,7 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 2.5 ulps of the exact result.
@@ -1182,7 +1182,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the hyperbolic cosine of a {@code double} value.
      * The hyperbolic cosine of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>)/2
@@ -1199,7 +1199,7 @@ public final class Math {
      * <li>If the argument is zero, then the result is {@code 1.0}.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 2.5 ulps of the exact result.
@@ -1214,7 +1214,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the hyperbolic tangent of a {@code double} value.
      * The hyperbolic tangent of <i>x</i> is defined to be
      * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/(<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>),
@@ -1238,7 +1238,7 @@ public final class Math {
      * {@code -1.0}.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 2.5 ulps of the exact result.
@@ -1258,7 +1258,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
      * without intermediate overflow or underflow.
      *
@@ -1272,7 +1272,7 @@ public final class Math {
      * then the result is NaN.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact
@@ -1291,7 +1291,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns <i>e</i><sup>x</sup>&nbsp;-1.  Note that for values of
      * <i>x</i> near 0, the exact sum of
      * {@code expm1(x)}&nbsp;+&nbsp;1 is much closer to the true
@@ -1311,7 +1311,7 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -1333,7 +1333,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the natural logarithm of the sum of the argument and 1.
      * Note that for small values {@code x}, the result of
      * {@code log1p(x)} is much closer to the true result of ln(1
@@ -1357,7 +1357,7 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -1374,7 +1374,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the first floating-point argument with the sign of the
      * second floating-point argument.  Note that unlike the {@link
      * StrictMath#copySign(double, double) StrictMath.copySign}
@@ -1382,7 +1382,7 @@ public final class Math {
      * arguments to be treated as positive values; implementations are
      * permitted to treat some NaN arguments as positive and other NaN
      * arguments as negative to allow greater performance.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param magnitude  the parameter providing the magnitude of the result
      * @param sign   the parameter providing the sign of the result
@@ -1395,7 +1395,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the first floating-point argument with the sign of the
      * second floating-point argument.  Note that unlike the {@link
      * StrictMath#copySign(float, float) StrictMath.copySign}
@@ -1403,7 +1403,7 @@ public final class Math {
      * arguments to be treated as positive values; implementations are
      * permitted to treat some NaN arguments as positive and other NaN
      * arguments as negative to allow greater performance.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param magnitude  the parameter providing the magnitude of the result
      * @param sign   the parameter providing the sign of the result
@@ -1416,7 +1416,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the unbiased exponent used in the representation of a
      * {@code float}.  Special cases:
      *
@@ -1426,7 +1426,7 @@ public final class Math {
      * <li>If the argument is zero or subnormal, then the result is
      * {@link Float#MIN_EXPONENT} -1.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      * @param f a {@code float} value
      * @return the unbiased exponent of the argument
      * @since 1.6
@@ -1436,7 +1436,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the unbiased exponent used in the representation of a
      * {@code double}.  Special cases:
      *
@@ -1446,7 +1446,7 @@ public final class Math {
      * <li>If the argument is zero or subnormal, then the result is
      * {@link Double#MIN_EXPONENT} -1.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      * @param d a {@code double} value
      * @return the unbiased exponent of the argument
      * @since 1.6
@@ -1456,7 +1456,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the floating-point number adjacent to the first
      * argument in the direction of the second argument.  If both
      * arguments compare as equal the second argument is returned.
@@ -1487,7 +1487,7 @@ public final class Math {
      * value such that the result should have a larger magnitude, an
      * infinity with same sign as {@code start} is returned.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param start  starting floating-point value
      * @param direction value indicating which of
@@ -1502,7 +1502,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the floating-point number adjacent to the first
      * argument in the direction of the second argument.  If both
      * arguments compare as equal a value equivalent to the second argument
@@ -1532,7 +1532,7 @@ public final class Math {
      * value such that the result should have a larger magnitude, an
      * infinity with same sign as {@code start} is returned.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param start  starting floating-point value
      * @param direction value indicating which of
@@ -1547,7 +1547,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the floating-point value adjacent to {@code d} in
      * the direction of positive infinity.  This method is
      * semantically equivalent to {@code nextAfter(d,
@@ -1566,7 +1566,7 @@ public final class Math {
      * {@link Double#MIN_VALUE}
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param d starting floating-point value
      * @return The adjacent floating-point value closer to positive
@@ -1578,7 +1578,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the floating-point value adjacent to {@code f} in
      * the direction of positive infinity.  This method is
      * semantically equivalent to {@code nextAfter(f,
@@ -1597,7 +1597,7 @@ public final class Math {
      * {@link Float#MIN_VALUE}
      *
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param f starting floating-point value
      * @return The adjacent floating-point value closer to positive
@@ -1610,7 +1610,7 @@ public final class Math {
 
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Return {@code d} &times;
      * 2<sup>{@code scaleFactor}</sup> rounded as if performed
      * by a single correctly rounded floating-point multiply to a
@@ -1634,7 +1634,7 @@ public final class Math {
      * <li> If the first argument is zero, then a zero of the same
      * sign is returned.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param d number to be scaled by a power of two.
      * @param scaleFactor power of 2 used to scale {@code d}
@@ -1646,7 +1646,7 @@ public final class Math {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Return {@code f} &times;
      * 2<sup>{@code scaleFactor}</sup> rounded as if performed
      * by a single correctly rounded floating-point multiply to a
@@ -1670,7 +1670,7 @@ public final class Math {
      * <li> If the first argument is zero, then a zero of the same
      * sign is returned.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param f number to be scaled by a power of two.
      * @param scaleFactor power of 2 used to scale {@code f}

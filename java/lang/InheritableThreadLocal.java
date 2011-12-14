@@ -27,7 +27,7 @@ package java.lang;
 import java.lang.ref.*;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * This class extends <tt>ThreadLocal</tt> to provide inheritance of values
  * from parent thread to child thread: when a child thread is created, the
  * child receives initial values for all inheritable thread-local variables
@@ -40,7 +40,7 @@ import java.lang.ref.*;
  * ordinary thread-local variables when the per-thread-attribute being
  * maintained in the variable (e.g., User ID, Transaction ID) must be
  * automatically transmitted to any child threads that are created.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  Josh Bloch and Doug Lea
  * @see     ThreadLocal
@@ -49,12 +49,12 @@ import java.lang.ref.*;
 
 public class InheritableThreadLocal<T> extends ThreadLocal<T> {
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Computes the child's initial value for this inheritable thread-local
      * variable as a function of the parent's value at the time the child
      * thread is created.  This method is called from within the parent
      * thread before the child is started.
-     * {@descriptive.close}
+     * {@description.close}
      * <p>
      * {@property.open}
      * This method merely returns its input argument, and should be overridden
@@ -69,9 +69,9 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Get the map associated with a ThreadLocal.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param t the current thread
      */
@@ -80,9 +80,9 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Create the map associated with a ThreadLocal.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param t the current thread
      * @param firstValue value for the initial entry of the table.

@@ -27,9 +27,9 @@ package java.lang;
 
 
 /** {@collect.stats} 
- * {@descriptive.open}
+ * {@description.open}
  * A mutable sequence of characters.  
- * {@descriptive.close}
+ * {@description.close}
  * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
  * This class provides an API compatible
  * with <code>StringBuffer</code>, but with no guarantee of synchronization.
@@ -40,7 +40,7 @@ package java.lang;
  * <code>StringBuffer</code> as it will be faster under most implementations.
  * {@property.close}
  *
- * {@descriptive.open}
+ * {@description.open}
  * <p>The principal operations on a <code>StringBuilder</code> are the
  * <code>append</code> and <code>insert</code> methods, which are
  * overloaded so as to accept data of any type. Each effectively
@@ -65,7 +65,7 @@ package java.lang;
  * character sequence contained in the string builder does not exceed
  * the capacity, it is not necessary to allocate a new internal
  * buffer. If the internal buffer overflows, it is automatically made larger.
- * {@descriptive.close}
+ * {@description.close}
  *
  * {@property.open runtime}
  * <p>Instances of <code>StringBuilder</code> are not safe for
@@ -84,27 +84,27 @@ public final class StringBuilder
 {
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * use serialVersionUID for interoperability
-     * {@descriptive.close} 
+     * {@description.close} 
      * */
     static final long serialVersionUID = 4383685877147921099L;
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string builder with no characters in it and an
      * initial capacity of 16 characters.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public StringBuilder() {
         super(16);
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string builder with no characters in it and an
      * initial capacity specified by the <code>capacity</code> argument.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      capacity  the initial capacity.
      * @throws     NegativeArraySizeException  if the <code>capacity</code>
@@ -115,11 +115,11 @@ public final class StringBuilder
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string builder initialized to the contents of the
      * specified string. The initial capacity of the string builder is
      * <code>16</code> plus the length of the string argument.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   str   the initial contents of the buffer.
      * @throws    NullPointerException if <code>str</code> is <code>null</code>
@@ -130,12 +130,12 @@ public final class StringBuilder
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a string builder that contains the same characters
      * as the specified <code>CharSequence</code>. The initial capacity of
      * the string builder is <code>16</code> plus the length of the
      * <code>CharSequence</code> argument.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      seq   the sequence to copy.
      * @throws    NullPointerException if <code>seq</code> is <code>null</code>
@@ -172,7 +172,7 @@ public final class StringBuilder
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Appends the specified <tt>StringBuffer</tt> to this sequence.
      * <p>
      * The characters of the <tt>StringBuffer</tt> argument are appended,
@@ -187,7 +187,7 @@ public final class StringBuilder
      * index <i>k</i> in the old character sequence, if <i>k</i> is less than
      * <i>n</i>; otherwise, it is equal to the character at index <i>k-n</i>
      * in the argument <code>sb</code>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   sb   the <tt>StringBuffer</tt> to append.
      * @return  a reference to this object.
@@ -471,10 +471,10 @@ public final class StringBuilder
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Save the state of the <tt>StringBuilder</tt> instance to a stream
      * (that is, serialize it).
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @serialData the number of characters currently stored in the string
      *             builder (<tt>int</tt>), followed by the characters in the
@@ -491,10 +491,10 @@ public final class StringBuilder
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

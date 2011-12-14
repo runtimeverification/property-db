@@ -26,7 +26,7 @@
 package java.lang;
 
 /** {@collect.stats}
- * {@descriptive.open} 
+ * {@description.open} 
  * An element in a stack trace, as returned by {@link
  * Throwable#getStackTrace()}.  Each element represents a single stack frame.
  * All stack frames except for the one at the top of the stack represent
@@ -34,7 +34,7 @@ package java.lang;
  * execution point at which the stack trace was generated.  Typically,
  * this is the point at which the throwable corresponding to the stack trace
  * was created.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @since  1.4
  * @author Josh Bloch
@@ -47,10 +47,10 @@ public final class StackTraceElement implements java.io.Serializable {
     private int    lineNumber;
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Creates a stack trace element representing the specified execution
      * point.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param declaringClass the fully qualified name of the class containing
      *        the execution point represented by the stack trace element
@@ -82,14 +82,14 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the name of the source file containing the execution point
      * represented by this stack trace element.  Generally, this corresponds
      * to the <tt>SourceFile</tt> attribute of the relevant <tt>class</tt>
      * file (as per <i>The Java Virtual Machine Specification</i>, Section
      * 4.7.7).  In some systems, the name may refer to some source code unit
      * other than a file, such as an entry in source repository.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the name of the file containing the execution point
      *         represented by this stack trace element, or <tt>null</tt> if
@@ -100,13 +100,13 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the line number of the source line containing the execution
      * point represented by this stack trace element.  Generally, this is
      * derived from the <tt>LineNumberTable</tt> attribute of the relevant
      * <tt>class</tt> file (as per <i>The Java Virtual Machine
      * Specification</i>, Section 4.7.8).
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the line number of the source line containing the execution
      *         point represented by this stack trace element, or a negative
@@ -117,10 +117,10 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the fully qualified name of the class containing the
      * execution point represented by this stack trace element.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the fully qualified name of the <tt>Class</tt> containing
      *         the execution point represented by this stack trace element.
@@ -130,14 +130,14 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the name of the method containing the execution point
      * represented by this stack trace element.  If the execution point is
      * contained in an instance or class initializer, this method will return
      * the appropriate <i>special method name</i>, <tt>&lt;init&gt;</tt> or
      * <tt>&lt;clinit&gt;</tt>, as per Section 3.9 of <i>The Java Virtual
      * Machine Specification</i>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the name of the method containing the execution point
      *         represented by this stack trace element.
@@ -147,10 +147,10 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns true if the method containing the execution point
      * represented by this stack trace element is a native method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return <tt>true</tt> if the method containing the execution point
      *         represented by this stack trace element is a native method.
@@ -160,7 +160,7 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of this stack trace element.  The
      * format of this string depends on the implementation, but the following
      * examples may be regarded as typical:
@@ -184,7 +184,7 @@ public final class StackTraceElement implements java.io.Serializable {
      *   the file name nor the line  number are available, and the method
      *   containing the execution point is known to be a native method.
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * @see    Throwable#printStackTrace()
      */
@@ -197,7 +197,7 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns true if the specified object is another
      * <tt>StackTraceElement</tt> instance representing the same execution
      * point as this instance.  Two stack trace elements <tt>a</tt> and
@@ -214,7 +214,7 @@ public final class StackTraceElement implements java.io.Serializable {
      *         return a==b || (a != null && a.equals(b));
      *     }
      * </pre>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param  obj the object to be compared with this stack trace element.
      * @return true if the specified object is another
@@ -236,9 +236,9 @@ public final class StackTraceElement implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a hash code value for this stack trace element.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public int hashCode() {
         int result = 31*declaringClass.hashCode() + methodName.hashCode();

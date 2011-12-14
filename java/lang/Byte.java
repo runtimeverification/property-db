@@ -26,7 +26,7 @@
 package java.lang;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * The {@code Byte} class wraps a value of primitive type {@code byte}
  * in an object.  An object of type {@code Byte} contains a single
  * field whose type is {@code byte}.
@@ -35,7 +35,7 @@ package java.lang;
  * a {@code byte} to a {@code String} and a {@code String} to a {@code
  * byte}, as well as other constants and methods useful when dealing
  * with a {@code byte}.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  Nakul Saraiya
  * @author  Joseph D. Darcy
@@ -45,35 +45,35 @@ package java.lang;
 public final class Byte extends Number implements Comparable<Byte> {
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * A constant holding the minimum value a {@code byte} can
      * have, -2<sup>7</sup>.
-     * {@descriptive.close}
+     * {@description.close}
      * 
      */
     public static final byte   MIN_VALUE = -128;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * A constant holding the maximum value a {@code byte} can
      * have, 2<sup>7</sup>-1.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final byte   MAX_VALUE = 127;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The {@code Class} instance representing the primitive type
      * {@code byte}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final Class<Byte>     TYPE = (Class<Byte>) Class.getPrimitiveClass("byte");
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a new {@code String} object representing the
      * specified {@code byte}. The radix is assumed to be 10.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param b the {@code byte} to be converted
      * @return the string representation of the specified {@code byte}
@@ -95,10 +95,10 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime performance formal:Byte_StaticFactory}
      * If a new {@code Byte} instance is not required, this method
      * should generally be used in preference to the constructor
@@ -117,7 +117,7 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Parses the string argument as a signed {@code byte} in the
      * radix specified by the second argument. The characters in the
      * string must all be digits, of the specified radix (as
@@ -126,7 +126,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * character may be an ASCII minus sign {@code '-'}
      * (<code>'&#92;u002D'</code>) to indicate a negative value.  The
      * resulting {@code byte} value is returned.
-     * {@descriptive.close}
+     * {@description.close}
      * 
      * {@property.open runtime formal:Byte_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
@@ -168,7 +168,7 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Parses the string argument as a signed decimal {@code
      * byte}. The characters in the string must all be decimal digits,
      * except that the first character may be an ASCII minus sign
@@ -176,7 +176,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * value. The resulting {@code byte} value is returned, exactly as
      * if the argument and the radix 10 were given as arguments to the
      * {@link #parseByte(java.lang.String, int)} method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param s         a {@code String} containing the
      *                  {@code byte} representation to be parsed
@@ -190,7 +190,7 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Byte} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -206,7 +206,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * <blockquote>
      * {@code new Byte(Byte.parseByte(s, radix))}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param s         the string to be parsed
      * @param radix     the radix to be used in interpreting {@code s}
@@ -222,7 +222,7 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Byte} object holding the value
      * given by the specified {@code String}. The argument is
      * interpreted as representing a signed decimal {@code byte},
@@ -237,7 +237,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * <blockquote>
      * {@code new Byte(Byte.parseByte(s))}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param s         the string to be parsed
      * @return          a {@code Byte} object holding the value
@@ -250,7 +250,7 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Decodes a {@code String} into a {@code Byte}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -278,16 +278,16 @@ public final class Byte extends Number implements Comparable<Byte> {
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Byte.parseByte} method with the indicated radix (10, 16, or 8).
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * This sequence of characters must represent a positive value or
      * a {@link NumberFormatException} will be thrown.
      * {@property.close}
-     * {@descriptive.open}
+     * {@description.open}
      * The result is
      * negated if first character of the specified {@code String} is
      * the minus sign.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime} 
      * No whitespace characters are permitted in the
      * {@code String}.
@@ -309,19 +309,19 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The value of the {@code Byte}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @serial
      */
     private final byte value;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a newly allocated {@code Byte} object that
      * represents the specified {@code byte} value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param value     the value to be represented by the
      *                  {@code Byte}.
@@ -331,13 +331,13 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a newly allocated {@code Byte} object that
      * represents the {@code byte} value indicated by the
      * {@code String} parameter. The string is converted to a
      * {@code byte} value in exactly the manner used by the
      * {@code parseByte} method for radix 10.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param s         the {@code String} to be converted to a
      *                  {@code Byte}
@@ -350,73 +350,73 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code byte}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public byte byteValue() {
         return value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code short}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public short shortValue() {
         return (short)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as an
      * {@code int}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public int intValue() {
         return (int)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code long}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public long longValue() {
         return (long)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code float}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public float floatValue() {
         return (float)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code double}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public double doubleValue() {
         return (double)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code String} object representing this
      * {@code Byte}'s value.  The value is converted to signed
      * decimal representation and returned as a string, exactly as if
      * the {@code byte} value were given as an argument to the
      * {@link java.lang.Byte#toString(byte)} method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  a string representation of the value of this object in
      *          base&nbsp;10.
@@ -426,21 +426,21 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a hash code for this {@code Byte}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public int hashCode() {
         return (int)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is a {@code Byte} object that
      * contains the same {@code byte} value as this object.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param obj       the object to compare with
      * @return          {@code true} if the objects are the same;
@@ -454,9 +454,9 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares two {@code Byte} objects numerically.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   anotherByte   the {@code Byte} to be compared.
      * @return  the value {@code 0} if this {@code Byte} is
@@ -473,19 +473,19 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The number of bits used to represent a {@code byte} value in two's
      * complement binary form.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since 1.5
      */
     public static final int SIZE = 8;
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * use serialVersionUID from JDK 1.1. for interoperability
-     * {@descriptive.close} 
+     * {@description.close} 
      * */
     private static final long serialVersionUID = -7183698231559129828L;
 }

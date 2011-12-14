@@ -29,12 +29,12 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * Every Java application has a single instance of class
  * <code>Runtime</code> that allows the application to interface with
  * the environment in which the application is running. The current
  * runtime can be obtained from the <code>getRuntime</code> method.
- * {@descriptive.close}
+ * {@description.close}
  * <p>
  * {@property.open static}
  * An application cannot create its own instance of this class.
@@ -49,11 +49,11 @@ public class Runtime {
     private static Runtime currentRuntime = new Runtime();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the runtime object associated with the current Java application.
      * Most of the methods of class <code>Runtime</code> are instance
      * methods and must be invoked with respect to the current runtime object.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the <code>Runtime</code> object associated with the current
      *          Java application.
@@ -63,14 +63,14 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * Don't let anyone else instantiate this class 
-     * {@descriptive.close}
+     * {@description.close}
      * */
     private Runtime() {}
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Terminates the currently running Java virtual machine by initiating its
      * shutdown sequence.  This method never returns normally.  The argument
      * serves as a status code; by convention, a nonzero status code indicates
@@ -83,7 +83,7 @@ public class Runtime {
      * finalizers are run if {@link #runFinalizersOnExit finalization-on-exit}
      * has been enabled.  Once this is done the virtual machine {@link #halt
      * halts}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open runtime formal:ShutdownHook_SystemExit}
      * <p> If this method is invoked after the virtual machine has begun its
@@ -94,10 +94,10 @@ public class Runtime {
      * blocks indefinitely.
      * {@property.close}
      *
-     * {@descriptive.open}
+     * {@description.open}
      * <p> The <tt>{@link System#exit(int) System.exit}</tt> method is the
      * conventional and convenient means of invoking this method. <p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param  status
      *         Termination status.  By convention, a nonzero status code
@@ -124,7 +124,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Registers a new virtual-machine shutdown hook.
      *
      * <p> The Java virtual machine <i>shuts down</i> in response to two kinds
@@ -141,14 +141,14 @@ public class Runtime {
      *   such as user logoff or system shutdown.
      *
      *   </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open runtime formal:ShutdownHook_PrematureStart}
      * <p> A <i>shutdown hook</i> is simply an initialized but unstarted
      * thread.
      * {@property.close}
      * 
-     * {@descriptive.open}
+     * {@description.open}
      * When the virtual machine begins its shutdown sequence it will
      * start all registered shutdown hooks in some unspecified order and let
      * them run concurrently.  When all the hooks have finished it will then
@@ -161,7 +161,7 @@ public class Runtime {
      * <p> Once the shutdown sequence has begun it can be stopped only by
      * invoking the <tt>{@link #halt halt}</tt> method, which forcibly
      * terminates the virtual machine.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open runtime formal:ShutdownHook_LateRegister}
      * <p> Once the shutdown sequence has begun it is impossible to register a
@@ -170,12 +170,12 @@ public class Runtime {
      * <tt>{@link IllegalStateException}</tt> to be thrown.
      * {@property.close}
      * 
-     * {@descriptive.open}
+     * {@description.open}
      * <p> Shutdown hooks run at a delicate time in the life cycle of a virtual
      * machine and should therefore be coded defensively.  They should, in
      * particular, be written to be thread-safe and to avoid deadlocks insofar
      * as possible.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime formal:ShutdownHook_UnsafeSwingCall formal:ShutdownHook_UnsafeAWTCall}
      * They should also not rely blindly upon services that may
      * have registered their own shutdown hooks and therefore may themselves in
@@ -185,7 +185,7 @@ public class Runtime {
      * deadlocks.
      * {@property.close}
      * 
-     * {@descriptive.open}
+     * {@description.open}
      * <p> Shutdown hooks should also finish their work quickly.  When a
      * program invokes <tt>{@link #exit exit}</tt> the expectation is
      * that the virtual machine will promptly shut down and exit.  When the
@@ -212,7 +212,7 @@ public class Runtime {
      * attempting to access nonexistent memory.  If the virtual machine aborts
      * then no guarantee can be made about whether or not any shutdown hooks
      * will be run. <p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   hook
      *          An initialized but unstarted <tt>{@link Thread}</tt> object
@@ -244,9 +244,9 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * De-registers a previously-registered virtual-machine shutdown hook. <p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param hook the hook to remove
      * @return <tt>true</tt> if the specified hook had previously been
@@ -274,7 +274,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Forcibly terminates the currently running Java virtual machine.  This
      * method never returns normally.
      *
@@ -284,7 +284,7 @@ public class Runtime {
      * finalization-on-exit has been enabled.  If the shutdown sequence has
      * already been initiated then this method does not wait for any running
      * shutdown hooks or finalizers to finish their work. <p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param  status
      *         Termination status.  By convention, a nonzero status code
@@ -312,7 +312,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Enable or disable finalization on exit; doing so specifies that the
      * finalizers of all objects that have finalizers that have not yet been
      * automatically invoked are to be run before the Java runtime exits.
@@ -322,7 +322,7 @@ public class Runtime {
      * its <code>checkExit</code> method is first called
      * with 0 as its argument to ensure the exit is allowed.
      * This could result in a SecurityException.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param value true to enable finalization on exit, false to disable
      * @deprecated  This method is inherently unsafe.  It may result in
@@ -353,14 +353,14 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified string command in a separate process.
      *
      * <p>This is a convenience method.  An invocation of the form
      * <tt>exec(command)</tt>
      * behaves in exactly the same way as the invocation
      * <tt>{@link #exec(String, String[], File) exec}(command, null, null)</tt>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   command   a specified system command.
      *
@@ -388,7 +388,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified string command in a separate process with the
      * specified environment.
      *
@@ -396,7 +396,7 @@ public class Runtime {
      * <tt>exec(command, envp)</tt>
      * behaves in exactly the same way as the invocation
      * <tt>{@link #exec(String, String[], File) exec}(command, envp, null)</tt>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   command   a specified system command.
      *
@@ -431,7 +431,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified string command in a separate process with the
      * specified environment and working directory.
      *
@@ -448,7 +448,7 @@ public class Runtime {
      * further modification of the character categories.  The tokens
      * produced by the tokenizer are then placed in the new string
      * array <code>cmdarray</code>, in the same order.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   command   a specified system command.
      *
@@ -495,14 +495,14 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified command and arguments in a separate process.
      *
      * <p>This is a convenience method.  An invocation of the form
      * <tt>exec(cmdarray)</tt>
      * behaves in exactly the same way as the invocation
      * <tt>{@link #exec(String[], String[], File) exec}(cmdarray, null, null)</tt>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   cmdarray  array containing the command to call and
      *                    its arguments.
@@ -532,7 +532,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified command and arguments in a separate process
      * with the specified environment.
      *
@@ -540,7 +540,7 @@ public class Runtime {
      * <tt>exec(cmdarray, envp)</tt>
      * behaves in exactly the same way as the invocation
      * <tt>{@link #exec(String[], String[], File) exec}(cmdarray, envp, null)</tt>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   cmdarray  array containing the command to call and
      *                    its arguments.
@@ -578,7 +578,7 @@ public class Runtime {
 
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Executes the specified command and arguments in a separate process with
      * the specified environment and working directory.
      *
@@ -619,7 +619,7 @@ public class Runtime {
      * <p>In such cases an exception will be thrown.  The exact nature
      * of the exception is system-dependent, but it will always be a
      * subclass of {@link IOException}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   cmdarray  array containing the command to call and
      *                    its arguments.
@@ -665,14 +665,14 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the number of processors available to the Java virtual machine.
      *
      * <p> This value may change during a particular invocation of the virtual
      * machine.  Applications that are sensitive to the number of available
      * processors should therefore occasionally poll this property and adjust
      * their resource usage appropriately. </p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the maximum number of processors available to the virtual
      *          machine; never smaller than one
@@ -681,12 +681,12 @@ public class Runtime {
     public native int availableProcessors();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the amount of free memory in the Java Virtual Machine.
      * Calling the
      * <code>gc</code> method may result in increasing the value returned
      * by <code>freeMemory.</code>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  an approximation to the total amount of memory currently
      *          available for future allocated objects, measured in bytes.
@@ -694,14 +694,14 @@ public class Runtime {
     public native long freeMemory();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the total amount of memory in the Java virtual machine.
      * The value returned by this method may vary over time, depending on
      * the host environment.
      * <p>
      * Note that the amount of memory required to hold an object of any
      * given type may be implementation-dependent.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the total amount of memory currently available for current
      *          and future objects, measured in bytes.
@@ -709,11 +709,11 @@ public class Runtime {
     public native long totalMemory();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the maximum amount of memory that the Java virtual machine will
      * attempt to use.  If there is no inherent limit then the value {@link
      * java.lang.Long#MAX_VALUE} will be returned. </p>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  the maximum amount of memory that the virtual machine will
      *          attempt to use, measured in bytes
@@ -722,7 +722,7 @@ public class Runtime {
     public native long maxMemory();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Runs the garbage collector.
      * Calling this method suggests that the Java virtual machine expend
      * effort toward recycling unused objects in order to make the memory
@@ -737,7 +737,7 @@ public class Runtime {
      * <p>
      * The method {@link System#gc()} is the conventional and convenient
      * means of invoking this method.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public native void gc();
 
@@ -745,7 +745,7 @@ public class Runtime {
     private static native void runFinalization0();
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Runs the finalization methods of any objects pending finalization.
      * Calling this method suggests that the Java virtual machine expend
      * effort toward running the <code>finalize</code> methods of objects
@@ -760,7 +760,7 @@ public class Runtime {
      * <p>
      * The method {@link System#runFinalization()} is the conventional
      * and convenient means of invoking this method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @see     java.lang.Object#finalize()
      */
@@ -769,7 +769,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Enables/Disables tracing of instructions.
      * If the <code>boolean</code> argument is <code>true</code>, this
      * method suggests that the Java virtual machine emit debugging
@@ -783,7 +783,7 @@ public class Runtime {
      * If the <code>boolean</code> argument is <code>false</code>, this
      * method causes the virtual machine to stop performing the
      * detailed instruction trace it is performing.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   on   <code>true</code> to enable instruction tracing;
      *               <code>false</code> to disable this feature.
@@ -791,7 +791,7 @@ public class Runtime {
     public native void traceInstructions(boolean on);
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Enables/Disables tracing of method calls.
      * If the <code>boolean</code> argument is <code>true</code>, this
      * method suggests that the Java virtual machine emit debugging
@@ -803,7 +803,7 @@ public class Runtime {
      * <p>
      * Calling this method with argument false suggests that the
      * virtual machine cease emitting per-call debugging information.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   on   <code>true</code> to enable instruction tracing;
      *               <code>false</code> to disable this feature.
@@ -811,7 +811,7 @@ public class Runtime {
     public native void traceMethodCalls(boolean on);
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Loads the specified filename as a dynamic library. The filename
      * argument must be a complete path name,
      * (for example
@@ -827,7 +827,7 @@ public class Runtime {
      * <p>
      * The method {@link System#load(String)} is the conventional and
      * convenient means of invoking this method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      filename   the file to load.
      * @exception  SecurityException  if a security manager exists and its
@@ -857,7 +857,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Loads the dynamic library with the specified library name.
      * A file containing native code is loaded from the local file system
      * from a place where library files are conventionally obtained. The
@@ -883,7 +883,7 @@ public class Runtime {
      * <p>
      * If this method is called more than once with the same library
      * name, the second and subsequent calls are ignored.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      libname   the name of the library.
      * @exception  SecurityException  if a security manager exists and its
@@ -912,7 +912,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Creates a localized version of an input stream. This method takes
      * an <code>InputStream</code> and returns an <code>InputStream</code>
      * equivalent to the argument in all respects except that it is
@@ -922,7 +922,7 @@ public class Runtime {
      * <p>
      * If the argument is already a localized stream, it may be returned
      * as the result.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      in InputStream to localize
      * @return     a localized input stream
@@ -940,7 +940,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Creates a localized version of an output stream. This method
      * takes an <code>OutputStream</code> and returns an
      * <code>OutputStream</code> equivalent to the argument in all respects
@@ -955,7 +955,7 @@ public class Runtime {
      * Unicode character stream into a byte stream in the local encoding is via
      * the <code>OutputStreamWriter</code>, <code>BufferedWriter</code>, and
      * <code>PrintWriter</code> classes.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      out OutputStream to localize
      * @return     a localized output stream

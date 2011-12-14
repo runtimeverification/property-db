@@ -38,7 +38,7 @@ import sun.security.util.SecurityConstants;
 
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * A <i>thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.
@@ -1639,7 +1639,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * A thread state.  A thread can be in one of the following states:
      * <ul>
      * <li>{@link #NEW}<br>
@@ -1669,42 +1669,42 @@ class Thread implements Runnable {
      * A thread can be in only one state at a given point in time.
      * These states are virtual machine states which do not reflect
      * any operating system thread states.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since   1.5
      * @see #getState
      */
     public enum State {
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a thread which has not yet started.
-         * {@descriptive.close}
+         * {@description.close}
          */
         NEW,
 
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a runnable thread.  A thread in the runnable
          * state is executing in the Java virtual machine but it may
          * be waiting for other resources from the operating system
          * such as processor.
-         * {@descriptive.close}
+         * {@description.close}
          */
         RUNNABLE,
 
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a thread blocked waiting for a monitor lock.
          * A thread in the blocked state is waiting for a monitor lock
          * to enter a synchronized block/method or
          * reenter a synchronized block/method after calling
          * {@link Object#wait() Object.wait}.
-         * {@descriptive.close}
+         * {@description.close}
          */
         BLOCKED,
 
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a waiting thread.
          * A thread is in the waiting state due to calling one of the
          * following methods:
@@ -1722,12 +1722,12 @@ class Thread implements Runnable {
          * <tt>Object.notify()</tt> or <tt>Object.notifyAll()</tt> on
          * that object. A thread that has called <tt>Thread.join()</tt>
          * is waiting for a specified thread to terminate.
-         * {@descriptive.close}
+         * {@description.close}
          */
         WAITING,
 
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a waiting thread with a specified waiting time.
          * A thread is in the timed waiting state due to calling one of
          * the following methods with a specified positive waiting time:
@@ -1738,25 +1738,25 @@ class Thread implements Runnable {
          *   <li>{@link LockSupport#parkNanos LockSupport.parkNanos}</li>
          *   <li>{@link LockSupport#parkUntil LockSupport.parkUntil}</li>
          * </ul>
-         * {@descriptive.close}
+         * {@description.close}
          */
         TIMED_WAITING,
 
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Thread state for a terminated thread.
          * The thread has completed execution.
-         * {@descriptive.close}
+         * {@description.close}
          */
         TERMINATED;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the state of this thread.
      * This method is designed for use in monitoring of the system state,
      * not for synchronization control.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return this thread's state.
      * @since 1.5
@@ -1769,7 +1769,7 @@ class Thread implements Runnable {
     // Added in JSR-166
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Interface for handlers invoked when a <tt>Thread</tt> abruptly
      * terminates due to an uncaught exception.
      * <p>When a thread is about to terminate due to an uncaught exception
@@ -1785,7 +1785,7 @@ class Thread implements Runnable {
      * special requirements for dealing with the exception, it can forward
      * the invocation to the {@linkplain #getDefaultUncaughtExceptionHandler
      * default uncaught exception handler}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @see #setDefaultUncaughtExceptionHandler
      * @see #setUncaughtExceptionHandler
@@ -1794,12 +1794,12 @@ class Thread implements Runnable {
      */
     public interface UncaughtExceptionHandler {
         /** {@collect.stats}
-         * {@descriptive.open}
+         * {@description.open}
          * Method invoked when the given thread terminates due to the
          * given uncaught exception.
          * <p>Any exception thrown by this method will be ignored by the
          * Java Virtual Machine.
-         * {@descriptive.close}
+         * {@description.close}
          * 
          * @param t the thread
          * @param e the exception

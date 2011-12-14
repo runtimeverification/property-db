@@ -26,7 +26,7 @@
 package java.lang;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * The {@code Long} class wraps a value of the primitive type {@code
  * long} in an object. An object of type {@code Long} contains a
  * single field whose type is {@code long}.
@@ -41,7 +41,7 @@ package java.lang;
  * {@link #numberOfTrailingZeros(long) numberOfTrailingZeros}) are
  * based on material from Henry S. Warren, Jr.'s <i>Hacker's
  * Delight</i>, (Addison Wesley, 2002).
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  Lee Boynton
  * @author  Arthur van Hoff
@@ -51,33 +51,33 @@ package java.lang;
  */
 public final class Long extends Number implements Comparable<Long> {
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * A constant holding the minimum value a {@code long} can
      * have, -2<sup>63</sup>.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final long MIN_VALUE = 0x8000000000000000L;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * A constant holding the maximum value a {@code long} can
      * have, 2<sup>63</sup>-1.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public static final long MAX_VALUE = 0x7fffffffffffffffL;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The {@code Class} instance representing the primitive type
      * {@code long}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since   JDK1.1
      */
     public static final Class<Long>     TYPE = (Class<Long>) Class.getPrimitiveClass("long");
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of the first argument in the
      * radix specified by the second argument.
      *
@@ -114,7 +114,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code Long.toString(n, 16).toUpperCase()}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   i       a {@code long} to be converted to a string.
      * @param   radix   the radix to use in the string representation.
@@ -149,7 +149,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of the {@code long}
      * argument as an unsigned integer in base&nbsp;16.
      *
@@ -177,7 +177,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code Long.toHexString(n).toUpperCase()}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   i   a {@code long} to be converted to a string.
      * @return  the string representation of the unsigned {@code long}
@@ -190,7 +190,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of the {@code long}
      * argument as an unsigned integer in base&nbsp;8.
      *
@@ -213,7 +213,7 @@ public final class Long extends Number implements Comparable<Long> {
      *
      * These are the characters <code>'&#92;u0030'</code> through
      * <code>'&#92;u0037'</code>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   i   a {@code long} to be converted to a string.
      * @return  the string representation of the unsigned {@code long}
@@ -225,7 +225,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a string representation of the {@code long}
      * argument as an unsigned integer in base&nbsp;2.
      *
@@ -240,7 +240,7 @@ public final class Long extends Number implements Comparable<Long> {
      * zero character. The characters {@code '0'}
      * (<code>'&#92;u0030'</code>) and {@code '1'}
      * (<code>'&#92;u0031'</code>) are used as binary digits.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   i   a {@code long} to be converted to a string.
      * @return  the string representation of the unsigned {@code long}
@@ -252,9 +252,9 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Convert the integer to an unsigned number.
-     * {@descriptive.close}
+     * {@description.close}
      */
     private static String toUnsignedString(long i, int shift) {
         char[] buf = new char[64];
@@ -269,13 +269,13 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code String} object representing the specified
      * {@code long}.  The argument is converted to signed decimal
      * representation and returned as a string, exactly as if the
      * argument and the radix 10 were given as arguments to the {@link
      * #toString(long, int)} method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   i   a {@code long} to be converted.
      * @return  a string representation of the argument in base&nbsp;10.
@@ -290,7 +290,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Places characters representing the integer i into the
      * character array buf. The characters are placed into
      * the buffer backwards starting with the least significant
@@ -298,7 +298,7 @@ public final class Long extends Number implements Comparable<Long> {
      * backwards from there.
      *
      * Will fail if i == Long.MIN_VALUE
-     * {@descriptive.close}
+     * {@description.close}
      */
     static void getChars(long i, int index, char[] buf) {
         long q;
@@ -359,7 +359,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Parses the string argument as a signed {@code long} in the
      * radix specified by the second argument. The characters in the
      * string must all be digits of the specified radix (as determined
@@ -408,7 +408,7 @@ public final class Long extends Number implements Comparable<Long> {
      * parseLong("Hazelnut", 10) throws a NumberFormatException
      * parseLong("Hazelnut", 36) returns 1356099454469L
      * </pre></blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      s       the {@code String} containing the
      *                     {@code long} representation to be parsed.
@@ -477,7 +477,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Parses the string argument as a signed decimal {@code long}.
      * The characters in the string must all be decimal digits, except
      * that the first character may be an ASCII minus sign {@code '-'}
@@ -491,7 +491,7 @@ public final class Long extends Number implements Comparable<Long> {
      * (<code>'&#92;u006C'</code>) is permitted to appear at the end
      * of the string as a type indicator, as would be permitted in
      * Java programming language source code.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      s   a {@code String} containing the {@code long}
      *             representation to be parsed
@@ -505,7 +505,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Long} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument.  The first
@@ -522,7 +522,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code new Long(Long.parseLong(s, radix))}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      s       the string to be parsed
      * @param      radix   the radix to be used in interpreting {@code s}
@@ -537,7 +537,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Long} object holding the value
      * of the specified {@code String}. The argument is
      * interpreted as representing a signed decimal {@code long},
@@ -552,7 +552,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code new Long(Long.parseLong(s))}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      s   the string to be parsed.
      * @return     a {@code Long} object holding the value
@@ -577,10 +577,10 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code Long} instance representing the specified
      * {@code long} value.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime performance}
      * If a new {@code Long} instance is not required, this method
      * should generally be used in preference to the constructor
@@ -602,7 +602,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Decodes a {@code String} into a {@code Long}.
      * Accepts decimal, hexadecimal, and octal numbers given by the
      * following grammar:
@@ -634,7 +634,7 @@ public final class Long extends Number implements Comparable<Long> {
      * a {@link NumberFormatException} will be thrown.  The result is
      * negated if first character of the specified {@code String} is
      * the minus sign.
-     * {@descriptive.close}
+     * {@description.close}
      * {@property.open runtime}
      * No whitespace characters are permitted in the
      * {@code String}.
@@ -695,19 +695,19 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The value of the {@code Long}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @serial
      */
     private final long value;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a newly allocated {@code Long} object that
      * represents the specified {@code long} argument.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   value   the value to be represented by the
      *          {@code Long} object.
@@ -717,13 +717,13 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Constructs a newly allocated {@code Long} object that
      * represents the {@code long} value indicated by the
      * {@code String} parameter. The string is converted to a
      * {@code long} value in exactly the manner used by the
      * {@code parseLong} method for radix 10.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param      s   the {@code String} to be converted to a
      *             {@code Long}.
@@ -736,7 +736,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code byte}.
      * 
@@ -746,63 +746,63 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code short}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public short shortValue() {
         return (short)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as an
      * {@code int}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public int intValue() {
         return (int)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code long} value.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public long longValue() {
         return (long)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code float}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public float floatValue() {
         return (float)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code double}.
-     * {@descriptive.close}
+     * {@description.close}
      */
     public double doubleValue() {
         return (double)value;
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code String} object representing this
      * {@code Long}'s value.  The value is converted to signed
      * decimal representation and returned as a string, exactly as if
      * the {@code long} value were given as an argument to the
      * {@link java.lang.Long#toString(long)} method.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  a string representation of the value of this object in
      *          base&nbsp;10.
@@ -812,7 +812,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a hash code for this {@code Long}. The result is
      * the exclusive OR of the two halves of the primitive
      * {@code long} value held by this {@code Long}
@@ -821,7 +821,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code (int)(this.longValue()^(this.longValue()>>>32))}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return  a hash code value for this object.
      */
@@ -830,12 +830,12 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is a {@code Long} object that
      * contains the same {@code long} value as this object.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   obj   the object to compare with.
      * @return  {@code true} if the objects are the same;
@@ -849,7 +849,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Determines the {@code long} value of the system property
      * with the specified name.
      *
@@ -873,7 +873,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <blockquote>
      *  {@code getLong(nm, null)}
      * </blockquote>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   nm   property name.
      * @return  the {@code Long} value of the property.
@@ -885,7 +885,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Determines the {@code long} value of the system property
      * with the specified name.
      *
@@ -919,7 +919,7 @@ public final class Long extends Number implements Comparable<Long> {
      *
      * to avoid the unnecessary allocation of a {@code Long} object when
      * the default value is not needed.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   nm    property name.
      * @param   val   default value.
@@ -933,7 +933,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the {@code long} value of the system property with
      * the specified name.  The first argument is treated as the name
      * of a system property.  System properties are accessible through
@@ -968,7 +968,7 @@ public final class Long extends Number implements Comparable<Long> {
      * returned if there is no property of the specified name, if the
      * property does not have the correct numeric format, or if the
      * specified name is empty or {@code null}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   nm   property name.
      * @param   val   default value.
@@ -994,9 +994,9 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares two {@code Long} objects numerically.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   anotherLong   the {@code Long} to be compared.
      * @return  the value {@code 0} if this {@code Long} is
@@ -1018,23 +1018,23 @@ public final class Long extends Number implements Comparable<Long> {
     // Bit Twiddling
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * The number of bits used to represent a {@code long} value in two's
      * complement binary form.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @since 1.5
      */
     public static final int SIZE = 64;
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code long} value with at most a single one-bit, in the
      * position of the highest-order ("leftmost") one-bit in the specified
      * {@code long} value.  Returns zero if the specified value has no
      * one-bits in its two's complement binary representation, that is, if it
      * is equal to zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return a {@code long} value with a single one-bit, in the position
      *     of the highest-order one-bit in the specified value, or zero if
@@ -1053,13 +1053,13 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns a {@code long} value with at most a single one-bit, in the
      * position of the lowest-order ("rightmost") one-bit in the specified
      * {@code long} value.  Returns zero if the specified value has no
      * one-bits in its two's complement binary representation, that is, if it
      * is equal to zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return a {@code long} value with a single one-bit, in the position
      *     of the lowest-order one-bit in the specified value, or zero if
@@ -1072,7 +1072,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the number of zero bits preceding the highest-order
      * ("leftmost") one-bit in the two's complement binary representation
      * of the specified {@code long} value.  Returns 64 if the
@@ -1085,7 +1085,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <li>floor(log<sub>2</sub>(x)) = {@code 63 - numberOfLeadingZeros(x)}
      * <li>ceil(log<sub>2</sub>(x)) = {@code 64 - numberOfLeadingZeros(x - 1)}
      * </ul>
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the number of zero bits preceding the highest-order
      *     ("leftmost") one-bit in the two's complement binary representation
@@ -1109,13 +1109,13 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the number of zero bits following the lowest-order ("rightmost")
      * one-bit in the two's complement binary representation of the specified
      * {@code long} value.  Returns 64 if the specified value has no
      * one-bits in its two's complement representation, in other words if it is
      * equal to zero.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the number of zero bits following the lowest-order ("rightmost")
      *     one-bit in the two's complement binary representation of the
@@ -1137,11 +1137,11 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the number of one-bits in the two's complement binary
      * representation of the specified {@code long} value.  This function is
      * sometimes referred to as the <i>population count</i>.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the number of one-bits in the two's complement binary
      *     representation of the specified {@code long} value.
@@ -1159,7 +1159,7 @@ public final class Long extends Number implements Comparable<Long> {
      }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value obtained by rotating the two's complement binary
      * representation of the specified {@code long} value left by the
      * specified number of bits.  (Bits shifted out of the left hand, or
@@ -1171,7 +1171,7 @@ public final class Long extends Number implements Comparable<Long> {
      * no-op, so all but the last six bits of the rotation distance can be
      * ignored, even if the distance is negative: {@code rotateLeft(val,
      * distance) == rotateLeft(val, distance & 0x3F)}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the value obtained by rotating the two's complement binary
      *     representation of the specified {@code long} value left by the
@@ -1183,7 +1183,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value obtained by rotating the two's complement binary
      * representation of the specified {@code long} value right by the
      * specified number of bits.  (Bits shifted out of the right hand, or
@@ -1195,7 +1195,7 @@ public final class Long extends Number implements Comparable<Long> {
      * no-op, so all but the last six bits of the rotation distance can be
      * ignored, even if the distance is negative: {@code rotateRight(val,
      * distance) == rotateRight(val, distance & 0x3F)}.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the value obtained by rotating the two's complement binary
      *     representation of the specified {@code long} value right by the
@@ -1207,11 +1207,11 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value obtained by reversing the order of the bits in the
      * two's complement binary representation of the specified {@code long}
      * value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the value obtained by reversing order of the bits in the
      *     specified {@code long} value.
@@ -1229,11 +1229,11 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the signum function of the specified {@code long} value.  (The
      * return value is -1 if the specified value is negative; 0 if the
      * specified value is zero; and 1 if the specified value is positive.)
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the signum function of the specified {@code long} value.
      * @since 1.5
@@ -1244,10 +1244,10 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns the value obtained by reversing the order of the bytes in the
      * two's complement representation of the specified {@code long} value.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return the value obtained by reversing the bytes in the specified
      *     {@code long} value.
@@ -1260,9 +1260,9 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /** {@collect.stats}
-     * {@descriptive.open} 
+     * {@description.open} 
      * use serialVersionUID from JDK 1.0.2 for interoperability
-     * {@descriptive.close}
+     * {@description.close}
      */
     private static final long serialVersionUID = 4290774380558885855L;
 }

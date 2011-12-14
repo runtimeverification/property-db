@@ -28,19 +28,19 @@ package java.lang;
 import java.util.Iterator;
 
 /**{@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * Implementing this interface allows an object to be the target of
  * the "foreach" statement.
- * {@descriptive.close}
+ * {@description.close}
  * 
  * @since 1.5
  */
 public interface Iterable<T> {
 
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Returns an iterator over a set of elements of type T.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @return an Iterator.
      */

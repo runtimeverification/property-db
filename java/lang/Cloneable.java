@@ -26,7 +26,7 @@
 package java.lang;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * A class implements the <code>Cloneable</code> interface to
  * indicate to the {@link java.lang.Object#clone()} method that it
  * is legal for that method to make a
@@ -45,7 +45,7 @@ package java.lang;
  * Therefore, it is not possible to clone an object merely by virtue of the
  * fact that it implements this interface.  Even if the clone method is invoked
  * reflectively, there is no guarantee that it will succeed.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.CloneNotSupportedException

@@ -27,7 +27,7 @@ package java.lang;
 import java.util.*;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * This interface imposes a total ordering on the objects of each class that
  * implements it.  This ordering is referred to as the class's <i>natural
  * ordering</i>, and the class's <tt>compareTo</tt> method is referred to as
@@ -44,7 +44,7 @@ import java.util.*;
  * with equals</i> if and only if <tt>e1.compareTo(e2) == 0</tt> has
  * the same boolean value as <tt>e1.equals(e2)</tt> for every
  * <tt>e1</tt> and <tt>e2</tt> of class <tt>C</tt>.  
- * {@descriptive.close}
+ * {@description.close}
  * 
  * {@property.open runtime formal:Comparable_CompareToNullException formal:Comparable_CompareToNull}
  * Note that <tt>null</tt>
@@ -63,7 +63,7 @@ import java.util.*;
  * method.<p>
  * {@property.close}
  *
- * {@descriptive.open}
+ * {@description.open}
  * For example, if one adds two keys <tt>a</tt> and <tt>b</tt> such that
  * <tt>(!a.equals(b) && a.compareTo(b) == 0)</tt> to a sorted
  * set that does not use an explicit comparator, the second <tt>add</tt>
@@ -95,7 +95,7 @@ import java.util.*;
  * This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @param <T> the type of objects that this object may be compared to
  *
@@ -106,11 +106,11 @@ import java.util.*;
 
 public interface Comparable<T> {
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less
      * than, equal to, or greater than the specified object.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The implementor must ensure <tt>sgn(x.compareTo(y)) ==
@@ -140,13 +140,13 @@ public interface Comparable<T> {
      * inconsistent with equals."
      * {@property.close}
      *
-     * {@descriptive.open}
+     * {@description.open}
      * <p>In the foregoing description, the notation
      * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical
      * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   o the object to be compared.
      * @return  a negative integer, zero, or a positive integer as this object
