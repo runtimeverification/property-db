@@ -26,24 +26,30 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when an unknown but serious exception has occurred in the
  * Java Virtual Machine.
+ * {@description.close}
  *
  * @author unascribed
  * @since   JDK1.0
  */
 public
 class UnknownError extends VirtualMachineError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an <code>UnknownError</code> with no detail message.
+     * {@description.close}
      */
     public UnknownError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>UnknownError</code> with the specified detail
      * message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

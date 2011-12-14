@@ -25,27 +25,32 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * Subclasses of <code>LinkageError</code> indicate that a class has
  * some dependency on another class; however, the latter class has
  * incompatibly changed after the compilation of the former class.
- *
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @since   JDK1.0
  */
 public
 class LinkageError extends Error {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>LinkageError</code> with no detail message.
+     * {@description.close}
      */
     public LinkageError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>LinkageError</code> with the specified detail
      * message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

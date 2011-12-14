@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown if the Java Virtual Machine or a <code>ClassLoader</code> instance
  * tries to load in the definition of a class (as part of a normal method call
  * or as part of creating a new instance using the <code>new</code> expression)
@@ -34,22 +35,27 @@ package java.lang;
  * The searched-for class definition existed when the currently
  * executing class was compiled, but the definition can no longer be
  * found.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class NoClassDefFoundError extends LinkageError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>NoClassDefFoundError</code> with no detail message.
+     * {@description.close}
      */
     public NoClassDefFoundError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NoClassDefFoundError</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

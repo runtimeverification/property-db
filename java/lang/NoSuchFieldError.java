@@ -26,28 +26,34 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown if an application tries to access or modify a specified
  * field of an object, and that object no longer has that field.
  * <p>
  * Normally, this error is caught by the compiler; this error can
  * only occur at run time if the definition of a class has
  * incompatibly changed.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class NoSuchFieldError extends IncompatibleClassChangeError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>NoSuchFieldException</code> with no detail  message.
+     * {@description.close}
      */
     public NoSuchFieldError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NoSuchFieldException</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

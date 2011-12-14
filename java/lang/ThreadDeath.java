@@ -25,7 +25,8 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * An instance of {@code ThreadDeath} is thrown in the victim thread
  * when the (deprecated) {@link Thread#stop()} method is invoked.
  *
@@ -42,6 +43,7 @@ package java.lang;
  * {@code Error} rather than {@code Exception}, even though it is a
  * "normal occurrence", because many applications catch all
  * occurrences of {@code Exception} and then discard the exception.
+ * {@description.close}
  *
  * @since   JDK1.0
  */

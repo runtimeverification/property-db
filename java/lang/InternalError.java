@@ -26,24 +26,30 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate some unexpected internal error has occurred in
  * the Java Virtual Machine.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class InternalError extends VirtualMachineError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an <code>InternalError</code> with no detail message.
+     * {@description.close}
      */
     public InternalError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>InternalError</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */
