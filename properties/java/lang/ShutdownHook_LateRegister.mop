@@ -1,0 +1,28 @@
+package mop;
+
+import java.lang.*;
+import java.awt.*;
+
+/**
+ * Warns if one registers a new shutdown hook after the shutdown sequence has begun.
+ * 
+ * According to the manual, "Once the shutdown sequence has begun it is impossible 
+ * to register a new shutdown hook or de-register a previously-registered hook." 
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html
+ *
+ * @severity error
+ */
+ShutdownHook_SystemExit() {
+	HashSet<Thread> set = new HashSet<Thread>();
+
+	creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) { set.add(t); }
+	creation event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) { set.remove(t); }
+	event start before(Thread t) : startThread() && thread(t) && condition(set.contains(t)) {}
+
+    ere : (register | unregister)* start+ (register | unregister)
+	
+	@match {
+		System.err.println("");
+	}
+}
+

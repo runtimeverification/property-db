@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
  * runtime can be obtained from the <code>getRuntime</code> method.
  * {@descriptive.close}
  * <p>
- * {@property.open runtime}
+ * {@property.open static}
  * An application cannot create its own instance of this class.
  * {@property.close}
  *
@@ -49,9 +49,11 @@ public class Runtime {
     private static Runtime currentRuntime = new Runtime();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the runtime object associated with the current Java application.
      * Most of the methods of class <code>Runtime</code> are instance
      * methods and must be invoked with respect to the current runtime object.
+     * {@descriptive.close}
      *
      * @return  the <code>Runtime</code> object associated with the current
      *          Java application.
@@ -60,10 +62,15 @@ public class Runtime {
         return currentRuntime;
     }
 
-    /** {@collect.stats} Don't let anyone else instantiate this class */
+    /** {@collect.stats}
+     * {@descriptive.open} 
+     * Don't let anyone else instantiate this class 
+     * {@descriptive.close}
+     * */
     private Runtime() {}
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Terminates the currently running Java virtual machine by initiating its
      * shutdown sequence.  This method never returns normally.  The argument
      * serves as a status code; by convention, a nonzero status code indicates
@@ -76,16 +83,21 @@ public class Runtime {
      * finalizers are run if {@link #runFinalizersOnExit finalization-on-exit}
      * has been enabled.  Once this is done the virtual machine {@link #halt
      * halts}.
+     * {@descriptive.close}
      *
+     * {@property.open runtime formal:ShutdownHook_SystemExit}
      * <p> If this method is invoked after the virtual machine has begun its
      * shutdown sequence then if shutdown hooks are being run this method will
      * block indefinitely.  If shutdown hooks have already been run and on-exit
      * finalization has been enabled then this method halts the virtual machine
      * with the given status code if the status is nonzero; otherwise, it
      * blocks indefinitely.
+     * {@property.close}
      *
+     * {@descriptive.open}
      * <p> The <tt>{@link System#exit(int) System.exit}</tt> method is the
      * conventional and convenient means of invoking this method. <p>
+     * {@descriptive.close}
      *
      * @param  status
      *         Termination status.  By convention, a nonzero status code
@@ -112,6 +124,7 @@ public class Runtime {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Registers a new virtual-machine shutdown hook.
      *
      * <p> The Java virtual machine <i>shuts down</i> in response to two kinds
@@ -128,11 +141,14 @@ public class Runtime {
      *   such as user logoff or system shutdown.
      *
      *   </ul>
+     * {@descriptive.close}
      *
      * {@property.open runtime formal:ShutdownHook_PrematureStart}
      * <p> A <i>shutdown hook</i> is simply an initialized but unstarted
      * thread.
      * {@property.close}
+     * 
+     * {@descriptive.open}
      * When the virtual machine begins its shutdown sequence it will
      * start all registered shutdown hooks in some unspecified order and let
      * them run concurrently.  When all the hooks have finished it will then
@@ -145,11 +161,14 @@ public class Runtime {
      * <p> Once the shutdown sequence has begun it can be stopped only by
      * invoking the <tt>{@link #halt halt}</tt> method, which forcibly
      * terminates the virtual machine.
+     * {@descriptive.close}
      *
+     * {@property.open runtime formal:ShutdownHook_LateRegister}
      * <p> Once the shutdown sequence has begun it is impossible to register a
      * new shutdown hook or de-register a previously-registered hook.
      * Attempting either of these operations will cause an
      * <tt>{@link IllegalStateException}</tt> to be thrown.
+     * {@property.close}
      *
      * <p> Shutdown hooks run at a delicate time in the life cycle of a virtual
      * machine and should therefore be coded defensively.  They should, in
