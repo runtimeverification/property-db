@@ -43,6 +43,7 @@ import java.net.URL;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * The security manager is a class that allows
  * applications to implement a security policy. It allows an
  * application to determine, before performing a possibly unsafe or
@@ -196,6 +197,7 @@ import sun.security.util.SecurityConstants;
  * For more information about <code>SecurityManager</code> changes made in
  * the JDK and advice regarding porting of 1.1-style security managers,
  * see the <a href="../../../technotes/guides/security/index.html">security documentation</a>.
+ * {@descriptive.close}
  *
  * @author  Arthur van Hoff
  * @author  Roland Schemers
@@ -226,9 +228,11 @@ import sun.security.util.SecurityConstants;
 public
 class SecurityManager {
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * This field is <code>true</code> if there is a security check in
      * progress; <code>false</code> otherwise.
+     * {@descriptive.close}
      *
      * @deprecated This type of security checking is not recommended.
      *  It is recommended that the <code>checkPermission</code>
@@ -244,7 +248,9 @@ class SecurityManager {
 
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * returns true if the current context has been granted AllPermission
+     * {@descriptive.close}
      */
     private boolean hasAllPermission()
     {
@@ -257,7 +263,9 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Tests if there is a security check in progress.
+     * {@descriptive.close}
      *
      * @return the value of the <code>inCheck</code> field. This field
      *          should contain <code>true</code> if a security check is
@@ -274,6 +282,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a new <code>SecurityManager</code>.
      *
      * <p> If there is a security manager already installed, this method first
@@ -282,6 +291,7 @@ class SecurityManager {
      * permission to ensure the calling thread has permission to create a new
      * security manager.
      * This may result in throwing a <code>SecurityException</code>.
+     * {@descriptive.close}
      *
      * @exception  java.lang.SecurityException if a security manager already
      *             exists and its <code>checkPermission</code> method
@@ -304,18 +314,21 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the current execution stack as an array of classes.
      * <p>
      * The length of the array is the number of methods on the execution
      * stack. The element at index <code>0</code> is the class of the
      * currently executing method, the element at index <code>1</code> is
      * the class of that method's caller, and so on.
+     * {@descriptive.close}
      *
      * @return  the execution stack.
      */
     protected native Class[] getClassContext();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the class loader of the most recently executing method from
      * a class defined using a non-system class loader. A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -339,6 +352,7 @@ class SecurityManager {
      *   result in a SecurityException.
      *
      * </ol>
+     * {@descriptive.close}
      *
      * @return  the class loader of the most recent occurrence on the stack
      *          of a method from a class defined using a non-system class
@@ -363,6 +377,7 @@ class SecurityManager {
     private native ClassLoader currentClassLoader0();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the class of the most recently executing method from
      * a class defined using a non-system class loader. A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -386,6 +401,7 @@ class SecurityManager {
      *   result in a SecurityException.
      *
      * </ol>
+     * {@descriptive.close}
      *
      * @return  the class  of the most recent occurrence on the stack
      *          of a method from a class defined using a non-system class
@@ -406,8 +422,10 @@ class SecurityManager {
         return c;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Returns the stack depth of the specified class.
+     * {@descriptive.close}
      *
      * @param   name   the fully qualified name of the class to search for.
      * @return  the depth on the stack frame of the first occurrence of a
@@ -422,6 +440,7 @@ class SecurityManager {
     protected native int classDepth(String name);
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the stack depth of the most recently executing method
      * from a class defined using a non-system class loader.  A non-system
      * class loader is defined as being a class loader that is not equal to
@@ -445,6 +464,7 @@ class SecurityManager {
      *   result in a SecurityException.
      *
      * </ol>
+     * {@descriptive.close}
      *
      * @return the depth on the stack frame of the most recent occurrence of
      *          a method from a class defined using a non-system class loader.
@@ -472,8 +492,10 @@ class SecurityManager {
     private native int classLoaderDepth0();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Tests if a method from a class with the specified
      *         name is on the execution stack.
+     * {@descriptive.close}
      *
      * @param  name   the fully qualified name of the class.
      * @return <code>true</code> if a method from a class with the specified
@@ -487,9 +509,11 @@ class SecurityManager {
         return classDepth(name) >= 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Basically, tests if a method from a class defined using a
      *          class loader is on the execution stack.
+     * {@descriptive.close}
      *
      * @return  <code>true</code> if a call to <code>currentClassLoader</code>
      *          has a non-null return value.
@@ -505,6 +529,7 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Creates an object that encapsulates the current execution
      * environment. The result of this method is used, for example, by the
      * three-argument <code>checkConnect</code> method and by the
@@ -516,6 +541,7 @@ class SecurityManager {
      * own.
      * <p> The default implementation of this method is to return
      * an <code>AccessControlContext</code> object.
+     * {@descriptive.close}
      *
      * @return  an implementation-dependent object that encapsulates
      *          sufficient information about the current execution environment
@@ -531,12 +557,14 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the requested
      * access, specified by the given permission, is not permitted based
      * on the security policy currently in effect.
      * <p>
      * This method calls <code>AccessController.checkPermission</code>
      * with the given permission.
+     * {@descriptive.close}
      *
      * @param     perm   the requested permission.
      * @exception SecurityException if access is not permitted based on
@@ -550,14 +578,19 @@ class SecurityManager {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Throws a <code>SecurityException</code> if the
      * specified security context is denied access to the resource
      * specified by the given permission.
+     * {@descriptive.close}
+     * {@property.open runtime}
      * The context must be a security
      * context returned by a previous call to
      * <code>getSecurityContext</code> and the access control
      * decision is based upon the configured security policy for
      * that security context.
+     * {@property.close}
+     * {@descriptive.open}
      * <p>
      * If <code>context</code> is an instance of
      * <code>AccessControlContext</code> then the
@@ -567,6 +600,7 @@ class SecurityManager {
      * If <code>context</code> is not an instance of
      * <code>AccessControlContext</code> then a
      * <code>SecurityException</code> is thrown.
+     * {@descriptive.close}
      *
      * @param      perm      the specified permission
      * @param      context   a system-dependent security context.
