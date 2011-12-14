@@ -1463,7 +1463,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
          *             the block definitions of the Unicode Standard.
          *             The {@link #of(char)} and {@link #of(int)} methods
          *             return the new constants, not SURROGATES_AREA.
-         * {@description.open}
+         * {@description.close}
          *             
          */
         @Deprecated
@@ -4079,7 +4079,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> <code>isIdentifierIgnorable</code> returns
      * <code>true</code> for this character.
      * </ul>
-     * {@description.open}
+     * {@description.close}
      *
      * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
@@ -4680,7 +4680,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> It is <code>'&#92;u001E'</code>, RECORD SEPARATOR.
      * <li> It is <code>'&#92;u001F'</code>, UNIT SEPARATOR.
      * </ul>
-     * {@description.open}
+     * {@description.close}
      *
      * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a

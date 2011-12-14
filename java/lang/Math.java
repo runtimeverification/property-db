@@ -206,7 +206,7 @@ public final class Math {
      * range 0.0 through <i>pi</i>.  Special case:
      * <ul><li>If the argument is NaN or its absolute value is greater
      * than 1, then the result is NaN.</ul>
-     * {@description.open}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -287,7 +287,7 @@ public final class Math {
      * positive infinity.
      * <li>If the argument is negative infinity, then the result is
      * positive zero.</ul>
-     * {@description.open}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
@@ -341,7 +341,7 @@ public final class Math {
      * <li> If the argument is equal to 10<sup><i>n</i></sup> for
      * integer <i>n</i>, then the result is <i>n</i>.
      * </ul>
-     * {@description.open}
+     * {@description.close}
      *
      * {@property.open}
      * <p>The computed result must be within 1 ulp of the exact result.
