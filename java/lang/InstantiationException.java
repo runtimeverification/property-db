@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when an application tries to create an instance of a class
  * using the {@code newInstance} method in class
  * {@code Class}, but the specified class object cannot be
@@ -37,6 +38,7 @@ package java.lang;
  *      an array class, a primitive type, or {@code void}
  * <li> the class has no nullary constructor
  *</ul>
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.Class#newInstance()
@@ -44,16 +46,20 @@ package java.lang;
  */
 public
 class InstantiationException extends Exception {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an {@code InstantiationException} with no detail message.
+     * {@description.close}
      */
     public InstantiationException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an {@code InstantiationException} with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

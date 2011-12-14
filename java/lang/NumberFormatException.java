@@ -26,9 +26,11 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that the application has attempted to convert
  * a string to one of the numeric types, but that the string does not
  * have the appropriate format.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.Integer#toString()
@@ -38,16 +40,20 @@ public
 class NumberFormatException extends IllegalArgumentException {
     static final long serialVersionUID = -2848938806368998894L;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>NumberFormatException</code> with no detail message.
+     * {@description.close}
      */
     public NumberFormatException () {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NumberFormatException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */
@@ -56,8 +62,10 @@ class NumberFormatException extends IllegalArgumentException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Factory method for making a <code>NumberFormatException</code>
      * given the specified input which caused the error.
+     * {@description.close}
      *
      * @param   s   the input causing the error
      */

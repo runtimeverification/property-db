@@ -26,7 +26,9 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when a particular method cannot be found.
+ * {@description.close}
  *
  * @author     unascribed
  * @since      JDK1.0
@@ -34,14 +36,18 @@ package java.lang;
 public
 class NoSuchMethodException extends Exception {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NoSuchMethodException</code> without a detail message.
+     * {@description.close}
      */
     public NoSuchMethodException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NoSuchMethodException</code> with a detail message.
+     * {@description.close}
      *
      * @param      s   the detail message.
      */

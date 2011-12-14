@@ -25,7 +25,9 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown by the security manager to indicate a security violation.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.SecurityManager
@@ -35,16 +37,20 @@ public class SecurityException extends RuntimeException {
 
     private static final long serialVersionUID = 6878364983674394167L;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>SecurityException</code> with no detail  message.
+     * {@description.close}
      */
     public SecurityException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>SecurityException</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */
@@ -53,8 +59,10 @@ public class SecurityException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <code>SecurityException</code> with the specified
      * detail message and cause.
+     * {@description.close}
      *
      * @param message the detail message (which is saved for later retrieval
      *        by the {@link #getMessage()} method).
@@ -67,11 +75,13 @@ public class SecurityException extends RuntimeException {
         super(message, cause);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Creates a <code>SecurityException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of
      * <tt>cause</tt>).
+     * {@description.close}
      *
      * @param cause the cause (which is saved for later retrieval by the
      *        {@link #getCause()} method).  (A <tt>null</tt> value is permitted,

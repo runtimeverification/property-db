@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when an application tries to access a type using a string
  * representing the type's name, but no definition for the type with
  * the specified name can be found.   This exception differs from
@@ -35,6 +36,7 @@ package java.lang;
  * <p>Note that this exception may be used when undefined type variables
  * are accessed as well as when types (e.g., classes, interfaces or
  * annotation types) are loaded.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @since 1.5
@@ -42,9 +44,11 @@ package java.lang;
 public class TypeNotPresentException extends RuntimeException {
     private String typeName;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <tt>TypeNotPresentException</tt> for the named type
      * with the specified cause.
+     * {@description.close}
      *
      * @param typeName the fully qualified name of the unavailable type
      * @param cause the exception that was thrown when the system attempted to
@@ -56,7 +60,9 @@ public class TypeNotPresentException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the fully qualified name of the unavailable type.
+     * {@description.close}
      *
      * @return the fully qualified name of the unavailable type
      */

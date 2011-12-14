@@ -25,27 +25,35 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * Thrown when an application tries to access an enum constant by name
  * and the enum type contains no constant with the specified name.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @since   1.5
  */
 public class EnumConstantNotPresentException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * The type of the missing enum constant.
+     * {@description.close}
      */
     private Class<? extends Enum> enumType;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The name of the missing enum constant.
+     * {@description.close}
      */
     private String constantName;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <tt>EnumConstantNotPresentException</tt> for the
      * specified constant.
+     * {@description.close}
      *
      * @param enumType the type of the missing enum constant
      * @param constantName the name of the missing enum constant
@@ -58,14 +66,18 @@ public class EnumConstantNotPresentException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the type of the missing enum constant.
+     * {@description.close}
      *
      * @return the type of the missing enum constant
      */
     public Class<? extends Enum> enumType() { return enumType; }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the name of the missing enum constant.
+     * {@description.close}
      *
      * @return the name of the missing enum constant
      */

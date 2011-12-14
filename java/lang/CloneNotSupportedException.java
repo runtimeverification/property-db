@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that the <code>clone</code> method in class
  * <code>Object</code> has been called to clone an object, but that
  * the object's class does not implement the <code>Cloneable</code>
@@ -34,6 +35,7 @@ package java.lang;
  * Applications that override the <code>clone</code> method can also
  * throw this exception to indicate that an object could not or
  * should not be cloned.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.Cloneable
@@ -43,17 +45,21 @@ package java.lang;
 
 public
 class CloneNotSupportedException extends Exception {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>CloneNotSupportedException</code> with no
      * detail message.
+     * {@description.close}
      */
     public CloneNotSupportedException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>CloneNotSupportedException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

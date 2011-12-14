@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when an application attempts to use <code>null</code> in a
  * case where an object is required. These include:
  * <ul>
@@ -40,22 +41,27 @@ package java.lang;
  * <p>
  * Applications should throw instances of this class to indicate
  * other illegal uses of the <code>null</code> object.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class NullPointerException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>NullPointerException</code> with no detail message.
+     * {@description.close}
      */
     public NullPointerException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>NullPointerException</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

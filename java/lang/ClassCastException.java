@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that the code has attempted to cast an object
  * to a subclass of which it is not an instance. For example, the
  * following code generates a <code>ClassCastException</code>:
@@ -33,22 +34,27 @@ package java.lang;
  *     Object x = new Integer(0);
  *     System.out.println((String)x);
  * </pre></blockquote>
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class ClassCastException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>ClassCastException</code> with no detail message.
+     * {@description.close}
      */
     public ClassCastException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>ClassCastException</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

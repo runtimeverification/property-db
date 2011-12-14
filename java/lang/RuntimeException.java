@@ -25,7 +25,8 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * <code>RuntimeException</code> is the superclass of those
  * exceptions that can be thrown during the normal operation of the
  * Java Virtual Machine.
@@ -33,7 +34,7 @@ package java.lang;
  * A method is not required to declare in its <code>throws</code>
  * clause any subclasses of <code>RuntimeException</code> that might
  * be thrown during the execution of the method but not caught.
- *
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @since   JDK1.0
@@ -41,17 +42,23 @@ package java.lang;
 public class RuntimeException extends Exception {
     static final long serialVersionUID = -7034897190745766939L;
 
-    /** {@collect.stats}  Constructs a new runtime exception with <code>null</code> as its
+    /** {@collect.stats}
+     * {@description.open}
+     * Constructs a new runtime exception with <code>null</code> as its
      * detail message.  The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause}.
+     * {@description.close}
      */
     public RuntimeException() {
         super();
     }
 
-    /** {@collect.stats}  Constructs a new runtime exception with the specified detail message.
+    /** {@collect.stats}
+     * {@description.open}
+     * Constructs a new runtime exception with the specified detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
+     * {@description.close}
      *
      * @param   message   the detail message. The detail message is saved for
      *          later retrieval by the {@link #getMessage()} method.
@@ -61,10 +68,12 @@ public class RuntimeException extends Exception {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new runtime exception with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
      * this runtime exception's detail message.
+     * {@description.close}
      *
      * @param  message the detail message (which is saved for later retrieval
      *         by the {@link #getMessage()} method).
@@ -78,11 +87,14 @@ public class RuntimeException extends Exception {
         super(message, cause);
     }
 
-    /** {@collect.stats}  Constructs a new runtime exception with the specified cause and a
+    /** {@collect.stats}
+     * {@description.open}
+     * Constructs a new runtime exception with the specified cause and a
      * detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of
      * <tt>cause</tt>).  This constructor is useful for runtime exceptions
      * that are little more than wrappers for other throwables.
+     * {@description.close}
      *
      * @param  cause the cause (which is saved for later retrieval by the
      *         {@link #getCause()} method).  (A <tt>null</tt> value is

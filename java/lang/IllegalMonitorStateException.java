@@ -26,9 +26,11 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that a thread has attempted to wait on an
  * object's monitor or to notify other threads waiting on an object's
  * monitor without owning the specified monitor.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.lang.Object#notify()
@@ -40,17 +42,21 @@ package java.lang;
  */
 public
 class IllegalMonitorStateException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an <code>IllegalMonitorStateException</code> with no
      * detail message.
+     * {@description.close}
      */
     public IllegalMonitorStateException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>IllegalMonitorStateException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

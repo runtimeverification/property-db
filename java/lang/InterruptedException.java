@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when a thread is waiting, sleeping, or otherwise occupied,
  * and the thread is interrupted, either before or during the activity.
  * Occasionally a method may wish to test whether the current
@@ -36,6 +37,7 @@ package java.lang;
  *  if (Thread.interrupted())  // Clears interrupted status!
  *      throw new InterruptedException();
  * </pre>
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @see     java.lang.Object#wait()
@@ -48,16 +50,20 @@ package java.lang;
  */
 public
 class InterruptedException extends Exception {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an <code>InterruptedException</code> with no detail  message.
+     * {@description.close}
      */
     public InterruptedException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>InterruptedException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

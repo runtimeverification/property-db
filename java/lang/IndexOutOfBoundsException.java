@@ -25,28 +25,34 @@
 
 package java.lang;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * Thrown to indicate that an index of some sort (such as to an array, to a
  * string, or to a vector) is out of range.
  * <p>
  * Applications can subclass this class to indicate similar exceptions.
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @since   JDK1.0
  */
 public
 class IndexOutOfBoundsException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an <code>IndexOutOfBoundsException</code> with no
      * detail message.
+     * {@description.close}
      */
     public IndexOutOfBoundsException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>IndexOutOfBoundsException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

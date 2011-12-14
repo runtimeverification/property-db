@@ -26,21 +26,27 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that the class doesn't have a field of a specified name.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.1
  */
 public class NoSuchFieldException extends Exception {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructor.
+     * {@description.close}
      */
     public NoSuchFieldException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructor with a detail message.
+     * {@description.close}
      *
      * @param s the detail message
      */
