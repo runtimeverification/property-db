@@ -30,15 +30,11 @@ import java.io.IOException;
 /** {@collect.stats}
  * {@description.open}
  * An object to which <tt>char</tt> sequences and values can be appended.
- * {@description.close}
- * {@undecided.open}  
  * The
  * <tt>Appendable</tt> interface must be implemented by any class whose
  * instances are intended to receive formatted output from a {@link
  * java.util.Formatter}.
- * {@undecided.close}
  *
- * {@description.open}
  * <p> The characters to be appended should be valid Unicode characters as
  * described in <a href="Character.html#unicode">Unicode Character
  * Representation</a>.  Note that supplementary characters may be composed of

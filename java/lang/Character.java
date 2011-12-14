@@ -1456,15 +1456,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
             new UnicodeBlock("SPECIALS");
 
         /** {@collect.stats}
-         * {@description.open}
          * @deprecated As of J2SE 5, use {@link #HIGH_SURROGATES},
          *             {@link #HIGH_PRIVATE_USE_SURROGATES}, and
          *             {@link #LOW_SURROGATES}. These new constants match
          *             the block definitions of the Unicode Standard.
          *             The {@link #of(char)} and {@link #of(int)} methods
          *             return the new constants, not SURROGATES_AREA.
-         * {@description.close}
-         *             
          */
         @Deprecated
         public static final UnicodeBlock SURROGATES_AREA =
