@@ -220,7 +220,7 @@ public class Object {
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
      * {@descriptive.close}
-     * {@property.open rumtime}
+     * {@property.open runtime}
      * <p>
      * The class <tt>Object</tt> does not itself implement the interface
      * <tt>Cloneable</tt>, so calling the <tt>clone</tt> method on an object

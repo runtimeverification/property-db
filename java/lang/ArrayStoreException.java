@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * Thrown to indicate that an attempt has been made to store the
  * wrong type of object into an array of objects. For example, the
  * following code generates an <code>ArrayStoreException</code>:
@@ -33,22 +34,27 @@ package java.lang;
  *     Object x[] = new String[3];
  *     x[0] = new Integer(0);
  * </pre></blockquote>
+ * {@descriptive.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class ArrayStoreException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Constructs an <code>ArrayStoreException</code> with no detail message.
+     * {@descriptive.close}
      */
     public ArrayStoreException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs an <code>ArrayStoreException</code> with the specified
      * detail message.
+     * {@descriptive.close}
      *
      * @param   s   the detail message.
      */

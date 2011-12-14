@@ -26,26 +26,32 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * Thrown to indicate that an array has been accessed with an
  * illegal index. The index is either negative or greater than or
  * equal to the size of the array.
+ * {@descriptive.close}
  *
  * @author  unascribed
  * @since   JDK1.0
  */
 public
 class ArrayIndexOutOfBoundsException extends IndexOutOfBoundsException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Constructs an <code>ArrayIndexOutOfBoundsException</code> with no
      * detail message.
+     * {@descriptive.close}
      */
     public ArrayIndexOutOfBoundsException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a new <code>ArrayIndexOutOfBoundsException</code>
      * class with an argument indicating the illegal index.
+     * {@descriptive.close}
      *
      * @param   index   the illegal index.
      */
@@ -54,8 +60,10 @@ class ArrayIndexOutOfBoundsException extends IndexOutOfBoundsException {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs an <code>ArrayIndexOutOfBoundsException</code> class
      * with the specified detail message.
+     * {@descriptive.close}
      *
      * @param   s   the detail message.
      */
