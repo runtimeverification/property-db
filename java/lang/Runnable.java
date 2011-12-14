@@ -34,8 +34,8 @@ package java.lang;
  * The
  * class must define a method of no arguments called <code>run</code>.
  * {@property.close}
- * <p>
  * {@description.open}
+ * <p>
  * This interface is designed to provide a common protocol for objects that
  * wish to execute code while they are active. For example,
  * <code>Runnable</code> is implemented by class <code>Thread</code>.

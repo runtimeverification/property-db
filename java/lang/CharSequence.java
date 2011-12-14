@@ -35,7 +35,6 @@ package java.lang;
  * Multilingual Plane (BMP)</i> or a surrogate. Refer to <a
  * href="Character.html#unicode">Unicode Character Representation</a> for details.
  * {@description.close}
- *
  * {@property.open}
  * <p> This interface does not refine the general contracts of the {@link
  * java.lang.Object#equals(java.lang.Object) equals} and {@link

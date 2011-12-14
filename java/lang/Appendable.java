@@ -40,13 +40,11 @@ import java.io.IOException;
  * Representation</a>.  Note that supplementary characters may be composed of
  * multiple 16-bit <tt>char</tt> values.
  * {@description.close}
- *
  * {@property.open runtime formal:java.lang.Appendable_ThreadSafe}
  * <p> Appendables are not necessarily safe for multithreaded access.  Thread
  * safety is the responsibility of classes that extend and implement this
  * interface.
  * {@property.close}
- *
  * {@description.open}
  * <p> Since this interface may be implemented by existing classes
  * with different styles of error handling there is no guarantee that
@@ -87,10 +85,10 @@ public interface Appendable {
      * <p> An invocation of this method of the form <tt>out.append(csq, start,
      * end)</tt> when <tt>csq</tt> is not <tt>null</tt>, behaves in
      * exactly the same way as the invocation
-     * {@description.close}
      *
      * <pre>
      *     out.append(csq.subSequence(start, end)) </pre>
+     * {@description.close}
      *
      * @param  csq
      *         The character sequence from which a subsequence will be
