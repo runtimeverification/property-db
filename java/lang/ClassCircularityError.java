@@ -26,22 +26,28 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown when a circularity has been detected while initializing a class.
+ * {@description.close}
  *
  * @author     unascribed
  * @since      JDK1.0
  */
 public class ClassCircularityError extends LinkageError {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a {@code ClassCircularityError} with no detail message.
+     * {@description.close}
      */
     public ClassCircularityError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a {@code ClassCircularityError} with the specified detail
      * message.
+     * {@description.close}
      *
      * @param  s
      *         The detail message

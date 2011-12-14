@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An <code>Error</code> is a subclass of <code>Throwable</code>
  * that indicates serious problems that a reasonable application
  * should not try to catch. Most such errors are abnormal conditions.
@@ -37,6 +38,7 @@ package java.lang;
  * clause any subclasses of <code>Error</code> that might be thrown
  * during the execution of the method but not caught, since these
  * errors are abnormal conditions that should never occur.
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @see     java.lang.ThreadDeath
@@ -45,19 +47,23 @@ package java.lang;
 public class Error extends Throwable {
     static final long serialVersionUID = 4980196508277280342L;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a new error with <code>null</code> as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
+     * {@description.close}
      */
     public Error() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new error with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by
      * a call to {@link #initCause}.
+     * {@description.close}
      *
      * @param   message   the detail message. The detail message is saved for
      *          later retrieval by the {@link #getMessage()} method.
@@ -67,10 +73,12 @@ public class Error extends Throwable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new error with the specified detail message and
      * cause.  <p>Note that the detail message associated with
      * <code>cause</code> is <i>not</i> automatically incorporated in
      * this error's detail message.
+     * {@description.close}
      *
      * @param  message the detail message (which is saved for later retrieval
      *         by the {@link #getMessage()} method).
@@ -85,11 +93,13 @@ public class Error extends Throwable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new error with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).
      * This constructor is useful for errors that are little more than
      * wrappers for other throwables.
+     * {@description.close}
      *
      * @param  cause the cause (which is saved for later retrieval by the
      *         {@link #getCause()} method).  (A <tt>null</tt> value is

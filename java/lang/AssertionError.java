@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that an assertion has failed.
  *
  * <p>The seven one-argument public constructors provided by this
@@ -39,26 +40,32 @@ package java.lang;
  * <i>The Java Language Specification, Second Edition</i></a>,
  * <a href="http://java.sun.com/docs/books/jls/second_edition/html/expressions.doc.html#40220">
  * Section  15.18.1.1</a>), regardless of the type of <i>expression</i>.
+ * {@description.close}
  *
  * @since   1.4
  */
 public class AssertionError extends Error {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an AssertionError with no detail message.
+     * {@description.close}
      */
     public AssertionError() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This internal constructor does no processing on its string argument,
      * even if it is a null reference.  The public constructors will
      * never call this constructor with a null argument.
+     * {@description.close}
      */
     private AssertionError(String detailMessage) {
         super(detailMessage);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified object, which is converted to a string as
      * defined in <i>The Java Language Specification, Second
@@ -66,6 +73,7 @@ public class AssertionError extends Error {
      *<p>
      * If the specified object is an instance of <tt>Throwable</tt>, it
      * becomes the <i>cause</i> of the newly constructed assertion error.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      * @see   Throwable#getCause()
@@ -76,11 +84,13 @@ public class AssertionError extends Error {
             initCause((Throwable) detailMessage);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>boolean</code>, which is converted to
      * a string as defined in <i>The Java Language Specification,
      * Second Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
@@ -89,10 +99,12 @@ public class AssertionError extends Error {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>char</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
@@ -101,10 +113,12 @@ public class AssertionError extends Error {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>int</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
@@ -113,10 +127,12 @@ public class AssertionError extends Error {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>long</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
@@ -125,10 +141,12 @@ public class AssertionError extends Error {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>float</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
@@ -137,10 +155,12 @@ public class AssertionError extends Error {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AssertionError with its detail message derived
      * from the specified <code>double</code>, which is converted to a
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
+     * {@description.close}
      *
      * @param detailMessage value to be used in constructing detail message
      */
