@@ -950,12 +950,12 @@ public class Runtime {
      * <p>
      * If the argument is already a localized stream, it may be returned
      * as the result.
+     * {@description.close}
      *
      * @deprecated As of JDK&nbsp;1.1, the preferred way to translate a
      * Unicode character stream into a byte stream in the local encoding is via
      * the <code>OutputStreamWriter</code>, <code>BufferedWriter</code>, and
      * <code>PrintWriter</code> classes.
-     * {@description.close}
      *
      * @param      out OutputStream to localize
      * @return     a localized output stream
