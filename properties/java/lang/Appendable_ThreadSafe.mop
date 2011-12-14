@@ -26,8 +26,7 @@ Appendable_ThreadSafe(Appendable a) {
     
     event unsafe_append after(Appendable a) : 
         call(* Appendable+.append(..)) && target(a) && thread(t) 
-        && condition(this.owner != null && this.owner != t) {
-        }
+        && condition(this.owner != null && this.owner != t) {}
 
 	ere: safe_append*
 

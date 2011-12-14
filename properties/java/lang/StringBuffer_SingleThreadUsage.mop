@@ -17,29 +17,29 @@ import java.lang.*;
  */
  
 StringBuffer_SingleThreadUsage(StringBuffer s) {
-       Thread th = null;
-       boolean flag = false;
+    Thread th = null;
+    boolean flag = false;
 
-       creation event init after(Thread t) returning(StringBuffer s) :
-               call(StringBuffer.new(..)) && thread(t) {
-               this.th = t;
-       }
+    creation event init after(Thread t) returning(StringBuffer s) :
+        call(StringBuffer.new(..)) && thread(t) {
+            this.th = t;
+        }
 
-       event use before(StringBuffer s, Thread t) :
-               call(* StringBuffer.*(..)) && target(s) && thread(t) {
-               if (this.th == null)
-                       this.th = t;
-               else if (this.th != t)
-                       this.flag = true;
-       }
+    event use before(StringBuffer s, Thread t) :
+        call(* StringBuffer.*(..)) && target(s) && thread(t) {
+            if (this.th == null)
+                this.th = t;
+            else if (this.th != t)
+                this.flag = true;
+        }
 
-       event endobject after(StringBuffer s) : endObject(StringBuffer s) {}
-       event endprogram after() : endProgram() {}
+    event endobject after(StringBuffer s) : endObject(StringBuffer s) {}
+    event endprogram after() : endProgram() {}
 
-       ere : init use+ (endobject | endprogram)
+    ere : init use+ (endobject | endprogram)
 
-       @match {
-               if (!this.flag)
-                       System.err.println("A StringBuffer instance is used in a single thread. You may replace it with a StringBuilder instance, which will be faster under most implementations.");
-       }
+    @match {
+        if (!this.flag)
+            System.err.println("A StringBuffer instance is used in a single thread. You may replace it with a StringBuilder instance, which will be faster under most implementations.");
+    }
 }

@@ -259,7 +259,8 @@ public final class ProcessBuilder
      * Attempting to query the presence of a key or value which is not
      * of type {@link String} will throw a {@link ClassCastException}.
      * {@property.close}
-     *
+     * 
+     * {@descriptive.open}
      * <p>The behavior of the returned map is system-dependent.  A
      * system may not allow modifications to environment variables or
      * may forbid certain variable names or values.  For this reason,
@@ -291,6 +292,7 @@ public final class ProcessBuilder
      * <p>When passing information to a Java subprocess,
      * <a href=System.html#EnvironmentVSSystemProperties>system properties</a>
      * are generally preferred over environment variables.</p>
+     * {@descriptive.close}
      *
      * @return  This process builder's environment
      *
@@ -344,6 +346,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns this process builder's working directory.
      *
      * Subprocesses subsequently started by this object's {@link
@@ -352,6 +355,7 @@ public final class ProcessBuilder
      * the working directory of the current Java process, usually the
      * directory named by the system property <code>user.dir</code>,
      * as the working directory of the child process.</p>
+     * {@descriptive.close}
      *
      * @return  This process builder's working directory
      */
@@ -360,6 +364,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Sets this process builder's working directory.
      *
      * Subprocesses subsequently started by this object's {@link
@@ -368,6 +373,7 @@ public final class ProcessBuilder
      * working directory of the current Java process, usually the
      * directory named by the system property <code>user.dir</code>,
      * as the working directory of the child process.</p>
+     * {@descriptive.close}
      *
      * @param   directory  The new working directory
      * @return  This process builder
@@ -396,6 +402,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Sets this process builder's <code>redirectErrorStream</code> property.
      *
      * <p>If this property is <code>true</code>, then any error output
@@ -405,6 +412,7 @@ public final class ProcessBuilder
      * {@link Process#getInputStream()} method.  This makes it easier
      * to correlate error messages with the corresponding output.
      * The initial value is <code>false</code>.</p>
+     * {@descriptive.close}
      *
      * @param   redirectErrorStream  The new property value
      * @return  This process builder
@@ -415,6 +423,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Starts a new process using the attributes of this process builder.
      *
      * <p>The new process will
@@ -447,6 +456,7 @@ public final class ProcessBuilder
      *
      * <p>Subsequent modifications to this process builder will not
      * affect the returned {@link Process}.</p>
+     * {@descriptive.close}
      *
      * @return  A new {@link Process} object for managing the subprocess
      *
