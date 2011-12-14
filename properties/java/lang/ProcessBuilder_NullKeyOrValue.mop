@@ -14,16 +14,16 @@ import java.util.*;
  */
 
 ProcessBuilder_NullKeyOrValue(ProcessBuilder p, Map map){
-	creation event createMap after(ProcessBuilder p) returning(Map map) : 
+	creation event createMap before(ProcessBuilder p) returning(Map map) : 
         call(* ProcessBuilder.environment()) && target(p) {}
               
-	event nullPut after(Map map, Object key, Object value) : 
+	event nullPut before(Map map, Object key, Object value) : 
         call(* Map.put(..)) && args(key, value) && target(map) && condition(key == null || value == null){}
 
-	event nullPut after(Map map, Map map2) : 
+	event nullPut before(Map map, Map map2) : 
         call(* Map.putAll(Map)) && args(map2) && target(map) && condition(map2.containsKey(null) || map2.containsValue(null)){}
 
-	event nullQuery after(Map map, Object o) : 
+	event nullQuery before(Map map, Object o) : 
 	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..) || call(* Map.get(..) || call(* Map.remove(..))) && target(map) && args(o) && condition(o == null){}
 
     ere : createMap (nullPut | nullQuery)+ 
