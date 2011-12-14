@@ -401,6 +401,7 @@ public final class System {
     public static native long nanoTime();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies an array from the specified source array, beginning at the
      * specified position, to the specified position of the destination array.
      * A subsequence of array components are copied from the source
@@ -421,6 +422,8 @@ public final class System {
      * the temporary array were copied into positions
      * <code>destPos</code> through <code>destPos+length-1</code> of the
      * destination array.
+     * {@description.close}
+     * {@property.open runtime}
      * <p>
      * If <code>dest</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown.
@@ -428,6 +431,8 @@ public final class System {
      * If <code>src</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown and the destination
      * array is not modified.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * Otherwise, if any of the following is true, an
      * <code>ArrayStoreException</code> is thrown and the destination is
@@ -478,6 +483,7 @@ public final class System {
      * (Because of the restrictions already itemized, this
      * paragraph effectively applies only to the situation where both
      * arrays have component types that are reference types.)
+     * {@description.close}
      *
      * @param      src      the source array.
      * @param      srcPos   starting position in the source array.
@@ -497,11 +503,13 @@ public final class System {
                                         int length);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the same hash code for the given object as
      * would be returned by the default method hashCode(),
      * whether or not the given object's class overrides
      * hashCode().
      * The hash code for the null reference is zero.
+     * {@description.close}
      *
      * @param x object for which the hashCode is to be calculated
      * @return  the hashCode
@@ -510,6 +518,7 @@ public final class System {
     public static native int identityHashCode(Object x);
 
     /** {@collect.stats} 
+     * {@description.open}
      * System properties. The following properties are guaranteed to be defined:
      * <dl>
      * <dt>java.version         <dd>Java version number
@@ -528,12 +537,14 @@ public final class System {
      * <dt>user.home            <dd>User home directory
      * <dt>user.dir             <dd>User's current working directory
      * </dl>
+     * {@description.close}
      */
 
     private static Properties props;
     private static native Properties initProperties(Properties props);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines the current system properties.
      * <p>
      * First, if there is a security manager, its
@@ -613,6 +624,7 @@ public final class System {
      * Note that even if the security manager does not permit the
      * <code>getProperties</code> operation, it may choose to permit the
      * {@link #getProperty(String)} operation.
+     * {@description.close}
      *
      * @return     the system properties
      * @exception  SecurityException  if a security manager exists and its
@@ -633,6 +645,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the system properties to the <code>Properties</code>
      * argument.
      * <p>
@@ -644,6 +657,7 @@ public final class System {
      * by the {@link #getProperty(String)} method. If the argument is
      * <code>null</code>, then the current set of system properties is
      * forgotten.
+     * {@description.close}
      *
      * @param      props   the new system properties.
      * @exception  SecurityException  if a security manager exists and its
@@ -667,6 +681,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -676,6 +691,7 @@ public final class System {
      * If there is no current set of system properties, a set of system
      * properties is first created and initialized in the same manner as
      * for the <code>getProperties</code> method.
+     * {@description.close}
      *
      * @param      key   the name of the system property.
      * @return     the string value of the system property,
@@ -703,6 +719,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -712,6 +729,7 @@ public final class System {
      * If there is no current set of system properties, a set of system
      * properties is first created and initialized in the same manner as
      * for the <code>getProperties</code> method.
+     * {@description.close}
      *
      * @param      key   the name of the system property.
      * @param      def   a default value.
@@ -739,6 +757,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -748,6 +767,7 @@ public final class System {
      * If no exception is thrown, the specified property is set to the given
      * value.
      * <p>
+     * {@description.close}
      *
      * @param      key   the name of the system property.
      * @param      value the value of the system property.
@@ -778,7 +798,8 @@ public final class System {
         return (String) props.setProperty(key, value);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Removes the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -787,6 +808,7 @@ public final class System {
      * permission. This may result in a SecurityException being thrown.
      * If no exception is thrown, the specified property is removed.
      * <p>
+     * {@description.close}
      *
      * @param      key   the name of the system property to be removed.
      * @return     the previous string value of the system property,
@@ -825,6 +847,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the value of the specified environment variable. An
      * environment variable is a system-dependent external named
      * value.
@@ -857,6 +880,7 @@ public final class System {
      * typically not.  For example, the expression
      * <code>System.getenv("FOO").equals(System.getenv("foo"))</code>
      * is likely to be true on Microsoft Windows.
+     * {@description.close}
      *
      * @param  name the name of the environment variable
      * @return the string value of the variable, or <code>null</code>
@@ -881,19 +905,22 @@ public final class System {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable string map view of the current system environment.
      * The environment is a system-dependent mapping from names to
      * values which is passed from parent to child processes.
      *
      * <p>If the system does not support environment variables, an
      * empty map is returned.
-     *
+     * {@description.close}
+     * {@property.open runtime}
      * <p>The returned map will never contain null keys or values.
      * Attempting to query the presence of a null key or value will
      * throw a {@link NullPointerException}.  Attempting to query
      * the presence of a key or value which is not of type
      * {@link String} will throw a {@link ClassCastException}.
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>The returned map and its collection views may not obey the
      * general contract of the {@link Object#equals} and
      * {@link Object#hashCode} methods.
@@ -910,6 +937,7 @@ public final class System {
      * <p>When passing information to a Java subprocess,
      * <a href=#EnvironmentVSSystemProperties>system properties</a>
      * are generally preferred over environment variables.
+     * {@description.close}
      *
      * @return the environment as a map of variable names to values
      * @throws SecurityException
@@ -930,6 +958,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Terminates the currently running Java Virtual Machine. The
      * argument serves as a status code; by convention, a nonzero status
      * code indicates abnormal termination.
@@ -942,6 +971,7 @@ public final class System {
      * <blockquote><pre>
      * Runtime.getRuntime().exit(n)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      status   exit status.
      * @throws  SecurityException
@@ -954,6 +984,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Runs the garbage collector.
      * <p>
      * Calling the <code>gc</code> method suggests that the Java Virtual
@@ -968,6 +999,7 @@ public final class System {
      * <blockquote><pre>
      * Runtime.getRuntime().gc()
      * </pre></blockquote>
+     * {@description.close}
      *
      * @see     java.lang.Runtime#gc()
      */
@@ -976,6 +1008,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Runs the finalization methods of any objects pending finalization.
      * <p>
      * Calling this method suggests that the Java Virtual Machine expend
@@ -990,6 +1023,7 @@ public final class System {
      * <blockquote><pre>
      * Runtime.getRuntime().runFinalization()
      * </pre></blockquote>
+     * {@description.close}
      *
      * @see     java.lang.Runtime#runFinalization()
      */
@@ -998,6 +1032,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable or disable finalization on exit; doing so specifies that the
      * finalizers of all objects that have finalizers that have not yet been
      * automatically invoked are to be run before the Java runtime exits.
@@ -1007,6 +1042,7 @@ public final class System {
      * its <code>checkExit</code> method is first called
      * with 0 as its argument to ensure the exit is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @deprecated  This method is inherently unsafe.  It may result in
      *      finalizers being called on live objects while other threads are
@@ -1028,6 +1064,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Loads a code file with the specified filename from the local file
      * system as a dynamic library. The filename
      * argument must be a complete path name.
@@ -1037,6 +1074,7 @@ public final class System {
      * <blockquote><pre>
      * Runtime.getRuntime().load(name)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      filename   the file to load.
      * @exception  SecurityException  if a security manager exists and its
@@ -1053,6 +1091,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Loads the system library specified by the <code>libname</code>
      * argument. The manner in which a library name is mapped to the
      * actual system library is system dependent.
@@ -1062,6 +1101,7 @@ public final class System {
      * <blockquote><pre>
      * Runtime.getRuntime().loadLibrary(name)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      libname   the name of the library.
      * @exception  SecurityException  if a security manager exists and its
@@ -1078,8 +1118,10 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Maps a library name into a platform-specific string representing
      * a native library.
+     * {@description.close}
      *
      * @param      libname the name of the library.
      * @return     a platform-dependent native library name.
@@ -1092,10 +1134,12 @@ public final class System {
     public static native String mapLibraryName(String libname);
 
     /** {@collect.stats} 
+     * {@description.open}
      * The following two methods exist because in, out, and err must be
      * initialized to null.  The compiler, however, cannot be permitted to
      * inline access to them, since they are later set to more sensible values
      * by initializeSystemClass().
+     * {@description.close}
      */
     private static InputStream nullInputStream() throws NullPointerException {
         if (currentTimeMillis() > 0) {
@@ -1112,7 +1156,9 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialize the system class.  Called after thread initialization.
+     * {@description.close}
      */
     private static void initializeSystemClass() {
         props = new Properties();
