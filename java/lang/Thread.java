@@ -38,6 +38,7 @@ import sun.security.util.SecurityConstants;
 
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * A <i>thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.

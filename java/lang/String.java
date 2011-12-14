@@ -40,6 +40,7 @@ import java.util.regex.PatternSyntaxException;
 
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * The <code>String</code> class represents character strings. All
  * string literals in Java programs, such as <code>"abc"</code>, are
  * implemented as instances of this class.

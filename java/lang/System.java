@@ -40,6 +40,7 @@ import sun.security.util.SecurityConstants;
 import sun.reflect.annotation.AnnotationType;
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * The <code>System</code> class contains several useful class fields
  * and methods. It cannot be instantiated.
  *
@@ -48,6 +49,7 @@ import sun.reflect.annotation.AnnotationType;
  * access to externally defined properties and environment
  * variables; a means of loading files and libraries; and a utility
  * method for quickly copying a portion of an array.
+ * {@descriptive.close}
  *
  * @author  unascribed
  * @since   JDK1.0
@@ -60,19 +62,26 @@ public final class System {
         registerNatives();
     }
 
-    /** {@collect.stats}  Don't let anyone instantiate this class */
+    /** {@collect.stats}
+     * {@descriptive.open}
+     * Don't let anyone instantiate this class
+     * {@descriptive.close}
+     *  */
     private System() {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * The "standard" input stream. This stream is already
      * open and ready to supply input data. Typically this stream
      * corresponds to keyboard input or another input source specified by
      * the host environment or user.
+     * {@descriptive.close}
      */
     public final static InputStream in = nullInputStream();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * The "standard" output stream. This stream is already
      * open and ready to accept output data. Typically this stream
      * corresponds to display output or another output destination
@@ -85,6 +94,7 @@ public final class System {
      * </pre></blockquote>
      * <p>
      * See the <code>println</code> methods in class <code>PrintStream</code>.
+     * {@descriptive.close}
      *
      * @see     java.io.PrintStream#println()
      * @see     java.io.PrintStream#println(boolean)
@@ -100,6 +110,7 @@ public final class System {
     public final static PrintStream out = nullPrintStream();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * The "standard" error output stream. This stream is already
      * open and ready to accept output data.
      * <p>
@@ -110,6 +121,7 @@ public final class System {
      * of a user even if the principal output stream, the value of the
      * variable <code>out</code>, has been redirected to a file or other
      * destination that is typically not continuously monitored.
+     * {@descriptive.close}
      */
     public final static PrintStream err = nullPrintStream();
 
@@ -118,12 +130,14 @@ public final class System {
     private static volatile SecurityManager security = null;
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Reassigns the "standard" input stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" input stream.
      * <p>
+     * {@descriptive.close}
      *
      * @param in the new standard input stream.
      *
@@ -143,11 +157,13 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Reassigns the "standard" output stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" output stream.
+     * {@descriptive.close}
      *
      * @param out the new standard output stream
      *
@@ -166,12 +182,14 @@ public final class System {
         setOut0(out);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Reassigns the "standard" error output stream.
      *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" error output stream.
+     * {@descriptive.close}
      *
      * @param err the new standard error output stream.
      *
@@ -192,8 +210,10 @@ public final class System {
 
     private static volatile Console cons = null;
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the unique {@link java.io.Console Console} object associated
      * with the current Java virtual machine, if any.
+     * {@descriptive.close}
      *
      * @return  The system console, if any, otherwise <tt>null</tt>.
      *
@@ -209,6 +229,7 @@ public final class System {
      }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the channel inherited from the entity that created this
      * Java virtual machine.
      *
@@ -221,6 +242,7 @@ public final class System {
      * {@link java.nio.channels.spi.SelectorProvider#inheritedChannel
      * inheritedChannel}, this method may return other kinds of
      * channels in the future.
+     * {@descriptive.close}
      *
      * @return  The inherited channel, if any, otherwise <tt>null</tt>.
      *
@@ -249,6 +271,7 @@ public final class System {
     private static native void setErr0(PrintStream err);
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Sets the System security.
      *
      * <p> If there is a security manager already installed, this method first
@@ -262,6 +285,7 @@ public final class System {
      * security manager. If the argument is <code>null</code> and no
      * security manager has been established, then no action is taken and
      * the method simply returns.
+     * {@descriptive.close}
      *
      * @param      s   the security manager.
      * @exception  SecurityException  if the security manager has already
@@ -314,7 +338,9 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Gets the system security interface.
+     * {@descriptive.close}
      *
      * @return  if a security manager has already been established for the
      *          current application, then that security manager is returned;
@@ -326,6 +352,7 @@ public final class System {
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the current time in milliseconds.  Note that
      * while the unit of time of the return value is a millisecond,
      * the granularity of the value depends on the underlying
@@ -336,6 +363,7 @@ public final class System {
      * <p> See the description of the class <code>Date</code> for
      * a discussion of slight discrepancies that may arise between
      * "computer time" and coordinated universal time (UTC).
+     * {@descriptive.close}
      *
      * @return  the difference, measured in milliseconds, between
      *          the current time and midnight, January 1, 1970 UTC.
@@ -344,6 +372,7 @@ public final class System {
     public static native long currentTimeMillis();
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Returns the current value of the most precise available system
      * timer, in nanoseconds.
      *
@@ -364,6 +393,7 @@ public final class System {
      *   // ... the code being measured ...
      *   long estimatedTime = System.nanoTime() - startTime;
      * </pre>
+     * {@descriptive.close}
      *
      * @return The current value of the system timer, in nanoseconds.
      * @since 1.5

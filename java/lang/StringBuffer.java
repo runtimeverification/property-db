@@ -27,6 +27,7 @@ package java.lang;
 
 
 /** {@collect.stats} 
+ * {@descriptive.open}
  * A thread-safe, mutable sequence of characters.
  * A string buffer is like a {@link String}, but can be modified. At any
  * point in time it contains some particular sequence of characters, but
@@ -68,6 +69,7 @@ package java.lang;
  * the capacity, it is not necessary to allocate a new internal
  * buffer array. If the internal buffer overflows, it is
  * automatically made larger.
+ * {@descriptive.close}
  *
  * {@property.open runtime performance formal:StringBuffer_SingleThreadUsage}
  * As of  release JDK 5, this class has been supplemented with an equivalent
@@ -87,20 +89,28 @@ package java.lang;
     implements java.io.Serializable, CharSequence
 {
 
-    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}
+     * {@descriptive.open} 
+     * use serialVersionUID from JDK 1.0.2 for interoperability
+     * {@descriptive.close}
+     *  */
     static final long serialVersionUID = 3388685877147921107L;
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a string buffer with no characters in it and an
      * initial capacity of 16 characters.
+     * {@descriptive.close}
      */
     public StringBuffer() {
         super(16);
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a string buffer with no characters in it and
      * the specified initial capacity.
+     * {@descriptive.close}
      *
      * @param      capacity  the initial capacity.
      * @exception  NegativeArraySizeException  if the <code>capacity</code>
@@ -110,10 +120,12 @@ package java.lang;
         super(capacity);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Constructs a string buffer initialized to the contents of the
      * specified string. The initial capacity of the string buffer is
      * <code>16</code> plus the length of the string argument.
+     * {@descriptive.close}
      *
      * @param   str   the initial contents of the buffer.
      * @exception NullPointerException if <code>str</code> is <code>null</code>
@@ -124,6 +136,7 @@ package java.lang;
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Constructs a string buffer that contains the same characters
      * as the specified <code>CharSequence</code>. The initial capacity of
      * the string buffer is <code>16</code> plus the length of the
@@ -132,6 +145,7 @@ package java.lang;
      * If the length of the specified <code>CharSequence</code> is
      * less than or equal to zero, then an empty buffer of capacity
      * <code>16</code> is returned.
+     * {@descriptive.close}
      *
      * @param      seq   the sequence to copy.
      * @exception NullPointerException if <code>seq</code> is <code>null</code>
@@ -157,14 +171,14 @@ package java.lang;
         }
     }
 
-    /** {@collect.stats} 
+    /** 
      * @since      1.5
      */
     public synchronized void trimToSize() {
         super.trimToSize();
     }
 
-    /** {@collect.stats} 
+    /** 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -172,7 +186,7 @@ package java.lang;
         super.setLength(newLength);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -182,35 +196,35 @@ package java.lang;
         return value[index];
     }
 
-    /** {@collect.stats} 
+    /** 
      * @since      1.5
      */
     public synchronized int codePointAt(int index) {
         return super.codePointAt(index);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @since     1.5
      */
     public synchronized int codePointBefore(int index) {
         return super.codePointBefore(index);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @since     1.5
      */
     public synchronized int codePointCount(int beginIndex, int endIndex) {
         return super.codePointCount(beginIndex, endIndex);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @since     1.5
      */
     public synchronized int offsetByCodePoints(int index, int codePointOffset) {
         return super.offsetByCodePoints(index, codePointOffset);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @throws NullPointerException {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -220,7 +234,7 @@ package java.lang;
         super.getChars(srcBegin, srcEnd, dst, dstBegin);
     }
 
-    /** {@collect.stats} 
+    /** 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -230,7 +244,7 @@ package java.lang;
         value[index] = ch;
     }
 
-    /** {@collect.stats} 
+    /** 
      * @see     java.lang.String#valueOf(java.lang.Object)
      * @see     #append(java.lang.String)
      */
@@ -245,6 +259,7 @@ package java.lang;
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Appends the specified <tt>StringBuffer</tt> to this sequence.
      * <p>
      * The characters of the <tt>StringBuffer</tt> argument are appended,
@@ -263,6 +278,7 @@ package java.lang;
      * <p>
      * This method synchronizes on <code>this</code> (the destination)
      * object but does not synchronize on the source (<code>sb</code>).
+     * {@descriptive.close}
      *
      * @param   sb   the <tt>StringBuffer</tt> to append.
      * @return  a reference to this object.
@@ -274,7 +290,8 @@ package java.lang;
     }
 
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * Appends the specified <code>CharSequence</code> to this
      * sequence.
      * <p>
@@ -290,6 +307,7 @@ package java.lang;
      *
      * <p>If <code>s</code> is <code>null</code>, then the four characters
      * <code>"null"</code> are appended.
+     * {@descriptive.close}
      *
      * @param   s the <code>CharSequence</code> to append.
      * @return  a reference to this object.
@@ -306,7 +324,7 @@ package java.lang;
         return this.append(s, 0, s.length());
     }
 
-    /** {@collect.stats} 
+    /** 
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @since      1.5
      */
@@ -326,7 +344,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @see     java.lang.String#valueOf(boolean)
      * @see     #append(java.lang.String)
      */
@@ -340,7 +358,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @see     java.lang.String#valueOf(int)
      * @see     #append(java.lang.String)
      */
@@ -349,7 +367,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @since 1.5
      */
     public synchronized StringBuffer appendCodePoint(int codePoint) {
@@ -357,7 +375,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @see     java.lang.String#valueOf(long)
      * @see     #append(java.lang.String)
      */
@@ -366,7 +384,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @see     java.lang.String#valueOf(float)
      * @see     #append(java.lang.String)
      */
@@ -375,7 +393,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @see     java.lang.String#valueOf(double)
      * @see     #append(java.lang.String)
      */
@@ -384,7 +402,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -393,7 +411,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -402,7 +420,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -411,7 +429,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -419,7 +437,7 @@ package java.lang;
         return substring(start, count);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @since      1.4
      */
@@ -427,7 +445,7 @@ package java.lang;
         return super.substring(start, end);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -435,7 +453,7 @@ package java.lang;
         return super.substring(start, end);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @since      1.2
      */
@@ -446,7 +464,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(java.lang.Object)
      * @see        #insert(int, java.lang.String)
@@ -457,7 +475,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -466,7 +484,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
     public synchronized StringBuffer insert(int offset, char str[]) {
@@ -474,7 +492,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @since      1.5
      */
@@ -487,7 +505,7 @@ package java.lang;
         return this.insert(dstOffset, s, 0, s.length());
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @since      1.5
      */
@@ -498,7 +516,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(boolean)
      * @see        #insert(int, java.lang.String)
@@ -508,7 +526,7 @@ package java.lang;
         return insert(offset, String.valueOf(b));
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws IndexOutOfBoundsException {@inheritDoc}
      * @see        #length()
      */
@@ -517,7 +535,7 @@ package java.lang;
         return this;
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(int)
      * @see        #insert(int, java.lang.String)
@@ -527,7 +545,7 @@ package java.lang;
         return insert(offset, String.valueOf(i));
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(long)
      * @see        #insert(int, java.lang.String)
@@ -537,7 +555,7 @@ package java.lang;
         return insert(offset, String.valueOf(l));
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(float)
      * @see        #insert(int, java.lang.String)
@@ -547,7 +565,7 @@ package java.lang;
         return insert(offset, String.valueOf(f));
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      * @see        java.lang.String#valueOf(double)
      * @see        #insert(int, java.lang.String)
@@ -557,7 +575,7 @@ package java.lang;
         return insert(offset, String.valueOf(d));
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws NullPointerException {@inheritDoc}
      * @since      1.4
      */
@@ -565,7 +583,7 @@ package java.lang;
         return indexOf(str, 0);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws NullPointerException {@inheritDoc}
      * @since      1.4
      */
@@ -574,7 +592,7 @@ package java.lang;
                               str.toCharArray(), 0, str.length(), fromIndex);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws NullPointerException {@inheritDoc}
      * @since      1.4
      */
@@ -583,7 +601,7 @@ package java.lang;
         return lastIndexOf(str, count);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @throws NullPointerException {@inheritDoc}
      * @since      1.4
      */
@@ -592,7 +610,7 @@ package java.lang;
                               str.toCharArray(), 0, str.length(), fromIndex);
     }
 
-    /** {@collect.stats} 
+    /**  
      * @since   JDK1.0.2
      */
     public synchronized StringBuffer reverse() {
@@ -605,7 +623,9 @@ package java.lang;
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * Serializable fields for StringBuffer.
+     * {@descriptive.close}
      *
      * @serialField value  char[]
      *              The backing character array of this StringBuffer.
@@ -622,9 +642,11 @@ package java.lang;
         new java.io.ObjectStreamField("shared", Boolean.TYPE),
     };
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@descriptive.open} 
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
+     * {@descriptive.close}
      */
     private synchronized void writeObject(java.io.ObjectOutputStream s)
         throws java.io.IOException {
@@ -636,8 +658,10 @@ package java.lang;
     }
 
     /** {@collect.stats} 
+     * {@descriptive.open}
      * readObject is called to restore the state of the StringBuffer from
      * a stream.
+     * {@descriptive.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

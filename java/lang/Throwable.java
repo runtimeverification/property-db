@@ -26,7 +26,8 @@
 package java.lang;
 import  java.io.*;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@descriptive.open} 
  * The <code>Throwable</code> class is the superclass of all errors and
  * exceptions in the Java language. Only objects that are instances of this
  * class (or one of its subclasses) are thrown by the Java Virtual Machine or
