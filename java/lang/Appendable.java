@@ -39,8 +39,7 @@ import java.io.IOException;
  * described in <a href="Character.html#unicode">Unicode Character
  * Representation</a>.  Note that supplementary characters may be composed of
  * multiple 16-bit <tt>char</tt> values.
- * {@description.close}
- * {@property.open runtime formal:java.lang.Appendable_ThreadSafe}
+ * {@description.close}{@property.open runtime formal:java.lang.Appendable_ThreadSafe}
  * <p> Appendables are not necessarily safe for multithreaded access.  Thread
  * safety is the responsibility of classes that extend and implement this
  * interface.
