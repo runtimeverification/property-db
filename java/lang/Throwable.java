@@ -205,10 +205,10 @@ public class Throwable implements Serializable {
      * Constructs a new throwable with <code>null</code> as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
      * call to {@link #initCause}.
-     * {@description.close}
      *
      * <p>The {@link #fillInStackTrace()} method is called to initialize
      * the stack trace data in the newly created throwable.
+     * {@description.close}
      */
     public Throwable() {
         fillInStackTrace();
