@@ -37,7 +37,8 @@ package java.lang.annotation;
  * @since   1.5
  */
 public interface Annotation {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Returns true if the specified object represents an annotation
      * that is logically equivalent to this one.  In other words,
      * returns true if the specified object is an instance of the same
