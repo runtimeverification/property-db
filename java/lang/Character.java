@@ -2354,15 +2354,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
          * Returns the object representing the Unicode block containing the
          * given character, or <code>null</code> if the character is not a
          * member of a defined block.
+         * <p><b>Note:</b> This method cannot handle <a
+         * href="Character.html#supplementary"> supplementary
+         * characters</a>. To support all Unicode characters,
+         * including supplementary characters, use the {@link
+         * #of(int)} method.
          * {@description.close}
-         *
-         * {@property.open}
-                 * <p><b>Note:</b> This method cannot handle <a
-                 * href="Character.html#supplementary"> supplementary
-                 * characters</a>. To support all Unicode characters,
-                 * including supplementary characters, use the {@link
-                 * #of(int)} method.
-         * {@property.close}
          *
          * @param   c  The character in question
          * @return  The <code>UnicodeBlock</code> instance representing the
@@ -2508,7 +2505,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * Returns a <tt>Character</tt> instance representing the specified
      * <tt>char</tt> value.
      * {@description.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:Character_StaticFactory}
      * If a new <tt>Character</tt> instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Character(char)}, as this method is likely to yield
@@ -2720,7 +2717,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * the method returns 2. Otherwise, the method returns 1.
      * {@description.close}
      *
-     * {@property.open runtime}
+     * {@property.open runtime formal:Character_ValidateChar}
      * <p>This method doesn't validate the specified character to be a
      * valid Unicode code point. The caller must validate the
      * character value using {@link #isValidCodePoint(int) isValidCodePoint}
@@ -2741,7 +2738,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * Converts the specified surrogate pair to its supplementary code
      * point value.
      * {@description.close}
-     * {@property.open runtime} 
+     * {@property.open runtime formal:Character_ValidateChar} 
      * This method does not validate the specified
      * surrogate pair. The caller must validate it using {@link
      * #isSurrogatePair(char, char) isSurrogatePair} if necessary.
@@ -3299,14 +3296,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * '&#92;u00F8' '&#92;u00F9' '&#92;u00FA' '&#92;u00FB' '&#92;u00FC' '&#92;u00FD' '&#92;u00FE' '&#92;u00FF'
      * </pre></blockquote>
      * <p> Many other Unicode characters are lowercase too.
-     * {@description.close}
      * 
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isLowerCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is lowercase;
@@ -3369,14 +3364,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * '&#92;u00D9' '&#92;u00DA' '&#92;u00DB' '&#92;u00DC' '&#92;u00DD' '&#92;u00DE'
      * </pre></blockquote>
      * <p> Many other Unicode characters are uppercase too.<p>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isUpperCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is uppercase;
@@ -3445,14 +3438,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li><code>LATIN CAPITAL LETTER D WITH SMALL LETTER Z</code>
      * </ul>
      * <p> Many other Unicode characters are titlecase too.<p>
-     * {@description.close}
      * 
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isTitleCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is titlecase;
@@ -3528,14 +3519,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * </ul>
      *
      * Many other character ranges contain digits as well.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isDigit(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is a digit;
@@ -3593,14 +3582,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li>It has an entry in the UnicodeData file.
      * <li>It has a value in a range defined by the UnicodeData file.
      * </ul>
-     * {@description.close}
      * 
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isDefined(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested
      * @return  <code>true</code> if the character has a defined meaning
@@ -3660,14 +3647,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      *
      * Not all letters have case. Many characters are
      * letters but are neither uppercase nor lowercase nor titlecase.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isLetter(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is a letter;
@@ -3734,14 +3719,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <code>Character.isLetter(char ch)</code> or
      * <code>Character.isDigit(char ch)</code> returns
      * <code>true</code> for the character.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isLetterOrDigit(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be tested.
      * @return  <code>true</code> if the character is a letter or digit;
@@ -3870,14 +3853,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> ch is a currency symbol (such as "$")
      * <li> ch is a connecting punctuation character (such as "_").
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isJavaIdentifierStart(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch the character to be tested.
      * @return  <code>true</code> if the character may start a Java identifier;
@@ -3941,14 +3922,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> <code>isIdentifierIgnorable</code> returns
      * <code>true</code> for the character
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isJavaIdentifierPart(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return <code>true</code> if the character may be part of a
@@ -4011,14 +3990,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> {@link #getType(char) getType(ch)} returns
      *      <code>LETTER_NUMBER</code>.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isUnicodeIdentifierStart(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  <code>true</code> if the character may start a Unicode
@@ -4076,14 +4053,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> <code>isIdentifierIgnorable</code> returns
      * <code>true</code> for this character.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isUnicodeIdentifierPart(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  <code>true</code> if the character may be part of a
@@ -4148,14 +4123,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li>all characters that have the <code>FORMAT</code> general
      * category value
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isIdentifierIgnorable(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  <code>true</code> if the character is an ignorable control
@@ -4217,14 +4190,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <code>String</code> case mapping methods can perform locale-sensitive
      * mappings, context-sensitive mappings, and 1:M character mappings, whereas
      * the <code>Character</code> case mapping methods cannot.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #toLowerCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be converted.
      * @return  the lowercase equivalent of the character, if any;
@@ -4283,14 +4254,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <code>String</code> case mapping methods can perform locale-sensitive
      * mappings, context-sensitive mappings, and 1:M character mappings, whereas
      * the <code>Character</code> case mapping methods cannot.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #toUpperCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be converted.
      * @return  the uppercase equivalent of the character, if any;
@@ -4348,14 +4317,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <code>Character.isTitleCase(Character.toTitleCase(ch))</code>
      * does not always return <code>true</code> for some ranges of
      * characters.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #toTitleCase(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch   the character to be converted.
      * @return  the titlecase equivalent of the character, if any;
@@ -4424,14 +4391,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      *     In this case, <code>ch&nbsp;- 'a'&nbsp;+&nbsp;10</code>
      *     is returned.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #digit(int, int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be converted.
      * @param   radix   the radix.
@@ -4505,14 +4470,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * If the character has a numeric value that cannot be represented as a
      * nonnegative integer (for example, a fractional value), then -2
      * is returned.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #getNumericValue(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be converted.
      * @return  the numeric value of the character, as a nonnegative <code>int</code>
@@ -4610,14 +4573,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> <code>LINE_SEPARATOR</code>
      * <li> <code>PARAGRAPH_SEPARATOR</code>
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isSpaceChar(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  <code>true</code> if the character is a space character;
@@ -4677,14 +4638,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * <li> It is <code>'&#92;u001E'</code>, RECORD SEPARATOR.
      * <li> It is <code>'&#92;u001F'</code>, UNIT SEPARATOR.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isWhitespace(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch the character to be tested.
      * @return  <code>true</code> if the character is a Java whitespace
@@ -4737,14 +4696,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * character if its code is in the range <code>'&#92;u0000'</code>
      * through <code>'&#92;u001F'</code> or in the range
      * <code>'&#92;u007F'</code> through <code>'&#92;u009F'</code>.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isISOControl(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  <code>true</code> if the character is an ISO control character;
@@ -4782,14 +4739,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
     /** {@collect.stats}
      * {@description.open}
      * Returns a value indicating a character's general category.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #getType(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   ch      the character to be tested.
      * @return  a value of type <code>int</code> representing the
@@ -4919,14 +4874,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * character.  Character directionality is used to calculate the
      * visual ordering of text. The directionality value of undefined
      * <code>char</code> values is <code>DIRECTIONALITY_UNDEFINED</code>.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #getDirectionality(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  ch <code>char</code> for which the directionality property
      *            is requested.
@@ -5006,14 +4959,12 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * PARENTHESIS is semantically defined to be an <i>opening
      * parenthesis</i>.  This will appear as a "(" in text that is
      * left-to-right but as a ")" in text that is right-to-left.
-     * {@description.close}
      *
-     * {@property.open}
      * <p><b>Note:</b> This method cannot handle <a
      * href="#supplementary"> supplementary characters</a>. To support
      * all Unicode characters, including supplementary characters, use
      * the {@link #isMirrored(int)} method.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  ch <code>char</code> for which the mirrored property is requested
      * @return <code>true</code> if the char is mirrored, <code>false</code>
