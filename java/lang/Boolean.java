@@ -87,7 +87,6 @@ public final class Boolean implements java.io.Serializable,
      * Allocates a {@code Boolean} object representing the
      * {@code value} argument.
      * {@description.close}
-     *
      * {@property.open runtime performance formal:java.lang.Boolean_StaticFactory}
      * <p><b>Note: It is rarely appropriate to use this constructor.
      * Unless a <i>new</i> instance is required, the static factory

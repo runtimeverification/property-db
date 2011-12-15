@@ -127,7 +127,6 @@ public final class Byte extends Number implements Comparable<Byte> {
      * (<code>'&#92;u002D'</code>) to indicate a negative value.  The
      * resulting {@code byte} value is returned.
      * {@description.close}
-     * 
      * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
      * thrown if any of the following situations occurs:
