@@ -25,11 +25,13 @@
 
 package java.lang.annotation;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * Thrown to indicate that a program has attempted to access an element of
  * an annotation type that was added to the annotation type definition after
  * the annotation was compiled (or serialized).  This exception will not be
  * thrown if the new element has a default value.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @since 1.5
@@ -39,9 +41,11 @@ public class IncompleteAnnotationException extends RuntimeException {
     private String elementName;
 
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs an IncompleteAnnotationException to indicate that
      * the named element was missing from the specified annotation type.
+     * {@description.close}
      *
      * @param annotationType the Class object for the annotation type
      * @param elementName the name of the missing element
@@ -56,8 +60,10 @@ public class IncompleteAnnotationException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the Class object for the annotation type with the
      * missing element.
+     * {@description.close}
      *
      * @return the Class object for the annotation type with the
      *     missing element
@@ -67,7 +73,9 @@ public class IncompleteAnnotationException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the name of the missing element.
+     * {@description.close}
      *
      * @return the name of the missing element
      */

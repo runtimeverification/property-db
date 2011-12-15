@@ -26,6 +26,7 @@
 package java.lang.annotation;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Indicates how long annotations with the annotated type are to
  * be retained.  If no Retention annotation is present on
  * an annotation type declaration, the retention policy defaults to
@@ -35,6 +36,7 @@ package java.lang.annotation;
  * meta-annotated type is used directly for annotation.  It has no
  * effect if the meta-annotated type is used as a member type in
  * another annotation type.
+ * {@description.close}
  *
  * @author  Joshua Bloch
  * @since 1.5

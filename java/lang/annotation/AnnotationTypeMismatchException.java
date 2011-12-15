@@ -26,30 +26,38 @@
 package java.lang.annotation;
 import java.lang.reflect.Method;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * Thrown to indicate that a program has attempted to access an element of
  * an annotation whose type has changed after the annotation was compiled
  * (or serialized).
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @since 1.5
  */
 public class AnnotationTypeMismatchException extends RuntimeException {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * The <tt>Method</tt> object for the annotation element.
+     * {@description.close}
      */
     private final Method element;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The (erroneous) type of data found in the annotation.  This string
      * may, but is not required to, contain the value as well.  The exact
      * format of the string is unspecified.
+     * {@description.close}
      */
     private final String foundType;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an AnnotationTypeMismatchException for the specified
      * annotation type element and found data type.
+     * {@description.close}
      *
      * @param element the <tt>Method</tt> object for the annotation element
      * @param foundType the (erroneous) type of data found in the annotation.
@@ -64,7 +72,9 @@ public class AnnotationTypeMismatchException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the <tt>Method</tt> object for the incorrectly typed element.
+     * {@description.close}
      *
      * @return the <tt>Method</tt> object for the incorrectly typed element
      */
@@ -73,9 +83,11 @@ public class AnnotationTypeMismatchException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the type of data found in the incorrectly typed element.
      * The returned string may, but is not required to, contain the value
      * as well.  The exact format of the string is unspecified.
+     * {@description.close}
      *
      * @return the type of data found in the incorrectly typed element
      */

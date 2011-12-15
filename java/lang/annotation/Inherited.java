@@ -26,6 +26,7 @@
 package java.lang.annotation;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Indicates that an annotation type is automatically inherited.  If
  * an Inherited meta-annotation is present on an annotation type
  * declaration, and the user queries the annotation type on a class
@@ -41,6 +42,7 @@ package java.lang.annotation;
  * that this meta-annotation only causes annotations to be inherited
  * from superclasses; annotations on implemented interfaces have no
  * effect.
+ * {@description.close}
  *
  * @author  Joshua Bloch
  * @since 1.5

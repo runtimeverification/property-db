@@ -26,38 +26,40 @@
 package java.lang.annotation;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A program element type.  The constants of this enumerated type
  * provide a simple classification of the declared elements in a
  * Java program.
  *
  * <p>These constants are used with the {@link Target} meta-annotation type
  * to specify where it is legal to use an annotation type.
+ * {@description.close}
  *
  * @author  Joshua Bloch
  * @since 1.5
  */
 public enum ElementType {
-    /** {@collect.stats}  Class, interface (including annotation type), or enum declaration */
+    /** {@collect.stats}  {@description.open}Class, interface (including annotation type), or enum declaration {@description.close}*/
     TYPE,
 
-    /** {@collect.stats}  Field declaration (includes enum constants) */
+    /** {@collect.stats}  {@description.open}Field declaration (includes enum constants) {@description.close}*/
     FIELD,
 
-    /** {@collect.stats}  Method declaration */
+    /** {@collect.stats}  {@description.open}Method declaration {@description.close}*/
     METHOD,
 
-    /** {@collect.stats}  Parameter declaration */
+    /** {@collect.stats}  {@description.open}Parameter declaration {@description.close}*/
     PARAMETER,
 
-    /** {@collect.stats}  Constructor declaration */
+    /** {@collect.stats}  {@description.open}Constructor declaration {@description.close}*/
     CONSTRUCTOR,
 
-    /** {@collect.stats}  Local variable declaration */
+    /** {@collect.stats}  {@description.open}Local variable declaration {@description.close}*/
     LOCAL_VARIABLE,
 
-    /** {@collect.stats}  Annotation type declaration */
+    /** {@collect.stats}  {@description.open}Annotation type declaration {@description.close}*/
     ANNOTATION_TYPE,
 
-    /** {@collect.stats}  Package declaration */
+    /** {@collect.stats}  {@description.open}Package declaration {@description.close}*/
     PACKAGE
 }

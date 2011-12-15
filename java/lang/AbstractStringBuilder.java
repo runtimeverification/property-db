@@ -1156,11 +1156,11 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <code>end</code>.
      * <p>The end argument must be greater than or equal to
      * <code>start</code>, and less than or equal to the length of s.
-     * {@description.close}
      *
      * <p>If <code>s</code> is <code>null</code>, then this method inserts
      * characters as if the s parameter was a sequence containing the four
      * characters <code>"null"</code>.
+     * {@description.close}
      *
      * @param      dstOffset   the offset in this sequence.
      * @param      s       the sequence to be inserted.

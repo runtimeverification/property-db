@@ -26,6 +26,7 @@
 package java.lang.annotation;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Indicates the kinds of program element to which an annotation type
  * is applicable.  If a Target meta-annotation is not present on an
  * annotation type declaration, the declared type may be used on any
@@ -59,6 +60,7 @@ package java.lang.annotation;
  *        ...
  *    }
  * </pre>
+ * {@description.close}
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
