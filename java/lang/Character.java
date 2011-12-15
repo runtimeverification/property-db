@@ -2505,7 +2505,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * Returns a <tt>Character</tt> instance representing the specified
      * <tt>char</tt> value.
      * {@description.close}
-     * {@property.open runtime performance formal:Character_StaticFactory}
+     * {@property.open runtime performance formal:java.lang.Character_StaticFactory}
      * If a new <tt>Character</tt> instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Character(char)}, as this method is likely to yield
@@ -2717,7 +2717,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * the method returns 2. Otherwise, the method returns 1.
      * {@description.close}
      *
-     * {@property.open runtime formal:Character_ValidateChar}
+     * {@property.open runtime formal:java.lang.Character_ValidateChar}
      * <p>This method doesn't validate the specified character to be a
      * valid Unicode code point. The caller must validate the
      * character value using {@link #isValidCodePoint(int) isValidCodePoint}
@@ -2738,7 +2738,7 @@ class Character extends Object implements java.io.Serializable, Comparable<Chara
      * Converts the specified surrogate pair to its supplementary code
      * point value.
      * {@description.close}
-     * {@property.open runtime formal:Character_ValidateChar} 
+     * {@property.open runtime formal:java.lang.Character_ValidateChar} 
      * This method does not validate the specified
      * surrogate pair. The caller must validate it using {@link
      * #isSurrogatePair(char, char) isSurrogatePair} if necessary.

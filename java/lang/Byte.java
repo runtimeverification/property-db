@@ -278,7 +278,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Byte.parseByte} method with the indicated radix (10, 16, or 8).
      * {@description.close}
-     * {@property.open runtime formal:Byte_BadDecodeArg}
+     * {@property.open runtime formal:java.lang.Byte_BadDecodeArg}
      * This sequence of characters must represent a positive value or
      * a {@link NumberFormatException} will be thrown.
      * {@property.close}
@@ -287,7 +287,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * negated if first character of the specified {@code String} is
      * the minus sign.
      * {@description.close}
-     * {@property.open runtime formal:Byte_BadDecodeArg} 
+     * {@property.open runtime formal:java.lang.Byte_BadDecodeArg} 
      * No whitespace characters are permitted in the
      * {@code String}.
      * {@property.close}
