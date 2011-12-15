@@ -48,16 +48,16 @@ public final class Boolean implements java.io.Serializable,
     /** {@collect.stats}
      * {@description.open}
      * The {@code Boolean} object corresponding to the primitive
-     * {@description.close}
      * value {@code true}.
+     * {@description.close}
      */
     public static final Boolean TRUE = new Boolean(true);
 
     /** {@collect.stats}
      * {@description.open}
      * The {@code Boolean} object corresponding to the primitive
-     * {@description.close}
      * value {@code false}.
+     * {@description.close}
      */
     public static final Boolean FALSE = new Boolean(false);
 

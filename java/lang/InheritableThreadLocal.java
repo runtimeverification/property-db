@@ -55,7 +55,6 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
      * thread is created.  This method is called from within the parent
      * thread before the child is started.
      * {@description.close}
-     * <p>
      * {@property.open}
      * This method merely returns its input argument, and should be overridden
      * if a different behavior is desired.
