@@ -76,6 +76,7 @@ public abstract class Enum<E extends Enum<E>>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * The ordinal of this enumeration constant (its position
      * in the enum declaration, where the initial constant is assigned
      * an ordinal of zero).
@@ -83,6 +84,7 @@ public abstract class Enum<E extends Enum<E>>
      * Most programmers will have no use for this field.  It is designed
      * for use by sophisticated enum-based data structures, such as
      * {@link java.util.EnumSet} and {@link java.util.EnumMap}.
+     * {@description.close}
      */
     private final int ordinal;
 
