@@ -38,6 +38,7 @@ import sun.security.util.SecurityConstants;
 
 
 /** {@collect.stats}
+ * {@description.open}
  * A <i>thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.
@@ -120,6 +121,7 @@ import sun.security.util.SecurityConstants;
  * Every thread has a name for identification purposes. More than
  * one thread may have the same name. If a name is not specified when
  * a thread is created, a new name is generated for it.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     Runnable
@@ -210,10 +212,12 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * The argument supplied to the current call to
      * java.util.concurrent.locks.LockSupport.park.
      * Set by (private) java.util.concurrent.locks.LockSupport.setBlocker
      * Accessed using java.util.concurrent.locks.LockSupport.getBlocker
+     * {@description.close}
      */
     volatile Object parkBlocker;
 
@@ -233,17 +237,23 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * The minimum priority that a thread can have.
+     * {@description.close}
      */
     public final static int MIN_PRIORITY = 1;
 
    /** {@collect.stats}
+    * {@description.open}
      * The default priority that is assigned to a thread.
+     * {@description.close}
      */
     public final static int NORM_PRIORITY = 5;
 
     /** {@collect.stats}
+     * {@description.open}
      * The maximum priority that a thread can have.
+     * {@description.close}
      */
     public final static int MAX_PRIORITY = 10;
 
@@ -258,23 +268,29 @@ class Thread implements Runnable {
     private volatile Thread me;    // null
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a reference to the currently executing thread object.
+     * {@description.close}
      *
      * @return  the currently executing thread.
      */
     public static native Thread currentThread();
 
     /** {@collect.stats}
+     * {@description.open}
      * Causes the currently executing thread object to temporarily pause
      * and allow other threads to execute.
+     * {@description.close}
      */
     public static native void yield();
 
     /** {@collect.stats}
+     * {@description.open}
      * Causes the currently executing thread to sleep (temporarily cease
      * execution) for the specified number of milliseconds, subject to
      * the precision and accuracy of system timers and schedulers. The thread
      * does not lose ownership of any monitors.
+     * {@description.close}
      *
      * @param      millis   the length of time to sleep in milliseconds.
      * @exception  InterruptedException if any thread has interrupted
@@ -285,11 +301,13 @@ class Thread implements Runnable {
     public static native void sleep(long millis) throws InterruptedException;
 
     /** {@collect.stats}
+     * {@description.open}
      * Causes the currently executing thread to sleep (cease execution)
      * for the specified number of milliseconds plus the specified number
      * of nanoseconds, subject to the precision and accuracy of system
      * timers and schedulers. The thread does not lose ownership of any
      * monitors.
+     * {@description.close}
      *
      * @param      millis   the length of time to sleep in milliseconds.
      * @param      nanos    0-999999 additional nanoseconds to sleep.
@@ -320,7 +338,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Initializes a Thread.
+     * {@description.close}
      *
      * @param g the Thread group
      * @param target the object whose run() method gets called
@@ -388,7 +408,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a clone if the class of this object is {@link Cloneable Cloneable}.
+     * {@description.close}
      *
      * @return  a clone if the class of this object is {@code Cloneable}
      *
@@ -425,11 +447,13 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, null,</code>
      * <i>gname</i><code>)</code>, where <b><i>gname</i></b> is
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
+     * {@description.close}
      *
      * @see     #Thread(ThreadGroup, Runnable, String)
      */
@@ -438,11 +462,13 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, target,</code>
      * <i>gname</i><code>)</code>, where <i>gname</i> is
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
+     * {@description.close}
      *
      * @param   target   the object whose <code>run</code> method is called.
      * @see     #Thread(ThreadGroup, Runnable, String)
@@ -452,11 +478,13 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(group, target,</code>
      * <i>gname</i><code>)</code>, where <i>gname</i> is
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
+     * {@description.close}
      *
      * @param      group    the thread group.
      * @param      target   the object whose <code>run</code> method is called.
@@ -469,8 +497,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, null, name)</code>.
+     * {@description.close}
      *
      * @param   name   the name of the new thread.
      * @see     #Thread(ThreadGroup, Runnable, String)
@@ -480,8 +510,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(group, null, name)</code>
+     * {@description.close}
      *
      * @param      group   the thread group.
      * @param      name    the name of the new thread.
@@ -494,8 +526,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, target, name)</code>.
+     * {@description.close}
      *
      * @param   target   the object whose <code>run</code> method is called.
      * @param   name     the name of the new thread.
@@ -506,6 +540,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object so that it has
      * <code>target</code> as its run object, has the specified
      * <code>name</code> as its name, and belongs to the thread group
@@ -545,6 +580,7 @@ class Thread implements Runnable {
      * thread if and only if the thread creating it is currently marked
      * as a daemon thread. The method <code>setDaemon </code> may be used
      * to change whether or not a thread is a daemon.
+     * {@description.close}
      *
      * @param      group     the thread group.
      * @param      target   the object whose <code>run</code> method is called.
@@ -564,6 +600,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates a new <code>Thread</code> object so that it has
      * <code>target</code> as its run object, has the specified
      * <code>name</code> as its name, belongs to the thread group referred to
@@ -610,6 +647,7 @@ class Thread implements Runnable {
      * <p>Implementation note: Java platform implementers are encouraged to
      * document their implementation's behavior with respect to the
      * <tt>stackSize parameter</tt>.
+     * {@description.close}
      *
      * @param      group    the thread group.
      * @param      target   the object whose <code>run</code> method is called.
@@ -626,6 +664,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Causes this thread to begin execution; the Java Virtual Machine
      * calls the <code>run</code> method of this thread.
      * <p>
@@ -633,10 +672,13 @@ class Thread implements Runnable {
      * current thread (which returns from the call to the
      * <code>start</code> method) and the other thread (which executes its
      * <code>run</code> method).
+     * {@description.close}
+     * {@property.open runtime}
      * <p>
      * It is never legal to start a thread more than once.
      * In particular, a thread may not be restarted once it has completed
      * execution.
+     * {@property.close}
      *
      * @exception  IllegalThreadStateException  if the thread was already
      *               started.
@@ -645,11 +687,13 @@ class Thread implements Runnable {
      */
     public synchronized void start() {
         /** {@collect.stats}
+         * {@description.open}
          * This method is not invoked for the main method thread or "system"
          * group threads created/set up by the VM. Any new functionality added
          * to this method in the future may have to also be added to the VM.
          *
          * A zero status value corresponds to state "NEW".
+         * {@description.close}
          */
         if (threadStatus != 0 || this != me)
             throw new IllegalThreadStateException();
@@ -663,12 +707,16 @@ class Thread implements Runnable {
     private native void start0();
 
     /** {@collect.stats}
+     * {@description.open}
      * If this thread was constructed using a separate
      * <code>Runnable</code> run object, then that
      * <code>Runnable</code> object's <code>run</code> method is called;
      * otherwise, this method does nothing and returns.
+     * {@description.close}
+     * {@property.open static}
      * <p>
      * Subclasses of <code>Thread</code> should override this method.
+     * {@property.close}
      *
      * @see     #start()
      * @see     #stop()
@@ -681,8 +729,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * This method is called by the system to give a Thread
      * a chance to clean up before it actually exits.
+     * {@description.close}
      */
     private void exit() {
         if (group != null) {
@@ -700,6 +750,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Forces the thread to stop executing.
      * <p>
      * If there is a security manager installed, its <code>checkAccess</code>
@@ -721,6 +772,8 @@ class Thread implements Runnable {
      * <p>
      * It is permitted to stop a thread that has not yet been started.
      * If the thread is eventually started, it immediately terminates.
+     * {@description.close}
+     * {@property.open static}
      * <p>
      * An application should not normally try to catch
      * <code>ThreadDeath</code> unless it must do some extraordinary
@@ -730,11 +783,14 @@ class Thread implements Runnable {
      * officially dies).  If a <code>catch</code> clause catches a
      * <code>ThreadDeath</code> object, it is important to rethrow the
      * object so that the thread actually dies.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * The top-level error handler that reacts to otherwise uncaught
      * exceptions does not print out a message or otherwise notify the
      * application if the uncaught exception is an instance of
      * <code>ThreadDeath</code>.
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread cannot
      *               modify this thread.
@@ -776,6 +832,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Forces the thread to stop executing.
      * <p>
      * If there is a security manager installed, the <code>checkAccess</code>
@@ -790,18 +847,28 @@ class Thread implements Runnable {
      * addition.
      * Again, this may result in throwing a
      * <code>SecurityException</code> (in the current thread).
+     * {@description.close}
+     * {@property.open runtime}
      * <p>
      * If the argument <code>obj</code> is null, a
      * <code>NullPointerException</code> is thrown (in the current thread).
+     * {@property.close}
+     * {@description.open}
      * <p>
      * The thread represented by this thread is forced to stop
      * whatever it is doing abnormally and to throw the
-     * <code>Throwable</code> object <code>obj</code> as an exception. This
+     * <code>Throwable</code> object <code>obj</code> as an exception.
+     * {@description.close}
+     * {@property.open runtime}
+     * This
      * is an unusual action to take; normally, the <code>stop</code> method
      * that takes no arguments should be used.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * It is permitted to stop a thread that has not yet been started.
      * If the thread is eventually started, it immediately terminates.
+     * {@description.close}
      *
      * @param      obj   the Throwable object to be thrown.
      * @exception  SecurityException  if the current thread cannot modify
@@ -830,7 +897,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Common impl for stop() and stop(Throwable).
+     * {@description.close}
      */
     private final synchronized void stop1(Throwable th) {
         SecurityManager security = System.getSecurityManager();
@@ -859,6 +928,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Interrupts this thread.
      *
      * <p> Unless the current thread is interrupting itself, which is
@@ -890,6 +960,7 @@ class Thread implements Runnable {
      * status will be set. </p>
      *
      * <p> Interrupting a thread that is not alive need not have any effect.
+     * {@description.close}
      *
      * @throws  SecurityException
      *          if the current thread cannot modify this thread
@@ -913,6 +984,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tests whether the current thread has been interrupted.  The
      * <i>interrupted status</i> of the thread is cleared by this method.  In
      * other words, if this method were to be called twice in succession, the
@@ -923,6 +995,7 @@ class Thread implements Runnable {
      * <p>A thread interruption ignored because a thread was not alive
      * at the time of the interrupt will be reflected by this method
      * returning false.
+     * {@description.close}
      *
      * @return  <code>true</code> if the current thread has been interrupted;
      *          <code>false</code> otherwise.
@@ -934,12 +1007,14 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tests whether this thread has been interrupted.  The <i>interrupted
      * status</i> of the thread is unaffected by this method.
      *
      * <p>A thread interruption ignored because a thread was not alive
      * at the time of the interrupt will be reflected by this method
      * returning false.
+     * {@description.close}
      *
      * @return  <code>true</code> if this thread has been interrupted;
      *          <code>false</code> otherwise.
@@ -951,14 +1026,18 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tests if some Thread has been interrupted.  The interrupted state
      * is reset or not based on the value of ClearInterrupted that is
      * passed.
+     * {@description.close}
      */
     private native boolean isInterrupted(boolean ClearInterrupted);
 
     /** {@collect.stats}
+     * {@description.open}
      * Throws {@link NoSuchMethodError}.
+     * {@description.close}
      *
      * @deprecated This method was originally designed to destroy this
      *     thread without any cleanup. Any monitors it held would have
@@ -980,8 +1059,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tests if this thread is alive. A thread is alive if it has
      * been started and has not yet died.
+     * {@description.close}
      *
      * @return  <code>true</code> if this thread is alive;
      *          <code>false</code> otherwise.
@@ -989,6 +1070,7 @@ class Thread implements Runnable {
     public final native boolean isAlive();
 
     /** {@collect.stats}
+     * {@description.open}
      * Suspends this thread.
      * <p>
      * First, the <code>checkAccess</code> method of this thread is called
@@ -997,6 +1079,7 @@ class Thread implements Runnable {
      * <p>
      * If the thread is alive, it is suspended and makes no further
      * progress unless and until it is resumed.
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread cannot modify
      *               this thread.
@@ -1019,6 +1102,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Resumes a suspended thread.
      * <p>
      * First, the <code>checkAccess</code> method of this thread is called
@@ -1027,6 +1111,7 @@ class Thread implements Runnable {
      * <p>
      * If the thread is alive but suspended, it is resumed and is
      * permitted to make progress in its execution.
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread cannot modify this
      *               thread.
@@ -1045,6 +1130,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Changes the priority of this thread.
      * <p>
      * First the <code>checkAccess</code> method of this thread is called
@@ -1054,6 +1140,7 @@ class Thread implements Runnable {
      * Otherwise, the priority of this thread is set to the smaller of
      * the specified <code>newPriority</code> and the maximum permitted
      * priority of the thread's thread group.
+     * {@description.close}
      *
      * @param newPriority priority to set this thread to
      * @exception  IllegalArgumentException  If the priority is not in the
@@ -1083,7 +1170,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns this thread's priority.
+     * {@description.close}
      *
      * @return  this thread's priority.
      * @see     #setPriority
@@ -1093,12 +1182,14 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Changes the name of this thread to be equal to the argument
      * <code>name</code>.
      * <p>
      * First the <code>checkAccess</code> method of this thread is called
      * with no arguments. This may result in throwing a
      * <code>SecurityException</code>.
+     * {@description.close}
      *
      * @param      name   the new name for this thread.
      * @exception  SecurityException  if the current thread cannot modify this
@@ -1112,7 +1203,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns this thread's name.
+     * {@description.close}
      *
      * @return  this thread's name.
      * @see     #setName(String)
@@ -1122,9 +1215,11 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the thread group to which this thread belongs.
      * This method returns null if this thread has died
      * (been stopped).
+     * {@description.close}
      *
      * @return  this thread's thread group.
      */
@@ -1133,8 +1228,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the number of active threads in the current thread's thread
      * group.
+     * {@description.close}
      *
      * @return  the number of active threads in the current thread's thread
      *          group.
@@ -1144,6 +1241,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Copies into the specified array every active thread in
      * the current thread's thread group and its subgroups. This method simply
      * calls the <code>enumerate</code> method of the current thread's thread
@@ -1154,6 +1252,7 @@ class Thread implements Runnable {
      * manager's <code>checkAccess</code> method
      * with the thread group as its argument. This may result
      * in throwing a <code>SecurityException</code>.
+     * {@description.close}
      *
      * @param tarray an array of Thread objects to copy to
      * @return  the number of threads put into the array
@@ -1167,8 +1266,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Counts the number of stack frames in this thread. The thread must
      * be suspended.
+     * {@description.close}
      *
      * @return     the number of stack frames in this thread.
      * @exception  IllegalThreadStateException  if this thread is not
@@ -1181,8 +1282,10 @@ class Thread implements Runnable {
     public native int countStackFrames();
 
     /** {@collect.stats}
+     * {@description.open}
      * Waits at most <code>millis</code> milliseconds for this thread to
      * die. A timeout of <code>0</code> means to wait forever.
+     * {@description.close}
      *
      * @param      millis   the time to wait in milliseconds.
      * @exception  InterruptedException if any thread has interrupted
@@ -1215,8 +1318,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Waits at most <code>millis</code> milliseconds plus
      * <code>nanos</code> nanoseconds for this thread to die.
+     * {@description.close}
      *
      * @param      millis   the time to wait in milliseconds.
      * @param      nanos    0-999999 additional nanoseconds to wait.
@@ -1246,7 +1351,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Waits for this thread to die.
+     * {@description.close}
      *
      * @exception  InterruptedException if any thread has interrupted
      *             the current thread.  The <i>interrupted status</i> of the
@@ -1257,8 +1364,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Prints a stack trace of the current thread to the standard error stream.
      * This method is used only for debugging.
+     * {@description.close}
      *
      * @see     Throwable#printStackTrace()
      */
@@ -1267,16 +1376,22 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Marks this thread as either a daemon thread or a user thread. The
      * Java Virtual Machine exits when the only threads running are all
      * daemon threads.
+     * {@description.close}
+     * {@property.open runtime}
      * <p>
      * This method must be called before the thread is started.
+     * {@property.close}
+     * {@description.open}
       * <p>
      * This method first calls the <code>checkAccess</code> method
      * of this thread
      * with no arguments. This may result in throwing a
      * <code>SecurityException </code>(in the current thread).
+     * {@description.close}
     *
      * @param      on   if <code>true</code>, marks this thread as a
      *                  daemon thread.
@@ -1295,7 +1410,9 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tests if this thread is a daemon thread.
+     * {@description.close}
      *
      * @return  <code>true</code> if this thread is a daemon thread;
      *          <code>false</code> otherwise.
@@ -1306,12 +1423,14 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Determines if the currently running thread has permission to
      * modify this thread.
      * <p>
      * If there is a security manager, its <code>checkAccess</code> method
      * is called with this thread as its argument. This may result in
      * throwing a <code>SecurityException</code>.
+     * {@description.close}
      *
      * @exception  SecurityException  if the current thread is not allowed to
      *               access this thread.
@@ -1325,8 +1444,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a string representation of this thread, including the
      * thread's name, priority, and thread group.
+     * {@description.close}
      *
      * @return  a string representation of this thread.
      */
@@ -1342,6 +1463,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the context ClassLoader for this Thread. The context
      * ClassLoader is provided by the creator of the thread for use
      * by code running in this thread when loading classes and resources.
@@ -1357,6 +1479,7 @@ class Thread implements Runnable {
      * method is called with a
      * <code>RuntimePermission("getClassLoader")</code> permission
      *  to see if it's ok to get the context ClassLoader..
+     *  {@description.close}
      *
      * @return the context ClassLoader for this Thread
      *
@@ -1385,6 +1508,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sets the context ClassLoader for this Thread. The context
      * ClassLoader can be set when a thread is created, and allows
      * the creator of the thread to provide the appropriate class loader
@@ -1394,6 +1518,7 @@ class Thread implements Runnable {
      * method is called with a
      * <code>RuntimePermission("setContextClassLoader")</code> permission
      *  to see if it's ok to set the context ClassLoader..
+     *  {@description.close}
      *
      * @param cl the context ClassLoader for this Thread
      *
@@ -1414,6 +1539,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if and only if the current thread holds the
      * monitor lock on the specified object.
      *
@@ -1422,6 +1548,7 @@ class Thread implements Runnable {
      * <pre>
      *     assert Thread.holdsLock(obj);
      * </pre>
+     * {@description.close}
      *
      * @param  obj the object on which to test lock ownership
      * @throws NullPointerException if obj is <tt>null</tt>
@@ -1435,6 +1562,7 @@ class Thread implements Runnable {
         = new StackTraceElement[0];
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an array of stack trace elements representing the stack dump
      * of this thread.  This method will return a zero-length array if
      * this thread has not started or has terminated.
@@ -1455,6 +1583,7 @@ class Thread implements Runnable {
      * a virtual machine that has no stack trace information concerning
      * this thread is permitted to return a zero-length array from this
      * method.
+     * {@description.close}
      *
      * @return an array of <tt>StackTraceElement</tt>,
      * each represents one stack frame.
@@ -1497,6 +1626,7 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a map of stack traces for all live threads.
      * The map keys are threads and each map value is an array of
      * <tt>StackTraceElement</tt> that represents the stack dump
@@ -1515,6 +1645,7 @@ class Thread implements Runnable {
      * <tt>RuntimePermission("getStackTrace")</tt> permission as well as
      * <tt>RuntimePermission("modifyThreadGroup")</tt> permission
      * to see if it is ok to get the stack trace of all threads.
+     * {@description.close}
      *
      * @return a <tt>Map</tt> from <tt>Thread</tt> to an array of
      * <tt>StackTraceElement</tt> that represents the stack trace of
@@ -1560,15 +1691,21 @@ class Thread implements Runnable {
     private static final RuntimePermission SUBCLASS_IMPLEMENTATION_PERMISSION =
                     new RuntimePermission("enableContextClassLoaderOverride");
 
-    /** {@collect.stats} cache of subclass security audit results */
+    /** {@collect.stats}
+     * {@description.open}
+     * cache of subclass security audit results
+     * {@description.close}
+     *  */
     private static final SoftCache subclassAudits = new SoftCache(10);
 
 
     /** {@collect.stats}
+     * {@description.open}
      * Verifies that this (possibly subclass) instance can be constructed
      * without violating security constraints: the subclass must not override
      * security-sensitive non-final methods, or else the
      * "enableContextClassLoaderOverride" RuntimePermission is checked.
+     * {@description.close}
      */
     private static boolean isCCLOverridden(Class cl) {
         if (cl == Thread.class)
@@ -1590,9 +1727,11 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Performs reflective checks on given subclass to verify that it doesn't
      * override security-sensitive non-final methods.  Returns true if the
      * subclass overrides any of the methods, false otherwise.
+     * {@description.close}
      */
     private static boolean auditSubclass(final Class subcl) {
         Boolean result = AccessController.doPrivileged(
@@ -1625,10 +1764,12 @@ class Thread implements Runnable {
     private native static Thread[] getThreads();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the identifier of this Thread.  The thread ID is a positive
      * <tt>long</tt> number generated when this thread was created.
      * The thread ID is unique and remains unchanged during its lifetime.
      * When a thread is terminated, this thread ID may be reused.
+     * {@description.close}
      *
      * @return this thread's ID.
      * @since 1.5
@@ -1813,6 +1954,7 @@ class Thread implements Runnable {
     private static volatile UncaughtExceptionHandler defaultUncaughtExceptionHandler;
 
     /** {@collect.stats}
+     * {@description.open}
      * Set the default handler invoked when a thread abruptly terminates
      * due to an uncaught exception, and no other handler has been defined
      * for that thread.
@@ -1829,10 +1971,12 @@ class Thread implements Runnable {
      * logging to a specific device, or file) for those threads that would
      * already accept whatever &quot;default&quot; behavior the system
      * provided.
-     *
+     * {@description.close}
+     * {@property.open static}
      * <p>Note that the default uncaught exception handler should not usually
      * defer to the thread's <tt>ThreadGroup</tt> object, as that could cause
      * infinite recursion.
+     * {@property.close}
      *
      * @param eh the object to use as the default uncaught exception handler.
      * If <tt>null</tt> then there is no default handler.
@@ -1858,9 +2002,11 @@ class Thread implements Runnable {
      }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the default handler invoked when a thread abruptly terminates
      * due to an uncaught exception. If the returned value is <tt>null</tt>,
      * there is no default.
+     * {@description.close}
      * @since 1.5
      * @see #setDefaultUncaughtExceptionHandler
      */
@@ -1869,11 +2015,13 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the handler invoked when this thread abruptly terminates
      * due to an uncaught exception. If this thread has not had an
      * uncaught exception handler explicitly set then this thread's
      * <tt>ThreadGroup</tt> object is returned, unless this thread
      * has terminated, in which case <tt>null</tt> is returned.
+     * {@description.close}
      * @since 1.5
      */
     public UncaughtExceptionHandler getUncaughtExceptionHandler() {
@@ -1882,12 +2030,14 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Set the handler invoked when this thread abruptly terminates
      * due to an uncaught exception.
      * <p>A thread can take full control of how it responds to uncaught
      * exceptions by having its uncaught exception handler explicitly set.
      * If no such handler is set then the thread's <tt>ThreadGroup</tt>
      * object acts as its handler.
+     * {@description.close}
      * @param eh the object to use as this thread's uncaught exception
      * handler. If <tt>null</tt> then this thread has no explicit handler.
      * @throws  SecurityException  if the current thread is not allowed to
@@ -1902,8 +2052,10 @@ class Thread implements Runnable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Dispatch an uncaught exception to the handler. This method is
      * intended to be called only by the JVM.
+     * {@description.close}
      */
     private void dispatchUncaughtException(Throwable e) {
         getUncaughtExceptionHandler().uncaughtException(this, e);
