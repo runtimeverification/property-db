@@ -384,6 +384,7 @@ public final class ProcessBuilder
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tells whether this process builder merges standard error and
      * standard output.
      *
@@ -394,6 +395,7 @@ public final class ProcessBuilder
      * {@link Process#getInputStream()} method.  This makes it easier
      * to correlate error messages with the corresponding output.
      * The initial value is <code>false</code>.</p>
+     * {@description.close}
      *
      * @return  This process builder's <code>redirectErrorStream</code> property
      */
