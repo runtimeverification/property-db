@@ -34,6 +34,7 @@ import sun.text.Normalizer;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * This is a utility class for <code>String.toLowerCase()</code> and
  * <code>String.toUpperCase()</code>, that handles special casing with
  * conditions.  In other words, it handles the mappings with conditions
@@ -43,6 +44,7 @@ import sun.text.Normalizer;
  * <p>
  * Note that the unconditional case mappings (including 1:M mappings)
  * are handled in <code>Character.toLower/UpperCase()</code>.
+ * {@description.close}
  */
 final class ConditionalSpecialCasing {
 
@@ -188,6 +190,7 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the "Final_Cased" condition
      *
      * Specification: Within the closest word boundaries containing C, there is a cased
@@ -196,6 +199,7 @@ final class ConditionalSpecialCasing {
      * Regular Expression:
      *   Before C: [{cased==true}][{wordBoundary!=true}]*
      *   After C: !([{wordBoundary!=true}]*[{cased}])
+     *   {@description.close}
      */
     private static boolean isFinalCased(String src, int index, Locale locale) {
         BreakIterator wordBoundary = BreakIterator.getWordInstance(locale);
@@ -229,6 +233,7 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the "After_I" condition
      *
      * Specification: The last preceding base character was an uppercase I,
@@ -236,6 +241,7 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   Before C: [I]([{cc!=230}&{cc!=0}])*
+     * {@description.close}
      */
     private static boolean isAfterI(String src, int index) {
         int ch;
@@ -259,7 +265,8 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Implements the "After_Soft_Dotted" condition
      *
      * Specification: The last preceding character with combining class
@@ -268,6 +275,7 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   Before C: [{Soft_Dotted==true}]([{cc!=230}&{cc!=0}])*
+     * {@description.open}
      */
     private static boolean isAfterSoftDotted(String src, int index) {
         int ch;
@@ -291,7 +299,8 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Implements the "More_Above" condition
      *
      * Specification: C is followed by one or more characters of combining
@@ -299,6 +308,7 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   After C: [{cc!=0}]*[{cc==230}]
+     * {@description.close}
      */
     private static boolean isMoreAbove(String src, int index) {
         int ch;
@@ -323,6 +333,7 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the "Before_Dot" condition
      *
      * Specification: C is followed by <code>U+0307 COMBINING DOT ABOVE</code>.
@@ -332,6 +343,7 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   After C: ([{cc!=230}&{cc!=0}])*[\u0307]
+     * {@description.close}
      */
     private static boolean isBeforeDot(String src, int index) {
         int ch;
@@ -357,7 +369,8 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open}
      * Examines whether a character is 'cased'.
      *
      * A character C is defined to be 'cased' if and only if at least one of
@@ -366,6 +379,7 @@ final class ConditionalSpecialCasing {
      *
      * The uppercase and lowercase property values are specified in the data
      * file DerivedCoreProperties.txt in the Unicode Character Database.
+     * {@description.close}
      */
     private static boolean isCased(int ch) {
         int type = Character.getType(ch);
@@ -427,7 +441,9 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * An internal class that represents an entry in the Special Casing Properties.
+     * {@description.close}
      */
     static class Entry {
         int ch;
