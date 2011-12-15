@@ -638,7 +638,9 @@ public final class Integer extends Number implements Comparable<Integer> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * The value of the {@code Integer}.
+     * {@description.close}
      *
      * @serial
      */
