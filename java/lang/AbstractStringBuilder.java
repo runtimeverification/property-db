@@ -36,7 +36,6 @@ import java.util.Arrays;
  * particular sequence of characters, but the length and content of the
  * sequence can be changed through certain method calls.
  * {@description.close}
- *
  * @author      Michael McCloskey
  * @since       1.5
  */
