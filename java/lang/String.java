@@ -2884,8 +2884,10 @@ public final class String
         return ((st > 0) || (len < count)) ? substring(st, len) : this;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * This object (which is already a string!) is itself returned.
+     * {@description.close}
      *
      * @return  the string itself.
      */

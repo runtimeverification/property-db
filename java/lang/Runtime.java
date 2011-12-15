@@ -35,8 +35,8 @@ import java.util.StringTokenizer;
  * the environment in which the application is running. The current
  * runtime can be obtained from the <code>getRuntime</code> method.
  * {@description.close}
- * <p>
  * {@property.open static}
+ * <p>
  * An application cannot create its own instance of this class.
  * {@property.close}
  *
