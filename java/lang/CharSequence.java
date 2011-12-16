@@ -42,7 +42,10 @@ package java.lang;
  * objects that implement <tt>CharSequence</tt> is therefore, in general,
  * undefined.  Each object may be implemented by a different class, and there
  * is no guarantee that each class will be capable of testing its instances
- * for equality with those of the other.  It is therefore inappropriate to use
+ * for equality with those of the other.
+ * {@property.close}
+ * {@property.open runtime formal:java.lang.CharSequence_NotInSet formal:java.lang.CharSequence_NotInMap}
+ * It is therefore inappropriate to use
  * arbitrary <tt>CharSequence</tt> instances as elements in a set or as keys in
  * a map. </p>
  * {@property.close}

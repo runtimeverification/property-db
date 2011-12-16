@@ -1,0 +1,31 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Warns if one tries to add a CharSequence object into a map as a key.
+ * 
+ * According to the manual, this inferface does not refine the general contracts of the
+ * equals and hashCode methods. Therefore, it might not be safe to use CharSequence instances
+ * as elements in a set
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/CharSequence.html
+ * User should check whether the instance of CharSequence that he/she tries to use supports
+ * those methods.
+ * 
+ * @severity warning
+ */
+
+CharSequence_NotInMap() {
+	event map_put before() : call(* Map+.put(..)) && args(CharSequence, ..) {
+		System.err.println("It might not be safe to add a CharSequence instance into a map as a key"); 
+	}
+
+	event map_putall before(Map m) : call(* Map+.putAll(Map)) && args(m) {
+		for(Object o : m.keySet()){
+			if(o instanceof CharSequence)
+				System.err.println("It might not be safe to add a CharSequence instance into a map as a key");
+		} 
+	}
+	
+}
