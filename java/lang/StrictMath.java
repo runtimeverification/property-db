@@ -686,7 +686,7 @@ public final class StrictMath {
      * calls to this method and is used nowhere else.
      * {@description.close}
      *
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.StrictMath_ContendedRandom}
      * <p>This method is properly synchronized to allow correct use by
      * more than one thread. However, if many threads need to generate
      * pseudorandom numbers at a great rate, it may reduce contention
