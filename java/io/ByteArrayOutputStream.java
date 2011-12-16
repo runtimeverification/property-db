@@ -35,8 +35,8 @@ import java.util.Arrays;
  * The data can be retrieved using <code>toByteArray()</code> and
  * <code>toString()</code>.
  * {@description.close}
- * <p>
  * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+ * <p>
  * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -287,8 +287,8 @@ public class ByteArrayOutputStream extends OutputStream {
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
-     * {@property.close}
      * <p>
+     * {@property.close}
      */
     public void close() throws IOException {
     }

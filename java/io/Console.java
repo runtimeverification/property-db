@@ -46,15 +46,15 @@ import sun.nio.cs.StreamEncoder;
  * example by a background job scheduler, then it will typically not
  * have a console.
  * {@description.close}
- * <p>
  * {@property.open}
+ * <p>
  * If this virtual machine has a console then it is represented by a
  * unique instance of this class which can be obtained by invoking the
  * {@link java.lang.System#console()} method.  If no console device is
  * available then an invocation of that method will return <tt>null</tt>.
  * {@property.close}
- * <p>
  * {@property.open blocking}
+ * <p>
  * Read and write operations are synchronized to guarantee the atomic
  * completion of critical operations; therefore invoking methods
  * {@link #readLine()}, {@link #readPassword()}, {@link #format format()},
@@ -62,14 +62,14 @@ import sun.nio.cs.StreamEncoder;
  * on the objects returned by {@link #reader()} and {@link #writer()} may
  * block in multithreaded scenarios.
  * {@property.close}
- * <p>
  * {@property.open runtime formal:java.io.Console_CloseReader formal:java.io.Console_CloseWriter}
+ * <p>
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}
  * and the {@link #writer()} will not close the underlying stream of those
  * objects.
  * {@property.close}
- * <p>
  * {@description.open}
+ * <p>
  * The console-read methods return <tt>null</tt> when the end of the
  * console input stream is reached, for example by typing control-D on
  * Unix or control-Z on Windows.  Subsequent read operations will succeed
@@ -79,8 +79,8 @@ import sun.nio.cs.StreamEncoder;
  * Unless otherwise specified, passing a <tt>null</tt> argument to any method
  * in this class will cause a {@link NullPointerException} to be thrown.
  * {@description.close}
- * <p>
  * {@property.open}
+ * <p>
  * <b>Security note:</b>
  * If an application needs to read a password or other secure data, it should
  * use {@link #readPassword()} or {@link #readPassword(String, Object...)}
@@ -138,8 +138,8 @@ public final class Console implements Flushable
     * For simple applications requiring only line-oriented reading, use
     * <tt>{@link #readLine}</tt>.
     * {@description.close}
-    * <p>
     * {@property.open}
+    * <p>
     * The bulk read operations {@link java.io.Reader#read(char[]) read(char[]) },
     * {@link java.io.Reader#read(char[], int, int) read(char[], int, int) } and
     * {@link java.io.Reader#read(java.nio.CharBuffer) read(java.nio.CharBuffer)}

@@ -197,7 +197,7 @@ class SequenceInputStream extends InputStream {
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
      * {@property.close}
-     * {@description.close}
+     * {@description.open}
      * <p>
      * The <code>read</code> method of <code>SequenceInputStream</code>
      * tries to read the data from the current substream. If it fails to

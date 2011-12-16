@@ -33,8 +33,8 @@ package java.io;
  * counter keeps track of the next byte to
  * be supplied by the <code>read</code> method.
  * {@description.close}
- * <p>
  * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+ * <p>
  * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -81,8 +81,8 @@ class ByteArrayInputStream extends InputStream {
      * The current buffer position is set to this point by the
      * <code>reset()</code> method.
      * {@property.close}
-     * <p>
      * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
+     * <p>
      * If no mark has been set, then the value of mark is the offset
      * passed to the constructor (or 0 if the offset was not supplied).
      * {@property.close}
@@ -157,8 +157,8 @@ class ByteArrayInputStream extends InputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This <code>read</code> method
      * cannot block.
      * {@property.close}
@@ -187,8 +187,8 @@ class ByteArrayInputStream extends InputStream {
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This <code>read</code> method cannot block.
      * {@property.close}
      *
@@ -286,16 +286,18 @@ class ByteArrayInputStream extends InputStream {
      * ByteArrayInputStream objects are marked at position zero by
      * default when constructed. They may be marked at another
      * position within the buffer by this method.
-     * <p>
      * {@description.close}
      * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
+     * <p>
      * If no mark has been set, then the value of the mark is the
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
      * {@property.close}
      *
+     * {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
      * <p> Note: The <code>readAheadLimit</code> for this class
      *  has no meaning.
+     * {@property.close}
      *
      * @since   JDK1.1
      */
@@ -325,8 +327,8 @@ class ByteArrayInputStream extends InputStream {
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
-     * {@property.close}
      * <p>
+     * {@property.close}
      */
     public void close() throws IOException {
     }

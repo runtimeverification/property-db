@@ -56,8 +56,8 @@ public abstract class OutputStream implements Closeable, Flushable {
      * low-order bits of the argument <code>b</code>. The 24
      * high-order bits of <code>b</code> are ignored.
      * {@description.close}
-     * <p>
      * {@property.open enforced}
+     * <p>
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
      * {@property.close}

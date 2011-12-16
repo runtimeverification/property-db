@@ -480,12 +480,12 @@ public class File
      * Returns the abstract pathname of this abstract pathname's parent,
      * or <code>null</code> if this pathname does not name a parent
      * directory.
-     * {@description.close}
      *
      * <p> The <em>parent</em> of an abstract pathname consists of the
      * pathname's prefix, if any, and each name in the pathname's name
      * sequence except for the last.  If the name sequence is empty then
      * the pathname does not name a parent directory.
+     * {@description.close}
      *
      * @return  The abstract pathname of the parent directory named by this
      *          abstract pathname, or <code>null</code> if this pathname
@@ -946,8 +946,8 @@ public class File
      * are a single operation that is atomic with respect to all other
      * filesystem activities that might affect the file.
      * {@description.close}
-     * <P>
      * {@property.open uncheckable}
+     * <P>
      * Note: this method should <i>not</i> be used for file-locking, as
      * the resulting protocol cannot be made to work reliably. The
      * {@link java.nio.channels.FileLock FileLock}
@@ -1445,10 +1445,10 @@ public class File
      *
      * <p> An invocation of this method of the form <tt>file.setWritable(arg)</tt>
      * behaves in exactly the same way as the invocation
-     * {@description.close}
      *
      * <pre>
      *     file.setWritable(arg, true) </pre>
+     * {@description.close}
      *
      * @param   writable
      *          If <code>true</code>, sets the access permission to allow write

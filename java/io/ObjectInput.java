@@ -113,8 +113,8 @@ public interface ObjectInput extends DataInput {
     /** {@collect.stats}
      * {@description.open}
      * Returns the number of bytes that can be read
-     * {@description.close}
      * without blocking.
+     * {@description.close}
      * @return the number of available bytes.
      * @exception IOException If an I/O error has occurred.
      */

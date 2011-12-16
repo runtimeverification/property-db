@@ -312,10 +312,10 @@ public abstract class InputStream implements Closeable {
      * {@description.open}
      * Closes this input stream and releases any system resources associated
      * with the stream.
-     * {@description.close}
      *
      * <p> The <code>close</code> method of <code>InputStream</code> does
      * nothing.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

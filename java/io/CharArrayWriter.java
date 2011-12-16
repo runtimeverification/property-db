@@ -33,8 +33,8 @@ import java.util.Arrays;
  * The buffer automatically grows when data is written to the stream.  The data
  * can be retrieved using toCharArray() and toString().
  * {@description.close}
- * <P>
  * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+ * <P>
  * Note: Invoking close() on this class has no effect, and methods
  * of this class can be called after the stream has closed
  * without generating an IOException.
