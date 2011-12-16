@@ -12,7 +12,7 @@ import java.lang.*;
  *
  * @severity error
  */
-ShutdownHook_SystemExit() {
+ShutdownHook_LateRegister() {
 	HashSet<Thread> set = new HashSet<Thread>();
 
 	creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) { set.add(t); }
