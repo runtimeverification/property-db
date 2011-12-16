@@ -4,21 +4,23 @@ import java.io.*;
 import java.lang.*;
 
 /**
- * Warns if a comparable object is compared to null.
+ * Warns if one tries to use equals or hashCode method of a CharSequence instance.  
  * 
- * According to the manual, null is not an instance of any class; it cannot be compared to any object. 
- * http://docs.oracle.com/javase/6/docs/api/java/lang/Comparable.html#compareTo%28T%29
+ * According to the manual, this inferface does not refine the general contracts of the
+ * equals and hashCode methods.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/CharSequence.html
+ * User should check whether the instance of CharSequence that he/she tries to use supports
+ * those methods.
  * 
- * @severity error
+ * @severity warning
  */
 
-Comparable_CompareToNull() {
-	event nullcompare before(Object o) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {}
-
-	ere : nullcompare
-
-	@match {
-		System.err.println("null cannot be compared to any object");
-		__RESET;
+CharSequence_UndefinedHashCode() {
+	event equals before() : call(* CharSequence+.equals(..)) {
+		System.err.println("equals and hashCode methods might not be supported in CharSequence"); 
+	}
+	
+	event hashCode before() : call(* CharSequence+.hashCode(..)) {
+		System.err.println("equals and hashCode methods might not be supported in CharSequence"); 
 	}
 }

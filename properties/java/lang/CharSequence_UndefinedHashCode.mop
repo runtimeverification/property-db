@@ -1,0 +1,24 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Warns if a comparable object is compared to null.
+ * 
+ * According to the manual, null is not an instance of any class; it cannot be compared to any object. 
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Comparable.html#compareTo%28T%29
+ * 
+ * @severity error
+ */
+
+Comparable_CompareToNull() {
+	event nullcompare before(Object o) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {}
+
+	ere : nullcompare
+
+	@match {
+		System.err.println("null cannot be compared to any object");
+		__RESET;
+	}
+}
