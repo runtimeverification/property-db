@@ -13,16 +13,16 @@ import java.lang.*;
  * @severity error
  */
 ShutdownHook_LateRegister() {
-	HashSet<Thread> set = new HashSet<Thread>();
+    HashSet<Thread> set = new HashSet<Thread>();
 
-	creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) { set.add(t); }
-	creation event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) { set.remove(t); }
-	event start before(Thread t) : startThread() && thread(t) && condition(set.contains(t)) {}
+    creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) { set.add(t); }
+    creation event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) { set.remove(t); }
+    event start before(Thread t) : startThread() && thread(t) && condition(set.contains(t)) {}
 
     ere : (register | unregister)* start+ (register | unregister)
 	
-	@match {
-		System.err.println("");
-	}
+    @match {
+        System.err.println("");
+    }
 }
 
