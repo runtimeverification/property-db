@@ -253,7 +253,7 @@ public abstract class ClassLoader {
     // -- Class --
 
     /** {@collect.stats}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * Loads the class with the specified <a href="#name">binary name</a>.
      * {@property.close}
      * {@description.open}
@@ -277,7 +277,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * Loads the class with the specified <a href="#name">binary name</a>.
      * {@property.close} 
      * {@description.open}
@@ -367,7 +367,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * Finds the class with the specified <a href="#name">binary name</a>.
      * {@property.close}
      * {@description.open}
@@ -595,13 +595,13 @@ public abstract class ClassLoader {
      * <tt>SecurityException</tt> will be thrown.  Note that if
      * <tt>name</tt> is <tt>null</tt>, this check is not performed.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * You should always pass in the <a href="#name">binary name</a> of the
      * class you are defining as well as the bytes.  This ensures that the
      * class you are defining is indeed the class you think it is.
      * {@property.close}
      *
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.ClassLoader_UnsafeClassDefinition}
      * <p> The specified <tt>name</tt> cannot begin with "<tt>java.</tt>", since
      * all classes in the "<tt>java.*</tt> packages can only be defined by the
      * bootstrap class loader.  If <tt>name</tt> is not <tt>null</tt>, it
@@ -894,7 +894,7 @@ public abstract class ClassLoader {
     private native void resolveClass0(Class c);
 
     /** {@collect.stats}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * Finds a class with the specified <a href="#name">binary name</a>,
      * loading it if necessary.
      * {@property.close}
@@ -943,7 +943,7 @@ public abstract class ClassLoader {
         throws ClassNotFoundException;
 
     /** {@collect.stats}
-     * {@property.open runtime}
+     * {@property.open unknown}
      * Returns the class with the given <a href="#name">binary name</a> if this
      * loader has been recorded by the Java virtual machine as an initiating
      * loader of a class with that <a href="#name">binary name</a>.  
@@ -1440,7 +1440,7 @@ public abstract class ClassLoader {
      * Defines a package by name in this <tt>ClassLoader</tt>.  This allows
      * class loaders to define the packages for their classes. 
      * {@description.close}
-     * {@property.open}
+     * {@property.open unknown}
      * Packages must
      * be created before the class is defined, and package names must be
      * unique within a class loader and cannot be redefined or changed once
