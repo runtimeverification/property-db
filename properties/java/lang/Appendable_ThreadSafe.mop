@@ -18,14 +18,14 @@ import java.lang.*;
 Appendable_ThreadSafe(Appendable a) {
     Thread owner = null;
 
-    event safe_append after(Appendable a) : 
-        call(* Appendable+.append(..)) && target(a) && thread(t) 
+    event safe_append before(Appendable a) : 
+        call(* Appendable+.append(..)) && target(a) && thread(t) && !target(StringBuffer)
         && condition(this.owner == null || this.owner == t) {
             this.owner = t;
         }
     
-    event unsafe_append after(Appendable a) : 
-        call(* Appendable+.append(..)) && target(a) && thread(t) 
+    event unsafe_append before(Appendable a) : 
+        call(* Appendable+.append(..)) && target(a) && thread(t) && !target(StringBuffer)
         && condition(this.owner != null && this.owner != t) {}
 
 	ere: safe_append*

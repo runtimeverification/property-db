@@ -8,7 +8,7 @@ import java.lang.*;
  *
  * According to the manual, the argument cannot contain any whitespace.
  * Also, there is a format to follow. 
- * http://docs.oracle.com/javase/6/docs/api/java/lang/Byte.html
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Byte.html#decode%28java.lang.String%29
  *
  * @severity error
  */
@@ -27,8 +27,9 @@ Byte_BadDecodeArg() {
             }
             
             //formatcheck
+            String sub;
             if(nm.charAt(0) == '-'){
-                String sub = nm.substring(1);
+                sub = nm.substring(1);
             } else {
                 sub = nm;
             }

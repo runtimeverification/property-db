@@ -8,7 +8,8 @@ import java.lang.*;
  *
  * According to the manual, those methods don't validate input.
  * User should do this before using methods.  
- * http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#charCount%28int%29
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#toCodePoint%28char,%20char%29
  *
  * @severity warning
  */
