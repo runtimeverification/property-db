@@ -526,7 +526,7 @@ public final class Double extends Number implements Comparable<Double> {
      * Returns a {@code Double} instance representing the specified
      * {@code double} value.
      * {@description.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.Double_StaticFactory}
      * If a new {@code Double} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Double(double)}, as this method is likely to yield

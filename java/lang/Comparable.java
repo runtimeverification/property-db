@@ -51,7 +51,7 @@ import java.util.*;
  * throw a <tt>NullPointerException</tt> even though <tt>e.equals(null)</tt>
  * returns <tt>false</tt>.<p>
  * {@property.close}
- * {@property.open}
+ * {@property.open static}
  * It is strongly recommended (though not required) that natural orderings be
  * consistent with equals.  This is so because sorted sets (and sorted maps)
  * without explicit comparators behave "strangely" when they are used with
@@ -108,23 +108,23 @@ public interface Comparable<T> {
      * negative integer, zero, or a positive integer as this object is less
      * than, equal to, or greater than the specified object.
      * {@description.close}
-     * {@property.open}
+     * {@property.open static}
      * <p>The implementor must ensure <tt>sgn(x.compareTo(y)) ==
      * -sgn(y.compareTo(x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
      * implies that <tt>x.compareTo(y)</tt> must throw an exception iff
      * <tt>y.compareTo(x)</tt> throws an exception.)
      * {@property.close}
-     * {@property.open}
+     * {@property.open static}
      * <p>The implementor must also ensure that the relation is transitive:
      * <tt>(x.compareTo(y)&gt;0 &amp;&amp; y.compareTo(z)&gt;0)</tt> implies
      * <tt>x.compareTo(z)&gt;0</tt>.
      * {@property.close}
-     * {@property.open}
+     * {@property.open static}
      * <p>Finally, the implementor must ensure that <tt>x.compareTo(y)==0</tt>
      * implies that <tt>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</tt>, for
      * all <tt>z</tt>.
      * {@property.close}
-     * {@property.open}
+     * {@property.open static}
      * <p>It is strongly recommended, but <i>not</i> strictly required that
      * <tt>(x.compareTo(y)==0) == (x.equals(y))</tt>.  Generally speaking, any
      * class that implements the <tt>Comparable</tt> interface and violates
