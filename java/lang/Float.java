@@ -439,7 +439,7 @@ public final class Float extends Number implements Comparable<Float> {
      * Returns a {@code Float} instance representing the specified
      * {@code float} value.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime performance formal:java.lang.Float_StaticFactory}
      * If a new {@code Float} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Float(float)}, as this method is likely to yield

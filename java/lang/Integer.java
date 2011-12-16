@@ -617,7 +617,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns an {@code Integer} instance representing the specified
      * {@code int} value.
      * {@description.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.Integer_StaticFactory}
      * If a new {@code Integer} instance is not
      * required, this method should generally be used in preference to
      * the constructor {@link #Integer(int)}, as this method is likely
@@ -946,17 +946,23 @@ public final class Integer extends Number implements Comparable<Integer> {
      * are defined in <a href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#48282">&sect;3.10.1</a>
      * of the <a href="http://java.sun.com/docs/books/jls/html/">Java
      * Language Specification</a>.
-     *
+     * 
      * <p>The sequence of characters following an (optional) negative
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Integer.parseInt} method with the indicated radix (10, 16, or
-     * 8).  This sequence of characters must represent a positive
-     * value or a {@link NumberFormatException} will be thrown.  The
+     * 8).
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Integer_BadDecodeArg}
+     * This sequence of characters must represent a positive
+     * value or a {@link NumberFormatException} will be thrown.
+     * {@property.close}
+     * {@description.open}
+     * The
      * result is negated if first character of the specified {@code
      * String} is the minus sign. 
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Integer_BadDecodeArg}
      * No whitespace characters are
      * permitted in the {@code String}.
      * {@property.close}
