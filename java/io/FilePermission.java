@@ -398,8 +398,8 @@ public final class FilePermission extends Permission implements Serializable {
      * {@description.open}
      * Checks two FilePermission objects for equality. Checks that <i>obj</i> is
      * a FilePermission, and has the same pathname and actions as this object.
-     * {@description.close}
      * <P>
+     * {@description.close}
      * @param obj the object we are testing for equality with this object.
      * @return <code>true</code> if obj is a FilePermission, and has the same
      *          pathname and actions as this FilePermission object,

@@ -81,8 +81,8 @@ class LineNumberInputStream extends FilterInputStream {
      * is available, the end of the stream is detected, or an exception
      * is thrown.
      * {@property.close}
+     * {@description.open}
      * <p>
-     * {@description.close}
      * The <code>read</code> method of
      * <code>LineNumberInputStream</code> calls the <code>read</code>
      * method of the underlying input stream. It checks for carriage
@@ -128,8 +128,8 @@ class LineNumberInputStream extends FilterInputStream {
      * {@property.open blocking}
      * This method blocks until some input is available.
      * {@property.close}
-     * <p>
      * {@description.open}
+     * <p>
      * The <code>read</code> method of
      * <code>LineNumberInputStream</code> repeatedly calls the
      * <code>read</code> method of zero arguments to fill in the byte array.
@@ -247,8 +247,8 @@ class LineNumberInputStream extends FilterInputStream {
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
      * {@description.close}
-     * <p>
      * {@property.open}
+     * <p>
      * Note that if the underlying input stream is able to supply
      * <i>k</i> input characters without blocking, the
      * <code>LineNumberInputStream</code> can guarantee only to provide
@@ -277,8 +277,8 @@ class LineNumberInputStream extends FilterInputStream {
      * call to the <code>reset</code> method repositions this stream at
      * the last marked position so that subsequent reads re-read the same bytes.
      * {@property.close}
-     * <p>
      * {@description.open}
+     * <p>
      * The <code>mark</code> method of
      * <code>LineNumberInputStream</code> remembers the current line
      * number in a private variable, and then calls the <code>mark</code>

@@ -33,8 +33,8 @@ package java.io;
  * counter keeps track of the next byte to
  * be supplied by the <code>read</code> method.
  * {@description.close}
- * <p>
  * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+ * <p>
  * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
@@ -157,8 +157,8 @@ class ByteArrayInputStream extends InputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This <code>read</code> method
      * cannot block.
      * {@property.close}
@@ -187,8 +187,8 @@ class ByteArrayInputStream extends InputStream {
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This <code>read</code> method cannot block.
      * {@property.close}
      *
@@ -293,9 +293,11 @@ class ByteArrayInputStream extends InputStream {
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
      * {@property.close}
-     *
+     * 
+     * {@description.open}
      * <p> Note: The <code>readAheadLimit</code> for this class
      *  has no meaning.
+     * {@description.close}
      *
      * @since   JDK1.1
      */
@@ -325,8 +327,8 @@ class ByteArrayInputStream extends InputStream {
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
-     * {@property.close}
      * <p>
+     * {@property.close}
      */
     public void close() throws IOException {
     }

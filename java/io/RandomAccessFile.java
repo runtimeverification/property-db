@@ -321,7 +321,7 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * This
      * method blocks if no input is yet available.
      * {@property.close}
-     * {@description.close}
+     * {@description.open}
      * <p>
      * Although <code>RandomAccessFile</code> is not a subclass of
      * <code>InputStream</code>, this method behaves in exactly the same

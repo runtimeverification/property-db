@@ -204,8 +204,8 @@ interface DataInput {
      * read is equal
      * to the length of <code>b</code>.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This method blocks until one of the
      * following conditions occurs:<p>
      * <ul>
@@ -222,8 +222,8 @@ interface DataInput {
      * than <code>EOFException</code> is thrown.
      * </ul>
      * {@property.close}
-     * <p>
      * {@property.open}
+     * <p>
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
      * If <code>b.length</code> is zero, then
@@ -253,8 +253,8 @@ interface DataInput {
      * bytes from
      * an input stream.
      * {@description.close}
-     * <p>
      * {@property.open blocking}
+     * <p>
      * This method
      * blocks until one of the following conditions
      * occurs:<p>
@@ -272,8 +272,8 @@ interface DataInput {
      * than <code>EOFException</code> is thrown.
      * </ul>
      * {@property.close}
-     * <p>
      * {@property.open}
+     * <p>
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
      * If <code>off</code> is negative, or <code>len</code>
@@ -565,8 +565,8 @@ interface DataInput {
      * it does not support input of the full Unicode
      * character set.
      * {@property.close}
-     * <p>
      * {@property.open}
+     * <p>
      * If end of file is encountered
      * before even one byte can be read, then <code>null</code>
      * is returned. Otherwise, each byte that is

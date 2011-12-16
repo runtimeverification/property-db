@@ -32,9 +32,9 @@ package java.io;
  * way. An application uses a data output stream to write data that
  * can later be read by a data input stream.
  * {@description.close}
- * <p>
  * {@property.open}
- * DataInputStream is not necessarily safe for multithreaded access.
+ * <p>
+s * DataInputStream is not necessarily safe for multithreaded access.
  * Thread safety is optional and is the responsibility of users of
  * methods in this class.
  * {@property.close}
