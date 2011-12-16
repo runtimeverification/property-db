@@ -76,11 +76,11 @@ class FilterInputStream extends InputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * This method
@@ -101,10 +101,10 @@ class FilterInputStream extends InputStream {
      * Reads up to <code>byte.length</code> bytes of data from this
      * input stream into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until some
      * input is available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * This method simply performs the call
@@ -132,11 +132,11 @@ class FilterInputStream extends InputStream {
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * This method simply performs <code>in.read(b, off, len)</code>

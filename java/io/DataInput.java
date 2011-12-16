@@ -204,7 +204,7 @@ interface DataInput {
      * read is equal
      * to the length of <code>b</code>.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This method blocks until one of the
      * following conditions occurs:<p>
@@ -221,7 +221,7 @@ interface DataInput {
      * which case an <code>IOException</code> other
      * than <code>EOFException</code> is thrown.
      * </ul>
-     * {@property.close}
+     * {@description.close}
      * {@property.open}
      * <p>
      * If <code>b</code> is <code>null</code>,
@@ -253,7 +253,7 @@ interface DataInput {
      * bytes from
      * an input stream.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This method
      * blocks until one of the following conditions
@@ -271,7 +271,7 @@ interface DataInput {
      * which case an <code>IOException</code> other
      * than <code>EOFException</code> is thrown.
      * </ul>
-     * {@property.close}
+     * {@description.close}
      * {@property.open}
      * <p>
      * If <code>b</code> is <code>null</code>,

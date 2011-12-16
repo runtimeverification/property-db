@@ -303,10 +303,10 @@ public class PushbackReader extends FilterReader {
      * {@description.open}
      * Skips characters.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until some characters are
      * available, an I/O error occurs, or the end of the stream is reached.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  n  The number of characters to skip
      *

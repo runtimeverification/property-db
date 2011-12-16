@@ -139,10 +139,10 @@ public class PipedWriter extends Writer {
      * Writes <code>len</code> characters from the specified character array
      * starting at offset <code>off</code> to this piped output stream.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until all the characters are written to the output
      * stream.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * If a thread was reading data characters from the connected piped input
      * stream, but the thread is no longer alive, then an

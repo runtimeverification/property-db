@@ -134,11 +134,11 @@ class PushbackInputStream extends FilterInputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p> This method returns the most recently pushed-back byte, if there is
@@ -168,11 +168,11 @@ class PushbackInputStream extends FilterInputStream {
      * that, if fewer than <code>len</code> bytes have been read then it
      * reads from the underlying input stream.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>

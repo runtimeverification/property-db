@@ -34,7 +34,7 @@ package java.io;
  * {@description.close}
  * {@property.open}
  * <p>
-s * DataInputStream is not necessarily safe for multithreaded access.
+ * DataInputStream is not necessarily safe for multithreaded access.
  * Thread safety is optional and is the responsibility of users of
  * methods in this class.
  * {@property.close}
@@ -119,10 +119,10 @@ class DataInputStream extends FilterInputStream implements DataInput {
      * integer.
      * {@description.close}
      *
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p> If <code>len</code> is zero, then no bytes are read and

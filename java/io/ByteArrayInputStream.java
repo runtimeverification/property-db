@@ -157,11 +157,11 @@ class ByteArrayInputStream extends InputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This <code>read</code> method
      * cannot block.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  the next byte of data, or <code>-1</code> if the end of the
      *          stream has been reached.
@@ -187,10 +187,10 @@ class ByteArrayInputStream extends InputStream {
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This <code>read</code> method cannot block.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   b     the buffer into which the data is read.
      * @param   off   the start offset in the destination array <code>b</code>
@@ -286,18 +286,18 @@ class ByteArrayInputStream extends InputStream {
      * ByteArrayInputStream objects are marked at position zero by
      * default when constructed. They may be marked at another
      * position within the buffer by this method.
-     * <p>
      * {@description.close}
      * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
+     * <p>
      * If no mark has been set, then the value of the mark is the
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
      * {@property.close}
-     * 
-     * {@description.open}
+     *
+     * {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
      * <p> Note: The <code>readAheadLimit</code> for this class
      *  has no meaning.
-     * {@description.close}
+     * {@property.close}
      *
      * @since   JDK1.1
      */

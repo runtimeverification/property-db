@@ -218,10 +218,10 @@ public class PipedInputStream extends InputStream {
      * {@description.open}
      * Receives a byte of data.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block if no input is
      * available.
-     * {@property.close}
+     * {@description.close}
      * @param b the byte being received
      * @exception IOException If the pipe is <a href=#BROKEN> <code>broken</code></a>,
      *          {@link #connect(java.io.PipedOutputStream) unconnected},
@@ -247,10 +247,10 @@ public class PipedInputStream extends InputStream {
      * {@description.open}
      * Receives data into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will
      * block until some input is available.
-     * {@property.close}
+     * {@description.close}
      * @param b the buffer into which the data is received
      * @param off the start offset of the data
      * @param len the maximum number of bytes received
@@ -330,10 +330,10 @@ public class PipedInputStream extends InputStream {
      * value byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -389,12 +389,12 @@ public class PipedInputStream extends InputStream {
      * will be read if the end of the data stream is reached or if
      * <code>len</code> exceeds the pipe's buffer size.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * If <code>len </code> is zero, then no bytes are read and 0 is returned;
      * otherwise, the method blocks until at least 1 byte of input is
      * available, end of the stream has been detected, or an exception is
      * thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>
