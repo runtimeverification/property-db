@@ -295,7 +295,7 @@ public abstract class InputStream implements Closeable {
      * returns {@code 0}.
      * {@description.close}
      *
-     * {@property.open override}
+     * {@property.open static}
      * <p> This method should be overridden by subclasses.
      * {@property.close}
      *
