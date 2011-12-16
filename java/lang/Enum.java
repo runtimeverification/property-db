@@ -58,7 +58,7 @@ public abstract class Enum<E extends Enum<E>>
      * enum declaration.
      * {@description.close}
      *
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Enum_UserFriendlyName}
      * <b>Most programmers should use the {@link #toString} method in
      * preference to this one, as the toString method may return
      * a more user-friendly name.</b>
@@ -94,7 +94,7 @@ public abstract class Enum<E extends Enum<E>>
      * in its enum declaration, where the initial constant is assigned
      * an ordinal of zero).
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Enum_NoOrdinal}
      * Most programmers will have no use for this method.  It is
      * designed for use by sophisticated enum-based data structures, such
      * as {@link java.util.EnumSet} and {@link java.util.EnumMap}.
@@ -110,7 +110,7 @@ public abstract class Enum<E extends Enum<E>>
      * {@description.open}
      * Sole constructor.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open static}
      * Programmers cannot invoke this constructor.
      * It is for use by code emitted by the compiler in response to
      * enum type declarations.
@@ -132,11 +132,11 @@ public abstract class Enum<E extends Enum<E>>
      * Returns the name of this enum constant, as contained in the
      * declaration.
      * {@description.close}
-     * {@property.open}  
+     * {@property.open static}  
      * This method may be overridden, though it typically
      * isn't necessary or desirable.
      * {@property.close}
-     * {@property.open}
+     * {@property.open static}
      * An enum type should override this
      * method when a more "programmer-friendly" string form exists.
      * {@property.close}
@@ -231,7 +231,7 @@ public abstract class Enum<E extends Enum<E>>
      * specified name.  The name must match exactly an identifier used
      * to declare an enum constant in this type.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.lang.Enum_NoExtraWhiteSpace}
      * (Extraneous whitespace
      * characters are not permitted.)
      * {@property.close}

@@ -1,0 +1,20 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Suggests to use toString() instead of name() in Enum.
+ * 
+ * According to the manual, toString() is more recommended for its more user-friendly name. 
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html#name%28%29
+ * 
+ * @severity suggestion
+ */
+
+Enum_NoExtraWhiteSpace() {
+	event valueOf before(Class c, String name) : call(* Enum+.valueOf(Class, String)) && args(c, name) 
+		&& condition(c.enumConstantDirectory().get(name) == null && name.length() != name.trim().length()) {
+		System.err.println("Please use the exact name. No extraneous whitespace characters are permitted"); 
+	}
+}
