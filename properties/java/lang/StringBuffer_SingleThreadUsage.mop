@@ -14,6 +14,8 @@ import java.lang.*;
  *  used in preference to StringBuffer as it will be faster under most
  *  implementations.
  * </blockquote>
+ *
+ * @severity suggestion
  */
  
 StringBuffer_SingleThreadUsage(StringBuffer s) {

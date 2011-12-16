@@ -581,7 +581,7 @@ public final class Long extends Number implements Comparable<Long> {
      * Returns a {@code Long} instance representing the specified
      * {@code long} value.
      * {@description.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.Long_StaticFactory}
      * If a new {@code Long} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Long(long)}, as this method is likely to yield
@@ -635,7 +635,7 @@ public final class Long extends Number implements Comparable<Long> {
      * negated if first character of the specified {@code String} is
      * the minus sign.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Long_BadDecodeArg}
      * No whitespace characters are permitted in the
      * {@code String}.
      * {@property.close}

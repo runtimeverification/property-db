@@ -44,7 +44,7 @@ import java.util.Random;
  * the equivalent method in {@code StrictMath} for their
  * implementation.
  * {@description.close}
- * {@property.open performance}
+ * {@property.open static performance}
  * Code generators are encouraged to use
  * platform-specific native libraries or microprocessor instructions,
  * where available, to provide higher-performance implementations of
@@ -53,7 +53,7 @@ import java.util.Random;
  * {@code Math}.
  * {@property.close}
  *
- * {@property.open}
+ * {@description.open}
  * <p>The quality of implementation specifications concern two
  * properties, accuracy of the returned result and monotonicity of the
  * method.  Accuracy of the floating-point {@code Math} methods
@@ -84,7 +84,7 @@ import java.util.Random;
  * is the floating-point approximation.  Not all approximations that
  * have 1 ulp accuracy will automatically meet the monotonicity
  * requirements.
- * {@property.close}
+ * {@description.close}
  *
  * @author  unascribed
  * @author  Joseph D. Darcy
@@ -126,7 +126,7 @@ public final class Math {
      * same sign as the argument.</ul>
      *{@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -145,7 +145,7 @@ public final class Math {
      * result is NaN.</ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -166,7 +166,7 @@ public final class Math {
      * same sign as the argument.</ul>
      * {@description.close}
      * 
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -188,7 +188,7 @@ public final class Math {
      * same sign as the argument.</ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -208,7 +208,7 @@ public final class Math {
      * than 1, then the result is NaN.</ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -229,7 +229,7 @@ public final class Math {
      * same sign as the argument.</ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -287,7 +287,7 @@ public final class Math {
      * positive zero.</ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -312,7 +312,7 @@ public final class Math {
      * result is negative infinity.</ul>
      * {@description.close}
      * 
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -341,7 +341,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -404,7 +404,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * {@property.close}
      *
@@ -554,7 +554,7 @@ public final class Math {
      * {@code double} value closest to -3*<i>pi</i>/4.</ul>
      * {@description.close}
      * 
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 2 ulps of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -688,7 +688,7 @@ public final class Math {
      * value is equal to the value.)
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
@@ -779,7 +779,7 @@ public final class Math {
      * calls to this method and is used nowhere else.
      * {@description.close}
      *
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.Math_ContendedRandom}
      * <p>This method is properly synchronized to allow correct use by
      * more than one thread. However, if many threads need to generate
      * pseudorandom numbers at a great rate, it may reduce contention
@@ -1167,7 +1167,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
      * {@property.close}
      *
@@ -1199,7 +1199,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
      * {@property.close}
      *
@@ -1238,7 +1238,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
      * The result of {@code tanh} for any finite input must have
      * an absolute value less than or equal to 1.  Note that once the
@@ -1272,7 +1272,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact
      * result.  If one parameter is held constant, the results must be
      * semi-monotonic in the other parameter.
@@ -1311,7 +1311,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      * 
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.  The result of
      * {@code expm1} for any finite input must be greater than or
@@ -1357,7 +1357,7 @@ public final class Math {
      * </ul>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      * {@property.close}
