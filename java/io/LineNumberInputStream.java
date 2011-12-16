@@ -76,11 +76,11 @@ class LineNumberInputStream extends FilterInputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * The <code>read</code> method of
@@ -125,9 +125,9 @@ class LineNumberInputStream extends FilterInputStream {
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until some input is available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * The <code>read</code> method of

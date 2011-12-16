@@ -117,10 +117,10 @@ public abstract class Reader implements Readable, Closeable {
      * {@description.open}
      * Reads a single character.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until a character is
      * available, an I/O error occurs, or the end of the stream is reached.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p> Subclasses that intend to support efficient single-character input
@@ -145,10 +145,10 @@ public abstract class Reader implements Readable, Closeable {
      * {@description.open}
      * Reads characters into an array.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until some input
      * is available, an I/O error occurs, or the end of the stream is reached.
-     * {@property.close}
+     * {@description.close}
      *
      * @param       cbuf  Destination buffer
      *
@@ -166,11 +166,11 @@ public abstract class Reader implements Readable, Closeable {
      * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block
      * until some input is available, an I/O error occurs, or the end of the
      * stream is reached.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      cbuf  Destination buffer
      * @param      off   Offset at which to start storing characters
@@ -201,10 +201,10 @@ public abstract class Reader implements Readable, Closeable {
      * {@description.open}
      * Skips characters.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until some characters are
      * available, an I/O error occurs, or the end of the stream is reached.
-     * {@property.close}
+     * {@description.close}
      *
      * @param  n  The number of characters to skip
      *

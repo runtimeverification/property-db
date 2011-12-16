@@ -56,10 +56,10 @@ public interface ObjectOutput extends DataOutput {
      * {@description.open}
      * Writes a byte.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until the byte is actually
      * written.
-     * {@property.close}
+     * {@description.close}
      * @param b the byte
      * @exception IOException If an I/O error has occurred.
      */
@@ -69,10 +69,10 @@ public interface ObjectOutput extends DataOutput {
      * {@description.open}
      * Writes an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until the bytes
      * are actually written.
-     * {@property.close}
+     * {@description.close}
      * @param b the data to be written
      * @exception IOException If an I/O error has occurred.
      */

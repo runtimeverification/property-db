@@ -60,11 +60,11 @@ public abstract class InputStream implements Closeable {
      * <code>255</code>. If no byte is available because the end of the stream
      * has been reached, the value <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method
      * blocks until input data is available, the end of the stream is detected,
      * or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * {@property.open enforced}
      * <p> A subclass must provide an implementation of this method.
@@ -82,10 +82,10 @@ public abstract class InputStream implements Closeable {
      * the buffer array <code>b</code>. The number of bytes actually read is
      * returned as an integer.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data is
      * available, end of file is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p> If the length of <code>b</code> is zero, then no bytes are read and
@@ -132,7 +132,7 @@ public abstract class InputStream implements Closeable {
      * The number of bytes actually read is returned as an integer.
      * {@description.close}
      *
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
      *
@@ -141,7 +141,7 @@ public abstract class InputStream implements Closeable {
      * least one byte. If no byte is available because the stream is at end of
      * file, the value <code>-1</code> is returned; otherwise, at least one
      * byte is read and stored into <code>b</code>.
-     * {@property.close}
+     * {@description.close}
      *
      * {@property.open internal}
      * <p> The first byte read is stored into element <code>b[off]</code>, the
@@ -270,10 +270,10 @@ public abstract class InputStream implements Closeable {
      * invocation of a method for this input stream. The next invocation
      * might be the same thread or another thread.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * A single read or skip of this
      * many bytes will not block, but may read or skip fewer bytes.
-     * {@property.close}
+     * {@description.close}
      *
      * {@property.open uncheckable}
      * <p> Note that while some implementations of {@code InputStream} will return

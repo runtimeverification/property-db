@@ -194,10 +194,10 @@ class FileInputStream extends InputStream
      * {@description.open}
      * Reads a byte of data from this input stream.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks
      * if no input is yet available.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             file is reached.
@@ -221,10 +221,10 @@ class FileInputStream extends InputStream
      * Reads up to <code>b.length</code> bytes of data from this input
      * stream into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until some input
      * is available.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @return     the total number of bytes read into the buffer, or
@@ -241,11 +241,11 @@ class FileInputStream extends InputStream
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>
@@ -290,11 +290,11 @@ class FileInputStream extends InputStream
     public native long skip(long n) throws IOException;
 
     /** {@collect.stats}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * Returns an estimate of the number of remaining bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * The next invocation might be
      * the same thread or another thread.  A single read or skip of this

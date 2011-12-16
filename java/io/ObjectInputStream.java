@@ -335,10 +335,10 @@ public class ObjectInputStream
      * Creates an ObjectInputStream that reads from the specified InputStream.
      * A serialization stream header is read from the stream and verified.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This constructor will block until the corresponding ObjectOutputStream
      * has written and flushed the header.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p>If a security manager is installed, this constructor will check for
@@ -930,9 +930,9 @@ public class ObjectInputStream
      * {@description.open}
      * Reads a byte of data.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block if no input is available.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  the byte read, or -1 if the end of the stream is reached.
      * @throws  IOException If an I/O error has occurred.
@@ -945,10 +945,10 @@ public class ObjectInputStream
      * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until some input
      * is available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * Consider using java.io.DataInputStream.readFully to read
      * exactly 'length' bytes.
@@ -1143,9 +1143,9 @@ public class ObjectInputStream
      * {@description.open}
      * Reads bytes,
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * blocking until all bytes are read.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   buf the buffer into which the data is read
      * @throws  EOFException If end of file is reached.
@@ -1159,9 +1159,9 @@ public class ObjectInputStream
      * {@description.open}
      * Reads bytes,
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * blocking until all bytes are read.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   buf the buffer into which the data is read
      * @param   off the start offset of the data

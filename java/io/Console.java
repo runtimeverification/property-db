@@ -53,7 +53,7 @@ import sun.nio.cs.StreamEncoder;
  * {@link java.lang.System#console()} method.  If no console device is
  * available then an invocation of that method will return <tt>null</tt>.
  * {@property.close}
- * {@property.open blocking}
+ * {@description.open blocking}
  * <p>
  * Read and write operations are synchronized to guarantee the atomic
  * completion of critical operations; therefore invoking methods
@@ -61,7 +61,7 @@ import sun.nio.cs.StreamEncoder;
  * {@link #printf printf()} as well as the read, format and write operations
  * on the objects returned by {@link #reader()} and {@link #writer()} may
  * block in multithreaded scenarios.
- * {@property.close}
+ * {@description.close}
  * {@property.open runtime formal:java.io.Console_CloseReader formal:java.io.Console_CloseWriter}
  * <p>
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}

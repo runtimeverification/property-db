@@ -186,10 +186,10 @@ public class PipedReader extends Reader {
      * {@description.open}
      * Receives a char of data.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block if no input is
      * available.
-     * {@property.close}
+     * {@description.close}
      */
     synchronized void receive(int c) throws IOException {
         if (!connected) {
@@ -227,10 +227,10 @@ public class PipedReader extends Reader {
      * {@description.open}
      * Receives data into an array of characters.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will
      * block until some input is available.
-     * {@property.close}
+     * {@description.close}
      */
     synchronized void receive(char c[], int off, int len)  throws IOException {
         while (--len >= 0) {
@@ -255,10 +255,10 @@ public class PipedReader extends Reader {
      * If no character is available because the end of the stream
      * has been reached, the value <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until input data is available, the end of
      * the stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next character of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -313,10 +313,10 @@ public class PipedReader extends Reader {
      * will be read if the end of the data stream is reached or if
      * <code>len</code> exceeds the pipe's buffer size.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method
      * blocks until at least one character of input is available.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      cbuf     the buffer into which the data is read.
      * @param      off   the start offset of the data.

@@ -157,11 +157,11 @@ class ByteArrayInputStream extends InputStream {
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This <code>read</code> method
      * cannot block.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  the next byte of data, or <code>-1</code> if the end of the
      *          stream has been reached.
@@ -187,10 +187,10 @@ class ByteArrayInputStream extends InputStream {
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This <code>read</code> method cannot block.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   b     the buffer into which the data is read.
      * @param   off   the start offset in the destination array <code>b</code>

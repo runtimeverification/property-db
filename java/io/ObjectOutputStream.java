@@ -768,10 +768,10 @@ public class ObjectOutputStream
      * {@description.open}
      * Writes a byte.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until the byte is actually
      * written.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   val the byte to be written to the stream
      * @throws  IOException If an I/O error has occurred.
@@ -784,10 +784,10 @@ public class ObjectOutputStream
      * {@description.open}
      * Writes an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block until the bytes are
      * actually written.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   buf the data to be written
      * @throws  IOException If an I/O error has occurred.

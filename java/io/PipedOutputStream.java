@@ -142,10 +142,10 @@ class PipedOutputStream extends OutputStream {
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this piped output stream.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until all the bytes are written to the output
      * stream.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.

@@ -317,10 +317,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * Reads a byte of data from this file. The byte is returned as an
      * integer in the range 0 to 255 (<code>0x00-0x0ff</code>).
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This
      * method blocks if no input is yet available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * Although <code>RandomAccessFile</code> is not a subclass of
@@ -352,10 +352,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * Reads up to <code>len</code> bytes of data from this file into an
      * array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until at least one byte of input
      * is available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * Although <code>RandomAccessFile</code> is not a subclass of
@@ -388,10 +388,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * Reads up to <code>b.length</code> bytes of data from this file
      * into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until at least one byte
      * of input is available.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * <p>
      * Although <code>RandomAccessFile</code> is not a subclass of
@@ -420,10 +420,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * repeatedly from the file until the requested number of bytes are
      * read.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the requested number of bytes are
      * read, the end of the stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @exception  EOFException  if this file reaches the end before reading
@@ -441,10 +441,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * repeatedly from the file until the requested number of bytes are
      * read.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the requested number of bytes are
      * read, the end of the stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset of the data.
@@ -676,10 +676,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * A value of <code>0</code> represents
      * <code>false</code>. Any other value represents <code>true</code>.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the <code>boolean</code> value read.
      * @exception  EOFException  if this file has reached the end.
@@ -704,10 +704,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next byte of this file as a signed eight-bit
      *             <code>byte</code>.
@@ -728,10 +728,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * and returns that byte.
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next byte of this file, interpreted as an unsigned
      *             eight-bit number.
@@ -758,10 +758,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next two bytes of this file, interpreted as a signed
      *             16-bit number.
@@ -790,10 +790,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next two bytes of this file, interpreted as an unsigned
      *             16-bit integer.
@@ -822,10 +822,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next two bytes of this file, interpreted as a
      *                  <code>char</code>.
@@ -854,10 +854,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the four bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next four bytes of this file, interpreted as an
      *             <code>int</code>.
@@ -896,10 +896,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * </pre></blockquote>
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the eight bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next eight bytes of this file, interpreted as a
      *             <code>long</code>.
@@ -921,10 +921,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * <code>Float</code>.
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the four bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next four bytes of this file, interpreted as a
      *             <code>float</code>.
@@ -948,10 +948,10 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * class <code>Double</code>.
      * <p>
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method blocks until the eight bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next eight bytes of this file, interpreted as a
      *             <code>double</code>.
@@ -982,11 +982,11 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * are not included as part of the string returned.
      * {@description.close}
      *
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p> This method blocks until a newline character is read, a carriage
      * return and the byte following it are read (to see if it is a newline),
      * the end of the file is reached, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     the next line of text from this file, or null if end
      *             of file is encountered before even one byte is read.
@@ -1038,11 +1038,11 @@ public class RandomAccessFile implements DataOutput, DataInput, Closeable {
      * interpreted as bytes encoding characters in the modified UTF-8 format
      * and are converted into characters.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * <p>
      * This method blocks until all the bytes are read, the end of the
      * stream is detected, or an exception is thrown.
-     * {@property.close}
+     * {@description.close}
      *
      * @return     a Unicode string.
      * @exception  EOFException            if this file reaches the end before

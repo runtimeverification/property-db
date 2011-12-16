@@ -58,10 +58,10 @@ public interface ObjectInput extends DataInput {
      * {@description.open}
      * Reads a byte of data.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will block if no input is
      * available.
-     * {@property.close}
+     * {@description.close}
      * @return  the byte read, or -1 if the end of the
      *          stream is reached.
      * @exception IOException If an I/O error has occurred.
@@ -72,10 +72,10 @@ public interface ObjectInput extends DataInput {
      * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will
      * block until some input is available.
-     * {@property.close}
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @return  the actual number of bytes read, -1 is
      *          returned when the end of the stream is reached.
@@ -87,10 +87,10 @@ public interface ObjectInput extends DataInput {
      * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method will
      * block until some input is available.
-     * {@property.close}
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @param off the start offset of the data
      * @param len the maximum number of bytes read
