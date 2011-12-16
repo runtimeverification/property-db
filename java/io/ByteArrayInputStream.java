@@ -81,8 +81,8 @@ class ByteArrayInputStream extends InputStream {
      * The current buffer position is set to this point by the
      * <code>reset()</code> method.
      * {@property.close}
-     * <p>
      * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
+     * <p>
      * If no mark has been set, then the value of mark is the offset
      * passed to the constructor (or 0 if the offset was not supplied).
      * {@property.close}
