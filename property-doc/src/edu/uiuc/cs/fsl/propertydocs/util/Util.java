@@ -9,7 +9,7 @@ public class Util{
     Calendar calendar = new GregorianCalendar();
     String timezone = TimeZone.getDefault().getDisplayName();
     String day = (new String[] {"Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"}) 
-         [calendar.get(Calendar.DAY_OF_WEEK)];
+         [calendar.get(Calendar.DAY_OF_WEEK) - 1];
     String month = (new String[] {"Jan", "Feb", "March", 
                                   "April", "May", "Jun", 
                                   "Jul", "Aug", "Sept",
