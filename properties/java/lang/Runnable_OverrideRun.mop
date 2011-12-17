@@ -13,7 +13,6 @@ import java.lang.reflect.*;
  * @severity error
  */
 Runnable_OverrideRun() {
-
 	event staticinit after() : staticinitialization(Runnable+) {
 		Class klass = null;
 		for (StackTraceElement frame : (new Throwable()).getStackTrace()) {
