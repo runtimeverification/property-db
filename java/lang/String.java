@@ -681,7 +681,7 @@ public final class String
      * string builder are copied; subsequent modification of the string builder
      * does not affect the newly created string.
      * {@description.close}
-     * {@property.open runtime performance}
+     * {@property.open runtime performance formal:java.lang.String_UseStringBuilder}
      * <p> This constructor is provided to ease migration to {@code
      * StringBuilder}. Obtaining a string from a string builder via the {@code
      * toString} method is likely to run faster and is generally preferred.

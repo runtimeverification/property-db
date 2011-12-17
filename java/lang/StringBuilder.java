@@ -67,7 +67,7 @@ package java.lang;
  * buffer. If the internal buffer overflows, it is automatically made larger.
  * {@description.close}
  *
- * {@property.open runtime}
+ * {@property.open runtime formal:java.lang.StringBuilder_ThreadSafe}
  * <p>Instances of <code>StringBuilder</code> are not safe for
  * use by multiple threads. If such synchronization is required then it is
  * recommended that {@link java.lang.StringBuffer} be used.

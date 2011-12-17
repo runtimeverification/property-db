@@ -23,14 +23,14 @@ ProcessBuilder_ThreadSafe(ProcessBuilder p){
             this.owner = t;
         }
     
-    event unsafe_oper before(Appendable a) : 
+    event unsafe_oper before(ProcessBuilder p) : 
         call(* ProcessBuilder.*(..)) && target(p) && thread(t)
         && condition(this.owner != null && this.owner != t) {}
 
 	ere: safe_oper*
 
 	@fail {
-		System.err.println("More than two threads attempted to use an Appendable instance, which may lead to a race condition");
+		System.err.println("More than two threads attempted to use a ProcessBuilder instance, which may lead to a race condition");
 		__RESET;
 	}
 }

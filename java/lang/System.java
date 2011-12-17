@@ -423,7 +423,7 @@ public final class System {
      * <code>destPos</code> through <code>destPos+length-1</code> of the
      * destination array.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.System_NullArrayCopy}
      * <p>
      * If <code>dest</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown.

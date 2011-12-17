@@ -361,14 +361,21 @@ public final class Long extends Number implements Comparable<Long> {
     /** {@collect.stats}
      * {@description.open}
      * Parses the string argument as a signed {@code long} in the
-     * radix specified by the second argument. The characters in the
+     * radix specified by the second argument.
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
+     * The characters in the
      * string must all be digits of the specified radix (as determined
      * by whether {@link java.lang.Character#digit(char, int)} returns
      * a nonnegative value), except that the first character may be an
      * ASCII minus sign {@code '-'} (<code>'&#92;u002D'</code>) to
-     * indicate a negative value. The resulting {@code long} value is
+     * indicate a negative value.
+     * {@property.close}
+     * {@description.open}
+     * The resulting {@code long} value is
      * returned.
-     *
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
      * <p>Note that neither the character {@code L}
      * (<code>'&#92;u004C'</code>) nor {@code l}
      * (<code>'&#92;u006C'</code>) is permitted to appear at the end
@@ -396,7 +403,9 @@ public final class Long extends Number implements Comparable<Long> {
      * <li>The value represented by the string is not a value of type
      *      {@code long}.
      * </ul>
+     * {@property.close}
      *
+     * {@description.open}
      * <p>Examples:
      * <blockquote><pre>
      * parseLong("0", 10) returns 0L
@@ -479,19 +488,26 @@ public final class Long extends Number implements Comparable<Long> {
     /** {@collect.stats}
      * {@description.open}
      * Parses the string argument as a signed decimal {@code long}.
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
      * The characters in the string must all be decimal digits, except
      * that the first character may be an ASCII minus sign {@code '-'}
-     * (<code>&#92;u002D'</code>) to indicate a negative value.  The
+     * (<code>&#92;u002D'</code>) to indicate a negative value.
+     * {@property.close}
+     * {@description.open}
+     * The
      * resulting {@code long} value is returned, exactly as if the
      * argument and the radix {@code 10} were given as arguments to
      * the {@link #parseLong(java.lang.String, int)} method.
+     * {@description.close}
      *
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
      * <p>Note that neither the character {@code L}
      * (<code>'&#92;u004C'</code>) nor {@code l}
      * (<code>'&#92;u006C'</code>) is permitted to appear at the end
      * of the string as a type indicator, as would be permitted in
      * Java programming language source code.
-     * {@description.close}
+     * {@property.close}
      *
      * @param      s   a {@code String} containing the {@code long}
      *             representation to be parsed

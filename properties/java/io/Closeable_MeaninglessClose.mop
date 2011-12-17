@@ -23,19 +23,22 @@ import java.io.*;
  *
  * @severity suggestion
  */
-Closeable_MeaninglessClose(Closeable c) {
-	event close before(Closeable c) : call(* Closeable+.close()) &&
-		(
-			target(ByteArrayInputStream) ||
-			target(ByteArrayOutputStream) ||
-			target(CharArrayWriter) ||
-			target(StringWriter)
-		) && target(c) {}
-
-	ere : close+
-
-	@match {
+Closeable_MeaninglessClose() {
+	event close before() : call(* ByteArrayInputStream.close()) {
 		System.err.println("close() has no effect.");
 	}
+
+	event close before() : call(* ByteArrayOutputStream.close()) {
+		System.err.println("close() has no effect.");
+	}
+
+	event close before() : call(* CharArrayWriter.close()) {
+		System.err.println("close() has no effect.");
+	}
+
+	event close before() : call(* StringWriter.close()) {
+		System.err.println("close() has no effect.");
+	}
+
 }
 

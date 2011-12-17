@@ -12,14 +12,11 @@ import java.io.*;
  * @severity error
  */
 
-File_LengthOnDirectory(File f) {
+File_LengthOnDirectory() {
 	event bad_length before(File f) :
-		call(* File+.length()) && target(f) && condition(f.isDirectory()) {}
-
-	ere : bad_length
-
-	@match {
+		call(* File+.length()) && target(f) && condition(f.isDirectory()) {
 		System.err.println("length() was invoked on a File instance that represents a directory.");
 	}
+
 }
 

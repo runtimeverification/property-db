@@ -119,12 +119,18 @@ public final class Byte extends Number implements Comparable<Byte> {
     /** {@collect.stats}
      * {@description.open}
      * Parses the string argument as a signed {@code byte} in the
-     * radix specified by the second argument. The characters in the
+     * radix specified by the second argument. 
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
+     * The characters in the
      * string must all be digits, of the specified radix (as
      * determined by whether {@link java.lang.Character#digit(char,
      * int)} returns a nonnegative value) except that the first
      * character may be an ASCII minus sign {@code '-'}
-     * (<code>'&#92;u002D'</code>) to indicate a negative value.  The
+     * (<code>'&#92;u002D'</code>) to indicate a negative value.  
+     * {@property.close}
+     * {@description.open}
+     * The
      * resulting {@code byte} value is returned.
      * {@description.close}
      * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
@@ -169,10 +175,16 @@ public final class Byte extends Number implements Comparable<Byte> {
     /** {@collect.stats}
      * {@description.open}
      * Parses the string argument as a signed decimal {@code
-     * byte}. The characters in the string must all be decimal digits,
+     * byte}. 
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
+     * The characters in the string must all be decimal digits,
      * except that the first character may be an ASCII minus sign
      * {@code '-'} (<code>'&#92;u002D'</code>) to indicate a negative
-     * value. The resulting {@code byte} value is returned, exactly as
+     * value.
+     * {@property.close}
+     * {@description.open}
+     * The resulting {@code byte} value is returned, exactly as
      * if the argument and the radix 10 were given as arguments to the
      * {@link #parseByte(java.lang.String, int)} method.
      * {@description.close}
