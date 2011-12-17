@@ -138,12 +138,8 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * {@description.open}
      * Returns the version number of the specification
      * that this package implements.
-     * {@description.close}
-     * {@property.open runtime}
      * This version string must be a sequence of nonnegative decimal
      * integers separated by "."'s and may have leading zeros.
-     * {@property.close}
-     * {@description.open}
      * When version strings are compared the most significant
      * numbers are compared.
      * {@description.close}

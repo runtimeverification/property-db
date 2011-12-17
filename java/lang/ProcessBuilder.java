@@ -88,7 +88,7 @@ import java.util.Map;
  * is invoked.
  * {@description.close}
  * 
- * {@property.open runtime}
+ * {@property.open runtime formal:java.lang.ProcessBuilder_ThreadSafe}
  * <p><strong>Note that this class is not synchronized.</strong>
  * If multiple threads access a <code>ProcessBuilder</code> instance
  * concurrently, and at least one of the threads modifies one of the
