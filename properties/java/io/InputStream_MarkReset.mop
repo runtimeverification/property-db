@@ -18,27 +18,30 @@ import java.io.*;
  * @severity error
  */
 
-InputStream_MarkReset(InputStream i) {
-	event mark before(InputStream i) : 
-		call(* InputStream+.mark(..)) && target(i) && if (
-			i instanceof FileInputStream ||
-			i instanceof PushbackInputStream ||
-			i instanceof ObjectInputStream ||
-			i instanceof PipedInputStream ||
-			i instanceof SequenceInputStream
-		) {}
-	event reset before(InputStream i) : 
-		call(* InputStream+.reset(..)) && target(i) && if (
-			i instanceof FileInputStream ||
-			i instanceof PushbackInputStream ||
-			i instanceof ObjectInputStream ||
-			i instanceof PipedInputStream ||
-			i instanceof SequenceInputStream
-		) {}
+InputStream_MarkReset() {
+	event mark_or_reset1 before() : 
+		call(* FileInputStream.mark(..)) || call(* FileInputStream.reset(..)){
+			System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+		}
 
-	ere: mark | reset
+	event mark_or_reset2 before() : 
+		call(* PushbackInputStream.mark(..)) || call(* PushbackInputStream.reset(..)){
+			System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+		}
 
-	@match {
-		System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
-	}
+	event mark_or_reset3 before() : 
+		call(* ObjectInputStream.mark(..)) || call(* ObjectInputStream.reset(..)){
+			System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+		}
+
+	event mark_or_reset4 before() : 
+		call(* PipedInputStream.mark(..)) || call(* PipedInputStream.reset(..)){
+			System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+		}
+
+	event mark_or_reset5 before() : 
+		call(* SequenceInputStream.mark(..)) || call(* SequenceInputStream.reset(..)){
+			System.err.println("FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+		}
+
 }
