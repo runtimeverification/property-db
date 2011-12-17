@@ -583,7 +583,7 @@ class SecurityManager {
      * specified security context is denied access to the resource
      * specified by the given permission.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.SecurityManager_Permission}
      * The context must be a security
      * context returned by a previous call to
      * <code>getSecurityContext</code> and the access control
