@@ -345,12 +345,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * Returns an estimate of the number of active threads in this
      * thread group.  The result might not reflect concurrent activity,
      * and might be affected by the presence of certain system threads.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherently imprecise nature of the result, it is
      * recommended that this method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  an estimate of the number of active threads in this thread
      *          group and in any other thread group that has this thread
@@ -388,8 +386,6 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * An application might use the <code>activeCount</code> method to
      * get an estimate of how big the array should be, however <i>if the
@@ -398,12 +394,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * thread in this thread group and its subgroups, the caller should
      * verify that the returned int value is strictly less than the length
      * of <tt>list</tt>.
-     * {@property.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   list   an array into which to place the list of threads.
      * @return  the number of threads put into the array.
@@ -428,8 +422,6 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * An application might use the <code>activeCount</code> method to
      * get an estimate of how big the array should be, however <i>if the
@@ -437,12 +429,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * silently ignored.</i>  If it is critical to obtain every active thread
      * in this thread group, the caller should verify that the returned int
      * value is strictly less than the length of <tt>list</tt>.
-     * {@property.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   list      an array into which to place the list of threads.
      * @param   recurse   a flag indicating whether also to include threads
@@ -497,12 +487,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * {@description.open} 
      * Returns an estimate of the number of active groups in this
      * thread group.  The result might not reflect concurrent activity.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherently imprecise nature of the result, it is
      * recommended that this method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  the number of active thread groups with this thread group as
      *          an ancestor.
@@ -536,8 +524,6 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * An application might use the <code>activeGroupCount</code> method to
      * get an estimate of how big the array should be, however <i>if the
@@ -546,12 +532,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * active subgroup in this thread group, the caller should verify that
      * the returned int value is strictly less than the length of
      * <tt>list</tt>.
-     * {@property.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   list   an array into which to place the list of thread groups.
      * @return  the number of thread groups put into the array.
@@ -575,8 +559,6 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * <p>
      * First, the <code>checkAccess</code> method of this thread group is
      * called with no arguments; this may result in a security exception.
-     * {@description.close}
-     * {@property.open runtime}
      * <p>
      * An application might use the <code>activeGroupCount</code> method to
      * get an estimate of how big the array should be, however <i>if the
@@ -585,12 +567,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * active subgroup in this thread group, the caller should verify that
      * the returned int value is strictly less than the length of
      * <tt>list</tt>.
-     * {@property.close}
-     * {@property.open runtime}
      * <p>
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
-     * {@property.close}
+     * {@description.close}
      *
      * @param   list      an array into which to place the list of threads.
      * @param   recurse   a flag indicating whether to recursively enumerate

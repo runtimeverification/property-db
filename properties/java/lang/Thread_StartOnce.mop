@@ -1,0 +1,32 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+/**
+ * Warns if a thread is started more than once.
+ *
+ * According to the manual, it is never legal to start a thread more than once.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html#start%28%29
+ *
+ * @severity error
+ */
+
+Thread_StartOnce(Thread t){
+	event start before(Thread t) : 
+        call(* Thread+.start()) && target(t) {}
+
+    ere : start start+ 
+
+	@match{
+           System.out.println("Thread should not be started more than once.");
+	}
+}
+		
+
+
+
+
+
+

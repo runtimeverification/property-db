@@ -673,7 +673,7 @@ class Thread implements Runnable {
      * <code>start</code> method) and the other thread (which executes its
      * <code>run</code> method).
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Thread_StartOnce}
      * <p>
      * It is never legal to start a thread more than once.
      * In particular, a thread may not be restarted once it has completed
@@ -848,7 +848,7 @@ class Thread implements Runnable {
      * Again, this may result in throwing a
      * <code>SecurityException</code> (in the current thread).
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open deprecated}
      * <p>
      * If the argument <code>obj</code> is null, a
      * <code>NullPointerException</code> is thrown (in the current thread).
@@ -859,7 +859,7 @@ class Thread implements Runnable {
      * whatever it is doing abnormally and to throw the
      * <code>Throwable</code> object <code>obj</code> as an exception.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open deprecated}
      * This
      * is an unusual action to take; normally, the <code>stop</code> method
      * that takes no arguments should be used.

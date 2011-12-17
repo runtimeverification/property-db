@@ -913,7 +913,7 @@ public final class System {
      * <p>If the system does not support environment variables, an
      * empty map is returned.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.System_WrongKeyOrValue}
      * <p>The returned map will never contain null keys or values.
      * Attempting to query the presence of a null key or value will
      * throw a {@link NullPointerException}.  Attempting to query
