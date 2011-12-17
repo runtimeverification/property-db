@@ -220,7 +220,7 @@ public class Object {
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_NoClone}
      * <p>
      * The class <tt>Object</tt> does not itself implement the interface
      * <tt>Cloneable</tt>, so calling the <tt>clone</tt> method on an object
@@ -281,7 +281,7 @@ public class Object {
      * the next thread to lock this object.
      * <p>
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * This method should only be called by a thread that is the owner
      * of this object's monitor.
      * {@property.close} 
@@ -319,7 +319,7 @@ public class Object {
      * the awakened threads enjoy no reliable privilege or disadvantage in
      * being the next thread to lock this object.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * <p>
      * This method should only be called by a thread that is the owner
      * of this object's monitor.
@@ -344,7 +344,7 @@ public class Object {
      * {@link java.lang.Object#notifyAll()} method for this object, or a
      * specified amount of time has elapsed.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * <p>
      * The current thread must own this object's monitor.
      * {@property.close}
@@ -409,7 +409,7 @@ public class Object {
      * other objects on which the current thread may be synchronized remain
      * locked while the thread waits.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * <p>
      * This method should only be called by a thread that is the owner
      * of this object's monitor.
@@ -455,7 +455,7 @@ public class Object {
      * method {@link #wait(long)} of one argument. In particular,
      * <tt>wait(0, 0)</tt> means the same thing as <tt>wait(0)</tt>.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * <p>
      * The current thread must own this object's monitor.
      * {@property.close}
@@ -485,7 +485,7 @@ public class Object {
      *     }
      * </pre>
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * This method should only be called by a thread that is the owner
      * of this object's monitor.
      * {@property.close}
@@ -535,7 +535,7 @@ public class Object {
      * performs the call <tt>wait(0)</tt>.
      * <p>
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * The current thread must own this object's monitor.
      * {@property.close}
      * {@description.open}
@@ -556,7 +556,7 @@ public class Object {
      *     }
      * </pre>
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Object_MonitorOwner}
      * This method should only be called by a thread that is the owner
      * of this object's monitor.
      * {@property.close}

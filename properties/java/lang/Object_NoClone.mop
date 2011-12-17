@@ -1,0 +1,23 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Warns if clone method is called on an Object instance.
+ *
+ * According to the manual, Object class itself does not implement Cloneable.
+ * Calling clone() will cause an exception on runtime.  
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#clone%28%29
+ *
+ * @severity error
+ */
+ 
+Object_NoClone() {
+    event clone before(): 
+        call(* Object.clone()) {
+            System.err.println("Using the clone method on an Object instance will result in throwing an exception.");
+        }
+    
+}
+
