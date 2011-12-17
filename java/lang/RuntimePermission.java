@@ -41,7 +41,7 @@ import java.util.StringTokenizer;
  * The target name is the name of the runtime permission (see below). The
  * naming convention follows the  hierarchical property naming convention.
  * {@description.close}
- * {@property.open runtime}
+ * {@property.open runtime formal:java.lang.RuntimePermission_PermName}
  * Also, an asterisk
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "loadLibrary.*" or "*" is valid,
@@ -55,7 +55,7 @@ import java.util.StringTokenizer;
  * <P>
  * {@description.close}
  * 
- * {@property.open runtime}
+ * {@description.open}
  * <table border=1 cellpadding=5 summary="permission target name,
  *  what the target allows,and associated risks">
  * <tr>
@@ -324,7 +324,7 @@ import java.util.StringTokenizer;
  *   directory or within a registry depending on the platform OS</td>
  * </tr>
  * </table>
- * {@property.close}
+ * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -347,7 +347,7 @@ public final class RuntimePermission extends BasicPermission {
      * The name is the symbolic name of the RuntimePermission, such as
      * "exit", "setFactory", etc. 
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.RuntimePermission_PermName}
      * An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
@@ -365,7 +365,7 @@ public final class RuntimePermission extends BasicPermission {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime} 
+     * {@property.open runtime formal:java.lang.RuntimePermission_NullAction} 
      * Creates a new RuntimePermission object with the specified name.
      * The name is the symbolic name of the RuntimePermission, and the
      * actions String is currently unused and should be null.
