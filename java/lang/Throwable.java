@@ -341,7 +341,7 @@ public class Throwable implements Serializable {
      * Initializes the <i>cause</i> of this throwable to the specified value.
      * (The cause is the throwable that caused this throwable to get thrown.)
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Throwable_InitCauseOnce}
      * <p>This method can be called at most once.
      * {@property.close}
      * {@description.open}
@@ -349,7 +349,7 @@ public class Throwable implements Serializable {
      * within the constructor, or immediately after creating the
      * throwable.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Throwable_InitCauseOnce}
      * If this throwable was created
      * with {@link #Throwable(Throwable)} or
      * {@link #Throwable(String,Throwable)}, this method cannot be called

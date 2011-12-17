@@ -1,0 +1,35 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+/**
+ * Warns if setDaemon is called after starting the thread.
+ *
+ * According to the manual, it should be called before starting
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html#setDaemon%28boolean%29
+ *
+ * @severity error
+ */
+
+Thread_SetDaemonBeforeStart(Thread t){
+	event start before(Thread t) : 
+        startThread() && thread(t) {}
+
+	event setDaemon before(Thread t) : 
+        call(* Thread+.setDaemon(..)) && target(t) {}
+
+    ere : setDaemon* start 
+
+	@match{
+           System.out.println("Thread should not be started more than once.");
+	}
+}
+		
+
+
+
+
+
+

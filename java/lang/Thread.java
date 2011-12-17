@@ -1381,7 +1381,7 @@ class Thread implements Runnable {
      * Java Virtual Machine exits when the only threads running are all
      * daemon threads.
      * {@description.close}
-     * {@property.open runtime}
+     * {@property.open runtime formal:java.lang.Thread_SetDaemonBeforeStart}
      * <p>
      * This method must be called before the thread is started.
      * {@property.close}
