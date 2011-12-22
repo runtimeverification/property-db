@@ -15,23 +15,45 @@ import java.io.*;
  * @severity error
  */
 
-Reader_MarkReset(Reader r) {
+Reader_MarkReset() {
 	event mark before(Reader+ r) : 
-		call(* Reader+.mark(..)) && target(r) 
-		&& if(r instanceof PushbackReader 
-		   || r instanceof InputStreamReader
-		   || r instanceof FileReader
-		   || r instanceof PipedReader) {}
+		call(* PushbackReader.mark(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
+	event mark before(Reader+ r) : 
+		call(* InputStreamReader.mark(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
+	event mark before(Reader+ r) : 
+		call(* FileReader.mark(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
+	event mark before(Reader+ r) : 
+		call(* PipedReader.mark(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
 	event reset before(Reader+ r) : 
-		call(* Reader+.reset(..)) && target(r)
-		&& if(r instanceof PushbackReader 
-		   || r instanceof InputStreamReader
-		   || r instanceof FileReader
-		   || r instanceof PipedReader) {}
+		call(* PushbackReader.reset(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
 
-	ere: mark | reset
+	event reset before(Reader+ r) : 
+		call(* InputStreamReader.reset(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
 
-	@match {
-		System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-	}
+	event reset before(Reader+ r) : 
+		call(* FileReader.reset(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
+	event reset before(Reader+ r) : 
+		call(* PipedReader.reset(..)) && target(r) {
+			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+		}
+
 }
