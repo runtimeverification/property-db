@@ -16,12 +16,12 @@ Integer_BadDecodeArg() {
 
     event decode before(Integer i, String nm) : 
         call(* Integer.decode(String)) && args(nm) {
-        if(s == null || s.length() == 0){
+        if(nm == null || nm.length() == 0){
             System.err.println("Wrong argument to Integer.decode(String nm)");
         } else {
             //whitespace check
             for(int j = 0; j < nm.length(); j++){
-                if(Character.isWhiteSpace(nm.charAt(j))){
+                if(Character.isWhitespace(nm.charAt(j))){
                     System.err.println("Wrong argument to Integer.decode(String nm)");
                 }
             }
