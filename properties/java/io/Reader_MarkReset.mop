@@ -17,43 +17,14 @@ import java.io.*;
 
 Reader_MarkReset() {
 	event mark before(Reader+ r) : 
-		call(* PushbackReader.mark(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
-	event mark before(Reader+ r) : 
-		call(* InputStreamReader.mark(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
-	event mark before(Reader+ r) : 
-		call(* FileReader.mark(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
-	event mark before(Reader+ r) : 
-		call(* PipedReader.mark(..)) && target(r) {
+		call(* Reader+.mark(..)) && target(r) 
+		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
 			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
 
 	event reset before(Reader+ r) : 
-		call(* PushbackReader.reset(..)) && target(r) {
+		call(* Reader+.reset(..)) && target(r)
+		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
 			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
-
-	event reset before(Reader+ r) : 
-		call(* InputStreamReader.reset(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
-	event reset before(Reader+ r) : 
-		call(* FileReader.reset(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
-	event reset before(Reader+ r) : 
-		call(* PipedReader.reset(..)) && target(r) {
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
-		}
-
 }
