@@ -14,13 +14,12 @@ import java.lang.*;
 
 Comparable_CompareToNullException() {
 
-	event badexception after(Object o) throwing(Exception e) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) && condition(!(e instanceof NullPointerException)) {}
-	event badcompare after(Object o) returning(int i) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {}
-
-	ere : badcompare | badexception
-
-	@match {
-		System.err.println("NullPointerException should be thrown when an object is compared to null");
-		__RESET;
-	}
+	event badexception after(Object o) throwing(Exception e) : call(* Comparable+.compareTo(..)) 
+		&& args(o) && if(o == null) && condition(!(e instanceof NullPointerException)) {
+			System.err.println("NullPointerException should be thrown when an object is compared to null");
+		}
+	event badcompare after(Object o) returning(int i) : call(* Comparable+.compareTo(..)) 
+		&& args(o) && if(o == null) {
+			System.err.println("NullPointerException should be thrown when an object is compared to null");
+		}
 }

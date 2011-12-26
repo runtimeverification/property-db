@@ -13,12 +13,7 @@ import java.lang.*;
  */
 
 Comparable_CompareToNull() {
-	event nullcompare before(Object o) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {}
-
-	ere : nullcompare
-
-	@match {
+	event nullcompare before(Object o) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {
 		System.err.println("null cannot be compared to any object");
-		__RESET;
 	}
 }
