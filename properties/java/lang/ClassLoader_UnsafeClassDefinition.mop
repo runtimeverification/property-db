@@ -16,13 +16,8 @@ import java.lang.*;
 ClassLoader_UnsafeClassDefinition() {
 	event defineClass before(String name) :
 		call(* ClassLoader+.defineClass(String, ..)) && args(name, ..) && condition(name.startsWith("java.")){
+			System.err.println("An invalid binary name is used at line " + __LOC);
 		}
-
-	ere: defineClass
-	@match{
-		System.err.println("An invalid binary name is used at line " + __LOC);
-		__RESET;
-	}
 }
 
 
