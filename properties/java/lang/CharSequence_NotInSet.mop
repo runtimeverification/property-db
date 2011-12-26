@@ -17,13 +17,13 @@ import java.lang.*;
  */
 
 CharSequence_NotInSet() {
-	event set_add before() : call(* Set+.add(..)) && args(CharSequence) {
+	event set_add before() : call(* Set+.add(..)) && args(CharSequence) && !args(String) && !args(CharBuffer){
 		System.err.println("It might not be safe to add a CharSequence instance into a set"); 
 	}
 
 	event set_addall before(Collection c) : call(* Set+.addAll(Collection)) && args(c) {
 		for(Object o : c){
-			if(o instanceof CharSequence)
+			if(o instanceof CharSequence && !(o instanceof String) && !(o instanceof CharBuffer))
 				System.err.println("It might not be safe to add a CharSequence instance into a set");
 		} 
 	}
