@@ -4,12 +4,13 @@ import java.io.*;
 import java.lang.*;
 
 /**
- * Suggests to use toString() instead of name() in Enum.
+ * Warns if the name argument to valueOf() method of Enum contains any whitespace.
  * 
- * According to the manual, toString() is more recommended for its more user-friendly name. 
- * http://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html#name%28%29
+ * According to the manual, extraneous whitespace characters are not permitted in the name
+ * for an enum constant.  
+ * http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Enum.html#valueOf%28java.lang.Class,%20java.lang.String%29
  * 
- * @severity suggestion
+ * @severity error
  */
 
 Enum_NoExtraWhiteSpace() {
