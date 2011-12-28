@@ -24,7 +24,7 @@ Object_MonitorOwner() {
         
     event bad_wait before(Object o): 
         call(* Object+.wait*(..)) && target(o) if(!Thread.holdsLock(o)) {
-            System.err.println("notify() and notifyAll() can be called only by the owner of this object's monitor.");
+            System.err.println("wait() can be called only by the owner of this object's monitor.");
         }
         
     

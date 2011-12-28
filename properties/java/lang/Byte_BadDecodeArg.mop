@@ -15,7 +15,7 @@ import java.lang.*;
 Byte_BadDecodeArg() {
 
 	event decode before(Byte b, String nm) : 
-		call(* Byte.decode(String)) && target(b) && args(nm) && target(b) {
+		call(* Byte.decode(String)) && target(b) && args(nm) {
 		if (nm == null || nm.length() == 0) {
 			System.err.println("Wrong argument to Byte.decode(String nm)");
 		} else {
