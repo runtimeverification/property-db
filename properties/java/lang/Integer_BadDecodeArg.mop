@@ -15,7 +15,7 @@ import java.lang.*;
 Integer_BadDecodeArg() {
 
     event decode before(Integer i, String nm) : 
-        call(* Integer.decode(String)) && args(nm) {
+        call(* Integer.decode(String)) && args(nm) && target(i) {
         if(nm == null || nm.length() == 0){
             System.err.println("Wrong argument to Integer.decode(String nm)");
         } else {

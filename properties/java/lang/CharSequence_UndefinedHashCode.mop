@@ -2,6 +2,7 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import java.nio.*;
 
 /**
  * Warns if one tries to use equals or hashCode method of a CharSequence instance.  

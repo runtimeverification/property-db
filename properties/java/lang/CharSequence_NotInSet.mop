@@ -2,6 +2,7 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import java.nio.*;
 
 /**
  * Warns if one tries to add a CharSequence object into a set.
@@ -17,14 +18,19 @@ import java.lang.*;
  */
 
 CharSequence_NotInSet() {
-	event set_add before() : call(* Set+.add(..)) && args(CharSequence) && !args(String) && !args(CharBuffer){
+	boolean flag = false;
+	
+	event set_add before() : call(* Set+.add(..)) && args(CharSequence) && !args(String) && !args(CharBuffer) && condition(!flag){
+		flag = true;
 		System.err.println("It might not be safe to add a CharSequence instance into a set"); 
 	}
 
-	event set_addall before(Collection c) : call(* Set+.addAll(Collection)) && args(c) {
+	event set_addall before(Collection c) : call(* Set+.addAll(Collection)) && args(c) && condition(!flag){
 		for(Object o : c){
-			if(o instanceof CharSequence && !(o instanceof String) && !(o instanceof CharBuffer))
+			if(o instanceof CharSequence && !(o instanceof String) && !(o instanceof CharBuffer)){
+				flag = true;
 				System.err.println("It might not be safe to add a CharSequence instance into a set");
+			}
 		} 
 	}
 	

@@ -15,7 +15,7 @@ import java.lang.*;
 Long_BadDecodeArg() {
 
     event decode before(Long l, String nm) : 
-        call(* Long.decode(String)) && args(nm) {
+        call(* Long.decode(String)) && args(nm) && target(l) {
         if(nm == null || nm.length() == 0){
             System.err.println("Wrong argument to Long.decode(String nm)");
         } else {
@@ -49,7 +49,7 @@ Long_BadDecodeArg() {
             }
             
             try{
-                if(Long.parseInt(sub, radix) < 0){
+                if(Long.parseLong(sub, radix) < 0){
                     System.err.println("Wrong argument to Long.decode(String nm)");
                 }
             } catch(Exception e){
