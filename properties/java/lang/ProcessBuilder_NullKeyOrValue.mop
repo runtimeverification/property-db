@@ -25,7 +25,7 @@ ProcessBuilder_NullKeyOrValue(ProcessBuilder p, Map map){
         call(* Map.putAll(Map)) && args(map2) && target(map) && condition(map2.containsKey(null) || map2.containsValue(null)){}
 
 	event nullQuery before(Map map, Object o) : 
-	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..) || call(* Map.get(..) || call(* Map.remove(..))) && target(map) && args(o) && condition(o == null){}
+	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..)) || call(* Map.get(..)) || call(* Map.remove(..))) && target(map) && args(o) && condition(o == null){}
 
     ere : createMap (nullPut | nullQuery)+ 
 

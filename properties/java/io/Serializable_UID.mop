@@ -27,19 +27,8 @@ import java.lang.reflect.*;
  */
 Serializable_UID() {
 	event staticinit after() : staticinitialization(Serializable+) {
-		Class klass = null;
-		for (StackTraceElement frame : (new Throwable()).getStackTrace()) {
-			String klassname = frame.getClassName();
-			if (!klassname.startsWith("mop.")) {
-				try {
-					klass = Class.forName(klassname);
-				}
-				catch (ClassNotFoundException e) {
-					System.err.println("A serializable class " + klassname + " cannot be found.");
-				}
-				break;
-			}
-		}
+		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {
 			try {

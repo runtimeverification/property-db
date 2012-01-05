@@ -17,13 +17,13 @@ import java.util.*;
 ProcessBuilder_ThreadSafe(ProcessBuilder p){
     Thread owner = null;
 
-    event safe_oper before(ProcessBuilder p) : 
+    event safe_oper before(ProcessBuilder p, Thread t) : 
         call(* ProcessBuilder.*(..)) && target(p) && thread(t)
         && condition(this.owner == null || this.owner == t) {
             this.owner = t;
         }
     
-    event unsafe_oper before(ProcessBuilder p) : 
+    event unsafe_oper before(ProcessBuilder p, Thread t) : 
         call(* ProcessBuilder.*(..)) && target(p) && thread(t)
         && condition(this.owner != null && this.owner != t) {}
 

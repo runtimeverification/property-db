@@ -26,10 +26,10 @@ System_WrongKeyOrValue(Map map){
         call(* Map.putAll(Map)) && args(map2) && target(map) && condition(map2.containsKey(null) || map2.containsValue(null)){}
 
 	event nullQuery before(Map map, Object o) : 
-	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..) || call(* Map.get(..) || call(* Map.remove(..))) && target(map) && args(o) && condition(o == null){}
+	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..)) || call(* Map.get(..)) || call(* Map.remove(..))) && target(map) && args(o) && condition(o == null){}
 
 	event notStringQuery before(Map map, Object o) : 
-	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..) || call(* Map.get(..) || call(* Map.remove(..))) && target(map) && args(o) && condition(!(o instanceof String)){}
+	    (call(* Map.containsKey(..)) || call(* Map.containsValue(..)) || call(* Map.get(..)) || call(* Map.remove(..))) && target(map) && args(o) && condition(!(o instanceof String)){}
 
     ere : createMap (nullPut | nullQuery | notStringQuery)+ 
 

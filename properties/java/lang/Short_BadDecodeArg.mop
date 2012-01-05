@@ -15,7 +15,7 @@ import java.lang.*;
 Short_BadDecodeArg() {
 
     event decode before(Short s, String nm) : 
-        call(* Short.decode(String)) && args(nm) &&target(s){
+        call(* Short.decode(String)) && args(nm) && target(s){
         if(nm == null || nm.length() == 0){
             System.err.println("Wrong argument to Short.decode(String nm)");
         } else {

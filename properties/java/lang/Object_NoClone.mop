@@ -14,9 +14,9 @@ import java.lang.*;
  */
  
 Object_NoClone() {
-    event clone before(): 
-        call(* Object.clone()) {
-            System.err.println("Using the clone method on an Object instance will result in throwing an exception.");
+	event clone before(Object o): 
+		call(* Object.clone()) && target(o) && if(o.getClass().getCanonicalName().equals("java.lang.Object")){
+			System.err.println("Using the clone method on an Object instance will result in throwing an exception.");
         }
     
 }

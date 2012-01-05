@@ -27,18 +27,18 @@ StringBuffer_SingleThreadUsage(StringBuffer s) {
             this.th = t;
         }
 
-    event use before(StringBuffer s, Thread t) :
-        call(* StringBuffer.*(..)) && target(s) && thread(t) {
-            if (this.th == null)
-                this.th = t;
-            else if (this.th != t)
-                this.flag = true;
-        }
+	event use before(StringBuffer s, Thread t) :
+		call(* StringBuffer.*(..)) && target(s) && thread(t) {
+			if (this.th == null){
+				this.th = t;
+			} else if (this.th != t){
+				this.flag = true;
+			}
+		}
 
-    event endobject after(StringBuffer s) : endObject(StringBuffer s) {}
     event endprogram after() : endProgram() {}
 
-    ere : init use+ (endobject | endprogram)
+    ere : init use+ endprogram
 
     @match {
         if (!this.flag)
