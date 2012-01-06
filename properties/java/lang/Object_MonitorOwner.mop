@@ -17,15 +17,15 @@ import java.lang.*;
  */
  
 Object_MonitorOwner() {
-    event bad_notify before(Object o): 
-        call(* Object+.notify*(..)) && target(o) && if(!Thread.holdsLock(o)) {
-            System.err.println("notify() and notifyAll() can be called only by the owner of this object's monitor.");
-        }
+	event bad_notify before(Object o): 
+		(call(* Object+.notify(..)) || call(* Object+.notifyAll(..)))&& target(o) && if(!Thread.holdsLock(o)) {
+			System.err.println("notify() and notifyAll() can be called only by the owner of this object's monitor.");
+		}
         
-    event bad_wait before(Object o): 
-        call(* Object+.wait*(..)) && target(o) && if(!Thread.holdsLock(o)) {
-            System.err.println("wait() can be called only by the owner of this object's monitor.");
-        }
+	event bad_wait before(Object o): 
+		call(* Object+.wait(..)) && target(o) && if(!Thread.holdsLock(o)) {
+			System.err.println("wait() can be called only by the owner of this object's monitor.");
+		}
         
     
 }
