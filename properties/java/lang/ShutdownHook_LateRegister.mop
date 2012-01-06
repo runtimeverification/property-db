@@ -13,16 +13,21 @@ import java.lang.*;
  * @severity error
  */
 ShutdownHook_LateRegister() {
-    HashSet<Thread> threadSet = new HashSet<Thread>();
+	HashSet<Thread> threadSet = new HashSet<Thread>();
 
-    creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) { threadSet.add(t); }
-    creation event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) { threadSet.remove(t); }
-    event start before(Thread t) : startThread() && thread(t) && condition(threadSet.contains(t)) {}
+	creation event register after(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) {
+		threadSet.add(t);
+	}
+	creation event unregister after(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) {
+		threadSet.remove(t);
+	}
+	event start after(Thread t) : startThread() && thread(t) && condition(threadSet.contains(t)) {
+	}
 
-    ere : (register | unregister)* start+ (register | unregister)
+	ere : (register | unregister)* start+ (register | unregister)
 	
-    @match {
-        System.err.println("");
-    }
+	@match {
+		System.err.println("A shutdown hook was registered/unregister after the shutdown sequence had begun.");
+	}
 }
 
