@@ -26,9 +26,12 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This exception may be thrown by methods that have detected concurrent
  * modification of an object when such modification is not permissible.
  * <p>
+ * {@description.close}
+ * {@property.open}
  * For example, it is not generally permissible for one thread to modify a Collection
  * while another thread is iterating over it.  In general, the results of the
  * iteration are undefined under these circumstances.  Some Iterator
@@ -53,6 +56,7 @@ package java.util;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i><tt>ConcurrentModificationException</tt>
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
  * @author  Josh Bloch
  * @see     Collection
@@ -68,15 +72,19 @@ package java.util;
  */
 public class ConcurrentModificationException extends RuntimeException {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a ConcurrentModificationException with no
      * detail message.
+     * {@description.close}
      */
     public ConcurrentModificationException() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>ConcurrentModificationException</tt> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param message the detail message pertaining to this exception.
      */

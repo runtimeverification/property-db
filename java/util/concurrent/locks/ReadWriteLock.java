@@ -36,6 +36,7 @@
 package java.util.concurrent.locks;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A <tt>ReadWriteLock</tt> maintains a pair of associated {@link
  * Lock locks}, one for read-only operations and one for writing.
  * The {@link #readLock read lock} may be held simultaneously by
@@ -108,6 +109,7 @@ package java.util.concurrent.locks;
  * </ul>
  * You should consider all of these things when evaluating the suitability
  * of a given implementation for your application.
+ * {@description.close}
  *
  * @see ReentrantReadWriteLock
  * @see Lock
@@ -118,14 +120,18 @@ package java.util.concurrent.locks;
  */
 public interface ReadWriteLock {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the lock used for reading.
+     * {@description.close}
      *
      * @return the lock used for reading.
      */
     Lock readLock();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the lock used for writing.
+     * {@description.close}
      *
      * @return the lock used for writing.
      */

@@ -35,6 +35,7 @@ import java.util.Arrays;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * A compiled representation of a regular expression.
  *
  * <p> A regular expression, specified as a string, must first be compiled into
@@ -603,6 +604,7 @@ import java.util.Arrays;
  * <i>Mastering Regular Expressions, 3nd Edition</i>, Jeffrey E. F. Friedl,
  * O'Reilly and Associates, 2006.</a>
  * </p>
+ * {@description.close}
  *
  * @see java.lang.String#split(String, int)
  * @see java.lang.String#split(String)
@@ -619,6 +621,7 @@ public final class Pattern
 {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Regular expression modifier values.  Instead of being passed as
      * arguments, they can also be passed as inline modifiers.
      * For example, the following statements have the same effect.
@@ -629,9 +632,11 @@ public final class Pattern
      *
      * The flags are duplicated so that the familiar Perl match flag
      * names are available.
+     * {@description.close}
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables Unix lines mode.
      *
      * <p> In this mode, only the <tt>'\n'</tt> line terminator is recognized
@@ -639,10 +644,12 @@ public final class Pattern
      *
      * <p> Unix lines mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?d)</tt>.
+     * {@description.close}
      */
     public static final int UNIX_LINES = 0x01;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables case-insensitive matching.
      *
      * <p> By default, case-insensitive matching assumes that only characters
@@ -654,10 +661,12 @@ public final class Pattern
      * expression&nbsp;<tt>(?i)</tt>.
      *
      * <p> Specifying this flag may impose a slight performance penalty.  </p>
+     * {@description.close}
      */
     public static final int CASE_INSENSITIVE = 0x02;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Permits whitespace and comments in pattern.
      *
      * <p> In this mode, whitespace is ignored, and embedded comments starting
@@ -665,10 +674,12 @@ public final class Pattern
      *
      * <p> Comments mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?x)</tt>.
+     * {@description.close}
      */
     public static final int COMMENTS = 0x04;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables multiline mode.
      *
      * <p> In multiline mode the expressions <tt>^</tt> and <tt>$</tt> match
@@ -678,10 +689,12 @@ public final class Pattern
      *
      * <p> Multiline mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?m)</tt>.  </p>
+     * {@description.close}
      */
     public static final int MULTILINE = 0x08;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables literal parsing of the pattern.
      *
      * <p> When this flag is specified then the input string that specifies
@@ -692,6 +705,7 @@ public final class Pattern
      * <p>The flags CASE_INSENSITIVE and UNICODE_CASE retain their impact on
      * matching when used in conjunction with this flag. The other flags
      * become superfluous.
+     * {@description.close}
      *
      * <p> There is no embedded flag character for enabling literal parsing.
      * @since 1.5
@@ -699,6 +713,7 @@ public final class Pattern
     public static final int LITERAL = 0x10;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables dotall mode.
      *
      * <p> In dotall mode, the expression <tt>.</tt> matches any character,
@@ -708,10 +723,12 @@ public final class Pattern
      * <p> Dotall mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?s)</tt>.  (The <tt>s</tt> is a mnemonic for
      * "single-line" mode, which is what this is called in Perl.)  </p>
+     * {@description.close}
      */
     public static final int DOTALL = 0x20;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables Unicode-aware case folding.
      *
      * <p> When this flag is specified then case-insensitive matching, when
@@ -724,10 +741,12 @@ public final class Pattern
      * expression&nbsp;<tt>(?u)</tt>.
      *
      * <p> Specifying this flag may impose a performance penalty.  </p>
+     * {@description.close}
      */
     public static final int UNICODE_CASE = 0x40;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enables canonical equivalence.
      *
      * <p> When this flag is specified then two characters will be considered
@@ -740,6 +759,7 @@ public final class Pattern
      * equivalence.
      *
      * <p> Specifying this flag may impose a performance penalty.  </p>
+     * {@description.close}
      */
     public static final int CANON_EQ = 0x80;
 
@@ -748,87 +768,119 @@ public final class Pattern
      * when it is deserialized.
      */
 
-    /** {@collect.stats}  use serialVersionUID from Merlin b59 for interoperability */
+    /** {@collect.stats}
+     * {@description.open}
+     * use serialVersionUID from Merlin b59 for interoperability 
+     * {@description.close}
+     */
     private static final long serialVersionUID = 5073258162644648461L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The original regular-expression pattern string.
+     * {@description.close}
      *
      * @serial
      */
     private String pattern;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The original pattern flags.
+     * {@description.close}
      *
      * @serial
      */
     private int flags;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Boolean indicating this Pattern is compiled; this is necessary in order
      * to lazily compile deserialized Patterns.
+     * {@description.close}
      */
     private transient volatile boolean compiled = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The normalized pattern string.
+     * {@description.close}
      */
     private transient String normalizedPattern;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The starting point of state machine for the find operation.  This allows
      * a match to start anywhere in the input.
+     * {@description.close}
      */
     transient Node root;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The root of object tree for a match operation.  The pattern is matched
      * at the beginning.  This may include a find that uses BnM or a First
      * node.
+     * {@description.close}
      */
     transient Node matchRoot;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Temporary storage used by parsing pattern slice.
+     * {@description.close}
      */
     transient int[] buffer;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Temporary storage used while parsing group references.
+     * {@description.close}
      */
     transient GroupHead[] groupNodes;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Temporary null terminated code point array used by pattern compiling.
+     * {@description.close}
      */
     private transient int[] temp;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of capturing groups in this Pattern. Used by matchers to
      * allocate storage needed to perform a match.
+     * {@description.close}
      */
     transient int capturingGroupCount;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The local variable count used by parsing tree. Used by matchers to
      * allocate storage needed to perform a match.
+     * {@description.close}
      */
     transient int localCount;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Index into the pattern string that keeps track of how much has been
      * parsed.
+     * {@description.close}
      */
     private transient int cursor;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Holds the length of the pattern string.
+     * {@description.close}
      */
     private transient int patternLength;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compiles the given regular expression into a pattern.  </p>
+     * {@description.close}
      *
      * @param  regex
      *         The expression to be compiled
@@ -841,8 +893,10 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compiles the given regular expression into a pattern with the given
      * flags.  </p>
+     * {@description.close}
      *
      * @param  regex
      *         The expression to be compiled
@@ -865,8 +919,10 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the regular expression from which this pattern was compiled.
      * </p>
+     * {@description.close}
      *
      * @return  The source of this pattern
      */
@@ -875,9 +931,11 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * <p>Returns the string representation of this pattern. This
      * is the regular expression from which this pattern was
      * compiled.</p>
+     * {@description.close}
      *
      * @return  The string representation of this pattern
      * @since 1.5
@@ -887,8 +945,10 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a matcher that will match the given input against this pattern.
      * </p>
+     * {@description.close}
      *
      * @param  input
      *         The character sequence to be matched
@@ -907,7 +967,9 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns this pattern's match flags.  </p>
+     * {@description.close}
      *
      * @return  The match flags specified when this pattern was compiled
      */
@@ -916,6 +978,7 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compiles the given regular expression and attempts to match the given
      * input against it.
      *
@@ -931,6 +994,7 @@ public final class Pattern
      *
      * <p> If a pattern is to be used multiple times, compiling it once and reusing
      * it will be more efficient than invoking this method each time.  </p>
+     * {@description.close}
      *
      * @param  regex
      *         The expression to be compiled
@@ -948,6 +1012,7 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Splits the given input sequence around matches of this pattern.
      *
      * <p> The array returned by this method contains each substring of the
@@ -997,6 +1062,7 @@ public final class Pattern
      *     <td><tt>{ "b", "", ":and:f" }</tt></td></tr>
      * </table></blockquote>
      *
+     * {@description.close}
      *
      * @param  input
      *         The character sequence to be split
@@ -1045,6 +1111,7 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Splits the given input sequence around matches of this pattern.
      *
      * <p> This method works as if by invoking the two-argument {@link
@@ -1065,6 +1132,7 @@ public final class Pattern
      *     <td><tt>{ "b", "", ":and:f" }</tt></td></tr>
      * </table></blockquote>
      *
+     * {@description.close}
      *
      * @param  input
      *         The character sequence to be split
@@ -1077,6 +1145,7 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a literal pattern <code>String</code> for the specified
      * <code>String</code>.
      *
@@ -1085,6 +1154,7 @@ public final class Pattern
      * <code>s</code> as if it were a literal pattern.</p> Metacharacters
      * or escape sequences in the input sequence will be given no special
      * meaning.
+     * {@description.close}
      *
      * @param  s The string to be literalized
      * @return  A literal string replacement
@@ -1110,8 +1180,10 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Recompile the Pattern instance from a stream.  The original pattern
      * string is read in and the object tree is recompiled from it.
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {
@@ -1133,10 +1205,12 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This private constructor is used to create all Patterns. The pattern
      * string and match flags are all that is needed to completely describe
      * a Pattern. An empty pattern string results in an object tree with
      * only a Start node and a LastNode node.
+     * {@description.close}
      */
     private Pattern(String p, int f) {
         pattern = p;
@@ -1155,8 +1229,10 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The pattern is converted to normalizedD form and then a pure group
      * is constructed to match canonical equivalences of the characters.
+     * {@description.close}
      */
     private void normalize() {
         boolean inCharClass = false;
@@ -1199,9 +1275,11 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Complete the character class being parsed and add a set
      * of alternations to it that will match the canonical equivalences
      * of the characters within the class.
+     * {@description.close}
      */
     private int normalizeCharClass(StringBuilder newPattern, int i) {
         StringBuilder charClass = new StringBuilder();
@@ -1256,9 +1334,11 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Given a specific sequence composed of a regular character and
      * combining marks that follow it, produce the alternation that will
      * match all canonical equivalences of that sequence.
+     * {@description.close}
      */
     private String produceEquivalentAlternation(String source) {
         int len = countChars(source, 0, 1);
@@ -1285,6 +1365,7 @@ public final class Pattern
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array of strings that have all the possible
      * permutations of the characters in the input string.
      * This is used to get a list of all possible orderings
@@ -1292,6 +1373,7 @@ public final class Pattern
      * are invalid because of combining class collisions, and these
      * possibilities must be removed because they are not canonically
      * equivalent.
+     * {@description.close}
      */
     private String[] producePermutations(String input) {
         if (input.length() == countChars(input, 0, 1))
@@ -1358,11 +1440,13 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to compose input by combining the first character
      * with the first combining mark following it. Returns a String
      * that is the composition of the leading character with its first
      * combining mark followed by the remaining combining marks. Returns
      * null if the first two characters cannot be further composed.
+     * {@description.close}
      */
     private String composeOneStep(String input) {
         int len = countChars(input, 0, 2);
@@ -1378,8 +1462,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Preprocess any \Q...\E sequences in `temp', meta-quoting them.
      * See the description of `quotemeta' in perlfunc(1).
+     * {@description.close}
      */
     private void RemoveQEQuoting() {
         final int pLen = patternLength;
@@ -1432,8 +1518,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies regular expression to an int array and invokes the parsing
      * of the expression which will create the object tree.
+     * {@description.close}
      */
     private void compile() {
         // Handle canonical equivalences
@@ -1506,7 +1594,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Used to print out a subtree of the Pattern to help with debugging.
+     * {@description.close}
      */
     private static void printObjectTree(Node node) {
         while(node != null) {
@@ -1544,8 +1634,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Used to accumulate information about a subtree of the object graph
      * so that optimizations can be applied to the subtree.
+     * {@description.close}
      */
     static final class TreeInfo {
         int minLength;
@@ -1571,14 +1663,18 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Indicates whether a particular flag is set or not.
+     * {@description.close}
      */
     private boolean has(int f) {
         return (flags & f) != 0;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Match next character, signal error if failed.
+     * {@description.close}
      */
     private void accept(int ch, String s) {
         int testChar = temp[cursor++];
@@ -1590,14 +1686,18 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Mark the end of pattern with a specific character.
+     * {@description.close}
      */
     private void mark(int c) {
         temp[patternLength] = c;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Peek the next character, and do not advance the cursor.
+     * {@description.close}
      */
     private int peek() {
         int ch = temp[cursor];
@@ -1607,7 +1707,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Read the next character, and advance the cursor by one.
+     * {@description.close}
      */
     private int read() {
         int ch = temp[cursor++];
@@ -1617,8 +1719,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Read the next character, and advance the cursor by one,
      * ignoring the COMMENTS setting
+     * {@description.close}
      */
     private int readEscaped() {
         int ch = temp[cursor++];
@@ -1626,7 +1730,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Advance the cursor by one, and peek the next character.
+     * {@description.close}
      */
     private int next() {
         int ch = temp[++cursor];
@@ -1636,8 +1742,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Advance the cursor by one, and peek the next character,
      * ignoring the COMMENTS setting
+     * {@description.close}
      */
     private int nextEscaped() {
         int ch = temp[++cursor];
@@ -1645,7 +1753,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * If in xmode peek past whitespace and comments.
+     * {@description.close}
      */
     private int peekPastWhitespace(int ch) {
         while (ASCII.isSpace(ch) || ch == '#') {
@@ -1659,7 +1769,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * If in xmode parse past whitespace and comments.
+     * {@description.close}
      */
     private int parsePastWhitespace(int ch) {
         while (ASCII.isSpace(ch) || ch == '#') {
@@ -1672,7 +1784,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * xmode parse past comment to end of line.
+     * {@description.close}
      */
     private int parsePastLine() {
         int ch = temp[cursor++];
@@ -1682,7 +1796,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * xmode peek past comment to end of line.
+     * {@description.close}
      */
     private int peekPastLine() {
         int ch = temp[++cursor];
@@ -1692,7 +1808,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines if character is a line separator in the current mode
+     * {@description.close}
      */
     private boolean isLineSeparator(int ch) {
         if (has(UNIX_LINES)) {
@@ -1706,7 +1824,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Read the character after the next one, and advance the cursor by two.
+     * {@description.close}
      */
     private int skip() {
         int i = cursor;
@@ -1716,23 +1836,29 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Unread one next character, and retreat cursor by one.
+     * {@description.close}
      */
     private void unread() {
         cursor--;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Internal method used for handling all syntax errors. The pattern is
      * displayed with a pointer to aid in locating the syntax error.
+     * {@description.close}
      */
     private PatternSyntaxException error(String s) {
         return new PatternSyntaxException(s, normalizedPattern,  cursor - 1);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines if there is any supplementary character or unpaired
      * surrogate in the specified range.
+     * {@description.close}
      */
     private boolean findSupplementary(int start, int end) {
         for (int i = start; i < end; i++) {
@@ -1743,22 +1869,28 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines if the specified code point is a supplementary
      * character or unpaired surrogate.
+     * {@description.close}
      */
     private static final boolean isSupplementary(int ch) {
         return ch >= Character.MIN_SUPPLEMENTARY_CODE_POINT || isSurrogate(ch);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  The following methods handle the main parsing. They are sorted
      *  according to their precedence order, the lowest one first.
+     * {@description.close}
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * The expression is parsed with branch nodes added for alternations.
      * This may be called recursively to parse sub expressions that may
      * contain alternations.
+     * {@description.close}
      */
     private Node expr(Node end) {
         Node prev = null;
@@ -1807,7 +1939,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parsing of sequences between alternations.
+     * {@description.close}
      */
     private Node sequence(Node end) {
         Node head = null;
@@ -1921,7 +2055,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parse and add a new Single or Slice.
+     * {@description.close}
      */
     private Node atom() {
         int first = 0;
@@ -2015,10 +2151,12 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses a backref greedily, taking as many numbers as it
      * can. The first digit is always treated as a backref, but
      * multi digit numbers are only treated as a backref if at
      * least that many backrefs exist at this point in the regex.
+     * {@description.close}
      */
     private Node ref(int refNum) {
         boolean done = false;
@@ -2057,12 +2195,14 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses an escape sequence to determine the actual value that needs
      * to be matched.
      * If -1 is returned and create was true a new object was added to the tree
      * to handle the escape sequence.
      * If the returned value is greater than zero, it is the value that
      * matches the escape sequence.
+     * {@description.close}
      */
     private int escape(boolean inclass, boolean create) {
         int ch = skip();
@@ -2195,11 +2335,13 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parse a character class, and return the node that matches it.
      *
      * Consumes a ] on the way out if consume is true. Usually consume
      * is true except for the case of [abc&&def] where def is a separate
      * right hand node with "understood" brackets.
+     * {@description.close}
      */
     private CharProperty clazz(boolean consume) {
         CharProperty prev = null;
@@ -2333,8 +2475,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parse a single character or a character range in a character class
      * and return its representative node.
+     * {@description.close}
      */
     private CharProperty range(BitClass bits) {
         int ch = peek();
@@ -2393,7 +2537,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses a Unicode character family and returns its representative node.
+     * {@description.close}
      */
     private CharProperty family(boolean singleLetter) {
         next();
@@ -2431,7 +2577,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a CharProperty matching all characters in a UnicodeBlock.
+     * {@description.close}
      */
     private CharProperty unicodeBlockPropertyFor(String name) {
         final Character.UnicodeBlock block;
@@ -2446,7 +2594,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a CharProperty matching all characters in a named property.
+     * {@description.close}
      */
     private CharProperty charPropertyNodeFor(String name) {
         CharProperty p = CharPropertyNames.charPropertyFor(name);
@@ -2456,9 +2606,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses a group and returns the head node of a set of nodes that process
      * the group. Sometimes a double return system is used where the tail is
      * returned in root.
+     * {@description.close}
      */
     private Node group0() {
         boolean capturingGroup = false;
@@ -2613,9 +2765,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create group head and tail nodes using double return. If the group is
      * created with anonymous true then it is a pure group and should not
      * affect group counting.
+     * {@description.close}
      */
     private Node createGroup(boolean anonymous) {
         int localIndex = localCount++;
@@ -2630,7 +2784,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses inlined match flags and set them appropriately.
+     * {@description.close}
      */
     private void addFlag() {
         int ch = peek();
@@ -2668,8 +2824,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Parses the second part of inlined match flags and turns off
      * flags appropriately.
+     * {@description.close}
      */
     private void subFlag() {
         int ch = peek();
@@ -2714,9 +2872,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     static final int INDEPENDENT = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Processes repetition. If the next character peeked is a quantifier
      * then new nodes must be appended to handle the repetition.
      * Prev could be a single or a group, so it could be a chain of nodes.
+     * {@description.close}
      */
     private Node closure(Node prev) {
         Node atom;
@@ -2797,7 +2957,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Utility method for parsing control escape sequences.
+     * {@description.close}
      */
     private int c() {
         if (cursor < patternLength) {
@@ -2807,7 +2969,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Utility method for parsing octal escape sequences.
+     * {@description.close}
      */
     private int o() {
         int n = read();
@@ -2828,7 +2992,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Utility method for parsing hexadecimal escape sequences.
+     * {@description.close}
      */
     private int x() {
         int n = read();
@@ -2842,7 +3008,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Utility method for parsing unicode escape sequences.
+     * {@description.close}
      */
     private int u() {
         int n = 0;
@@ -2861,7 +3029,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     //
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests a surrogate value.
+     * {@description.close}
      */
     private static final boolean isSurrogate(int c) {
         return c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE;
@@ -2918,9 +3088,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Creates a bit vector for matching Latin-1 values. A normal BitClass
      *  never matches values above Latin-1, and a complemented BitClass always
      *  matches values above Latin-1.
+     * {@description.close}
      */
     private static final class BitClass extends BmpCharProperty {
         final boolean[] bits;
@@ -2946,7 +3118,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Returns a suitably optimized, single character matcher.
+     * {@description.close}
      */
     private CharProperty newSingle(final int ch) {
         if (has(CASE_INSENSITIVE)) {
@@ -2969,7 +3143,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Utility method for creating a string slice matcher.
+     * {@description.close}
      */
     private Node newSlice(int[] buf, int count, boolean hasSupplementary) {
         int[] tmp = new int[count];
@@ -2993,17 +3169,21 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The following classes are the building components of the object
      * tree that represents a compiled regular expression. The object tree
      * is made of individual elements that handle constructs in the Pattern.
      * Each type of object knows how to match its equivalent construct with
      * the match() method.
+     * {@description.close}
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Base class for all node classes. Subclasses should override the match()
      * method as appropriate. This class is an accepting node, so its match()
      * always returns true.
+     * {@description.close}
      */
     static class Node extends Object {
         Node next;
@@ -3011,7 +3191,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
             next = Pattern.accept;
         }
         /** {@collect.stats} 
+         * {@description.open}
          * This method implements the classic accept node.
+         * {@description.close}
          */
         boolean match(Matcher matcher, int i, CharSequence seq) {
             matcher.last = i;
@@ -3020,7 +3202,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
             return true;
         }
         /** {@collect.stats} 
+         * {@description.open}
          * This method is good for all zero length assertions.
+         * {@description.close}
          */
         boolean study(TreeInfo info) {
             if (next != null) {
@@ -3033,9 +3217,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
 
     static class LastNode extends Node {
         /** {@collect.stats} 
+         * {@description.open}
          * This method implements the classic accept node with
          * the addition of a check to see if the match occurred
          * using all of the input.
+         * {@description.close}
          */
         boolean match(Matcher matcher, int i, CharSequence seq) {
             if (matcher.acceptMode == Matcher.ENDANCHOR && i != matcher.to)
@@ -3048,10 +3234,12 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Used for REs that can start anywhere within the input string.
      * This basically tries to match repeatedly at each spot in the
      * input string, moving forward after each try. An anchored search
      * or a BnM will bypass this node completely.
+     * {@description.close}
      */
     static class Start extends Node {
         int minLength;
@@ -3126,9 +3314,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the beginning of input. This object implements the
      * match for a \A sequence, and the caret anchor will use this if not in
      * multiline mode.
+     * {@description.close}
      */
     static final class Begin extends Node {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3146,8 +3336,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the end of input. This is the absolute end, so this
      * should not match at the last newline before the end as $ will.
+     * {@description.close}
      */
     static final class End extends Node {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3162,8 +3354,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the beginning of a line. This is essentially the
      * object to match for the multiline ^.
+     * {@description.close}
      */
     static final class Caret extends Node {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3194,7 +3388,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the beginning of a line when in unixdot mode.
+     * {@description.close}
      */
     static final class UnixCaret extends Node {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3220,8 +3416,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to match the location where the last match ended.
      * This is used for the \G construct.
+     * {@description.close}
      */
     static final class LastMatch extends Node {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3232,6 +3430,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the end of a line or the end of input based on the
      * multiline mode.
      *
@@ -3243,6 +3442,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
      *
      * Like ^ the $ operator matches at a position, it does not match the
      * line terminators themselves.
+     * {@description.close}
      */
     static final class Dollar extends Node {
         boolean multiline;
@@ -3302,8 +3502,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node to anchor at the end of a line or the end of input based on the
      * multiline mode when in unix lines mode.
+     * {@description.close}
      */
     static final class UnixDollar extends Node {
         boolean multiline;
@@ -3343,8 +3545,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Abstract node class to match one character satisfying some
      * boolean property.
+     * {@description.close}
      */
     private static abstract class CharProperty extends Node {
         abstract boolean isSatisfiedBy(int ch);
@@ -3374,8 +3578,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Optimized version of CharProperty that works only for
      * properties never satisfied by Supplementary characters.
+     * {@description.close}
      */
     private static abstract class BmpCharProperty extends CharProperty {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -3390,7 +3596,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class that matches a Supplementary Unicode character
+     * {@description.close}
      */
     static final class SingleS extends CharProperty {
         final int c;
@@ -3401,7 +3609,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Optimization -- matches a given BMP character
+     * {@description.close}
      */
     static final class Single extends BmpCharProperty {
         final int c;
@@ -3412,7 +3622,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Case insensitive matches a given BMP character
+     * {@description.close}
      */
     static final class SingleI extends BmpCharProperty {
         final int lower;
@@ -3427,7 +3639,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Unicode case insensitive matches a given Unicode character
+     * {@description.close}
      */
     static final class SingleU extends CharProperty {
         final int lower;
@@ -3441,7 +3655,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class that matches a Unicode category.
+     * {@description.close}
      */
     static final class Category extends CharProperty {
         final int typeMask;
@@ -3452,7 +3668,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class that matches a POSIX type.
+     * {@description.close}
      */
     static final class Ctype extends BmpCharProperty {
         final int ctype;
@@ -3463,7 +3681,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Base class for all Slice nodes
+     * {@description.close}
      */
     static class SliceNode extends Node {
         int[] buffer;
@@ -3478,8 +3698,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a case sensitive/BMP-only sequence of literal
      * characters.
+     * {@description.close}
      */
     static final class Slice extends SliceNode {
         Slice(int[] buf) {
@@ -3501,8 +3723,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a case_insensitive/BMP-only sequence of literal
      * characters.
+     * {@description.close}
      */
     static class SliceI extends SliceNode {
         SliceI(int[] buf) {
@@ -3526,8 +3750,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a unicode_case_insensitive/BMP-only sequence of
      * literal characters. Uses unicode case folding.
+     * {@description.close}
      */
     static final class SliceU extends SliceNode {
         SliceU(int[] buf) {
@@ -3551,8 +3777,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a case sensitive sequence of literal characters
      * including supplementary characters.
+     * {@description.close}
      */
     static final class SliceS extends SliceNode {
         SliceS(int[] buf) {
@@ -3580,8 +3808,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a case insensitive sequence of literal characters
      * including supplementary characters.
+     * {@description.close}
      */
     static class SliceIS extends SliceNode {
         SliceIS(int[] buf) {
@@ -3612,8 +3842,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for a case insensitive sequence of literal characters.
      * Uses unicode case folding.
+     * {@description.close}
      */
     static final class SliceUS extends SliceIS {
         SliceUS(int[] buf) {
@@ -3629,7 +3861,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns node for matching characters within an explicit value range.
+     * {@description.close}
      */
     private static CharProperty rangeFor(final int lower,
                                          final int upper) {
@@ -3639,8 +3873,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns node for matching characters within an explicit value
      * range in a case insensitive manner.
+     * {@description.close}
      */
     private CharProperty caseInsensitiveRangeFor(final int lower,
                                                  final int upper) {
@@ -3662,8 +3898,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the Unicode category ALL and the dot metacharacter when
      * in dotall mode.
+     * {@description.close}
      */
     static final class All extends CharProperty {
         boolean isSatisfiedBy(int ch) {
@@ -3672,7 +3910,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for the dot metacharacter when dotall is not enabled.
+     * {@description.close}
      */
     static final class Dot extends CharProperty {
         boolean isSatisfiedBy(int ch) {
@@ -3683,8 +3923,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Node class for the dot metacharacter when dotall is not enabled
      * but UNIX_LINES is enabled.
+     * {@description.close}
      */
     static final class UnixDot extends CharProperty {
         boolean isSatisfiedBy(int ch) {
@@ -3693,7 +3935,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The 0 or 1 quantifier. This one class implements all three types.
+     * {@description.close}
      */
     static final class Ques extends Node {
         Node atom;
@@ -3732,9 +3976,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles the curly-brace style repetition with a specified minimum and
      * maximum occurrences. The * quantifier is handled as a special case.
      * This class handles the three types.
+     * {@description.close}
      */
     static final class Curly extends Node {
         Node atom;
@@ -3873,12 +4119,14 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles the curly-brace style repetition with a specified minimum and
      * maximum occurrences in deterministic cases. This is an iterative
      * optimization over the Prolog and Loop system which would handle this
      * in a recursive way. The * quantifier is handled as a special case.
      * If capture is true then this class saves group settings and ensures
      * that groups are unset when backing off of a group match.
+     * {@description.close}
      */
     static final class GroupCurly extends Node {
         Node atom;
@@ -4083,11 +4331,13 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * A Guard node at the end of each atom node in a Branch. It
      * serves the purpose of chaining the "match" operation to
      * "next" but not the "study", so we can collect the TreeInfo
      * of each atom node without including the TreeInfo of the
      * "next".
+     * {@description.close}
      */
     static final class BranchConn extends Node {
         BranchConn() {};
@@ -4100,9 +4350,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles the branching of alternations. Note this is also used for
      * the ? quantifier to branch between the case where it matches once
      * and where it does not occur.
+     * {@description.close}
      */
     static final class Branch extends Node {
         Node[] atoms = new Node[2];
@@ -4166,6 +4418,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The GroupHead saves the location where the group begins in the locals
      * and restores them when the match is done.
      *
@@ -4173,6 +4426,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
      * in the expression. The locals will have a negative value in them to
      * indicate that we do not want to unset the group if the reference
      * doesn't match.
+     * {@description.close}
      */
     static final class GroupHead extends Node {
         int localIndex;
@@ -4196,9 +4450,11 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Recursive reference to a group in the regular expression. It calls
      * matchRef because if the reference fails to match we would not unset
      * the group.
+     * {@description.close}
      */
     static final class GroupRef extends Node {
         GroupHead head;
@@ -4217,12 +4473,14 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The GroupTail handles the setting of group beginning and ending
      * locations when groups are successfully matched. It must also be able to
      * unset groups that have to be backed off of.
      *
      * The GroupTail node is also used when a previous group is referenced,
      * and in that case no group information needs to be set.
+     * {@description.close}
      */
     static final class GroupTail extends Node {
         int localIndex;
@@ -4257,7 +4515,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This sets up a loop to handle a recursive quantifier structure.
+     * {@description.close}
      */
     static final class Prolog extends Node {
         Loop loop;
@@ -4273,10 +4533,12 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles the repetition count for a greedy Curly. The matchInit
      * is called from the Prolog to save the index of where the group
      * beginning is stored. A zero length group check occurs in the
      * normal match but is skipped in the matchInit.
+     * {@description.close}
      */
     static class Loop extends Node {
         Node body;
@@ -4345,10 +4607,12 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles the repetition count for a reluctant Curly. The matchInit
      * is called from the Prolog to save the index of where the group
      * beginning is stored. A zero length group check occurs in the
      * normal match but is skipped in the matchInit.
+     * {@description.close}
      */
     static final class LazyLoop extends Loop {
         LazyLoop(int countIndex, int beginIndex) {
@@ -4405,8 +4669,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Refers to a group in the regular expression. Attempts to match
      * whatever the group referred to last matched.
+     * {@description.close}
      */
     static class BackRef extends Node {
         int groupIndex;
@@ -4500,10 +4766,12 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches until the next instance of its atom. This is useful for
      * finding the atom efficiently without passing an instance of it
      * (greedy problem) and without a lot of wasted search time (reluctant
      * problem).
+     * {@description.close}
      */
     static final class First extends Node {
         Node atom;
@@ -4571,7 +4839,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width positive lookahead.
+     * {@description.close}
      */
     static final class Pos extends Node {
         Node cond;
@@ -4596,7 +4866,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width negative lookahead.
+     * {@description.close}
      */
     static final class Neg extends Node {
         Node cond;
@@ -4628,8 +4900,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * For use with lookbehinds; matches the position where the lookbehind
      * was encountered.
+     * {@description.close}
      */
     static Node lookbehindEnd = new Node() {
         boolean match(Matcher matcher, int i, CharSequence seq) {
@@ -4638,7 +4912,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width positive lookbehind.
+     * {@description.close}
      */
     static class Behind extends Node {
         Node cond;
@@ -4671,8 +4947,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width positive lookbehind, including supplementary
      * characters or unpaired surrogates.
+     * {@description.close}
      */
     static final class BehindS extends Behind {
         BehindS(Node cond, int rmax, int rmin) {
@@ -4705,7 +4983,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width negative lookbehind.
+     * {@description.close}
      */
     static class NotBehind extends Node {
         Node cond;
@@ -4738,8 +5018,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Zero width negative lookbehind, including supplementary
      * characters or unpaired surrogates.
+     * {@description.close}
      */
     static final class NotBehindS extends NotBehind {
         NotBehindS(Node cond, int rmax, int rmin) {
@@ -4771,7 +5053,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the set union of two CharProperty nodes.
+     * {@description.close}
      */
     private static CharProperty union(final CharProperty lhs,
                                       final CharProperty rhs) {
@@ -4781,7 +5065,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the set intersection of two CharProperty nodes.
+     * {@description.close}
      */
     private static CharProperty intersection(final CharProperty lhs,
                                              final CharProperty rhs) {
@@ -4791,7 +5077,9 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the set difference of two CharProperty nodes.
+     * {@description.close}
      */
     private static CharProperty setDifference(final CharProperty lhs,
                                               final CharProperty rhs) {
@@ -4801,11 +5089,13 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Handles word boundaries. Includes a field to allow this one class to
      * deal with the different types of word boundaries we can match. The word
      * characters include underscores, letters, and digits. Non spacing marks
      * can are also part of a word if they have a base character, otherwise
      * they are ignored for purposes of finding word boundaries.
+     * {@description.close}
      */
     static final class Bound extends Node {
         static int LEFT = 0x1;
@@ -4852,8 +5142,10 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Non spacing marks only count as word characters in bounds calculations
      * if they have a base character.
+     * {@description.close}
      */
     private static boolean hasBaseCharacter(Matcher matcher, int i,
                                             CharSequence seq)
@@ -4872,6 +5164,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to match a slice in the input using the Boyer-Moore string
      * matching algorithm. The algorithm is based on the idea that the
      * pattern can be shifted farther ahead in the search text if it is
@@ -4898,6 +5191,7 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
      * next occurrence of the subset in the pattern.
      *
      * Boyer-Moore search methods adapted from code by Amy Yu.
+     * {@description.close}
      */
     static class BnM extends Node {
         int[] buffer;
@@ -4905,11 +5199,13 @@ loop:   for(int x=0, offset=0; x<nCodePoints; x++, offset+=len) {
         int[] optoSft;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Pre calculates arrays needed to generate the bad character
          * shift and the good suffix shift. Only the last seven bits
          * are used to see if chars match; This keeps the tables small
          * and covers the heavily used ASCII range, but occasionally
          * results in an aliased match for the bad character shift.
+         * {@description.close}
          */
         static Node optimize(Node node) {
             if (!(node instanceof Slice)) {
@@ -5010,8 +5306,10 @@ NEXT:       while (i <= last) {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Supplementary support version of BnM(). Unpaired surrogates are
      * also handled by this class.
+     * {@description.close}
      */
     static final class BnMS extends BnM {
         int lengthInChars;
@@ -5062,7 +5360,9 @@ NEXT:       while (i <= last) {
 ///////////////////////////////////////////////////////////////////////////////
 
     /** {@collect.stats} 
+     * {@description.open}
      *  This must be the very first initializer.
+     * {@description.close}
      */
     static Node accept = new Node();
 

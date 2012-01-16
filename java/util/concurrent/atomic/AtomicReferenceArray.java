@@ -38,10 +38,12 @@ import sun.misc.Unsafe;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An array of object references in which elements may be updated
  * atomically.  See the {@link java.util.concurrent.atomic} package
  * specification for description of the properties of atomic
  * variables.
+ * {@description.close}
  * @since 1.5
  * @author Doug Lea
  * @param <E> The base class of elements held in this array
@@ -61,7 +63,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicReferenceArray of given length.
+     * {@description.close}
      * @param length the length of the array
      */
     public AtomicReferenceArray(int length) {
@@ -72,8 +76,10 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicReferenceArray with the same length as, and
      * all elements copied from, the given array.
+     * {@description.close}
      *
      * @param array the array to copy elements from
      * @throws NullPointerException if array is null
@@ -94,7 +100,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the length of the array.
+     * {@description.close}
      *
      * @return the length of the array
      */
@@ -103,7 +111,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the current value at position {@code i}.
+     * {@description.close}
      *
      * @param i the index
      * @return the current value
@@ -113,7 +123,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the element at position {@code i} to the given value.
+     * {@description.close}
      *
      * @param i the index
      * @param newValue the new value
@@ -123,7 +135,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Eventually sets the element at position {@code i} to the given value.
+     * {@description.close}
      *
      * @param i the index
      * @param newValue the new value
@@ -135,8 +149,10 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the element at position {@code i} to the given
      * value and returns the old value.
+     * {@description.close}
      *
      * @param i the index
      * @param newValue the new value
@@ -151,8 +167,10 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the element at position {@code i} to the given
      * updated value if the current value {@code ==} the expected value.
+     * {@description.close}
      * @param i the index
      * @param expect the expected value
      * @param update the new value
@@ -165,12 +183,14 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the element at position {@code i} to the given
      * updated value if the current value {@code ==} the expected value.
      *
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param i the index
      * @param expect the expected value
@@ -182,7 +202,9 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the String representation of the current values of array.
+     * {@description.close}
      * @return the String representation of the current values of array.
      */
     public String toString() {

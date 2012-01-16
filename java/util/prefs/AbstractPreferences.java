@@ -36,6 +36,7 @@ import java.lang.Float;
 import java.lang.Double;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class provides a skeletal implementation of the {@link Preferences}
  * class, greatly easing the task of implementing it.
  *
@@ -115,6 +116,7 @@ import java.lang.Double;
  * #put(String,String)} method) rather than permanently associating a user
  * with each <tt>Preferences</tt> instance.  The latter behavior conflicts
  * with normal <tt>Preferences</tt> usage and would lead to great confusion.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     Preferences
@@ -122,70 +124,92 @@ import java.lang.Double;
  */
 public abstract class AbstractPreferences extends Preferences {
     /** {@collect.stats} 
+     * {@description.open}
      * Our name relative to parent.
+     * {@description.close}
      */
     private final String name;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Our absolute path name.
+     * {@description.close}
      */
     private final String absolutePath;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Our parent node.
+     * {@description.close}
      */
     final AbstractPreferences parent;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Our root node.
+     * {@description.close}
      */
     private final AbstractPreferences root; // Relative to this node
 
     /** {@collect.stats} 
+     * {@description.open}
      * This field should be <tt>true</tt> if this node did not exist in the
      * backing store prior to the creation of this object.  The field
      * is initialized to false, but may be set to true by a subclass
      * constructor (and should not be modified thereafter).  This field
      * indicates whether a node change event should be fired when
      * creation is complete.
+     * {@description.close}
      */
     protected boolean newNode = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * All known unremoved children of this node.  (This "cache" is consulted
      * prior to calling childSpi() or getChild().
+     * {@description.close}
      */
     private Map kidCache  = new HashMap();
 
     /** {@collect.stats} 
+     * {@description.open}
      * This field is used to keep track of whether or not this node has
      * been removed.  Once it's set to true, it will never be reset to false.
+     * {@description.close}
      */
     private boolean removed = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Registered preference change listeners.
+     * {@description.close}
      */
     private PreferenceChangeListener[] prefListeners =
         new PreferenceChangeListener[0];
 
     /** {@collect.stats} 
+     * {@description.open}
      * Registered node change listeners.
+     * {@description.close}
      */
     private NodeChangeListener[] nodeListeners = new NodeChangeListener[0];
 
     /** {@collect.stats} 
+     * {@description.open}
      * An object whose monitor is used to lock this node.  This object
      * is used in preference to the node itself to reduce the likelihood of
      * intentional or unintentional denial of service due to a locked node.
      * To avoid deadlock, a node is <i>never</i> locked by a thread that
      * holds a lock on a descendant of that node.
+     * {@description.close}
      */
     protected final Object lock = new Object();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a preference node with the specified parent and the specified
      * name relative to its parent.
+     * {@description.close}
      *
      * @param parent the parent of this preference node, or null if this
      *               is the root.
@@ -218,6 +242,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>put</tt> method as per the specification in
      * {@link Preferences#put(String,String)}.
      *
@@ -226,6 +251,7 @@ public abstract class AbstractPreferences extends Preferences {
      * has not been removed, invokes {@link #putSpi(String,String)}, and if
      * there are any preference change listeners, enqueues a notification
      * event for processing by the event dispatch thread.
+     * {@description.close}
      *
      * @param key key with which the specified value is to be associated.
      * @param value value to be associated with the specified key.
@@ -254,6 +280,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>get</tt> method as per the specification in
      * {@link Preferences#get(String,String)}.
      *
@@ -264,6 +291,7 @@ public abstract class AbstractPreferences extends Preferences {
      * #getSpi(String)}, and returns the result, unless the <tt>getSpi</tt>
      * invocation returns <tt>null</tt> or throws an exception, in which case
      * this invocation returns <tt>def</tt>.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned.
      * @param def the value to be returned in the event that this
@@ -293,6 +321,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>remove(String)</tt> method as per the specification
      * in {@link Preferences#remove(String)}.
      *
@@ -301,6 +330,7 @@ public abstract class AbstractPreferences extends Preferences {
      * {@link #removeSpi(String)} and if there are any preference
      * change listeners, enqueues a notification event for processing by the
      * event dispatch thread.
+     * {@description.close}
      *
      * @param key key whose mapping is to be removed from the preference node.
      * @throws IllegalStateException if this node (or an ancestor) has been
@@ -317,12 +347,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>clear</tt> method as per the specification in
      * {@link Preferences#clear()}.
      *
      * <p>This implementation obtains this preference node's lock,
      * invokes {@link #keys()} to obtain an array of keys, and
      * iterates over the array invoking {@link #remove(String)} on each key.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -339,12 +371,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putInt</tt> method as per the specification in
      * {@link Preferences#putInt(String,int)}.
      *
      * <p>This implementation translates <tt>value</tt> to a string with
      * {@link Integer#toString(int)} and invokes {@link #put(String,String)}
      * on the result.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -359,6 +393,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getInt</tt> method as per the specification in
      * {@link Preferences#getInt(String,int)}.
      *
@@ -367,6 +402,7 @@ public abstract class AbstractPreferences extends Preferences {
      * attempts to translate it to an <tt>int</tt> with
      * {@link Integer#parseInt(String)}.  If the attempt succeeds, the return
      * value is returned by this method.  Otherwise, <tt>def</tt> is returned.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as an int.
      * @param def the value to be returned in the event that this
@@ -394,12 +430,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putLong</tt> method as per the specification in
      * {@link Preferences#putLong(String,long)}.
      *
      * <p>This implementation translates <tt>value</tt> to a string with
      * {@link Long#toString(long)} and invokes {@link #put(String,String)}
      * on the result.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -414,6 +452,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getLong</tt> method as per the specification in
      * {@link Preferences#getLong(String,long)}.
      *
@@ -422,6 +461,7 @@ public abstract class AbstractPreferences extends Preferences {
      * attempts to translate it to a <tt>long</tt> with
      * {@link Long#parseLong(String)}.  If the attempt succeeds, the return
      * value is returned by this method.  Otherwise, <tt>def</tt> is returned.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a long.
      * @param def the value to be returned in the event that this
@@ -449,12 +489,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putBoolean</tt> method as per the specification in
      * {@link Preferences#putBoolean(String,boolean)}.
      *
      * <p>This implementation translates <tt>value</tt> to a string with
      * {@link String#valueOf(boolean)} and invokes {@link #put(String,String)}
      * on the result.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -469,6 +511,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getBoolean</tt> method as per the specification in
      * {@link Preferences#getBoolean(String,boolean)}.
      *
@@ -480,6 +523,7 @@ public abstract class AbstractPreferences extends Preferences {
      * <tt>"false"</tt>, again using {@link String#equalsIgnoreCase(String)}.
      * If the comparison returns <tt>true</tt>, this invocation returns
      * <tt>false</tt>.  Otherwise, this invocation returns <tt>def</tt>.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a boolean.
      * @param def the value to be returned in the event that this
@@ -507,12 +551,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putFloat</tt> method as per the specification in
      * {@link Preferences#putFloat(String,float)}.
      *
      * <p>This implementation translates <tt>value</tt> to a string with
      * {@link Float#toString(float)} and invokes {@link #put(String,String)}
      * on the result.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -527,6 +573,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getFloat</tt> method as per the specification in
      * {@link Preferences#getFloat(String,float)}.
      *
@@ -535,6 +582,7 @@ public abstract class AbstractPreferences extends Preferences {
      * attempts to translate it to an <tt>float</tt> with
      * {@link Float#parseFloat(String)}.  If the attempt succeeds, the return
      * value is returned by this method.  Otherwise, <tt>def</tt> is returned.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a float.
      * @param def the value to be returned in the event that this
@@ -562,12 +610,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putDouble</tt> method as per the specification in
      * {@link Preferences#putDouble(String,double)}.
      *
      * <p>This implementation translates <tt>value</tt> to a string with
      * {@link Double#toString(double)} and invokes {@link #put(String,String)}
      * on the result.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -582,6 +632,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getDouble</tt> method as per the specification in
      * {@link Preferences#getDouble(String,double)}.
      *
@@ -590,6 +641,7 @@ public abstract class AbstractPreferences extends Preferences {
      * attempts to translate it to an <tt>double</tt> with
      * {@link Double#parseDouble(String)}.  If the attempt succeeds, the return
      * value is returned by this method.  Otherwise, <tt>def</tt> is returned.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a double.
      * @param def the value to be returned in the event that this
@@ -617,8 +669,10 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>putByteArray</tt> method as per the specification in
      * {@link Preferences#putByteArray(String,byte[])}.
+     * {@description.close}
      *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
@@ -633,8 +687,10 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>getByteArray</tt> method as per the specification in
      * {@link Preferences#getByteArray(String,byte[])}.
+     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a byte array.
      * @param def the value to be returned in the event that this
@@ -664,11 +720,13 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>keys</tt> method as per the specification in
      * {@link Preferences#keys()}.
      *
      * <p>This implementation obtains this preference node's lock, checks that
      * the node has not been removed and invokes {@link #keysSpi()}.
+     * {@description.close}
      *
      * @return an array of the keys that have an associated value in this
      *         preference node.
@@ -688,6 +746,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>children</tt> method as per the specification in
      * {@link Preferences#childrenNames()}.
      *
@@ -698,6 +757,7 @@ public abstract class AbstractPreferences extends Preferences {
      * returned child-names into the set.  The elements of the tree set are
      * dumped into a <tt>String</tt> array using the <tt>toArray</tt> method,
      * and this array is returned.
+     * {@description.close}
      *
      * @return the names of the children of this preference node.
      * @throws BackingStoreException if this operation cannot be completed
@@ -723,7 +783,9 @@ public abstract class AbstractPreferences extends Preferences {
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns all known unremoved children of this node.
+     * {@description.close}
      *
      * @return all known unremoved children of this node.
      */
@@ -736,12 +798,14 @@ public abstract class AbstractPreferences extends Preferences {
         = new AbstractPreferences[0];
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>parent</tt> method as per the specification in
      * {@link Preferences#parent()}.
      *
      * <p>This implementation obtains this preference node's lock, checks that
      * the node has not been removed and returns the parent value that was
      * passed to this node's constructor.
+     * {@description.close}
      *
      * @return the parent of this preference node.
      * @throws IllegalStateException if this node (or an ancestor) has been
@@ -757,6 +821,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>node</tt> method as per the specification in
      * {@link Preferences#node(String)}.
      *
@@ -788,10 +853,14 @@ public abstract class AbstractPreferences extends Preferences {
      * lock is dropped prior to breaking <tt>path</tt> into tokens, and
      * this method recursively traverses the path starting from the root
      * (rather than starting from this node).  The traversal is otherwise
-     * identical to the one described for relative path names.  Dropping
+     * identical to the one described for relative path names.
+     * {@description.close}
+     * {@property.open}
+     * Dropping
      * the lock on this node prior to commencing the traversal at the root
      * node is essential to avoid the possibility of deadlock, as per the
      * {@link #lock locking invariant}.
+     * {@property.close}
      *
      * @param path the path name of the preference node to return.
      * @return the specified preference node.
@@ -818,7 +887,9 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * tokenizer contains <name> {'/' <name>}*
+     * {@description.close}
      */
     private Preferences node(StringTokenizer path) {
         String token = path.nextToken();
@@ -845,12 +916,14 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>nodeExists</tt> method as per the specification in
      * {@link Preferences#nodeExists(String)}.
      *
      * <p>This implementation is very similar to {@link #node(String)},
      * except that {@link #getChild(String)} is used instead of {@link
      * #childSpi(String)}.
+     * {@description.close}
      *
      * @param path the path name of the node whose existence is to be checked.
      * @return true if the specified node exists.
@@ -884,7 +957,9 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * tokenizer contains <name> {'/' <name>}*
+     * {@description.close}
      */
     private boolean nodeExists(StringTokenizer path)
         throws BackingStoreException
@@ -908,6 +983,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
 
      * Implements the <tt>removeNode()</tt> method as per the specification in
      * {@link Preferences#removeNode()}.
@@ -930,6 +1006,7 @@ public abstract class AbstractPreferences extends Preferences {
      *
      * <p>Note that the helper method is always invoked with all ancestors up
      * to the "closest non-removed ancestor" locked.
+     * {@description.close}
      *
      * @throws IllegalStateException if this node (or an ancestor) has already
      *         been removed with the {@link #removeNode()} method.
@@ -979,11 +1056,13 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>name</tt> method as per the specification in
      * {@link Preferences#name()}.
      *
      * <p>This implementation merely returns the name that was
      * passed to this node's constructor.
+     * {@description.close}
      *
      * @return this preference node's name, relative to its parent.
      */
@@ -992,6 +1071,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>absolutePath</tt> method as per the specification in
      * {@link Preferences#absolutePath()}.
      *
@@ -999,6 +1079,7 @@ public abstract class AbstractPreferences extends Preferences {
      * was computed at the time that this node was constructed (based on
      * the name that was passed to this node's constructor, and the names
      * that were passed to this node's ancestors' constructors).
+     * {@description.close}
      *
      * @return this preference node's absolute path name.
      */
@@ -1007,6 +1088,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>isUserNode</tt> method as per the specification in
      * {@link Preferences#isUserNode()}.
      *
@@ -1014,6 +1096,7 @@ public abstract class AbstractPreferences extends Preferences {
      * in a private field) with the value returned by
      * {@link Preferences#userRoot()}.  If the two object references are
      * identical, this method returns true.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this preference node is in the user
      *         preference tree, <tt>false</tt> if it's in the system
@@ -1115,16 +1198,19 @@ public abstract class AbstractPreferences extends Preferences {
     // "SPI" METHODS
 
     /** {@collect.stats} 
+     * {@description.open}
      * Put the given key-value association into this preference node.  It is
      * guaranteed that <tt>key</tt> and <tt>value</tt> are non-null and of
      * legal length.  Also, it is guaranteed that this node has not been
      * removed.  (The implementor needn't check for any of these things.)
      *
      * <p>This method is invoked with the lock on this node held.
+     * {@description.close}
      */
     protected abstract void putSpi(String key, String value);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the value associated with the specified key at this preference
      * node, or <tt>null</tt> if there is no association for this key, or the
      * association cannot be determined at this time.  It is guaranteed that
@@ -1138,6 +1224,7 @@ public abstract class AbstractPreferences extends Preferences {
      * return value.
      *
      * <p>This method is invoked with the lock on this node held.
+     * {@description.close}
      *
      * @return the value associated with the specified key at this preference
      *          node, or <tt>null</tt> if there is no association for this
@@ -1146,16 +1233,19 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract String getSpi(String key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Remove the association (if any) for the specified key at this
      * preference node.  It is guaranteed that <tt>key</tt> is non-null.
      * Also, it is guaranteed that this node has not been removed.
      * (The implementor needn't check for either of these things.)
      *
      * <p>This method is invoked with the lock on this node held.
+     * {@description.close}
      */
     protected abstract void removeSpi(String key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes this preference node, invalidating it and any preferences that
      * it contains.  The named child will have no descendants at the time this
      * invocation is made (i.e., the {@link Preferences#removeNode()} method
@@ -1172,6 +1262,7 @@ public abstract class AbstractPreferences extends Preferences {
      * <p>If this node throws a <tt>BackingStoreException</tt>, the exception
      * will propagate out beyond the enclosing {@link #removeNode()}
      * invocation.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -1180,6 +1271,7 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract void removeNodeSpi() throws BackingStoreException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns all of the keys that have an associated value in this
      * preference node.  (The returned array will be of size zero if
      * this node has no preferences.)  It is guaranteed that this node has not
@@ -1189,6 +1281,7 @@ public abstract class AbstractPreferences extends Preferences {
      *
      * <p>If this node throws a <tt>BackingStoreException</tt>, the exception
      * will propagate out beyond the enclosing {@link #keys()} invocation.
+     * {@description.close}
      *
      * @return an array of the keys that have an associated value in this
      *         preference node.
@@ -1199,6 +1292,7 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract String[] keysSpi() throws BackingStoreException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the names of the children of this preference node.  (The
      * returned array will be of size zero if this node has no children.)
      * This method need not return the names of any nodes already cached,
@@ -1209,6 +1303,7 @@ public abstract class AbstractPreferences extends Preferences {
      * <p>If this node throws a <tt>BackingStoreException</tt>, the exception
      * will propagate out beyond the enclosing {@link #childrenNames()}
      * invocation.
+     * {@description.close}
      *
      * @return an array containing the names of the children of this
      *         preference node.
@@ -1220,6 +1315,7 @@ public abstract class AbstractPreferences extends Preferences {
         throws BackingStoreException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the named child if it exists, or <tt>null</tt> if it does not.
      * It is guaranteed that <tt>nodeName</tt> is non-null, non-empty,
      * does not contain the slash character ('/'), and is no longer than
@@ -1241,6 +1337,7 @@ public abstract class AbstractPreferences extends Preferences {
      * the {@link #childSpi(String)} method is invoked and the resulting
      * node is returned.  If the iteration completes without finding the
      * specified name, <tt>null</tt> is returned.
+     * {@description.close}
      *
      * @param nodeName name of the child to be searched for.
      * @return the named child if it exists, or null if it does not.
@@ -1261,6 +1358,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the named child of this preference node, creating it if it does
      * not already exist.  It is guaranteed that <tt>name</tt> is non-null,
      * non-empty, does not contain the slash character ('/'), and is no longer
@@ -1286,6 +1384,7 @@ public abstract class AbstractPreferences extends Preferences {
      * invoked on this node or one of its ancestors (or descendants).
      *
      * <p>This method is invoked with the lock on this node held.
+     * {@description.close}
      *
      * @param name The name of the child node to return, relative to
      *        this preference node.
@@ -1294,7 +1393,9 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract AbstractPreferences childSpi(String name);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the absolute path name of this preferences node.
+     * {@description.close}
      */
     public String toString() {
         return (this.isUserNode() ? "User" : "System") +
@@ -1302,6 +1403,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>sync</tt> method as per the specification in
      * {@link Preferences#sync()}.
      *
@@ -1313,6 +1415,7 @@ public abstract class AbstractPreferences extends Preferences {
      * "cached subtree" rooted at this node, calling syncSpi() on each node in
      * the subTree while only that node is locked. Note that syncSpi() is
      * invoked top-down.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -1340,6 +1443,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method is invoked with this node locked.  The contract of this
      * method is to synchronize any cached preferences stored at this node
      * with any stored in the backing store.  (It is perfectly possible that
@@ -1352,6 +1456,7 @@ public abstract class AbstractPreferences extends Preferences {
      *
      * <p>If this node throws a <tt>BackingStoreException</tt>, the exception
      * will propagate out beyond the enclosing {@link #sync()} invocation.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -1360,6 +1465,7 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract void syncSpi() throws BackingStoreException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>flush</tt> method as per the specification in
      * {@link Preferences#flush()}.
      *
@@ -1375,6 +1481,7 @@ public abstract class AbstractPreferences extends Preferences {
      * <p> If this method is invoked on a node that has been removed with
      * the {@link #removeNode()} method, flushSpi() is invoked on this node,
      * but not on others.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -1400,6 +1507,7 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method is invoked with this node locked.  The contract of this
      * method is to force any cached changes in the contents of this
      * preference node to the backing store, guaranteeing their persistence.
@@ -1413,6 +1521,7 @@ public abstract class AbstractPreferences extends Preferences {
      *
      * <p>If this node throws a <tt>BackingStoreException</tt>, the exception
      * will propagate out beyond the enclosing {@link #flush()} invocation.
+     * {@description.close}
      *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -1421,10 +1530,12 @@ public abstract class AbstractPreferences extends Preferences {
     protected abstract void flushSpi() throws BackingStoreException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> iff this node (or an ancestor) has been
      * removed with the {@link #removeNode()} method.  This method
      * locks this node prior to returning the contents of the private
      * field used to track this state.
+     * {@description.close}
      *
      * @return <tt>true</tt> iff this node (or an ancestor) has been
      *       removed with the {@link #removeNode()} method.
@@ -1436,19 +1547,23 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queue of pending notification events.  When a preference or node
      * change event for which there are one or more listeners occurs,
      * it is placed on this queue and the queue is notified.  A background
      * thread waits on this queue and delivers the events.  This decouples
      * event delivery from preference activity, greatly simplifying
      * locking and reducing opportunity for deadlock.
+     * {@description.close}
      */
     private static final List eventQueue = new LinkedList();
 
     /** {@collect.stats} 
+     * {@description.open}
      * These two classes are used to distinguish NodeChangeEvents on
      * eventQueue so the event dispatch thread knows whether to call
      * childAdded or childRemoved.
+     * {@description.close}
      */
     private class NodeAddedEvent extends NodeChangeEvent {
         private static final long serialVersionUID = -6743557530157328528L;
@@ -1464,8 +1579,10 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * A single background thread ("the event notification thread") monitors
      * the event queue and delivers events that are placed on the queue.
+     * {@description.close}
      */
     private static class EventDispatchThread extends Thread {
         public void run() {
@@ -1509,9 +1626,11 @@ public abstract class AbstractPreferences extends Preferences {
     private static Thread eventDispatchThread = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method starts the event dispatch thread the first time it
      * is called.  The event dispatch thread will be started only
      * if someone registers a listener.
+     * {@description.close}
      */
     private static synchronized void startEventDispatchThreadIfNecessary() {
         if (eventDispatchThread == null) {
@@ -1523,10 +1642,12 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return this node's preference/node change listeners.  Even though
      * we're using a copy-on-write lists, we use synchronized accessors to
      * ensure information transmission from the writing thread to the
      * reading thread.
+     * {@description.close}
      */
     PreferenceChangeListener[] prefListeners() {
         synchronized(lock) {
@@ -1540,9 +1661,11 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enqueue a preference change event for delivery to registered
      * preference change listeners unless there are no registered
      * listeners.  Invoked with this.lock held.
+     * {@description.close}
      */
     private void enqueuePreferenceChangeEvent(String key, String newValue) {
         if (prefListeners.length != 0) {
@@ -1554,9 +1677,11 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enqueue a "node added" event for delivery to registered node change
      * listeners unless there are no registered listeners.  Invoked with
      * this.lock held.
+     * {@description.close}
      */
     private void enqueueNodeAddedEvent(Preferences child) {
         if (nodeListeners.length != 0) {
@@ -1568,9 +1693,11 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enqueue a "node removed" event for delivery to registered node change
      * listeners unless there are no registered listeners.  Invoked with
      * this.lock held.
+     * {@description.close}
      */
     private void enqueueNodeRemovedEvent(Preferences child) {
         if (nodeListeners.length != 0) {
@@ -1582,8 +1709,10 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>exportNode</tt> method as per the specification in
      * {@link Preferences#exportNode(OutputStream)}.
+     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @throws IOException if writing to the specified output stream
@@ -1598,8 +1727,10 @@ public abstract class AbstractPreferences extends Preferences {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements the <tt>exportSubtree</tt> method as per the specification in
      * {@link Preferences#exportSubtree(OutputStream)}.
+     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @throws IOException if writing to the specified output stream

@@ -26,9 +26,11 @@
 package java.util.zip;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A class that can be used to compute the Adler-32 checksum of a data
  * stream. An Adler-32 checksum is almost as reliable as a CRC-32 but
  * can be computed much faster.
+ * {@description.close}
  *
  * @see         Checksum
  * @author      David Connelly
@@ -38,14 +40,18 @@ class Adler32 implements Checksum {
     private int adler = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new Adler32 object.
+     * {@description.close}
      */
     public Adler32() {
     }
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates checksum with specified byte.
+     * {@description.close}
      *
      * @param b an array of bytes
      */
@@ -54,7 +60,9 @@ class Adler32 implements Checksum {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates checksum with specified array of bytes.
+     * {@description.close}
      */
     public void update(byte[] b, int off, int len) {
         if (b == null) {
@@ -67,21 +75,27 @@ class Adler32 implements Checksum {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates checksum with specified array of bytes.
+     * {@description.close}
      */
     public void update(byte[] b) {
         adler = updateBytes(adler, b, 0, b.length);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets checksum to initial value.
+     * {@description.close}
      */
     public void reset() {
         adler = 1;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns checksum value.
+     * {@description.close}
      */
     public long getValue() {
         return (long)adler & 0xffffffffL;

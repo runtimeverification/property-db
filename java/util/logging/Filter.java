@@ -27,6 +27,7 @@
 package java.util.logging;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A Filter can be used to provide fine grain control over
  * what is logged, beyond the control provided by log levels.
  * <p>
@@ -34,6 +35,7 @@ package java.util.logging;
  * The Logger or Handler will call the isLoggable method to check
  * if a given LogRecord should be published.  If isLoggable returns
  * false, the LogRecord will be discarded.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -41,7 +43,9 @@ package java.util.logging;
 public interface Filter {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check if a given log record should be published.
+     * {@description.close}
      * @param record  a LogRecord
      * @return true if the log record should be published.
      */

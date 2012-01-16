@@ -26,7 +26,9 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A tagging interface that all event listener interfaces must extend.
+ * {@description.close}
  * @since JDK1.1
  */
 public interface EventListener {

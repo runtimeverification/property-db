@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An object that executes submitted {@link Runnable} tasks. This
  * interface provides a way of decoupling task submission from the
  * mechanics of how each task will be run, including details of thread
@@ -121,6 +122,7 @@ package java.util.concurrent;
  * submitting a {@code Runnable} object to an {@code Executor}
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
  * its execution begins, perhaps in another thread.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -128,9 +130,11 @@ package java.util.concurrent;
 public interface Executor {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Executes the given command at some time in the future.  The command
      * may execute in a new thread, in a pooled thread, or in the calling
      * thread, at the discretion of the <tt>Executor</tt> implementation.
+     * {@description.close}
      *
      * @param command the runnable task
      * @throws RejectedExecutionException if this task cannot be

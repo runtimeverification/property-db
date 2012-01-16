@@ -26,6 +26,7 @@
 package java.util.logging;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <tt>Handler</tt> that buffers requests in a circular buffer in memory.
  * <p>
  * Normally this <tt>Handler</tt> simply stores incoming <tt>LogRecords</tt>
@@ -68,6 +69,7 @@ package java.util.logging;
  *        specifies the name of the target <tt>Handler </tt> class.
  *        (no default).
  * </ul>
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -98,8 +100,10 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>MemoryHandler</tt> and configure it based on
      * <tt>LogManager</tt> configuration properties.
+     * {@description.close}
      */
     public MemoryHandler() {
         sealed = false;
@@ -126,11 +130,13 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>MemoryHandler</tt>.
      * <p>
      * The <tt>MemoryHandler</tt> is configured based on <tt>LogManager</tt>
      * properties (or their default values) except that the given <tt>pushLevel</tt>
      * argument and buffer size argument are used.
+     * {@description.close}
      *
      * @param target  the Handler to which to publish output.
      * @param size    the number of log records to buffer (must be greater than zero)
@@ -155,6 +161,7 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Store a <tt>LogRecord</tt> in an internal buffer.
      * <p>
      * If there is a <tt>Filter</tt>, its <tt>isLoggable</tt>
@@ -165,6 +172,7 @@ public class MemoryHandler extends Handler {
      * greater than or equal to the <tt>pushLevel</tt> then <tt>push</tt>
      * is called to write all buffered records to the target output
      * <tt>Handler</tt>.
+     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
@@ -187,9 +195,11 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Push any buffered output to the target <tt>Handler</tt>.
      * <p>
      * The buffer is then cleared.
+     * {@description.close}
      */
     public synchronized void push() {
         for (int i = 0; i < count; i++) {
@@ -203,18 +213,24 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Causes a flush on the target <tt>Handler</tt>.
      * <p>
+     * {@description.close}
+     * {@property.open}
      * Note that the current contents of the <tt>MemoryHandler</tt>
      * buffer are <b>not</b> written out.  That requires a "push".
+     * {@property.close}
      */
     public void flush() {
         target.flush();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close the <tt>Handler</tt> and free all associated resources.
      * This will also close the target <tt>Handler</tt>.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
@@ -225,9 +241,11 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the <tt>pushLevel</tt>.  After a <tt>LogRecord</tt> is copied
      * into our internal buffer, if its level is greater than or equal to
      * the <tt>pushLevel</tt>, then <tt>push</tt> will be called.
+     * {@description.close}
      *
      * @param newLevel the new value of the <tt>pushLevel</tt>
      * @exception  SecurityException  if a security manager exists and if
@@ -243,7 +261,9 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the <tt>pushLevel</tt>.
+     * {@description.close}
      *
      * @return the value of the <tt>pushLevel</tt>
      */
@@ -252,6 +272,7 @@ public class MemoryHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check if this <tt>Handler</tt> would actually log a given
      * <tt>LogRecord</tt> into its internal buffer.
      * <p>
@@ -260,6 +281,7 @@ public class MemoryHandler extends Handler {
      * check whether the <tt>LogRecord</tt> would result in a "push" of the
      * buffer contents. It will return false if the <tt>LogRecord</tt> is Null.
      * <p>
+     * {@description.close}
      * @param record  a <tt>LogRecord</tt>
      * @return true if the <tt>LogRecord</tt> would be logged.
      *

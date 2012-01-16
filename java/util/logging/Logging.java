@@ -30,11 +30,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Logging is the implementation class of LoggingMXBean.
  *
  * The <tt>LoggingMXBean</tt> interface provides a standard
  * method for management access to the individual
  * java.util.Logger objects available at runtime.
+ * {@description.close}
  *
  * @author Ron Mann
  * @author Mandy Chung
@@ -48,8 +50,11 @@ class Logging implements LoggingMXBean {
 
     private static LogManager logManager = LogManager.getLogManager();
 
-    /** {@collect.stats}  Constructor of Logging which is the implementation class
+    /** {@collect.stats}
+     * {@description.open}
+     * Constructor of Logging which is the implementation class
      *  of LoggingMXBean.
+     * {@description.close}
      */
     Logging() {
     }

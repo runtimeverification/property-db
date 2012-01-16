@@ -30,11 +30,13 @@ import java.io.*;
 import sun.security.util.ManifestEntryVerifier;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <code>JarInputStream</code> class is used to read the contents of
  * a JAR file from any input stream. It extends the class
  * <code>java.util.zip.ZipInputStream</code> with support for reading
  * an optional <code>Manifest</code> entry. The <code>Manifest</code>
  * can be used to store meta-information about the JAR file and its entries.
+ * {@description.close}
  *
  * @author  David Connelly
  * @see     Manifest
@@ -50,9 +52,11 @@ class JarInputStream extends ZipInputStream {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>JarInputStream</code> and reads the optional
      * manifest. If a manifest is present, also attempts to verify
      * the signatures if the JarInputStream is signed.
+     * {@description.close}
      * @param in the actual input stream
      * @exception IOException if an I/O error has occurred
      */
@@ -61,9 +65,11 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>JarInputStream</code> and reads the optional
      * manifest. If a manifest is present and verify is true, also attempts
      * to verify the signatures if the JarInputStream is signed.
+     * {@description.close}
      *
      * @param in the actual input stream
      * @param verify whether or not to verify the JarInputStream if
@@ -109,8 +115,10 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the <code>Manifest</code> for this JAR file, or
      * <code>null</code> if none.
+     * {@description.close}
      *
      * @return the <code>Manifest</code> for this JAR file, or
      *         <code>null</code> if none.
@@ -120,10 +128,12 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads the next ZIP file entry and positions the stream at the
      * beginning of the entry data. If verification has been enabled,
      * any invalid signature detected while positioning the stream for
      * the next entry will result in an exception.
+     * {@description.close}
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred
      * @exception SecurityException if any of the jar file entries
@@ -152,10 +162,12 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads the next JAR file entry and positions the stream at the
      * beginning of the entry data. If verification has been enabled,
      * any invalid signature detected while positioning the stream for
      * the next entry will result in an exception.
+     * {@description.close}
      * @return the next JAR file entry, or null if there are no more entries
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred
@@ -167,6 +179,7 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads from the current JAR file entry into an array of bytes.
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
@@ -174,6 +187,7 @@ class JarInputStream extends ZipInputStream {
      * If verification has been enabled, any invalid signature
      * on the current entry will be reported at some point before the
      * end of the entry is reached.
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @param off the start offset in the destination array <code>b</code>
      * @param len the maximum number of bytes to read
@@ -202,10 +216,12 @@ class JarInputStream extends ZipInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>JarEntry</code> (<code>ZipEntry</code>) for the
      * specified JAR file entry name. The manifest attributes of
      * the specified JAR file entry name will be copied to the new
      * <CODE>JarEntry</CODE>.
+     * {@description.close}
      *
      * @param name the name of the JAR/ZIP file entry
      * @return the <code>JarEntry</code> object just created

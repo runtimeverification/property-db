@@ -28,6 +28,7 @@ package java.util;
 import sun.misc.SharedSecrets;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A specialized {@link Set} implementation for use with enum types.  All of
  * the elements in an enum set must come from a single enum type that is
  * specified, explicitly or implicitly, when the set is created.  Enum sets
@@ -40,16 +41,23 @@ import sun.misc.SharedSecrets;
  *
  * <p>The iterator returned by the <tt>iterator</tt> method traverses the
  * elements in their <i>natural order</i> (the order in which the enum
- * constants are declared).  The returned iterator is <i>weakly
+ * constants are declared).
+ * {@description.close}
+ * {@property.open synchronization}
+ * The returned iterator is <i>weakly
  * consistent</i>: it will never throw {@link ConcurrentModificationException}
  * and it may or may not show the effects of any modifications to the set that
  * occur while the iteration is in progress.
+ * {@property.close}
  *
+ * {@property.open formal:java.util.EnumSet_NonNull}
  * <p>Null elements are not permitted.  Attempts to insert a null element
  * will throw {@link NullPointerException}.  Attempts to test for the
  * presence of a null element or to remove one will, however, function
  * properly.
+ * {@property.close}
  *
+ * {@property.open synchronization}
  * <P>Like most collection implementations, <tt>EnumSet</tt> is not
  * synchronized.  If multiple threads access an enum set concurrently, and at
  * least one of the threads modifies the set, it should be synchronized
@@ -62,7 +70,9 @@ import sun.misc.SharedSecrets;
  * <pre>
  * Set&lt;MyEnum&gt; s = Collections.synchronizedSet(EnumSet.noneOf(MyEnum.class));
  * </pre>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Implementation note: All basic operations execute in constant time.
  * They are likely (though not guaranteed) to be much faster than their
  * {@link HashSet} counterparts.  Even bulk operations execute in
@@ -71,6 +81,7 @@ import sun.misc.SharedSecrets;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author Josh Bloch
  * @since 1.5
@@ -81,12 +92,16 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     implements Cloneable, java.io.Serializable
 {
     /** {@collect.stats} 
+     * {@description.open}
      * The class of all the elements of this set.
+     * {@description.close}
      */
     final Class<E> elementType;
 
     /** {@collect.stats} 
+     * {@description.open}
      * All of the values comprising T.  (Cached for performance.)
+     * {@description.close}
      */
     final Enum[] universe;
 
@@ -98,7 +113,9 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty enum set with the specified element type.
+     * {@description.close}
      *
      * @param elementType the class object of the element type for this enum
      *     set
@@ -116,8 +133,10 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set containing all of the elements in the specified
      * element type.
+     * {@description.close}
      *
      * @param elementType the class object of the element type for this enum
      *     set
@@ -130,14 +149,18 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds all of the elements from the appropriate enum type to this enum
      * set, which is empty prior to the call.
+     * {@description.close}
      */
     abstract void addAll();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set with the same element type as the specified enum
      * set, initially containing the same elements (if any).
+     * {@description.close}
      *
      * @param s the enum set from which to initialize this enum set
      * @throws NullPointerException if <tt>s</tt> is null
@@ -147,11 +170,13 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initialized from the specified collection.  If
      * the specified collection is an <tt>EnumSet</tt> instance, this static
      * factory method behaves identically to {@link #copyOf(EnumSet)}.
      * Otherwise, the specified collection must contain at least one element
      * (in order to determine the new enum set's element type).
+     * {@description.close}
      *
      * @param c the collection from which to initialize this enum set
      * @throws IllegalArgumentException if <tt>c</tt> is not an
@@ -174,9 +199,11 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set with the same element type as the specified enum
      * set, initially containing all the elements of this type that are
      * <i>not</i> contained in the specified set.
+     * {@description.close}
      *
      * @param s the enum set from whose complement to initialize this enum set
      * @throws NullPointerException if <tt>s</tt> is null
@@ -188,6 +215,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified element.
      *
      * Overloadings of this method exist to initialize an enum set with
@@ -195,6 +223,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
      * uses the varargs feature.  This overloading may be used to create
      * an enum set initially containing an arbitrary number of elements, but
      * is likely to run slower than the overloadings that do not use varargs.
+     * {@description.close}
      *
      * @param e the element that this set is to contain initially
      * @throws NullPointerException if <tt>e</tt> is null
@@ -207,6 +236,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified elements.
      *
      * Overloadings of this method exist to initialize an enum set with
@@ -214,6 +244,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
      * uses the varargs feature.  This overloading may be used to create
      * an enum set initially containing an arbitrary number of elements, but
      * is likely to run slower than the overloadings that do not use varargs.
+     * {@description.close}
      *
      * @param e1 an element that this set is to contain initially
      * @param e2 another element that this set is to contain initially
@@ -228,6 +259,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified elements.
      *
      * Overloadings of this method exist to initialize an enum set with
@@ -235,6 +267,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
      * uses the varargs feature.  This overloading may be used to create
      * an enum set initially containing an arbitrary number of elements, but
      * is likely to run slower than the overloadings that do not use varargs.
+     * {@description.close}
      *
      * @param e1 an element that this set is to contain initially
      * @param e2 another element that this set is to contain initially
@@ -251,6 +284,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified elements.
      *
      * Overloadings of this method exist to initialize an enum set with
@@ -258,6 +292,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
      * uses the varargs feature.  This overloading may be used to create
      * an enum set initially containing an arbitrary number of elements, but
      * is likely to run slower than the overloadings that do not use varargs.
+     * {@description.close}
      *
      * @param e1 an element that this set is to contain initially
      * @param e2 another element that this set is to contain initially
@@ -276,6 +311,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified elements.
      *
      * Overloadings of this method exist to initialize an enum set with
@@ -283,6 +319,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
      * uses the varargs feature.  This overloading may be used to create
      * an enum set initially containing an arbitrary number of elements, but
      * is likely to run slower than the overloadings that do not use varargs.
+     * {@description.close}
      *
      * @param e1 an element that this set is to contain initially
      * @param e2 another element that this set is to contain initially
@@ -305,11 +342,13 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing the specified elements.
      * This factory, whose parameter list uses the varargs feature, may
      * be used to create an enum set initially containing an arbitrary
      * number of elements, but it is likely to run slower than the overloadings
      * that do not use varargs.
+     * {@description.close}
      *
      * @param first an element that the set is to contain initially
      * @param rest the remaining elements the set is to contain initially
@@ -326,10 +365,12 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum set initially containing all of the elements in the
      * range defined by the two specified endpoints.  The returned set will
      * contain the endpoints themselves, which may be identical but must not
      * be out of order.
+     * {@description.close}
      *
      * @param from the first element in the range
      * @param to the last element in the range
@@ -347,13 +388,17 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified range to this enum set, which is empty prior
      * to the call.
+     * {@description.close}
      */
     abstract void addRange(E from, E to);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a copy of this set.
+     * {@description.close}
      *
      * @return a copy of this set
      */
@@ -366,12 +411,16 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Complements the contents of this enum set.
+     * {@description.close}
      */
     abstract void complement();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Throws an exception if e is not of the correct type for this enum set.
+     * {@description.close}
      */
     final void typeCheck(E e) {
         Class eClass = e.getClass();
@@ -380,8 +429,10 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns all of the values comprising E.
      * The result is uncloned, cached, and shared by all callers.
+     * {@description.close}
      */
     private static <E extends Enum<E>> E[] getUniverse(Class<E> elementType) {
         return SharedSecrets.getJavaLangAccess()
@@ -389,11 +440,13 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This class is used to serialize all EnumSet instances, regardless of
      * implementation type.  It captures their "logical contents" and they
      * are reconstructed using public static factories.  This is necessary
      * to ensure that the existence of a particular implementation type is
      * an implementation detail.
+     * {@description.close}
      *
      * @serial include
      */
@@ -401,14 +454,18 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
         implements java.io.Serializable
     {
         /** {@collect.stats} 
+         * {@description.open}
          * The element type of this enum set.
+         * {@description.close}
          *
          * @serial
          */
         private final Class<E> elementType;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The elements contained in this enum set.
+         * {@description.close}
          *
          * @serial
          */

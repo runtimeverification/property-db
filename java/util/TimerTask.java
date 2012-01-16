@@ -26,7 +26,9 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A task that can be scheduled for one-time or repeated execution by a Timer.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     Timer
@@ -35,63 +37,84 @@ package java.util;
 
 public abstract class TimerTask implements Runnable {
     /** {@collect.stats} 
+     * {@description.open}
      * This object is used to control access to the TimerTask internals.
+     * {@description.close}
      */
     final Object lock = new Object();
 
     /** {@collect.stats} 
+     * {@description.open}
      * The state of this task, chosen from the constants below.
+     * {@description.close}
      */
     int state = VIRGIN;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This task has not yet been scheduled.
+     * {@description.close}
      */
     static final int VIRGIN = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This task is scheduled for execution.  If it is a non-repeating task,
      * it has not yet been executed.
+     * {@description.close}
      */
     static final int SCHEDULED   = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This non-repeating task has already executed (or is currently
      * executing) and has not been cancelled.
+     * {@description.close}
      */
     static final int EXECUTED    = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This task has been cancelled (with a call to TimerTask.cancel).
+     * {@description.close}
      */
     static final int CANCELLED   = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Next execution time for this task in the format returned by
      * System.currentTimeMillis, assuming this task is scheduled for execution.
      * For repeating tasks, this field is updated prior to each task execution.
+     * {@description.close}
      */
     long nextExecutionTime;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Period in milliseconds for repeating tasks.  A positive value indicates
      * fixed-rate execution.  A negative value indicates fixed-delay execution.
      * A value of 0 indicates a non-repeating task.
+     * {@description.close}
      */
     long period = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new timer task.
+     * {@description.close}
      */
     protected TimerTask() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The action to be performed by this timer task.
+     * {@description.close}
      */
     public abstract void run();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Cancels this timer task.  If the task has been scheduled for one-time
      * execution and has not yet run, or has not yet been scheduled, it will
      * never run.  If the task has been scheduled for repeated execution, it
@@ -104,6 +127,7 @@ public abstract class TimerTask implements Runnable {
      *
      * <p>This method may be called repeatedly; the second and subsequent
      * calls have no effect.
+     * {@description.close}
      *
      * @return true if this task is scheduled for one-time execution and has
      *         not yet run, or this task is scheduled for repeated execution.
@@ -122,6 +146,7 @@ public abstract class TimerTask implements Runnable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the <i>scheduled</i> execution time of the most recent
      * <i>actual</i> execution of this task.  (If this method is invoked
      * while task execution is in progress, the return value is the scheduled
@@ -142,6 +167,7 @@ public abstract class TimerTask implements Runnable {
      * <i>fixed-delay execution</i> repeating tasks, as their scheduled
      * execution times are allowed to drift over time, and so are not terribly
      * significant.
+     * {@description.close}
      *
      * @return the time at which the most recent execution of this task was
      *         scheduled to occur, in the format returned by Date.getTime().

@@ -38,6 +38,7 @@ import java.util.concurrent.locks.*;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A bounded {@linkplain BlockingQueue blocking queue} backed by an
  * array.  This queue orders elements FIFO (first-in-first-out).  The
  * <em>head</em> of the queue is that element that has been on the
@@ -67,6 +68,7 @@ import java.util.*;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -76,20 +78,38 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         implements BlockingQueue<E>, java.io.Serializable {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Serialization ID. This class relies on default serialization
      * even for the items array, which is default-serialized, even if
      * it is empty. Otherwise it could not be declared final, which is
      * necessary here.
+     * {@description.close}
      */
     private static final long serialVersionUID = -817911632652898426L;
 
-    /** {@collect.stats}  The queued items  */
+    /** {@collect.stats}
+     * {@description.open}
+     * The queued items
+     * {@description.close}
+     */
     private final E[] items;
-    /** {@collect.stats}  items index for next take, poll or remove */
+    /** {@collect.stats}
+     * {@description.open}
+     * items index for next take, poll or remove
+     * {@description.close}
+     */
     private int takeIndex;
-    /** {@collect.stats}  items index for next put, offer, or add. */
+    /** {@collect.stats}
+     * {@description.open}
+     * items index for next put, offer, or add.
+     * {@description.close}
+     */
     private int putIndex;
-    /** {@collect.stats}  Number of items in the queue */
+    /** {@collect.stats}
+     * {@description.open}
+     * Number of items in the queue
+     * {@description.close}
+     */
     private int count;
 
     /*
@@ -97,25 +117,43 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * found in any textbook.
      */
 
-    /** {@collect.stats}  Main lock guarding all access */
+    /** {@collect.stats}
+     * {@description.open}
+     * Main lock guarding all access
+     * {@description.close}
+     */
     private final ReentrantLock lock;
-    /** {@collect.stats}  Condition for waiting takes */
+    /** {@collect.stats}
+     * {@description.open}
+     * Condition for waiting takes
+     * {@description.close}
+     */
     private final Condition notEmpty;
-    /** {@collect.stats}  Condition for waiting puts */
+    /** {@collect.stats}
+     * {@description.open}
+     * Condition for waiting puts
+     * {@description.close}
+     */
     private final Condition notFull;
 
     // Internal helper methods
 
     /** {@collect.stats} 
+     * {@description.open}
      * Circularly increment i.
+     * {@description.close}
      */
     final int inc(int i) {
         return (++i == items.length)? 0 : i;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts element at current put position, advances, and signals.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
     private void insert(E x) {
         items[putIndex] = x;
@@ -125,8 +163,12 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Extracts element at current take position, advances, and signals.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
     private E extract() {
         final E[] items = this.items;
@@ -139,8 +181,12 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility for remove and iterator.remove: Delete item at position i.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
     void removeAt(int i) {
         final E[] items = this.items;
@@ -167,8 +213,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and default access policy.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
      * @throws IllegalArgumentException if <tt>capacity</tt> is less than 1
@@ -178,8 +226,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and the specified access policy.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
      * @param fair if <tt>true</tt> then queue accesses for threads blocked
@@ -197,10 +247,12 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity, the specified access policy and initially containing the
      * elements of the given collection,
      * added in traversal order of the collection's iterator.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
      * @param fair if <tt>true</tt> then queue accesses for threads blocked
@@ -223,10 +275,12 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
      * returning <tt>true</tt> upon success and throwing an
      * <tt>IllegalStateException</tt> if this queue is full.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -238,11 +292,13 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
      * returning <tt>true</tt> upon success and <tt>false</tt> if this queue
      * is full.  This method is generally preferable to method {@link #add},
      * which can fail to insert an element only by throwing an exception.
+     * {@description.close}
      *
      * @throws NullPointerException if the specified element is null
      */
@@ -263,8 +319,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue, waiting
      * for space to become available if the queue is full.
+     * {@description.close}
      *
      * @throws InterruptedException {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -289,9 +347,11 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue, waiting
      * up to the specified wait time for space to become available if
      * the queue is full.
+     * {@description.close}
      *
      * @throws InterruptedException {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -392,7 +452,9 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     // this doc comment is overridden to remove the reference to collections
     // greater in size than Integer.MAX_VALUE
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this queue.
+     * {@description.close}
      *
      * @return the number of elements in this queue
      */
@@ -409,6 +471,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     // this doc comment is a modified copy of the inherited doc comment,
     // without the reference to unlimited queues.
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking. This is always equal to the initial capacity of this queue
@@ -418,6 +481,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * an element will succeed by inspecting <tt>remainingCapacity</tt>
      * because it may be the case that another thread is about to
      * insert or remove an element.
+     * {@description.close}
      */
     public int remainingCapacity() {
         final ReentrantLock lock = this.lock;
@@ -430,12 +494,14 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element <tt>e</tt> such
      * that <tt>o.equals(e)</tt>, if this queue contains one or more such
      * elements.
      * Returns <tt>true</tt> if this queue contained the specified element
      * (or equivalently, if this queue changed as a result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
      * @return <tt>true</tt> if this queue changed as a result of the call
@@ -464,9 +530,11 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this queue contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this queue contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
+     * {@description.close}
      *
      * @param o object to be checked for containment in this queue
      * @return <tt>true</tt> if this queue contains the specified element
@@ -491,6 +559,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence.
      *
@@ -500,6 +569,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all of the elements in this queue
      */
@@ -522,6 +592,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the queue fits in the specified array, it
@@ -547,6 +618,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of the queue are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -593,8 +665,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically removes all of the elements from this queue.
      * The queue will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         final E[] items = this.items;
@@ -692,12 +766,16 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this queue in proper sequence.
+     * {@description.close}
+     * {@property.open synchronized}
      * The returned <tt>Iterator</tt> is a "weakly consistent" iterator that
      * will never throw {@link ConcurrentModificationException},
      * and guarantees to traverse elements as they existed upon
      * construction of the iterator, and may (but is not guaranteed to)
      * reflect any modifications subsequent to construction.
+     * {@property.close}
      *
      * @return an iterator over the elements in this queue in proper sequence
      */
@@ -712,26 +790,34 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Iterator for ArrayBlockingQueue
+     * {@description.close}
      */
     private class Itr implements Iterator<E> {
         /** {@collect.stats} 
+         * {@description.open}
          * Index of element to be returned by next,
          * or a negative number if no such.
+         * {@description.close}
          */
         private int nextIndex;
 
         /** {@collect.stats} 
+         * {@description.open}
          * nextItem holds on to item fields because once we claim
          * that an element exists in hasNext(), we must return it in
          * the following next() call even if it was in the process of
          * being removed when hasNext() was called.
+         * {@description.close}
          */
         private E nextItem;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Index of element returned by most recent call to next.
          * Reset to -1 if this element is deleted by a call to remove.
+         * {@description.close}
          */
         private int lastRet;
 
@@ -755,8 +841,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Checks whether nextIndex is valid; if so setting nextItem.
          * Stops iterator when either hits putIndex or sees null item.
+         * {@description.close}
          */
         private void checkNext() {
             if (nextIndex == putIndex) {

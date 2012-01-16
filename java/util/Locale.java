@@ -53,6 +53,7 @@ import sun.util.resources.LocaleData;
 import sun.util.resources.OpenListResourceBundle;
 
 /** {@collect.stats} 
+ * {@description.open}
  *
  * A <code>Locale</code> object represents a specific geographical, political,
  * or cultural region. An operation that requires a <code>Locale</code> to perform
@@ -155,6 +156,7 @@ import sun.util.resources.OpenListResourceBundle;
  * (<code>NumberFormat</code>) that you would like to get. The locale is
  * <STRONG>just</STRONG> a mechanism for identifying objects,
  * <STRONG>not</STRONG> a container for the objects themselves.
+ * {@description.close}
  *
  * @see         ResourceBundle
  * @see         java.text.Format
@@ -170,117 +172,189 @@ public final class Locale implements Cloneable, Serializable {
     private final static ConcurrentHashMap<String, Locale> cache =
         new ConcurrentHashMap<String, Locale>(32);
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale ENGLISH = createSingleton("en__", "en", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale FRENCH = createSingleton("fr__", "fr", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale GERMAN = createSingleton("de__", "de", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale ITALIAN = createSingleton("it__", "it", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale JAPANESE = createSingleton("ja__", "ja", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale KOREAN = createSingleton("ko__", "ko", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale CHINESE = createSingleton("zh__", "zh", "");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale SIMPLIFIED_CHINESE = createSingleton("zh_CN_", "zh", "CN");
 
-    /** {@collect.stats}  Useful constant for language.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for language.
+     * {@description.close}
      */
     static public final Locale TRADITIONAL_CHINESE = createSingleton("zh_TW_", "zh", "TW");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale FRANCE = createSingleton("fr_FR_", "fr", "FR");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale GERMANY = createSingleton("de_DE_", "de", "DE");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale ITALY = createSingleton("it_IT_", "it", "IT");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale JAPAN = createSingleton("ja_JP_", "ja", "JP");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale KOREA = createSingleton("ko_KR_", "ko", "KR");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale CHINA = SIMPLIFIED_CHINESE;
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale PRC = SIMPLIFIED_CHINESE;
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale TAIWAN = TRADITIONAL_CHINESE;
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale UK = createSingleton("en_GB_", "en", "GB");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale US = createSingleton("en_US_", "en", "US");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale CANADA = createSingleton("en_CA_", "en", "CA");
 
-    /** {@collect.stats}  Useful constant for country.
+    /** {@collect.stats}
+     * {@description.open}
+     * Useful constant for country.
+     * {@description.close}
      */
     static public final Locale CANADA_FRENCH = createSingleton("fr_CA_", "fr", "CA");
 
     /** {@collect.stats} 
+     * {@description.open}
      * Useful constant for the root locale.  The root locale is the locale whose
      * language, country, and variant are empty ("") strings.  This is regarded
      * as the base locale of all locales, and is used as the language/country
      * neutral locale for the locale sensitive operations.
+     * {@description.close}
      *
      * @since 1.6
      */
     static public final Locale ROOT = createSingleton("__", "", "");
 
-    /** {@collect.stats}  serialization ID
+    /** {@collect.stats}
+     * {@description.open}
+     * serialization ID
+     * {@description.close}
      */
     static final long serialVersionUID = 9149081749638150636L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Display types for retrieving localized names from the name providers.
+     * {@description.close}
      */
     private static final int DISPLAY_LANGUAGE = 0;
     private static final int DISPLAY_COUNTRY  = 1;
     private static final int DISPLAY_VARIANT  = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a locale from language, country, variant.
      * NOTE:  ISO 639 is not a stable standard; some of the language codes it defines
      * (specifically iw, ji, and in) have changed.  This constructor accepts both the
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
+     * {@description.close}
      * @param language lowercase two-letter ISO-639 code.
      * @param country uppercase two-letter ISO-3166 code.
      * @param variant vendor and browser specific code. See class description.
@@ -293,11 +367,13 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a locale from language, country.
      * NOTE:  ISO 639 is not a stable standard; some of the language codes it defines
      * (specifically iw, ji, and in) have changed.  This constructor accepts both the
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
+     * {@description.close}
      * @param language lowercase two-letter ISO-639 code.
      * @param country uppercase two-letter ISO-3166 code.
      * @exception NullPointerException thrown if either argument is null.
@@ -307,11 +383,13 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a locale from a language code.
      * NOTE:  ISO 639 is not a stable standard; some of the language codes it defines
      * (specifically iw, ji, and in) have changed.  This constructor accepts both the
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
+     * {@description.close}
      * @param language lowercase two-letter ISO-639 code.
      * @exception NullPointerException thrown if argument is null.
      * @since 1.4
@@ -321,11 +399,13 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>Locale</code> using <code>language</code>
      * and <code>country</code>.  This constructor assumes that
      * <code>language</code> and <code>contry</code> are interned and
      * it is invoked by createSingleton only. (flag is just for
      * avoiding the conflict with the public constructors.
+     * {@description.close}
      */
     private Locale(String language, String country, boolean flag) {
         this.language = language;
@@ -334,11 +414,13 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <code>Locale</code> instance with the given
      * <code>language</code> and <code>counry</code> and puts the
      * instance under the given <code>key</code> in the cache. This
      * method must be called only when initializing the Locale
      * constants.
+     * {@description.close}
      */
     private static Locale createSingleton(String key, String language, String country) {
         Locale locale = new Locale(language, country, false);
@@ -347,12 +429,14 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>Locale</code> constructed from the given
      * <code>language</code>, <code>country</code> and
      * <code>variant</code>. If the same <code>Locale</code> instance
      * is available in the cache, then that instance is
      * returned. Otherwise, a new <code>Locale</code> instance is
      * created and cached.
+     * {@description.close}
      *
      * @param language lowercase two-letter ISO-639 code.
      * @param country uppercase two-letter ISO-3166 code.
@@ -380,6 +464,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the current value of the default locale for this instance
      * of the Java Virtual Machine.
      * <p>
@@ -388,6 +473,7 @@ public final class Locale implements Cloneable, Serializable {
      * methods if no locale is explicitly specified.
      * It can be changed using the
      * {@link #setDefault(java.util.Locale) setDefault} method.
+     * {@description.close}
      *
      * @return the default locale for this instance of the Java Virtual Machine
      */
@@ -423,6 +509,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the default locale for this instance of the Java Virtual Machine.
      * This does not affect the host locale.
      * <p>
@@ -438,6 +525,7 @@ public final class Locale implements Cloneable, Serializable {
      * of functionality, this method should only be used if the caller
      * is prepared to reinitialize locale-sensitive code running
      * within the same Java Virtual Machine.
+     * {@description.close}
      *
      * @throws SecurityException
      *        if a security manager exists and its
@@ -458,12 +546,14 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array of all installed locales.
      * The returned array represents the union of locales supported
      * by the Java runtime environment and by installed
      * {@link java.util.spi.LocaleServiceProvider LocaleServiceProvider}
      * implementations.  It must contain at least a <code>Locale</code>
      * instance equal to {@link java.util.Locale#US Locale.US}.
+     * {@description.close}
      *
      * @return An array of installed locales.
      */
@@ -472,8 +562,10 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list of all 2-letter country codes defined in ISO 3166.
      * Can be used to create Locales.
+     * {@description.close}
      */
     public static String[] getISOCountries() {
         if (isoCountries == null) {
@@ -485,11 +577,13 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list of all 2-letter language codes defined in ISO 639.
      * Can be used to create Locales.
      * [NOTE:  ISO 639 is not a stable standard-- some languages' codes have changed.
      * The list this function returns includes both the new and the old codes for the
      * languages whose codes have changed.]
+     * {@description.close}
      */
     public static String[] getISOLanguages() {
         if (isoLanguages == null) {
@@ -510,6 +604,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the language code for this locale, which will either be the empty string
      * or a lowercase ISO 639 code.
      * <p>NOTE:  ISO 639 is not a stable standard-- some languages' codes have changed.
@@ -521,6 +616,7 @@ public final class Locale implements Cloneable, Serializable {
      * </pre>Instead, do<pre>
      * if (locale.getLanguage().equals(new Locale("he", "", "").getLanguage()))
      *    ...</pre>
+     * {@description.close}
      * @see #getDisplayLanguage
      */
     public String getLanguage() {
@@ -528,8 +624,10 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the country/region code for this locale, which will
      * either be the empty string or an uppercase ISO 3166 2-letter code.
+     * {@description.close}
      * @see #getDisplayCountry
      */
     public String getCountry() {
@@ -537,7 +635,9 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the variant code for this locale.
+     * {@description.close}
      * @see #getDisplayVariant
      */
     public String getVariant() {
@@ -545,6 +645,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Getter for the programmatic name of the entire locale,
      * with the language, country and variant separated by underbars.
      * Language is always lower case, and country is always upper case.
@@ -554,6 +655,7 @@ public final class Locale implements Cloneable, Serializable {
      * (you can't have a locale with just a variant-- the variant must accompany
      * a valid language or country code).
      * Examples: "en", "de_DE", "_GB", "en_US_WIN", "de__POSIX", "fr__MAC"
+     * {@description.close}
      * @see #getDisplayName
      */
     public final String toString() {
@@ -571,12 +673,14 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a three-letter abbreviation for this locale's language.  If the locale
      * doesn't specify a language, this will be the empty string.  Otherwise, this will
      * be a lowercase ISO 639-2/T language code.
      * The ISO 639-2 language codes can be found on-line at
      * <a href="http://www.loc.gov/standards/iso639-2/englangn.html">
      * <code>http://www.loc.gov/standards/iso639-2/englangn.html</code>.</a>
+     * {@description.close}
      * @exception MissingResourceException Throws MissingResourceException if the
      * three-letter language abbreviation is not available for this locale.
      */
@@ -590,12 +694,14 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a three-letter abbreviation for this locale's country.  If the locale
      * doesn't specify a country, this will be the empty string.  Otherwise, this will
      * be an uppercase ISO 3166 3-letter country code.
      * The ISO 3166-2 country codes can be found on-line at
      * <a href="http://www.davros.org/misc/iso3166.txt">
      * <code>http://www.davros.org/misc/iso3166.txt</code>.</a>
+     * {@description.close}
      * @exception MissingResourceException Throws MissingResourceException if the
      * three-letter country abbreviation is not available for this locale.
      */
@@ -630,6 +736,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's language that is appropriate for display to the
      * user.
      * If possible, the name returned will be localized for the default locale.
@@ -640,12 +747,14 @@ public final class Locale implements Cloneable, Serializable {
      * (say, we don't have a Japanese name for Croatian),
      * this function falls back on the English name, and uses the ISO code as a last-resort
      * value.  If the locale doesn't specify a language, this function returns the empty string.
+     * {@description.close}
      */
     public final String getDisplayLanguage() {
         return getDisplayLanguage(getDefault());
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's language that is appropriate for display to the
      * user.
      * If possible, the name returned will be localized according to inLocale.
@@ -657,6 +766,7 @@ public final class Locale implements Cloneable, Serializable {
      * this function falls back on the English name, and finally
      * on the ISO code as a last-resort value.  If the locale doesn't specify a language,
      * this function returns the empty string.
+     * {@description.close}
      *
      * @exception NullPointerException if <code>inLocale</code> is <code>null</code>
      */
@@ -665,6 +775,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's country that is appropriate for display to the
      * user.
      * If possible, the name returned will be localized for the default locale.
@@ -675,12 +786,14 @@ public final class Locale implements Cloneable, Serializable {
      * (say, we don't have a Japanese name for Croatia),
      * this function falls back on the English name, and uses the ISO code as a last-resort
      * value.  If the locale doesn't specify a country, this function returns the empty string.
+     * {@description.close}
      */
     public final String getDisplayCountry() {
         return getDisplayCountry(getDefault());
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's country that is appropriate for display to the
      * user.
      * If possible, the name returned will be localized according to inLocale.
@@ -692,6 +805,7 @@ public final class Locale implements Cloneable, Serializable {
      * this function falls back on the English name, and finally
      * on the ISO code as a last-resort value.  If the locale doesn't specify a country,
      * this function returns the empty string.
+     * {@description.close}
      *
      * @exception NullPointerException if <code>inLocale</code> is <code>null</code>
      */
@@ -739,18 +853,22 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's variant code that is appropriate for display to the
      * user.  If possible, the name will be localized for the default locale.  If the locale
      * doesn't specify a variant code, this function returns the empty string.
+     * {@description.close}
      */
     public final String getDisplayVariant() {
         return getDisplayVariant(getDefault());
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale's variant code that is appropriate for display to the
      * user.  If possible, the name will be localized for inLocale.  If the locale
      * doesn't specify a variant code, this function returns the empty string.
+     * {@description.close}
      *
      * @exception NullPointerException if <code>inLocale</code> is <code>null</code>
      */
@@ -775,6 +893,7 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale that is appropriate for display to the
      * user.  This will be the values returned by getDisplayLanguage(), getDisplayCountry(),
      * and getDisplayVariant() assembled into a single string.  The display name will have
@@ -788,12 +907,14 @@ public final class Locale implements Cloneable, Serializable {
      * variant<p></blockquote>
      * depending on which fields are specified in the locale.  If the language, country,
      * and variant fields are all empty, this function returns the empty string.
+     * {@description.close}
      */
     public final String getDisplayName() {
         return getDisplayName(getDefault());
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the locale that is appropriate for display to the
      * user.  This will be the values returned by getDisplayLanguage(), getDisplayCountry(),
      * and getDisplayVariant() assembled into a single string.  The display name will have
@@ -807,6 +928,7 @@ public final class Locale implements Cloneable, Serializable {
      * variant<p></blockquote>
      * depending on which fields are specified in the locale.  If the language, country,
      * and variant fields are all empty, this function returns the empty string.
+     * {@description.close}
      *
      * @exception NullPointerException if <code>inLocale</code> is <code>null</code>
      */
@@ -888,7 +1010,9 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Overrides Cloneable
+     * {@description.close}
      */
     public Object clone()
     {
@@ -901,9 +1025,11 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Override hashCode.
      * Since Locales are often used in hashtables, caches the value
      * for speed.
+     * {@description.close}
      */
     public int hashCode() {
         int hc = hashCodeValue;
@@ -917,9 +1043,11 @@ public final class Locale implements Cloneable, Serializable {
     // Overrides
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if this Locale is equal to another object.  A Locale is
      * deemed equal to another Locale with identical language, country,
      * and variant, and unequal to all other objects.
+     * {@description.close}
      *
      * @return true if this Locale is equal to the specified object.
      */
@@ -959,20 +1087,26 @@ public final class Locale implements Cloneable, Serializable {
     private final String variant;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Placeholder for the object's hash code.  Always -1.
+     * {@description.close}
      * @serial
      */
     private volatile int hashcode = -1;        // lazy evaluate
 
     /** {@collect.stats} 
+     * {@description.open}
      * Calculated hashcode to fix 4518797.
+     * {@description.close}
      */
     private transient volatile int hashCodeValue = 0;
 
     private static Locale defaultLocale = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return an array of the display names of the variant.
+     * {@description.close}
      * @param bundle the ResourceBundle to use to get the display names
      * @return an array of display names, possible of zero length.
      */
@@ -992,9 +1126,11 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format a list using given pattern strings.
      * If either of the patterns is null, then a the list is
      * formatted by concatenation with the delimiter ','.
+     * {@description.close}
      * @param stringList the list of strings to be formatted.
      * @param listPattern should create a MessageFormat taking 0-3 arguments
      * and formatting them into a list.
@@ -1031,9 +1167,11 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Given a list of strings, return a list shortened to three elements.
      * Shorten it by applying the given format to the first two elements
      * recursively.
+     * {@description.close}
      * @param format a format which takes two arguments
      * @param list a list of strings
      * @return if the list is three elements or shorter, the same list;
@@ -1056,10 +1194,12 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replace the deserialized Locale object with a newly
      * created object. Newer language codes are replaced with older ISO
      * codes. The country and variant codes are replaced with internalized
      * String copies.
+     * {@description.close}
      */
     private Object readResolve() throws java.io.ObjectStreamException {
         return getInstance(language, country, variant);
@@ -1111,8 +1251,10 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Obtains a localized locale names from a LocaleNameProvider
      * implementation.
+     * {@description.close}
      */
     private static class LocaleNameGetter
         implements LocaleServiceProviderPool.LocalizedObjectGetter<LocaleNameProvider, String> {

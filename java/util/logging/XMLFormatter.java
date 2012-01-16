@@ -31,6 +31,7 @@ import java.nio.charset.Charset;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Format a LogRecord into a standard XML format.
  * <p>
  * The DTD specification is provided as Appendix A to the
@@ -39,6 +40,7 @@ import java.util.*;
  * The XMLFormatter can be used with arbitrary character encodings,
  * but it is recommended that it normally be used with UTF-8.  The
  * character encoding can be set on the output Handler.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -92,11 +94,13 @@ public class XMLFormatter extends Formatter {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format the given message to XML.
      * <p>
      * This method can be overridden in a subclass.
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
+     * {@description.close}
      *
      * @param record the log record to be formatted.
      * @return a formatted log record
@@ -218,7 +222,9 @@ public class XMLFormatter extends Formatter {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the header string for a set of XML formatted records.
+     * {@description.close}
      *
      * @param   h  The target handler (can be null)
      * @return  a valid XML string
@@ -257,7 +263,9 @@ public class XMLFormatter extends Formatter {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the tail string for a set of XML formatted records.
+     * {@description.close}
      *
      * @param   h  The target handler (can be null)
      * @return  a valid XML string

@@ -27,6 +27,7 @@ package java.util;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Error thrown when something goes wrong while loading a service provider.
  *
  * <p> This error will be thrown in the following situations:
@@ -50,6 +51,7 @@ package java.util;
  *   <li> Some other kind of error occurs. </li>
  *
  * </ul>
+ * {@description.close}
  *
  *
  * @author Mark Reinhold
@@ -63,7 +65,9 @@ public class ServiceConfigurationError
     private static final long serialVersionUID = 74132770414881L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new instance with the specified message.
+     * {@description.close}
      *
      * @param  msg  The message, or <tt>null</tt> if there is no message
      *
@@ -73,7 +77,9 @@ public class ServiceConfigurationError
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new instance with the specified message and cause.
+     * {@description.close}
      *
      * @param  msg  The message, or <tt>null</tt> if there is no message
      *

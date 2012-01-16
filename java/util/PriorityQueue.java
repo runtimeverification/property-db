@@ -26,15 +26,23 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An unbounded priority {@linkplain Queue queue} based on a priority heap.
  * The elements of the priority queue are ordered according to their
  * {@linkplain Comparable natural ordering}, or by a {@link Comparator}
  * provided at queue construction time, depending on which constructor is
- * used.  A priority queue does not permit {@code null} elements.
+ * used.
+ * {@description.close}
+ * {@property.open formal:java.util.PriorityQueue_NonNull}
+ * A priority queue does not permit {@code null} elements.
+ * {@property.close}
+ * {@property.open formal:java.util.PriorityQueue_NonComparable}
  * A priority queue relying on natural ordering also does not permit
  * insertion of non-comparable objects (doing so may result in
  * {@code ClassCastException}).
+ * {@property.close}
  *
+ * {@description.open}
  * <p>The <em>head</em> of this queue is the <em>least</em> element
  * with respect to the specified ordering.  If multiple elements are
  * tied for least value, the head is one of those elements -- ties are
@@ -55,13 +63,17 @@ package java.util;
  * #iterator()} is <em>not</em> guaranteed to traverse the elements of
  * the priority queue in any particular order. If you need ordered
  * traversal, consider using {@code Arrays.sort(pq.toArray())}.
+ * {@description.close}
  *
+ * {@property.open synchronized}
  * <p> <strong>Note that this implementation is not synchronized.</strong>
  * Multiple threads should not access a {@code PriorityQueue}
  * instance concurrently if any of the threads modifies the queue.
  * Instead, use the thread-safe {@link
  * java.util.concurrent.PriorityBlockingQueue} class.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Implementation note: this implementation provides
  * O(log(n)) time for the enqueing and dequeing methods
  * ({@code offer}, {@code poll}, {@code remove()} and {@code add});
@@ -72,6 +84,7 @@ package java.util;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Josh Bloch, Doug Lea
@@ -85,45 +98,57 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     private static final int DEFAULT_INITIAL_CAPACITY = 11;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Priority queue represented as a balanced binary heap: the two
      * children of queue[n] are queue[2*n+1] and queue[2*(n+1)].  The
      * priority queue is ordered by comparator, or by the elements'
      * natural ordering, if comparator is null: For each node n in the
      * heap and each descendant d of n, n <= d.  The element with the
      * lowest value is in queue[0], assuming the queue is nonempty.
+     * {@description.close}
      */
     private transient Object[] queue;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of elements in the priority queue.
+     * {@description.close}
      */
     private int size = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The comparator, or null if priority queue uses elements'
      * natural ordering.
+     * {@description.close}
      */
     private final Comparator<? super E> comparator;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of times this priority queue has been
      * <i>structurally modified</i>.  See AbstractList for gory details.
+     * {@description.close}
      */
     private transient int modCount = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} with the default initial
      * capacity (11) that orders its elements according to their
      * {@linkplain Comparable natural ordering}.
+     * {@description.close}
      */
     public PriorityQueue() {
         this(DEFAULT_INITIAL_CAPACITY, null);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} with the specified initial
      * capacity that orders its elements according to their
      * {@linkplain Comparable natural ordering}.
+     * {@description.close}
      *
      * @param initialCapacity the initial capacity for this priority queue
      * @throws IllegalArgumentException if {@code initialCapacity} is less
@@ -134,8 +159,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} with the specified initial capacity
      * that orders its elements according to the specified comparator.
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity for this priority queue
      * @param  comparator the comparator that will be used to order this
@@ -155,12 +182,14 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} containing the elements in the
      * specified collection.  If the specified collection is an instance of
      * a {@link SortedSet} or is another {@code PriorityQueue}, this
      * priority queue will be ordered according to the same ordering.
      * Otherwise, this priority queue will be ordered according to the
      * {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
      *
      * @param  c the collection whose elements are to be placed
      *         into this priority queue
@@ -185,10 +214,12 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} containing the elements in the
      * specified priority queue.  This priority queue will be
      * ordered according to the same ordering as the given priority
      * queue.
+     * {@description.close}
      *
      * @param  c the priority queue whose elements are to be placed
      *         into this priority queue
@@ -204,9 +235,11 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code PriorityQueue} containing the elements in the
      * specified sorted set.   This priority queue will be ordered
      * according to the same ordering as the given sorted set.
+     * {@description.close}
      *
      * @param  c the sorted set whose elements are to be placed
      *         into this priority queue
@@ -222,7 +255,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initializes queue array with elements from the given Collection.
+     * {@description.close}
      *
      * @param c the collection
      */
@@ -236,7 +271,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Increases the capacity of the array.
+     * {@description.close}
      *
      * @param minCapacity the desired minimum capacity
      */
@@ -256,7 +293,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue.
+     * {@description.close}
      *
      * @return {@code true} (as specified by {@link Collection#add})
      * @throws ClassCastException if the specified element cannot be
@@ -269,7 +308,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue.
+     * {@description.close}
      *
      * @return {@code true} (as specified by {@link Queue#offer})
      * @throws ClassCastException if the specified element cannot be
@@ -308,12 +349,14 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element {@code e} such
      * that {@code o.equals(e)}, if this queue contains one or more such
      * elements.  Returns {@code true} if and only if this queue contained
      * the specified element (or equivalently, if this queue changed as a
      * result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
      * @return {@code true} if this queue changed as a result of the call
@@ -329,8 +372,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Version of remove using reference equality, not equals.
      * Needed by iterator.remove.
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
      * @return {@code true} if removed
@@ -346,9 +391,11 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this queue contains the specified element.
      * More formally, returns {@code true} if and only if this queue contains
      * at least one element {@code e} such that {@code o.equals(e)}.
+     * {@description.close}
      *
      * @param o object to be checked for containment in this queue
      * @return {@code true} if this queue contains the specified element
@@ -358,6 +405,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue.
      * The elements are in no particular order.
      *
@@ -367,6 +415,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all of the elements in this queue
      */
@@ -375,6 +424,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue; the
      * runtime type of the returned array is that of the specified array.
      * The returned array elements are in no particular order.
@@ -401,6 +451,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of the queue are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -422,8 +473,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this queue. The iterator
      * does not return the elements in any particular order.
+     * {@description.close}
      *
      * @return an iterator over the elements in this queue
      */
@@ -433,19 +486,24 @@ public class PriorityQueue<E> extends AbstractQueue<E>
 
     private final class Itr implements Iterator<E> {
         /** {@collect.stats} 
+         * {@description.open}
          * Index (into queue array) of element to be returned by
          * subsequent call to next.
+         * {@description.close}
          */
         private int cursor = 0;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Index of element returned by most recent call to next,
          * unless that element came from the forgetMeNot list.
          * Set to -1 if element is deleted by a call to remove.
+         * {@description.close}
          */
         private int lastRet = -1;
 
         /** {@collect.stats} 
+         * {@description.open}
          * A queue of elements that were moved from the unvisited portion of
          * the heap into the visited portion as a result of "unlucky" element
          * removals during the iteration.  (Unlucky element removals are those
@@ -455,19 +513,24 @@ public class PriorityQueue<E> extends AbstractQueue<E>
          *
          * We expect that most iterations, even those involving removals,
          * will not need to store elements in this field.
+         * {@description.close}
          */
         private ArrayDeque<E> forgetMeNot = null;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Element returned by the most recent call to next iff that
          * element was drawn from the forgetMeNot list.
+         * {@description.close}
          */
         private E lastRetElt = null;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The modCount value that the iterator believes that the backing
          * Queue should have.  If this expectation is violated, the iterator
          * has detected concurrent modification.
+         * {@description.close}
          */
         private int expectedModCount = modCount;
 
@@ -518,8 +581,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this priority queue.
      * The queue will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         modCount++;
@@ -542,6 +607,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the ith element from queue.
      *
      * Normally this method leaves the elements at up to i-1,
@@ -552,6 +618,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      * that was previously at the end of the list and is now at some
      * position before i. This fact is used by iterator.remove so as to
      * avoid missing traversing elements.
+     * {@description.close}
      */
     private E removeAt(int i) {
         assert i >= 0 && i < size;
@@ -573,6 +640,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts item x at position k, maintaining heap invariant by
      * promoting x up the tree until it is greater than or equal to
      * its parent, or is the root.
@@ -580,6 +648,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      * To simplify and speed up coercions and comparisons. the
      * Comparable and Comparator versions are separated into different
      * methods that are otherwise identical. (Similarly for siftDown.)
+     * {@description.close}
      *
      * @param k the position to fill
      * @param x the item to insert
@@ -617,9 +686,11 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts item x at position k, maintaining heap invariant by
      * demoting x down the tree repeatedly until it is less than or
      * equal to its children or is a leaf.
+     * {@description.close}
      *
      * @param k the position to fill
      * @param x the item to insert
@@ -667,8 +738,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Establishes the heap invariant (described above) in the entire tree,
      * assuming nothing about the order of the elements prior to the call.
+     * {@description.close}
      */
     private void heapify() {
         for (int i = (size >>> 1) - 1; i >= 0; i--)
@@ -676,9 +749,11 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the comparator used to order the elements in this
      * queue, or {@code null} if this queue is sorted according to
      * the {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
      *
      * @return the comparator used to order this queue, or
      *         {@code null} if this queue is sorted according to the
@@ -689,8 +764,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Saves the state of the instance to a stream (that
      * is, serializes it).
+     * {@description.close}
      *
      * @serialData The length of the array backing the instance is
      *             emitted (int), followed by all of its elements
@@ -711,8 +788,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitutes the {@code PriorityQueue} instance from a stream
      * (that is, deserializes it).
+     * {@description.close}
      *
      * @param s the stream
      */

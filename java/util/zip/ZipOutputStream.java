@@ -31,9 +31,11 @@ import java.util.Vector;
 import java.util.HashSet;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements an output stream filter for writing files in the
  * ZIP file format. Includes support for both compressed and uncompressed
  * entries.
+ * {@description.close}
  *
  * @author      David Connelly
  */
@@ -80,7 +82,9 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Checks to make sure that this stream has not been closed.
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (closed) {
@@ -88,17 +92,23 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         }
     }
     /** {@collect.stats} 
+     * {@description.open}
      * Compression method for uncompressed (STORED) entries.
+     * {@description.close}
      */
     public static final int STORED = ZipEntry.STORED;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression method for compressed (DEFLATED) entries.
+     * {@description.close}
      */
     public static final int DEFLATED = ZipEntry.DEFLATED;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new ZIP output stream.
+     * {@description.close}
      * @param out the actual output stream
      */
     public ZipOutputStream(OutputStream out) {
@@ -107,7 +117,9 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the ZIP file comment.
+     * {@description.close}
      * @param comment the comment string
      * @exception IllegalArgumentException if the length of the specified
      *            ZIP file comment is greater than 0xFFFF bytes
@@ -121,9 +133,11 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the default compression method for subsequent entries. This
      * default will be used whenever the compression method is not specified
      * for an individual ZIP file entry, and is initially set to DEFLATED.
+     * {@description.close}
      * @param method the default compression method
      * @exception IllegalArgumentException if the specified compression method
      *            is invalid
@@ -136,8 +150,10 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the compression level for subsequent entries which are DEFLATED.
      * The default setting is DEFAULT_COMPRESSION.
+     * {@description.close}
      * @param level the compression level (0-9)
      * @exception IllegalArgumentException if the compression level is invalid
      */
@@ -146,11 +162,13 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Begins writing a new ZIP file entry and positions the stream to the
      * start of the entry data. Closes the current entry if still active.
      * The default compression method will be used if no compression method
      * was specified for the entry, and the current time will be used if
      * the entry has no set modification time.
+     * {@description.close}
      * @param e the ZIP entry to be written
      * @exception ZipException if a ZIP format error has occurred
      * @exception IOException if an I/O error has occurred
@@ -197,8 +215,10 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the current ZIP entry and positions the stream for writing
      * the next entry.
+     * {@description.close}
      * @exception ZipException if a ZIP format error has occurred
      * @exception IOException if an I/O error has occurred
      */
@@ -262,8 +282,10 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes an array of bytes to the current ZIP entry data. This method
      * will block until all the bytes are written.
+     * {@description.close}
      * @param b the data to be written
      * @param off the start offset in the data
      * @param len the number of bytes that are written
@@ -303,9 +325,14 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finishes writing the contents of the ZIP output stream without closing
-     * the underlying stream. Use this method when applying multiple filters
+     * the underlying stream.
+     * {@description.close}
+     * {@property.open}
+     * Use this method when applying multiple filters
      * in succession to the same output stream.
+     * {@property.close}
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O exception has occurred
      */
@@ -329,7 +356,9 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the ZIP output stream as well as the stream being filtered.
+     * {@description.close}
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred
      */

@@ -29,15 +29,19 @@ import java.io.OutputStream;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements a stream filter for writing compressed data in
  * the GZIP file format.
+ * {@description.close}
  * @author      David Connelly
  *
  */
 public
 class GZIPOutputStream extends DeflaterOutputStream {
     /** {@collect.stats} 
+     * {@description.open}
      * CRC-32 of uncompressed data.
+     * {@description.close}
      */
     protected CRC32 crc = new CRC32();
 
@@ -53,7 +57,9 @@ class GZIPOutputStream extends DeflaterOutputStream {
     private final static int TRAILER_SIZE = 8;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with the specified buffer size.
+     * {@description.close}
      * @param out the output stream
      * @param size the output buffer size
      * @exception IOException If an I/O error has occurred.
@@ -67,7 +73,9 @@ class GZIPOutputStream extends DeflaterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with a default buffer size.
+     * {@description.close}
      * @param out the output stream
      * @exception IOException If an I/O error has occurred.
      */
@@ -76,8 +84,10 @@ class GZIPOutputStream extends DeflaterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes array of bytes to the compressed output stream. This method
      * will block until all the bytes are written.
+     * {@description.close}
      * @param buf the data to be written
      * @param off the start offset of the data
      * @param len the length of the data
@@ -91,9 +101,14 @@ class GZIPOutputStream extends DeflaterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finishes writing compressed data to the output stream without closing
-     * the underlying stream. Use this method when applying multiple filters
+     * the underlying stream.
+     * {@description.close}
+     * {@property.open}
+     * Use this method when applying multiple filters
      * in succession to the same output stream.
+     * {@property.close}
      * @exception IOException if an I/O error has occurred
      */
     public void finish() throws IOException {

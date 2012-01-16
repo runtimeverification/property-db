@@ -34,6 +34,7 @@
  */
 
 /** {@collect.stats} 
+ * {@description.open}
  * A small toolkit of classes that support lock-free thread-safe
  * programming on single variables.  In essence, the classes in this
  * package extend the notion of {@code volatile} values, fields, and
@@ -194,6 +195,7 @@
  * {@link java.lang.Float#intBitsToFloat} conversions, and doubles using
  * {@link java.lang.Double#doubleToLongBits} and
  * {@link java.lang.Double#longBitsToDouble} conversions.
+ * {@description.close}
  *
  * @since 1.5
  */

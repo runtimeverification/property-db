@@ -56,8 +56,12 @@ class JarVerifier {
     /* a hash table to hold .SF bytes */
     private Hashtable sigFileData;
 
-    /** {@collect.stats}  "queue" of pending PKCS7 blocks that we couldn't parse
-     *  until we parsed the .SF file */
+    /** {@collect.stats}
+     * {@description.open}
+     * "queue" of pending PKCS7 blocks that we couldn't parse
+     * until we parsed the .SF file
+     * {@description.close}
+     */
     private ArrayList pendingBlocks;
 
     /* cache of CodeSigner objects */
@@ -76,10 +80,18 @@ class JarVerifier {
        in */
     private ByteArrayOutputStream baos;
 
-    /** {@collect.stats}  The ManifestDigester object */
+    /** {@collect.stats}
+     * {@description.open}
+     * The ManifestDigester object 
+     * {@description.close}
+     */
     private ManifestDigester manDig;
 
-    /** {@collect.stats}  the bytes for the manDig object */
+    /** {@collect.stats}
+     * {@description.open}
+     * the bytes for the manDig object 
+     * {@description.close}
+     */
     byte manifestRawBytes[] = null;
 
     public JarVerifier(byte rawBytes[]) {
@@ -92,9 +104,11 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method scans to see which entry we're parsing and
      * keeps various state information depending on what type of
      * file is being parsed.
+     * {@description.close}
      */
     public void beginEntry(JarEntry je, ManifestEntryVerifier mev)
         throws IOException
@@ -170,7 +184,9 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * update a single byte.
+     * {@description.close}
      */
 
     public void update(int b, ManifestEntryVerifier mev)
@@ -188,7 +204,9 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * update an array of bytes.
+     * {@description.close}
      */
 
     public void update(int n, byte[] b, int off, int len,
@@ -207,7 +225,9 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * called when we reach the end of entry in one of the read() methods.
+     * {@description.close}
      */
     private void processEntry(ManifestEntryVerifier mev)
         throws IOException
@@ -313,8 +333,10 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return an array of java.security.cert.Certificate objects for
      * the given file in the jar.
+     * {@description.close}
      */
     public java.security.cert.Certificate[] getCerts(String name)
     {
@@ -322,9 +344,11 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * return an array of CodeSigner objects for
      * the given file in the jar. this array is not cloned.
      *
+     * {@description.close}
      */
     public CodeSigner[] getCodeSigners(String name)
     {
@@ -354,9 +378,13 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * returns true if there no files to verify.
+     * {@description.close}
+     * {@property.open internal}
      * should only be called after all the META-INF entries
      * have been processed.
+     * {@property.close}
      */
     boolean nothingToVerify()
     {
@@ -364,10 +392,12 @@ class JarVerifier {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * called to let us know we have processed all the
      * META-INF entries, and if we re-read one of them, don't
      * re-process it. Also gets rid of any data structures
      * we needed when parsing META-INF entries.
+     * {@description.close}
      */
     void doneWithMeta()
     {

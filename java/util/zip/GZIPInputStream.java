@@ -32,8 +32,10 @@ import java.io.IOException;
 import java.io.EOFException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements a stream filter for reading compressed data in
  * the GZIP file format.
+ * {@description.close}
  *
  * @see         InflaterInputStream
  * @author      David Connelly
@@ -42,19 +44,25 @@ import java.io.EOFException;
 public
 class GZIPInputStream extends InflaterInputStream {
     /** {@collect.stats} 
+     * {@description.open}
      * CRC-32 for uncompressed data.
+     * {@description.close}
      */
     protected CRC32 crc = new CRC32();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Indicates end of input stream.
+     * {@description.close}
      */
     protected boolean eos;
 
     private boolean closed = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check to make sure that this stream has not been closed
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (closed) {
@@ -63,7 +71,9 @@ class GZIPInputStream extends InflaterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new input stream with the specified buffer size.
+     * {@description.close}
      * @param in the input stream
      * @param size the input buffer size
      * @exception IOException if an I/O error has occurred
@@ -77,7 +87,9 @@ class GZIPInputStream extends InflaterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new input stream with a default buffer size.
+     * {@description.close}
      * @param in the input stream
      * @exception IOException if an I/O error has occurred
      */
@@ -86,9 +98,11 @@ class GZIPInputStream extends InflaterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads uncompressed data into an array of bytes. If <code>len</code> is not
      * zero, the method will block until some input can be decompressed; otherwise,
      * no bytes are read and <code>0</code> is returned.
+     * {@description.close}
      * @param buf the buffer into which the data is read
      * @param off the start offset in the destination array <code>b</code>
      * @param len the maximum number of bytes read
@@ -117,8 +131,10 @@ class GZIPInputStream extends InflaterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes this input stream and releases any system resources associated
      * with the stream.
+     * {@description.close}
      * @exception IOException if an I/O error has occurred
      */
     public void close() throws IOException {
@@ -130,7 +146,9 @@ class GZIPInputStream extends InflaterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * GZIP header magic number.
+     * {@description.close}
      */
     public final static int GZIP_MAGIC = 0x8b1f;
 

@@ -31,9 +31,11 @@ import java.io.EOFException;
 import java.io.PushbackInputStream;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements an input stream filter for reading files in the
  * ZIP file format. Includes support for both compressed and uncompressed
  * entries.
+ * {@description.close}
  *
  * @author      David Connelly
  */
@@ -54,7 +56,9 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     private boolean entryEOF = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check to make sure that this stream has not been closed
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (closed) {
@@ -63,7 +67,9 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new ZIP input stream.
+     * {@description.close}
      * @param in the actual input stream
      */
     public ZipInputStream(InputStream in) {
@@ -75,8 +81,10 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads the next ZIP file entry and positions the stream at the
      * beginning of the entry data.
+     * {@description.close}
      * @return the next ZIP file entry, or null if there are no more entries
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred
@@ -99,8 +107,10 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the current ZIP entry and positions the stream for reading the
      * next entry.
+     * {@description.close}
      * @exception ZipException if a ZIP file error has occurred
      * @exception IOException if an I/O error has occurred
      */
@@ -111,11 +121,13 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns 0 after EOF has reached for the current entry data,
      * otherwise always return 1.
      * <p>
      * Programs should not count on this method to return the actual number
      * of bytes that could be read without blocking.
+     * {@description.close}
      *
      * @return     1 before EOF and 0 after EOF has reached for current entry.
      * @exception  IOException  if an I/O error occurs.
@@ -131,10 +143,12 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads from the current ZIP entry into an array of bytes.
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @param off the start offset in the destination array <code>b</code>
      * @param len the maximum number of bytes read
@@ -196,7 +210,9 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Skips specified number of bytes in the current ZIP entry.
+     * {@description.close}
      * @param n the number of bytes to skip
      * @return the actual number of bytes skipped
      * @exception ZipException if a ZIP file error has occurred
@@ -226,8 +242,10 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes this input stream and releases any system resources associated
      * with the stream.
+     * {@description.close}
      * @exception IOException if an I/O error has occurred
      */
     public void close() throws IOException {
@@ -355,8 +373,10 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>ZipEntry</code> object for the specified
      * entry name.
+     * {@description.close}
      *
      * @param name the ZIP file entry name
      * @return the ZipEntry just created

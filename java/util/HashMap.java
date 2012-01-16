@@ -27,6 +27,7 @@ package java.util;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Hash table based implementation of the <tt>Map</tt> interface.  This
  * implementation provides all of the optional map operations, and permits
  * <tt>null</tt> values and the <tt>null</tt> key.  (The <tt>HashMap</tt>
@@ -69,7 +70,9 @@ import java.io.*;
  * creating it with a sufficiently large capacity will allow the mappings to
  * be stored more efficiently than letting it perform automatic rehashing as
  * needed to grow the table.
+ * {@description.close}
  *
+ * {@property.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a hash map concurrently, and at least one of
  * the threads modifies the map structurally, it <i>must</i> be
@@ -84,7 +87,9 @@ import java.io.*;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map:<pre>
  *   Map m = Collections.synchronizedMap(new HashMap(...));</pre>
+ * {@property.close}
  *
+ * {@property.open fail-fast}
  * <p>The iterators returned by all of this class's "collection view methods"
  * are <i>fail-fast</i>: if the map is structurally modified at any time after
  * the iterator is created, in any way except through the iterator's own
@@ -101,10 +106,13 @@ import java.io.*;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
@@ -127,57 +135,75 @@ public class HashMap<K,V>
 {
 
     /** {@collect.stats} 
+     * {@description.open}
      * The default initial capacity - MUST be a power of two.
+     * {@description.close}
      */
     static final int DEFAULT_INITIAL_CAPACITY = 16;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The maximum capacity, used if a higher value is implicitly specified
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<30.
+     * {@description.close}
      */
     static final int MAXIMUM_CAPACITY = 1 << 30;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The load factor used when none specified in constructor.
+     * {@description.close}
      */
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The table, resized as necessary. Length MUST Always be a power of two.
+     * {@description.close}
      */
     transient Entry[] table;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of key-value mappings contained in this map.
+     * {@description.close}
      */
     transient int size;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The next size value at which to resize (capacity * load factor).
+     * {@description.close}
      * @serial
      */
     int threshold;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The load factor for the hash table.
+     * {@description.close}
      *
      * @serial
      */
     final float loadFactor;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of times this HashMap has been structurally modified
      * Structural modifications are those that change the number of mappings in
      * the HashMap or otherwise modify its internal structure (e.g.,
      * rehash).  This field is used to make iterators on Collection-views of
      * the HashMap fail-fast.  (See ConcurrentModificationException).
+     * {@description.close}
      */
     transient volatile int modCount;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty <tt>HashMap</tt> with the specified initial
      * capacity and load factor.
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity
      * @param  loadFactor      the load factor
@@ -206,8 +232,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty <tt>HashMap</tt> with the specified initial
      * capacity and the default load factor (0.75).
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity.
      * @throws IllegalArgumentException if the initial capacity is negative.
@@ -217,8 +245,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty <tt>HashMap</tt> with the default initial capacity
      * (16) and the default load factor (0.75).
+     * {@description.close}
      */
     public HashMap() {
         this.loadFactor = DEFAULT_LOAD_FACTOR;
@@ -228,10 +258,12 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <tt>HashMap</tt> with the same mappings as the
      * specified <tt>Map</tt>.  The <tt>HashMap</tt> is created with
      * default load factor (0.75) and an initial capacity sufficient to
      * hold the mappings in the specified <tt>Map</tt>.
+     * {@description.close}
      *
      * @param   m the map whose mappings are to be placed in this map
      * @throws  NullPointerException if the specified map is null
@@ -245,21 +277,25 @@ public class HashMap<K,V>
     // internal utilities
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialization hook for subclasses. This method is called
      * in all constructors and pseudo-constructors (clone, readObject)
      * after HashMap has been initialized but before any entries have
      * been inserted.  (In the absence of this method, readObject would
      * require explicit knowledge of subclasses.)
+     * {@description.close}
      */
     void init() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Applies a supplemental hash function to a given hashCode, which
      * defends against poor quality hash functions.  This is critical
      * because HashMap uses power-of-two length hash tables, that
      * otherwise encounter collisions for hashCodes that do not differ
      * in lower bits. Note: Null keys always map to hash 0, thus index 0.
+     * {@description.close}
      */
     static int hash(int h) {
         // This function ensures that hashCodes that differ only by
@@ -270,14 +306,18 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns index for hash code h.
+     * {@description.close}
      */
     static int indexFor(int h, int length) {
         return h & (length-1);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of key-value mappings in this map.
+     * {@description.close}
      *
      * @return the number of key-value mappings in this map
      */
@@ -286,7 +326,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains no key-value mappings.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this map contains no key-value mappings
      */
@@ -295,6 +337,7 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -308,6 +351,7 @@ public class HashMap<K,V>
      * possible that the map explicitly maps the key to {@code null}.
      * The {@link #containsKey containsKey} operation may be used to
      * distinguish these two cases.
+     * {@description.close}
      *
      * @see #put(Object, Object)
      */
@@ -326,11 +370,13 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Offloaded version of get() to look up null keys.  Null keys map
      * to index 0.  This null case is split out into separate methods
      * for the sake of performance in the two most commonly used
      * operations (get and put), but incorporated with conditionals in
      * others.
+     * {@description.close}
      */
     private V getForNullKey() {
         for (Entry<K,V> e = table[0]; e != null; e = e.next) {
@@ -341,8 +387,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains a mapping for the
      * specified key.
+     * {@description.close}
      *
      * @param   key   The key whose presence in this map is to be tested
      * @return <tt>true</tt> if this map contains a mapping for the specified
@@ -353,9 +401,11 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the entry associated with the specified key in the
      * HashMap.  Returns null if the HashMap contains no mapping
      * for the key.
+     * {@description.close}
      */
     final Entry<K,V> getEntry(Object key) {
         int hash = (key == null) ? 0 : hash(key.hashCode());
@@ -372,9 +422,11 @@ public class HashMap<K,V>
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for the key, the old
      * value is replaced.
+     * {@description.close}
      *
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
@@ -404,7 +456,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Offloaded version of put for null keys
+     * {@description.close}
      */
     private V putForNullKey(V value) {
         for (Entry<K,V> e = table[0]; e != null; e = e.next) {
@@ -421,19 +475,23 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method is used instead of put by constructors and
      * pseudoconstructors (clone, readObject).  It does not resize the table,
      * check for comodification, etc.  It calls createEntry rather than
      * addEntry.
+     * {@description.close}
      */
     private void putForCreate(K key, V value) {
         int hash = (key == null) ? 0 : hash(key.hashCode());
         int i = indexFor(hash, table.length);
 
         /** {@collect.stats} 
+         * {@description.open}
          * Look for preexisting entry for key.  This will never happen for
          * clone or deserialize.  It will only happen for construction if the
          * input Map is a sorted map whose ordering is inconsistent w/ equals.
+         * {@description.close}
          */
         for (Entry<K,V> e = table[i]; e != null; e = e.next) {
             Object k;
@@ -455,6 +513,7 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Rehashes the contents of this map into a new array with a
      * larger capacity.  This method is called automatically when the
      * number of keys in this map reaches its threshold.
@@ -462,6 +521,7 @@ public class HashMap<K,V>
      * If current capacity is MAXIMUM_CAPACITY, this method does not
      * resize the map, but sets threshold to Integer.MAX_VALUE.
      * This has the effect of preventing future calls.
+     * {@description.close}
      *
      * @param newCapacity the new capacity, MUST be a power of two;
      *        must be greater than current capacity unless current
@@ -483,7 +543,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Transfers all entries from current table to newTable.
+     * {@description.close}
      */
     void transfer(Entry[] newTable) {
         Entry[] src = table;
@@ -504,9 +566,11 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
+     * {@description.close}
      *
      * @param m mappings to be stored in this map
      * @throws NullPointerException if the specified map is null
@@ -543,7 +607,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the mapping for the specified key from this map if present.
+     * {@description.close}
      *
      * @param  key key whose mapping is to be removed from the map
      * @return the previous value associated with <tt>key</tt>, or
@@ -557,9 +623,11 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes and returns the entry associated with the specified key
      * in the HashMap.  Returns null if the HashMap contains no mapping
      * for this key.
+     * {@description.close}
      */
     final Entry<K,V> removeEntryForKey(Object key) {
         int hash = (key == null) ? 0 : hash(key.hashCode());
@@ -589,7 +657,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Special version of remove for EntrySet.
+     * {@description.close}
      */
     final Entry<K,V> removeMapping(Object o) {
         if (!(o instanceof Map.Entry))
@@ -622,8 +692,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         modCount++;
@@ -634,8 +706,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
+     * {@description.close}
      *
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the
@@ -654,7 +728,9 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Special-case code for containsValue with null argument
+     * {@description.close}
      */
     private boolean containsNullValue() {
         Entry[] tab = table;
@@ -666,8 +742,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this <tt>HashMap</tt> instance: the keys and
      * values themselves are not cloned.
+     * {@description.close}
      *
      * @return a shallow copy of this map
      */
@@ -695,7 +773,9 @@ public class HashMap<K,V>
         final int hash;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Creates new entry.
+         * {@description.close}
          */
         Entry(int h, K k, V v, Entry<K,V> n) {
             value = v;
@@ -743,27 +823,33 @@ public class HashMap<K,V>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * This method is invoked whenever the value in an entry is
          * overwritten by an invocation of put(k,v) for a key k that's already
          * in the HashMap.
+         * {@description.close}
          */
         void recordAccess(HashMap<K,V> m) {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * This method is invoked whenever the entry is
          * removed from the table.
+         * {@description.close}
          */
         void recordRemoval(HashMap<K,V> m) {
         }
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds a new entry with the specified key, value and hash code to
      * the specified bucket.  It is the responsibility of this
      * method to resize the table if appropriate.
      *
      * Subclass overrides this to alter the behavior of put method.
+     * {@description.close}
      */
     void addEntry(int hash, K key, V value, int bucketIndex) {
         Entry<K,V> e = table[bucketIndex];
@@ -773,12 +859,14 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Like addEntry except that this version is used when creating entries
      * as part of Map construction or "pseudo-construction" (cloning,
      * deserialization).  This version needn't worry about resizing the table.
      *
      * Subclass overrides this to alter the behavior of HashMap(Map),
      * clone, and readObject.
+     * {@description.close}
      */
     void createEntry(int hash, K key, V value, int bucketIndex) {
         Entry<K,V> e = table[bucketIndex];
@@ -869,17 +957,25 @@ public class HashMap<K,V>
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.  The set supports element removal,
+     * the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
+     * {@description.close}
      */
     public Set<K> keySet() {
         Set<K> ks = keySet;
@@ -905,17 +1001,25 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
-     * reflected in the collection, and vice-versa.  If the map is
+     * reflected in the collection, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.  The collection
+     * the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      */
     public Collection<V> values() {
         Collection<V> vs = values;
@@ -938,18 +1042,26 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.  The set
+     * iterator) the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      *
      * @return a set view of the mappings contained in this map
      */
@@ -985,8 +1097,10 @@ public class HashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of the <tt>HashMap</tt> instance to a stream (i.e.,
      * serialize it).
+     * {@description.close}
      *
      * @serialData The <i>capacity</i> of the HashMap (the length of the
      *             bucket array) is emitted (int), followed by the
@@ -1023,8 +1137,10 @@ public class HashMap<K,V>
     private static final long serialVersionUID = 362498820763181265L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitute the <tt>HashMap</tt> instance from a stream (i.e.,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
          throws IOException, ClassNotFoundException

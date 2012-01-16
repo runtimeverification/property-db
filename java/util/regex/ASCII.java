@@ -27,7 +27,9 @@ package java.util.regex;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Utility class that implements the standard C ctype functionality.
+ * {@description.close}
  *
  * @author Hong Zhang
  */

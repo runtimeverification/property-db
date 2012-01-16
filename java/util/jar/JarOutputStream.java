@@ -29,12 +29,14 @@ import java.util.zip.*;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <code>JarOutputStream</code> class is used to write the contents
  * of a JAR file to any output stream. It extends the class
  * <code>java.util.zip.ZipOutputStream</code> with support
  * for writing an optional <code>Manifest</code> entry. The
  * <code>Manifest</code> can be used to specify meta-information about
  * the JAR file and its entries.
+ * {@description.close}
  *
  * @author  David Connelly
  * @see     Manifest
@@ -46,9 +48,11 @@ class JarOutputStream extends ZipOutputStream {
     private static final int JAR_MAGIC = 0xCAFE;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>JarOutputStream</code> with the specified
      * <code>Manifest</code>. The manifest is written as the first
      * entry to the output stream.
+     * {@description.close}
      *
      * @param out the actual output stream
      * @param man the optional <code>Manifest</code>
@@ -66,7 +70,9 @@ class JarOutputStream extends ZipOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>JarOutputStream</code> with no manifest.
+     * {@description.close}
      * @param out the actual output stream
      * @exception IOException if an I/O error has occurred
      */
@@ -75,12 +81,14 @@ class JarOutputStream extends ZipOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Begins writing a new JAR file entry and positions the stream
      * to the start of the entry data. This method will also close
      * any previous entry. The default compression method will be
      * used if no compression method was specified for the entry.
      * The current time will be used if the entry has no set modification
      * time.
+     * {@description.close}
      *
      * @param ze the ZIP/JAR entry to be written
      * @exception ZipException if a ZIP error has occurred

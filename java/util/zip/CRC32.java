@@ -26,7 +26,9 @@
 package java.util.zip;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A class that can be used to compute the CRC-32 of a data stream.
+ * {@description.close}
  *
  * @see         Checksum
  * @author      David Connelly
@@ -36,21 +38,27 @@ class CRC32 implements Checksum {
     private int crc;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new CRC32 object.
+     * {@description.close}
      */
     public CRC32() {
     }
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates CRC-32 with specified byte.
+     * {@description.close}
      */
     public void update(int b) {
         crc = update(crc, b);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates CRC-32 with specified array of bytes.
+     * {@description.close}
      */
     public void update(byte[] b, int off, int len) {
         if (b == null) {
@@ -63,7 +71,9 @@ class CRC32 implements Checksum {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates checksum with specified array of bytes.
+     * {@description.close}
      *
      * @param b the array of bytes to update the checksum with
      */
@@ -72,14 +82,18 @@ class CRC32 implements Checksum {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets CRC-32 to initial value.
+     * {@description.close}
      */
     public void reset() {
         crc = 0;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns CRC-32 value.
+     * {@description.close}
      */
     public long getValue() {
         return (long)crc & 0xffffffffL;

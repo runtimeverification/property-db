@@ -37,6 +37,7 @@ package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An {@code int} value that may be updated atomically.  See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
@@ -45,6 +46,7 @@ import sun.misc.Unsafe;
  * {@link java.lang.Integer}. However, this class does extend
  * {@code Number} to allow uniform access by tools and utilities that
  * deal with numerically-based classes.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -66,7 +68,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     private volatile int value;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicInteger with the given initial value.
+     * {@description.close}
      *
      * @param initialValue the initial value
      */
@@ -75,13 +79,17 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicInteger with initial value {@code 0}.
+     * {@description.close}
      */
     public AtomicInteger() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the current value.
+     * {@description.close}
      *
      * @return the current value
      */
@@ -90,7 +98,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets to the given value.
+     * {@description.close}
      *
      * @param newValue the new value
      */
@@ -99,7 +109,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Eventually sets to the given value.
+     * {@description.close}
      *
      * @param newValue the new value
      * @since 1.6
@@ -109,7 +121,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets to the given value and returns the old value.
+     * {@description.close}
      *
      * @param newValue the new value
      * @return the previous value
@@ -123,8 +137,10 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
+     * {@description.close}
      *
      * @param expect the expected value
      * @param update the new value
@@ -136,12 +152,14 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param expect the expected value
      * @param update the new value
@@ -152,7 +170,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value.
+     * {@description.close}
      *
      * @return the previous value
      */
@@ -166,7 +186,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value.
+     * {@description.close}
      *
      * @return the previous value
      */
@@ -180,7 +202,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value.
+     * {@description.close}
      *
      * @param delta the value to add
      * @return the previous value
@@ -195,7 +219,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value.
+     * {@description.close}
      *
      * @return the updated value
      */
@@ -209,7 +235,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value.
+     * {@description.close}
      *
      * @return the updated value
      */
@@ -223,7 +251,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value.
+     * {@description.close}
      *
      * @param delta the value to add
      * @return the updated value
@@ -238,7 +268,9 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the String representation of the current value.
+     * {@description.close}
      * @return the String representation of the current value.
      */
     public String toString() {

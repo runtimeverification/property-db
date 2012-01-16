@@ -26,8 +26,10 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Private implementation class for EnumSet, for "jumbo" enum types
  * (i.e., those with more than 64 elements).
+ * {@description.close}
  *
  * @author Josh Bloch
  * @since 1.5
@@ -35,9 +37,11 @@ package java.util;
  */
 class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Bit vector representation of this set.  The ith bit of the jth
      * element of this array represents the  presence of universe[64*j +i]
      * in this set.
+     * {@description.close}
      */
     private long elements[];
 
@@ -80,11 +84,16 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements contained in this set.  The
      * iterator traverses the elements in their <i>natural order</i> (which is
-     * the order in which the enum constants are declared). The returned
+     * the order in which the enum constants are declared).
+     * {@description.close}
+     * {@property.open synchronized}
+     * The returned
      * Iterator is a "weakly consistent" iterator that will never throw {@link
      * ConcurrentModificationException}.
+     * {@property.close}
      *
      * @return an iterator over the elements contained in this set
      */
@@ -94,24 +103,32 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
 
     private class EnumSetIterator<E extends Enum<E>> implements Iterator<E> {
         /** {@collect.stats} 
+         * {@description.open}
          * A bit vector representing the elements in the current "word"
          * of the set not yet returned by this iterator.
+         * {@description.close}
          */
         long unseen;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The index corresponding to unseen in the elements array.
+         * {@description.close}
          */
         int unseenIndex = 0;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The bit representing the last element returned by this iterator
          * but not removed, or zero if no such element exists.
+         * {@description.close}
          */
         long lastReturned = 0;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The index corresponding to lastReturned in the elements array.
+         * {@description.close}
          */
         int lastReturnedIndex = 0;
 
@@ -145,7 +162,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this set.
+     * {@description.close}
      *
      * @return the number of elements in this set
      */
@@ -154,7 +173,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains no elements.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this set contains no elements
      */
@@ -163,7 +184,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains the specified element.
+     * {@description.close}
      *
      * @param e element to be checked for containment in this collection
      * @return <tt>true</tt> if this set contains the specified element
@@ -182,7 +205,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     // Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified element to this set if it is not already present.
+     * {@description.close}
      *
      * @param e element to be added to this set
      * @return <tt>true</tt> if the set changed as a result of the call
@@ -204,7 +229,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the specified element from this set if it is present.
+     * {@description.close}
      *
      * @param e element to be removed from this set, if present
      * @return <tt>true</tt> if the set contained the specified element
@@ -229,8 +256,10 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     // Bulk Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains all of the elements
      * in the specified collection.
+     * {@description.close}
      *
      * @param c collection to be checked for containment in this set
      * @return <tt>true</tt> if this set contains all of the elements
@@ -252,7 +281,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds all of the elements in the specified collection to this set.
+     * {@description.close}
      *
      * @param c collection whose elements are to be added to this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -278,8 +309,10 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this set all of its elements that are contained in
      * the specified collection.
+     * {@description.close}
      *
      * @param c elements to be removed from this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -299,8 +332,10 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retains only the elements in this set that are contained in the
      * specified collection.
+     * {@description.close}
      *
      * @param c elements to be retained in this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -323,7 +358,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this set.
+     * {@description.close}
      */
     public void clear() {
         Arrays.fill(elements, 0);
@@ -331,10 +368,12 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the given object is also a set, the two sets have
      * the same size, and every member of the given set is contained in
      * this set.
+     * {@description.close}
      *
      * @param e object to be compared for equality with this set
      * @return <tt>true</tt> if the specified object is equal to this set
@@ -351,7 +390,9 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Recalculates the size of the set.  Returns true if it's changed.
+     * {@description.close}
      */
     private boolean recalculateSize() {
         int oldSize = size;

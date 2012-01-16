@@ -39,6 +39,7 @@ import java.util.concurrent.locks.*;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An unbounded {@linkplain BlockingQueue blocking queue} that uses
  * the same ordering rules as class {@link PriorityQueue} and supplies
  * blocking retrieval operations.  While this queue is logically
@@ -89,6 +90,7 @@ import java.util.*;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -103,18 +105,22 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     private final Condition notEmpty = lock.newCondition();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>PriorityBlockingQueue</tt> with the default
      * initial capacity (11) that orders its elements according to
      * their {@linkplain Comparable natural ordering}.
+     * {@description.close}
      */
     public PriorityBlockingQueue() {
         q = new PriorityQueue<E>();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>PriorityBlockingQueue</tt> with the specified
      * initial capacity that orders its elements according to their
      * {@linkplain Comparable natural ordering}.
+     * {@description.close}
      *
      * @param initialCapacity the initial capacity for this priority queue
      * @throws IllegalArgumentException if <tt>initialCapacity</tt> is less
@@ -125,9 +131,11 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>PriorityBlockingQueue</tt> with the specified initial
      * capacity that orders its elements according to the specified
      * comparator.
+     * {@description.close}
      *
      * @param initialCapacity the initial capacity for this priority queue
      * @param  comparator the comparator that will be used to order this
@@ -142,12 +150,14 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>PriorityBlockingQueue</tt> containing the elements
      * in the specified collection.  If the specified collection is a
      * {@link SortedSet} or a {@link PriorityQueue},  this
      * priority queue will be ordered according to the same ordering.
      * Otherwise, this priority queue will be ordered according to the
      * {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
      *
      * @param  c the collection whose elements are to be placed
      *         into this priority queue
@@ -162,7 +172,9 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -176,7 +188,9 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Queue#offer})
@@ -199,8 +213,10 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue. As the queue is
      * unbounded this method will never block.
+     * {@description.close}
      *
      * @param e the element to add
      * @throws ClassCastException if the specified element cannot be compared
@@ -213,8 +229,10 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this priority queue. As the queue is
      * unbounded this method will never block.
+     * {@description.close}
      *
      * @param e the element to add
      * @param timeout This parameter is ignored as the method never blocks
@@ -292,9 +310,11 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the comparator used to order the elements in this queue,
      * or <tt>null</tt> if this queue uses the {@linkplain Comparable
      * natural ordering} of its elements.
+     * {@description.close}
      *
      * @return the comparator used to order the elements in this queue,
      *         or <tt>null</tt> if this queue uses the natural
@@ -315,8 +335,10 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Always returns <tt>Integer.MAX_VALUE</tt> because
      * a <tt>PriorityBlockingQueue</tt> is not capacity constrained.
+     * {@description.close}
      * @return <tt>Integer.MAX_VALUE</tt>
      */
     public int remainingCapacity() {
@@ -324,12 +346,14 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element {@code e} such
      * that {@code o.equals(e)}, if this queue contains one or more such
      * elements.  Returns {@code true} if and only if this queue contained
      * the specified element (or equivalently, if this queue changed as a
      * result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
      * @return <tt>true</tt> if this queue changed as a result of the call
@@ -345,9 +369,11 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this queue contains the specified element.
      * More formally, returns {@code true} if and only if this queue contains
      * at least one element {@code e} such that {@code o.equals(e)}.
+     * {@description.close}
      *
      * @param o object to be checked for containment in this queue
      * @return <tt>true</tt> if this queue contains the specified element
@@ -363,6 +389,7 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue.
      * The returned array elements are in no particular order.
      *
@@ -372,6 +399,7 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all of the elements in this queue
      */
@@ -451,8 +479,10 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically removes all of the elements from this queue.
      * The queue will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         final ReentrantLock lock = this.lock;
@@ -465,6 +495,7 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue; the
      * runtime type of the returned array is that of the specified array.
      * The returned array elements are in no particular order.
@@ -491,6 +522,7 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of the queue are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -512,14 +544,18 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this queue. The
      * iterator does not return the elements in any particular order.
+     * {@description.close}
+     * {@property.open weak-consistent}
      * The returned <tt>Iterator</tt> is a "weakly consistent"
      * iterator that will never throw {@link
      * ConcurrentModificationException}, and guarantees to traverse
      * elements as they existed upon construction of the iterator, and
      * may (but is not guaranteed to) reflect any modifications
      * subsequent to construction.
+     * {@property.close}
      *
      * @return an iterator over the elements in this queue
      */
@@ -528,7 +564,9 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Snapshot iterator that works off copy of underlying q array.
+     * {@description.close}
      */
     private class Itr implements Iterator<E> {
         final Object[] array; // Array of all elements
@@ -573,11 +611,13 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Saves the state to a stream (that is, serializes it).  This
      * merely wraps default serialization within lock.  The
      * serialization strategy for items is left to underlying
      * Queue. Note that locking is not needed on deserialization, so
      * readObject is not defined, just relying on default.
+     * {@description.close}
      */
     private void writeObject(java.io.ObjectOutputStream s)
         throws java.io.IOException {

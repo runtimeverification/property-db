@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An object that maps keys to values.  A map cannot contain duplicate keys;
  * each key can map to at most one value.
  *
@@ -39,16 +40,23 @@ package java.util;
  * elements.  Some map implementations, like the <tt>TreeMap</tt> class, make
  * specific guarantees as to their order; others, like the <tt>HashMap</tt>
  * class, do not.
+ * {@description.close}
  *
+ * {@property.open formal:java.util.Map_MutableKey}
  * <p>Note: great care must be exercised if mutable objects are used as map
  * keys.  The behavior of a map is not specified if the value of an object is
  * changed in a manner that affects <tt>equals</tt> comparisons while the
  * object is a key in the map.  A special case of this prohibition is that it
- * is not permissible for a map to contain itself as a key.  While it is
+ * is not permissible for a map to contain itself as a key.
+ * {@property.close}
+ * {@property.open formal:java.util.Map_ItselfAsValue}
+ * While it is
  * permissible for a map to contain itself as a value, extreme caution is
  * advised: the <tt>equals</tt> and <tt>hashCode</tt> methods are no longer
  * well defined on such a map.
+ * {@property.close}
  *
+ * {@property.open formal:java.util.Map_StandardConstructors}
  * <p>All general-purpose map implementation classes should provide two
  * "standard" constructors: a void (no arguments) constructor which creates an
  * empty map, and a constructor with a single argument of type <tt>Map</tt>,
@@ -57,7 +65,9 @@ package java.util;
  * producing an equivalent map of the desired class.  There is no way to
  * enforce this recommendation (as interfaces cannot contain constructors) but
  * all of the general-purpose map implementations in the JDK comply.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>The "destructive" methods contained in this interface, that is, the
  * methods that modify the map on which they operate, are specified to throw
  * <tt>UnsupportedOperationException</tt> if this map does not support the
@@ -101,6 +111,7 @@ package java.util;
  * the various Collections Framework interfaces are free to take advantage of
  * the specified behavior of underlying {@link Object} methods wherever the
  * implementor deems it appropriate.
+ * {@description.close}
  *
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
@@ -118,27 +129,33 @@ public interface Map<K,V> {
     // Query Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of key-value mappings in this map.  If the
      * map contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
+     * {@description.close}
      *
      * @return the number of key-value mappings in this map
      */
     int size();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains no key-value mappings.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this map contains no key-value mappings
      */
     boolean isEmpty();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.  More formally, returns <tt>true</tt> if and only if
      * this map contains a mapping for a key <tt>k</tt> such that
      * <tt>(key==null ? k==null : key.equals(k))</tt>.  (There can be
      * at most one such mapping.)
+     * {@description.close}
      *
      * @param key key whose presence in this map is to be tested
      * @return <tt>true</tt> if this map contains a mapping for the specified
@@ -151,12 +168,14 @@ public interface Map<K,V> {
     boolean containsKey(Object key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.  More formally, returns <tt>true</tt> if and only if
      * this map contains at least one mapping to a value <tt>v</tt> such that
      * <tt>(value==null ? v==null : value.equals(v))</tt>.  This operation
      * will probably require time linear in the map size for most
      * implementations of the <tt>Map</tt> interface.
+     * {@description.close}
      *
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the
@@ -169,6 +188,7 @@ public interface Map<K,V> {
     boolean containsValue(Object value);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -182,6 +202,7 @@ public interface Map<K,V> {
      * contains no mapping for the key; it's also possible that the map
      * explicitly maps the key to {@code null}.  The {@link #containsKey
      * containsKey} operation may be used to distinguish these two cases.
+     * {@description.close}
      *
      * @param key the key whose associated value is to be returned
      * @return the value to which the specified key is mapped, or
@@ -196,12 +217,14 @@ public interface Map<K,V> {
     // Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Associates the specified value with the specified key in this map
      * (optional operation).  If the map previously contained a mapping for
      * the key, the old value is replaced by the specified value.  (A map
      * <tt>m</tt> is said to contain a mapping for a key <tt>k</tt> if and only
      * if {@link #containsKey(Object) m.containsKey(k)} would return
      * <tt>true</tt>.)
+     * {@description.close}
      *
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
@@ -222,6 +245,7 @@ public interface Map<K,V> {
     V put(K key, V value);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the mapping for a key from this map if it is present
      * (optional operation).   More formally, if this map contains a mapping
      * from key <tt>k</tt> to value <tt>v</tt> such that
@@ -238,6 +262,7 @@ public interface Map<K,V> {
      *
      * <p>The map will not contain a mapping for the specified key once the
      * call returns.
+     * {@description.close}
      *
      * @param key key whose mapping is to be removed from the map
      * @return the previous value associated with <tt>key</tt>, or
@@ -255,12 +280,17 @@ public interface Map<K,V> {
     // Bulk Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies all of the mappings from the specified map to this map
      * (optional operation).  The effect of this call is equivalent to that
      * of calling {@link #put(Object,Object) put(k, v)} on this map once
      * for each mapping from key <tt>k</tt> to value <tt>v</tt> in the
-     * specified map.  The behavior of this operation is undefined if the
+     * specified map.
+     * {@description.close}
+     * {@property.open synchronized}
+     * The behavior of this operation is undefined if the
      * specified map is modified while the operation is in progress.
+     * {@property.close}
      *
      * @param m mappings to be stored in this map
      * @throws UnsupportedOperationException if the <tt>putAll</tt> operation
@@ -276,8 +306,10 @@ public interface Map<K,V> {
     void putAll(Map<? extends K, ? extends V> m);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the mappings from this map (optional operation).
      * The map will be empty after this call returns.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException if the <tt>clear</tt> operation
      *         is not supported by this map
@@ -288,58 +320,83 @@ public interface Map<K,V> {
     // Views
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.  The set supports element removal,
+     * the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
+     * {@description.close}
      *
      * @return a set view of the keys contained in this map
      */
     Set<K> keySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
-     * reflected in the collection, and vice-versa.  If the map is
+     * reflected in the collection, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.  The collection
+     * the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      *
      * @return a collection view of the values contained in this map
      */
     Collection<V> values();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.  The set
+     * iterator) the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      *
      * @return a set view of the mappings contained in this map
      */
     Set<Map.Entry<K, V>> entrySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * A map entry (key-value pair).  The <tt>Map.entrySet</tt> method returns
      * a collection-view of the map, whose elements are of this class.  The
      * <i>only</i> way to obtain a reference to a map entry is from the
@@ -348,13 +405,16 @@ public interface Map<K,V> {
      * the behavior of a map entry is undefined if the backing map has been
      * modified after the entry was returned by the iterator, except through
      * the <tt>setValue</tt> operation on the map entry.
+     * {@description.close}
      *
      * @see Map#entrySet()
      * @since 1.2
      */
     interface Entry<K,V> {
         /** {@collect.stats} 
+         * {@description.open}
          * Returns the key corresponding to this entry.
+         * {@description.close}
          *
          * @return the key corresponding to this entry
          * @throws IllegalStateException implementations may, but are not
@@ -364,9 +424,14 @@ public interface Map<K,V> {
         K getKey();
 
         /** {@collect.stats} 
-         * Returns the value corresponding to this entry.  If the mapping
+         * {@description.open}
+         * Returns the value corresponding to this entry.
+         * {@description.close}
+         * {@property.open synchronized}
+         * If the mapping
          * has been removed from the backing map (by the iterator's
          * <tt>remove</tt> operation), the results of this call are undefined.
+         * {@property.close}
          *
          * @return the value corresponding to this entry
          * @throws IllegalStateException implementations may, but are not
@@ -376,10 +441,15 @@ public interface Map<K,V> {
         V getValue();
 
         /** {@collect.stats} 
+         * {@description.open}
          * Replaces the value corresponding to this entry with the specified
-         * value (optional operation).  (Writes through to the map.)  The
+         * value (optional operation).  (Writes through to the map.)
+         * {@description.close}
+         * {@property.open synchronized}
+         * The
          * behavior of this call is undefined if the mapping has already been
          * removed from the map (by the iterator's <tt>remove</tt> operation).
+         * {@property.close}
          *
          * @param value new value to be stored in this entry
          * @return old value corresponding to the entry
@@ -398,6 +468,7 @@ public interface Map<K,V> {
         V setValue(V value);
 
         /** {@collect.stats} 
+         * {@description.open}
          * Compares the specified object with this entry for equality.
          * Returns <tt>true</tt> if the given object is also a map entry and
          * the two entries represent the same mapping.  More formally, two
@@ -410,6 +481,7 @@ public interface Map<K,V> {
          * </pre>
          * This ensures that the <tt>equals</tt> method works properly across
          * different implementations of the <tt>Map.Entry</tt> interface.
+         * {@description.close}
          *
          * @param o object to be compared for equality with this map entry
          * @return <tt>true</tt> if the specified object is equal to this map
@@ -418,6 +490,7 @@ public interface Map<K,V> {
         boolean equals(Object o);
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns the hash code value for this map entry.  The hash code
          * of a map entry <tt>e</tt> is defined to be: <pre>
          *     (e.getKey()==null   ? 0 : e.getKey().hashCode()) ^
@@ -427,6 +500,7 @@ public interface Map<K,V> {
          * <tt>e1.hashCode()==e2.hashCode()</tt> for any two Entries
          * <tt>e1</tt> and <tt>e2</tt>, as required by the general
          * contract of <tt>Object.hashCode</tt>.
+         * {@description.close}
          *
          * @return the hash code value for this map entry
          * @see Object#hashCode()
@@ -439,6 +513,7 @@ public interface Map<K,V> {
     // Comparison and hashing
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this map for equality.  Returns
      * <tt>true</tt> if the given object is also a map and the two maps
      * represent the same mappings.  More formally, two maps <tt>m1</tt> and
@@ -446,6 +521,7 @@ public interface Map<K,V> {
      * <tt>m1.entrySet().equals(m2.entrySet())</tt>.  This ensures that the
      * <tt>equals</tt> method works properly across different implementations
      * of the <tt>Map</tt> interface.
+     * {@description.close}
      *
      * @param o object to be compared for equality with this map
      * @return <tt>true</tt> if the specified object is equal to this map
@@ -453,12 +529,14 @@ public interface Map<K,V> {
     boolean equals(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this map.  The hash code of a map is
      * defined to be the sum of the hash codes of each entry in the map's
      * <tt>entrySet()</tt> view.  This ensures that <tt>m1.equals(m2)</tt>
      * implies that <tt>m1.hashCode()==m2.hashCode()</tt> for any two maps
      * <tt>m1</tt> and <tt>m2</tt>, as required by the general contract of
      * {@link Object#hashCode}.
+     * {@description.close}
      *
      * @return the hash code value for this map
      * @see Map.Entry#hashCode()

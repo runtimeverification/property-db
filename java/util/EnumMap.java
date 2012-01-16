@@ -29,6 +29,7 @@ import java.util.Map.Entry;
 import sun.misc.SharedSecrets;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A specialized {@link Map} implementation for use with enum type keys.  All
  * of the keys in an enum map must come from a single enum type that is
  * specified, explicitly or implicitly, when the map is created.  Enum maps
@@ -39,17 +40,23 @@ import sun.misc.SharedSecrets;
  * (the order in which the enum constants are declared).  This is reflected
  * in the iterators returned by the collections views ({@link #keySet()},
  * {@link #entrySet()}, and {@link #values()}).
+ * {@description.close}
  *
+ * {@property.open synchronization}
  * <p>Iterators returned by the collection views are <i>weakly consistent</i>:
  * they will never throw {@link ConcurrentModificationException} and they may
  * or may not show the effects of any modifications to the map that occur while
  * the iteration is in progress.
+ * {@property.close}
  *
+ * {@property.open formal:java.util.EnumMap_NonNull}
  * <p>Null keys are not permitted.  Attempts to insert a null key will
  * throw {@link NullPointerException}.  Attempts to test for the
  * presence of a null key or to remove one will, however, function properly.
  * Null values are permitted.
-
+ * {@property.close}
+ *
+ * {@property.open synchronization}
  * <P>Like most collection implementations <tt>EnumMap</tt> is not
  * synchronized. If multiple threads access an enum map concurrently, and at
  * least one of the threads modifies the map, it should be synchronized
@@ -63,7 +70,9 @@ import sun.misc.SharedSecrets;
  *     Map&lt;EnumKey, V&gt; m
  *         = Collections.synchronizedMap(new EnumMap&lt;EnumKey, V&gt;(...));
  * </pre>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Implementation note: All basic operations execute in constant time.
  * They are likely (though not guaranteed) to be faster than their
  * {@link HashMap} counterparts.
@@ -71,6 +80,7 @@ import sun.misc.SharedSecrets;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author Josh Bloch
  * @see EnumSet
@@ -80,31 +90,41 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     implements java.io.Serializable, Cloneable
 {
     /** {@collect.stats} 
+     * {@description.open}
      * The <tt>Class</tt> object for the enum type of all the keys of this map.
+     * {@description.close}
      *
      * @serial
      */
     private final Class<K> keyType;
 
     /** {@collect.stats} 
+     * {@description.open}
      * All of the values comprising K.  (Cached for performance.)
+     * {@description.close}
      */
     private transient K[] keyUniverse;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Array representation of this map.  The ith element is the value
      * to which universe[i] is currently mapped, or null if it isn't
      * mapped to anything, or NULL if it's mapped to null.
+     * {@description.close}
      */
     private transient Object[] vals;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of mappings in this map.
+     * {@description.close}
      */
     private transient int size = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Distinguished non-null value for representing null values.
+     * {@description.close}
      */
     private static final Object NULL = new Object();
 
@@ -119,7 +139,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     private static Enum[] ZERO_LENGTH_ENUM_ARRAY = new Enum[0];
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty enum map with the specified key type.
+     * {@description.close}
      *
      * @param keyType the class object of the key type for this enum map
      * @throws NullPointerException if <tt>keyType</tt> is null
@@ -131,8 +153,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum map with the same key type as the specified enum
      * map, initially containing the same mappings (if any).
+     * {@description.close}
      *
      * @param m the enum map from which to initialize this enum map
      * @throws NullPointerException if <tt>m</tt> is null
@@ -145,11 +169,13 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an enum map initialized from the specified map.  If the
      * specified map is an <tt>EnumMap</tt> instance, this constructor behaves
      * identically to {@link #EnumMap(EnumMap)}.  Otherwise, the specified map
      * must contain at least one mapping (in order to determine the new
      * enum map's key type).
+     * {@description.close}
      *
      * @param m the map from which to initialize this enum map
      * @throws IllegalArgumentException if <tt>m</tt> is not an
@@ -176,7 +202,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     // Query Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of key-value mappings in this map.
+     * {@description.close}
      *
      * @return the number of key-value mappings in this map
      */
@@ -185,8 +213,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
+     * {@description.close}
      *
      * @param value the value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to this value
@@ -202,8 +232,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.
+     * {@description.close}
      *
      * @param key the key whose presence in this map is to be tested
      * @return <tt>true</tt> if this map contains a mapping for the specified
@@ -219,6 +251,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -226,6 +259,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
      * {@code k} to a value {@code v} such that {@code (key == k)},
      * then this method returns {@code v}; otherwise it returns
      * {@code null}.  (There can be at most one such mapping.)
+     * {@description.close}
      *
      * <p>A return value of {@code null} does not <i>necessarily</i>
      * indicate that the map contains no mapping for the key; it's also
@@ -241,9 +275,11 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     // Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for this key, the old
      * value is replaced.
+     * {@description.close}
      *
      * @param key the key with which the specified value is to be associated
      * @param value the value to be associated with the specified key
@@ -266,7 +302,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the mapping for this key from this map if present.
+     * {@description.close}
      *
      * @param key the key whose mapping is to be removed from the map
      * @return the previous value associated with specified key, or
@@ -298,8 +336,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if key is of the proper type to be a key in this
      * enum map.
+     * {@description.close}
      */
     private boolean isValidKey(Object key) {
         if (key == null)
@@ -313,9 +353,11 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     // Bulk Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
+     * {@description.close}
      *
      * @param m the mappings to be stored in this map
      * @throws NullPointerException the specified map is null, or if
@@ -345,7 +387,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all mappings from this map.
+     * {@description.close}
      */
     public void clear() {
         Arrays.fill(vals, null);
@@ -355,18 +399,22 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     // Views
 
     /** {@collect.stats} 
+     * {@description.open}
      * This field is initialized to contain an instance of the entry set
      * view the first time this view is requested.  The view is stateless,
      * so there's no reason to create more than one.
+     * {@description.close}
      */
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the keys contained in this map.
      * The returned set obeys the general contract outlined in
      * {@link Map#keySet()}.  The set's iterator will return the keys
      * in their natural order (the order in which the enum constants
      * are declared).
+     * {@description.close}
      *
      * @return a set view of the keys contained in this enum map
      */
@@ -399,12 +447,14 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Collection} view of the values contained in this map.
      * The returned collection obeys the general contract outlined in
      * {@link Map#values()}.  The collection's iterator will return the
      * values in the order their corresponding keys appear in map,
      * which is their natural order (the order in which the enum constants
      * are declared).
+     * {@description.close}
      *
      * @return a collection view of the values contained in this map
      */
@@ -444,11 +494,13 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The returned set obeys the general contract outlined in
      * {@link Map#keySet()}.  The set's iterator will return the
      * mappings in the order their keys appear in map, which is their
      * natural order (the order in which the enum constants are declared).
+     * {@description.close}
      *
      * @return a set view of the mappings contained in this enum map
      */
@@ -553,7 +605,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Since we don't use Entry objects, we use the Iterator itself as entry.
+     * {@description.close}
      */
     private class EntryIterator extends EnumMapIterator<Map.Entry<K,V>>
         implements Map.Entry<K,V>
@@ -622,10 +676,12 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     // Comparison and hashing
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this map for equality.  Returns
      * <tt>true</tt> if the given object is also a map and the two maps
      * represent the same mappings, as specified in the {@link
      * Map#equals(Object)} contract.
+     * {@description.close}
      *
      * @param o the object to be compared for equality with this map
      * @return <tt>true</tt> if the specified object is equal to this map
@@ -650,8 +706,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this enum map.  (The values themselves
      * are not cloned.
+     * {@description.close}
      *
      * @return a shallow copy of this enum map
      */
@@ -667,7 +725,9 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Throws an exception if e is not of the correct type for this enum set.
+     * {@description.close}
      */
     private void typeCheck(K key) {
         Class keyClass = key.getClass();
@@ -676,8 +736,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns all of the values comprising K.
      * The result is uncloned, cached, and shared by all callers.
+     * {@description.close}
      */
     private static <K extends Enum<K>> K[] getKeyUniverse(Class<K> keyType) {
         return SharedSecrets.getJavaLangAccess()
@@ -687,8 +749,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     private static final long serialVersionUID = 458661240069192865L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of the <tt>EnumMap</tt> instance to a stream (i.e.,
      * serialize it).
+     * {@description.close}
      *
      * @serialData The <i>size</i> of the enum map (the number of key-value
      *             mappings) is emitted (int), followed by the key (Object)
@@ -712,8 +776,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitute the <tt>EnumMap</tt> instance from a stream (i.e.,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException

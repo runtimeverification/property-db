@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements the <tt>Set</tt> interface, backed by a hash table
  * (actually a <tt>HashMap</tt> instance).  It makes no guarantees as to the
  * iteration order of the set; in particular, it does not guarantee that the
@@ -40,7 +41,9 @@ package java.util;
  * "capacity" of the backing <tt>HashMap</tt> instance (the number of
  * buckets).  Thus, it's very important not to set the initial capacity too
  * high (or the load factor too low) if iteration performance is important.
+ * {@description.close}
  *
+ * {@property.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a hash set concurrently, and at least one of
  * the threads modifies the set, it <i>must</i> be synchronized externally.
@@ -52,7 +55,9 @@ package java.util;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the set:<pre>
  *   Set s = Collections.synchronizedSet(new HashSet(...));</pre>
+ * {@property.close}
  *
+ * {@property.open fail-fast}
  * <p>The iterators returned by this class's <tt>iterator</tt> method are
  * <i>fail-fast</i>: if the set is modified at any time after the iterator is
  * created, in any way except through the iterator's own <tt>remove</tt>
@@ -68,10 +73,13 @@ package java.util;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <E> the type of elements maintained by this set
  *
@@ -96,18 +104,22 @@ public class HashSet<E>
     private static final Object PRESENT = new Object();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * default initial capacity (16) and load factor (0.75).
+     * {@description.close}
      */
     public HashSet() {
         map = new HashMap<E,Object>();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new set containing the elements in the specified
      * collection.  The <tt>HashMap</tt> is created with default load factor
      * (0.75) and an initial capacity sufficient to contain the elements in
      * the specified collection.
+     * {@description.close}
      *
      * @param c the collection whose elements are to be placed into this set
      * @throws NullPointerException if the specified collection is null
@@ -118,8 +130,10 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * the specified initial capacity and the specified load factor.
+     * {@description.close}
      *
      * @param      initialCapacity   the initial capacity of the hash map
      * @param      loadFactor        the load factor of the hash map
@@ -131,8 +145,10 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * the specified initial capacity and default load factor (0.75).
+     * {@description.close}
      *
      * @param      initialCapacity   the initial capacity of the hash table
      * @throws     IllegalArgumentException if the initial capacity is less
@@ -143,10 +159,12 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty linked hash set.  (This package private
      * constructor is only used by LinkedHashSet.) The backing
      * HashMap instance is a LinkedHashMap with the specified initial
      * capacity and the specified load factor.
+     * {@description.close}
      *
      * @param      initialCapacity   the initial capacity of the hash map
      * @param      loadFactor        the load factor of the hash map
@@ -160,8 +178,10 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this set.  The elements
      * are returned in no particular order.
+     * {@description.close}
      *
      * @return an Iterator over the elements in this set
      * @see ConcurrentModificationException
@@ -171,7 +191,9 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this set (its cardinality).
+     * {@description.close}
      *
      * @return the number of elements in this set (its cardinality)
      */
@@ -180,7 +202,9 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains no elements.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this set contains no elements
      */
@@ -189,10 +213,12 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this set is to be tested
      * @return <tt>true</tt> if this set contains the specified element
@@ -202,12 +228,14 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element <tt>e</tt> to this set if
      * this set contains no element <tt>e2</tt> such that
      * <tt>(e==null&nbsp;?&nbsp;e2==null&nbsp;:&nbsp;e.equals(e2))</tt>.
      * If this set already contains the element, the call leaves the set
      * unchanged and returns <tt>false</tt>.
+     * {@description.close}
      *
      * @param e element to be added to this set
      * @return <tt>true</tt> if this set did not already contain the specified
@@ -218,6 +246,7 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the specified element from this set if it is present.
      * More formally, removes an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -225,6 +254,7 @@ public class HashSet<E>
      * this set contained the element (or equivalently, if this set
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
+     * {@description.close}
      *
      * @param o object to be removed from this set, if present
      * @return <tt>true</tt> if the set contained the specified element
@@ -234,16 +264,20 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this set.
      * The set will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         map.clear();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this <tt>HashSet</tt> instance: the elements
      * themselves are not cloned.
+     * {@description.close}
      *
      * @return a shallow copy of this set
      */
@@ -258,8 +292,10 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of this <tt>HashSet</tt> instance to a stream (that is,
      * serialize it).
+     * {@description.close}
      *
      * @serialData The capacity of the backing <tt>HashMap</tt> instance
      *             (int), and its load factor (float) are emitted, followed by
@@ -285,8 +321,10 @@ public class HashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitute the <tt>HashSet</tt> instance from a stream (that is,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

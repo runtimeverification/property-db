@@ -30,6 +30,7 @@ import java.io.*;
 import java.net.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This <tt>Handler</tt> publishes log records to <tt>System.err</tt>.
  * By default the <tt>SimpleFormatter</tt> is used to generate brief summaries.
  * <p>
@@ -52,6 +53,7 @@ import java.net.*;
  *        the default platform encoding).
  * </ul>
  * <p>
+ * {@description.close}
  * @since 1.4
  */
 
@@ -79,11 +81,13 @@ public class ConsoleHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>ConsoleHandler</tt> for <tt>System.err</tt>.
      * <p>
      * The <tt>ConsoleHandler</tt> is configured based on
      * <tt>LogManager</tt> properties (or their default values).
      *
+     * {@description.close}
      */
     public ConsoleHandler() {
         sealed = false;
@@ -93,11 +97,13 @@ public class ConsoleHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Publish a <tt>LogRecord</tt>.
      * <p>
      * The logging request was made initially to a <tt>Logger</tt> object,
      * which initialized the <tt>LogRecord</tt> and forwarded it here.
      * <p>
+     * {@description.close}
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
      */
@@ -107,9 +113,11 @@ public class ConsoleHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Override <tt>StreamHandler.close</tt> to do a flush but not
      * to close the output stream.  That is, we do <b>not</b>
      * close <tt>System.err</tt>.
+     * {@description.close}
      */
     public void close() {
         flush();

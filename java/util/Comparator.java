@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A comparison function, which imposes a <i>total ordering</i> on some
  * collection of objects.  Comparators can be passed to a sort method (such
  * as {@link Collections#sort(List,Comparator) Collections.sort} or {@link
@@ -40,7 +41,9 @@ package java.util;
  * <tt>c.compare(e1, e2)==0</tt> has the same boolean value as
  * <tt>e1.equals(e2)</tt> for every <tt>e1</tt> and <tt>e2</tt> in
  * <tt>S</tt>.<p>
+ * {@description.close}
  *
+ * {@property.open uncheckable}
  * Caution should be exercised when using a comparator capable of imposing an
  * ordering inconsistent with equals to order a sorted set (or sorted map).
  * Suppose a sorted set (or sorted map) with an explicit comparator <tt>c</tt>
@@ -58,7 +61,9 @@ package java.util;
  * {@code b} are not equivalent from the tree set's perspective, even though
  * this is contrary to the specification of the
  * {@link Set#add Set.add} method.<p>
+ * {@property.close}
  *
+ * {@description.open}
  * Note: It is generally a good idea for comparators to also implement
  * <tt>java.io.Serializable</tt>, as they may be used as ordering methods in
  * serializable data structures (like {@link TreeSet}, {@link TreeMap}).  In
@@ -85,6 +90,7 @@ package java.util;
  * This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <T> the type of objects that may be compared by this comparator
  *
@@ -97,6 +103,7 @@ package java.util;
 
 public interface Comparator<T> {
     /** {@collect.stats} 
+     * {@description.open}
      * Compares its two arguments for order.  Returns a negative integer,
      * zero, or a positive integer as the first argument is less than, equal
      * to, or greater than the second.<p>
@@ -106,25 +113,34 @@ public interface Comparator<T> {
      * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.<p>
+     * {@description.close}
      *
+     * {@property.open static}
      * The implementor must ensure that <tt>sgn(compare(x, y)) ==
      * -sgn(compare(y, x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
      * implies that <tt>compare(x, y)</tt> must throw an exception if and only
      * if <tt>compare(y, x)</tt> throws an exception.)<p>
+     * {@property.close}
      *
+     * {@property.open static}
      * The implementor must also ensure that the relation is transitive:
      * <tt>((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0))</tt> implies
      * <tt>compare(x, z)&gt;0</tt>.<p>
+     * {@property.close}
      *
+     * {@property.open static}
      * Finally, the implementor must ensure that <tt>compare(x, y)==0</tt>
      * implies that <tt>sgn(compare(x, z))==sgn(compare(y, z))</tt> for all
      * <tt>z</tt>.<p>
+     * {@property.close}
      *
+     * {@description.open}
      * It is generally the case, but <i>not</i> strictly required that
      * <tt>(compare(x, y)==0) == (x.equals(y))</tt>.  Generally speaking,
      * any comparator that violates this condition should clearly indicate
      * this fact.  The recommended language is "Note: this comparator
      * imposes orderings that are inconsistent with equals."
+     * {@description.close}
      *
      * @param o1 the first object to be compared.
      * @param o2 the second object to be compared.
@@ -137,6 +153,7 @@ public interface Comparator<T> {
     int compare(T o1, T o2);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Indicates whether some other object is &quot;equal to&quot; this
      * comparator.  This method must obey the general contract of
      * {@link Object#equals(Object)}.  Additionally, this method can return
@@ -150,6 +167,7 @@ public interface Comparator<T> {
      * <tt>Object.equals(Object)</tt>.  However, overriding this method may,
      * in some cases, improve performance by allowing programs to determine
      * that two distinct comparators impose the same order.
+     * {@description.close}
      *
      * @param   obj   the reference object with which to compare.
      * @return  <code>true</code> only if the specified object is also

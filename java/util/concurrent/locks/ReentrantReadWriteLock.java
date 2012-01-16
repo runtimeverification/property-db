@@ -39,6 +39,7 @@ import java.util.concurrent.atomic.*;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An implementation of {@link ReadWriteLock} supporting similar
  * semantics to {@link ReentrantLock}.
  * <p>This class has the following properties:
@@ -87,17 +88,23 @@ import java.util.*;
  *
  * <li><b>Reentrancy</b>
  *
+ * {@description.close}
+ * {@property.open}
  * <p>This lock allows both readers and writers to reacquire read or
  * write locks in the style of a {@link ReentrantLock}. Non-reentrant
  * readers are not allowed until all write locks held by the writing
  * thread have been released.
+ * {@property.close}
  *
+ * {@property.open}
  * <p>Additionally, a writer can acquire the read lock, but not
  * vice-versa.  Among other applications, reentrancy can be useful
  * when write locks are held during calls or callbacks to methods that
  * perform reads under read locks.  If a reader tries to acquire the
  * write lock it will never succeed.
+ * {@property.close}
  *
+ * {@description.open}
  * <li><b>Lock downgrading</b>
  * <p>Reentrancy also allows downgrading from the write lock to a read lock,
  * by acquiring the write lock, then the read lock and then releasing the
@@ -210,6 +217,7 @@ import java.util.*;
  * <p>This lock supports a maximum of 65535 recursive write locks
  * and 65535 read locks. Attempts to exceed these limits result in
  * {@link Error} throws from locking methods.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -217,24 +225,40 @@ import java.util.*;
  */
 public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable  {
     private static final long serialVersionUID = -6992448646407690164L;
-    /** {@collect.stats}  Inner class providing readlock */
+    /** {@collect.stats}
+     * {@description.open}
+     * Inner class providing readlock 
+     * {@description.close}
+     */
     private final ReentrantReadWriteLock.ReadLock readerLock;
-    /** {@collect.stats}  Inner class providing writelock */
+    /** {@collect.stats}
+     * {@description.open}
+     * Inner class providing writelock 
+     * {@description.close}
+     */
     private final ReentrantReadWriteLock.WriteLock writerLock;
-    /** {@collect.stats}  Performs all synchronization mechanics */
+    /** {@collect.stats}
+     * {@description.open}
+     * Performs all synchronization mechanics 
+     * {@description.close}
+     */
     private final Sync sync;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new {@code ReentrantReadWriteLock} with
      * default (nonfair) ordering properties.
+     * {@description.close}
      */
     public ReentrantReadWriteLock() {
         this(false);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new {@code ReentrantReadWriteLock} with
      * the given fairness policy.
+     * {@description.close}
      *
      * @param fair {@code true} if this lock should use a fair ordering policy
      */
@@ -248,8 +272,10 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Synchronization implementation for ReentrantReadWriteLock.
      * Subclassed into fair and nonfair versions.
+     * {@description.close}
      */
     static abstract class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = 6317671515068378041L;
@@ -266,20 +292,34 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         static final int MAX_COUNT      = (1 << SHARED_SHIFT) - 1;
         static final int EXCLUSIVE_MASK = (1 << SHARED_SHIFT) - 1;
 
-        /** {@collect.stats}  Returns the number of shared holds represented in count  */
+        /** {@collect.stats}
+         * {@description.open}
+         * Returns the number of shared holds represented in count  
+         * {@description.close}
+         */
         static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
-        /** {@collect.stats}  Returns the number of exclusive holds represented in count  */
+        /** {@collect.stats}
+         * {@description.open}
+         * Returns the number of exclusive holds represented in count  
+         * {@description.close}
+         */
         static int exclusiveCount(int c) { return c & EXCLUSIVE_MASK; }
 
         /** {@collect.stats} 
+         * {@description.open}
          * A counter for per-thread read hold counts.
          * Maintained as a ThreadLocal; cached in cachedHoldCounter
+         * {@description.close}
          */
         static final class HoldCounter {
             int count;
             // Use id, not reference, to avoid garbage retention
             final long tid = Thread.currentThread().getId();
-            /** {@collect.stats}  Decrement if positive; return previous value */
+            /** {@collect.stats}
+             * {@description.open}
+             * Decrement if positive; return previous value 
+             * {@description.close}
+             */
             int tryDecrement() {
                 int c = count;
                 if (c > 0)
@@ -289,8 +329,10 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * ThreadLocal subclass. Easiest to explicitly define for sake
          * of deserialization mechanics.
+         * {@description.close}
          */
         static final class ThreadLocalHoldCounter
             extends ThreadLocal<HoldCounter> {
@@ -300,17 +342,21 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * The number of read locks held by current thread.
          * Initialized only in constructor and readObject.
+         * {@description.close}
          */
         transient ThreadLocalHoldCounter readHolds;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The hold count of the last thread to successfully acquire
          * readLock. This saves ThreadLocal lookup in the common case
          * where the next thread to release is the last one to
          * acquire. This is non-volatile since it is just used
          * as a heuristic, and would be great for threads to cache.
+         * {@description.close}
          */
         transient HoldCounter cachedHoldCounter;
 
@@ -326,16 +372,20 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          */
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns true if the current thread, when trying to acquire
          * the read lock, and otherwise eligible to do so, should block
          * because of policy for overtaking other waiting threads.
+         * {@description.close}
          */
         abstract boolean readerShouldBlock();
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns true if the current thread, when trying to acquire
          * the write lock, and otherwise eligible to do so, should block
          * because of policy for overtaking other waiting threads.
+         * {@description.close}
          */
         abstract boolean writerShouldBlock();
 
@@ -440,8 +490,10 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Full version of acquire for reads, that handles CAS misses
          * and reentrant reads not dealt with in tryAcquireShared.
+         * {@description.close}
          */
         final int fullTryAcquireShared(Thread current) {
             /*
@@ -470,9 +522,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Performs tryLock for write, enabling barging in both modes.
          * This is identical in effect to tryAcquire except for lack
          * of calls to writerShouldBlock
+         * {@description.close}
          */
         final boolean tryWriteLock() {
             Thread current = Thread.currentThread();
@@ -491,9 +545,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Performs tryLock for read, enabling barging in both modes.
          * This is identical in effect to tryAcquireShared except for
          * lack of calls to readerShouldBlock
+         * {@description.close}
          */
         final boolean tryReadLock() {
             Thread current = Thread.currentThread();
@@ -550,7 +606,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Reconstitute this lock instance from a stream
+         * {@description.close}
          * @param s the stream
          */
         private void readObject(java.io.ObjectInputStream s)
@@ -564,7 +622,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Nonfair version of Sync
+     * {@description.close}
      */
     final static class NonfairSync extends Sync {
         private static final long serialVersionUID = -8159625535654395037L;
@@ -584,7 +644,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fair version of Sync
+     * {@description.close}
      */
     final static class FairSync extends Sync {
         private static final long serialVersionUID = -2274990926593161451L;
@@ -597,14 +659,18 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The lock returned by method {@link ReentrantReadWriteLock#readLock}.
+     * {@description.close}
      */
     public static class ReadLock implements Lock, java.io.Serializable  {
         private static final long serialVersionUID = -5992448646407690164L;
         private final Sync sync;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Constructor for use by subclasses
+         * {@description.close}
          *
          * @param lock the outer lock object
          * @throws NullPointerException if the lock is null
@@ -614,6 +680,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the read lock.
          *
          * <p>Acquires the read lock if the write lock is not held by
@@ -622,12 +689,14 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * <p>If the write lock is held by another thread then
          * the current thread becomes disabled for thread scheduling
          * purposes and lies dormant until the read lock has been acquired.
+         * {@description.close}
          */
         public void lock() {
             sync.acquireShared(1);
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the read lock unless the current thread is
          * {@linkplain Thread#interrupt interrupted}.
          *
@@ -665,6 +734,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * interruption point, preference is given to responding to
          * the interrupt over normal or reentrant acquisition of the
          * lock.
+         * {@description.close}
          *
          * @throws InterruptedException if the current thread is interrupted
          */
@@ -673,6 +743,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the read lock only if the write lock is not held by
          * another thread at the time of invocation.
          *
@@ -692,6 +763,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * <p>If the write lock is held by another thread then
          * this method will return immediately with the value
          * {@code false}.
+         * {@description.close}
          *
          * @return {@code true} if the read lock was acquired
          */
@@ -700,6 +772,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the read lock if the write lock is not held by
          * another thread within the given waiting time and the
          * current thread has not been {@linkplain Thread#interrupt
@@ -756,6 +829,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * interruption point, preference is given to responding to
          * the interrupt over normal or reentrant acquisition of the
          * lock, and over reporting the elapse of the waiting time.
+         * {@description.close}
          *
          * @param timeout the time to wait for the read lock
          * @param unit the time unit of the timeout argument
@@ -769,18 +843,22 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Attempts to release this lock.
          *
          * <p> If the number of readers is now zero then the lock
          * is made available for write lock attempts.
+         * {@description.close}
          */
         public  void unlock() {
             sync.releaseShared(1);
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Throws {@code UnsupportedOperationException} because
          * {@code ReadLocks} do not support conditions.
+         * {@description.close}
          *
          * @throws UnsupportedOperationException always
          */
@@ -789,9 +867,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns a string identifying this lock, as well as its lock state.
          * The state, in brackets, includes the String {@code "Read locks ="}
          * followed by the number of held read locks.
+         * {@description.close}
          *
          * @return a string identifying this lock, as well as its lock state
          */
@@ -803,14 +883,18 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The lock returned by method {@link ReentrantReadWriteLock#writeLock}.
+     * {@description.close}
      */
     public static class WriteLock implements Lock, java.io.Serializable  {
         private static final long serialVersionUID = -4992448646407690164L;
         private final Sync sync;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Constructor for use by subclasses
+         * {@description.close}
          *
          * @param lock the outer lock object
          * @throws NullPointerException if the lock is null
@@ -820,8 +904,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the write lock.
+         * {@description.close}
          *
+         * {@property.open}
          * <p>Acquires the write lock if neither the read nor write lock
          * are held by another thread
          * and returns immediately, setting the write lock hold count to
@@ -830,20 +917,26 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * <p>If the current thread already holds the write lock then the
          * hold count is incremented by one and the method returns
          * immediately.
+         * {@property.close}
          *
+         * {@description.open}
          * <p>If the lock is held by another thread then the current
          * thread becomes disabled for thread scheduling purposes and
          * lies dormant until the write lock has been acquired, at which
          * time the write lock hold count is set to one.
+         * {@description.close}
          */
         public void lock() {
             sync.acquire(1);
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the write lock unless the current thread is
          * {@linkplain Thread#interrupt interrupted}.
+         * {@description.close}
          *
+         * {@property.open}
          * <p>Acquires the write lock if neither the read nor write lock
          * are held by another thread
          * and returns immediately, setting the write lock hold count to
@@ -852,7 +945,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * <p>If the current thread already holds this lock then the
          * hold count is incremented by one and the method returns
          * immediately.
+         * {@property.close}
          *
+         * {@description.open}
          * <p>If the lock is held by another thread then the current
          * thread becomes disabled for thread scheduling purposes and
          * lies dormant until one of two things happens:
@@ -888,6 +983,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * interruption point, preference is given to responding to
          * the interrupt over normal or reentrant acquisition of the
          * lock.
+         * {@description.close}
          *
          * @throws InterruptedException if the current thread is interrupted
          */
@@ -896,6 +992,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the write lock only if it is not held by another thread
          * at the time of invocation.
          *
@@ -919,6 +1016,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          *
          * <p>If the lock is held by another thread then this method
          * will return immediately with the value {@code false}.
+         * {@description.close}
          *
          * @return {@code true} if the lock was free and was acquired
          * by the current thread, or the write lock was already held
@@ -929,6 +1027,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Acquires the write lock if it is not held by another thread
          * within the given waiting time and the current thread has
          * not been {@linkplain Thread#interrupt interrupted}.
@@ -992,6 +1091,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * interruption point, preference is given to responding to
          * the interrupt over normal or reentrant acquisition of the
          * lock, and over reporting the elapse of the waiting time.
+         * {@description.close}
          *
          * @param timeout the time to wait for the write lock
          * @param unit the time unit of the timeout argument
@@ -1010,6 +1110,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Attempts to release this lock.
          *
          * <p>If the current thread is the holder of this lock then
@@ -1017,6 +1118,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * zero then the lock is released.  If the current thread is
          * not the holder of this lock then {@link
          * IllegalMonitorStateException} is thrown.
+         * {@description.close}
          *
          * @throws IllegalMonitorStateException if the current thread does not
          * hold this lock.
@@ -1026,6 +1128,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns a {@link Condition} instance for use with this
          * {@link Lock} instance.
          * <p>The returned {@link Condition} instance supports the same
@@ -1065,6 +1168,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
          * waiting the longest.
          *
          * </ul>
+         * {@description.close}
          *
          * @return the Condition object
          */
@@ -1073,10 +1177,12 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Returns a string identifying this lock, as well as its lock
          * state.  The state, in brackets includes either the String
          * {@code "Unlocked"} or the String {@code "Locked by"}
          * followed by the {@linkplain Thread#getName name} of the owning thread.
+         * {@description.close}
          *
          * @return a string identifying this lock, as well as its lock state
          */
@@ -1088,9 +1194,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Queries if this write lock is held by the current thread.
          * Identical in effect to {@link
          * ReentrantReadWriteLock#isWriteLockedByCurrentThread}.
+         * {@description.close}
          *
          * @return {@code true} if the current thread holds this lock and
          *         {@code false} otherwise
@@ -1101,10 +1209,12 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Queries the number of holds on this write lock by the current
          * thread.  A thread has a hold on a lock for each lock action
          * that is not matched by an unlock action.  Identical in effect
          * to {@link ReentrantReadWriteLock#getWriteHoldCount}.
+         * {@description.close}
          *
          * @return the number of holds on this lock by the current thread,
          *         or zero if this lock is not held by the current thread
@@ -1118,7 +1228,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     // Instrumentation and status
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this lock has fairness set true.
+     * {@description.close}
      *
      * @return {@code true} if this lock has fairness set true
      */
@@ -1127,6 +1239,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the thread that currently owns the write lock, or
      * {@code null} if not owned. When this method is called by a
      * thread that is not the owner, the return value reflects a
@@ -1136,6 +1249,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
      * This method is designed to facilitate construction of
      * subclasses that provide more extensive lock monitoring
      * facilities.
+     * {@description.close}
      *
      * @return the owner, or {@code null} if not owned
      */
@@ -1144,9 +1258,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries the number of read locks held for this lock. This
      * method is designed for use in monitoring system state, not for
      * synchronization control.
+     * {@description.close}
      * @return the number of read locks held.
      */
     public int getReadLockCount() {
@@ -1154,9 +1270,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries if the write lock is held by any thread. This method is
      * designed for use in monitoring system state, not for
      * synchronization control.
+     * {@description.close}
      *
      * @return {@code true} if any thread holds the write lock and
      *         {@code false} otherwise
@@ -1166,7 +1284,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries if the write lock is held by the current thread.
+     * {@description.close}
      *
      * @return {@code true} if the current thread holds the write lock and
      *         {@code false} otherwise
@@ -1176,9 +1296,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries the number of reentrant write holds on this lock by the
      * current thread.  A writer thread has a hold on a lock for
      * each lock action that is not matched by an unlock action.
+     * {@description.close}
      *
      * @return the number of holds on the write lock by the current thread,
      *         or zero if the write lock is not held by the current thread
@@ -1188,9 +1310,11 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries the number of reentrant read holds on this lock by the
      * current thread.  A reader thread has a hold on a lock for
      * each lock action that is not matched by an unlock action.
+     * {@description.close}
      *
      * @return the number of holds on the read lock by the current thread,
      *         or zero if the read lock is not held by the current thread
@@ -1201,6 +1325,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a collection containing threads that may be waiting to
      * acquire the write lock.  Because the actual set of threads may
      * change dynamically while constructing this result, the returned
@@ -1208,6 +1333,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
      * returned collection are in no particular order.  This method is
      * designed to facilitate construction of subclasses that provide
      * more extensive lock monitoring facilities.
+     * {@description.close}
      *
      * @return the collection of threads
      */
@@ -1216,6 +1342,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a collection containing threads that may be waiting to
      * acquire the read lock.  Because the actual set of threads may
      * change dynamically while constructing this result, the returned
@@ -1223,6 +1350,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
      * returned collection are in no particular order.  This method is
      * designed to facilitate construction of subclasses that provide
      * more extensive lock monitoring facilities.
+     * {@description.close}
      *
      * @return the collection of threads
      */
@@ -1231,11 +1359,13 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries whether any threads are waiting to acquire the read or
      * write lock. Note that because cancellations may occur at any
      * time, a {@code true} return does not guarantee that any other
      * thread will ever acquire a lock.  This method is designed
      * primarily for use in monitoring of the system state.
+     * {@description.close}
      *
      * @return {@code true} if there may be other threads waiting to
      *         acquire the lock
@@ -1245,11 +1375,13 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries whether the given thread is waiting to acquire either
      * the read or write lock. Note that because cancellations may
      * occur at any time, a {@code true} return does not guarantee
      * that this thread will ever acquire a lock.  This method is
      * designed primarily for use in monitoring of the system state.
+     * {@description.close}
      *
      * @param thread the thread
      * @return {@code true} if the given thread is queued waiting for this lock
@@ -1260,12 +1392,14 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an estimate of the number of threads waiting to acquire
      * either the read or write lock.  The value is only an estimate
      * because the number of threads may change dynamically while this
      * method traverses internal data structures.  This method is
      * designed for use in monitoring of the system state, not for
      * synchronization control.
+     * {@description.close}
      *
      * @return the estimated number of threads waiting for this lock
      */
@@ -1274,6 +1408,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a collection containing threads that may be waiting to
      * acquire either the read or write lock.  Because the actual set
      * of threads may change dynamically while constructing this
@@ -1281,6 +1416,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
      * The elements of the returned collection are in no particular
      * order.  This method is designed to facilitate construction of
      * subclasses that provide more extensive monitoring facilities.
+     * {@description.close}
      *
      * @return the collection of threads
      */
@@ -1289,12 +1425,14 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries whether any threads are waiting on the given condition
      * associated with the write lock. Note that because timeouts and
      * interrupts may occur at any time, a {@code true} return does
      * not guarantee that a future {@code signal} will awaken any
      * threads.  This method is designed primarily for use in
      * monitoring of the system state.
+     * {@description.close}
      *
      * @param condition the condition
      * @return {@code true} if there are any waiting threads
@@ -1312,12 +1450,14 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an estimate of the number of threads waiting on the
      * given condition associated with the write lock. Note that because
      * timeouts and interrupts may occur at any time, the estimate
      * serves only as an upper bound on the actual number of waiters.
      * This method is designed for use in monitoring of the system
      * state, not for synchronization control.
+     * {@description.close}
      *
      * @param condition the condition
      * @return the estimated number of waiting threads
@@ -1335,6 +1475,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a collection containing those threads that may be
      * waiting on the given condition associated with the write lock.
      * Because the actual set of threads may change dynamically while
@@ -1343,6 +1484,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
      * are in no particular order.  This method is designed to
      * facilitate construction of subclasses that provide more
      * extensive condition monitoring facilities.
+     * {@description.close}
      *
      * @param condition the condition
      * @return the collection of threads
@@ -1360,11 +1502,13 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string identifying this lock, as well as its lock state.
      * The state, in brackets, includes the String {@code "Write locks ="}
      * followed by the number of reentrantly held write locks, and the
      * String {@code "Read locks ="} followed by the number of held
      * read locks.
+     * {@description.close}
      *
      * @return a string identifying this lock, as well as its lock state
      */

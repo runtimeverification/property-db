@@ -38,6 +38,7 @@ import sun.misc.Unsafe;
 import java.lang.reflect.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A reflection-based utility that enables atomic updates to
  * designated {@code volatile long} fields of designated classes.
  * This class is designed for use in atomic data structures in which
@@ -50,6 +51,7 @@ import java.lang.reflect.*;
  * are appropriate for purposes of atomic access, it can
  * guarantee atomicity only with respect to other invocations of
  * {@code compareAndSet} and {@code set} on the same updater.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -57,9 +59,11 @@ import java.lang.reflect.*;
  */
 public abstract class  AtomicLongFieldUpdater<T>  {
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and returns an updater for objects with the given field.
      * The Class argument is needed to check that reflective types and
      * generic types match.
+     * {@description.close}
      *
      * @param tclass the class of the objects holding the field
      * @param fieldName the name of the field to be updated.
@@ -77,17 +81,21 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Protected do-nothing constructor for use by subclasses.
+     * {@description.close}
      */
     protected AtomicLongFieldUpdater() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
      * other calls to {@code compareAndSet} and {@code set}, but not
      * necessarily with respect to other changes in the field.
+     * {@description.close}
      *
      * @param obj An object whose field to conditionally set
      * @param expect the expected value
@@ -99,6 +107,7 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     public abstract boolean compareAndSet(T obj, long expect, long update);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
@@ -108,6 +117,7 @@ public abstract class  AtomicLongFieldUpdater<T>  {
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param obj An object whose field to conditionally set
      * @param expect the expected value
@@ -119,9 +129,11 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     public abstract boolean weakCompareAndSet(T obj, long expect, long update);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the field of the given object managed by this updater to the
      * given updated value. This operation is guaranteed to act as a volatile
      * store with respect to subsequent invocations of {@code compareAndSet}.
+     * {@description.close}
      *
      * @param obj An object whose field to set
      * @param newValue the new value
@@ -129,8 +141,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     public abstract void set(T obj, long newValue);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Eventually sets the field of the given object managed by this
      * updater to the given updated value.
+     * {@description.close}
      *
      * @param obj An object whose field to set
      * @param newValue the new value
@@ -139,8 +153,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     public abstract void lazySet(T obj, long newValue);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the current value held in the field of the given object managed
      * by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get
      * @return the current value
@@ -148,8 +164,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     public abstract long get(T obj);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the field of the given object managed by this updater
      * to the given value and returns the old value.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @param newValue the new value
@@ -164,8 +182,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value of the field of the
      * given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @return the previous value
@@ -180,8 +200,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value of the field of the
      * given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @return the previous value
@@ -196,8 +218,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value of the field of
      * the given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @param delta the value to add
@@ -213,8 +237,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value of the field of the
      * given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @return the updated value
@@ -229,8 +255,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value of the field of the
      * given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @return the updated value
@@ -245,8 +273,10 @@ public abstract class  AtomicLongFieldUpdater<T>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value of the field of
      * the given object managed by this updater.
+     * {@description.close}
      *
      * @param obj An object whose field to get and set
      * @param delta the value to add

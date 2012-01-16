@@ -26,12 +26,14 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <p>
  * The root class from which all event state objects shall be derived.
  * <p>
  * All Events are constructed with a reference to the object, the "source",
  * that is logically deemed to be the object upon which the Event in question
  * initially occurred upon.
+ * {@description.close}
  *
  * @since JDK1.1
  */
@@ -41,12 +43,16 @@ public class EventObject implements java.io.Serializable {
     private static final long serialVersionUID = 5516075349620653480L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The object on which the Event initially occurred.
+     * {@description.close}
      */
     protected transient Object  source;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a prototypical Event.
+     * {@description.close}
      *
      * @param    source    The object on which the Event initially occurred.
      * @exception  IllegalArgumentException  if source is null.
@@ -59,7 +65,9 @@ public class EventObject implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The object on which the Event initially occurred.
+     * {@description.close}
      *
      * @return   The object on which the Event initially occurred.
      */
@@ -68,7 +76,9 @@ public class EventObject implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a String representation of this EventObject.
+     * {@description.close}
      *
      * @return  A a String representation of this EventObject.
      */

@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link Set} that further provides a <i>total ordering</i> on its elements.
  * The elements are ordered using their {@linkplain Comparable natural
  * ordering}, or by a {@link Comparator} typically provided at sorted
@@ -33,7 +34,9 @@ package java.util;
  * ascending element order. Several additional operations are provided
  * to take advantage of the ordering.  (This interface is the set
  * analogue of {@link SortedMap}.)
+ * {@description.close}
  *
+ * {@property.open formal:java.util.SortedSet_Comparable}
  * <p>All elements inserted into a sorted set must implement the <tt>Comparable</tt>
  * interface (or be accepted by the specified comparator).  Furthermore, all
  * such elements must be <i>mutually comparable</i>: <tt>e1.compareTo(e2)</tt>
@@ -42,7 +45,9 @@ package java.util;
  * the sorted set.  Attempts to violate this restriction will cause the
  * offending method or constructor invocation to throw a
  * <tt>ClassCastException</tt>.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Note that the ordering maintained by a sorted set (whether or not an
  * explicit comparator is provided) must be <i>consistent with equals</i> if
  * the sorted set is to correctly implement the <tt>Set</tt> interface.  (See
@@ -55,7 +60,9 @@ package java.util;
  * equal.  The behavior of a sorted set <i>is</i> well-defined even if its
  * ordering is inconsistent with equals; it just fails to obey the general
  * contract of the <tt>Set</tt> interface.
+ * {@description.close}
  *
+ * {@property.open formal:java.util.SortedSet_StandardConstructors}
  * <p>All general-purpose sorted set implementation classes should
  * provide four "standard" constructors: 1) A void (no arguments)
  * constructor, which creates an empty sorted set sorted according to
@@ -69,7 +76,9 @@ package java.util;
  * which creates a new sorted set with the same elements and the same
  * ordering as the input sorted set.  There is no way to enforce this
  * recommendation, as interfaces cannot contain constructors.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Note: several methods return subsets with restricted ranges.
  * Such ranges are <i>half-open</i>, that is, they include their low
  * endpoint but not their high endpoint (where applicable).
@@ -91,6 +100,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <E> the type of elements maintained by this set
  *
@@ -107,9 +117,11 @@ package java.util;
 
 public interface SortedSet<E> extends Set<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the comparator used to order the elements in this set,
      * or <tt>null</tt> if this set uses the {@linkplain Comparable
      * natural ordering} of its elements.
+     * {@description.close}
      *
      * @return the comparator used to order the elements in this set,
      *         or <tt>null</tt> if this set uses the natural ordering
@@ -118,6 +130,7 @@ public interface SortedSet<E> extends Set<E> {
     Comparator<? super E> comparator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements range
      * from <tt>fromElement</tt>, inclusive, to <tt>toElement</tt>,
      * exclusive.  (If <tt>fromElement</tt> and <tt>toElement</tt> are
@@ -128,6 +141,7 @@ public interface SortedSet<E> extends Set<E> {
      *
      * <p>The returned set will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param fromElement low endpoint (inclusive) of the returned set
      * @param toElement high endpoint (exclusive) of the returned set
@@ -151,6 +165,7 @@ public interface SortedSet<E> extends Set<E> {
     SortedSet<E> subSet(E fromElement, E toElement);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements are
      * strictly less than <tt>toElement</tt>.  The returned set is
      * backed by this set, so changes in the returned set are
@@ -159,6 +174,7 @@ public interface SortedSet<E> extends Set<E> {
      *
      * <p>The returned set will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param toElement high endpoint (exclusive) of the returned set
      * @return a view of the portion of this set whose elements are strictly
@@ -178,6 +194,7 @@ public interface SortedSet<E> extends Set<E> {
     SortedSet<E> headSet(E toElement);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements are
      * greater than or equal to <tt>fromElement</tt>.  The returned
      * set is backed by this set, so changes in the returned set are
@@ -186,6 +203,7 @@ public interface SortedSet<E> extends Set<E> {
      *
      * <p>The returned set will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param fromElement low endpoint (inclusive) of the returned set
      * @return a view of the portion of this set whose elements are greater
@@ -205,7 +223,9 @@ public interface SortedSet<E> extends Set<E> {
     SortedSet<E> tailSet(E fromElement);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the first (lowest) element currently in this set.
+     * {@description.close}
      *
      * @return the first (lowest) element currently in this set
      * @throws NoSuchElementException if this set is empty
@@ -213,7 +233,9 @@ public interface SortedSet<E> extends Set<E> {
     E first();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the last (highest) element currently in this set.
+     * {@description.close}
      *
      * @return the last (highest) element currently in this set
      * @throws NoSuchElementException if this set is empty

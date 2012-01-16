@@ -36,9 +36,11 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Exception indicating that the result of a value-producing task,
  * such as a {@link FutureTask}, cannot be retrieved because the task
  * was cancelled.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -47,13 +49,17 @@ public class CancellationException extends IllegalStateException {
     private static final long serialVersionUID = -9202173006928992231L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>CancellationException</tt> with no detail message.
+     * {@description.close}
      */
     public CancellationException() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>CancellationException</tt> with the specified detail
      * message.
+     * {@description.close}
      *
      * @param message the detail message
      */

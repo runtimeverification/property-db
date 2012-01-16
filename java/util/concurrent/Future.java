@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A <tt>Future</tt> represents the result of an asynchronous
  * computation.  Methods are provided to check if the computation is
  * complete, to wait for its completion, and to retrieve the result of
@@ -88,6 +89,7 @@ package java.util.concurrent;
  * <p>Memory consistency effects: Actions taken by the asynchronous computation
  * <a href="package-summary.html#MemoryVisibility"> <i>happen-before</i></a>
  * actions following the corresponding {@code Future.get()} in another thread.
+ * {@description.close}
  *
  * @see FutureTask
  * @see Executor
@@ -98,6 +100,7 @@ package java.util.concurrent;
 public interface Future<V> {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to cancel execution of this task.  This attempt will
      * fail if the task has already completed, has already been cancelled,
      * or could not be cancelled for some other reason. If successful,
@@ -110,6 +113,7 @@ public interface Future<V> {
      * <p>After this method returns, subsequent calls to {@link #isDone} will
      * always return <tt>true</tt>.  Subsequent calls to {@link #isCancelled}
      * will always return <tt>true</tt> if this method returned <tt>true</tt>.
+     * {@description.close}
      *
      * @param mayInterruptIfRunning <tt>true</tt> if the thread executing this
      * task should be interrupted; otherwise, in-progress tasks are allowed
@@ -121,27 +125,33 @@ public interface Future<V> {
     boolean cancel(boolean mayInterruptIfRunning);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this task was cancelled before it completed
      * normally.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this task was cancelled before it completed
      */
     boolean isCancelled();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this task completed.
      *
      * Completion may be due to normal termination, an exception, or
      * cancellation -- in all of these cases, this method will return
      * <tt>true</tt>.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this task completed
      */
     boolean isDone();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Waits if necessary for the computation to complete, and then
      * retrieves its result.
+     * {@description.close}
      *
      * @return the computed result
      * @throws CancellationException if the computation was cancelled
@@ -153,8 +163,10 @@ public interface Future<V> {
     V get() throws InterruptedException, ExecutionException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Waits if necessary for at most the given time for the computation
      * to complete, and then retrieves its result, if available.
+     * {@description.close}
      *
      * @param timeout the maximum time to wait
      * @param unit the time unit of the timeout argument

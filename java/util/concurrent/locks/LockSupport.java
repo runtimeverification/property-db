@@ -39,6 +39,7 @@ import sun.misc.Unsafe;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Basic thread blocking primitives for creating locks and other
  * synchronization classes.
  *
@@ -115,6 +116,7 @@ import sun.misc.Unsafe;
  *     LockSupport.unpark(waiters.peek());
  *   }
  * }}</pre>
+ * {@description.close}
  */
 
 public class LockSupport {
@@ -137,12 +139,14 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Makes available the permit for the given thread, if it
      * was not already available.  If the thread was blocked on
      * {@code park} then it will unblock.  Otherwise, its next call
      * to {@code park} is guaranteed not to block. This operation
      * is not guaranteed to have any effect at all if the given
      * thread has not been started.
+     * {@description.close}
      *
      * @param thread the thread to unpark, or {@code null}, in which case
      *        this operation has no effect
@@ -153,6 +157,7 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes unless the
      * permit is available.
      *
@@ -175,6 +180,7 @@ public class LockSupport {
      * method to return. Callers should re-check the conditions which caused
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread upon return.
+     * {@description.close}
      *
      * @param blocker the synchronization object responsible for this
      *        thread parking
@@ -188,6 +194,7 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes, for up to
      * the specified waiting time, unless the permit is available.
      *
@@ -213,6 +220,7 @@ public class LockSupport {
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread, or the elapsed time
      * upon return.
+     * {@description.close}
      *
      * @param blocker the synchronization object responsible for this
      *        thread parking
@@ -229,6 +237,7 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes, until
      * the specified deadline, unless the permit is available.
      *
@@ -254,6 +263,7 @@ public class LockSupport {
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread, or the current time
      * upon return.
+     * {@description.close}
      *
      * @param blocker the synchronization object responsible for this
      *        thread parking
@@ -269,11 +279,13 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the blocker object supplied to the most recent
      * invocation of a park method that has not yet unblocked, or null
      * if not blocked.  The value returned is just a momentary
      * snapshot -- the thread may have since unblocked or blocked on a
      * different blocker object.
+     * {@description.close}
      *
      * @return the blocker
      * @since 1.6
@@ -283,6 +295,7 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes unless the
      * permit is available.
      *
@@ -306,12 +319,14 @@ public class LockSupport {
      * method to return. Callers should re-check the conditions which caused
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread upon return.
+     * {@description.close}
      */
     public static void park() {
         unsafe.park(false, 0L);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes, for up to
      * the specified waiting time, unless the permit is available.
      *
@@ -337,6 +352,7 @@ public class LockSupport {
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread, or the elapsed time
      * upon return.
+     * {@description.close}
      *
      * @param nanos the maximum number of nanoseconds to wait
      */
@@ -346,6 +362,7 @@ public class LockSupport {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the current thread for thread scheduling purposes, until
      * the specified deadline, unless the permit is available.
      *
@@ -371,6 +388,7 @@ public class LockSupport {
      * the thread to park in the first place. Callers may also determine,
      * for example, the interrupt status of the thread, or the current time
      * upon return.
+     * {@description.close}
      *
      * @param deadline the absolute time, in milliseconds from the Epoch,
      *        to wait until

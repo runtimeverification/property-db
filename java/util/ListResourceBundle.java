@@ -43,18 +43,23 @@ package java.util;
 import sun.util.ResourceBundleEnumeration;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <code>ListResourceBundle</code> is an abstract subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * in a convenient and easy to use list. See <code>ResourceBundle</code> for
  * more information about resource bundles in general.
+ * {@description.close}
  *
+ * {@property.open enforced}
  * <P>
  * Subclasses must override <code>getContents</code> and provide an array,
  * where each item in the array is a pair of objects.
  * The first element of each pair is the key, which must be a
  * <code>String</code>, and the second element is the value associated with
  * that key.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>
  * The following <a name="sample">example</a> shows two members of a resource
  * bundle family with the base name "MyResources".
@@ -105,14 +110,17 @@ import sun.util.ResourceBundleEnumeration;
  * }
  * </pre>
  * </blockquote>
+ * {@description.close}
  * @see ResourceBundle
  * @see PropertyResourceBundle
  * @since JDK1.1
  */
 public abstract class ListResourceBundle extends ResourceBundle {
     /** {@collect.stats} 
+     * {@description.open}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
+     * {@description.close}
      */
     public ListResourceBundle() {
     }
@@ -130,8 +138,10 @@ public abstract class ListResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
+     * {@description.close}
      *
      * @return an <code>Enumeration</code> of the keys contained in
      *         this <code>ResourceBundle</code> and its parent bundles.
@@ -149,8 +159,10 @@ public abstract class ListResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
+     * {@description.close}
      *
      * @return a <code>Set</code> of the keys contained only in this
      *         <code>ResourceBundle</code>
@@ -165,11 +177,13 @@ public abstract class ListResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array in which each item is a pair of objects in an
      * <code>Object</code> array. The first element of each pair is
      * the key, which must be a <code>String</code>, and the second
      * element is the value associated with that key.  See the class
      * description for details.
+     * {@description.close}
      *
      * @return an array of an <code>Object</code> array representing a
      * key-value pair.
@@ -179,8 +193,10 @@ public abstract class ListResourceBundle extends ResourceBundle {
     // ==================privates====================
 
     /** {@collect.stats} 
+     * {@description.open}
      * We lazily load the lookup hashtable.  This function does the
      * loading.
+     * {@description.close}
      */
     private synchronized void loadLookup() {
         if (lookup != null)

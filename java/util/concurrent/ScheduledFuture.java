@@ -36,9 +36,11 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A delayed result-bearing action that can be cancelled.
  * Usually a scheduled future is the result of scheduling
  * a task with a {@link ScheduledExecutorService}.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea

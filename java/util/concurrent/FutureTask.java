@@ -37,6 +37,7 @@ package java.util.concurrent;
 import java.util.concurrent.locks.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A cancellable asynchronous computation.  This class provides a base
  * implementation of {@link Future}, with methods to start and cancel
  * a computation, query to see if the computation is complete, and
@@ -54,18 +55,25 @@ import java.util.concurrent.locks.*;
  * <p>In addition to serving as a standalone class, this class provides
  * <tt>protected</tt> functionality that may be useful when creating
  * customized task classes.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
  * @param <V> The result type returned by this FutureTask's <tt>get</tt> method
  */
 public class FutureTask<V> implements RunnableFuture<V> {
-    /** {@collect.stats}  Synchronization control for FutureTask */
+    /** {@collect.stats}
+     * {@description.open}
+     * Synchronization control for FutureTask 
+     * {@description.close}
+     */
     private final Sync sync;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>FutureTask</tt> that will, upon running, execute the
      * given <tt>Callable</tt>.
+     * {@description.close}
      *
      * @param  callable the callable task
      * @throws NullPointerException if callable is null
@@ -77,9 +85,11 @@ public class FutureTask<V> implements RunnableFuture<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a <tt>FutureTask</tt> that will, upon running, execute the
      * given <tt>Runnable</tt>, and arrange that <tt>get</tt> will return the
      * given result on successful completion.
+     * {@description.close}
      *
      * @param runnable the runnable task
      * @param result the result to return on successful completion. If
@@ -120,6 +130,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Protected method invoked when this task transitions to state
      * <tt>isDone</tt> (whether normally or via cancellation). The
      * default implementation does nothing.  Subclasses may override
@@ -127,14 +138,17 @@ public class FutureTask<V> implements RunnableFuture<V> {
      * bookkeeping. Note that you can query status inside the
      * implementation of this method to determine whether this task
      * has been cancelled.
+     * {@description.close}
      */
     protected void done() { }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the result of this Future to the given value unless
      * this future has already been set or has been cancelled.
      * This method is invoked internally by the <tt>run</tt> method
      * upon successful completion of the computation.
+     * {@description.close}
      * @param v the value
      */
     protected void set(V v) {
@@ -142,11 +156,13 @@ public class FutureTask<V> implements RunnableFuture<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Causes this future to report an <tt>ExecutionException</tt>
      * with the given throwable as its cause, unless this Future has
      * already been set or has been cancelled.
      * This method is invoked internally by the <tt>run</tt> method
      * upon failure of the computation.
+     * {@description.close}
      * @param t the cause of failure
      */
     protected void setException(Throwable t) {
@@ -159,19 +175,23 @@ public class FutureTask<V> implements RunnableFuture<V> {
     //          superinterface or superclass
     // is fixed.
     /** {@collect.stats} 
+     * {@description.open}
      * Sets this Future to the result of its computation
      * unless it has been cancelled.
+     * {@description.close}
      */
     public void run() {
         sync.innerRun();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Executes the computation without setting its result, and then
      * resets this Future to initial state, failing to do so if the
      * computation encounters an exception or is cancelled.  This is
      * designed for use with tasks that intrinsically execute more
      * than once.
+     * {@description.close}
      * @return true if successfully run and reset
      */
     protected boolean runAndReset() {
@@ -179,36 +199,68 @@ public class FutureTask<V> implements RunnableFuture<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Synchronization control for FutureTask. Note that this must be
      * a non-static inner class in order to invoke the protected
      * <tt>done</tt> method. For clarity, all inner class support
      * methods are same as outer, prefixed with "inner".
      *
      * Uses AQS sync state to represent run status
+     * {@description.close}
      */
     private final class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = -7828117401763700385L;
 
-        /** {@collect.stats}  State value representing that task is ready to run */
+        /** {@collect.stats}
+         * {@description.open}
+         * State value representing that task is ready to run 
+         * {@description.close}
+         */
         private static final int READY     = 0;
-        /** {@collect.stats}  State value representing that task is running */
+        /** {@collect.stats}
+         * {@description.open}
+         * State value representing that task is running 
+         * {@description.close}
+         */
         private static final int RUNNING   = 1;
-        /** {@collect.stats}  State value representing that task ran */
+        /** {@collect.stats}
+         * {@description.open}
+         * State value representing that task ran 
+         * {@description.close}
+         */
         private static final int RAN       = 2;
-        /** {@collect.stats}  State value representing that task was cancelled */
+        /** {@collect.stats}
+         * {@description.open}
+         * State value representing that task was cancelled 
+         * {@description.close}
+         */
         private static final int CANCELLED = 4;
 
-        /** {@collect.stats}  The underlying callable */
+        /** {@collect.stats}
+         * {@description.open}
+         * The underlying callable 
+         * {@description.close}
+         */
         private final Callable<V> callable;
-        /** {@collect.stats}  The result to return from get() */
+        /** {@collect.stats}
+         * {@description.open}
+         * The result to return from get() 
+         * {@description.close}
+         */
         private V result;
-        /** {@collect.stats}  The exception to throw from get() */
+        /** {@collect.stats}
+         * {@description.open}
+         * The exception to throw from get() 
+         * {@description.close}
+         */
         private Throwable exception;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The thread running task. When nulled after set/cancel, this
          * indicates that the results are accessible.  Must be
          * volatile, to ensure visibility upon completion.
+         * {@description.close}
          */
         private volatile Thread runner;
 
@@ -221,15 +273,19 @@ public class FutureTask<V> implements RunnableFuture<V> {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Implements AQS base acquire to succeed if ran or cancelled
+         * {@description.close}
          */
         protected int tryAcquireShared(int ignore) {
             return innerIsDone() ? 1 : -1;
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Implements AQS base release to always signal after setting
          * final done status by nulling runner thread.
+         * {@description.close}
          */
         protected boolean tryReleaseShared(int ignore) {
             runner = null;

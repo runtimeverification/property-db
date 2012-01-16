@@ -27,7 +27,9 @@ package java.util;
 
 class LocaleISOData {
     /** {@collect.stats} 
+     * {@description.open}
      * The 2- and 3-letter ISO 639 language codes.
+     * {@description.close}
      */
     static final String isoLanguageTable =
           "aa" + "aar"  // Afar
@@ -221,7 +223,9 @@ class LocaleISOData {
         ;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The 2- and 3-letter ISO 3166 country codes.
+     * {@description.close}
      */
     static final String isoCountryTable =
           "AD" + "AND"  // Andorra, Principality of

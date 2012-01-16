@@ -38,6 +38,7 @@ import java.util.concurrent.locks.*;
 import java.util.concurrent.atomic.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A synchronization aid that allows one or more threads to wait until
  * a set of operations being performed in other threads completes.
  *
@@ -153,14 +154,17 @@ import java.util.concurrent.atomic.*;
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
  * actions following a successful return from a corresponding
  * {@code await()} in another thread.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
  */
 public class CountDownLatch {
     /** {@collect.stats} 
+     * {@description.open}
      * Synchronization control For CountDownLatch.
      * Uses AQS state to represent count.
+     * {@description.close}
      */
     private static final class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = 4982264981922014374L;
@@ -193,7 +197,9 @@ public class CountDownLatch {
     private final Sync sync;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a {@code CountDownLatch} initialized with the given count.
+     * {@description.close}
      *
      * @param count the number of times {@link #countDown} must be invoked
      *        before threads can pass through {@link #await}
@@ -205,6 +211,7 @@ public class CountDownLatch {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Causes the current thread to wait until the latch has counted down to
      * zero, unless the thread is {@linkplain Thread#interrupt interrupted}.
      *
@@ -227,6 +234,7 @@ public class CountDownLatch {
      * </ul>
      * then {@link InterruptedException} is thrown and the current thread's
      * interrupted status is cleared.
+     * {@description.close}
      *
      * @throws InterruptedException if the current thread is interrupted
      *         while waiting
@@ -236,6 +244,7 @@ public class CountDownLatch {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Causes the current thread to wait until the latch has counted down to
      * zero, unless the thread is {@linkplain Thread#interrupt interrupted},
      * or the specified waiting time elapses.
@@ -268,6 +277,7 @@ public class CountDownLatch {
      * <p>If the specified waiting time elapses then the value {@code false}
      * is returned.  If the time is less than or equal to zero, the method
      * will not wait at all.
+     * {@description.close}
      *
      * @param timeout the maximum time to wait
      * @param unit the time unit of the {@code timeout} argument
@@ -282,6 +292,7 @@ public class CountDownLatch {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Decrements the count of the latch, releasing all waiting threads if
      * the count reaches zero.
      *
@@ -290,15 +301,18 @@ public class CountDownLatch {
      * thread scheduling purposes.
      *
      * <p>If the current count equals zero then nothing happens.
+     * {@description.close}
      */
     public void countDown() {
         sync.releaseShared(1);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current count.
      *
      * <p>This method is typically used for debugging and testing purposes.
+     * {@description.close}
      *
      * @return the current count
      */
@@ -307,9 +321,11 @@ public class CountDownLatch {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string identifying this latch, as well as its state.
      * The state, in brackets, includes the String {@code "Count ="}
      * followed by the current count.
+     * {@description.close}
      *
      * @return a string identifying this latch, as well as its state
      */

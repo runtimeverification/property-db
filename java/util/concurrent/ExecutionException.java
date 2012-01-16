@@ -36,9 +36,11 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Exception thrown when attempting to retrieve the result of a task
  * that aborted by throwing an exception. This exception can be
  * inspected using the {@link #getCause()} method.
+ * {@description.close}
  *
  * @see Future
  * @since 1.5
@@ -48,16 +50,20 @@ public class ExecutionException extends Exception {
     private static final long serialVersionUID = 7830266012832686185L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <tt>ExecutionException</tt> with no detail message.
      * The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause(Throwable) initCause}.
+     * {@description.close}
      */
     protected ExecutionException() { }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <tt>ExecutionException</tt> with the specified detail
      * message. The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause(Throwable) initCause}.
+     * {@description.close}
      *
      * @param message the detail message
      */
@@ -66,8 +72,10 @@ public class ExecutionException extends Exception {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <tt>ExecutionException</tt> with the specified detail
      * message and cause.
+     * {@description.close}
      *
      * @param  message the detail message
      * @param  cause the cause (which is saved for later retrieval by the
@@ -78,12 +86,14 @@ public class ExecutionException extends Exception {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <tt>ExecutionException</tt> with the specified cause.
      * The detail message is set to:
      * <pre>
      *  (cause == null ? null : cause.toString())</pre>
      * (which typically contains the class and detail message of
      * <tt>cause</tt>).
+     * {@description.close}
      *
      * @param  cause the cause (which is saved for later retrieval by the
      *         {@link #getCause()} method)

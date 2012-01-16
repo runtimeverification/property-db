@@ -45,6 +45,7 @@ import java.io.IOException;
 import sun.util.ResourceBundleEnumeration;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <code>PropertyResourceBundle</code> is a concrete subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * using a set of static strings from a property file. See
@@ -98,7 +99,9 @@ import sun.util.ResourceBundleEnumeration;
  * s7=3. M&auml;rz 1996
  * </pre>
  * </blockquote>
+ * {@description.close}
  *
+ * {@property.open formal:java.util.PropertyResourceBundle_InputStreamEncoding}
  * <p>
  * <strong>Note:</strong> PropertyResourceBundle can be constructed either
  * from an InputStream or a Reader, which represents a property file.
@@ -107,6 +110,7 @@ import sun.util.ResourceBundleEnumeration;
  * that cannot be represented in ISO-8859-1 encoding must be represented by
  * <a href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#3.3">Unicode Escapes</a>,
  * whereas the other constructor which takes a Reader does not have that limitation.
+ * {@property.close}
  *
  * @see ResourceBundle
  * @see ListResourceBundle
@@ -115,9 +119,14 @@ import sun.util.ResourceBundleEnumeration;
  */
 public class PropertyResourceBundle extends ResourceBundle {
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a property resource bundle from an {@link java.io.InputStream
-     * InputStream}.  The property file read with this constructor
+     * InputStream}.
+     * {@description.close}
+     * {@property.open formal:java.util.PropertyResourceBundle_InputStreamEncoding}
+     * The property file read with this constructor
      * must be encoded in ISO-8859-1.
+     * {@property.close}
      *
      * @param stream an InputStream that represents a property file
      *        to read from.
@@ -131,10 +140,12 @@ public class PropertyResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a property resource bundle from a {@link java.io.Reader
      * Reader}.  Unlike the constructor
      * {@link #PropertyResourceBundle(java.io.InputStream) PropertyResourceBundle(InputStream)},
      * there is no limitation as to the encoding of the input property file.
+     * {@description.close}
      *
      * @param reader a Reader that represents a property file to
      *        read from.
@@ -157,8 +168,10 @@ public class PropertyResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
+     * {@description.close}
      *
      * @return an <code>Enumeration</code> of the keys contained in
      *         this <code>ResourceBundle</code> and its parent bundles.
@@ -171,8 +184,10 @@ public class PropertyResourceBundle extends ResourceBundle {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
+     * {@description.close}
      *
      * @return a <code>Set</code> of the keys contained only in this
      *         <code>ResourceBundle</code>

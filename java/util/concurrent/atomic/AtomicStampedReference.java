@@ -36,12 +36,14 @@
 package java.util.concurrent.atomic;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An {@code AtomicStampedReference} maintains an object reference
  * along with an integer "stamp", that can be updated atomically.
  *
  * <p> Implementation note. This implementation maintains stamped
  * references by creating internal objects representing "boxed"
  * [reference, integer] pairs.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -60,8 +62,10 @@ public class AtomicStampedReference<V>  {
     private final AtomicReference<ReferenceIntegerPair<V>>  atomicRef;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new {@code AtomicStampedReference} with the given
      * initial values.
+     * {@description.close}
      *
      * @param initialRef the initial reference
      * @param initialStamp the initial stamp
@@ -72,7 +76,9 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current value of the reference.
+     * {@description.close}
      *
      * @return the current value of the reference
      */
@@ -81,7 +87,9 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current value of the stamp.
+     * {@description.close}
      *
      * @return the current value of the stamp
      */
@@ -90,8 +98,10 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current values of both the reference and the stamp.
      * Typical usage is {@code int[1] holder; ref = v.get(holder); }.
+     * {@description.close}
      *
      * @param stampHolder an array of size of at least one.  On return,
      * {@code stampholder[0]} will hold the value of the stamp.
@@ -104,6 +114,7 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of both the reference and stamp
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -112,6 +123,7 @@ public class AtomicStampedReference<V>  {
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newReference the new value for the reference
@@ -134,10 +146,12 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of both the reference and stamp
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
      * and the current stamp is equal to the expected stamp.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newReference the new value for the reference
@@ -161,7 +175,9 @@ public class AtomicStampedReference<V>  {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Unconditionally sets the value of both the reference and stamp.
+     * {@description.close}
      *
      * @param newReference the new value for the reference
      * @param newStamp the new value for the stamp
@@ -173,6 +189,7 @@ public class AtomicStampedReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of the stamp to the given update value
      * if the current reference is {@code ==} to the expected
      * reference.  Any given invocation of this operation may fail
@@ -180,6 +197,7 @@ public class AtomicStampedReference<V>  {
      * when the current value holds the expected value and no other
      * thread is also attempting to set the value will eventually
      * succeed.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newStamp the new value for the stamp

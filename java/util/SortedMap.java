@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link Map} that further provides a <i>total ordering</i> on its keys.
  * The map is ordered according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} typically
@@ -57,7 +58,9 @@ package java.util;
  * equal.  The behavior of a tree map <i>is</i> well-defined even if its
  * ordering is inconsistent with equals; it just fails to obey the general
  * contract of the <tt>Map</tt> interface.
+ * {@description.close}
  *
+ * {@property.open formal:java.util.SortedMap_StandardConstructors}
  * <p>All general-purpose sorted map implementation classes should
  * provide four "standard" constructors: 1) A void (no arguments)
  * constructor, which creates an empty sorted map sorted according to
@@ -72,7 +75,9 @@ package java.util;
  * the same ordering as the input sorted map.  There is no way to
  * enforce this recommendation, as interfaces cannot contain
  * constructors.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>Note: several methods return submaps with restricted key ranges.
  * Such ranges are <i>half-open</i>, that is, they include their low
  * endpoint but not their high endpoint (where applicable).  If you need a
@@ -94,6 +99,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
@@ -111,9 +117,11 @@ package java.util;
 
 public interface SortedMap<K,V> extends Map<K,V> {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the comparator used to order the keys in this map, or
      * <tt>null</tt> if this map uses the {@linkplain Comparable
      * natural ordering} of its keys.
+     * {@description.close}
      *
      * @return the comparator used to order the keys in this map,
      *         or <tt>null</tt> if this map uses the natural ordering
@@ -122,6 +130,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
     Comparator<? super K> comparator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys range from
      * <tt>fromKey</tt>, inclusive, to <tt>toKey</tt>, exclusive.  (If
      * <tt>fromKey</tt> and <tt>toKey</tt> are equal, the returned map
@@ -132,6 +141,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
      *
      * <p>The returned map will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert a key outside its range.
+     * {@description.close}
      *
      * @param fromKey low endpoint (inclusive) of the keys in the returned map
      * @param toKey high endpoint (exclusive) of the keys in the returned map
@@ -153,6 +163,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
     SortedMap<K,V> subMap(K fromKey, K toKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys are
      * strictly less than <tt>toKey</tt>.  The returned map is backed
      * by this map, so changes in the returned map are reflected in
@@ -161,6 +172,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
      *
      * <p>The returned map will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert a key outside its range.
+     * {@description.close}
      *
      * @param toKey high endpoint (exclusive) of the keys in the returned map
      * @return a view of the portion of this map whose keys are strictly
@@ -180,6 +192,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
     SortedMap<K,V> headMap(K toKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys are
      * greater than or equal to <tt>fromKey</tt>.  The returned map is
      * backed by this map, so changes in the returned map are
@@ -188,6 +201,7 @@ public interface SortedMap<K,V> extends Map<K,V> {
      *
      * <p>The returned map will throw an <tt>IllegalArgumentException</tt>
      * on an attempt to insert a key outside its range.
+     * {@description.close}
      *
      * @param fromKey low endpoint (inclusive) of the keys in the returned map
      * @return a view of the portion of this map whose keys are greater
@@ -207,7 +221,9 @@ public interface SortedMap<K,V> extends Map<K,V> {
     SortedMap<K,V> tailMap(K fromKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the first (lowest) key currently in this map.
+     * {@description.close}
      *
      * @return the first (lowest) key currently in this map
      * @throws NoSuchElementException if this map is empty
@@ -215,7 +231,9 @@ public interface SortedMap<K,V> extends Map<K,V> {
     K firstKey();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the last (highest) key currently in this map.
+     * {@description.close}
      *
      * @return the last (highest) key currently in this map
      * @throws NoSuchElementException if this map is empty
@@ -223,18 +241,26 @@ public interface SortedMap<K,V> extends Map<K,V> {
     K lastKey();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.  The set supports element removal,
+     * the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
+     * {@description.close}
      *
      * @return a set view of the keys contained in this map, sorted in
      *         ascending order
@@ -242,19 +268,27 @@ public interface SortedMap<K,V> extends Map<K,V> {
     Set<K> keySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection's iterator returns the values in ascending order
      * of the corresponding keys.
      * The collection is backed by the map, so changes to the map are
-     * reflected in the collection, and vice-versa.  If the map is
+     * reflected in the collection, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.  The collection
+     * the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      *
      * @return a collection view of the values contained in this map,
      *         sorted in ascending key order
@@ -262,19 +296,27 @@ public interface SortedMap<K,V> extends Map<K,V> {
     Collection<V> values();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set's iterator returns the entries in ascending key order.
      * The set is backed by the map, so changes to the map are
-     * reflected in the set, and vice-versa.  If the map is modified
+     * reflected in the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.  The set
+     * iterator) the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
+     * {@description.close}
      *
      * @return a set view of the mappings contained in this map,
      *         sorted in ascending key order

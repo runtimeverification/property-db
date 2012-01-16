@@ -38,12 +38,14 @@ package java.util.concurrent;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A mix-in style interface for marking objects that should be
  * acted upon after a given delay.
  *
  * <p>An implementation of this interface must define a
  * <tt>compareTo</tt> method that provides an ordering consistent with
  * its <tt>getDelay</tt> method.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -51,8 +53,10 @@ import java.util.*;
 public interface Delayed extends Comparable<Delayed> {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the remaining delay associated with this object, in the
      * given time unit.
+     * {@description.close}
      *
      * @param unit the time unit
      * @return the remaining delay; zero or negative values indicate

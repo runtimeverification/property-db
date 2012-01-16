@@ -36,12 +36,14 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Exception thrown when a blocking operation times out.  Blocking
  * operations for which a timeout is specified need a means to
  * indicate that the timeout has occurred. For many such operations it
  * is possible to return a value that indicates timeout; when that is
  * not possible or desirable then <tt>TimeoutException</tt> should be
  * declared and thrown.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -50,14 +52,18 @@ public class TimeoutException extends Exception {
     private static final long serialVersionUID = 1900926677490660714L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>TimeoutException</tt> with no specified detail
      * message.
+     * {@description.close}
      */
     public TimeoutException() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>TimeoutException</tt> with the specified detail
      * message.
+     * {@description.close}
      *
      * @param message the detail message
      */

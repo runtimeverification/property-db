@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Marker interface used by <tt>List</tt> implementations to indicate that
  * they support fast (generally constant time) random access.  The primary
  * purpose of this interface is to allow generic algorithms to alter their
@@ -61,6 +62,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.4
  */

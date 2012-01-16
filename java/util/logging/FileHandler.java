@@ -31,6 +31,7 @@ import java.nio.channels.FileLock;
 import java.security.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Simple file logging <tt>Handler</tt>.
  * <p>
  * The <tt>FileHandler</tt> can either write to a specified file,
@@ -111,8 +112,11 @@ import java.security.*;
  * they  might end up using fred0.0.txt, fred1.0.txt, fred2.0.txt as
  * the first file in their rotating sequences.
  * <p>
+ * {@description.close}
+ * {@property.open uncheckable}
  * Note that the use of unique ids to avoid conflicts is only guaranteed
  * to work reliably when using a local disk file system.
+ * {@property.close}
  *
  * @since 1.4
  */
@@ -211,9 +215,11 @@ public class FileHandler extends StreamHandler {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a default <tt>FileHandler</tt>.  This will be configured
      * entirely from <tt>LogManager</tt> properties (or their default values).
      * <p>
+     * {@description.close}
      * @exception  IOException if there are IO problems opening the files.
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control"))</tt>.
@@ -226,6 +232,7 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialize a <tt>FileHandler</tt> to write to the given filename.
      * <p>
      * The <tt>FileHandler</tt> is configured based on <tt>LogManager</tt>
@@ -235,6 +242,7 @@ public class FileHandler extends StreamHandler {
      * <p>
      * There is no limit on the amount of data that may be written,
      * so use this with care.
+     * {@description.close}
      *
      * @param pattern  the name of the output file
      * @exception  IOException if there are IO problems opening the files.
@@ -255,6 +263,7 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialize a <tt>FileHandler</tt> to write to the given filename,
      * with optional append.
      * <p>
@@ -266,6 +275,7 @@ public class FileHandler extends StreamHandler {
      * <p>
      * There is no limit on the amount of data that may be written,
      * so use this with care.
+     * {@description.close}
      *
      * @param pattern  the name of the output file
      * @param append  specifies append mode
@@ -288,6 +298,7 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialize a <tt>FileHandler</tt> to write to a set of files.  When
      * (approximately) the given limit has been written to one file,
      * another file will be opened.  The output will cycle through a set
@@ -299,7 +310,10 @@ public class FileHandler extends StreamHandler {
      * set to the limit argument, and the file count is set to the
      * given count argument.
      * <p>
+     * {@description.close}
+     * {@property.open}
      * The count must be at least 1.
+     * {@property.close}
      *
      * @param pattern  the pattern for naming the output file
      * @param limit  the maximum number of bytes to write to any one file
@@ -324,6 +338,7 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initialize a <tt>FileHandler</tt> to write to a set of files
      * with optional append.  When (approximately) the given limit has
      * been written to one file, another file will be opened.  The
@@ -336,7 +351,10 @@ public class FileHandler extends StreamHandler {
      * given count argument, and the append mode is set to the given
      * <tt>append</tt> argument.
      * <p>
+     * {@description.close}
+     * {@property.open}
      * The count must be at least 1.
+     * {@property.close}
      *
      * @param pattern  the pattern for naming the output file
      * @param limit  the maximum number of bytes to write to any one file
@@ -560,7 +578,9 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format and publish a <tt>LogRecord</tt>.
+     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
@@ -587,7 +607,9 @@ public class FileHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close all the files.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.

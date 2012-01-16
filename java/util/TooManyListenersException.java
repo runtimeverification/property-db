@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <p>
  * The <code> TooManyListenersException </code> Exception is used as part of
  * the Java Event model to annotate and implement a unicast special case of
@@ -39,6 +40,7 @@ package java.util;
  * one Listener may be registered on the particular event listener source
  * concurrently.
  * </p>
+ * {@description.close}
  *
  * @see java.util.EventObject
  * @see java.util.EventListener
@@ -50,8 +52,10 @@ package java.util;
 public class TooManyListenersException extends Exception {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a TooManyListenersException with no detail message.
      * A detail message is a String that describes this particular exception.
+     * {@description.close}
      */
 
     public TooManyListenersException() {
@@ -59,8 +63,10 @@ public class TooManyListenersException extends Exception {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a TooManyListenersException with the specified detail message.
      * A detail message is a String that describes this particular exception.
+     * {@description.close}
      * @param s the detail message
      */
 

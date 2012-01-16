@@ -31,8 +31,10 @@ import java.text.*;
 import java.util.Date;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Print a brief summary of the LogRecord in a human readable
  * format.  The summary will typically be 1 or 2 lines.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -51,11 +53,13 @@ public class SimpleFormatter extends Formatter {
                new sun.security.action.GetPropertyAction("line.separator"));
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format the given LogRecord.
      * <p>
      * This method can be overridden in a subclass.
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
+     * {@description.close}
      *
      * @param record the log record to be formatted.
      * @return a formatted log record

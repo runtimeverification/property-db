@@ -29,6 +29,7 @@ package java.util.logging;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Stream based logging <tt>Handler</tt>.
  * <p>
  * This is primarily intended as a base class or support class to
@@ -54,6 +55,7 @@ import java.io.*;
  *        the name of the character set encoding to use (defaults to
  *        the default platform encoding).
  * </ul>
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -87,7 +89,9 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>StreamHandler</tt>, with no current output stream.
+     * {@description.close}
      */
     public StreamHandler() {
         sealed = false;
@@ -96,9 +100,11 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>StreamHandler</tt> with a given <tt>Formatter</tt>
      * and output stream.
      * <p>
+     * {@description.close}
      * @param out         the target output stream
      * @param formatter   Formatter to be used to format output
      */
@@ -111,11 +117,13 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Change the output stream.
      * <P>
      * If there is a current output stream then the <tt>Formatter</tt>'s
      * tail string is written and the stream is flushed and closed.
      * Then the output stream is replaced with the new output stream.
+     * {@description.close}
      *
      * @param out   New output stream.  May not be null.
      * @exception  SecurityException  if a security manager exists and if
@@ -143,10 +151,12 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set (or change) the character encoding used by this <tt>Handler</tt>.
      * <p>
      * The encoding should be set before any <tt>LogRecords</tt> are written
      * to the <tt>Handler</tt>.
+     * {@description.close}
      *
      * @param encoding  The name of a supported character encoding.
      *        May be null, to indicate the default platform encoding.
@@ -171,6 +181,7 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format and publish a <tt>LogRecord</tt>.
      * <p>
      * The <tt>StreamHandler</tt> first checks if there is an <tt>OutputStream</tt>
@@ -183,6 +194,7 @@ public class StreamHandler extends Handler {
      * If this is the first <tt>LogRecord</tt> to be written to a given
      * <tt>OutputStream</tt>, the <tt>Formatter</tt>'s "head" string is
      * written to the stream before the <tt>LogRecord</tt> is written.
+     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
@@ -216,12 +228,14 @@ public class StreamHandler extends Handler {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check if this <tt>Handler</tt> would actually log a given <tt>LogRecord</tt>.
      * <p>
      * This method checks if the <tt>LogRecord</tt> has an appropriate level and
      * whether it satisfies any <tt>Filter</tt>.  It will also return false if
      * no output stream has been assigned yet or the LogRecord is Null.
      * <p>
+     * {@description.close}
      * @param record  a <tt>LogRecord</tt>
      * @return true if the <tt>LogRecord</tt> would be logged.
      *
@@ -234,7 +248,9 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Flush any buffered messages.
+     * {@description.close}
      */
     public synchronized void flush() {
         if (writer != null) {
@@ -270,12 +286,14 @@ public class StreamHandler extends Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close the current output stream.
      * <p>
      * The <tt>Formatter</tt>'s "tail" string is written to the stream before it
      * is closed.  In addition, if the <tt>Formatter</tt>'s "head" string has not
      * yet been written to the stream, it will be written before the
      * "tail" string.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").

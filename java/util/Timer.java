@@ -27,10 +27,13 @@ package java.util;
 import java.util.Date;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A facility for threads to schedule tasks for future execution in a
  * background thread.  Tasks may be scheduled for one-time execution, or for
  * repeated execution at regular intervals.
+ * {@description.close}
  *
+ * {@property.open}
  * <p>Corresponding to each <tt>Timer</tt> object is a single background
  * thread that is used to execute all of the timer's tasks, sequentially.
  * Timer tasks should complete quickly.  If a timer task takes excessive time
@@ -38,7 +41,9 @@ import java.util.Date;
  * turn, delay the execution of subsequent tasks, which may "bunch up" and
  * execute in rapid succession when (and if) the offending task finally
  * completes.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>After the last live reference to a <tt>Timer</tt> object goes away
  * <i>and</i> all outstanding tasks have completed execution, the timer's task
  * execution thread terminates gracefully (and becomes subject to garbage
@@ -78,6 +83,7 @@ import java.util.Date;
  * a task is O(log n), where n is the number of concurrently scheduled tasks.
  *
  * <p>Implementation note: All constructors start a timer thread.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     TimerTask
@@ -87,24 +93,30 @@ import java.util.Date;
 
 public class Timer {
     /** {@collect.stats} 
+     * {@description.open}
      * The timer task queue.  This data structure is shared with the timer
      * thread.  The timer produces tasks, via its various schedule calls,
      * and the timer thread consumes, executing timer tasks as appropriate,
      * and removing them from the queue when they're obsolete.
+     * {@description.close}
      */
     private TaskQueue queue = new TaskQueue();
 
     /** {@collect.stats} 
+     * {@description.open}
      * The timer thread.
+     * {@description.close}
      */
     private TimerThread thread = new TimerThread(queue);
 
     /** {@collect.stats} 
+     * {@description.open}
      * This object causes the timer's task execution thread to exit
      * gracefully when there are no live references to the Timer object and no
      * tasks in the timer queue.  It is used in preference to a finalizer on
      * Timer as such a finalizer would be susceptible to a subclass's
      * finalizer forgetting to call it.
+     * {@description.close}
      */
     private Object threadReaper = new Object() {
         protected void finalize() throws Throwable {
@@ -116,8 +128,10 @@ public class Timer {
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * This ID is used to generate thread names.  (It could be replaced
      * by an AtomicInteger as soon as they become available.)
+     * {@description.close}
      */
     private static int nextSerialNumber = 0;
     private static synchronized int serialNumber() {
@@ -125,20 +139,24 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new timer.  The associated thread does <i>not</i>
      * {@linkplain Thread#setDaemon run as a daemon}.
+     * {@description.close}
      */
     public Timer() {
         this("Timer-" + serialNumber());
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new timer whose associated thread may be specified to
      * {@linkplain Thread#setDaemon run as a daemon}.
      * A daemon thread is called for if the timer will be used to
      * schedule repeating "maintenance activities", which must be
      * performed as long as the application is running, but should not
      * prolong the lifetime of the application.
+     * {@description.close}
      *
      * @param isDaemon true if the associated thread should run as a daemon.
      */
@@ -147,9 +165,11 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new timer whose associated thread has the specified name.
      * The associated thread does <i>not</i>
      * {@linkplain Thread#setDaemon run as a daemon}.
+     * {@description.close}
      *
      * @param name the name of the associated thread
      * @throws NullPointerException if name is null
@@ -161,9 +181,11 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new timer whose associated thread has the specified name,
      * and may be specified to
      * {@linkplain Thread#setDaemon run as a daemon}.
+     * {@description.close}
      *
      * @param name the name of the associated thread
      * @param isDaemon true if the associated thread should run as a daemon
@@ -177,7 +199,9 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for execution after the specified delay.
+     * {@description.close}
      *
      * @param task  task to be scheduled.
      * @param delay delay in milliseconds before task is to be executed.
@@ -193,8 +217,10 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for execution at the specified time.  If
      * the time is in the past, the task is scheduled for immediate execution.
+     * {@description.close}
      *
      * @param task task to be scheduled.
      * @param time time at which task is to be executed.
@@ -207,6 +233,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for repeated <i>fixed-delay execution</i>,
      * beginning after the specified delay.  Subsequent executions take place
      * at approximately regular intervals separated by the specified period.
@@ -227,6 +254,7 @@ public class Timer {
      * tasks wherein regular activity is performed in response to human
      * input, such as automatically repeating a character as long as a key
      * is held down.
+     * {@description.close}
      *
      * @param task   task to be scheduled.
      * @param delay  delay in milliseconds before task is to be executed.
@@ -245,6 +273,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for repeated <i>fixed-delay execution</i>,
      * beginning at the specified time. Subsequent executions take place at
      * approximately regular intervals, separated by the specified period.
@@ -265,6 +294,7 @@ public class Timer {
      * tasks wherein regular activity is performed in response to human
      * input, such as automatically repeating a character as long as a key
      * is held down.
+     * {@description.close}
      *
      * @param task   task to be scheduled.
      * @param firstTime First time at which task is to be executed.
@@ -280,6 +310,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for repeated <i>fixed-rate execution</i>,
      * beginning after the specified delay.  Subsequent executions take place
      * at approximately regular intervals, separated by the specified period.
@@ -301,6 +332,7 @@ public class Timer {
      * ten seconds.  Finally, fixed-rate execution is appropriate for
      * scheduling multiple repeating timer tasks that must remain synchronized
      * with respect to one another.
+     * {@description.close}
      *
      * @param task   task to be scheduled.
      * @param delay  delay in milliseconds before task is to be executed.
@@ -319,6 +351,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedules the specified task for repeated <i>fixed-rate execution</i>,
      * beginning at the specified time. Subsequent executions take place at
      * approximately regular intervals, separated by the specified period.
@@ -340,6 +373,7 @@ public class Timer {
      * ten seconds.  Finally, fixed-rate execution is appropriate for
      * scheduling multiple repeating timer tasks that must remain synchronized
      * with respect to one another.
+     * {@description.close}
      *
      * @param task   task to be scheduled.
      * @param firstTime First time at which task is to be executed.
@@ -356,12 +390,14 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Schedule the specified timer task for execution at the specified
      * time with the specified period, in milliseconds.  If period is
      * positive, the task is scheduled for repeated execution; if period is
      * zero, the task is scheduled for one-time execution. Time is specified
      * in Date.getTime() format.  This method checks timer state, task state,
      * and initial execution time, but not period.
+     * {@description.close}
      *
      * @throws IllegalArgumentException if <tt>time()</tt> is negative.
      * @throws IllegalStateException if task was already scheduled or
@@ -391,6 +427,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Terminates this timer, discarding any currently scheduled tasks.
      * Does not interfere with a currently executing task (if it exists).
      * Once a timer has been terminated, its execution thread terminates
@@ -403,6 +440,7 @@ public class Timer {
      *
      * <p>This method may be called repeatedly; the second and subsequent
      * calls have no effect.
+     * {@description.close}
      */
     public void cancel() {
         synchronized(queue) {
@@ -413,6 +451,7 @@ public class Timer {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all cancelled tasks from this timer's task queue.  <i>Calling
      * this method has no effect on the behavior of the timer</i>, but
      * eliminates the references to the cancelled tasks from the queue.
@@ -428,6 +467,7 @@ public class Timer {
      *
      * <p>Note that it is permissible to call this method from within a
      * a task scheduled on this timer.
+     * {@description.close}
      *
      * @return the number of tasks removed from the queue.
      * @since 1.5
@@ -452,26 +492,32 @@ public class Timer {
 }
 
 /** {@collect.stats} 
+ * {@description.open}
  * This "helper class" implements the timer's task execution thread, which
  * waits for tasks on the timer queue, executions them when they fire,
  * reschedules repeating tasks, and removes cancelled tasks and spent
  * non-repeating tasks from the queue.
+ * {@description.close}
  */
 class TimerThread extends Thread {
     /** {@collect.stats} 
+     * {@description.open}
      * This flag is set to false by the reaper to inform us that there
      * are no more live references to our Timer object.  Once this flag
      * is true and there are no more tasks in our queue, there is no
      * work left for us to do, so we terminate gracefully.  Note that
      * this field is protected by queue's monitor!
+     * {@description.close}
      */
     boolean newTasksMayBeScheduled = true;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Our Timer's queue.  We store this reference in preference to
      * a reference to the Timer so the reference graph remains acyclic.
      * Otherwise, the Timer would never be garbage-collected and this
      * thread would never go away.
+     * {@description.close}
      */
     private TaskQueue queue;
 
@@ -492,7 +538,9 @@ class TimerThread extends Thread {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The main timer loop.  (See class comment.)
+     * {@description.close}
      */
     private void mainLoop() {
         while (true) {
@@ -539,38 +587,48 @@ class TimerThread extends Thread {
 }
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class represents a timer task queue: a priority queue of TimerTasks,
  * ordered on nextExecutionTime.  Each Timer object has one of these, which it
  * shares with its TimerThread.  Internally this class uses a heap, which
  * offers log(n) performance for the add, removeMin and rescheduleMin
  * operations, and constant time performance for the getMin operation.
+ * {@description.close}
  */
 class TaskQueue {
     /** {@collect.stats} 
+     * {@description.open}
      * Priority queue represented as a balanced binary heap: the two children
      * of queue[n] are queue[2*n] and queue[2*n+1].  The priority queue is
      * ordered on the nextExecutionTime field: The TimerTask with the lowest
      * nextExecutionTime is in queue[1] (assuming the queue is nonempty).  For
      * each node n in the heap, and each descendant of n, d,
      * n.nextExecutionTime <= d.nextExecutionTime.
+     * {@description.close}
      */
     private TimerTask[] queue = new TimerTask[128];
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of tasks in the priority queue.  (The tasks are stored in
      * queue[1] up to queue[size]).
+     * {@description.close}
      */
     private int size = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of tasks currently on the queue.
+     * {@description.close}
      */
     int size() {
         return size;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds a new task to the priority queue.
+     * {@description.close}
      */
     void add(TimerTask task) {
         // Grow backing store if necessary
@@ -582,24 +640,30 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the "head task" of the priority queue.  (The head task is an
      * task with the lowest nextExecutionTime.)
+     * {@description.close}
      */
     TimerTask getMin() {
         return queue[1];
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the ith task in the priority queue, where i ranges from 1 (the
      * head task, which is returned by getMin) to the number of tasks on the
      * queue, inclusive.
+     * {@description.close}
      */
     TimerTask get(int i) {
         return queue[i];
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Remove the head task from the priority queue.
+     * {@description.close}
      */
     void removeMin() {
         queue[1] = queue[size];
@@ -608,9 +672,11 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the ith element from queue without regard for maintaining
      * the heap invariant.  Recall that queue is one-based, so
      * 1 <= i <= size.
+     * {@description.close}
      */
     void quickRemove(int i) {
         assert i <= size;
@@ -620,8 +686,10 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the nextExecutionTime associated with the head task to the
      * specified value, and adjusts priority queue accordingly.
+     * {@description.close}
      */
     void rescheduleMin(long newTime) {
         queue[1].nextExecutionTime = newTime;
@@ -629,14 +697,18 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the priority queue contains no elements.
+     * {@description.close}
      */
     boolean isEmpty() {
         return size==0;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all elements from the priority queue.
+     * {@description.close}
      */
     void clear() {
         // Null out task references to prevent memory leak
@@ -647,6 +719,7 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Establishes the heap invariant (described above) assuming the heap
      * satisfies the invariant except possibly for the leaf-node indexed by k
      * (which may have a nextExecutionTime less than its parent's).
@@ -654,6 +727,7 @@ class TaskQueue {
      * This method functions by "promoting" queue[k] up the hierarchy
      * (by swapping it with its parent) repeatedly until queue[k]'s
      * nextExecutionTime is greater than or equal to that of its parent.
+     * {@description.close}
      */
     private void fixUp(int k) {
         while (k > 1) {
@@ -666,6 +740,7 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Establishes the heap invariant (described above) in the subtree
      * rooted at k, which is assumed to satisfy the heap invariant except
      * possibly for node k itself (which may have a nextExecutionTime greater
@@ -674,6 +749,7 @@ class TaskQueue {
      * This method functions by "demoting" queue[k] down the hierarchy
      * (by swapping it with its smaller child) repeatedly until queue[k]'s
      * nextExecutionTime is less than or equal to those of its children.
+     * {@description.close}
      */
     private void fixDown(int k) {
         int j;
@@ -689,8 +765,10 @@ class TaskQueue {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Establishes the heap invariant (described above) in the entire tree,
      * assuming nothing about the order of the elements prior to the call.
+     * {@description.close}
      */
     void heapify() {
         for (int i = size/2; i >= 1; i--)

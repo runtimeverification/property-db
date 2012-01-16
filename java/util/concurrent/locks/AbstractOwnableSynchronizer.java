@@ -36,6 +36,7 @@
 package java.util.concurrent.locks;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A synchronizer that may be exclusively owned by a thread.  This
  * class provides a basis for creating locks and related synchronizers
  * that may entail a notion of ownership.  The
@@ -43,6 +44,7 @@ package java.util.concurrent.locks;
  * use this information. However, subclasses and tools may use
  * appropriately maintained values to help control and monitor access
  * and provide diagnostics.
+ * {@description.close}
  *
  * @since 1.6
  * @author Doug Lea
@@ -50,34 +52,46 @@ package java.util.concurrent.locks;
 public abstract class AbstractOwnableSynchronizer
     implements java.io.Serializable {
 
-    /** {@collect.stats}  Use serial ID even though all fields transient. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Use serial ID even though all fields transient. 
+     * {@description.close}
+     */
     private static final long serialVersionUID = 3737899427754241961L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Empty constructor for use by subclasses.
+     * {@description.close}
      */
     protected AbstractOwnableSynchronizer() { }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The current owner of exclusive mode synchronization.
+     * {@description.close}
      */
     private transient Thread exclusiveOwnerThread;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the thread that currently owns exclusive access. A
      * <tt>null</tt> argument indicates that no thread owns access.
      * This method does not otherwise impose any synchronization or
      * <tt>volatile</tt> field accesses.
+     * {@description.close}
      */
     protected final void setExclusiveOwnerThread(Thread t) {
         exclusiveOwnerThread = t;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the thread last set by
      * <tt>setExclusiveOwnerThread</tt>, or <tt>null</tt> if never
      * set.  This method does not otherwise impose any synchronization
      * or <tt>volatile</tt> field accesses.
+     * {@description.close}
      * @return the owner thread
      */
     protected final Thread getExclusiveOwnerThread() {

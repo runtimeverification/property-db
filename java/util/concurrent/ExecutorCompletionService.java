@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link CompletionService} that uses a supplied {@link Executor}
  * to execute tasks.  This class arranges that submitted tasks are,
  * upon completion, placed on a queue accessible using {@code take}.
@@ -103,6 +104,7 @@ package java.util.concurrent;
  *     if (result != null)
  *         use(result);
  * }}</pre>
+ * {@description.close}
  */
 public class ExecutorCompletionService<V> implements CompletionService<V> {
     private final Executor executor;
@@ -110,7 +112,9 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
     private final BlockingQueue<Future<V>> completionQueue;
 
     /** {@collect.stats} 
+     * {@description.open}
      * FutureTask extension to enqueue upon completion
+     * {@description.close}
      */
     private class QueueingFuture extends FutureTask<Void> {
         QueueingFuture(RunnableFuture<V> task) {
@@ -136,9 +140,11 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and a
      * {@link LinkedBlockingQueue} as a completion queue.
+     * {@description.close}
      *
      * @param executor the executor to use
      * @throws NullPointerException if executor is {@code null}
@@ -153,9 +159,11 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and the supplied queue as its
      * completion queue.
+     * {@description.close}
      *
      * @param executor the executor to use
      * @param completionQueue the queue to use as the completion queue

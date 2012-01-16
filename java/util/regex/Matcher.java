@@ -27,6 +27,7 @@ package java.util.regex;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * An engine that performs match operations on a {@link java.lang.CharSequence
  * </code>character sequence<code>} by interpreting a {@link Pattern}.
  *
@@ -90,9 +91,10 @@ package java.util.regex;
  * matcher discards its explicit state information and sets the append position
  * to zero.
  *
+ * {@property.open}
  * <p> Instances of this class are not safe for use by multiple concurrent
  * threads. </p>
- *
+ * {@property.close}
  *
  * @author      Mike McCloskey
  * @author      Mark Reinhold
@@ -104,69 +106,90 @@ package java.util.regex;
 public final class Matcher implements MatchResult {
 
     /** {@collect.stats} 
+     * {@description.open}
      * The Pattern object that created this Matcher.
+     * {@description.close}
      */
     Pattern parentPattern;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The storage used by groups. They may contain invalid values if
      * a group was skipped during the matching.
+     * {@description.close}
      */
     int[] groups;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The range within the sequence that is to be matched. Anchors
      * will match at these "hard" boundaries. Changing the region
      * changes these values.
+     * {@description.close}
      */
     int from, to;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Lookbehind uses this value to ensure that the subexpression
      * match ends at the point where the lookbehind was encountered.
+     * {@description.close}
      */
     int lookbehindTo;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The original string being matched.
+     * {@description.close}
      */
     CharSequence text;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Matcher state used by the last node. NOANCHOR is used when a
      * match does not have to consume all of the input. ENDANCHOR is
      * the mode used for matching all the input.
+     * {@description.close}
      */
     static final int ENDANCHOR = 1;
     static final int NOANCHOR = 0;
     int acceptMode = NOANCHOR;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The range of string that last matched the pattern. If the last
      * match failed then first is -1; last initially holds 0 then it
      * holds the index of the end of the last match (which is where the
      * next search starts).
+     * {@description.close}
      */
     int first = -1, last = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The end index of what matched in the last match operation.
+     * {@description.close}
      */
     int oldLast = -1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The index of the last position appended in a substitution.
+     * {@description.close}
      */
     int lastAppendPosition = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Storage used by nodes to tell what repetition they are on in
      * a pattern, and where groups begin. The nodes themselves are stateless,
      * so they rely on this field to hold state during a match.
+     * {@description.close}
      */
     int[] locals;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Boolean indicating whether or not more input could change
      * the results of the last match.
      *
@@ -178,10 +201,12 @@ public final class Matcher implements MatchResult {
      * will not change the match.
      * If hitEnd is false and a match was not found, then more
      * input will not cause a match to be found.
+     * {@description.close}
      */
     boolean hitEnd;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Boolean indicating whether or not more input could change
      * a positive match into a negative one.
      *
@@ -190,30 +215,39 @@ public final class Matcher implements MatchResult {
      * If requireEnd is false and a match was found, then more
      * input might change the match but the match won't be lost.
      * If a match was not found, then requireEnd has no meaning.
+     * {@description.close}
      */
     boolean requireEnd;
 
     /** {@collect.stats} 
+     * {@description.open}
      * If transparentBounds is true then the boundaries of this
      * matcher's region are transparent to lookahead, lookbehind,
      * and boundary matching constructs that try to see beyond them.
+     * {@description.close}
      */
     boolean transparentBounds = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * If anchoringBounds is true then the boundaries of this
      * matcher's region match anchors such as ^ and $.
+     * {@description.close}
      */
     boolean anchoringBounds = true;
 
     /** {@collect.stats} 
+     * {@description.open}
      * No default constructor.
+     * {@description.close}
      */
     Matcher() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * All matchers have the state used by Pattern during a match.
+     * {@description.close}
      */
     Matcher(Pattern parent, CharSequence text) {
         this.parentPattern = parent;
@@ -229,7 +263,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the pattern that is interpreted by this matcher.
+     * {@description.close}
      *
      * @return  The pattern for which this matcher was created
      */
@@ -238,9 +274,11 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the match state of this matcher as a {@link MatchResult}.
      * The result is unaffected by subsequent operations performed upon this
      * matcher.
+     * {@description.close}
      *
      * @return  a <code>MatchResult</code> with the state of this matcher
      * @since 1.5
@@ -254,6 +292,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
       * Changes the <tt>Pattern</tt> that this <tt>Matcher</tt> uses to
       * find matches with.
       *
@@ -261,6 +300,7 @@ public final class Matcher implements MatchResult {
       * about the groups of the last match that occurred. The
       * matcher's position in the input is maintained and its
       * last append position is unaffected.</p>
+      * {@description.close}
       *
       * @param  newPattern
       *         The new pattern used by this matcher
@@ -286,12 +326,16 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets this matcher.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> Resetting a matcher discards all of its explicit state information
      * and sets its append position to zero. The matcher's region is set to the
      * default region, which is its entire character sequence. The anchoring
      * and transparency of this matcher's region boundaries are unaffected.
+     * {@property.close}
      *
      * @return  This matcher
      */
@@ -310,13 +354,17 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets this matcher with a new input sequence.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> Resetting a matcher discards all of its explicit state information
      * and sets its append position to zero.  The matcher's region is set to
      * the default region, which is its entire character sequence.  The
      * anchoring and transparency of this matcher's region boundaries are
      * unaffected.
+     * {@property.close}
      *
      * @param  input
      *         The new input character sequence
@@ -329,7 +377,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the start index of the previous match.  </p>
+     * {@description.close}
      *
      * @return  The index of the first character matched
      *
@@ -344,6 +394,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the start index of the subsequence captured by the given group
      * during the previous match operation.
      *
@@ -351,6 +402,7 @@ public final class Matcher implements MatchResult {
      * to right, starting at one.  Group zero denotes the entire pattern, so
      * the expression <i>m.</i><tt>start(0)</tt> is equivalent to
      * <i>m.</i><tt>start()</tt>.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -376,7 +428,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the offset after the last character matched.  </p>
+     * {@description.close}
      *
      * @return  The offset after the last character matched
      *
@@ -391,6 +445,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the offset after the last character of the subsequence
      * captured by the given group during the previous match operation.
      *
@@ -398,6 +453,7 @@ public final class Matcher implements MatchResult {
      * to right, starting at one.  Group zero denotes the entire pattern, so
      * the expression <i>m.</i><tt>end(0)</tt> is equivalent to
      * <i>m.</i><tt>end()</tt>.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -423,6 +479,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input subsequence matched by the previous match.
      *
      * <p> For a matcher <i>m</i> with input sequence <i>s</i>,
@@ -433,6 +490,7 @@ public final class Matcher implements MatchResult {
      * <p> Note that some patterns, for example <tt>a*</tt>, match the empty
      * string.  This method will return the empty string when the pattern
      * successfully matches the empty string in the input.  </p>
+     * {@description.close}
      *
      * @return The (possibly empty) subsequence matched by the previous match,
      *         in string form
@@ -446,6 +504,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input subsequence captured by the given group during the
      * previous match operation.
      *
@@ -464,6 +523,7 @@ public final class Matcher implements MatchResult {
      * that some groups, for example <tt>(a*)</tt>, match the empty string.
      * This method will return the empty string when such a group successfully
      * matches the empty string in the input.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -491,6 +551,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of capturing groups in this matcher's pattern.
      *
      * <p> Group zero denotes the entire pattern by convention. It is not
@@ -499,6 +560,7 @@ public final class Matcher implements MatchResult {
      * <p> Any non-negative integer smaller than or equal to the value
      * returned by this method is guaranteed to be a valid group index for
      * this matcher.  </p>
+     * {@description.close}
      *
      * @return The number of capturing groups in this matcher's pattern
      */
@@ -507,10 +569,12 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to match the entire region against the pattern.
      *
      * <p> If the match succeeds then more information can be obtained via the
      * <tt>start</tt>, <tt>end</tt>, and <tt>group</tt> methods.  </p>
+     * {@description.close}
      *
      * @return  <tt>true</tt> if, and only if, the entire region sequence
      *          matches this matcher's pattern
@@ -520,6 +584,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to find the next subsequence of the input sequence that matches
      * the pattern.
      *
@@ -530,6 +595,7 @@ public final class Matcher implements MatchResult {
      *
      * <p> If the match succeeds then more information can be obtained via the
      * <tt>start</tt>, <tt>end</tt>, and <tt>group</tt> methods.  </p>
+     * {@description.close}
      *
      * @return  <tt>true</tt> if, and only if, a subsequence of the input
      *          sequence matches this matcher's pattern
@@ -553,6 +619,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets this matcher and then attempts to find the next subsequence of
      * the input sequence that matches the pattern, starting at the specified
      * index.
@@ -561,6 +628,7 @@ public final class Matcher implements MatchResult {
      * <tt>start</tt>, <tt>end</tt>, and <tt>group</tt> methods, and subsequent
      * invocations of the {@link #find()} method will start at the first
      * character not matched by this match.  </p>
+     * {@description.close}
      *
      * @throws  IndexOutOfBoundsException
      *          If start is less than zero or if start is greater than the
@@ -579,15 +647,19 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to match the input sequence, starting at the beginning of the
      * region, against the pattern.
      *
      * <p> Like the {@link #matches matches} method, this method always starts
      * at the beginning of the region; unlike that method, it does not
      * require that the entire region be matched.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> If the match succeeds then more information can be obtained via the
      * <tt>start</tt>, <tt>end</tt>, and <tt>group</tt> methods.  </p>
+     * {@property.close}
      *
      * @return  <tt>true</tt> if, and only if, a prefix of the input
      *          sequence matches this matcher's pattern
@@ -597,6 +669,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a literal replacement <code>String</code> for the specified
      * <code>String</code>.
      *
@@ -606,6 +679,7 @@ public final class Matcher implements MatchResult {
      * The <code>String</code> produced will match the sequence of characters
      * in <code>s</code> treated as a literal sequence. Slashes ('\') and
      * dollar signs ('$') will be given no special meaning.
+     * {@description.close}
      *
      * @param  s The string to be literalized
      * @return  A literal string replacement
@@ -626,6 +700,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements a non-terminal append-and-replace step.
      *
      * <p> This method performs the following actions: </p>
@@ -667,9 +742,14 @@ public final class Matcher implements MatchResult {
      * treated as references to captured subsequences as described above, and
      * backslashes are used to escape literal characters in the replacement
      * string.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> This method is intended to be used in a loop together with the
-     * {@link #appendTail appendTail} and {@link #find find} methods.  The
+     * {@link #appendTail appendTail} and {@link #find find} methods.
+     * {@property.close}
+     * {@description.open}
+     * The
      * following code, for example, writes <tt>one dog two dogs in the
      * yard</tt> to the standard-output stream: </p>
      *
@@ -682,6 +762,7 @@ public final class Matcher implements MatchResult {
      * }
      * m.appendTail(sb);
      * System.out.println(sb.toString());</pre></blockquote>
+     * {@description.close}
      *
      * @param  sb
      *         The target string buffer
@@ -762,6 +843,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Implements a terminal append-and-replace step.
      *
      * <p> This method reads characters from the input sequence, starting at
@@ -769,6 +851,7 @@ public final class Matcher implements MatchResult {
      * intended to be invoked after one or more invocations of the {@link
      * #appendReplacement appendReplacement} method in order to copy the
      * remainder of the input sequence.  </p>
+     * {@description.close}
      *
      * @param  sb
      *         The target string buffer
@@ -781,6 +864,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces every subsequence of the input sequence that matches the
      * pattern with the given replacement string.
      *
@@ -806,6 +890,7 @@ public final class Matcher implements MatchResult {
      * <p> Invoking this method changes this matcher's state.  If the matcher
      * is to be used in further matching operations then it should first be
      * reset.  </p>
+     * {@description.close}
      *
      * @param  replacement
      *         The replacement string
@@ -830,6 +915,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the first subsequence of the input sequence that matches the
      * pattern with the given replacement string.
      *
@@ -855,6 +941,7 @@ public final class Matcher implements MatchResult {
      * <p> Invoking this method changes this matcher's state.  If the matcher
      * is to be used in further matching operations then it should first be
      * reset.  </p>
+     * {@description.close}
      *
      * @param  replacement
      *         The replacement string
@@ -875,6 +962,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the limits of this matcher's region. The region is the part of the
      * input sequence that will be searched to find a match. Invoking this
      * method resets the matcher, and then sets the region to start at the
@@ -886,6 +974,7 @@ public final class Matcher implements MatchResult {
      * {@link #useAnchoringBounds useAnchoringBounds}), certain constructs such
      * as anchors may behave differently at or around the boundaries of the
      * region.
+     * {@description.close}
      *
      * @param  start
      *         The index to start searching at (inclusive)
@@ -913,10 +1002,12 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reports the start index of this matcher's region. The
      * searches this matcher conducts are limited to finding matches
      * within {@link #regionStart regionStart} (inclusive) and
      * {@link #regionEnd regionEnd} (exclusive).
+     * {@description.close}
      *
      * @return  The starting point of this matcher's region
      * @since 1.5
@@ -926,10 +1017,12 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reports the end index (exclusive) of this matcher's region.
      * The searches this matcher conducts are limited to finding matches
      * within {@link #regionStart regionStart} (inclusive) and
      * {@link #regionEnd regionEnd} (exclusive).
+     * {@description.close}
      *
      * @return  the ending point of this matcher's region
      * @since 1.5
@@ -939,6 +1032,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries the transparency of region bounds for this matcher.
      *
      * <p> This method returns <tt>true</tt> if this matcher uses
@@ -949,6 +1043,7 @@ public final class Matcher implements MatchResult {
      * description of transparent and opaque bounds.
      *
      * <p> By default, a matcher uses opaque region boundaries.
+     * {@description.close}
      *
      * @return <tt>true</tt> iff this matcher is using transparent bounds,
      *         <tt>false</tt> otherwise.
@@ -960,6 +1055,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the transparency of region bounds for this matcher.
      *
      * <p> Invoking this method with an argument of <tt>true</tt> will set this
@@ -978,6 +1074,7 @@ public final class Matcher implements MatchResult {
      * of the region.
      *
      * <p> By default, a matcher uses opaque bounds.
+     * {@description.close}
      *
      * @param  b a boolean indicating whether to use opaque or transparent
      *         regions
@@ -991,6 +1088,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Queries the anchoring of region bounds for this matcher.
      *
      * <p> This method returns <tt>true</tt> if this matcher uses
@@ -1000,6 +1098,7 @@ public final class Matcher implements MatchResult {
      * description of anchoring bounds.
      *
      * <p> By default, a matcher uses anchoring region boundaries.
+     * {@description.close}
      *
      * @return <tt>true</tt> iff this matcher is using anchoring bounds,
      *         <tt>false</tt> otherwise.
@@ -1011,6 +1110,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the anchoring of region bounds for this matcher.
      *
      * <p> Invoking this method with an argument of <tt>true</tt> will set this
@@ -1025,6 +1125,7 @@ public final class Matcher implements MatchResult {
      * matcher's region will not match anchors such as ^ and $.
      *
      * <p> By default, a matcher uses anchoring region boundaries.
+     * {@description.close}
      *
      * @param  b a boolean indicating whether or not to use anchoring bounds.
      * @return this matcher
@@ -1037,9 +1138,11 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * <p>Returns the string representation of this matcher. The
      * string representation of a <code>Matcher</code> contains information
      * that may be useful for debugging. The exact format is unspecified.
+     * {@description.close}
      *
      * @return  The string representation of this matcher
      * @since 1.5
@@ -1059,11 +1162,13 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * <p>Returns true if the end of input was hit by the search engine in
      * the last match operation performed by this matcher.
      *
      * <p>When this method returns true, then it is possible that more input
      * would have changed the result of the last search.
+     * {@description.close}
      *
      * @return  true iff the end of input was hit in the last match; false
      *          otherwise
@@ -1074,6 +1179,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * <p>Returns true if more input could change a positive match into a
      * negative one.
      *
@@ -1082,6 +1188,7 @@ public final class Matcher implements MatchResult {
      * and a match was found, then more input might change the match but the
      * match won't be lost. If a match was not found, then requireEnd has no
      * meaning.
+     * {@description.close}
      *
      * @return  true iff more input could change a positive match into a
      *          negative one.
@@ -1092,6 +1199,7 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initiates a search to find a Pattern within the given bounds.
      * The groups are filled with default values and the match of the root
      * of the state machine is called. The state machine will hold the state
@@ -1103,6 +1211,7 @@ public final class Matcher implements MatchResult {
      * regex tries to match at that index but ^ won't match there. Subsequent
      * calls to the search methods start at a new "soft" boundary which is
      * the end of the previous match.
+     * {@description.close}
      */
     boolean search(int from) {
         this.hitEnd = false;
@@ -1121,10 +1230,12 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Initiates a search for an anchored match to a Pattern within the given
      * bounds. The groups are filled with default values and the match of the
      * root of the state machine is called. The state machine will hold the
      * state of the match as it proceeds in this matcher.
+     * {@description.close}
      */
     boolean match(int from, int anchor) {
         this.hitEnd = false;
@@ -1143,7 +1254,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the end index of the text.
+     * {@description.close}
      *
      * @return the index after the last character in the text
      */
@@ -1152,7 +1265,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Generates a String from this Matcher's input in the specified range.
+     * {@description.close}
      *
      * @param  beginIndex   the beginning index, inclusive
      * @param  endIndex     the ending index, exclusive
@@ -1163,7 +1278,9 @@ public final class Matcher implements MatchResult {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns this Matcher's input character at index i.
+     * {@description.close}
      *
      * @return A char from the specified index
      */

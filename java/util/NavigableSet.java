@@ -36,6 +36,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link SortedSet} extended with navigation methods reporting
  * closest matches for given search targets. Methods {@code lower},
  * {@code floor}, {@code ceiling}, and {@code higher} return elements
@@ -77,6 +78,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author Doug Lea
  * @author Josh Bloch
@@ -85,8 +87,10 @@ package java.util;
  */
 public interface NavigableSet<E> extends SortedSet<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the greatest element in this set strictly less than the
      * given element, or {@code null} if there is no such element.
+     * {@description.close}
      *
      * @param e the value to match
      * @return the greatest element less than {@code e},
@@ -99,8 +103,10 @@ public interface NavigableSet<E> extends SortedSet<E> {
     E lower(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the greatest element in this set less than or equal to
      * the given element, or {@code null} if there is no such element.
+     * {@description.close}
      *
      * @param e the value to match
      * @return the greatest element less than or equal to {@code e},
@@ -113,8 +119,10 @@ public interface NavigableSet<E> extends SortedSet<E> {
     E floor(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the least element in this set greater than or equal to
      * the given element, or {@code null} if there is no such element.
+     * {@description.close}
      *
      * @param e the value to match
      * @return the least element greater than or equal to {@code e},
@@ -127,8 +135,10 @@ public interface NavigableSet<E> extends SortedSet<E> {
     E ceiling(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the least element in this set strictly greater than the
      * given element, or {@code null} if there is no such element.
+     * {@description.close}
      *
      * @param e the value to match
      * @return the least element greater than {@code e},
@@ -141,54 +151,70 @@ public interface NavigableSet<E> extends SortedSet<E> {
     E higher(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the first (lowest) element,
      * or returns {@code null} if this set is empty.
+     * {@description.close}
      *
      * @return the first element, or {@code null} if this set is empty
      */
     E pollFirst();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the last (highest) element,
      * or returns {@code null} if this set is empty.
+     * {@description.close}
      *
      * @return the last element, or {@code null} if this set is empty
      */
     E pollLast();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this set, in ascending order.
+     * {@description.close}
      *
      * @return an iterator over the elements in this set, in ascending order
      */
     Iterator<E> iterator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a reverse order view of the elements contained in this set.
      * The descending set is backed by this set, so changes to the set are
-     * reflected in the descending set, and vice-versa.  If either set is
+     * reflected in the descending set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If either set is
      * modified while an iteration over either set is in progress (except
      * through the iterator's own {@code remove} operation), the results of
      * the iteration are undefined.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned set has an ordering equivalent to
      * <tt>{@link Collections#reverseOrder(Comparator) Collections.reverseOrder}(comparator())</tt>.
      * The expression {@code s.descendingSet().descendingSet()} returns a
      * view of {@code s} essentially equivalent to {@code s}.
+     * {@description.close}
      *
      * @return a reverse order view of this set
      */
     NavigableSet<E> descendingSet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this set, in descending order.
      * Equivalent in effect to {@code descendingSet().iterator()}.
+     * {@description.close}
      *
      * @return an iterator over the elements in this set, in descending order
      */
     Iterator<E> descendingIterator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements range from
      * {@code fromElement} to {@code toElement}.  If {@code fromElement} and
      * {@code toElement} are equal, the returned set is empty unless {@code
@@ -199,6 +225,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      *
      * <p>The returned set will throw an {@code IllegalArgumentException}
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param fromElement low endpoint of the returned set
      * @param fromInclusive {@code true} if the low endpoint
@@ -227,6 +254,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
                            E toElement,   boolean toInclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements are less than
      * (or equal to, if {@code inclusive} is true) {@code toElement}.  The
      * returned set is backed by this set, so changes in the returned set are
@@ -235,6 +263,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      *
      * <p>The returned set will throw an {@code IllegalArgumentException}
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param toElement high endpoint of the returned set
      * @param inclusive {@code true} if the high endpoint
@@ -256,6 +285,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
     NavigableSet<E> headSet(E toElement, boolean inclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this set whose elements are greater
      * than (or equal to, if {@code inclusive} is true) {@code fromElement}.
      * The returned set is backed by this set, so changes in the returned set
@@ -264,6 +294,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      *
      * <p>The returned set will throw an {@code IllegalArgumentException}
      * on an attempt to insert an element outside its range.
+     * {@description.close}
      *
      * @param fromElement low endpoint of the returned set
      * @param inclusive {@code true} if the low endpoint
@@ -285,9 +316,11 @@ public interface NavigableSet<E> extends SortedSet<E> {
     NavigableSet<E> tailSet(E fromElement, boolean inclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code subSet(fromElement, true, toElement, false)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
@@ -296,9 +329,11 @@ public interface NavigableSet<E> extends SortedSet<E> {
     SortedSet<E> subSet(E fromElement, E toElement);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code headSet(toElement, false)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
@@ -307,9 +342,11 @@ na     */
     SortedSet<E> headSet(E toElement);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code tailSet(fromElement, true)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}

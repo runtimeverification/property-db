@@ -31,9 +31,11 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements an output stream filter for compressing data in
  * the "deflate" compression format. It is also used as the basis for other
  * types of compression filters, such as GZIPOutputStream.
+ * {@description.close}
  *
  * @see         Deflater
  * @author      David Connelly
@@ -41,24 +43,32 @@ import java.io.IOException;
 public
 class DeflaterOutputStream extends FilterOutputStream {
     /** {@collect.stats} 
+     * {@description.open}
      * Compressor for this stream.
+     * {@description.close}
      */
     protected Deflater def;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Output buffer for writing compressed data.
+     * {@description.close}
      */
     protected byte[] buf;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Indicates that the stream has been closed.
+     * {@description.close}
      */
 
     private boolean closed = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with the specified compressor and
      * buffer size.
+     * {@description.close}
      * @param out the output stream
      * @param def the compressor ("deflater")
      * @param size the output buffer size
@@ -76,8 +86,10 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with the specified compressor and
      * a default buffer size.
+     * {@description.close}
      * @param out the output stream
      * @param def the compressor ("deflater")
      */
@@ -88,7 +100,9 @@ class DeflaterOutputStream extends FilterOutputStream {
     boolean usesDefaultDeflater = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with a default compressor and buffer size.
+     * {@description.close}
      * @param out the output stream
      */
     public DeflaterOutputStream(OutputStream out) {
@@ -97,8 +111,10 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes a byte to the compressed output stream. This method will
      * block until the byte can be written.
+     * {@description.close}
      * @param b the byte to be written
      * @exception IOException if an I/O error has occurred
      */
@@ -109,8 +125,10 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes an array of bytes to the compressed output stream. This
      * method will block until all the bytes are written.
+     * {@description.close}
      * @param b the data to be written
      * @param off the start offset of the data
      * @param len the length of the data
@@ -139,9 +157,14 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finishes writing compressed data to the output stream without closing
-     * the underlying stream. Use this method when applying multiple filters
+     * the underlying stream.
+     * {@description.close}
+     * {@property.open}
+     * Use this method when applying multiple filters
      * in succession to the same output stream.
+     * {@property.close}
      * @exception IOException if an I/O error has occurred
      */
     public void finish() throws IOException {
@@ -154,8 +177,10 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes remaining compressed data to the output stream and closes the
      * underlying stream.
+     * {@description.close}
      * @exception IOException if an I/O error has occurred
      */
     public void close() throws IOException {
@@ -169,7 +194,9 @@ class DeflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes next block of compressed data to the output stream.
+     * {@description.close}
      * @throws IOException if an I/O error has occurred
      */
     protected void deflate() throws IOException {

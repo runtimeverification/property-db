@@ -29,8 +29,10 @@ import sun.security.action.GetPropertyAction;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown to indicate a syntax error in a
  * regular-expression pattern.
+ * {@description.close}
  *
  * @author  unascribed
  * @since 1.4
@@ -46,7 +48,9 @@ public class PatternSyntaxException
     private final int index;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new instance of this class.
+     * {@description.close}
      *
      * @param  desc
      *         A description of the error
@@ -65,7 +69,9 @@ public class PatternSyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the error index.
+     * {@description.close}
      *
      * @return  The approximate index in the pattern of the error,
      *         or <tt>-1</tt> if the index is not known
@@ -75,7 +81,9 @@ public class PatternSyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the description of the error.
+     * {@description.close}
      *
      * @return  The description of the error
      */
@@ -84,7 +92,9 @@ public class PatternSyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the erroneous regular-expression pattern.
+     * {@description.close}
      *
      * @return  The erroneous pattern
      */
@@ -97,9 +107,11 @@ public class PatternSyntaxException
             .doPrivileged(new GetPropertyAction("line.separator"));
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a multi-line string containing the description of the syntax
      * error and its index, the erroneous regular-expression pattern, and a
      * visual indication of the error index within the pattern.
+     * {@description.close}
      *
      * @return  The full detail message
      */

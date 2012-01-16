@@ -37,6 +37,7 @@ import java.net.URL;
 import sun.security.action.GetPropertyAction;
 
 /** {@collect.stats} 
+ * {@description.open}
  * There is a single global LogManager object that is used to
  * maintain a set of shared state about Loggers and log services.
  * <p>
@@ -141,6 +142,7 @@ import sun.security.action.GetPropertyAction;
  * root of the tree.
  * <p>
  * All methods on the LogManager object are multi-thread safe.
+ * {@description.close}
  *
  * @since 1.4
 */
@@ -236,10 +238,12 @@ public class LogManager {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Protected constructor.  This is protected so that container applications
      * (such as J2EE containers) can subclass the object.  It is non-public as
      * it is intended that there only be one LogManager object, whose value is
      * retrieved by calling Logmanager.getLogManager.
+     * {@description.close}
      */
     protected LogManager() {
         // Add a shutdown hook to close the global handlers.
@@ -252,7 +256,9 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the global LogManager object.
+     * {@description.close}
      */
     public static LogManager getLogManager() {
         if (manager != null) {
@@ -289,10 +295,12 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds an event listener to be invoked when the logging
      * properties are re-read. Adding multiple instances of
      * the same event Listener results in multiple entries
      * in the property event listener table.
+     * {@description.close}
      *
      * @param l  event listener
      * @exception  SecurityException  if a security manager exists and if
@@ -308,6 +316,7 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes an event listener for property change events.
      * If the same listener instance has been added to the listener table
      * through multiple invocations of <CODE>addPropertyChangeListener</CODE>,
@@ -316,6 +325,7 @@ public class LogManager {
      * all instances of that listener from the listener table.
      * <P>
      * Returns silently if the given listener is not found.
+     * {@description.close}
      *
      * @param l  event listener (can be null)
      * @exception  SecurityException  if a security manager exists and if
@@ -524,15 +534,19 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Add a named logger.  This does nothing and returns false if a logger
      * with the same name is already registered.
      * <p>
      * The Logger factory methods call this method to register each
      * newly created Logger.
      * <p>
+     * {@description.close}
+     * {@property.open}
      * The application should retain its own reference to the Logger
      * object to avoid it being garbage collected.  The LogManager
      * may only retain a weak reference.
+     * {@property.close}
      *
      * @param   logger the new logger.
      * @return  true if the argument logger was registered successfully,
@@ -675,6 +689,7 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Method to find a named logger.
      * <p>
      * Note that since untrusted code may create loggers with
@@ -682,10 +697,14 @@ public class LogManager {
      * find Loggers for security sensitive logging.
      * It is also important to note that the Logger associated with the
      * String {@code name} may be garbage collected at any time if there
-     * is no strong reference to the Logger. The caller of this method
+     * is no strong reference to the Logger.
+     * {@description.close}
+     * {@property.open static}
+     * The caller of this method
      * must check the return value for null in order to properly handle
      * the case where the Logger has been garbage collected.
      * <p>
+     * {@property.close}
      * @param name name of the logger
      * @return  matching logger or null if none is found
      */
@@ -704,6 +723,7 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get an enumeration of known logger names.
      * <p>
      * Note:  Loggers may be added dynamically as new classes are loaded.
@@ -717,6 +737,7 @@ public class LogManager {
      * handle the case where the Logger has been garbage collected in the
      * time since its name was returned by this method.
      * <p>
+     * {@description.close}
      * @return  enumeration of logger name strings
      */
     public synchronized Enumeration<String> getLoggerNames() {
@@ -724,6 +745,7 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reinitialize the logging properties and reread the logging configuration.
      * <p>
      * The same rules are used for locating the configuration properties
@@ -734,6 +756,7 @@ public class LogManager {
      * applied using Logger.setLevel(), if the target Logger exists.
      * <p>
      * A PropertyChangeEvent will be fired after the properties are read.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").
@@ -787,11 +810,13 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reset the logging configuration.
      * <p>
      * For all named loggers, the reset operation removes and closes
      * all Handlers and (except for the root logger) sets the level
      * to null.  The root logger's level is set to Level.INFO.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").
@@ -870,12 +895,14 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reinitialize the logging properties and reread the logging configuration
      * from the given stream, which should be in java.util.Properties format.
      * A PropertyChangeEvent will be fired after the properties are read.
      * <p>
      * Any log level definitions in the new configuration file will be
      * applied using Logger.setLevel(), if the target Logger exists.
+     * {@description.close}
      *
      * @param ins       stream to read properties from
      * @exception  SecurityException  if a security manager exists and if
@@ -917,8 +944,10 @@ public class LogManager {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the value of a logging property.
      * The method returns null if the property is not found.
+     * {@description.close}
      * @param name      property name
      * @return          property value
      */
@@ -1048,11 +1077,13 @@ public class LogManager {
     private Permission ourPermission = new LoggingPermission("control", null);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check that the current context is trusted to modify the logging
      * configuration.  This requires LoggingPermission("control").
      * <p>
      * If the check fails we throw a SecurityException, otherwise
      * we return normally.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").
@@ -1156,18 +1187,22 @@ public class LogManager {
     // Management Support
     private static LoggingMXBean loggingMXBean = null;
     /** {@collect.stats} 
+     * {@description.open}
      * String representation of the
      * {@link javax.management.ObjectName} for {@link LoggingMXBean}.
+     * {@description.close}
      * @since 1.5
      */
     public final static String LOGGING_MXBEAN_NAME
         = "java.util.logging:type=Logging";
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>LoggingMXBean</tt> for managing loggers.
      * The <tt>LoggingMXBean</tt> can also obtained from the
      * {@link java.lang.management.ManagementFactory#getPlatformMBeanServer
      * platform <tt>MBeanServer</tt>} method.
+     * {@description.close}
      *
      * @return a {@link LoggingMXBean} object.
      *

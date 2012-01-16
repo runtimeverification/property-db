@@ -30,8 +30,10 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An input stream that also maintains a checksum of the data being read.
  * The checksum can then be used to verify the integrity of the input data.
+ * {@description.close}
  *
  * @see         Checksum
  * @author      David Connelly
@@ -41,7 +43,9 @@ class CheckedInputStream extends FilterInputStream {
     private Checksum cksum;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an input stream using the specified Checksum.
+     * {@description.close}
      * @param in the input stream
      * @param cksum the Checksum
      */
@@ -51,7 +55,9 @@ class CheckedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads a byte. Will block if no input is available.
+     * {@description.close}
      * @return the byte read, or -1 if the end of the stream is reached.
      * @exception IOException if an I/O error has occurred
      */
@@ -64,9 +70,11 @@ class CheckedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads into an array of bytes. If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
+     * {@description.close}
      * @param buf the buffer into which the data is read
      * @param off the start offset in the destination array <code>b</code>
      * @param len the maximum number of bytes read
@@ -87,7 +95,9 @@ class CheckedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Skips specified number of bytes of input.
+     * {@description.close}
      * @param n the number of bytes to skip
      * @return the actual number of bytes skipped
      * @exception IOException if an I/O error has occurred
@@ -107,7 +117,9 @@ class CheckedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the Checksum for this input stream.
+     * {@description.close}
      * @return the Checksum value
      */
     public Checksum getChecksum() {

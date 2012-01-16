@@ -36,6 +36,7 @@ import java.io.OutputStreamWriter;
 import java.io.BufferedWriter;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <code>Properties</code> class represents a persistent set of
  * properties. The <code>Properties</code> can be saved to a stream
  * or loaded from a stream. Each key and its corresponding value in
@@ -103,6 +104,7 @@ import java.io.BufferedWriter;
  *
  * <p>This class is thread-safe: multiple threads can share a single
  * <tt>Properties</tt> object without the need for external synchronization.
+ * {@description.close}
  *
  * @see <a href="../../../technotes/tools/solaris/native2ascii.html">native2ascii tool for Solaris</a>
  * @see <a href="../../../technotes/tools/windows/native2ascii.html">native2ascii tool for Windows</a>
@@ -115,27 +117,35 @@ import java.io.BufferedWriter;
 public
 class Properties extends Hashtable<Object,Object> {
     /** {@collect.stats} 
+     * {@description.open}
      * use serialVersionUID from JDK 1.1.X for interoperability
+     * {@description.close}
      */
      private static final long serialVersionUID = 4112578634029874840L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * A property list that contains default values for any keys not
      * found in this property list.
+     * {@description.close}
      *
      * @serial
      */
     protected Properties defaults;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty property list with no default values.
+     * {@description.close}
      */
     public Properties() {
         this(null);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty property list with the specified defaults.
+     * {@description.close}
      *
      * @param   defaults   the defaults.
      */
@@ -144,10 +154,12 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Calls the <tt>Hashtable</tt> method <code>put</code>. Provided for
      * parallelism with the <tt>getProperty</tt> method. Enforces use of
      * strings for property keys and values. The value returned is the
      * result of the <tt>Hashtable</tt> call to <code>put</code>.
+     * {@description.close}
      *
      * @param key the key to be placed into this property list.
      * @param value the value corresponding to <tt>key</tt>.
@@ -162,6 +174,7 @@ class Properties extends Hashtable<Object,Object> {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads a property list (key and element pairs) from the input
      * character stream in a simple line-oriented format.
      * <p>
@@ -307,6 +320,7 @@ class Properties extends Hashtable<Object,Object> {
      * </ul>
      * <p>
      * The specified stream remains open after this method returns.
+     * {@description.close}
      *
      * @param   reader   the input character stream.
      * @throws  IOException  if an error occurred when reading from the
@@ -320,6 +334,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads a property list (key and element pairs) from the input
      * byte stream. The input stream is in a simple line-oriented
      * format as specified in
@@ -330,6 +345,7 @@ class Properties extends Hashtable<Object,Object> {
      * <a href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#3.3">Unicode escapes</a>.
      * <p>
      * The specified stream remains open after this method returns.
+     * {@description.close}
      *
      * @param      inStream   the input stream.
      * @exception  IOException  if an error occurred when reading from the
@@ -689,8 +705,10 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Calls the <code>store(OutputStream out, String comments)</code> method
      * and suppresses IOExceptions that were thrown.
+     * {@description.close}
      *
      * @deprecated This method does not throw an IOException if an I/O error
      * occurs while saving the property list.  The preferred way to save a
@@ -713,6 +731,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes this property list (key and element pairs) in this
      * <code>Properties</code> table to the output character stream in a
      * format suitable for using the {@link #load(java.io.Reader) load(Reader)}
@@ -750,6 +769,7 @@ class Properties extends Hashtable<Object,Object> {
      * After the entries have been written, the output stream is flushed.
      * The output stream remains open after this method returns.
      * <p>
+     * {@description.close}
      *
      * @param   writer      an output character stream writer.
      * @param   comments   a description of the property list.
@@ -770,6 +790,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes this property list (key and element pairs) in this
      * <code>Properties</code> table to the output stream in a format suitable
      * for loading into a <code>Properties</code> table using the
@@ -788,6 +809,7 @@ class Properties extends Hashtable<Object,Object> {
      * <li>Characters not in Latin-1 in the comments are written as
      * <code>&#92;u</code><i>xxxx</i> for their appropriate unicode
      * hexadecimal value <i>xxxx</i>.
+     * {@description.close}
      *
      * <li>Characters less than <code>&#92;u0020</code> and characters greater
      * than <code>&#92;u007E</code> in property keys or values are written
@@ -840,6 +862,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Loads all of the properties represented by the XML document on the
      * specified input stream into this properties table.
      *
@@ -849,8 +872,11 @@ class Properties extends Hashtable<Object,Object> {
      * </pre>
      * Furthermore, the document must satisfy the properties DTD described
      * above.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>The specified stream is closed after this method returns.
+     * {@property.close}
      *
      * @param in the input stream from which to read the XML document.
      * @throws IOException if reading from the specified input stream
@@ -871,12 +897,14 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Emits an XML document representing all of the properties contained
      * in this table.
      *
      * <p> An invocation of this method of the form <tt>props.storeToXML(os,
      * comment)</tt> behaves in exactly the same way as the invocation
      * <tt>props.storeToXML(os, comment, "UTF-8");</tt>.
+     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @param comment a description of the property list, or <code>null</code>
@@ -899,6 +927,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Emits an XML document representing all of the properties contained
      * in this table, using the specified encoding.
      *
@@ -911,6 +940,7 @@ class Properties extends Hashtable<Object,Object> {
      * will be stored in the document.
      *
      * <p>The specified stream remains open after this method returns.
+     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @param comment a description of the property list, or <code>null</code>
@@ -935,10 +965,12 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches for the property with the specified key in this property list.
      * If the key is not found in this property list, the default property list,
      * and its defaults, recursively, are then checked. The method returns
      * <code>null</code> if the property is not found.
+     * {@description.close}
      *
      * @param   key   the property key.
      * @return  the value in this property list with the specified key value.
@@ -952,10 +984,12 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches for the property with the specified key in this property list.
      * If the key is not found in this property list, the default property list,
      * and its defaults, recursively, are then checked. The method returns the
      * default value argument if the property is not found.
+     * {@description.close}
      *
      * @param   key            the hashtable key.
      * @param   defaultValue   a default value.
@@ -970,10 +1004,12 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration of all the keys in this property list,
      * including distinct keys in the default property list if a key
      * of the same name has not already been found from the main
      * properties list.
+     * {@description.close}
      *
      * @return  an enumeration of all the keys in this property list, including
      *          the keys in the default property list.
@@ -990,6 +1026,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a set of keys in this property list where
      * the key and its corresponding value are strings,
      * including distinct keys in the default property list if a key
@@ -1000,6 +1037,7 @@ class Properties extends Hashtable<Object,Object> {
      * The returned set is not backed by the <tt>Properties</tt> object.
      * Changes to this <tt>Properties</tt> are not reflected in the set,
      * or vice versa.
+     * {@description.close}
      *
      * @return  a set of keys in this property list where
      *          the key and its corresponding value are strings,
@@ -1014,8 +1052,10 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Prints this property list out to the specified output stream.
      * This method is useful for debugging.
+     * {@description.close}
      *
      * @param   out   an output stream.
      * @throws  ClassCastException if any key in this property list
@@ -1036,8 +1076,10 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Prints this property list out to the specified output stream.
      * This method is useful for debugging.
+     * {@description.close}
      *
      * @param   out   an output stream.
      * @throws  ClassCastException if any key in this property list
@@ -1064,7 +1106,9 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enumerates all key/value pairs in the specified hashtable.
+     * {@description.close}
      * @param h the hashtable
      * @throws ClassCastException if any of the property keys
      *         is not of String type.
@@ -1080,8 +1124,10 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enumerates all key/value pairs in the specified hashtable
      * and omits the property if the key or value is not a string.
+     * {@description.close}
      * @param h the hashtable
      */
     private synchronized void enumerateStringProperties(Hashtable<String, String> h) {
@@ -1098,7 +1144,9 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Convert a nibble to a hex character
+     * {@description.close}
      * @param   nibble  the nibble to convert.
      */
     private static char toHex(int nibble) {
@@ -1106,6 +1154,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}  A table of hex digits */
+     * {@description.open}
     private static final char[] hexDigit = {
         '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'
     };

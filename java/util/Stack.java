@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <code>Stack</code> class represents a last-in-first-out
  * (LIFO) stack of objects. It extends class <tt>Vector</tt> with five
  * operations that allow a vector to be treated as a stack. The usual
@@ -41,6 +42,7 @@ package java.util;
  * should be used in preference to this class.  For example:
  * <pre>   {@code
  *   Deque<Integer> stack = new ArrayDeque<Integer>();}</pre>
+ * {@description.close}
  *
  * @author  Jonathan Payne
  * @since   JDK1.0
@@ -48,16 +50,20 @@ package java.util;
 public
 class Stack<E> extends Vector<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty Stack.
+     * {@description.close}
      */
     public Stack() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Pushes an item onto the top of this stack. This has exactly
      * the same effect as:
      * <blockquote><pre>
      * addElement(item)</pre></blockquote>
+     * {@description.close}
      *
      * @param   item   the item to be pushed onto this stack.
      * @return  the <code>item</code> argument.
@@ -70,8 +76,10 @@ class Stack<E> extends Vector<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the object at the top of this stack and returns that
      * object as the value of this function.
+     * {@description.close}
      *
      * @return     The object at the top of this stack (the last item
      *             of the <tt>Vector</tt> object).
@@ -88,8 +96,10 @@ class Stack<E> extends Vector<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Looks at the object at the top of this stack without removing it
      * from the stack.
+     * {@description.close}
      *
      * @return     the object at the top of this stack (the last item
      *             of the <tt>Vector</tt> object).
@@ -104,7 +114,9 @@ class Stack<E> extends Vector<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if this stack is empty.
+     * {@description.close}
      *
      * @return  <code>true</code> if and only if this stack contains
      *          no items; <code>false</code> otherwise.
@@ -114,6 +126,7 @@ class Stack<E> extends Vector<E> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the 1-based position where an object is on this stack.
      * If the object <tt>o</tt> occurs as an item in this stack, this
      * method returns the distance from the top of the stack of the
@@ -121,6 +134,7 @@ class Stack<E> extends Vector<E> {
      * stack is considered to be at distance <tt>1</tt>. The <tt>equals</tt>
      * method is used to compare <tt>o</tt> to the
      * items in this stack.
+     * {@description.close}
      *
      * @param   o   the desired object.
      * @return  the 1-based position from the top of the stack where
@@ -136,6 +150,10 @@ class Stack<E> extends Vector<E> {
         return -1;
     }
 
-    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}
+     * {@description.open}
+     * use serialVersionUID from JDK 1.0.2 for interoperability
+     * {@description.close}
+     */
     private static final long serialVersionUID = 1224463164541339165L;
 }

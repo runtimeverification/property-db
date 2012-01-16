@@ -26,6 +26,7 @@
 package java.util.zip;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class provides support for general purpose compression using the
  * popular ZLIB compression library. The ZLIB compression library was
  * initially developed as part of the PNG graphics standard and is not
@@ -65,6 +66,7 @@ package java.util.zip;
  *     // handle
  * }
  * </pre></blockquote>
+ * {@description.close}
  *
  * @see         Inflater
  * @author      David Connelly
@@ -80,45 +82,61 @@ class Deflater {
     private boolean finish, finished;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression method for the deflate algorithm (the only one currently
      * supported).
+     * {@description.close}
      */
     public static final int DEFLATED = 8;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression level for no compression.
+     * {@description.close}
      */
     public static final int NO_COMPRESSION = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression level for fastest compression.
+     * {@description.close}
      */
     public static final int BEST_SPEED = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression level for best compression.
+     * {@description.close}
      */
     public static final int BEST_COMPRESSION = 9;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Default compression level.
+     * {@description.close}
      */
     public static final int DEFAULT_COMPRESSION = -1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression strategy best used for data consisting mostly of small
      * values with a somewhat random distribution. Forces more Huffman coding
      * and less string matching.
+     * {@description.close}
      */
     public static final int FILTERED = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression strategy for Huffman coding only.
+     * {@description.close}
      */
     public static final int HUFFMAN_ONLY = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Default compression strategy.
+     * {@description.close}
      */
     public static final int DEFAULT_STRATEGY = 0;
 
@@ -128,10 +146,12 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new compressor using the specified compression level.
      * If 'nowrap' is true then the ZLIB header and checksum fields will
      * not be used in order to support the compression format used in
      * both GZIP and PKZIP.
+     * {@description.close}
      * @param level the compression level (0-9)
      * @param nowrap if true then use GZIP compatible compression
      */
@@ -142,8 +162,10 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new compressor using the specified compression level.
      * Compressed data will be generated in ZLIB format.
+     * {@description.close}
      * @param level the compression level (0-9)
      */
     public Deflater(int level) {
@@ -151,16 +173,23 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new compressor with the default compression level.
      * Compressed data will be generated in ZLIB format.
+     * {@description.close}
      */
     public Deflater() {
         this(DEFAULT_COMPRESSION, false);
     }
 
     /** {@collect.stats} 
-     * Sets input data for compression. This should be called whenever
+     * {@description.open}
+     * Sets input data for compression.
+     * {@description.close}
+     * {@property.open}
+     * This should be called whenever
      * needsInput() returns true indicating that more input data is required.
+     * {@property.close}
      * @param b the input data bytes
      * @param off the start offset of the data
      * @param len the length of the data
@@ -181,8 +210,13 @@ class Deflater {
     }
 
     /** {@collect.stats} 
-     * Sets input data for compression. This should be called whenever
+     * {@description.open}
+     * Sets input data for compression.
+     * {@description.close}
+     * {@property.open}
+     * This should be called whenever
      * needsInput() returns true indicating that more input data is required.
+     * {@property.close}
      * @param b the input data bytes
      * @see Deflater#needsInput
      */
@@ -191,11 +225,13 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets preset dictionary for compression. A preset dictionary is used
      * when the history buffer can be predetermined. When the data is later
      * uncompressed with Inflater.inflate(), Inflater.getAdler() can be called
      * in order to get the Adler-32 value of the dictionary required for
      * decompression.
+     * {@description.close}
      * @param b the dictionary data bytes
      * @param off the start offset of the data
      * @param len the length of the data
@@ -216,11 +252,13 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets preset dictionary for compression. A preset dictionary is used
      * when the history buffer can be predetermined. When the data is later
      * uncompressed with Inflater.inflate(), Inflater.getAdler() can be called
      * in order to get the Adler-32 value of the dictionary required for
      * decompression.
+     * {@description.close}
      * @param b the dictionary data bytes
      * @see Inflater#inflate
      * @see Inflater#getAdler
@@ -230,7 +268,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the compression strategy to the specified value.
+     * {@description.close}
      * @param strategy the new compression strategy
      * @exception IllegalArgumentException if the compression strategy is
      *                                     invalid
@@ -253,7 +293,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the current compression level to the specified value.
+     * {@description.close}
      * @param level the new compression level (0-9)
      * @exception IllegalArgumentException if the compression level is invalid
      */
@@ -270,8 +312,10 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the input data buffer is empty and setInput()
      * should be called in order to provide more input.
+     * {@description.close}
      * @return true if the input data buffer is empty and setInput()
      * should be called in order to provide more input
      */
@@ -280,8 +324,10 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * When called, indicates that compression should end with the current
      * contents of the input buffer.
+     * {@description.close}
      */
     public void finish() {
         synchronized (zsRef) {
@@ -290,8 +336,10 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the end of the compressed data output stream has
      * been reached.
+     * {@description.close}
      * @return true if the end of the compressed data output stream has
      * been reached
      */
@@ -302,10 +350,15 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fills specified buffer with compressed data. Returns actual number
-     * of bytes of compressed data. A return value of 0 indicates that
+     * of bytes of compressed data.
+     * {@description.close}
+     * {@property.open}
+     * A return value of 0 indicates that
      * needsInput() should be called in order to determine if more input
      * data is required.
+     * {@property.close}
      * @param b the buffer for the compressed data
      * @param off the start offset of the data
      * @param len the maximum number of bytes of compressed data
@@ -324,10 +377,15 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fills specified buffer with compressed data. Returns actual number
-     * of bytes of compressed data. A return value of 0 indicates that
+     * of bytes of compressed data.
+     * {@description.close}
+     * {@property.open}
+     * A return value of 0 indicates that
      * needsInput() should be called in order to determine if more input
      * data is required.
+     * {@property.close}
      * @param b the buffer for the compressed data
      * @return the actual number of bytes of compressed data
      */
@@ -336,7 +394,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the ADLER-32 value of the uncompressed data.
+     * {@description.close}
      * @return the ADLER-32 value of the uncompressed data
      */
     public int getAdler() {
@@ -347,11 +407,13 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the total number of uncompressed bytes input so far.
      *
      * <p>Since the number of bytes may be greater than
      * Integer.MAX_VALUE, the {@link #getBytesRead()} method is now
      * the preferred means of obtaining this information.</p>
+     * {@description.close}
      *
      * @return the total number of uncompressed bytes input so far
      */
@@ -360,7 +422,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the total number of uncompressed bytes input so far.</p>
+     * {@description.close}
      *
      * @return the total (non-negative) number of uncompressed bytes input so far
      * @since 1.5
@@ -373,11 +437,13 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the total number of compressed bytes output so far.
      *
      * <p>Since the number of bytes may be greater than
      * Integer.MAX_VALUE, the {@link #getBytesWritten()} method is now
      * the preferred means of obtaining this information.</p>
+     * {@description.close}
      *
      * @return the total number of compressed bytes output so far
      */
@@ -386,7 +452,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the total number of compressed bytes output so far.</p>
+     * {@description.close}
      *
      * @return the total (non-negative) number of compressed bytes output so far
      * @since 1.5
@@ -399,8 +467,12 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resets deflater so that a new set of input data can be processed.
      * Keeps current compression level and strategy settings.
+     * {@description.close}
+     * {@property.open}
+     * {@property.close}
      */
     public void reset() {
         synchronized (zsRef) {
@@ -413,11 +485,15 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the compressor and discards any unprocessed input.
+     * {@description.close}
+     * {@property.open}
      * This method should be called when the compressor is no longer
      * being used, but will also be called automatically by the
      * finalize() method. Once this method is called, the behavior
      * of the Deflater object is undefined.
+     * {@property.close}
      */
     public void end() {
         synchronized (zsRef) {
@@ -431,7 +507,9 @@ class Deflater {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the compressor when garbage is collected.
+     * {@description.close}
      */
     protected void finalize() {
         end();

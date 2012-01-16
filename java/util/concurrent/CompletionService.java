@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A service that decouples the production of new asynchronous tasks
  * from the consumption of the results of completed tasks.  Producers
  * <tt>submit</tt> tasks for execution. Consumers <tt>take</tt>
@@ -58,12 +59,15 @@ package java.util.concurrent;
  * actions taken by that task, which in turn <i>happen-before</i>
  * actions following a successful return from the corresponding {@code take()}.
  *
+ * {@description.close}
  */
 public interface CompletionService<V> {
     /** {@collect.stats} 
+     * {@description.open}
      * Submits a value-returning task for execution and returns a Future
      * representing the pending results of the task.  Upon completion,
      * this task may be taken or polled.
+     * {@description.close}
      *
      * @param task the task to submit
      * @return a Future representing pending completion of the task
@@ -74,9 +78,11 @@ public interface CompletionService<V> {
     Future<V> submit(Callable<V> task);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Submits a Runnable task for execution and returns a Future
      * representing that task.  Upon completion, this task may be
      * taken or polled.
+     * {@description.close}
      *
      * @param task the task to submit
      * @param result the result to return upon successful completion
@@ -90,8 +96,10 @@ public interface CompletionService<V> {
     Future<V> submit(Runnable task, V result);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the Future representing the next
      * completed task, waiting if none are yet present.
+     * {@description.close}
      *
      * @return the Future representing the next completed task
      * @throws InterruptedException if interrupted while waiting
@@ -100,8 +108,10 @@ public interface CompletionService<V> {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the Future representing the next
      * completed task or <tt>null</tt> if none are present.
+     * {@description.close}
      *
      * @return the Future representing the next completed task, or
      *         <tt>null</tt> if none are present
@@ -109,9 +119,11 @@ public interface CompletionService<V> {
     Future<V> poll();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the Future representing the next
      * completed task, waiting if necessary up to the specified wait
      * time if none are yet present.
+     * {@description.close}
      *
      * @param timeout how long to wait before giving up, in units of
      *        <tt>unit</tt>

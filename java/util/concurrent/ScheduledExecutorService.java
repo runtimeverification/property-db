@@ -38,6 +38,7 @@ import java.util.concurrent.atomic.*;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An {@link ExecutorService} that can schedule commands to run after a given
  * delay, or to execute periodically.
  *
@@ -90,6 +91,7 @@ import java.util.*;
  *    }
  * }
  * </pre>
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -97,8 +99,10 @@ import java.util.*;
 public interface ScheduledExecutorService extends ExecutorService {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a one-shot action that becomes enabled
      * after the given delay.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param delay the time from now to delay execution
@@ -114,8 +118,10 @@ public interface ScheduledExecutorService extends ExecutorService {
                                        long delay, TimeUnit unit);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a ScheduledFuture that becomes enabled after the
      * given delay.
+     * {@description.close}
      *
      * @param callable the function to execute
      * @param delay the time from now to delay execution
@@ -129,6 +135,7 @@ public interface ScheduledExecutorService extends ExecutorService {
                                            long delay, TimeUnit unit);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the given
      * period; that is executions will commence after
@@ -140,6 +147,7 @@ public interface ScheduledExecutorService extends ExecutorService {
      * termination of the executor.  If any execution of this task
      * takes longer than its period, then subsequent executions
      * may start late, but will not concurrently execute.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param initialDelay the time to delay first execution
@@ -159,6 +167,7 @@ public interface ScheduledExecutorService extends ExecutorService {
                                                   TimeUnit unit);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the
      * given delay between the termination of one execution and the
@@ -166,6 +175,7 @@ public interface ScheduledExecutorService extends ExecutorService {
      * encounters an exception, subsequent executions are suppressed.
      * Otherwise, the task will only terminate via cancellation or
      * termination of the executor.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param initialDelay the time to delay first execution

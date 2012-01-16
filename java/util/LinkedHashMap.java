@@ -27,6 +27,7 @@ package java.util;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <p>Hash table and linked list implementation of the <tt>Map</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashMap</tt> in that it maintains a doubly-linked list running through
@@ -89,7 +90,9 @@ import java.io.*;
  * excessively high value for initial capacity is less severe for this class
  * than for <tt>HashMap</tt>, as iteration times for this class are unaffected
  * by capacity.
+ * {@description.close}
  *
+ * {@property.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a linked hash map concurrently, and at least
  * one of the threads modifies the map structurally, it <em>must</em> be
@@ -109,7 +112,9 @@ import java.io.*;
  * a structural modification.  <strong>In access-ordered linked hash maps,
  * merely querying the map with <tt>get</tt> is a structural
  * modification.</strong>)
+ * {@property.close}
  *
+ * {@property.open fail-fast}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's collection view methods are
  * <em>fail-fast</em>: if the map is structurally modified at any time after
@@ -126,10 +131,13 @@ import java.io.*;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:   <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
@@ -152,21 +160,27 @@ public class LinkedHashMap<K,V>
     private static final long serialVersionUID = 3801124242820219131L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The head of the doubly linked list.
+     * {@description.close}
      */
     private transient Entry<K,V> header;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The iteration ordering method for this linked hash map: <tt>true</tt>
      * for access-order, <tt>false</tt> for insertion-order.
+     * {@description.close}
      *
      * @serial
      */
     private final boolean accessOrder;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the specified initial capacity and load factor.
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity
      * @param  loadFactor      the load factor
@@ -179,8 +193,10 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the specified initial capacity and a default load factor (0.75).
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity
      * @throws IllegalArgumentException if the initial capacity is negative
@@ -191,8 +207,10 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
      * with the default initial capacity (16) and load factor (0.75).
+     * {@description.close}
      */
     public LinkedHashMap() {
         super();
@@ -200,10 +218,12 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with
      * the same mappings as the specified map.  The <tt>LinkedHashMap</tt>
      * instance is created with a default load factor (0.75) and an initial
      * capacity sufficient to hold the mappings in the specified map.
+     * {@description.close}
      *
      * @param  m the map whose mappings are to be placed in this map
      * @throws NullPointerException if the specified map is null
@@ -214,8 +234,10 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty <tt>LinkedHashMap</tt> instance with the
      * specified initial capacity, load factor and ordering mode.
+     * {@description.close}
      *
      * @param  initialCapacity the initial capacity
      * @param  loadFactor      the load factor
@@ -232,9 +254,11 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Called by superclass constructors and pseudoconstructors (clone,
      * readObject) before any entries are inserted into the map.  Initializes
      * the chain.
+     * {@description.close}
      */
     void init() {
         header = new Entry<K,V>(-1, null, null, null);
@@ -242,9 +266,11 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Transfers all entries to new table array.  This method is called
      * by superclass resize.  It is overridden for performance, as it is
      * faster to iterate using our linked list.
+     * {@description.close}
      */
     void transfer(HashMap.Entry[] newTable) {
         int newCapacity = newTable.length;
@@ -257,8 +283,10 @@ public class LinkedHashMap<K,V>
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
+     * {@description.close}
      *
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the
@@ -279,6 +307,7 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -292,6 +321,7 @@ public class LinkedHashMap<K,V>
      * possible that the map explicitly maps the key to {@code null}.
      * The {@link #containsKey containsKey} operation may be used to
      * distinguish these two cases.
+     * {@description.close}
      */
     public V get(Object key) {
         Entry<K,V> e = (Entry<K,V>)getEntry(key);
@@ -302,8 +332,10 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         super.clear();
@@ -311,7 +343,9 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * LinkedHashMap entry.
+     * {@description.close}
      */
     private static class Entry<K,V> extends HashMap.Entry<K,V> {
         // These fields comprise the doubly linked list used for iteration.
@@ -322,7 +356,9 @@ public class LinkedHashMap<K,V>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Removes this entry from the linked list.
+         * {@description.close}
          */
         private void remove() {
             before.after = after;
@@ -330,7 +366,9 @@ public class LinkedHashMap<K,V>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Inserts this entry before the specified existing entry in the list.
+         * {@description.close}
          */
         private void addBefore(Entry<K,V> existingEntry) {
             after  = existingEntry;
@@ -340,10 +378,12 @@ public class LinkedHashMap<K,V>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * This method is invoked by the superclass whenever the value
          * of a pre-existing entry is read by Map.get or modified by Map.set.
          * If the enclosing Map is access-ordered, it moves the entry
          * to the end of the list; otherwise, it does nothing.
+         * {@description.close}
          */
         void recordAccess(HashMap<K,V> m) {
             LinkedHashMap<K,V> lm = (LinkedHashMap<K,V>)m;
@@ -364,9 +404,11 @@ public class LinkedHashMap<K,V>
         Entry<K,V> lastReturned = null;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The modCount value that the iterator believes that the backing
          * List should have.  If this expectation is violated, the iterator
          * has detected concurrent modification.
+         * {@description.close}
          */
         int expectedModCount = modCount;
 
@@ -415,9 +457,11 @@ public class LinkedHashMap<K,V>
     Iterator<Map.Entry<K,V>> newEntryIterator() { return new EntryIterator(); }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This override alters behavior of superclass put method. It causes newly
      * allocated entry to get inserted at the end of the linked list and
      * removes the eldest entry if appropriate.
+     * {@description.close}
      */
     void addEntry(int hash, K key, V value, int bucketIndex) {
         createEntry(hash, key, value, bucketIndex);
@@ -433,8 +477,10 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This override differs from addEntry in that it doesn't resize the
      * table or remove the eldest entry.
+     * {@description.close}
      */
     void createEntry(int hash, K key, V value, int bucketIndex) {
         HashMap.Entry<K,V> old = table[bucketIndex];
@@ -445,6 +491,7 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this map should remove its eldest entry.
      * This method is invoked by <tt>put</tt> and <tt>putAll</tt> after
      * inserting a new entry into the map.  It provides the implementor
@@ -473,6 +520,7 @@ public class LinkedHashMap<K,V>
      *
      * <p>This implementation merely returns <tt>false</tt> (so that this
      * map acts like a normal map - the eldest element is never removed).
+     * {@description.close}
      *
      * @param    eldest The least recently inserted entry in the map, or if
      *           this is an access-ordered map, the least recently accessed

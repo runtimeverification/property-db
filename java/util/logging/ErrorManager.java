@@ -27,6 +27,7 @@
 package java.util.logging;
 
 /** {@collect.stats} 
+ * {@description.open}
  * ErrorManager objects can be attached to Handlers to process
  * any error that occur on a Handler during Logging.
  * <p>
@@ -34,6 +35,7 @@ package java.util.logging;
  * then rather than throwing an Exception back to the issuer of
  * the logging call (who is unlikely to be interested) the Handler
  * should call its associated ErrorManager.
+ * {@description.close}
  */
 
 public class ErrorManager {
@@ -44,37 +46,51 @@ public class ErrorManager {
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * GENERIC_FAILURE is used for failure that don't fit
      * into one of the other categories.
+     * {@description.close}
      */
     public final static int GENERIC_FAILURE = 0;
     /** {@collect.stats} 
+     * {@description.open}
      * WRITE_FAILURE is used when a write to an output stream fails.
+     * {@description.close}
      */
     public final static int WRITE_FAILURE = 1;
     /** {@collect.stats} 
+     * {@description.open}
      * FLUSH_FAILURE is used when a flush to an output stream fails.
+     * {@description.close}
      */
     public final static int FLUSH_FAILURE = 2;
     /** {@collect.stats} 
+     * {@description.open}
      * CLOSE_FAILURE is used when a close of an output stream fails.
+     * {@description.close}
      */
     public final static int CLOSE_FAILURE = 3;
     /** {@collect.stats} 
+     * {@description.open}
      * OPEN_FAILURE is used when an open of an output stream fails.
+     * {@description.close}
      */
     public final static int OPEN_FAILURE = 4;
     /** {@collect.stats} 
+     * {@description.open}
      * FORMAT_FAILURE is used when formatting fails for any reason.
+     * {@description.close}
      */
     public final static int FORMAT_FAILURE = 5;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The error method is called when a Handler failure occurs.
      * <p>
      * This method may be overriden in subclasses.  The default
      * behavior in this base class is that the first call is
      * reported to System.err, and subsequent calls are ignored.
+     * {@description.close}
      *
      * @param msg    a descriptive string (may be null)
      * @param ex     an exception (may be null)

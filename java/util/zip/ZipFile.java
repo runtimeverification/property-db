@@ -34,11 +34,13 @@ import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class is used to read entries from a zip file.
  *
  * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
  * or method in this class will cause a {@link NullPointerException} to be
  * thrown.
+ * {@description.close}
  *
  * @author      David Connelly
  */
@@ -53,16 +55,20 @@ class ZipFile implements ZipConstants {
     private static final int DEFLATED = ZipEntry.DEFLATED;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Mode flag to open a zip file for reading.
+     * {@description.close}
      */
     public static final int OPEN_READ = 0x1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Mode flag to open a zip file and mark it for deletion.  The file will be
      * deleted some time between the moment that it is opened and the moment
      * that it is closed, but its contents will remain accessible via the
      * <tt>ZipFile</tt> object until either the close method is invoked or the
      * virtual machine exits.
+     * {@description.close}
      */
     public static final int OPEN_DELETE = 0x4;
 
@@ -74,12 +80,14 @@ class ZipFile implements ZipConstants {
     private static native void initIDs();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Opens a zip file for reading.
      *
      * <p>First, if there is a security
      * manager, its <code>checkRead</code> method
      * is called with the <code>name</code> argument
      * as its argument to ensure the read is allowed.
+     * {@description.close}
      *
      * @param name the name of the zip file
      * @throws ZipException if a ZIP format error has occurred
@@ -93,6 +101,7 @@ class ZipFile implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Opens a new <code>ZipFile</code> to read from the specified
      * <code>File</code> object in the specified mode.  The mode argument
      * must be either <tt>OPEN_READ</tt> or <tt>OPEN_READ | OPEN_DELETE</tt>.
@@ -100,6 +109,7 @@ class ZipFile implements ZipConstants {
      * <p>First, if there is a security manager, its <code>checkRead</code>
      * method is called with the <code>name</code> argument as its argument to
      * ensure the read is allowed.
+     * {@description.close}
      *
      * @param file the ZIP file to be opened for reading
      * @param mode the mode in which the file is to be opened
@@ -139,7 +149,9 @@ class ZipFile implements ZipConstants {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Opens a ZIP file for reading given the specified File object.
+     * {@description.close}
      * @param file the ZIP file to be opened for reading
      * @throws ZipException if a ZIP error has occurred
      * @throws IOException if an I/O error has occurred
@@ -149,8 +161,10 @@ class ZipFile implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the zip file entry for the specified name, or null
      * if not found.
+     * {@description.close}
      *
      * @param name the name of the entry
      * @return the zip file entry, or null if not found
@@ -180,11 +194,15 @@ class ZipFile implements ZipConstants {
     private static native void freeEntry(long jzfile, long jzentry);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an input stream for reading the contents of the specified
      * zip file entry.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> Closing this ZIP file will, in turn, close all input
      * streams that have been returned by invocations of this method.
+     * {@property.close}
      *
      * @param entry the zip file entry
      * @return the input stream for reading the contents of the specified
@@ -198,8 +216,16 @@ class ZipFile implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an input stream for reading the contents of the specified
      * entry, or null if the entry was not found.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open}
+     * <p> Closing this ZIP file will, in turn, close all input
+     * streams that have been returned by invocations of this method.
+     * {@new.close}
+     * {@property.close}
      */
     private InputStream getInputStream(String name) throws IOException {
         if (name == null) {
@@ -299,7 +325,9 @@ class ZipFile implements ZipConstants {
     private Vector inflaters = new Vector();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the path name of the ZIP file.
+     * {@description.close}
      * @return the path name of the ZIP file
      */
     public String getName() {
@@ -307,7 +335,9 @@ class ZipFile implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration of the ZIP file entries.
+     * {@description.close}
      * @return an enumeration of the ZIP file entries
      * @throws IllegalStateException if the zip file has been closed
      */
@@ -354,7 +384,9 @@ class ZipFile implements ZipConstants {
     private static native long getNextEntry(long jzfile, int i);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of entries in the ZIP file.
+     * {@description.close}
      * @return the number of entries in the ZIP file
      * @throws IllegalStateException if the zip file has been closed
      */
@@ -364,10 +396,12 @@ class ZipFile implements ZipConstants {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the ZIP file.
      * <p> Closing this ZIP file will close all of the input streams
      * previously returned by invocations of the {@link #getInputStream
      * getInputStream} method.
+     * {@description.close}
      *
      * @throws IOException if an I/O error has occurred
      */
@@ -396,6 +430,7 @@ class ZipFile implements ZipConstants {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Ensures that the <code>close</code> method of this ZIP file is
      * called when there are no more references to it.
      *
@@ -405,6 +440,7 @@ class ZipFile implements ZipConstants {
      * method as soon they have finished accessing this <code>ZipFile</code>.
      * This will prevent holding up system resources for an undetermined
      * length of time.
+     * {@description.close}
      *
      * @throws IOException if an I/O error has occurred
      * @see    java.util.zip.ZipFile#close()

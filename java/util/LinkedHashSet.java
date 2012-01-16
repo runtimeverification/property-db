@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <p>Hash table and linked list implementation of the <tt>Set</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashSet</tt> in that it maintains a doubly-linked list running through
@@ -102,6 +103,7 @@ package java.util;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @param <E> the type of elements maintained by this set
  *
@@ -122,8 +124,10 @@ public class LinkedHashSet<E>
     private static final long serialVersionUID = -2851667679971038690L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and load factor.
+     * {@description.close}
      *
      * @param      initialCapacity the initial capacity of the linked hash set
      * @param      loadFactor      the load factor of the linked hash set
@@ -135,8 +139,10 @@ public class LinkedHashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and the default load factor (0.75).
+     * {@description.close}
      *
      * @param   initialCapacity   the initial capacity of the LinkedHashSet
      * @throws  IllegalArgumentException if the initial capacity is less
@@ -147,18 +153,22 @@ public class LinkedHashSet<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty linked hash set with the default initial
      * capacity (16) and load factor (0.75).
+     * {@description.close}
      */
     public LinkedHashSet() {
         super(16, .75f, true);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new linked hash set with the same elements as the
      * specified collection.  The linked hash set is created with an initial
      * capacity sufficient to hold the elements in the specified collection
      * and the default load factor (0.75).
+     * {@description.close}
      *
      * @param c  the collection whose elements are to be placed into
      *           this set

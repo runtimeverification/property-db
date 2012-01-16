@@ -28,6 +28,7 @@ package java.util.spi;
 import java.util.Locale;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An abstract class for service providers that
  * provide localized time zone names for the
  * {@link java.util.TimeZone TimeZone} class.
@@ -35,19 +36,23 @@ import java.util.Locale;
  * this class are also the source for the
  * {@link java.text.DateFormatSymbols#getZoneStrings()
  * DateFormatSymbols.getZoneStrings()} method.
+ * {@description.close}
  *
  * @since        1.6
  */
 public abstract class TimeZoneNameProvider extends LocaleServiceProvider {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
+     * {@description.close}
      */
     protected TimeZoneNameProvider() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the given time zone ID that's suitable for
      * presentation to the user in the specified locale. The given time
      * zone ID is "GMT" or one of the names defined using "Zone" entries
@@ -60,6 +65,7 @@ public abstract class TimeZoneNameProvider extends LocaleServiceProvider {
      * If <code>daylight</code> is true, the method should return a name
      * appropriate for daylight saving time even if the specified time zone
      * has not observed daylight saving time in the past.
+     * {@description.close}
      *
      * @param ID a time zone ID string
      * @param daylight if true, return the daylight saving name.

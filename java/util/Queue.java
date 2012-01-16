@@ -36,6 +36,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A collection designed for holding elements prior to processing.
  * Besides basic {@link java.util.Collection Collection} operations,
  * queues provide additional insertion, extraction, and inspection
@@ -128,6 +129,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @see java.util.Collection
  * @see LinkedList
@@ -143,10 +145,12 @@ package java.util;
  */
 public interface Queue<E> extends Collection<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue if it is possible to do so
      * immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
      * if no space is currently available.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -162,11 +166,13 @@ public interface Queue<E> extends Collection<E> {
     boolean add(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions.
      * When using a capacity-restricted queue, this method is generally
      * preferable to {@link #add}, which can fail to insert an element only
      * by throwing an exception.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> if the element was added to this queue, else
@@ -181,9 +187,11 @@ public interface Queue<E> extends Collection<E> {
     boolean offer(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the head of this queue.  This method differs
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
@@ -191,17 +199,21 @@ public interface Queue<E> extends Collection<E> {
     E remove();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the head of this queue,
      * or returns <tt>null</tt> if this queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue, or <tt>null</tt> if this queue is empty
      */
     E poll();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves, but does not remove, the head of this queue.  This method
      * differs from {@link #peek peek} only in that it throws an exception
      * if this queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
@@ -209,8 +221,10 @@ public interface Queue<E> extends Collection<E> {
     E element();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves, but does not remove, the head of this queue,
      * or returns <tt>null</tt> if this queue is empty.
+     * {@description.close}
      *
      * @return the head of this queue, or <tt>null</tt> if this queue is empty
      */

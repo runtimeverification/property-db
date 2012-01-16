@@ -28,6 +28,7 @@ package java.util;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The <tt>Formattable</tt> interface must be implemented by any class that
  * needs to perform custom formatting using the <tt>'s'</tt> conversion
  * specifier of {@link java.util.Formatter}.  This interface allows basic
@@ -113,13 +114,16 @@ import java.io.IOException;
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to
  * any method in this interface will cause a {@link
  * NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @since  1.5
  */
 public interface Formattable {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Formats the object using the provided {@link Formatter formatter}.
+     * {@description.close}
      *
      * @param  formatter
      *         The {@link Formatter formatter}.  Implementing classes may call

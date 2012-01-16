@@ -26,11 +26,13 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when an unknown conversion is given.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to
  * any method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @since 1.5
  */
@@ -41,7 +43,9 @@ public class UnknownFormatConversionException extends IllegalFormatException {
     private String s;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance of this class with the unknown conversion.
+     * {@description.close}
      *
      * @param  s
      *         Unknown conversion
@@ -53,7 +57,9 @@ public class UnknownFormatConversionException extends IllegalFormatException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the unknown conversion.
+     * {@description.close}
      *
      * @return  The unknown conversion.
      */

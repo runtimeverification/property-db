@@ -36,12 +36,14 @@
 package java.util.concurrent.atomic;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An {@code AtomicMarkableReference} maintains an object reference
  * along with a mark bit, that can be updated atomically.
  * <p>
  * <p> Implementation note. This implementation maintains markable
  * references by creating internal objects representing "boxed"
  * [reference, boolean] pairs.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -60,8 +62,10 @@ public class AtomicMarkableReference<V>  {
     private final AtomicReference<ReferenceBooleanPair<V>>  atomicRef;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new {@code AtomicMarkableReference} with the given
      * initial values.
+     * {@description.close}
      *
      * @param initialRef the initial reference
      * @param initialMark the initial mark
@@ -71,7 +75,9 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current value of the reference.
+     * {@description.close}
      *
      * @return the current value of the reference
      */
@@ -80,7 +86,9 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current value of the mark.
+     * {@description.close}
      *
      * @return the current value of the mark
      */
@@ -89,8 +97,10 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current values of both the reference and the mark.
      * Typical usage is {@code boolean[1] holder; ref = v.get(holder); }.
+     * {@description.close}
      *
      * @param markHolder an array of size of at least one. On return,
      * {@code markholder[0]} will hold the value of the mark.
@@ -103,6 +113,7 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of both the reference and mark
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -111,6 +122,7 @@ public class AtomicMarkableReference<V>  {
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newReference the new value for the reference
@@ -132,10 +144,12 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of both the reference and mark
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
      * and the current mark is equal to the expected mark.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newReference the new value for the reference
@@ -157,7 +171,9 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Unconditionally sets the value of both the reference and mark.
+     * {@description.close}
      *
      * @param newReference the new value for the reference
      * @param newMark the new value for the mark
@@ -169,6 +185,7 @@ public class AtomicMarkableReference<V>  {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value of the mark to the given update value
      * if the current reference is {@code ==} to the expected
      * reference.  Any given invocation of this operation may fail
@@ -176,6 +193,7 @@ public class AtomicMarkableReference<V>  {
      * when the current value holds the expected value and no other
      * thread is also attempting to set the value will eventually
      * succeed.
+     * {@description.close}
      *
      * @param expectedReference the expected value of the reference
      * @param newMark the new value for the mark

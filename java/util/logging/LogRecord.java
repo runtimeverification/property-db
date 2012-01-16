@@ -28,6 +28,7 @@ import java.util.*;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * LogRecord objects are used to pass logging requests between
  * the logging framework and individual log Handlers.
  * <p>
@@ -59,6 +60,7 @@ import java.io.*;
  * readObject method will attempt to locate a suitable resource bundle.
  *
  * </ul>
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -123,6 +125,7 @@ public class LogRecord implements java.io.Serializable {
     private transient ResourceBundle resourceBundle;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a LogRecord with the given level and message values.
      * <p>
      * The sequence property will be initialized with a new unique value.
@@ -134,6 +137,7 @@ public class LogRecord implements java.io.Serializable {
      * the current thread.
      * <p>
      * All other properties will be initialized to "null".
+     * {@description.close}
      *
      * @param level  a logging level value
      * @param msg  the raw non-localized logging message (may be null)
@@ -158,7 +162,9 @@ public class LogRecord implements java.io.Serializable {
    }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the source Logger name's
+     * {@description.close}
      *
      * @return source logger name (may be null)
      */
@@ -167,7 +173,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the source Logger name.
+     * {@description.close}
      *
      * @param name   the source logger name (may be null)
      */
@@ -176,19 +184,23 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the localization resource bundle
      * <p>
      * This is the ResourceBundle that should be used to localize
      * the message string before formatting it.  The result may
      * be null if the message is not localizable, or if no suitable
      * ResourceBundle is available.
+     * {@description.close}
      */
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the localization resource bundle.
+     * {@description.close}
      *
      * @param bundle  localization bundle (may be null)
      */
@@ -197,18 +209,22 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the localization resource bundle name
      * <p>
      * This is the name for the ResourceBundle that should be
      * used to localize the message string before formatting it.
      * The result may be null if the message is not localizable.
+     * {@description.close}
      */
     public String getResourceBundleName() {
         return resourceBundleName;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the localization resource bundle name.
+     * {@description.close}
      *
      * @param name  localization bundle name (may be null)
      */
@@ -217,7 +233,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the logging message level, for example Level.SEVERE.
+     * {@description.close}
      * @return the logging message level
      */
     public Level getLevel() {
@@ -225,7 +243,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the logging message level, for example Level.SEVERE.
+     * {@description.close}
      * @param level the logging message level
      */
     public void setLevel(Level level) {
@@ -236,11 +256,13 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the sequence number.
      * <p>
      * Sequence numbers are normally assigned in the LogRecord
      * constructor, which assigns unique sequence numbers to
      * each new LogRecord in increasing order.
+     * {@description.close}
      * @return the sequence number
      */
     public long getSequenceNumber() {
@@ -248,16 +270,19 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the sequence number.
      * <p>
      * Sequence numbers are normally assigned in the LogRecord constructor,
      * so it should not normally be necessary to use this method.
+     * {@description.close}
      */
     public void setSequenceNumber(long seq) {
         sequenceNumber = seq;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the  name of the class that (allegedly) issued the logging request.
      * <p>
      * Note that this sourceClassName is not verified and may be spoofed.
@@ -268,6 +293,7 @@ public class LogRecord implements java.io.Serializable {
      * stack frame.
      * <p>
      * May be null if no information could be obtained.
+     * {@description.close}
      *
      * @return the source class name
      */
@@ -279,7 +305,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the name of the class that (allegedly) issued the logging request.
+     * {@description.close}
      *
      * @param sourceClassName the source class name (may be null)
      */
@@ -289,6 +317,7 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the  name of the method that (allegedly) issued the logging request.
      * <p>
      * Note that this sourceMethodName is not verified and may be spoofed.
@@ -299,6 +328,7 @@ public class LogRecord implements java.io.Serializable {
      * stack frame.
      * <p>
      * May be null if no information could be obtained.
+     * {@description.close}
      *
      * @return the source method name
      */
@@ -310,7 +340,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the name of the method that (allegedly) issued the logging request.
+     * {@description.close}
      *
      * @param sourceMethodName the source method name (may be null)
      */
@@ -320,6 +352,7 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the "raw" log message, before localization or formatting.
      * <p>
      * May be null, which is equivalent to the empty string "".
@@ -330,6 +363,7 @@ public class LogRecord implements java.io.Serializable {
      * ResourceBundle and if that ResourceBundle has an entry for
      * this message string, then the message string is replaced
      * with the localized value.
+     * {@description.close}
      *
      * @return the raw message string
      */
@@ -338,7 +372,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the "raw" log message, before localization or formatting.
+     * {@description.close}
      *
      * @param message the raw message string (may be null)
      */
@@ -347,7 +383,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the parameters to the log message.
+     * {@description.close}
      *
      * @return the log message parameters.  May be null if
      *                  there are no parameters.
@@ -357,7 +395,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the parameters to the log message.
+     * {@description.close}
      *
      * @param parameters the log message parameters. (may be null)
      */
@@ -366,10 +406,12 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get an identifier for the thread where the message originated.
      * <p>
      * This is a thread identifier within the Java VM and may or
      * may not map to any operating system ID.
+     * {@description.close}
      *
      * @return thread ID
      */
@@ -378,7 +420,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set an identifier for the thread where the message originated.
+     * {@description.close}
      * @param threadID  the thread ID
      */
     public void setThreadID(int threadID) {
@@ -386,7 +430,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get event time in milliseconds since 1970.
+     * {@description.close}
      *
      * @return event time in millis since 1970
      */
@@ -395,7 +441,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set event time.
+     * {@description.close}
      *
      * @param millis event time in millis since 1970
      */
@@ -404,10 +452,12 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get any throwable associated with the log record.
      * <p>
      * If the event involved an exception, this will be the
      * exception object. Otherwise null.
+     * {@description.close}
      *
      * @return a throwable
      */
@@ -416,7 +466,9 @@ public class LogRecord implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a throwable associated with the log event.
+     * {@description.close}
      *
      * @param thrown  a throwable (may be null)
      */

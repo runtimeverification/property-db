@@ -34,6 +34,7 @@
  */
 
 /** {@collect.stats} 
+ * {@description.open}
  * Utility classes commonly useful in concurrent programming.  This
  * package includes a few small standardized extensible frameworks, as
  * well as some classes that provide useful functionality and are
@@ -266,6 +267,7 @@
  *   in other threads.
  *
  * </ul>
+ * {@description.close}
  *
  * @since 1.5
  */

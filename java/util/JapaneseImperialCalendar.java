@@ -38,6 +38,7 @@ import sun.util.calendar.ZoneInfo;
 import sun.util.resources.LocaleData;
 
 /** {@collect.stats} 
+ * {@description.open}
  * <code>JapaneseImperialCalendar</code> implements a Japanese
  * calendar system in which the imperial era-based year numbering is
  * supported from the Meiji era. The following are the eras supported
@@ -62,6 +63,7 @@ import sun.util.resources.LocaleData;
  * Imperial rescripts and government decrees don't specify how to deal
  * with time differences for applying the era transitions. This
  * calendar implementation assumes local time for all transitions.
+ * {@description.close}
  *
  * @author Masayoshi Okutsu
  * @since 1.6
@@ -77,27 +79,37 @@ class JapaneseImperialCalendar extends Calendar {
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ERA constant designating the era before Meiji.
+     * {@description.close}
      */
     public static final int BEFORE_MEIJI = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ERA constant designating the Meiji era.
+     * {@description.close}
      */
     public static final int MEIJI = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ERA constant designating the Taisho era.
+     * {@description.close}
      */
     public static final int TAISHO = 2;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ERA constant designating the Showa era.
+     * {@description.close}
      */
     public static final int SHOWA = 3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ERA constant designating the Heisei era.
+     * {@description.close}
      */
     public static final int HEISEI = 4;
 
@@ -269,27 +281,35 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * jdate always has a sun.util.calendar.LocalGregorianCalendar.Date instance to
      * avoid overhead of creating it for each calculation.
+     * {@description.close}
      */
     private transient LocalGregorianCalendar.Date jdate;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Temporary int[2] to get time zone offsets. zoneOffsets[0] gets
      * the GMT offset value and zoneOffsets[1] gets the daylight saving
      * value.
+     * {@description.close}
      */
     private transient int[] zoneOffsets;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Temporary storage for saving original fields[] values in
      * non-lenient mode.
+     * {@description.close}
      */
     private transient int[] originalFields;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>JapaneseImperialCalendar</code> based on the current time
      * in the given time zone with the given locale.
+     * {@description.close}
      *
      * @param zone the given time zone.
      * @param aLocale the given locale.
@@ -301,12 +321,14 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this <code>JapaneseImperialCalendar</code> to the specified
      * <code>Object</code>. The result is <code>true</code> if and
      * only if the argument is a <code>JapaneseImperialCalendar</code> object
      * that represents the same time value (millisecond offset from
      * the <a href="Calendar.html#Epoch">Epoch</a>) under the same
      * <code>Calendar</code> parameters.
+     * {@description.close}
      *
      * @param obj the object to compare with.
      * @return <code>true</code> if this object is equal to <code>obj</code>;
@@ -319,14 +341,17 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Generates the hash code for this
      * <code>JapaneseImperialCalendar</code> object.
+     * {@description.close}
      */
     public int hashCode() {
         return super.hashCode() ^ jdate.hashCode();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified (signed) amount of time to the given calendar field,
      * based on the calendar's rules.
      *
@@ -346,6 +371,7 @@ class JapaneseImperialCalendar extends Calendar {
      * <code>DAY_OF_MONTH</code>. No adjustment is made to smaller fields
      * that are not expected to be invariant. The calendar system
      * determines what fields are expected to be invariant.</p>
+     * {@description.close}
      *
      * @param field the calendar field.
      * @param amount the amount of date or time to be added to the field.
@@ -487,6 +513,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds a signed amount to the specified calendar field without changing larger fields.
      * A negative roll amount means to subtract from field without changing
      * larger fields. If the specified amount is 0, this method performs nothing.
@@ -495,6 +522,7 @@ class JapaneseImperialCalendar extends Calendar {
      * amount so that all the calendar fields are normalized. If there
      * is any calendar field having an out-of-range value in non-lenient mode, then an
      * <code>IllegalArgumentException</code> is thrown.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @param amount the signed amount to add to <code>field</code>.
@@ -1057,6 +1085,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum value for the given calendar field of this
      * <code>Calendar</code> instance. The minimum value is
      * defined as the smallest value returned by the {@link
@@ -1065,6 +1094,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the minimum value for the given calendar field.
@@ -1079,6 +1109,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The maximum value is
      * defined as the largest value returned by the {@link
@@ -1087,6 +1118,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the maximum value for the given calendar field.
@@ -1110,6 +1142,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the highest minimum value for the given calendar field
      * of this <code>GregorianCalendar</code> instance. The highest
      * minimum value is defined as the largest value returned by
@@ -1118,6 +1151,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
+     * {@description.close}
      *
      * @param field the calendar field.
      * @return the highest minimum value for the given calendar field.
@@ -1132,6 +1166,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the lowest maximum value for the given calendar field
      * of this <code>GregorianCalendar</code> instance. The lowest
      * maximum value is defined as the smallest value returned by
@@ -1140,6 +1175,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the lowest maximum value for the given calendar field.
@@ -1160,12 +1196,14 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum value that this calendar field could have,
      * taking into consideration the given time value and the current
      * values of the
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the minimum of the given field for the time value of
@@ -1264,6 +1302,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum value that this calendar field could have,
      * taking into consideration the given time value and the current
      * values of the
@@ -1275,6 +1314,7 @@ class JapaneseImperialCalendar extends Calendar {
      * the actual maximum value of the <code>DAY_OF_MONTH</code> field
      * is 29 because Heisei 16 is a leap year, and if the date of this
      * instance is Heisei 17 February 1, it's 28.
+     * {@description.close}
      *
      * @param field the calendar field
      * @return the maximum of the given field for the time value of
@@ -1518,10 +1558,12 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the millisecond offset from the beginning of the
      * year. In the year for Long.MIN_VALUE, it's a pseudo value
      * beyond the limit. The given CalendarDate object must have been
      * normalized before calling this method.
+     * {@description.close}
      */
     private final long getYearOffsetInMillis(CalendarDate date) {
         long t = (jcal.getDayOfYear(date) - 1) * ONE_DAY;
@@ -1551,17 +1593,21 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The fixed date corresponding to jdate. If the value is
      * Long.MIN_VALUE, the fixed date value is unknown.
+     * {@description.close}
      */
     transient private long cachedFixedDate = Long.MIN_VALUE;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts the time value (millisecond offset from the <a
      * href="Calendar.html#Epoch">Epoch</a>) to calendar field values.
      * The time is <em>not</em>
      * recomputed first; to recompute the time, then the fields, call the
      * <code>complete</code> method.
+     * {@description.close}
      *
      * @see Calendar#complete
      */
@@ -1586,11 +1632,13 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This computeFields implements the conversion from UTC
      * (millisecond offset from the Epoch) to calendar
      * field values. fieldMask specifies which fields to change the
      * setting state to COMPUTED, although all fields are set to
      * the correct values. This is required to fix 4685354.
+     * {@description.close}
      *
      * @param fieldMask a bit mask to specify which fields to change
      * the setting state.
@@ -1820,9 +1868,11 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of weeks in a period between fixedDay1 and
      * fixedDate. The getFirstDayOfWeek-getMinimalDaysInFirstWeek rule
      * is applied to calculate the number of weeks.
+     * {@description.close}
      *
      * @param fixedDay1 the fixed date of the first day of the period
      * @param fixedDate the fixed date of the last day of the period
@@ -1846,8 +1896,10 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts calendar field values to the time value (millisecond
      * offset from the <a href="Calendar.html#Epoch">Epoch</a>).
+     * {@description.close}
      *
      * @exception IllegalArgumentException if any calendar fields are invalid.
      */
@@ -1987,8 +2039,10 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Computes the fixed date under either the Gregorian or the
      * Julian calendar, using the given year and the specified calendar fields.
+     * {@description.close}
      *
      * @param cal the CalendarSystem to be used for the date calculation
      * @param year the normalized year number, with 0 indicating the
@@ -2133,8 +2187,10 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the fixed date of the first day of the year (usually
      * January 1) before the specified date.
+     * {@description.close}
      *
      * @param date the date for which the first day of the year is
      * calculated. The date has to be in the cut-over year.
@@ -2159,8 +2215,10 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the fixed date of the first date of the month (usually
      * the 1st of the month) before the specified date.
+     * {@description.close}
      *
      * @param date the date for which the first day of the month is
      * calculated. The date must be in the era transition year.
@@ -2183,7 +2241,9 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a LocalGregorianCalendar.Date produced from the specified fixed date.
+     * {@description.close}
      *
      * @param fd the fixed date
      */
@@ -2194,8 +2254,13 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the length of the specified month in the specified
-     * Gregorian year. The year number must be normalized.
+     * Gregorian year.
+     * {@description.close}
+     * {@property.open formal:java.util.JapaneseImperialCalendar_Normalize}
+     * The year number must be normalized.
+     * {@property.close}
      *
      * @see #isLeapYear(int)
      */
@@ -2205,8 +2270,10 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the length of the specified month in the year provided
      * by internalGet(YEAR).
+     * {@description.close}
      *
      * @see #isLeapYear(int)
      */
@@ -2232,12 +2299,14 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index to the new era if the given date is in a
      * transition month.  For example, if the give date is Heisei 1
      * (1989) January 20, then the era index for Heisei is
      * returned. Likewise, if the given date is Showa 64 (1989)
      * January 3, then the era index for Heisei is returned. If the
      * given date is not in any transition month, then -1 is returned.
+     * {@description.close}
      */
     private static final int getTransitionEraIndex(LocalGregorianCalendar.Date date) {
         int eraIndex = getEraIndex(date);
@@ -2280,9 +2349,11 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns this object if it's normalized (all fields and time are
      * in sync). Otherwise, a cloned object is returned after calling
      * complete() in lenient mode.
+     * {@description.close}
      */
     private final JapaneseImperialCalendar getNormalizedCalendar() {
         JapaneseImperialCalendar jc;
@@ -2298,10 +2369,12 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * After adjustments such as add(MONTH), add(YEAR), we don't want the
      * month to jump around.  E.g., we don't want Jan 31 + 1 month to go to Mar
      * 3, we want it to go to Feb 28.  Adjustments which might run into this
      * problem call this method to retain the proper month.
+     * {@description.close}
      */
     private final void pinDayOfMonth(LocalGregorianCalendar.Date date) {
         int year = date.getYear();
@@ -2345,7 +2418,9 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the new value after 'roll'ing the specified value and amount.
+     * {@description.close}
      */
     private static final int getRolledValue(int value, int amount, int min, int max) {
         assert value >= min && value <= max;
@@ -2362,15 +2437,19 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the ERA.  We need a special method for this because the
      * default ERA is the current era, but a zero (unset) ERA means before Meiji.
+     * {@description.close}
      */
     private final int internalGetEra() {
         return isSet(ERA) ? internalGet(ERA) : eras.length - 1;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Updates internal state.
+     * {@description.close}
      */
     private void readObject(ObjectInputStream stream)
             throws IOException, ClassNotFoundException {

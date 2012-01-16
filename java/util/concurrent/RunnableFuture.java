@@ -36,9 +36,11 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link Future} that is {@link Runnable}. Successful execution of
  * the <tt>run</tt> method causes completion of the <tt>Future</tt>
  * and allows access to its results.
+ * {@description.close}
  * @see FutureTask
  * @see Executor
  * @since 1.6
@@ -47,8 +49,10 @@ package java.util.concurrent;
  */
 public interface RunnableFuture<V> extends Runnable, Future<V> {
     /** {@collect.stats} 
+     * {@description.open}
      * Sets this Future to the result of its computation
      * unless it has been cancelled.
+     * {@description.close}
      */
     void run();
 }

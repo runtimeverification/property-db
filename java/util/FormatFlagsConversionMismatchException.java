@@ -26,11 +26,13 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when a conversion and flag are incompatible.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @since 1.5
  */
@@ -44,8 +46,10 @@ public class FormatFlagsConversionMismatchException
     private char c;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance of this class with the specified flag
      * and conversion.
+     * {@description.close}
      *
      * @param  f
      *         The flag
@@ -61,7 +65,9 @@ public class FormatFlagsConversionMismatchException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the incompatible flag.
+     * {@description.close}
      *
      * @return  The flag
      */
@@ -70,7 +76,9 @@ public class FormatFlagsConversionMismatchException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the incompatible conversion.
+     * {@description.close}
      *
      * @return  The conversion
      */

@@ -37,6 +37,7 @@ package java.util.concurrent;
 import java.util.Map;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link java.util.Map} providing additional atomic
  * <tt>putIfAbsent</tt>, <tt>remove</tt>, and <tt>replace</tt> methods.
  *
@@ -50,6 +51,7 @@ import java.util.Map;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -58,6 +60,7 @@ import java.util.Map;
  */
 public interface ConcurrentMap<K, V> extends Map<K, V> {
     /** {@collect.stats} 
+     * {@description.open}
      * If the specified key is not already associated
      * with a value, associate it with the given value.
      * This is equivalent to
@@ -67,6 +70,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      *   else
      *       return map.get(key);</pre>
      * except that the action is performed atomically.
+     * {@description.close}
      *
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
@@ -88,6 +92,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
     V putIfAbsent(K key, V value);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the entry for a key only if currently mapped to a given value.
      * This is equivalent to
      * <pre>
@@ -96,6 +101,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      *       return true;
      *   } else return false;</pre>
      * except that the action is performed atomically.
+     * {@description.close}
      *
      * @param key key with which the specified value is associated
      * @param value value expected to be associated with the specified key
@@ -110,6 +116,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
     boolean remove(Object key, Object value);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the entry for a key only if currently mapped to a given value.
      * This is equivalent to
      * <pre>
@@ -118,6 +125,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      *       return true;
      *   } else return false;</pre>
      * except that the action is performed atomically.
+     * {@description.close}
      *
      * @param key key with which the specified value is associated
      * @param oldValue value expected to be associated with the specified key
@@ -135,6 +143,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
     boolean replace(K key, V oldValue, V newValue);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the entry for a key only if currently mapped to some value.
      * This is equivalent to
      * <pre>
@@ -142,6 +151,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      *       return map.put(key, value);
      *   } else return null;</pre>
      * except that the action is performed atomically.
+     * {@description.close}
      *
      * @param key key with which the specified value is associated
      * @param value value to be associated with the specified key

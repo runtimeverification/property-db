@@ -28,7 +28,9 @@ package java.util.zip;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that a Zip exception of some sort has occurred.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.io.IOException
@@ -38,16 +40,20 @@ import java.io.IOException;
 public
 class ZipException extends IOException {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>ZipException</code> with <code>null</code>
      * as its error detail message.
+     * {@description.close}
      */
     public ZipException() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an <code>ZipException</code> with the specified detail
      * message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

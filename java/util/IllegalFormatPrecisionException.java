@@ -26,9 +26,11 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when the precision is a negative value other than
  * <tt>-1</tt>, the conversion does not support a precision, or the value is
  * otherwise unsupported.
+ * {@description.close}
  *
  * @since 1.5
  */
@@ -39,7 +41,9 @@ public class IllegalFormatPrecisionException extends IllegalFormatException {
     private int p;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance of this class with the specified precision.
+     * {@description.close}
      *
      * @param  p
      *         The precision
@@ -49,7 +53,9 @@ public class IllegalFormatPrecisionException extends IllegalFormatException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the precision
+     * {@description.close}
      *
      * @return  The precision
      */

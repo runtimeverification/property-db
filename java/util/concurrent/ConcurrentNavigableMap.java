@@ -37,12 +37,14 @@ package java.util.concurrent;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link ConcurrentMap} supporting {@link NavigableMap} operations,
  * and recursively so for its navigable sub-maps.
  *
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author Doug Lea
  * @param <K> the type of keys maintained by this map
@@ -97,6 +99,7 @@ public interface ConcurrentNavigableMap<K,V>
     ConcurrentNavigableMap<K,V> tailMap(K fromKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a reverse order view of the mappings contained in this map.
      * The descending map is backed by this map, so changes to the map are
      * reflected in the descending map, and vice-versa.
@@ -105,12 +108,14 @@ public interface ConcurrentNavigableMap<K,V>
      * <tt>{@link Collections#reverseOrder(Comparator) Collections.reverseOrder}(comparator())</tt>.
      * The expression {@code m.descendingMap().descendingMap()} returns a
      * view of {@code m} essentially equivalent to {@code m}.
+     * {@description.close}
      *
      * @return a reverse order view of this map
      */
     ConcurrentNavigableMap<K,V> descendingMap();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -120,18 +125,22 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
+     * {@description.close}
      *
+     * {@property.open synchronized}
      * <p>The view's {@code iterator} is a "weakly consistent" iterator
      * that will never throw {@link ConcurrentModificationException},
      * and guarantees to traverse elements as they existed upon
      * construction of the iterator, and may (but is not guaranteed to)
      * reflect any modifications subsequent to construction.
+     * {@property.close}
      *
      * @return a navigable set view of the keys in this map
      */
     public NavigableSet<K> navigableKeySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -141,20 +150,26 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
+     * {@description.close}
      *
+     * {@property.open synchronized}
      * <p>The view's {@code iterator} is a "weakly consistent" iterator
      * that will never throw {@link ConcurrentModificationException},
      * and guarantees to traverse elements as they existed upon
      * construction of the iterator, and may (but is not guaranteed to)
      * reflect any modifications subsequent to construction.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>This method is equivalent to method {@code navigableKeySet}.
+     * {@description.close}
      *
      * @return a navigable set view of the keys in this map
      */
     NavigableSet<K> keySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a reverse order {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in descending order.
      * The set is backed by the map, so changes to the map are
@@ -164,12 +179,15 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
+     * {@description.close}
      *
+     * {@property.open synchronized}
      * <p>The view's {@code iterator} is a "weakly consistent" iterator
      * that will never throw {@link ConcurrentModificationException},
      * and guarantees to traverse elements as they existed upon
      * construction of the iterator, and may (but is not guaranteed to)
      * reflect any modifications subsequent to construction.
+     * {@property.close}
      *
      * @return a reverse order navigable set view of the keys in this map
      */

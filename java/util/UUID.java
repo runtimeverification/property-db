@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A class that represents an immutable universally unique identifier (UUID).
  * A UUID represents a 128-bit value.
  *
@@ -66,13 +67,16 @@ import java.io.UnsupportedEncodingException;
  * see <a href="http://www.ietf.org/rfc/rfc4122.txt"> <i>RFC&nbsp;4122: A
  * Universally Unique IDentifier (UUID) URN Namespace</i></a>, section 4.2
  * &quot;Algorithms for Creating a Time-Based UUID&quot;.
+ * {@description.close}
  *
  * @since   1.5
  */
 public final class UUID implements java.io.Serializable, Comparable<UUID> {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Explicit serialVersionUID for interoperability.
+     * {@description.close}
      */
     private static final long serialVersionUID = -4856846361193249489L;
 
@@ -144,10 +148,12 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new {@code UUID} using the specified data.  {@code
      * mostSigBits} is used for the most significant 64 bits of the {@code
      * UUID} and {@code leastSigBits} becomes the least significant 64 bits of
      * the {@code UUID}.
+     * {@description.close}
      *
      * @param  mostSigBits
      *         The most significant bits of the {@code UUID}
@@ -161,10 +167,12 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Static factory to retrieve a type 4 (pseudo randomly generated) UUID.
      *
      * The {@code UUID} is generated using a cryptographically strong pseudo
      * random number generator.
+     * {@description.close}
      *
      * @return  A randomly generated {@code UUID}
      */
@@ -184,8 +192,10 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Static factory to retrieve a type 3 (name based) {@code UUID} based on
      * the specified byte array.
+     * {@description.close}
      *
      * @param  name
      *         A byte array to be used to construct a {@code UUID}
@@ -208,8 +218,10 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a {@code UUID} from the string standard representation as
      * described in the {@link #toString} method.
+     * {@description.close}
      *
      * @param  name
      *         A string that specifies a {@code UUID}
@@ -244,7 +256,9 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     // Field Accessor Methods
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the least significant 64 bits of this UUID's 128 bit value.
+     * {@description.close}
      *
      * @return  The least significant 64 bits of this UUID's 128 bit value
      */
@@ -253,7 +267,9 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the most significant 64 bits of this UUID's 128 bit value.
+     * {@description.close}
      *
      * @return  The most significant 64 bits of this UUID's 128 bit value
      */
@@ -262,6 +278,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The version number associated with this {@code UUID}.  The version
      * number describes how this {@code UUID} was generated.
      *
@@ -272,6 +289,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      * <li>3    Name-based UUID
      * <li>4    Randomly generated UUID
      * </ul>
+     * {@description.close}
      *
      * @return  The version number of this {@code UUID}
      */
@@ -284,6 +302,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The variant number associated with this {@code UUID}.  The variant
      * number describes the layout of the {@code UUID}.
      *
@@ -294,6 +313,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      * <li>6    Reserved, Microsoft Corporation backward compatibility
      * <li>7    Reserved for future definition
      * </ul>
+     * {@description.close}
      *
      * @return  The variant number of this {@code UUID}
      */
@@ -312,6 +332,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The timestamp value associated with this UUID.
      *
      * <p> The 60 bit timestamp value is constructed from the time_low,
@@ -322,6 +343,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      * <p> The timestamp value is only meaningful in a time-based UUID, which
      * has version type 1.  If this {@code UUID} is not a time-based UUID then
      * this method throws UnsupportedOperationException.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException
      *         If this UUID is not a version 1 UUID
@@ -341,6 +363,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The clock sequence value associated with this UUID.
      *
      * <p> The 14 bit clock sequence value is constructed from the clock
@@ -350,6 +373,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      * <p> The {@code clockSequence} value is only meaningful in a time-based
      * UUID, which has version type 1.  If this UUID is not a time-based UUID
      * then this method throws UnsupportedOperationException.
+     * {@description.close}
      *
      * @return  The clock sequence of this {@code UUID}
      *
@@ -367,6 +391,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The node value associated with this UUID.
      *
      * <p> The 48 bit node value is constructed from the node field of this
@@ -376,6 +401,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      * <p> The node value is only meaningful in a time-based UUID, which has
      * version type 1.  If this UUID is not a time-based UUID then this method
      * throws UnsupportedOperationException.
+     * {@description.close}
      *
      * @return  The node value of this {@code UUID}
      *
@@ -395,6 +421,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     // Object Inherited Methods
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@code String} object representing this {@code UUID}.
      *
      * <p> The UUID string representation is as described by this BNF:
@@ -415,6 +442,7 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
      *       | "a" | "b" | "c" | "d" | "e" | "f"
      *       | "A" | "B" | "C" | "D" | "E" | "F"
      * }</pre></blockquote>
+     * {@description.close}
      *
      * @return  A string representation of this {@code UUID}
      */
@@ -426,14 +454,20 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
                 digits(leastSigBits, 12));
     }
 
-    /** {@collect.stats}  Returns val represented by the specified number of hex digits. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns val represented by the specified number of hex digits.
+     * {@description.close}
+     */
     private static String digits(long val, int digits) {
         long hi = 1L << (digits * 4);
         return Long.toHexString(hi | (val & (hi - 1))).substring(1);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash code for this {@code UUID}.
+     * {@description.close}
      *
      * @return  A hash code value for this {@code UUID}
      */
@@ -448,10 +482,12 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this object to the specified object.  The result is {@code
      * true} if and only if the argument is not {@code null}, is a {@code UUID}
      * object, has the same variant, and contains the same value, bit for bit,
      * as this {@code UUID}.
+     * {@description.close}
      *
      * @param  obj
      *         The object to be compared
@@ -472,11 +508,13 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     // Comparison Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this UUID with the specified UUID.
      *
      * <p> The first of two UUIDs is greater than the second if the most
      * significant field in which the UUIDs differ is greater for the first
      * UUID.
+     * {@description.close}
      *
      * @param  val
      *         {@code UUID} to which this {@code UUID} is to be compared
@@ -496,9 +534,11 @@ public final class UUID implements java.io.Serializable, Comparable<UUID> {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitute the {@code UUID} instance from a stream (that is,
      * deserialize it).  This is necessary to set the transient fields to their
      * correct uninitialized value so they will be recomputed on demand.
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream in)
         throws java.io.IOException, ClassNotFoundException {

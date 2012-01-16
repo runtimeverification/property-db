@@ -35,12 +35,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The Manifest class is used to maintain Manifest entry names and their
  * associated Attributes. There are main Manifest Attributes as well as
  * per-entry Attributes. For information on the Manifest format, please
  * see the
  * <a href="../../../../technotes/guides/jar/jar.html">
  * Manifest format specification</a>.
+ * {@description.close}
  *
  * @author  David Connelly
  * @see     Attributes
@@ -54,13 +56,17 @@ public class Manifest implements Cloneable {
     private Map entries = new HashMap();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new, empty Manifest.
+     * {@description.close}
      */
     public Manifest() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new Manifest from the specified input stream.
+     * {@description.close}
      *
      * @param is the input stream containing manifest data
      * @throws IOException if an I/O error has occured
@@ -70,7 +76,9 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new Manifest that is a copy of the specified Manifest.
+     * {@description.close}
      *
      * @param man the Manifest to copy
      */
@@ -80,7 +88,9 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the main Attributes for the Manifest.
+     * {@description.close}
      * @return the main Attributes for the Manifest
      */
     public Attributes getMainAttributes() {
@@ -88,11 +98,13 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a Map of the entries contained in this Manifest. Each entry
      * is represented by a String name (key) and associated Attributes (value).
      * The Map permits the {@code null} key, but no entry with a null key is
      * created by {@link #read}, nor is such an entry written by using {@link
      * #write}.
+     * {@description.close}
      *
      * @return a Map of the entries contained in this Manifest
      */
@@ -101,6 +113,7 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the Attributes for the specified entry name.
      * This method is defined as:
      * <pre>
@@ -118,6 +131,7 @@ public class Manifest implements Cloneable {
      * <p>
      * Note that this method does not return the manifest's main attributes;
      * see {@link #getMainAttributes}.
+     * {@description.close}
      *
      * @param name entry name
      * @return the Attributes for the specified entry name
@@ -127,7 +141,9 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Clears the main Attributes as well as the entries in this Manifest.
+     * {@description.close}
      */
     public void clear() {
         attr.clear();
@@ -135,9 +151,11 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes the Manifest to the specified OutputStream.
      * Attributes.Name.MANIFEST_VERSION must be set in
      * MainAttributes prior to invoking this method.
+     * {@description.close}
      *
      * @param out the output stream
      * @exception IOException if an I/O error has occurred
@@ -167,7 +185,9 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds line breaks to enforce a maximum 72 bytes per line.
+     * {@description.close}
      */
     static void make72Safe(StringBuffer line) {
         int length = line.length();
@@ -183,9 +203,11 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads the Manifest from the specified InputStream. The entry
      * names and attributes read will be merged in with the current
      * manifest entries.
+     * {@description.close}
      *
      * @param is the input stream
      * @exception IOException if an I/O error has occurred
@@ -279,8 +301,10 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the specified Object is also a Manifest and has
      * the same main Attributes and entries.
+     * {@description.close}
      *
      * @param o the object to be compared
      * @return true if the specified Object is also a Manifest and has
@@ -297,18 +321,22 @@ public class Manifest implements Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code for this Manifest.
+     * {@description.close}
      */
     public int hashCode() {
         return attr.hashCode() + entries.hashCode();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this Manifest.  The shallow copy is
      * implemented as follows:
      * <pre>
      *     public Object clone() { return new Manifest(this); }
      * </pre>
+     * {@description.close}
      * @return a shallow copy of this Manifest
      */
     public Object clone() {

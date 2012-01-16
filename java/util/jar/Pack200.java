@@ -38,6 +38,7 @@ import java.security.PrivilegedAction;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Transforms a JAR file to or from a packed stream in Pack200 format.
  * Please refer to Network Transfer Format JSR 200 Specification at
  * <a href=http://jcp.org/aboutJava/communityprocess/review/jsr200/index.html>http://jcp.org/aboutJava/communityprocess/review/jsr200/index.html</a>
@@ -104,6 +105,7 @@ import java.security.PrivilegedAction;
  * <p>
  * Unless otherwise noted, passing a <tt>null</tt> argument to a constructor or
  * method in this class will cause a {@link NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @author John Rose
  * @author Kumar Srinivasan
@@ -114,6 +116,7 @@ public abstract class Pack200 {
 
     // Static methods of the Pack200 class.
     /** {@collect.stats} 
+     * {@description.open}
      * Obtain new instance of a class that implements Packer.
      *
      * <li><p>If the system property <tt>java.util.jar.Pack200.Packer</tt>
@@ -125,11 +128,14 @@ public abstract class Pack200 {
      * <li><p>If an implementation has not been specified with the system
      * property, then the system-default implementation class is instantiated,
      * and the result is returned.</p></li>
+     * {@description.close}
      *
+     * {@property.open}
      * <p>Note:  The returned object is not guaranteed to operate
      * correctly if multiple threads use it at the same time.
      * A multi-threaded application should either allocate multiple
      * packer engines, or else serialize use of one engine with a lock.
+     * {@property.close}
      *
      * @return  A newly allocated Packer engine.
      */
@@ -139,6 +145,7 @@ public abstract class Pack200 {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Obtain new instance of a class that implements Unpacker.
      *
      * <li><p>If the system property <tt>java.util.jar.Pack200.Unpacker</tt>
@@ -150,11 +157,14 @@ public abstract class Pack200 {
      * <li><p>If an implementation has not been specified with the
      * system property, then the system-default implementation class
      * is instantiated, and the result is returned.</p></li>
+     * {@description.close}
      *
+     * {@property.open}
      * <p>Note:  The returned object is not guaranteed to operate
      * correctly if multiple threads use it at the same time.
      * A multi-threaded application should either allocate multiple
      * unpacker engines, or else serialize use of one engine with a lock.
+     * {@property.close}
      *
      * @return  A newly allocated Unpacker engine.
      */
@@ -165,11 +175,12 @@ public abstract class Pack200 {
 
     // Interfaces
     /** {@collect.stats} 
+     * {@description.open}
      * The packer engine applies various transformations to the input JAR file,
      * making the pack stream highly compressible by a compressor such as
      * gzip or zip. An instance of the engine can be obtained
      * using {@link #newPacker}.
-
+     *
      * The high degree of compression is achieved
      * by using a number of techniques described in the JSR 200 specification.
      * Some of the techniques are sorting, re-ordering and co-location of the
@@ -217,10 +228,12 @@ public abstract class Pack200 {
      * pack file is  produced.  Otherwise a 1.6 compatible pack200 file is
      * produced.
      * <p>
+     * {@description.close}
      * @since 1.5
      */
     public interface Packer {
         /** {@collect.stats} 
+         * {@description.open}
          * This property is a numeral giving the estimated target size N
          * (in bytes) of each archive segment.
          * If a single input file requires more than N bytes,
@@ -243,10 +256,12 @@ public abstract class Pack200 {
          * A 10Mb JAR packed without this limit will
          * typically pack about 10% smaller, but the packer may require
          * a larger Java heap (about ten times the segment limit).
+         * {@description.close}
          */
         String SEGMENT_LIMIT    = "pack.segment.limit";
 
         /** {@collect.stats} 
+         * {@description.open}
          * If this property is set to {@link #TRUE}, the packer will transmit
          * all elements in their original order within the source archive.
          * <p>
@@ -257,11 +272,13 @@ public abstract class Pack200 {
          * <p>
          * The default is {@link #TRUE}, which preserves the input information,
          * but may cause the transmitted archive to be larger than necessary.
+         * {@description.close}
          */
         String KEEP_FILE_ORDER = "pack.keep.file.order";
 
 
         /** {@collect.stats} 
+         * {@description.open}
          * If this property is set to a single decimal digit, the packer will
          * use the indicated amount of effort in compressing the archive.
          * Level 1 may produce somewhat larger size and faster compression speed,
@@ -274,10 +291,12 @@ public abstract class Pack200 {
          * <p>
          * The default is 5, investing a modest amount of time to
          * produce reasonable compression.
+         * {@description.close}
          */
         String EFFORT           = "pack.effort";
 
         /** {@collect.stats} 
+         * {@description.open}
          * If this property is set to {@link #TRUE} or {@link #FALSE}, the packer
          * will set the deflation hint accordingly in the output archive, and
          * will not transmit the individual deflation hints of archive elements.
@@ -295,10 +314,12 @@ public abstract class Pack200 {
          * <p>
          * The deflation hint of a ZIP or JAR element indicates
          * whether the element was deflated or stored directly.
+         * {@description.close}
          */
         String DEFLATE_HINT     = "pack.deflate.hint";
 
         /** {@collect.stats} 
+         * {@description.open}
          * If this property is set to the special string {@link #LATEST},
          * the packer will attempt to determine the latest modification time,
          * among all the available entries in the original archive or the latest
@@ -319,11 +340,13 @@ public abstract class Pack200 {
          * <p>
          * It is up to the unpacker implementation to take action to suitably
          * set the modification time of each element of its output file.
+         * {@description.close}
          * @see #SEGMENT_LIMIT
          */
         String MODIFICATION_TIME        = "pack.modification.time";
 
         /** {@collect.stats} 
+         * {@description.open}
          * Indicates that a file should be passed through bytewise, with no
          * compression.  Multiple files may be specified by specifying
          * additional properties with distinct strings appended, to
@@ -348,12 +371,14 @@ public abstract class Pack200 {
          *     # Pass all files in an entire directory hierarchy:
          *     p.put(PASS_FILE_PFX+3, "police/");
          * </pre></code>.
+         * {@description.close}
          */
         String PASS_FILE_PFX            = "pack.pass.file.";
 
         /// Attribute control.
 
         /** {@collect.stats} 
+         * {@description.open}
          * Indicates the action to take when a class-file containing an unknown
          * attribute is encountered.  Possible values are the strings {@link #ERROR},
          * {@link #STRIP}, and {@link #PASS}.
@@ -374,10 +399,12 @@ public abstract class Pack200 {
          *     p.put(UNKNOWN_ATTRIBUTE, STRIP);
          *     p.put(UNKNOWN_ATTRIBUTE, PASS);
          * </pre></code>
+         * {@description.close}
          */
         String UNKNOWN_ATTRIBUTE        = "pack.unknown.attribute";
 
         /** {@collect.stats} 
+         * {@description.open}
          * When concatenated with a class attribute name,
          * indicates the format of that attribute,
          * using the layout language specified in the JSR 200 specification.
@@ -406,43 +433,51 @@ public abstract class Pack200 {
          *     p.put(CODE_ATTRIBUTE_PFX+"LocalVariableTable", STRIP);
          *     p.put(CLASS_ATTRIBUTE_PFX+"SourceFile",        STRIP);
          * </code></pre>
+         * {@description.close}
          */
         String CLASS_ATTRIBUTE_PFX      = "pack.class.attribute.";
 
         /** {@collect.stats} 
+         * {@description.open}
          * When concatenated with a field attribute name,
          * indicates the format of that attribute.
          * For example, the effect of this option is built in:
          * <code>pack.field.attribute.Deprecated=</code>.
          * The special strings {@link #ERROR}, {@link #STRIP}, and
          * {@link #PASS} are also allowed.
+         * {@description.close}
          * @see #CLASS_ATTRIBUTE_PFX
          */
         String FIELD_ATTRIBUTE_PFX      = "pack.field.attribute.";
 
         /** {@collect.stats} 
+         * {@description.open}
          * When concatenated with a method attribute name,
          * indicates the format of that attribute.
          * For example, the effect of this option is built in:
          * <code>pack.method.attribute.Exceptions=NH[RCH]</code>.
          * The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS}
          * are also allowed.
+         * {@description.close}
          * @see #CLASS_ATTRIBUTE_PFX
          */
         String METHOD_ATTRIBUTE_PFX     = "pack.method.attribute.";
 
         /** {@collect.stats} 
+         * {@description.open}
          * When concatenated with a code attribute name,
          * indicates the format of that attribute.
          * For example, the effect of this option is built in:
          * <code>pack.code.attribute.LocalVariableTable=NH[PHOHRUHRSHH]</code>.
          * The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS}
          * are also allowed.
+         * {@description.close}
          * @see #CLASS_ATTRIBUTE_PFX
          */
         String CODE_ATTRIBUTE_PFX       = "pack.code.attribute.";
 
         /** {@collect.stats} 
+         * {@description.open}
          * The unpacker's progress as a percentage, as periodically
          * updated by the unpacker.
          * Values of 0 - 100 are normal, and -1 indicates a stall.
@@ -451,17 +486,24 @@ public abstract class Pack200 {
          * At a minimum, the unpacker must set progress to 0
          * at the beginning of a packing operation, and to 100
          * at the end.
+         * {@description.close}
          * @see  #addPropertyChangeListener
          */
         String PROGRESS                 = "pack.progress";
 
-        /** {@collect.stats}  The string "keep", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "keep", a possible value for certain properties.
+         * {@description.close}
          * @see #DEFLATE_HINT
          * @see #MODIFICATION_TIME
          */
         String KEEP  = "keep";
 
-        /** {@collect.stats}  The string "pass", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "pass", a possible value for certain properties.
+         * {@description.close}
          * @see #UNKNOWN_ATTRIBUTE
          * @see #CLASS_ATTRIBUTE_PFX
          * @see #FIELD_ATTRIBUTE_PFX
@@ -470,7 +512,10 @@ public abstract class Pack200 {
          */
         String PASS  = "pass";
 
-        /** {@collect.stats}  The string "strip", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "strip", a possible value for certain properties.
+         * {@description.close}
          * @see #UNKNOWN_ATTRIBUTE
          * @see #CLASS_ATTRIBUTE_PFX
          * @see #FIELD_ATTRIBUTE_PFX
@@ -479,7 +524,10 @@ public abstract class Pack200 {
          */
         String STRIP = "strip";
 
-        /** {@collect.stats}  The string "error", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "error", a possible value for certain properties.
+         * {@description.close}
          * @see #UNKNOWN_ATTRIBUTE
          * @see #CLASS_ATTRIBUTE_PFX
          * @see #FIELD_ATTRIBUTE_PFX
@@ -488,24 +536,34 @@ public abstract class Pack200 {
          */
         String ERROR = "error";
 
-        /** {@collect.stats}  The string "true", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "true", a possible value for certain properties.
+         * {@description.close}
          * @see #KEEP_FILE_ORDER
          * @see #DEFLATE_HINT
          */
         String TRUE = "true";
 
-        /** {@collect.stats}  The string "false", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "false", a possible value for certain properties.
+         * {@description.close}
          * @see #KEEP_FILE_ORDER
          * @see #DEFLATE_HINT
          */
         String FALSE = "false";
 
-        /** {@collect.stats}  The string "latest", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "latest", a possible value for certain properties.
+         * {@description.close}
          * @see #MODIFICATION_TIME
          */
         String LATEST = "latest";
 
         /** {@collect.stats} 
+         * {@description.open}
          * Get the set of this engine's properties.
          * This set is a "live view", so that changing its
          * contents immediately affects the Packer engine, and
@@ -531,13 +589,16 @@ public abstract class Pack200 {
          * The returned map implements all optional {@link SortedMap} operations
          * @return A sorted association of property key strings to property
          * values.
+         * {@description.close}
          */
         SortedMap<String,String> properties();
 
         /** {@collect.stats} 
+         * {@description.open}
          * Takes a JarFile and converts it into a Pack200 archive.
          * <p>
          * Closes its input but not its output.  (Pack200 archives are appendable.)
+         * {@description.close}
          * @param in a JarFile
          * @param out an OutputStream
          * @exception IOException if an error is encountered.
@@ -545,12 +606,14 @@ public abstract class Pack200 {
         void pack(JarFile in, OutputStream out) throws IOException ;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Takes a JarInputStream and converts it into a Pack200 archive.
          * <p>
          * Closes its input but not its output.  (Pack200 archives are appendable.)
          * <p>
          * The modification time and deflation hint attributes are not available,
          * for the JAR manifest file and its containing directory.
+         * {@description.close}
          *
          * @see #MODIFICATION_TIME
          * @see #DEFLATE_HINT
@@ -561,8 +624,10 @@ public abstract class Pack200 {
         void pack(JarInputStream in, OutputStream out) throws IOException ;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Registers a listener for PropertyChange events on the properties map.
          * This is typically used by applications to update a progress bar.
+         * {@description.close}
          *
          * @see #properties
          * @see #PROGRESS
@@ -571,8 +636,10 @@ public abstract class Pack200 {
         void addPropertyChangeListener(PropertyChangeListener listener) ;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Remove a listener for PropertyChange events, added by
          * the {@link #addPropertyChangeListener}.
+         * {@description.close}
          *
          * @see #addPropertyChangeListener
          * @param listener  The PropertyChange listener to be removed.
@@ -582,6 +649,7 @@ public abstract class Pack200 {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The unpacker engine converts the packed stream to a JAR file.
      * An instance of the engine can be obtained
      * using {@link #newUnpacker}.
@@ -591,38 +659,51 @@ public abstract class Pack200 {
      * This allows a deployer to detect if a JAR archive was packed and unpacked.
      * <p>
      * This version of the unpacker is compatible with all previous versions.
+     * {@description.close}
      * @since 1.5
      */
     public interface Unpacker {
 
-        /** {@collect.stats}  The string "keep", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "keep", a possible value for certain properties.
+         * {@description.close}
          * @see #DEFLATE_HINT
          */
         String KEEP  = "keep";
 
-        /** {@collect.stats}  The string "true", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "true", a possible value for certain properties.
+         * {@description.close}
          * @see #DEFLATE_HINT
          */
         String TRUE = "true";
 
-        /** {@collect.stats}  The string "false", a possible value for certain properties.
+        /** {@collect.stats}
+         * {@description.open}
+         * The string "false", a possible value for certain properties.
+         * {@description.close}
          * @see #DEFLATE_HINT
          */
         String FALSE = "false";
 
         /** {@collect.stats} 
+         * {@description.open}
          * Property indicating that the unpacker should
          * ignore all transmitted values for DEFLATE_HINT,
          * replacing them by the given value, {@link #TRUE} or {@link #FALSE}.
          * The default value is the special string {@link #KEEP},
          * which asks the unpacker to preserve all transmitted
          * deflation hints.
+         * {@description.close}
          */
         String DEFLATE_HINT      = "unpack.deflate.hint";
 
 
 
         /** {@collect.stats} 
+         * {@description.open}
          * The unpacker's progress as a percentage, as periodically
          * updated by the unpacker.
          * Values of 0 - 100 are normal, and -1 indicates a stall.
@@ -631,11 +712,13 @@ public abstract class Pack200 {
          * At a minimum, the unpacker must set progress to 0
          * at the beginning of a packing operation, and to 100
          * at the end.
+         * {@description.close}
          * @see #addPropertyChangeListener
          */
         String PROGRESS         = "unpack.progress";
 
         /** {@collect.stats} 
+         * {@description.open}
          * Get the set of this engine's properties. This set is
          * a "live view", so that changing its
          * contents immediately affects the Packer engine, and
@@ -656,12 +739,14 @@ public abstract class Pack200 {
          * Unknown properties may be ignored or rejected with an
          * unspecified error, and invalid entries may cause an
          * unspecified error to be thrown.
+         * {@description.close}
          *
          * @return A sorted association of option key strings to option values.
          */
         SortedMap<String,String> properties();
 
         /** {@collect.stats} 
+         * {@description.open}
          * Read a Pack200 archive, and write the encoded JAR to
          * a JarOutputStream.
          * The entire contents of the input stream will be read.
@@ -670,6 +755,7 @@ public abstract class Pack200 {
          * method described below.
          * <p>
          * Closes its input but not its output.  (The output can accumulate more elements.)
+         * {@description.close}
          * @param in an InputStream.
          * @param out a JarOutputStream.
          * @exception IOException if an error is encountered.
@@ -677,10 +763,12 @@ public abstract class Pack200 {
         void unpack(InputStream in, JarOutputStream out) throws IOException;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Read a Pack200 archive, and write the encoded JAR to
          * a JarOutputStream.
          * <p>
          * Does not close its output.  (The output can accumulate more elements.)
+         * {@description.close}
          * @param in a File.
          * @param out a JarOutputStream.
          * @exception IOException if an error is encountered.
@@ -688,8 +776,10 @@ public abstract class Pack200 {
         void unpack(File in, JarOutputStream out) throws IOException;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Registers a listener for PropertyChange events on the properties map.
          * This is typically used by applications to update a progress bar.
+         * {@description.close}
          *
          * @see #properties
          * @see #PROGRESS
@@ -698,8 +788,10 @@ public abstract class Pack200 {
         void addPropertyChangeListener(PropertyChangeListener listener) ;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Remove a listener for PropertyChange events, added by
          * the {@link #addPropertyChangeListener}.
+         * {@description.close}
          *
          * @see #addPropertyChangeListener
          * @param listener  The PropertyChange listener to be removed.

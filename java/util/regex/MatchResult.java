@@ -26,12 +26,14 @@
 package java.util.regex;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The result of a match operation.
  *
  * <p>This interface contains query methods used to determine the
  * results of a match against a regular expression. The match boundaries,
  * groups and group boundaries can be seen but not modified through
  * a <code>MatchResult</code>.
+ * {@description.close}
  *
  * @author  Michael McCloskey
  * @see Matcher
@@ -40,7 +42,9 @@ package java.util.regex;
 public interface MatchResult {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the start index of the match.
+     * {@description.close}
      *
      * @return  The index of the first character matched
      *
@@ -51,6 +55,7 @@ public interface MatchResult {
     public int start();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the start index of the subsequence captured by the given group
      * during this match.
      *
@@ -58,6 +63,7 @@ public interface MatchResult {
      * to right, starting at one.  Group zero denotes the entire pattern, so
      * the expression <i>m.</i><tt>start(0)</tt> is equivalent to
      * <i>m.</i><tt>start()</tt>.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -77,7 +83,9 @@ public interface MatchResult {
     public int start(int group);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the offset after the last character matched.  </p>
+     * {@description.close}
      *
      * @return  @return  The offset after the last character matched
      *
@@ -88,6 +96,7 @@ public interface MatchResult {
     public int end();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the offset after the last character of the subsequence
      * captured by the given group during this match.
      *
@@ -95,6 +104,7 @@ public interface MatchResult {
      * to right, starting at one.  Group zero denotes the entire pattern, so
      * the expression <i>m.</i><tt>end(0)</tt> is equivalent to
      * <i>m.</i><tt>end()</tt>.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -114,6 +124,7 @@ public interface MatchResult {
     public int end(int group);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input subsequence matched by the previous match.
      *
      * <p> For a matcher <i>m</i> with input sequence <i>s</i>,
@@ -124,6 +135,7 @@ public interface MatchResult {
      * <p> Note that some patterns, for example <tt>a*</tt>, match the empty
      * string.  This method will return the empty string when the pattern
      * successfully matches the empty string in the input.  </p>
+     * {@description.close}
      *
      * @return The (possibly empty) subsequence matched by the previous match,
      *         in string form
@@ -135,6 +147,7 @@ public interface MatchResult {
     public String group();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input subsequence captured by the given group during the
      * previous match operation.
      *
@@ -153,6 +166,7 @@ public interface MatchResult {
      * that some groups, for example <tt>(a*)</tt>, match the empty string.
      * This method will return the empty string when such a group successfully
      * matches the empty string in the input.  </p>
+     * {@description.close}
      *
      * @param  group
      *         The index of a capturing group in this matcher's pattern
@@ -172,6 +186,7 @@ public interface MatchResult {
     public String group(int group);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of capturing groups in this match result's pattern.
      *
      * <p> Group zero denotes the entire pattern by convention. It is not
@@ -180,6 +195,7 @@ public interface MatchResult {
      * <p> Any non-negative integer smaller than or equal to the value
      * returned by this method is guaranteed to be a valid group index for
      * this matcher.  </p>
+     * {@description.close}
      *
      * @return The number of capturing groups in this matcher's pattern
      */

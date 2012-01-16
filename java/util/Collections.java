@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class consists exclusively of static methods that operate on or return
  * collections.  It contains polymorphic algorithms that operate on
  * collections, "wrappers", which return a new collection backed by a
@@ -58,6 +59,7 @@ import java.lang.reflect.Array;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -99,18 +101,28 @@ public class Collections {
     private static final int INDEXOFSUBLIST_THRESHOLD =   35;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified list into ascending order, according to the
-     * <i>natural ordering</i> of its elements.  All elements in the list must
+     * <i>natural ordering</i> of its elements.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the list must
      * implement the <tt>Comparable</tt> interface.  Furthermore, all elements
      * in the list must be <i>mutually comparable</i> (that is,
      * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the list).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
+     * {@description.close}
      *
+     * {@property.open}
      * The specified list must be modifiable, but need not be resizable.<p>
+     * {@property.close}
      *
+     * {@description.open}
      * The sorting algorithm is a modified mergesort (in which the merge is
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
@@ -121,6 +133,7 @@ public class Collections {
      * from the corresponding position in the array.  This avoids the
      * n<sup>2</sup> log(n) performance that would result from attempting
      * to sort a linked list in place.
+     * {@description.close}
      *
      * @param  list the list to be sorted.
      * @throws ClassCastException if the list contains elements that are not
@@ -140,12 +153,18 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sorts the specified list according to the order induced by the
-     * specified comparator.  All elements in the list must be <i>mutually
+     * specified comparator.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the list must be <i>mutually
      * comparable</i> using the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the list).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.<p>
      *
@@ -153,13 +172,18 @@ public class Collections {
      * omitted if the highest element in the low sublist is less than the
      * lowest element in the high sublist).  This algorithm offers guaranteed
      * n log(n) performance.
+     * {@description.close}
      *
+     * {@property.open}
      * The specified list must be modifiable, but need not be resizable.
+     * {@property.close}
+     * {@description.open}
      * This implementation dumps the specified list into an array, sorts
      * the array, and iterates over the list resetting each element
      * from the corresponding position in the array.  This avoids the
      * n<sup>2</sup> log(n) performance that would result from attempting
      * to sort a linked list in place.
+     * {@description.close}
      *
      * @param  list the list to be sorted.
      * @param  c the comparator to determine the order of the list.  A
@@ -183,11 +207,18 @@ public class Collections {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified list for the specified object using the binary
-     * search algorithm.  The list must be sorted into ascending order
+     * search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The list must be sorted into ascending order
      * according to the {@linkplain Comparable natural ordering} of its
      * elements (as by the {@link #sort(List)} method) prior to making this
-     * call.  If it is not sorted, the results are undefined.  If the list
+     * call.  If it is not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the list
      * contains multiple elements equal to the specified object, there is no
      * guarantee which one will be found.
      *
@@ -196,6 +227,7 @@ public class Collections {
      * does not implement the {@link RandomAccess} interface and is large,
      * this method will do an iterator-based binary search that performs
      * O(n) link traversals and O(log n) element comparisons.
+     * {@description.close}
      *
      * @param  list the list to be searched.
      * @param  key the key to be searched for.
@@ -264,8 +296,10 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the ith element from the given list by repositioning the specified
      * list listIterator.
+     * {@description.close}
      */
     private static <T> T get(ListIterator<? extends T> i, int index) {
         T obj = null;
@@ -283,12 +317,19 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Searches the specified list for the specified object using the binary
-     * search algorithm.  The list must be sorted into ascending order
+     * search algorithm.
+     * {@description.close}
+     * {@property.open}
+     * The list must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(List, Comparator) sort(List, Comparator)}
      * method), prior to making this call.  If it is
-     * not sorted, the results are undefined.  If the list contains multiple
+     * not sorted, the results are undefined.
+     * {@property.close}
+     * {@description.open}
+     * If the list contains multiple
      * elements equal to the specified object, there is no guarantee which one
      * will be found.
      *
@@ -297,6 +338,7 @@ public class Collections {
      * does not implement the {@link RandomAccess} interface and is large,
      * this method will do an iterator-based binary search that performs
      * O(n) link traversals and O(log n) element comparisons.
+     * {@description.close}
      *
      * @param  list the list to be searched.
      * @param  key the key to be searched for.
@@ -369,9 +411,11 @@ public class Collections {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reverses the order of the elements in the specified list.<p>
      *
      * This method runs in linear time.
+     * {@description.close}
      *
      * @param  list the list whose elements are to be reversed.
      * @throws UnsupportedOperationException if the specified list or
@@ -394,6 +438,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Randomly permutes the specified list using a default source of
      * randomness.  All permutations occur with approximately equal
      * likelihood.<p>
@@ -416,6 +461,7 @@ public class Collections {
      * it, and dumps the shuffled array back into the list.  This avoids the
      * quadratic behavior that would result from shuffling a "sequential
      * access" list in place.
+     * {@description.close}
      *
      * @param  list the list to be shuffled.
      * @throws UnsupportedOperationException if the specified list or
@@ -430,6 +476,7 @@ public class Collections {
     private static Random r;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Randomly permute the specified list using the specified source of
      * randomness.  All permutations occur with equal likelihood
      * assuming that the source of randomness is fair.<p>
@@ -446,6 +493,7 @@ public class Collections {
      * it, and dumps the shuffled array back into the list.  This avoids the
      * quadratic behavior that would result from shuffling a "sequential
      * access" list in place.
+     * {@description.close}
      *
      * @param  list the list to be shuffled.
      * @param  rnd the source of randomness to use to shuffle the list.
@@ -474,9 +522,11 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps the elements at the specified positions in the specified list.
      * (If the specified positions are equal, invoking this method leaves
      * the list unchanged.)
+     * {@description.close}
      *
      * @param list The list in which to swap elements.
      * @param i the index of one element to be swapped.
@@ -492,7 +542,9 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Swaps the two specified elements in the specified array.
+     * {@description.close}
      */
     private static void swap(Object[] arr, int i, int j) {
         Object tmp = arr[i];
@@ -501,10 +553,12 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces all of the elements of the specified list with the specified
      * element. <p>
      *
      * This method runs in linear time.
+     * {@description.close}
      *
      * @param  list the list to be filled with the specified element.
      * @param  obj The element with which to fill the specified list.
@@ -527,13 +581,21 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies all of the elements from one list into another.  After the
      * operation, the index of each copied element in the destination list
-     * will be identical to its index in the source list.  The destination
-     * list must be at least as long as the source list.  If it is longer, the
+     * will be identical to its index in the source list.
+     * {@description.close}
+     * {@property.open}
+     * The destination
+     * list must be at least as long as the source list.
+     * {@property.close}
+     * {@description.open}
+     * If it is longer, the
      * remaining elements in the destination list are unaffected. <p>
      *
      * This method runs in linear time.
+     * {@description.close}
      *
      * @param  dest The destination list.
      * @param  src The source list.
@@ -562,16 +624,23 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum element of the given collection, according to the
-     * <i>natural ordering</i> of its elements.  All elements in the
+     * <i>natural ordering</i> of its elements.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
+     * {@description.close}
      *
      * @param  coll the collection whose minimum element is to be determined.
      * @return the minimum element of the given collection, according
@@ -595,15 +664,22 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the minimum element of the given collection, according to the
-     * order induced by the specified comparator.  All elements in the
+     * order induced by the specified comparator.
+     * {@description.open}
+     * {@property.open}
+     * All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
+     * {@description.close}
      *
      * @param  coll the collection whose minimum element is to be determined.
      * @param  comp the comparator with which to determine the minimum element.
@@ -632,16 +708,23 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum element of the given collection, according to the
-     * <i>natural ordering</i> of its elements.  All elements in the
+     * <i>natural ordering</i> of its elements.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
+     * {@description.close}
      *
      * @param  coll the collection whose maximum element is to be determined.
      * @return the maximum element of the given collection, according
@@ -665,15 +748,22 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the maximum element of the given collection, according to the
-     * order induced by the specified comparator.  All elements in the
+     * order induced by the specified comparator.
+     * {@description.close}
+     * {@property.open}
+     * All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
+     * {@property.close}
      *
+     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
+     * {@description.close}
      *
      * @param  coll the collection whose maximum element is to be determined.
      * @param  comp the comparator with which to determine the maximum element.
@@ -702,6 +792,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Rotates the elements in the specified list by the specified distance.
      * After calling this method, the element at index <tt>i</tt> will be
      * the element previously at index <tt>(i - distance)</tt> mod
@@ -747,6 +838,7 @@ public class Collections {
      * and finally it is invoked on the entire list.  For a more complete
      * description of both algorithms, see Section 2.3 of Jon Bentley's
      * <i>Programming Pearls</i> (Addison-Wesley, 1986).
+     * {@description.close}
      *
      * @param list the list to be rotated.
      * @param distance the distance to rotate the list.  There are no
@@ -802,11 +894,13 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces all occurrences of one specified value in a list with another.
      * More formally, replaces with <tt>newVal</tt> each element <tt>e</tt>
      * in <tt>list</tt> such that
      * <tt>(oldVal==null ? e==null : oldVal.equals(e))</tt>.
      * (This method has no effect on the size of the list.)
+     * {@description.close}
      *
      * @param list the list in which replacement is to occur.
      * @param oldVal the old value to be replaced.
@@ -860,6 +954,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the starting position of the first occurrence of the specified
      * target list within the specified source list, or -1 if there is no
      * such occurrence.  More formally, returns the lowest index <tt>i</tt>
@@ -870,6 +965,7 @@ public class Collections {
      * <p>This implementation uses the "brute force" technique of scanning
      * over the source list, looking for a match with the target at each
      * location in turn.
+     * {@description.close}
      *
      * @param source the list in which to search for the first occurrence
      *        of <tt>target</tt>.
@@ -913,6 +1009,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the starting position of the last occurrence of the specified
      * target list within the specified source list, or -1 if there is no such
      * occurrence.  More formally, returns the highest index <tt>i</tt>
@@ -923,6 +1020,7 @@ public class Collections {
      * <p>This implementation uses the "brute force" technique of iterating
      * over the source list, looking for a match with the target at each
      * location in turn.
+     * {@description.close}
      *
      * @param source the list in which to search for the last occurrence
      *        of <tt>target</tt>.
@@ -973,6 +1071,7 @@ public class Collections {
     // Unmodifiable Wrappers
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified collection.  This method
      * allows modules to provide users with "read-only" access to internal
      * collections.  Query operations on the returned collection "read through"
@@ -988,6 +1087,7 @@ public class Collections {
      *
      * The returned collection will be serializable if the specified collection
      * is serializable.
+     * {@description.close}
      *
      * @param  c the collection for which an unmodifiable view is to be
      *         returned.
@@ -1055,6 +1155,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified set.  This method allows
      * modules to provide users with "read-only" access to internal sets.
      * Query operations on the returned set "read through" to the specified
@@ -1063,6 +1164,7 @@ public class Collections {
      *
      * The returned set will be serializable if the specified set
      * is serializable.
+     * {@description.close}
      *
      * @param  s the set for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified set.
@@ -1084,6 +1186,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified sorted set.  This method
      * allows modules to provide users with "read-only" access to internal
      * sorted sets.  Query operations on the returned sorted set "read
@@ -1094,6 +1197,7 @@ public class Collections {
      *
      * The returned sorted set will be serializable if the specified sorted set
      * is serializable.
+     * {@description.close}
      *
      * @param s the sorted set for which an unmodifiable view is to be
      *        returned.
@@ -1131,6 +1235,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified list.  This method allows
      * modules to provide users with "read-only" access to internal
      * lists.  Query operations on the returned list "read through" to the
@@ -1141,6 +1246,7 @@ public class Collections {
      * The returned list will be serializable if the specified list
      * is serializable. Similarly, the returned list will implement
      * {@link RandomAccess} if the specified list does.
+     * {@description.close}
      *
      * @param  list the list for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified list.
@@ -1213,6 +1319,7 @@ public class Collections {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * UnmodifiableRandomAccessList instances are serialized as
          * UnmodifiableList instances to allow them to be deserialized
          * in pre-1.4 JREs (which do not have UnmodifiableRandomAccessList).
@@ -1223,6 +1330,7 @@ public class Collections {
          * Note: Unfortunately, UnmodifiableRandomAccessList instances
          * serialized in 1.4.1 and deserialized in 1.4 will become
          * UnmodifiableList instances, as this method was missing in 1.4.
+         * {@description.close}
          */
         private Object readResolve() {
             return (list instanceof RandomAccess
@@ -1249,10 +1357,12 @@ public class Collections {
         private static final long serialVersionUID = -2542308836966382001L;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Allows instances to be deserialized in pre-1.4 JREs (which do
          * not have UnmodifiableRandomAccessList).  UnmodifiableList has
          * a readResolve method that inverts this transformation upon
          * deserialization.
+         * {@description.close}
          */
         private Object writeReplace() {
             return new UnmodifiableList<E>(list);
@@ -1260,6 +1370,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified map.  This method
      * allows modules to provide users with "read-only" access to internal
      * maps.  Query operations on the returned map "read through"
@@ -1269,6 +1380,7 @@ public class Collections {
      *
      * The returned map will be serializable if the specified map
      * is serializable.
+     * {@description.close}
      *
      * @param  m the map for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified map.
@@ -1337,10 +1449,12 @@ public class Collections {
         public String toString()        {return m.toString();}
 
         /** {@collect.stats} 
+         * {@description.open}
          * We need this class in addition to UnmodifiableSet as
          * Map.Entries themselves permit modification of the backing Map
          * via their setValue operation.  This class is subtle: there are
          * many possible attacks that must be thwarted.
+         * {@description.close}
          *
          * @serial include
          */
@@ -1393,10 +1507,12 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * This method is overridden to protect the backing set against
              * an object with a nefarious equals function that senses
              * that the equality-candidate is Map.Entry and calls its
              * setValue method.
+             * {@description.close}
              */
             public boolean contains(Object o) {
                 if (!(o instanceof Map.Entry))
@@ -1406,9 +1522,11 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+            * {@description.open}
              * The next two methods are overridden to protect against
              * an unscrupulous List whose contains(Object o) method senses
              * when o is a Map.Entry, and calls o.setValue.
+             * {@description.close}
              */
             public boolean containsAll(Collection<?> coll) {
                 Iterator<?> e = coll.iterator();
@@ -1430,11 +1548,13 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * This "wrapper class" serves two purposes: it prevents
              * the client from modifying the backing Map, by short-circuiting
              * the setValue method, and it protects the backing Map against
              * an ill-behaved Map.Entry that attempts to modify another
              * Map Entry when asked to perform an equality check.
+             * {@description.close}
              */
             private static class UnmodifiableEntry<K,V> implements Map.Entry<K,V> {
                 private Map.Entry<? extends K, ? extends V> e;
@@ -1460,6 +1580,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable view of the specified sorted map.  This method
      * allows modules to provide users with "read-only" access to internal
      * sorted maps.  Query operations on the returned sorted map "read through"
@@ -1470,6 +1591,7 @@ public class Collections {
      *
      * The returned sorted map will be serializable if the specified sorted map
      * is serializable.
+     * {@description.close}
      *
      * @param m the sorted map for which an unmodifiable view is to be
      *        returned.
@@ -1511,11 +1633,14 @@ public class Collections {
     // Synch Wrappers
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) collection backed by the specified
      * collection.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing collection is accomplished
      * through the returned collection.<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * collection when iterating over it:
      * <pre>
@@ -1528,7 +1653,9 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned collection does <i>not</i> pass the <tt>hashCode</tt>
      * and <tt>equals</tt> operations through to the backing collection, but
      * relies on <tt>Object</tt>'s equals and hashCode methods.  This is
@@ -1537,6 +1664,7 @@ public class Collections {
      *
      * The returned collection will be serializable if the specified collection
      * is serializable.
+     * {@description.close}
      *
      * @param  c the collection to be "wrapped" in a synchronized collection.
      * @return a synchronized view of the specified collection.
@@ -1620,11 +1748,14 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) set backed by the specified
      * set.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing set is accomplished
      * through the returned set.<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * set when iterating over it:
      * <pre>
@@ -1637,9 +1768,12 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned set will be serializable if the specified set is
      * serializable.
+     * {@description.close}
      *
      * @param  s the set to be "wrapped" in a synchronized set.
      * @return a synchronized view of the specified set.
@@ -1676,11 +1810,14 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) sorted set backed by the specified
      * sorted set.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing sorted set is accomplished
      * through the returned sorted set (or its views).<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * sorted set when iterating over it or any of its <tt>subSet</tt>,
      * <tt>headSet</tt>, or <tt>tailSet</tt> views.
@@ -1705,9 +1842,12 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned sorted set will be serializable if the specified
      * sorted set is serializable.
+     * {@description.close}
      *
      * @param  s the sorted set to be "wrapped" in a synchronized sorted set.
      * @return a synchronized view of the specified sorted set.
@@ -1766,11 +1906,14 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) list backed by the specified
      * list.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing list is accomplished
      * through the returned list.<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * list when iterating over it:
      * <pre>
@@ -1783,9 +1926,12 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned list will be serializable if the specified list is
      * serializable.
+     * {@description.close}
      *
      * @param  list the list to be "wrapped" in a synchronized list.
      * @return a synchronized view of the specified list.
@@ -1868,6 +2014,7 @@ public class Collections {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * SynchronizedRandomAccessList instances are serialized as
          * SynchronizedList instances to allow them to be deserialized
          * in pre-1.4 JREs (which do not have SynchronizedRandomAccessList).
@@ -1878,6 +2025,7 @@ public class Collections {
          * Note: Unfortunately, SynchronizedRandomAccessList instances
          * serialized in 1.4.1 and deserialized in 1.4 will become
          * SynchronizedList instances, as this method was missing in 1.4.
+         * {@description.close}
          */
         private Object readResolve() {
             return (list instanceof RandomAccess
@@ -1911,10 +2059,12 @@ public class Collections {
         private static final long serialVersionUID = 1530674583602358482L;
 
         /** {@collect.stats} 
+         * {@description.open}
          * Allows instances to be deserialized in pre-1.4 JREs (which do
          * not have SynchronizedRandomAccessList).  SynchronizedList has
          * a readResolve method that inverts this transformation upon
          * deserialization.
+         * {@description.close}
          */
         private Object writeReplace() {
             return new SynchronizedList<E>(list);
@@ -1922,11 +2072,14 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) map backed by the specified
      * map.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing map is accomplished
      * through the returned map.<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * map when iterating over any of its collection views:
      * <pre>
@@ -1941,9 +2094,12 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned map will be serializable if the specified map is
      * serializable.
+     * {@description.close}
      *
      * @param  m the map to be "wrapped" in a synchronized map.
      * @return a synchronized view of the specified map.
@@ -2046,11 +2202,14 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a synchronized (thread-safe) sorted map backed by the specified
      * sorted map.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing sorted map is accomplished
      * through the returned sorted map (or its views).<p>
+     * {@description.close}
      *
+     * {@property.open}
      * It is imperative that the user manually synchronize on the returned
      * sorted map when iterating over any of its collection views, or the
      * collections views of any of its <tt>subMap</tt>, <tt>headMap</tt> or
@@ -2080,9 +2239,12 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned sorted map will be serializable if the specified
      * sorted map is serializable.
+     * {@description.close}
      *
      * @param  m the sorted map to be "wrapped" in a synchronized sorted map.
      * @return a synchronized view of the specified sorted map.
@@ -2144,6 +2306,7 @@ public class Collections {
     // Dynamically typesafe collection wrappers
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified collection.
      * Any attempt to insert an element of the wrong type will result in an
      * immediate {@link ClassCastException}.  Assuming a collection
@@ -2196,6 +2359,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned collection permits insertion of null elements
      * whenever the backing collection does.
+     * {@description.close}
      *
      * @param c the collection for which a dynamically typesafe view is to be
      *          returned
@@ -2311,6 +2475,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified set.
      * Any attempt to insert an element of the wrong type will result in
      * an immediate {@link ClassCastException}.  Assuming a set contains
@@ -2329,6 +2494,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned set permits insertion of null elements whenever
      * the backing set does.
+     * {@description.close}
      *
      * @param s the set for which a dynamically typesafe view is to be
      *          returned
@@ -2355,6 +2521,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified sorted set.
      * Any attempt to insert an element of the wrong type will result in an
      * immediate {@link ClassCastException}.  Assuming a sorted set
@@ -2374,6 +2541,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned sorted set permits insertion of null elements
      * whenever the backing sorted set does.
+     * {@description.close}
      *
      * @param s the sorted set for which a dynamically typesafe view is to be
      *          returned
@@ -2416,6 +2584,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified list.
      * Any attempt to insert an element of the wrong type will result in
      * an immediate {@link ClassCastException}.  Assuming a list contains
@@ -2434,6 +2603,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned list permits insertion of null elements whenever
      * the backing list does.
+     * {@description.close}
      *
      * @param list the list for which a dynamically typesafe view is to be
      *             returned
@@ -2532,6 +2702,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified map.
      * Any attempt to insert a mapping whose key or value have the wrong
      * type will result in an immediate {@link ClassCastException}.
@@ -2557,6 +2728,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned map permits insertion of null keys or values
      * whenever the backing map does.
+     * {@description.close}
      *
      * @param m the map for which a dynamically typesafe view is to be
      *          returned
@@ -2659,10 +2831,12 @@ public class Collections {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * We need this class in addition to CheckedSet as Map.Entry permits
          * modification of the backing Map via the setValue operation.  This
          * class is subtle: there are many possible attacks that must be
          * thwarted.
+         * {@description.close}
          *
          * @serial exclude
          */
@@ -2740,10 +2914,12 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * This method is overridden to protect the backing set against
              * an object with a nefarious equals function that senses
              * that the equality-candidate is Map.Entry and calls its
              * setValue method.
+             * {@description.close}
              */
             public boolean contains(Object o) {
                 if (!(o instanceof Map.Entry))
@@ -2754,9 +2930,11 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * The bulk collection methods are overridden to protect
              * against an unscrupulous collection whose contains(Object o)
              * method senses when o is a Map.Entry, and calls o.setValue.
+             * {@description.close}
              */
             public boolean containsAll(Collection<?> c) {
                 for (Object o : c)
@@ -2806,11 +2984,13 @@ public class Collections {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * This "wrapper class" serves two purposes: it prevents
              * the client from modifying the backing Map, by short-circuiting
              * the setValue method, and it protects the backing Map against
              * an ill-behaved Map.Entry that attempts to modify another
              * Map.Entry when asked to perform an equality check.
+             * {@description.close}
              */
             private static class CheckedEntry<K,V,T> implements Map.Entry<K,V> {
                 private final Map.Entry<K, V> e;
@@ -2850,6 +3030,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a dynamically typesafe view of the specified sorted map.
      * Any attempt to insert a mapping whose key or value have the wrong
      * type will result in an immediate {@link ClassCastException}.
@@ -2875,6 +3056,7 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned map permits insertion of null keys or values
      * whenever the backing map does.
+     * {@description.close}
      *
      * @param m the map for which a dynamically typesafe view is to be
      *          returned
@@ -2924,6 +3106,7 @@ public class Collections {
     // Empty collections
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator that has no elements.  More precisely,
      *
      * <ul compact>
@@ -2941,6 +3124,7 @@ public class Collections {
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
+     * {@description.close}
      *
      * @return an empty iterator
      * @since 1.7
@@ -2960,6 +3144,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list iterator that has no elements.  More precisely,
      *
      * <ul compact>
@@ -2987,6 +3172,7 @@ public class Collections {
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
+     * {@description.close}
      *
      * @return an empty list iterator
      * @since 1.7
@@ -3012,6 +3198,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration that has no elements.  More precisely,
      *
      * <ul compact>
@@ -3026,6 +3213,7 @@ public class Collections {
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
+     * {@description.close}
      *
      * @return an empty enumeration
      * @since 1.7
@@ -3044,7 +3232,9 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The empty set (immutable).  This set is serializable.
+     * {@description.close}
      *
      * @see #emptySet()
      */
@@ -3052,6 +3242,7 @@ public class Collections {
     public static final Set EMPTY_SET = new EmptySet<Object>();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the empty set (immutable).  This set is serializable.
      * Unlike the like-named field, this method is parameterized.
      *
@@ -3063,6 +3254,7 @@ public class Collections {
      * create a separate <tt>Set</tt> object for each call.   Using this
      * method is likely to have comparable cost to using the like-named
      * field.  (Unlike this method, the field does not provide type safety.)
+     * {@description.close}
      *
      * @see #EMPTY_SET
      * @since 1.5
@@ -3104,7 +3296,9 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The empty list (immutable).  This list is serializable.
+     * {@description.close}
      *
      * @see #emptyList()
      */
@@ -3112,6 +3306,7 @@ public class Collections {
     public static final List EMPTY_LIST = new EmptyList<Object>();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the empty list (immutable).  This list is serializable.
      *
      * <p>This example illustrates the type-safe way to obtain an empty list:
@@ -3122,6 +3317,7 @@ public class Collections {
      * create a separate <tt>List</tt> object for each call.   Using this
      * method is likely to have comparable cost to using the like-named
      * field.  (Unlike this method, the field does not provide type safety.)
+     * {@description.close}
      *
      * @see #EMPTY_LIST
      * @since 1.5
@@ -3177,7 +3373,9 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The empty map (immutable).  This map is serializable.
+     * {@description.close}
      *
      * @see #emptyMap()
      * @since 1.3
@@ -3186,6 +3384,7 @@ public class Collections {
     public static final Map EMPTY_MAP = new EmptyMap<Object,Object>();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the empty map (immutable).  This map is serializable.
      *
      * <p>This example illustrates the type-safe way to obtain an empty set:
@@ -3196,6 +3395,7 @@ public class Collections {
      * create a separate <tt>Map</tt> object for each call.   Using this
      * method is likely to have comparable cost to using the like-named
      * field.  (Unlike this method, the field does not provide type safety.)
+     * {@description.close}
      *
      * @see #EMPTY_MAP
      * @since 1.5
@@ -3235,8 +3435,10 @@ public class Collections {
     // Singleton collections
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an immutable set containing only the specified object.
      * The returned set is serializable.
+     * {@description.close}
      *
      * @param o the sole object to be stored in the returned set.
      * @return an immutable set containing only the specified object.
@@ -3287,8 +3489,10 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an immutable list containing only the specified object.
      * The returned list is serializable.
+     * {@description.close}
      *
      * @param o the sole object to be stored in the returned list.
      * @return an immutable list containing only the specified object.
@@ -3324,8 +3528,10 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an immutable map, mapping only the specified key to the
      * specified value.  The returned map is serializable.
+     * {@description.close}
      *
      * @param key the sole key to be stored in the returned map.
      * @param value the value to which the returned map maps <tt>key</tt>.
@@ -3388,11 +3594,13 @@ public class Collections {
     // Miscellaneous
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an immutable list consisting of <tt>n</tt> copies of the
      * specified object.  The newly allocated data object is tiny (it contains
      * a single reference to the data object).  This method is useful in
      * combination with the <tt>List.addAll</tt> method to grow lists.
      * The returned list is serializable.
+     * {@description.close}
      *
      * @param  n the number of elements in the returned list.
      * @param  o the element to appear repeatedly in the returned list.
@@ -3484,6 +3692,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a comparator that imposes the reverse of the <i>natural
      * ordering</i> on a collection of objects that implement the
      * <tt>Comparable</tt> interface.  (The natural ordering is the ordering
@@ -3496,6 +3705,7 @@ public class Collections {
      * </pre> sorts the array in reverse-lexicographic (alphabetical) order.<p>
      *
      * The returned comparator is serializable.
+     * {@description.close}
      *
      * @return a comparator that imposes the reverse of the <i>natural
      *         ordering</i> on a collection of objects that implement
@@ -3525,6 +3735,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a comparator that imposes the reverse ordering of the specified
      * comparator.  If the specified comparator is null, this method is
      * equivalent to {@link #reverseOrder()} (in other words, it returns a
@@ -3533,6 +3744,7 @@ public class Collections {
      *
      * <p>The returned comparator is serializable (assuming the specified
      * comparator is also serializable or null).
+     * {@description.close}
      *
      * @return a comparator that imposes the reverse ordering of the
      *         specified comparator
@@ -3557,9 +3769,11 @@ public class Collections {
         private static final long serialVersionUID = 4374092139857L;
 
         /** {@collect.stats} 
+         * {@description.open}
          * The comparator specified in the static factory.  This will never
          * be null, as the static factory returns a ReverseComparator
          * instance if its argument is null.
+         * {@description.close}
          *
          * @serial
          */
@@ -3586,9 +3800,11 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration over the specified collection.  This provides
      * interoperability with legacy APIs that require an enumeration
      * as input.
+     * {@description.close}
      *
      * @param c the collection for which an enumeration is to be returned.
      * @return an enumeration over the specified collection.
@@ -3609,11 +3825,13 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array list containing the elements returned by the
      * specified enumeration in the order they are returned by the
      * enumeration.  This method provides interoperability between
      * legacy APIs that return enumerations and new APIs that require
      * collections.
+     * {@description.close}
      *
      * @param e enumeration providing elements for the returned
      *          array list
@@ -3631,17 +3849,21 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the specified arguments are equal, or both null.
+     * {@description.close}
      */
     static boolean eq(Object o1, Object o2) {
         return o1==null ? o2==null : o1.equals(o2);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in the specified collection equal to the
      * specified object.  More formally, returns the number of elements
      * <tt>e</tt> in the collection such that
      * <tt>(o == null ? e == null : o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param c the collection in which to determine the frequency
      *     of <tt>o</tt>
@@ -3664,9 +3886,12 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if the two specified collections have no
      * elements in common.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>Care must be exercised if this method is used on collections that
      * do not comply with the general contract for <tt>Collection</tt>.
      * Implementations may elect to iterate over either collection and test
@@ -3676,10 +3901,13 @@ public class Collections {
      * equals</i>, or the key set of an {@link IdentityHashMap}), both
      * collections must use the same nonstandard equality test, or the
      * result of this method is undefined.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>Note that it is permissible to pass the same collection in both
      * parameters, in which case the method will return true if and only if
      * the collection is empty.
+     * {@description.close}
      *
      * @param c1 a collection
      * @param c2 a collection
@@ -3707,6 +3935,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds all of the specified elements to the specified collection.
      * Elements to be added may be specified individually or as an array.
      * The behavior of this convenience method is identical to that of
@@ -3718,6 +3947,7 @@ public class Collections {
      * <pre>
      *     Collections.addAll(flavors, "Peaches 'n Plutonium", "Rocky Racoon");
      * </pre>
+     * {@description.close}
      *
      * @param c the collection into which <tt>elements</tt> are to be inserted
      * @param elements the elements to insert into <tt>c</tt>
@@ -3740,6 +3970,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a set backed by the specified map.  The resulting set displays
      * the same ordering, concurrency, and performance characteristics as the
      * backing map.  In essence, this factory method provides a {@link Set}
@@ -3752,7 +3983,9 @@ public class Collections {
      * exactly one method invocation on the backing map or its <tt>keySet</tt>
      * view, with one exception.  The <tt>addAll</tt> method is implemented
      * as a sequence of <tt>put</tt> invocations on the backing map.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>The specified map must be empty at the time this method is invoked,
      * and should not be accessed directly after this method returns.  These
      * conditions are ensured if the map is created empty, passed directly
@@ -3762,6 +3995,7 @@ public class Collections {
      *    Set&lt;Object&gt; weakHashSet = Collections.newSetFromMap(
      *        new WeakHashMap&lt;Object, Boolean&gt;());
      * </pre>
+     * {@property.close}
      *
      * @param map the backing map
      * @return the set backed by the map
@@ -3813,6 +4047,7 @@ public class Collections {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of a {@link Deque} as a Last-in-first-out (Lifo)
      * {@link Queue}. Method <tt>add</tt> is mapped to <tt>push</tt>,
      * <tt>remove</tt> is mapped to <tt>pop</tt> and so on. This
@@ -3824,6 +4059,7 @@ public class Collections {
      * one exception.  The {@link Queue#addAll addAll} method is
      * implemented as a sequence of {@link Deque#addFirst addFirst}
      * invocations on the backing deque.
+     * {@description.close}
      *
      * @param deque the deque
      * @return the queue

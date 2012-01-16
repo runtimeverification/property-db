@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The {@code Vector} class implements a growable array of
  * objects. Like an array, it contains components that can be
  * accessed using an integer index. However, the size of a
@@ -40,7 +41,9 @@ package java.util;
  * {@code capacityIncrement}. An application can increase the
  * capacity of a vector before inserting a large number of
  * components; this reduces the amount of incremental reallocation.
+ * {@description.close}
  *
+ * {@property.open fail-fast}
  * <p><a name="fail-fast"/>
  * The iterators returned by this class's {@link #iterator() iterator} and
  * {@link #listIterator(int) listIterator} methods are <em>fail-fast</em>:
@@ -61,12 +64,15 @@ package java.util;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:  <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>As of the Java 2 platform v1.2, this class was retrofitted to
  * implement the {@link List} interface, making it a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html"> Java
  * Collections Framework</a>.  Unlike the new collection
  * implementations, {@code Vector} is synchronized.
+ * {@description.close}
  *
  * @author  Lee Boynton
  * @author  Jonathan Payne
@@ -81,41 +87,53 @@ public class Vector<E>
     implements List<E>, RandomAccess, Cloneable, java.io.Serializable
 {
     /** {@collect.stats} 
+     * {@description.open}
      * The array buffer into which the components of the vector are
      * stored. The capacity of the vector is the length of this array buffer,
      * and is at least large enough to contain all the vector's elements.
      *
      * <p>Any array elements following the last element in the Vector are null.
+     * {@description.close}
      *
      * @serial
      */
     protected Object[] elementData;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The number of valid components in this {@code Vector} object.
      * Components {@code elementData[0]} through
      * {@code elementData[elementCount-1]} are the actual items.
+     * {@description.close}
      *
      * @serial
      */
     protected int elementCount;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The amount by which the capacity of the vector is automatically
      * incremented when its size becomes greater than its capacity.  If
      * the capacity increment is less than or equal to zero, the capacity
      * of the vector is doubled each time it needs to grow.
+     * {@description.close}
      *
      * @serial
      */
     protected int capacityIncrement;
 
-    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}
+     * {@description.open}
+     * use serialVersionUID from JDK 1.0.2 for interoperability
+     * {@description.close}
+     */
     private static final long serialVersionUID = -2767605614048989439L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty vector with the specified initial capacity and
      * capacity increment.
+     * {@description.close}
      *
      * @param   initialCapacity     the initial capacity of the vector
      * @param   capacityIncrement   the amount by which the capacity is
@@ -133,8 +151,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty vector with the specified initial capacity and
      * with its capacity increment equal to zero.
+     * {@description.close}
      *
      * @param   initialCapacity   the initial capacity of the vector
      * @throws IllegalArgumentException if the specified initial capacity
@@ -145,18 +165,22 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an empty vector so that its internal data array
      * has size {@code 10} and its standard capacity increment is
      * zero.
+     * {@description.close}
      */
     public Vector() {
         this(10);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a vector containing the elements of the specified
      * collection, in the order they are returned by the collection's
      * iterator.
+     * {@description.close}
      *
      * @param c the collection whose elements are to be placed into this
      *       vector
@@ -172,9 +196,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Copies the components of this vector into the specified array.
      * The item at index {@code k} in this vector is copied into
      * component {@code k} of {@code anArray}.
+     * {@description.close}
      *
      * @param  anArray the array into which the components get copied
      * @throws NullPointerException if the given array is null
@@ -189,12 +215,14 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Trims the capacity of this vector to be the vector's current
      * size. If the capacity of this vector is larger than its current
      * size, then the capacity is changed to equal the size by replacing
      * its internal data array, kept in the field {@code elementData},
      * with a smaller one. An application can use this operation to
      * minimize the storage of a vector.
+     * {@description.close}
      */
     public synchronized void trimToSize() {
         modCount++;
@@ -205,6 +233,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Increases the capacity of this vector, if necessary, to ensure
      * that it can hold at least the number of components specified by
      * the minimum capacity argument.
@@ -218,6 +247,7 @@ public class Vector<E>
      * the new capacity will be twice the old capacity; but if this new size
      * is still smaller than {@code minCapacity}, then the new capacity will
      * be {@code minCapacity}.
+     * {@description.close}
      *
      * @param minCapacity the desired minimum capacity
      */
@@ -227,10 +257,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This implements the unsynchronized semantics of ensureCapacity.
      * Synchronized methods in this class can internally call this
      * method for ensuring capacity without incurring the cost of an
      * extra synchronization.
+     * {@description.close}
      *
      * @see #ensureCapacity(int)
      */
@@ -248,10 +280,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the size of this vector. If the new size is greater than the
      * current size, new {@code null} items are added to the end of
      * the vector. If the new size is less than the current size, all
      * components at index {@code newSize} and greater are discarded.
+     * {@description.close}
      *
      * @param  newSize   the new size of this vector
      * @throws ArrayIndexOutOfBoundsException if the new size is negative
@@ -269,7 +303,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the current capacity of this vector.
+     * {@description.close}
      *
      * @return  the current capacity (the length of its internal
      *          data array, kept in the field {@code elementData}
@@ -280,7 +316,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of components in this vector.
+     * {@description.close}
      *
      * @return  the number of components in this vector
      */
@@ -289,7 +327,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if this vector has no components.
+     * {@description.close}
      *
      * @return  {@code true} if and only if this vector has
      *          no components, that is, its size is zero;
@@ -300,10 +340,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration of the components of this vector. The
      * returned {@code Enumeration} object will generate all items in
      * this vector. The first item generated is the item at index {@code 0},
      * then the item at index {@code 1}, and so on.
+     * {@description.close}
      *
      * @return  an enumeration of the components of this vector
      * @see     Iterator
@@ -328,10 +370,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this vector contains the specified element.
      * More formally, returns {@code true} if and only if this vector
      * contains at least one element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this vector is to be tested
      * @return {@code true} if this vector contains the specified element
@@ -341,11 +385,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element
      * in this vector, or -1 if this vector does not contain the element.
      * More formally, returns the lowest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
@@ -356,12 +402,14 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element in
      * this vector, searching forwards from {@code index}, or returns -1 if
      * the element is not found.
      * More formally, returns the lowest index {@code i} such that
      * <tt>(i&nbsp;&gt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i))))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @param index index to start searching from
@@ -385,11 +433,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element
      * in this vector, or -1 if this vector does not contain the element.
      * More formally, returns the highest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
@@ -400,12 +450,14 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element in
      * this vector, searching backwards from {@code index}, or returns -1 if
      * the element is not found.
      * More formally, returns the highest index {@code i} such that
      * <tt>(i&nbsp;&lt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i))))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @param index index to start searching backwards from
@@ -432,10 +484,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the component at the specified index.
      *
      * <p>This method is identical in functionality to the {@link #get(int)}
      * method (which is part of the {@link List} interface).
+     * {@description.close}
      *
      * @param      index   an index into this vector
      * @return     the component at the specified index
@@ -451,8 +505,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the first component (the item at index {@code 0}) of
      * this vector.
+     * {@description.close}
      *
      * @return     the first component of this vector
      * @throws NoSuchElementException if this vector has no components
@@ -465,7 +521,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the last component of the vector.
+     * {@description.close}
      *
      * @return  the last component of the vector, i.e., the component at index
      *          <code>size()&nbsp;-&nbsp;1</code>.
@@ -479,6 +537,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the component at the specified {@code index} of this
      * vector to be the specified object. The previous component at that
      * position is discarded.
@@ -492,6 +551,7 @@ public class Vector<E>
      * {@code set} method reverses the order of the parameters, to more closely
      * match array usage.  Note also that the {@code set} method returns the
      * old value that was stored at the specified position.
+     * {@description.close}
      *
      * @param      obj     what the component is to be set to
      * @param      index   the specified index
@@ -507,6 +567,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Deletes the component at the specified index. Each component in
      * this vector with an index greater or equal to the specified
      * {@code index} is shifted downward to have an index one
@@ -520,6 +581,7 @@ public class Vector<E>
      * method (which is part of the {@link List} interface).  Note that the
      * {@code remove} method returns the old value that was stored at the
      * specified position.
+     * {@description.close}
      *
      * @param      index   the index of the object to remove
      * @throws ArrayIndexOutOfBoundsException if the index is out of range
@@ -578,6 +640,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified component to the end of this vector,
      * increasing its size by one. The capacity of this vector is
      * increased if its size becomes greater than its capacity.
@@ -585,6 +648,7 @@ public class Vector<E>
      * <p>This method is identical in functionality to the
      * {@link #add(Object) add(E)}
      * method (which is part of the {@link List} interface).
+     * {@description.close}
      *
      * @param   obj   the component to be added
      */
@@ -595,6 +659,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the first (lowest-indexed) occurrence of the argument
      * from this vector. If the object is found in this vector, each
      * component in the vector with an index greater or equal to the
@@ -604,6 +669,7 @@ public class Vector<E>
      * <p>This method is identical in functionality to the
      * {@link #remove(Object)} method (which is part of the
      * {@link List} interface).
+     * {@description.close}
      *
      * @param   obj   the component to be removed
      * @return  {@code true} if the argument was a component of this
@@ -620,10 +686,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all components from this vector and sets its size to zero.
      *
      * <p>This method is identical in functionality to the {@link #clear}
      * method (which is part of the {@link List} interface).
+     * {@description.close}
      */
     public synchronized void removeAllElements() {
         modCount++;
@@ -635,9 +703,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a clone of this vector. The copy will contain a
      * reference to a clone of the internal data array, not a reference
      * to the original internal data array of this {@code Vector} object.
+     * {@description.close}
      *
      * @return  a clone of this vector
      */
@@ -655,8 +725,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this Vector
      * in the correct order.
+     * {@description.close}
      *
      * @since 1.2
      */
@@ -665,6 +737,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this Vector in the
      * correct order; the runtime type of the returned array is that of the
      * specified array.  If the Vector fits in the specified array, it is
@@ -677,6 +750,7 @@ public class Vector<E>
      * Vector is set to null.  (This is useful in determining the length
      * of the Vector <em>only</em> if the caller knows that the Vector
      * does not contain any null elements.)
+     * {@description.close}
      *
      * @param a the array into which the elements of the Vector are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -708,7 +782,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the element at the specified position in this Vector.
+     * {@description.close}
      *
      * @param index index of the element to return
      * @return object at the specified index
@@ -724,8 +800,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the element at the specified position in this Vector with the
      * specified element.
+     * {@description.close}
      *
      * @param index index of the element to replace
      * @param element element to be stored at the specified position
@@ -744,7 +822,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends the specified element to the end of this Vector.
+     * {@description.close}
      *
      * @param e element to be appended to this Vector
      * @return {@code true} (as specified by {@link Collection#add})
@@ -758,11 +838,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the first occurrence of the specified element in this Vector
      * If the Vector does not contain the element, it is unchanged.  More
      * formally, removes the element with the lowest index i such that
      * {@code (o==null ? get(i)==null : o.equals(get(i)))} (if such
      * an element exists).
+     * {@description.close}
      *
      * @param o element to be removed from this Vector, if present
      * @return true if the Vector contained the specified element
@@ -773,9 +855,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the specified position in this Vector.
      * Shifts the element currently at that position (if any) and any
      * subsequent elements to the right (adds one to their indices).
+     * {@description.close}
      *
      * @param index index at which the specified element is to be inserted
      * @param element element to be inserted
@@ -788,9 +872,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the element at the specified position in this Vector.
      * Shifts any subsequent elements to the left (subtracts one from their
      * indices).  Returns the element that was removed from the Vector.
+     * {@description.close}
      *
      * @throws ArrayIndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= size()})
@@ -814,8 +900,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this Vector.  The Vector will
      * be empty after this call returns (unless it throws an exception).
+     * {@description.close}
      *
      * @since 1.2
      */
@@ -826,8 +914,10 @@ public class Vector<E>
     // Bulk Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if this Vector contains all of the elements in the
      * specified Collection.
+     * {@description.close}
      *
      * @param   c a collection whose elements will be tested for containment
      *          in this Vector
@@ -840,12 +930,17 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends all of the elements in the specified Collection to the end of
      * this Vector, in the order that they are returned by the specified
-     * Collection's Iterator.  The behavior of this operation is undefined if
+     * Collection's Iterator.
+     * {@description.close}
+     * {@property.open synchronized}
+     * The behavior of this operation is undefined if
      * the specified Collection is modified while the operation is in progress.
      * (This implies that the behavior of this call is undefined if the
      * specified Collection is this Vector, and this Vector is nonempty.)
+     * {@property.close}
      *
      * @param c elements to be inserted into this Vector
      * @return {@code true} if this Vector changed as a result of the call
@@ -863,8 +958,10 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this Vector all of its elements that are contained in the
      * specified Collection.
+     * {@description.close}
      *
      * @param c a collection of elements to be removed from the Vector
      * @return true if this Vector changed as a result of the call
@@ -881,9 +978,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retains only the elements in this Vector that are contained in the
      * specified Collection.  In other words, removes from this Vector all
      * of its elements that are not contained in the specified Collection.
+     * {@description.close}
      *
      * @param c a collection of elements to be retained in this Vector
      *          (all other elements are removed)
@@ -901,12 +1000,14 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts all of the elements in the specified Collection into this
      * Vector at the specified position.  Shifts the element currently at
      * that position (if any) and any subsequent elements to the right
      * (increases their indices).  The new elements will appear in the Vector
      * in the order that they are returned by the specified Collection's
      * iterator.
+     * {@description.close}
      *
      * @param index index at which to insert the first element from the
      *              specified collection
@@ -937,6 +1038,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified Object with this Vector for equality.  Returns
      * true if and only if the specified Object is also a List, both Lists
      * have the same size, and all corresponding pairs of elements in the two
@@ -944,6 +1046,7 @@ public class Vector<E>
      * {@code e2} are <em>equal</em> if {@code (e1==null ? e2==null :
      * e1.equals(e2))}.)  In other words, two Lists are defined to be
      * equal if they contain the same elements in the same order.
+     * {@description.close}
      *
      * @param o the Object to be compared for equality with this Vector
      * @return true if the specified Object is equal to this Vector
@@ -953,21 +1056,26 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this Vector.
+     * {@description.close}
      */
     public synchronized int hashCode() {
         return super.hashCode();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of this Vector, containing
      * the String representation of each element.
+     * {@description.close}
      */
     public synchronized String toString() {
         return super.toString();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this List between fromIndex,
      * inclusive, and toIndex, exclusive.  (If fromIndex and toIndex are
      * equal, the returned List is empty.)  The returned List is backed by this
@@ -986,12 +1094,15 @@ public class Vector<E>
      * Similar idioms may be constructed for indexOf and lastIndexOf,
      * and all of the algorithms in the Collections class can be applied to
      * a subList.
+     * {@description.close}
      *
+     * {@property.open syncornized}
      * <p>The semantics of the List returned by this method become undefined if
      * the backing list (i.e., this List) is <i>structurally modified</i> in
      * any way other than via the returned List.  (Structural modifications are
      * those that change the size of the List, or otherwise perturb it in such
      * a fashion that iterations in progress may yield incorrect results.)
+     * {@property.close}
      *
      * @param fromIndex low endpoint (inclusive) of the subList
      * @param toIndex high endpoint (exclusive) of the subList
@@ -1007,11 +1118,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this list all of the elements whose index is between
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.
      * Shifts any succeeding elements to the left (reduces their index).
      * This call shortens the list by {@code (toIndex - fromIndex)} elements.
      * (If {@code toIndex==fromIndex}, this operation has no effect.)
+     * {@description.close}
      */
     protected synchronized void removeRange(int fromIndex, int toIndex) {
         modCount++;
@@ -1026,9 +1139,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of the {@code Vector} instance to a stream (that
      * is, serialize it).  This method is present merely for synchronization.
      * It just calls the default writeObject method.
+     * {@description.close}
      */
     private synchronized void writeObject(java.io.ObjectOutputStream s)
         throws java.io.IOException
@@ -1037,6 +1152,7 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
      * The specified index indicates the first element that would be
@@ -1045,6 +1161,7 @@ public class Vector<E>
      * return the element with the specified index minus one.
      *
      * <p>The returned list iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
+     * {@description.close}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -1055,10 +1172,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
      *
      * <p>The returned list iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
+     * {@description.close}
      *
      * @see #listIterator(int)
      */
@@ -1067,9 +1186,11 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * <p>The returned iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
+     * {@description.close}
      *
      * @return an iterator over the elements in this list in proper sequence
      */
@@ -1078,7 +1199,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * An optimized version of AbstractList.Itr
+     * {@description.close}
      */
     private class Itr implements Iterator<E> {
         int cursor;       // index of next element to return
@@ -1121,7 +1244,9 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * An optimized version of AbstractList.ListItr
+     * {@description.close}
      */
     final class ListItr extends Itr implements ListIterator<E> {
         ListItr(int index) {

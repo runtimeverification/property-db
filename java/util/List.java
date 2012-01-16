@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An ordered collection (also known as a <i>sequence</i>).  The user of this
  * interface has precise control over where in the list each element is
  * inserted.  The user can access elements by their integer index (position in
@@ -88,6 +89,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -108,26 +110,32 @@ public interface List<E> extends Collection<E> {
     // Query Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this list.  If this list contains
      * more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
+     * {@description.close}
      *
      * @return the number of elements in this list
      */
     int size();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains no elements.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this list contains no elements
      */
     boolean isEmpty();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this list is to be tested
      * @return <tt>true</tt> if this list contains the specified element
@@ -139,13 +147,16 @@ public interface List<E> extends Collection<E> {
     boolean contains(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this list in proper sequence.
+     * {@description.close}
      *
      * @return an iterator over the elements in this list in proper sequence
      */
     Iterator<E> iterator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element).
      *
@@ -156,6 +167,7 @@ public interface List<E> extends Collection<E> {
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all of the elements in this list in proper
      *         sequence
@@ -164,6 +176,7 @@ public interface List<E> extends Collection<E> {
     Object[] toArray();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
      * the returned array is that of the specified array.  If the list fits
@@ -191,6 +204,7 @@ public interface List<E> extends Collection<E> {
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of this list are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -207,6 +221,7 @@ public interface List<E> extends Collection<E> {
     // Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends the specified element to the end of this list (optional
      * operation).
      *
@@ -216,6 +231,7 @@ public interface List<E> extends Collection<E> {
      * restrictions on the type of elements that may be added.  List
      * classes should clearly specify in their documentation any restrictions
      * on what elements may be added.
+     * {@description.close}
      *
      * @param e element to be appended to this list
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -231,6 +247,7 @@ public interface List<E> extends Collection<E> {
     boolean add(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the first occurrence of the specified element from this list,
      * if it is present (optional operation).  If this list does not contain
      * the element, it is unchanged.  More formally, removes the element with
@@ -239,6 +256,7 @@ public interface List<E> extends Collection<E> {
      * (if such an element exists).  Returns <tt>true</tt> if this list
      * contained the specified element (or equivalently, if this list changed
      * as a result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this list, if present
      * @return <tt>true</tt> if this list contained the specified element
@@ -255,8 +273,10 @@ public interface List<E> extends Collection<E> {
     // Bulk Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains all of the elements of the
      * specified collection.
+     * {@description.close}
      *
      * @param  c collection to be checked for containment in this list
      * @return <tt>true</tt> if this list contains all of the elements of the
@@ -272,12 +292,17 @@ public interface List<E> extends Collection<E> {
     boolean containsAll(Collection<?> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the specified
-     * collection's iterator (optional operation).  The behavior of this
+     * collection's iterator (optional operation).
+     * {@description.close}
+     * {@property.open synchronized}
+     * The behavior of this
      * operation is undefined if the specified collection is modified while
      * the operation is in progress.  (Note that this will occur if the
      * specified collection is this list, and it's nonempty.)
+     * {@property.close}
      *
      * @param c collection containing elements to be added to this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -295,15 +320,20 @@ public interface List<E> extends Collection<E> {
     boolean addAll(Collection<? extends E> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
      * element currently at that position (if any) and any subsequent
      * elements to the right (increases their indices).  The new elements
      * will appear in this list in the order that they are returned by the
-     * specified collection's iterator.  The behavior of this operation is
+     * specified collection's iterator.
+     * {@description.close}
+     * {@property.open synchronized}
+     * The behavior of this operation is
      * undefined if the specified collection is modified while the
      * operation is in progress.  (Note that this will occur if the specified
      * collection is this list, and it's nonempty.)
+     * {@property.close}
      *
      * @param index index at which to insert the first element from the
      *              specified collection
@@ -324,8 +354,10 @@ public interface List<E> extends Collection<E> {
     boolean addAll(int index, Collection<? extends E> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this list all of its elements that are contained in the
      * specified collection (optional operation).
+     * {@description.close}
      *
      * @param c collection containing elements to be removed from this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -342,10 +374,12 @@ public interface List<E> extends Collection<E> {
     boolean removeAll(Collection<?> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retains only the elements in this list that are contained in the
      * specified collection (optional operation).  In other words, removes
      * from this list all of its elements that are not contained in the
      * specified collection.
+     * {@description.close}
      *
      * @param c collection containing elements to be retained in this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -362,8 +396,10 @@ public interface List<E> extends Collection<E> {
     boolean retainAll(Collection<?> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
+     * {@description.close}
      *
      * @throws UnsupportedOperationException if the <tt>clear</tt> operation
      *         is not supported by this list
@@ -374,6 +410,7 @@ public interface List<E> extends Collection<E> {
     // Comparison and hashing
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this list for equality.  Returns
      * <tt>true</tt> if and only if the specified object is also a list, both
      * lists have the same size, and all corresponding pairs of elements in
@@ -383,6 +420,7 @@ public interface List<E> extends Collection<E> {
      * equal if they contain the same elements in the same order.  This
      * definition ensures that the equals method works properly across
      * different implementations of the <tt>List</tt> interface.
+     * {@description.close}
      *
      * @param o the object to be compared for equality with this list
      * @return <tt>true</tt> if the specified object is equal to this list
@@ -390,6 +428,7 @@ public interface List<E> extends Collection<E> {
     boolean equals(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this list.  The hash code of a list
      * is defined to be the result of the following calculation:
      * <pre>
@@ -401,6 +440,7 @@ public interface List<E> extends Collection<E> {
      * <tt>list1.hashCode()==list2.hashCode()</tt> for any two lists,
      * <tt>list1</tt> and <tt>list2</tt>, as required by the general
      * contract of {@link Object#hashCode}.
+     * {@description.close}
      *
      * @return the hash code value for this list
      * @see Object#equals(Object)
@@ -412,7 +452,9 @@ public interface List<E> extends Collection<E> {
     // Positional Access Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the element at the specified position in this list.
+     * {@description.close}
      *
      * @param index index of the element to return
      * @return the element at the specified position in this list
@@ -422,8 +464,10 @@ public interface List<E> extends Collection<E> {
     E get(int index);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
+     * {@description.close}
      *
      * @param index index of the element to replace
      * @param element element to be stored at the specified position
@@ -442,10 +486,12 @@ public interface List<E> extends Collection<E> {
     E set(int index, E element);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the specified position in this list
      * (optional operation).  Shifts the element currently at that position
      * (if any) and any subsequent elements to the right (adds one to their
      * indices).
+     * {@description.close}
      *
      * @param index index at which the specified element is to be inserted
      * @param element element to be inserted
@@ -463,10 +509,12 @@ public interface List<E> extends Collection<E> {
     void add(int index, E element);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the element at the specified position in this list (optional
      * operation).  Shifts any subsequent elements to the left (subtracts one
      * from their indices).  Returns the element that was removed from the
      * list.
+     * {@description.close}
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
@@ -481,11 +529,13 @@ public interface List<E> extends Collection<E> {
     // Search Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
@@ -498,11 +548,13 @@ public interface List<E> extends Collection<E> {
     int indexOf(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
@@ -518,8 +570,10 @@ public interface List<E> extends Collection<E> {
     // List Iterators
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
+     * {@description.close}
      *
      * @return a list iterator over the elements in this list (in proper
      *         sequence)
@@ -527,12 +581,14 @@ public interface List<E> extends Collection<E> {
     ListIterator<E> listIterator();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
      * The specified index indicates the first element that would be
      * returned by an initial call to {@link ListIterator#next next}.
      * An initial call to {@link ListIterator#previous previous} would
      * return the element with the specified index minus one.
+     * {@description.close}
      *
      * @param index index of the first element to be returned from the
      *        list iterator (by a call to {@link ListIterator#next next})
@@ -546,6 +602,7 @@ public interface List<E> extends Collection<E> {
     // View
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this list between the specified
      * <tt>fromIndex</tt>, inclusive, and <tt>toIndex</tt>, exclusive.  (If
      * <tt>fromIndex</tt> and <tt>toIndex</tt> are equal, the returned list is
@@ -571,6 +628,7 @@ public interface List<E> extends Collection<E> {
      * any way other than via the returned list.  (Structural modifications are
      * those that change the size of this list, or otherwise perturb it in such
      * a fashion that iterations in progress may yield incorrect results.)
+     * {@description.close}
      *
      * @param fromIndex low endpoint (inclusive) of the subList
      * @param toIndex high endpoint (exclusive) of the subList

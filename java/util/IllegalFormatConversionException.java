@@ -26,12 +26,14 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when the argument corresponding to the format
  * specifier is of an incompatible type.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @since 1.5
  */
@@ -43,8 +45,10 @@ public class IllegalFormatConversionException extends IllegalFormatException {
     private Class arg;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance of this class with the mismatched conversion and
      * the corresponding argument class.
+     * {@description.close}
      *
      * @param  c
      *         Inapplicable conversion
@@ -60,7 +64,9 @@ public class IllegalFormatConversionException extends IllegalFormatException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the inapplicable conversion.
+     * {@description.close}
      *
      * @return  The inapplicable conversion
      */
@@ -69,7 +75,9 @@ public class IllegalFormatConversionException extends IllegalFormatException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the class of the mismatched argument.
+     * {@description.close}
      *
      * @return   The class of the mismatched argument
      */

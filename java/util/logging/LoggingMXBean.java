@@ -26,6 +26,7 @@
 package java.util.logging;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The management interface for the logging facility.
  *
  * <p>There is a single global instance of the <tt>LoggingMXBean</tt>.
@@ -42,6 +43,7 @@ package java.util.logging;
  *    {@link LogManager#LOGGING_MXBEAN_NAME
  *           <tt>java.util.logging:type=Logging</tt>}
  * </blockquote>
+ * {@description.close}
  *
  * @see java.lang.management.ManagementFactory
  *
@@ -53,9 +55,11 @@ package java.util.logging;
 public interface LoggingMXBean {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the list of currently registered loggers. This method
      * calls {@link LogManager#getLoggerNames} and returns a list
      * of the logger names.
+     * {@description.close}
      *
      * @return A list of <tt>String</tt> each of which is a
      *         currently registered <tt>Logger</tt> name.
@@ -63,6 +67,7 @@ public interface LoggingMXBean {
     public java.util.List<String> getLoggerNames();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the name of the log level associated with the specified logger.
      * If the specified logger does not exist, <tt>null</tt>
      * is returned.
@@ -76,6 +81,7 @@ public interface LoggingMXBean {
      * If the <tt>Level</tt> of the specified logger is <tt>null</tt>,
      * which means that this logger's effective level is inherited
      * from its parent, an empty string will be returned.
+     * {@description.close}
      *
      * @param loggerName The name of the <tt>Logger</tt> to be retrieved.
      *
@@ -89,6 +95,7 @@ public interface LoggingMXBean {
     public String getLoggerLevel( String loggerName );
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the specified logger to the specified new level.
      * If the <tt>levelName</tt> is not <tt>null</tt>, the level
      * of the specified logger is set to the parsed <tt>Level</tt>
@@ -97,6 +104,7 @@ public interface LoggingMXBean {
      * of the specified logger is set to <tt>null</tt> and
      * the effective level of the logger is inherited from
      * its nearest ancestor with a specific (non-null) level value.
+     * {@description.close}
      *
      * @param loggerName The name of the <tt>Logger</tt> to be set.
      *                   Must be non-null.
@@ -115,10 +123,12 @@ public interface LoggingMXBean {
     public void setLoggerLevel( String loggerName, String levelName );
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the name of the parent for the specified logger.
      * If the specified logger does not exist, <tt>null</tt> is returned.
      * If the specified logger is the root <tt>Logger</tt> in the namespace,
      * the result will be an empty string.
+     * {@description.close}
      *
      * @param loggerName The name of a <tt>Logger</tt>.
      *

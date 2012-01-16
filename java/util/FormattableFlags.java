@@ -26,10 +26,12 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * FomattableFlags are passed to the {@link Formattable#formatTo
  * Formattable.formatTo()} method and modify the output format for {@linkplain
  * Formattable Formattables}.  Implementations of {@link Formattable} are
  * responsible for interpreting and validating any flags.
+ * {@description.close}
  *
  * @since  1.5
  */
@@ -39,10 +41,12 @@ public class FormattableFlags {
     private FormattableFlags() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Left-justifies the output.  Spaces (<tt>'&#92;u0020'</tt>) will be added
      * at the end of the converted value as required to fill the minimum width
      * of the field.  If this flag is not set then the output will be
      * right-justified.
+     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'-'</tt> (<tt>'&#92;u002d'</tt>) in
      * the format specifier.
@@ -50,6 +54,7 @@ public class FormattableFlags {
     public static final int LEFT_JUSTIFY = 1<<0; // '-'
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts the output to upper case according to the rules of the
      * {@linkplain java.util.Locale locale} given during creation of the
      * <tt>formatter</tt> argument of the {@link Formattable#formatTo
@@ -58,6 +63,7 @@ public class FormattableFlags {
      *
      * <pre>
      *     out.toUpperCase() </pre>
+     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'^'</tt> (<tt>'&#92;u005e'</tt>) in
      * the format specifier.
@@ -65,8 +71,10 @@ public class FormattableFlags {
     public static final int UPPERCASE = 1<<1;    // '^'
 
     /** {@collect.stats} 
+     * {@description.open}
      * Requires the output to use an alternate form.  The definition of the
      * form is specified by the <tt>Formattable</tt>.
+     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'#'</tt> (<tt>'&#92;u0023'</tt>) in
      * the format specifier.

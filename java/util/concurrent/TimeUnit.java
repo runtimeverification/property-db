@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A <tt>TimeUnit</tt> represents time durations at a given unit of
  * granularity and provides utility methods to convert across units,
  * and to perform timing and delay operations in these units.  A
@@ -64,6 +65,7 @@ package java.util.concurrent;
  * Note however, that there is no guarantee that a particular timeout
  * implementation will be able to notice the passage of time at the
  * same granularity as the given <tt>TimeUnit</tt>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -159,8 +161,10 @@ public enum TimeUnit {
     static final long MAX = Long.MAX_VALUE;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Scale d by m, checking for overflow.
      * This has a short name to make above code more readable.
+     * {@description.close}
      */
     static long x(long d, long m, long over) {
         if (d >  over) return Long.MAX_VALUE;
@@ -174,6 +178,7 @@ public enum TimeUnit {
     // etc. are not declared abstract but otherwise act as abstract methods.
 
     /** {@collect.stats} 
+     * {@description.open}
      * Convert the given time duration in the given unit to this
      * unit.  Conversions from finer to coarser granularities
      * truncate, so lose precision. For example converting
@@ -185,6 +190,7 @@ public enum TimeUnit {
      *
      * <p>For example, to convert 10 minutes to milliseconds, use:
      * <tt>TimeUnit.MILLISECONDS.convert(10L, TimeUnit.MINUTES)</tt>
+     * {@description.close}
      *
      * @param sourceDuration the time duration in the given <tt>sourceUnit</tt>
      * @param sourceUnit the unit of the <tt>sourceDuration</tt> argument
@@ -197,7 +203,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>NANOSECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -209,7 +217,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MICROSECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -221,7 +231,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MILLISECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -233,7 +245,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>SECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -245,7 +259,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MINUTES.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -258,7 +274,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>HOURS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -271,7 +289,9 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>DAYS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration
      * @see #convert
@@ -282,8 +302,10 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility to compute the excess-nanosecond argument to wait,
      * sleep, join.
+     * {@description.close}
      * @param d the duration
      * @param m the number of milliseconds
      * @return the number of nanoseconds
@@ -291,6 +313,7 @@ public enum TimeUnit {
     abstract int excessNanos(long d, long m);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Performs a timed <tt>Object.wait</tt> using this time unit.
      * This is a convenience method that converts timeout arguments
      * into the form required by the <tt>Object.wait</tt> method.
@@ -305,6 +328,7 @@ public enum TimeUnit {
      *      ...
      *    }
      *  }</pre>
+     * {@description.close}
      *
      * @param obj the object to wait on
      * @param timeout the maximum time to wait. If less than
@@ -322,9 +346,11 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Performs a timed <tt>Thread.join</tt> using this time unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.join</tt> method.
+     * {@description.close}
      * @param thread the thread to wait for
      * @param timeout the maximum time to wait. If less than
      * or equal to zero, do not wait at all.
@@ -341,9 +367,11 @@ public enum TimeUnit {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Performs a <tt>Thread.sleep</tt> using this unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.sleep</tt> method.
+     * {@description.close}
      * @param timeout the minimum time to sleep. If less than
      * or equal to zero, do not sleep at all.
      * @throws InterruptedException if interrupted while sleeping.

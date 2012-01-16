@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A task that returns a result and may throw an exception.
  * Implementors define a single method with no arguments called
  * <tt>call</tt>.
@@ -48,6 +49,7 @@ package java.util.concurrent;
  *
  * <p> The {@link Executors} class contains utility methods to
  * convert from other common forms to <tt>Callable</tt> classes.
+ * {@description.close}
  *
  * @see Executor
  * @since 1.5
@@ -56,7 +58,9 @@ package java.util.concurrent;
  */
 public interface Callable<V> {
     /** {@collect.stats} 
+     * {@description.open}
      * Computes a result, or throws an exception if unable to do so.
+     * {@description.close}
      *
      * @return computed result
      * @throws Exception if unable to compute a result

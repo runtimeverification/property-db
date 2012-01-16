@@ -37,6 +37,7 @@ package java.util.concurrent;
 import java.util.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Provides default implementations of {@link ExecutorService}
  * execution methods. This class implements the <tt>submit</tt>,
  * <tt>invokeAny</tt> and <tt>invokeAll</tt> methods using a
@@ -55,6 +56,7 @@ import java.util.*;
  * public class CustomThreadPoolExecutor extends ThreadPoolExecutor {
  *
  *   static class CustomTask&lt;V&gt; implements RunnableFuture&lt;V&gt; {...}
+ * {@description.close}
  *
  *   protected &lt;V&gt; RunnableFuture&lt;V&gt; newTaskFor(Callable&lt;V&gt; c) {
  *       return new CustomTask&lt;V&gt;(c);
@@ -71,8 +73,10 @@ import java.util.*;
 public abstract class AbstractExecutorService implements ExecutorService {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <tt>RunnableFuture</tt> for the given runnable and default
      * value.
+     * {@description.close}
      *
      * @param runnable the runnable task being wrapped
      * @param value the default value for the returned future
@@ -87,7 +91,9 @@ public abstract class AbstractExecutorService implements ExecutorService {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <tt>RunnableFuture</tt> for the given callable task.
+     * {@description.close}
      *
      * @param callable the callable task being wrapped
      * @return a <tt>RunnableFuture</tt> which when run will call the
@@ -122,7 +128,9 @@ public abstract class AbstractExecutorService implements ExecutorService {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * the main mechanics of invokeAny.
+     * {@description.close}
      */
     private <T> T doInvokeAny(Collection<? extends Callable<T>> tasks,
                             boolean timed, long nanos)

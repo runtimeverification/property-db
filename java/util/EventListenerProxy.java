@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An abstract wrapper class for an EventListener class which associates a set
  * of additional parameters with the listener. Subclasses must provide the
  * storage and accessor methods for the additional arguments or parameters.
@@ -49,6 +50,7 @@ package java.util;
  *
  * If the calling method is interested in retrieving the named property then it
  * would have to test the element to see if it is a proxy class.
+ * {@description.close}
  *
  * @since 1.4
  */

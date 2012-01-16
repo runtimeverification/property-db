@@ -28,6 +28,7 @@ package java.util.logging;
 
 import java.io.UnsupportedEncodingException;
 /** {@collect.stats} 
+ * {@description.open}
  * A <tt>Handler</tt> object takes log messages from a <tt>Logger</tt> and
  * exports them.  It might for example, write them to a console
  * or write them to a file, or send them to a network logging service,
@@ -41,6 +42,7 @@ import java.io.UnsupportedEncodingException;
  * and <tt>Level</tt>.  See the specific documentation for each concrete
  * <tt>Handler</tt> class.
  *
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -59,15 +61,18 @@ public abstract class Handler {
     boolean sealed = true;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Default constructor.  The resulting <tt>Handler</tt> has a log
      * level of <tt>Level.ALL</tt>, no <tt>Formatter</tt>, and no
      * <tt>Filter</tt>.  A default <tt>ErrorManager</tt> instance is installed
      * as the <tt>ErrorManager</tt>.
+     * {@description.close}
      */
     protected Handler() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Publish a <tt>LogRecord</tt>.
      * <p>
      * The logging request was made initially to a <tt>Logger</tt> object,
@@ -75,6 +80,7 @@ public abstract class Handler {
      * <p>
      * The <tt>Handler</tt>  is responsible for formatting the message, when and
      * if necessary.  The formatting should include localization.
+     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
@@ -82,17 +88,23 @@ public abstract class Handler {
     public abstract void publish(LogRecord record);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Flush any buffered output.
+     * {@description.close}
      */
     public abstract void flush();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close the <tt>Handler</tt> and free all associated resources.
      * <p>
+     * {@description.close}
+     * {@property.open}
      * The close method will perform a <tt>flush</tt> and then close the
      * <tt>Handler</tt>.   After close has been called this <tt>Handler</tt>
      * should no longer be used.  Method calls may either be silently
      * ignored or may throw runtime exceptions.
+     * {@property.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
@@ -100,12 +112,14 @@ public abstract class Handler {
     public abstract void close() throws SecurityException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a <tt>Formatter</tt>.  This <tt>Formatter</tt> will be used
      * to format <tt>LogRecords</tt> for this <tt>Handler</tt>.
      * <p>
      * Some <tt>Handlers</tt> may not use <tt>Formatters</tt>, in
      * which case the <tt>Formatter</tt> will be remembered, but not used.
      * <p>
+     * {@description.close}
      * @param newFormatter the <tt>Formatter</tt> to use (may not be null)
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
@@ -118,7 +132,9 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the <tt>Formatter</tt> for this <tt>Handler</tt>.
+     * {@description.close}
      * @return the <tt>Formatter</tt> (may be null).
      */
     public Formatter getFormatter() {
@@ -126,10 +142,12 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the character encoding used by this <tt>Handler</tt>.
      * <p>
      * The encoding should be set before any <tt>LogRecords</tt> are written
      * to the <tt>Handler</tt>.
+     * {@description.close}
      *
      * @param encoding  The name of a supported character encoding.
      *        May be null, to indicate the default platform encoding.
@@ -154,7 +172,9 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the character encoding for this <tt>Handler</tt>.
+     * {@description.close}
      *
      * @return  The encoding name.  May be null, which indicates the
      *          default encoding should be used.
@@ -164,11 +184,13 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a <tt>Filter</tt> to control output on this <tt>Handler</tt>.
      * <P>
      * For each call of <tt>publish</tt> the <tt>Handler</tt> will call
      * this <tt>Filter</tt> (if it is non-null) to check if the
      * <tt>LogRecord</tt> should be published or discarded.
+     * {@description.close}
      *
      * @param   newFilter  a <tt>Filter</tt> object (may be null)
      * @exception  SecurityException  if a security manager exists and if
@@ -180,7 +202,9 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the current <tt>Filter</tt> for this <tt>Handler</tt>.
+     * {@description.close}
      *
      * @return  a <tt>Filter</tt> object (may be null)
      */
@@ -189,10 +213,12 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Define an ErrorManager for this Handler.
      * <p>
      * The ErrorManager's "error" method will be invoked if any
      * errors occur while using this Handler.
+     * {@description.close}
      *
      * @param em  the new ErrorManager
      * @exception  SecurityException  if a security manager exists and if
@@ -207,7 +233,9 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the ErrorManager for this Handler.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
@@ -218,10 +246,12 @@ public abstract class Handler {
     }
 
    /** {@collect.stats} 
+    * {@description.open}
      * Protected convenience method to report an error to this Handler's
      * ErrorManager.  Note that this method retrieves and uses the ErrorManager
      * without doing a security check.  It can therefore be used in
      * environments where the caller may be non-privileged.
+     * {@description.close}
      *
      * @param msg    a descriptive string (may be null)
      * @param ex     an exception (may be null)
@@ -237,6 +267,7 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the log level specifying which message levels will be
      * logged by this <tt>Handler</tt>.  Message levels lower than this
      * value will be discarded.
@@ -244,6 +275,7 @@ public abstract class Handler {
      * The intention is to allow developers to turn on voluminous
      * logging, but to limit the messages that are sent to certain
      * <tt>Handlers</tt>.
+     * {@description.close}
      *
      * @param newLevel   the new value for the log level
      * @exception  SecurityException  if a security manager exists and if
@@ -258,9 +290,11 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the log level specifying which messages will be
      * logged by this <tt>Handler</tt>.  Message levels lower
      * than this level will be discarded.
+     * {@description.close}
      * @return  the level of messages being logged.
      */
     public synchronized Level getLevel() {
@@ -268,6 +302,7 @@ public abstract class Handler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check if this <tt>Handler</tt> would actually log a given <tt>LogRecord</tt>.
      * <p>
      * This method checks if the <tt>LogRecord</tt> has an appropriate
@@ -276,6 +311,7 @@ public abstract class Handler {
      * handler from logging the <tt>LogRecord</tt>. It will return false if
      * the <tt>LogRecord</tt> is Null.
      * <p>
+     * {@description.close}
      * @param record  a <tt>LogRecord</tt>
      * @return true if the <tt>LogRecord</tt> would be logged.
      *

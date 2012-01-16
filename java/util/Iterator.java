@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An iterator over a collection.  {@code Iterator} takes the place of
  * {@link Enumeration} in the Java Collections Framework.  Iterators
  * differ from enumerations in two ways:
@@ -40,6 +41,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see Collection
@@ -49,16 +51,20 @@ package java.util;
  */
 public interface Iterator<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if the iteration has more elements.
      * (In other words, returns {@code true} if {@link #next} would
      * return an element rather than throwing an exception.)
+     * {@description.close}
      *
      * @return {@code true} if the iteration has more elements
      */
     boolean hasNext();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the next element in the iteration.
+     * {@description.close}
      *
      * @return the next element in the iteration
      * @throws NoSuchElementException if the iteration has no more elements
@@ -66,12 +72,20 @@ public interface Iterator<E> {
     E next();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from the underlying collection the last element returned
-     * by this iterator (optional operation).  This method can be called
-     * only once per call to {@link #next}.  The behavior of an iterator
+     * by this iterator (optional operation).
+     * {@description.close}
+     * {@property.open formal:java.util.Iterator_RemoveOnce}
+     * This method can be called
+     * only once per call to {@link #next}.
+     * {@property.close}
+     * {@property.open synchronized}
+     * The behavior of an iterator
      * is unspecified if the underlying collection is modified while the
      * iteration is in progress in any way other than by calling this
      * method.
+     * {@property.close}
      *
      * @throws UnsupportedOperationException if the {@code remove}
      *         operation is not supported by this iterator

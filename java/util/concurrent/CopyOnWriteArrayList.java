@@ -39,6 +39,7 @@ import java.util.concurrent.locks.*;
 import sun.misc.Unsafe;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A thread-safe variant of {@link java.util.ArrayList} in which all mutative
  * operations (<tt>add</tt>, <tt>set</tt>, and so on) are implemented by
  * making a fresh copy of the underlying array.
@@ -70,6 +71,7 @@ import sun.misc.Unsafe;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -79,38 +81,54 @@ public class CopyOnWriteArrayList<E>
     implements List<E>, RandomAccess, Cloneable, java.io.Serializable {
     private static final long serialVersionUID = 8673264195747942595L;
 
-    /** {@collect.stats}  The lock protecting all mutators */
+    /** {@collect.stats}
+     * {@description.open}
+     * The lock protecting all mutators 
+     * {@description.close}
+     */
     transient final ReentrantLock lock = new ReentrantLock();
 
-    /** {@collect.stats}  The array, accessed only via getArray/setArray. */
+    /** {@collect.stats}
+     * {@description.open}
+     * The array, accessed only via getArray/setArray. 
+     * {@description.close}
+     */
     private volatile transient Object[] array;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the array.  Non-private so as to also be accessible
      * from CopyOnWriteArraySet class.
+     * {@description.close}
      */
     final Object[] getArray() {
         return array;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the array.
+     * {@description.close}
      */
     final void setArray(Object[] a) {
         array = a;
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty list.
+     * {@description.close}
      */
     public CopyOnWriteArrayList() {
         setArray(new Object[0]);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a list containing the elements of the specified
      * collection, in the order they are returned by the collection's
      * iterator.
+     * {@description.close}
      *
      * @param c the collection of initially held elements
      * @throws NullPointerException if the specified collection is null
@@ -124,7 +142,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a list holding a copy of the given array.
+     * {@description.close}
      *
      * @param toCopyIn the array (a copy of this array is used as the
      *        internal array)
@@ -135,7 +155,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this list.
+     * {@description.close}
      *
      * @return the number of elements in this list
      */
@@ -144,7 +166,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains no elements.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this list contains no elements
      */
@@ -153,15 +177,19 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Test for equality, coping with nulls.
+     * {@description.close}
      */
     private static boolean eq(Object o1, Object o2) {
         return (o1 == null ? o2 == null : o1.equals(o2));
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * static version of indexOf, to allow repeated calls without
      * needing to re-acquire array each time.
+     * {@description.close}
      * @param o element to search for
      * @param elements the array
      * @param index first index to search
@@ -183,7 +211,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * static version of lastIndexOf.
+     * {@description.close}
      * @param o element to search for
      * @param elements the array
      * @param index first index to search
@@ -203,10 +233,12 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this list is to be tested
      * @return <tt>true</tt> if this list contains the specified element
@@ -225,12 +257,14 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element in
      * this list, searching forwards from <tt>index</tt>, or returns -1 if
      * the element is not found.
      * More formally, returns the lowest index <tt>i</tt> such that
      * <tt>(i&nbsp;&gt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(e==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;e.equals(get(i))))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param e element to search for
      * @param index index to start searching from
@@ -253,12 +287,14 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element in
      * this list, searching backwards from <tt>index</tt>, or returns -1 if
      * the element is not found.
      * More formally, returns the highest index <tt>i</tt> such that
      * <tt>(i&nbsp;&lt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(e==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;e.equals(get(i))))</tt>,
      * or -1 if there is no such index.
+     * {@description.close}
      *
      * @param e element to search for
      * @param index index to start searching backwards from
@@ -274,8 +310,10 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this list.  (The elements themselves
      * are not copied.)
+     * {@description.close}
      *
      * @return a clone of this list
      */
@@ -291,6 +329,7 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this list
      * in proper sequence (from first to last element).
      *
@@ -300,6 +339,7 @@ public class CopyOnWriteArrayList<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all the elements in this list
      */
@@ -309,6 +349,7 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
      * the returned array is that of the specified array.  If the list fits
@@ -337,6 +378,7 @@ public class CopyOnWriteArrayList<E>
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of the list are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -378,8 +420,10 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the element at the specified position in this list with the
      * specified element.
+     * {@description.close}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -406,7 +450,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends the specified element to the end of this list.
+     * {@description.close}
      *
      * @param e element to be appended to this list
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -427,9 +473,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the specified position in this
      * list. Shifts the element currently at that position (if any) and
      * any subsequent elements to the right (adds one to their indices).
+     * {@description.close}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -460,9 +508,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the element at the specified position in this list.
      * Shifts any subsequent elements to the left (subtracts one from their
      * indices).  Returns the element that was removed from the list.
+     * {@description.close}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -490,6 +540,7 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes the first occurrence of the specified element from this list,
      * if it is present.  If this list does not contain the element, it is
      * unchanged.  More formally, removes the element with the lowest index
@@ -498,6 +549,7 @@ public class CopyOnWriteArrayList<E>
      * (if such an element exists).  Returns <tt>true</tt> if this list
      * contained the specified element (or equivalently, if this list
      * changed as a result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this list, if present
      * @return <tt>true</tt> if this list contained the specified element
@@ -538,11 +590,13 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this list all of the elements whose index is between
      * <tt>fromIndex</tt>, inclusive, and <tt>toIndex</tt>, exclusive.
      * Shifts any succeeding elements to the left (reduces their index).
      * This call shortens the list by <tt>(toIndex - fromIndex)</tt> elements.
      * (If <tt>toIndex==fromIndex</tt>, this operation has no effect.)
+     * {@description.close}
      *
      * @param fromIndex index of first element to be removed
      * @param toIndex index after last element to be removed
@@ -575,7 +629,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Append the element if not present.
+     * {@description.close}
      *
      * @param e element to be added to this list, if absent
      * @return <tt>true</tt> if the element was added
@@ -604,8 +660,10 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains all of the elements of the
      * specified collection.
+     * {@description.close}
      *
      * @param c collection to be checked for containment in this list
      * @return <tt>true</tt> if this list contains all of the elements of the
@@ -624,9 +682,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from this list all of its elements that are contained in
      * the specified collection. This is a particularly expensive operation
      * in this class because of the need for an internal temporary array.
+     * {@description.close}
      *
      * @param c collection containing elements to be removed from this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -664,9 +724,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retains only the elements in this list that are contained in the
      * specified collection.  In other words, removes from this list all of
      * its elements that are not contained in the specified collection.
+     * {@description.close}
      *
      * @param c collection containing elements to be retained in this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -704,10 +766,12 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends all of the elements in the specified collection that
      * are not already contained in this list, to the end of
      * this list, in the order that they are returned by the
      * specified collection's iterator.
+     * {@description.close}
      *
      * @param c collection containing elements to be added to this list
      * @return the number of elements added
@@ -743,8 +807,10 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this list.
      * The list will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         final ReentrantLock lock = this.lock;
@@ -757,9 +823,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends all of the elements in the specified collection to the end
      * of this list, in the order that they are returned by the specified
      * collection's iterator.
+     * {@description.close}
      *
      * @param c collection containing elements to be added to this list
      * @return <tt>true</tt> if this list changed as a result of the call
@@ -785,12 +853,14 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts all of the elements in the specified collection into this
      * list, starting at the specified position.  Shifts the element
      * currently at that position (if any) and any subsequent elements to
      * the right (increases their indices).  The new elements will appear
      * in this list in the order that they are returned by the
      * specified collection's iterator.
+     * {@description.close}
      *
      * @param index index at which to insert the first element
      *        from the specified collection
@@ -832,7 +902,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Save the state of the list to a stream (i.e., serialize it).
+     * {@description.close}
      *
      * @serialData The length of the array backing the list is emitted
      *               (int), followed by all of its elements (each an Object)
@@ -856,7 +928,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitute the list from a stream (i.e., deserialize it).
+     * {@description.close}
      * @param s the stream
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -879,12 +953,14 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of this list.  The string
      * representation consists of the string representations of the list's
      * elements in the order they are returned by its iterator, enclosed in
      * square brackets (<tt>"[]"</tt>).  Adjacent elements are separated by
      * the characters <tt>", "</tt> (comma and space).  Elements are
      * converted to strings as by {@link String#valueOf(Object)}.
+     * {@description.close}
      *
      * @return a string representation of this list
      */
@@ -893,6 +969,7 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this list for equality.
      * Returns {@code true} if the specified object is the same object
      * as this object, or if it is also a {@link List} and the sequence
@@ -903,6 +980,7 @@ public class CopyOnWriteArrayList<E>
      * elements at the same position in the sequence are <em>equal</em>.
      * Two elements {@code e1} and {@code e2} are considered
      * <em>equal</em> if {@code (e1==null ? e2==null : e1.equals(e2))}.
+     * {@description.close}
      *
      * @param o the object to be compared for equality with this list
      * @return {@code true} if the specified object is equal to this list
@@ -926,9 +1004,11 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this list.
      *
      * <p>This implementation uses the definition in {@link List#hashCode}.
+     * {@description.close}
      *
      * @return the hash code value for this list
      */
@@ -944,12 +1024,20 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * <p>The returned iterator provides a snapshot of the state of the list
-     * when the iterator was constructed. No synchronization is needed while
-     * traversing the iterator. The iterator does <em>NOT</em> support the
+     * when the iterator was constructed.
+     * {@description.close}
+     * {@property.open synchronized}
+     * No synchronization is needed while
+     * traversing the iterator.
+     * {@property.close}
+     * {@property.open}
+     * The iterator does <em>NOT</em> support the
      * <tt>remove</tt> method.
+     * {@property.close}
      *
      * @return an iterator over the elements in this list in proper sequence
      */
@@ -958,24 +1046,40 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>The returned iterator provides a snapshot of the state of the list
-     * when the iterator was constructed. No synchronization is needed while
-     * traversing the iterator. The iterator does <em>NOT</em> support the
+     * when the iterator was constructed.
+     * {@description.close}
+     * {@property.open synchronized}
+     * No synchronization is needed while
+     * traversing the iterator.
+     * {@property.close}
+     * {@property.open}
+     * The iterator does <em>NOT</em> support the
      * <tt>remove</tt>, <tt>set</tt> or <tt>add</tt> methods.
+     * {@property.close}
      */
     public ListIterator<E> listIterator() {
         return new COWIterator<E>(getArray(), 0);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>The returned iterator provides a snapshot of the state of the list
-     * when the iterator was constructed. No synchronization is needed while
-     * traversing the iterator. The iterator does <em>NOT</em> support the
+     * when the iterator was constructed.
+     * {@description.close}
+     * {@property.open synchronized}
+     * No synchronization is needed while
+     * traversing the iterator.
+     * {@property.close}
+     * {@property.open}
+     * The iterator does <em>NOT</em> support the
      * <tt>remove</tt>, <tt>set</tt> or <tt>add</tt> methods.
+     * {@property.close}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
@@ -989,9 +1093,17 @@ public class CopyOnWriteArrayList<E>
     }
 
     private static class COWIterator<E> implements ListIterator<E> {
-        /** {@collect.stats}  Snapshot of the array **/
+        /** {@collect.stats}
+         * {@description.open}
+         * Snapshot of the array 
+         * {@description.close}
+         */
         private final Object[] snapshot;
-        /** {@collect.stats}  Index of element to be returned by subsequent call to next.  */
+        /** {@collect.stats}
+         * {@description.open}
+         * Index of element to be returned by subsequent call to next.  
+         * {@description.close}
+         */
         private int cursor;
 
         private COWIterator(Object[] elements, int initialCursor) {
@@ -1030,7 +1142,9 @@ public class CopyOnWriteArrayList<E>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Not supported. Always throws UnsupportedOperationException.
+         * {@description.close}
          * @throws UnsupportedOperationException always; <tt>remove</tt>
          *         is not supported by this iterator.
          */
@@ -1039,7 +1153,9 @@ public class CopyOnWriteArrayList<E>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Not supported. Always throws UnsupportedOperationException.
+         * {@description.close}
          * @throws UnsupportedOperationException always; <tt>set</tt>
          *         is not supported by this iterator.
          */
@@ -1048,7 +1164,9 @@ public class CopyOnWriteArrayList<E>
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Not supported. Always throws UnsupportedOperationException.
+         * {@description.close}
          * @throws UnsupportedOperationException always; <tt>add</tt>
          *         is not supported by this iterator.
          */
@@ -1058,19 +1176,23 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this list between
      * <tt>fromIndex</tt>, inclusive, and <tt>toIndex</tt>, exclusive.
      * The returned list is backed by this list, so changes in the
      * returned list are reflected in this list, and vice-versa.
      * While mutative operations are supported, they are probably not
      * very useful for CopyOnWriteArrayLists.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>The semantics of the list returned by this method become
      * undefined if the backing list (i.e., this list) is
      * <i>structurally modified</i> in any way other than via the
      * returned list.  (Structural modifications are those that change
      * the size of the list, or otherwise perturb it in such a fashion
      * that iterations in progress may yield incorrect results.)
+     * {@property.close}
      *
      * @param fromIndex low endpoint (inclusive) of the subList
      * @param toIndex high endpoint (exclusive) of the subList
@@ -1092,6 +1214,7 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sublist for CopyOnWriteArrayList.
      * This class extends AbstractList merely for convenience, to
      * avoid having to define addAll, etc. This doesn't hurt, but
@@ -1105,6 +1228,7 @@ public class CopyOnWriteArrayList<E>
      * improving.  The kinds of list operations inherited from
      * AbstractList are already so slow on COW sublists that
      * adding a bit more space/time doesn't seem even noticeable.
+     * {@description.close}
      */
     private static class COWSubList<E>
         extends AbstractList<E>

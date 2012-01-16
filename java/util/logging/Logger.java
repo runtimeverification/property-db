@@ -31,6 +31,7 @@ import java.security.*;
 import java.lang.ref.WeakReference;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A Logger object is used to log messages for a specific
  * system or application component.  Loggers are normally named,
  * using a hierarchical dot-separated namespace.  Logger names
@@ -158,6 +159,7 @@ import java.lang.ref.WeakReference;
  * output, subclasses need only override the log(LogRecord) method.
  * All the other logging methods are implemented as calls on this
  * log(LogRecord) method.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -189,6 +191,7 @@ public class Logger {
     private volatile int levelValue;  // current effective level value
 
     /** {@collect.stats} 
+     * {@description.open}
      * GLOBAL_LOGGER_NAME is a name for the global logger.
      * This name is provided as a convenience to developers who are making
      * casual use of the Logging package.  Developers who are making serious
@@ -200,11 +203,13 @@ public class Logger {
      * <p>
      * The preferred way to get the global logger object is via the call
      * <code>Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)</code>.
+     * {@description.close}
      * @since 1.6
      */
     public static final String GLOBAL_LOGGER_NAME = "global";
 
     /** {@collect.stats} 
+     * {@description.open}
      * The "global" Logger object is provided as a convenience to developers
      * who are making casual use of the Logging package.  Developers
      * who are making serious use of the logging package (for example
@@ -214,6 +219,7 @@ public class Logger {
      * strong reference to their Logger objects to prevent them from
      * being garbage collected.
      * <p>
+     * {@description.close}
      * @deprecated Initialization of this field is prone to deadlocks.
      * The field must be initialized by the Logger class initialization
      * which may cause deadlocks with the LogManager class initialization.
@@ -225,10 +231,12 @@ public class Logger {
     public static final Logger global = new Logger(GLOBAL_LOGGER_NAME);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Protected method to construct a logger for a named subsystem.
      * <p>
      * The logger will be initially configured with a null Level
      * and with useParentHandlers true.
+     * {@description.close}
      *
      * @param   name    A name for the logger.  This should
      *                          be a dot-separated name and should normally
@@ -277,6 +285,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Find or create a logger for a named subsystem.  If a logger has
      * already been created with the given name it is returned.  Otherwise
      * a new logger is created.
@@ -294,6 +303,7 @@ public class Logger {
      * {@code getLogger("MyLogger").log(...)} may use different Logger
      * objects named "MyLogger" if there is no strong reference to the
      * Logger named "MyLogger" elsewhere in the program.
+     * {@description.close}
      *
      * @param   name            A name for the logger.  This should
      *                          be a dot-separated name and should normally
@@ -309,6 +319,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Find or create a logger for a named subsystem.  If a logger has
      * already been created with the given name it is returned.  Otherwise
      * a new logger is created.
@@ -333,6 +344,7 @@ public class Logger {
      * a different resource bundle name then an IllegalArgumentException
      * is thrown.
      * <p>
+     * {@description.close}
      * @param   name    A name for the logger.  This should
      *                          be a dot-separated name and should normally
      *                          be based on the package name or class name
@@ -362,6 +374,7 @@ public class Logger {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an anonymous Logger.  The newly created Logger is not
      * registered in the LogManager namespace.  There will be no
      * access checks on updates to the logger.
@@ -378,6 +391,7 @@ public class Logger {
      * by default it inherits its effective level and handlers
      * from the root logger.
      * <p>
+     * {@description.close}
      *
      * @return a newly created private Logger
      */
@@ -386,6 +400,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an anonymous Logger.  The newly created Logger is not
      * registered in the LogManager namespace.  There will be no
      * access checks on updates to the logger.
@@ -402,6 +417,7 @@ public class Logger {
      * by default it inherits its effective level and handlers
      * from the root logger.
      * <p>
+     * {@description.close}
      * @param   resourceBundleName  name of ResourceBundle to be used for localizing
      *                          messages for this logger.
      *          May be null if none of the messages require localization.
@@ -420,10 +436,12 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve the localization resource bundle for this
      * logger for the current default locale.  Note that if
      * the result is null, then the Logger will use a resource
      * bundle inherited from its parent.
+     * {@description.close}
      *
      * @return localization bundle (may be null)
      */
@@ -432,9 +450,11 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve the localization resource bundle name for this
      * logger.  Note that if the result is null, then the Logger
      * will use a resource bundle name inherited from its parent.
+     * {@description.close}
      *
      * @return localization bundle name (may be null)
      */
@@ -443,11 +463,13 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a filter to control output on this Logger.
      * <P>
      * After passing the initial "level" check, the Logger will
      * call this Filter to check if a log record should really
      * be published.
+     * {@description.close}
      *
      * @param   newFilter  a filter object (may be null)
      * @exception  SecurityException  if a security manager exists and if
@@ -459,7 +481,9 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the current filter for this Logger.
+     * {@description.close}
      *
      * @return  a filter object (may be null)
      */
@@ -468,11 +492,13 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a LogRecord.
      * <p>
      * All the other logging methods in this class call through
      * this method to actually perform any logging.  Subclasses can
      * override this single method to capture all log activity.
+     * {@description.close}
      *
      * @param record the LogRecord to be published
      */
@@ -526,12 +552,14 @@ public class Logger {
     //================================================================
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, with no arguments.
      * <p>
      * If the logger is currently enabled for the given message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   msg     The string message (or a key in the message catalog)
      */
@@ -544,12 +572,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, with one object parameter.
      * <p>
      * If the logger is currently enabled for the given message
      * level then a corresponding LogRecord is created and forwarded
      * to all the registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   msg     The string message (or a key in the message catalog)
      * @param   param1  parameter to the message
@@ -565,12 +595,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, with an array of object arguments.
      * <p>
      * If the logger is currently enabled for the given message
      * level then a corresponding LogRecord is created and forwarded
      * to all the registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   msg     The string message (or a key in the message catalog)
      * @param   params  array of parameters to the message
@@ -585,6 +617,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, with associated Throwable information.
      * <p>
      * If the logger is currently enabled for the given message
@@ -596,6 +629,7 @@ public class Logger {
      * processed specially by output Formatters and is not treated
      * as a formatting parameter to the LogRecord message property.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   msg     The string message (or a key in the message catalog)
      * @param   thrown  Throwable associated with log message.
@@ -614,6 +648,7 @@ public class Logger {
     //================================================================
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class and method,
      * with no arguments.
      * <p>
@@ -621,6 +656,7 @@ public class Logger {
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -637,6 +673,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class and method,
      * with a single object parameter to the log message.
      * <p>
@@ -644,6 +681,7 @@ public class Logger {
      * level then a corresponding LogRecord is created and forwarded
      * to all the registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -664,6 +702,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class and method,
      * with an array of object arguments.
      * <p>
@@ -671,6 +710,7 @@ public class Logger {
      * level then a corresponding LogRecord is created and forwarded
      * to all the registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -690,6 +730,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class and method,
      * with associated Throwable information.
      * <p>
@@ -702,6 +743,7 @@ public class Logger {
      * processed specially by output Formatters and is not treated
      * as a formatting parameter to the LogRecord message property.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -738,6 +780,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class, method, and resource bundle name
      * with no arguments.
      * <p>
@@ -749,6 +792,7 @@ public class Logger {
      * resource bundle name is null, or an empty String or invalid
      * then the msg string is not localized.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -769,6 +813,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class, method, and resource bundle name,
      * with a single object parameter to the log message.
      * <p>
@@ -780,6 +825,7 @@ public class Logger {
      * resource bundle name is null, or an empty String or invalid
      * then the msg string is not localized.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -802,6 +848,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class, method, and resource bundle name,
      * with an array of object arguments.
      * <p>
@@ -813,6 +860,7 @@ public class Logger {
      * resource bundle name is null, or an empty String or invalid
      * then the msg string is not localized.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -834,6 +882,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a message, specifying source class, method, and resource bundle name,
      * with associated Throwable information.
      * <p>
@@ -850,6 +899,7 @@ public class Logger {
      * processed specially by output Formatters and is not treated
      * as a formatting parameter to the LogRecord message property.
      * <p>
+     * {@description.close}
      * @param   level   One of the message level identifiers, e.g. SEVERE
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that issued the logging request
@@ -876,12 +926,14 @@ public class Logger {
     //======================================================================
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a method entry.
      * <p>
      * This is a convenience method that can be used to log entry
      * to a method.  A LogRecord with message "ENTRY", log level
      * FINER, and the given sourceMethod and sourceClass is logged.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that is being entered
      */
@@ -893,6 +945,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a method entry, with one parameter.
      * <p>
      * This is a convenience method that can be used to log entry
@@ -900,6 +953,7 @@ public class Logger {
      * FINER, and the given sourceMethod, sourceClass, and parameter
      * is logged.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that is being entered
      * @param   param1         parameter to the method being entered
@@ -913,6 +967,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a method entry, with an array of parameters.
      * <p>
      * This is a convenience method that can be used to log entry
@@ -921,6 +976,7 @@ public class Logger {
      * log level FINER, and the given sourceMethod, sourceClass, and
      * parameters is logged.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of method that is being entered
      * @param   params         array of parameters to the method being entered
@@ -941,12 +997,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a method return.
      * <p>
      * This is a convenience method that can be used to log returning
      * from a method.  A LogRecord with message "RETURN", log level
      * FINER, and the given sourceMethod and sourceClass is logged.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of the method
      */
@@ -959,6 +1017,7 @@ public class Logger {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a method return, with result object.
      * <p>
      * This is a convenience method that can be used to log returning
@@ -966,6 +1025,7 @@ public class Logger {
      * FINER, and the gives sourceMethod, sourceClass, and result
      * object is logged.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod   name of the method
      * @param   result  Object that is being returned
@@ -979,6 +1039,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log throwing an exception.
      * <p>
      * This is a convenience method to log that a method is
@@ -995,6 +1056,7 @@ public class Logger {
      * processed specially by output Formatters and is not treated
      * as a formatting parameter to the LogRecord message property.
      * <p>
+     * {@description.close}
      * @param   sourceClass    name of class that issued the logging request
      * @param   sourceMethod  name of the method.
      * @param   thrown  The Throwable that is being thrown.
@@ -1015,12 +1077,14 @@ public class Logger {
     //=======================================================================
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a SEVERE message.
      * <p>
      * If the logger is currently enabled for the SEVERE message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void severe(String msg) {
@@ -1031,12 +1095,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a WARNING message.
      * <p>
      * If the logger is currently enabled for the WARNING message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void warning(String msg) {
@@ -1047,12 +1113,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log an INFO message.
      * <p>
      * If the logger is currently enabled for the INFO message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void info(String msg) {
@@ -1063,12 +1131,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a CONFIG message.
      * <p>
      * If the logger is currently enabled for the CONFIG message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void config(String msg) {
@@ -1079,12 +1149,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a FINE message.
      * <p>
      * If the logger is currently enabled for the FINE message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void fine(String msg) {
@@ -1095,12 +1167,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a FINER message.
      * <p>
      * If the logger is currently enabled for the FINER message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void finer(String msg) {
@@ -1111,12 +1185,14 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Log a FINEST message.
      * <p>
      * If the logger is currently enabled for the FINEST message
      * level then the given message is forwarded to all the
      * registered output Handler objects.
      * <p>
+     * {@description.close}
      * @param   msg     The string message (or a key in the message catalog)
      */
     public void finest(String msg) {
@@ -1131,6 +1207,7 @@ public class Logger {
     //================================================================
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the log level specifying which message levels will be
      * logged by this logger.  Message levels lower than this
      * value will be discarded.  The level value Level.OFF
@@ -1139,6 +1216,7 @@ public class Logger {
      * If the new level is null, it means that this node should
      * inherit its level from its nearest ancestor with a specific
      * (non-null) level value.
+     * {@description.close}
      *
      * @param newLevel   the new value for the log level (may be null)
      * @exception  SecurityException  if a security manager exists and if
@@ -1153,9 +1231,11 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the log Level that has been specified for this Logger.
      * The result may be null, which means that this logger's
      * effective level will be inherited from its parent.
+     * {@description.close}
      *
      * @return  this Logger's level
      */
@@ -1164,9 +1244,11 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check if a message of the given level would actually be logged
      * by this logger.  This check is based on the Loggers effective level,
      * which may be inherited from its parent.
+     * {@description.close}
      *
      * @param   level   a message logging level
      * @return  true if the given message level is currently being logged.
@@ -1179,7 +1261,9 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the name for this logger.
+     * {@description.close}
      * @return logger name.  Will be null for anonymous Loggers.
      */
     public String getName() {
@@ -1187,11 +1271,13 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Add a log Handler to receive logging messages.
      * <p>
      * By default, Loggers also send their output to their parent logger.
      * Typically the root Logger is configured with a set of Handlers
      * that essentially act as default handlers for all loggers.
+     * {@description.close}
      *
      * @param   handler a logging Handler
      * @exception  SecurityException  if a security manager exists and if
@@ -1208,9 +1294,11 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Remove a log Handler.
      * <P>
      * Returns silently if the given Handler is not found or is null
+     * {@description.close}
      *
      * @param   handler a logging Handler
      * @exception  SecurityException  if a security manager exists and if
@@ -1228,8 +1316,10 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the Handlers associated with this logger.
      * <p>
+     * {@description.close}
      * @return  an array of all registered Handlers
      */
     public synchronized Handler[] getHandlers() {
@@ -1240,10 +1330,12 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Specify whether or not this logger should send its output
      * to it's parent Logger.  This means that any LogRecords will
      * also be written to the parent's Handlers, and potentially
      * to its parent, recursively up the namespace.
+     * {@description.close}
      *
      * @param useParentHandlers   true if output is to be sent to the
      *          logger's parent.
@@ -1256,8 +1348,10 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Discover whether or not this logger is sending its output
      * to its parent logger.
+     * {@description.close}
      *
      * @return  true if output is to be sent to the logger's parent
      */
@@ -1356,6 +1450,7 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the parent for this Logger.
      * <p>
      * This method returns the nearest extant parent in the namespace.
@@ -1365,6 +1460,7 @@ public class Logger {
      * <p>
      * The result will be null if it is called on the root Logger
      * in the namespace.
+     * {@description.close}
      *
      * @return nearest existing parent Logger
      */
@@ -1375,11 +1471,13 @@ public class Logger {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the parent for this Logger.  This method is used by
      * the LogManager to update a Logger when the namespace changes.
      * <p>
      * It should not be called from application code.
      * <p>
+     * {@description.close}
      * @param  parent   the new parent logger
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").

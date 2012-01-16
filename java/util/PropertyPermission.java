@@ -40,6 +40,7 @@ import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class is for property permissions.
  *
  * <P>
@@ -75,6 +76,7 @@ import sun.security.util.SecurityConstants;
  * the "user.name" and "user.home" system properties gives potentially
  * malevolent code sensitive information about the user environment
  * (the user's account name and home directory).
+ * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -92,31 +94,43 @@ import sun.security.util.SecurityConstants;
 public final class PropertyPermission extends BasicPermission {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Read action.
+     * {@description.close}
      */
     private final static int READ    = 0x1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Write action.
+     * {@description.close}
      */
     private final static int WRITE   = 0x2;
     /** {@collect.stats} 
+     * {@description.open}
      * All actions (read,write);
+     * {@description.close}
      */
     private final static int ALL     = READ|WRITE;
     /** {@collect.stats} 
+     * {@description.open}
      * No actions.
+     * {@description.close}
      */
     private final static int NONE    = 0x0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The actions mask.
      *
+     * {@description.close}
      */
     private transient int mask;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The actions string.
+     * {@description.close}
      *
      * @serial
      */
@@ -124,8 +138,10 @@ public final class PropertyPermission extends BasicPermission {
                             // created and re-used in the getAction function.
 
     /** {@collect.stats} 
+     * {@description.open}
      * initialize a PropertyPermission object. Common to all constructors.
      * Also called during de-serialization.
+     * {@description.close}
      *
      * @param mask the actions mask to use.
      *
@@ -147,11 +163,13 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new PropertyPermission object with the specified name.
      * The name is the name of the system property, and
      * <i>actions</i> contains a comma-separated list of the
      * desired actions granted on the property. Possible actions are
      * "read" and "write".
+     * {@description.close}
      *
      * @param name the name of the PropertyPermission.
      * @param actions the actions string.
@@ -168,6 +186,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Checks if this PropertyPermission object "implies" the specified
      * permission.
      * <P>
@@ -179,6 +198,7 @@ public final class PropertyPermission extends BasicPermission {
      * <li> <i>p</i>'s name is implied by this object's
      *      name. For example, "java.*" implies "java.home".
      * </ul>
+     * {@description.close}
      * @param p the permission to check against.
      *
      * @return true if the specified permission is implied by this object,
@@ -198,9 +218,11 @@ public final class PropertyPermission extends BasicPermission {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Checks two PropertyPermission objects for equality. Checks that <i>obj</i> is
      * a PropertyPermission, and has the same name and actions as this object.
      * <P>
+     * {@description.close}
      * @param obj the object we are testing for equality with this object.
      * @return true if obj is a PropertyPermission, and has the same name and
      * actions as this PropertyPermission object.
@@ -219,10 +241,12 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this object.
      * The hash code used is the hash code of this permissions name, that is,
      * <code>getName().hashCode()</code>, where <code>getName</code> is
      * from the Permission superclass.
+     * {@description.close}
      *
      * @return a hash code value for this object.
      */
@@ -233,7 +257,9 @@ public final class PropertyPermission extends BasicPermission {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts an actions String to an actions mask.
+     * {@description.close}
      *
      * @param action the action string.
      * @return the actions mask.
@@ -325,9 +351,11 @@ public final class PropertyPermission extends BasicPermission {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the canonical string representation of the actions.
      * Always returns present actions in the following order:
      * read, write.
+     * {@description.close}
      *
      * @return the canonical string representation of the actions.
      */
@@ -350,11 +378,13 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the "canonical string representation" of the actions.
      * That is, this method always returns present actions in the following order:
      * read, write. For example, if this PropertyPermission object
      * allows both write and read actions, a call to <code>getActions</code>
      * will return the string "read,write".
+     * {@description.close}
      *
      * @return the canonical string representation of the actions.
      */
@@ -367,8 +397,10 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the current action mask.
      * Used by the PropertyPermissionCollection
+     * {@description.close}
      *
      * @return the actions mask.
      */
@@ -378,9 +410,11 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a new PermissionCollection object for storing
      * PropertyPermission objects.
      * <p>
+     * {@description.close}
      *
      * @return a new PermissionCollection object suitable for storing
      * PropertyPermissions.
@@ -394,9 +428,11 @@ public final class PropertyPermission extends BasicPermission {
     private static final long serialVersionUID = 885438825399942851L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * WriteObject is called to save the state of the PropertyPermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
+     * {@description.close}
      */
     private synchronized void writeObject(java.io.ObjectOutputStream s)
         throws IOException
@@ -409,8 +445,10 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * readObject is called to restore the state of the PropertyPermission from
      * a stream.
+     * {@description.close}
      */
     private synchronized void readObject(java.io.ObjectInputStream s)
          throws IOException, ClassNotFoundException
@@ -422,8 +460,10 @@ public final class PropertyPermission extends BasicPermission {
 }
 
 /** {@collect.stats} 
+ * {@description.open}
  * A PropertyPermissionCollection stores a set of PropertyPermission
  * permissions.
+ * {@description.close}
  *
  * @see java.security.Permission
  * @see java.security.Permissions
@@ -439,13 +479,17 @@ implements Serializable
 {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Key is property name; value is PropertyPermission.
      * Not serialized; see serialization section at end of class.
+     * {@description.close}
      */
     private transient Map perms;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Boolean saying if "*" is in the collection.
+     * {@description.close}
      *
      * @see #serialPersistentFields
      */
@@ -453,8 +497,10 @@ implements Serializable
     private boolean all_allowed;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an empty PropertyPermissions object.
      *
+     * {@description.close}
      */
 
     public PropertyPermissionCollection() {
@@ -463,8 +509,10 @@ implements Serializable
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds a permission to the PropertyPermissions. The key for the hash is
      * the name.
+     * {@description.close}
      *
      * @param permission the Permission object to add.
      *
@@ -510,8 +558,10 @@ implements Serializable
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
+     * {@description.close}
      *
      * @param p the Permission object to compare
      *
@@ -587,8 +637,10 @@ implements Serializable
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an enumeration of all the PropertyPermission objects in the
      * container.
+     * {@description.close}
      *
      * @return an enumeration of all the PropertyPermission objects.
      */

@@ -41,7 +41,9 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that a resource is missing.
+ * {@description.close}
  * @see java.lang.Exception
  * @see ResourceBundle
  * @author      Mark Davis
@@ -51,8 +53,10 @@ public
 class MissingResourceException extends RuntimeException {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a MissingResourceException with the specified information.
      * A detail message is a String that describes this particular exception.
+     * {@description.close}
      * @param s the detail message
      * @param className the name of the resource class
      * @param key the key for the missing resource.
@@ -64,10 +68,12 @@ class MissingResourceException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>MissingResourceException</code> with
      * <code>message</code>, <code>className</code>, <code>key</code>,
      * and <code>cause</code>. This constructor is package private for
      * use by <code>ResourceBundle.getBundle</code>.
+     * {@description.close}
      *
      * @param message
      *        the detail message
@@ -88,7 +94,9 @@ class MissingResourceException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets parameter passed by constructor.
+     * {@description.close}
      *
      * @return the name of the resource class
      */
@@ -97,7 +105,9 @@ class MissingResourceException extends RuntimeException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets parameter passed by constructor.
+     * {@description.close}
      *
      * @return the key for the missing resource
      */
@@ -111,13 +121,17 @@ class MissingResourceException extends RuntimeException {
     private static final long serialVersionUID = -4876345176062000401L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The class name of the resource bundle requested by the user.
+     * {@description.close}
      * @serial
      */
     private String className;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The name of the specific resource requested by the user.
+     * {@description.close}
      * @serial
      */
     private String key;

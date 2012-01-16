@@ -30,6 +30,7 @@ import java.io.*;
 import java.net.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Simple network logging <tt>Handler</tt>.
  * <p>
  * <tt>LogRecords</tt> are published to a network stream connection.  By default
@@ -60,6 +61,7 @@ import java.net.*;
  * <p>
  * The output IO stream is buffered, but is flushed after each
  * <tt>LogRecord</tt> is written.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -96,8 +98,10 @@ public class SocketHandler extends StreamHandler {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a <tt>SocketHandler</tt>, using only <tt>LogManager</tt> properties
      * (or their defaults).
+     * {@description.close}
      * @throws IllegalArgumentException if the host or port are invalid or
      *          are not specified as LogManager properties.
      * @throws IOException if we are unable to connect to the target
@@ -118,12 +122,14 @@ public class SocketHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a <tt>SocketHandler</tt> using a specified host and port.
      *
      * The <tt>SocketHandler</tt> is configured based on <tt>LogManager</tt>
      * properties (or their default values) except that the given target host
      * and port arguments are used. If the host argument is empty, but not
      * null String then the localhost is used.
+     * {@description.close}
      *
      * @param host target host.
      * @param port target port.
@@ -158,7 +164,9 @@ public class SocketHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close this output stream.
+     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
@@ -176,7 +184,9 @@ public class SocketHandler extends StreamHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format and publish a <tt>LogRecord</tt>.
+     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published

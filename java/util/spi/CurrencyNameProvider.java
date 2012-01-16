@@ -29,6 +29,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An abstract class for service providers that
  * provide localized currency symbols and display names for the
  * {@link java.util.Currency Currency} class.
@@ -36,23 +37,28 @@ import java.util.Locale;
  * behaviors described in the
  * {@link java.util.spi.LocaleServiceProvider LocaleServiceProvider}
  * specification.
+ * {@description.close}
  *
  * @since        1.6
  */
 public abstract class CurrencyNameProvider extends LocaleServiceProvider {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
+     * {@description.close}
      */
     protected CurrencyNameProvider() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the symbol of the given currency code for the specified locale.
      * For example, for "USD" (US Dollar), the symbol is "$" if the specified
      * locale is the US, while for other locales it may be "US$". If no
      * symbol can be determined, null should be returned.
+     * {@description.close}
      *
      * @param currencyCode the ISO 4217 currency code, which
      *     consists of three upper-case letters between 'A' (U+0041) and
@@ -72,8 +78,10 @@ public abstract class CurrencyNameProvider extends LocaleServiceProvider {
     public abstract String getSymbol(String currencyCode, Locale locale);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a name for the currency that is appropriate for display to the
      * user.  The default implementation returns null.
+     * {@description.close}
      *
      * @param currencyCode the ISO 4217 currency code, which
      *     consists of three upper-case letters between 'A' (U+0041) and

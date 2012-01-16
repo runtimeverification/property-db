@@ -27,6 +27,7 @@
 package java.util.logging;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A Formatter provides support for formatting LogRecords.
  * <p>
  * Typically each logging Handler will have a Formatter associated
@@ -36,6 +37,7 @@ package java.util.logging;
  * Some formatters (such as the XMLFormatter) need to wrap head
  * and tail strings around a set of formatted records. The getHeader
  * and getTail methods can be used to obtain these strings.
+ * {@description.close}
  *
  * @since 1.4
  */
@@ -43,18 +45,22 @@ package java.util.logging;
 public abstract class Formatter {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a new formatter.
+     * {@description.close}
      */
     protected Formatter() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Format the given log record and return the formatted string.
      * <p>
      * The resulting formatted String will normally include a
      * localized and formated version of the LogRecord's message field.
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
+     * {@description.close}
      *
      * @param record the log record to be formatted.
      * @return the formatted log record
@@ -63,10 +69,12 @@ public abstract class Formatter {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the header string for a set of formatted records.
      * <p>
      * This base class returns an empty string, but this may be
      * overriden by subclasses.
+     * {@description.close}
      *
      * @param   h  The target handler (can be null)
      * @return  header string
@@ -76,10 +84,12 @@ public abstract class Formatter {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the tail string for a set of formatted records.
      * <p>
      * This base class returns an empty string, but this may be
      * overriden by subclasses.
+     * {@description.close}
      *
      * @param   h  The target handler (can be null)
      * @return  tail string
@@ -90,6 +100,7 @@ public abstract class Formatter {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Localize and format the message string from a log record.  This
      * method is provided as a convenience for Formatter subclasses to
      * use when they are performing formatting.
@@ -106,6 +117,7 @@ public abstract class Formatter {
      * <li>Otherwise no formatting is performed.
      * </ul>
      * <p>
+     * {@description.close}
      *
      * @param  record  the log record containing the raw message
      * @return   a localized and formatted message

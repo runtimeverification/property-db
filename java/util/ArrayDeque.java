@@ -255,6 +255,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * {@description.open}
      * Inserts the specified element at the front of this deque.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @throws NullPointerException if the specified element is null
@@ -273,6 +276,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      *
      * <p>This method is equivalent to {@link #add}.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @throws NullPointerException if the specified element is null
@@ -289,6 +295,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * {@description.open}
      * Inserts the specified element at the front of this deque.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Deque#offerFirst})
@@ -303,6 +312,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * {@description.open}
      * Inserts the specified element at the end of this deque.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Deque#offerLast})
@@ -449,6 +461,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      *
      * <p>This method is equivalent to {@link #addLast}.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -465,6 +480,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      *
      * <p>This method is equivalent to {@link #offerLast}.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Queue#offer})
@@ -547,6 +565,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      *
      * <p>This method is equivalent to {@link #addFirst}.
      * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      *
      * @param e the element to push
      * @throws NullPointerException if the specified element is null

@@ -36,9 +36,11 @@
 package java.util.concurrent;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Exception thrown when a thread tries to wait upon a barrier that is
  * in a broken state, or which enters the broken state while the thread
  * is waiting.
+ * {@description.close}
  *
  * @see CyclicBarrier
  *
@@ -50,14 +52,18 @@ public class BrokenBarrierException extends Exception {
     private static final long serialVersionUID = 7117394618823254244L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>BrokenBarrierException</tt> with no specified detail
      * message.
+     * {@description.close}
      */
     public BrokenBarrierException() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <tt>BrokenBarrierException</tt> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param message the detail message
      */

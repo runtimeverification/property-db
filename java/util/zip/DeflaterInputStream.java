@@ -30,8 +30,10 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Implements an input stream filter for compressing data in the "deflate"
  * compression format.
+ * {@description.close}
  *
  * @since       1.6
  * @author      David R Tribble (david@tribble.com)
@@ -42,23 +44,45 @@ import java.io.IOException;
  */
 
 public class DeflaterInputStream extends FilterInputStream {
-    /** {@collect.stats}  Compressor for this stream. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Compressor for this stream. 
+     * {@description.close}
+     */
     protected final Deflater def;
 
-    /** {@collect.stats}  Input buffer for reading compressed data. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Input buffer for reading compressed data. 
+     * {@description.close}
+     */
     protected final byte[] buf;
 
-    /** {@collect.stats}  Temporary read buffer. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Temporary read buffer. 
+     * {@description.close}
+     */
     private byte[] rbuf = new byte[1];
 
-    /** {@collect.stats}  Default compressor is used. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Default compressor is used. 
+     * {@description.close}
+     */
     private boolean usesDefaultDeflater = false;
 
-    /** {@collect.stats}  End of the underlying input stream has been reached. */
+    /** {@collect.stats}
+     * {@description.open}
+     * End of the underlying input stream has been reached. 
+     * {@description.close}
+     */
     private boolean reachEOF = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check to make sure that this stream has not been closed.
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (in == null) {
@@ -67,8 +91,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new input stream with a default compressor and buffer
      * size.
+     * {@description.close}
      *
      * @param in input stream to read the uncompressed data to
      * @throws NullPointerException if {@code in} is null
@@ -79,8 +105,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new input stream with the specified compressor and a
      * default buffer size.
+     * {@description.close}
      *
      * @param in input stream to read the uncompressed data to
      * @param defl compressor ("deflater") for this stream
@@ -91,8 +119,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new input stream with the specified compressor and buffer
      * size.
+     * {@description.close}
      *
      * @param in input stream to read the uncompressed data to
      * @param defl compressor ("deflater") for this stream
@@ -117,8 +147,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes this input stream and its underlying input stream, discarding
      * any pending uncompressed data.
+     * {@description.close}
      *
      * @throws IOException if an I/O error occurs
      */
@@ -138,8 +170,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads a single byte of compressed data from the input stream.
      * This method will block until some input can be read and compressed.
+     * {@description.close}
      *
      * @return a single byte of compressed data, or -1 if the end of the
      * uncompressed input stream is reached
@@ -155,8 +189,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads compressed data into a byte array.
      * This method will block until some input can be read and compressed.
+     * {@description.close}
      *
      * @param b buffer into which the data is read
      * @param off starting offset of the data within {@code b}
@@ -210,11 +246,13 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Skips over and discards data from the input stream.
      * This method may block until the specified number of bytes are read and
      * skipped. <em>Note:</em> While {@code n} is given as a {@code long},
      * the maximum number of bytes which can be skipped is
      * {@code Integer.MAX_VALUE}.
+     * {@description.close}
      *
      * @param n number of bytes to be skipped
      * @return the actual number of bytes skipped
@@ -247,10 +285,12 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns 0 after EOF has been reached, otherwise always return 1.
      * <p>
      * Programs should not count on this method to return the actual number
      * of bytes that could be read without blocking
+     * {@description.close}
      * @return zero after the end of the underlying input stream has been
      * reached, otherwise always returns 1
      * @throws IOException if an I/O error occurs or if this stream is
@@ -265,8 +305,10 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Always returns {@code false} because this input stream does not support
      * the {@link #mark mark()} and {@link #reset reset()} methods.
+     * {@description.close}
      *
      * @return false, always
      */
@@ -275,7 +317,9 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@property.open}
      * <i>This operation is not supported</i>.
+     * {@property.close}
      *
      * @param limit maximum bytes that can be read before invalidating the position marker
      */
@@ -284,7 +328,9 @@ public class DeflaterInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats} 
+     * {@property.open}
      * <i>This operation is not supported</i>.
+     * {@property.close}
      *
      * @throws IOException always thrown
      */

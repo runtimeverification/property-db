@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * An iterator for lists that allows the programmer
  * to traverse the list in either direction, modify
  * the list during iteration, and obtain the iterator's
@@ -48,6 +49,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see Collection
@@ -61,10 +63,12 @@ public interface ListIterator<E> extends Iterator<E> {
     // Query Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this list iterator has more elements when
      * traversing the list in the forward direction. (In other words,
      * returns {@code true} if {@link #next} would return an element rather
      * than throwing an exception.)
+     * {@description.close}
      *
      * @return {@code true} if the list iterator has more elements when
      *         traversing the list in the forward direction
@@ -72,11 +76,15 @@ public interface ListIterator<E> extends Iterator<E> {
     boolean hasNext();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the next element in the list and advances the cursor position.
      * This method may be called repeatedly to iterate through the list,
      * or intermixed with calls to {@link #previous} to go back and forth.
      * (Note that alternating calls to {@code next} and {@code previous}
      * will return the same element repeatedly.)
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@property.close}
      *
      * @return the next element in the list
      * @throws NoSuchElementException if the iteration has no next element
@@ -84,10 +92,12 @@ public interface ListIterator<E> extends Iterator<E> {
     E next();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns {@code true} if this list iterator has more elements when
      * traversing the list in the reverse direction.  (In other words,
      * returns {@code true} if {@link #previous} would return an element
      * rather than throwing an exception.)
+     * {@description.close}
      *
      * @return {@code true} if the list iterator has more elements when
      *         traversing the list in the reverse direction
@@ -95,12 +105,16 @@ public interface ListIterator<E> extends Iterator<E> {
     boolean hasPrevious();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the previous element in the list and moves the cursor
      * position backwards.  This method may be called repeatedly to
      * iterate through the list backwards, or intermixed with calls to
      * {@link #next} to go back and forth.  (Note that alternating calls
      * to {@code next} and {@code previous} will return the same
      * element repeatedly.)
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@property.close}
      *
      * @return the previous element in the list
      * @throws NoSuchElementException if the iteration has no previous
@@ -109,9 +123,11 @@ public interface ListIterator<E> extends Iterator<E> {
     E previous();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the element that would be returned by a
      * subsequent call to {@link #next}. (Returns list size if the list
      * iterator is at the end of the list.)
+     * {@description.close}
      *
      * @return the index of the element that would be returned by a
      *         subsequent call to {@code next}, or list size if the list
@@ -120,9 +136,11 @@ public interface ListIterator<E> extends Iterator<E> {
     int nextIndex();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the index of the element that would be returned by a
      * subsequent call to {@link #previous}. (Returns -1 if the list
      * iterator is at the beginning of the list.)
+     * {@description.close}
      *
      * @return the index of the element that would be returned by a
      *         subsequent call to {@code previous}, or -1 if the list
@@ -134,11 +152,15 @@ public interface ListIterator<E> extends Iterator<E> {
     // Modification Operations
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes from the list the last element that was returned by {@link
      * #next} or {@link #previous} (optional operation).  This call can
      * only be made once per call to {@code next} or {@code previous}.
+     * {@description.close}
+     * {@property.open}
      * It can be made only if {@link #add} has not been
      * called after the last call to {@code next} or {@code previous}.
+     * {@property.close}
      *
      * @throws UnsupportedOperationException if the {@code remove}
      *         operation is not supported by this list iterator
@@ -150,11 +172,15 @@ public interface ListIterator<E> extends Iterator<E> {
     void remove();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the last element returned by {@link #next} or
      * {@link #previous} with the specified element (optional operation).
+     * {@description.close}
+     * {@property.open}
      * This call can be made only if neither {@link #remove} nor {@link
      * #add} have been called after the last call to {@code next} or
      * {@code previous}.
+     * {@property.close}
      *
      * @param e the element with which to replace the last element returned by
      *          {@code next} or {@code previous}
@@ -172,6 +198,7 @@ public interface ListIterator<E> extends Iterator<E> {
     void set(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into the list (optional operation).
      * The element is inserted immediately before the next element that
      * would be returned by {@link #next}, if any, and after the next
@@ -182,6 +209,7 @@ public interface ListIterator<E> extends Iterator<E> {
      * subsequent call to {@code previous} would return the new element.
      * (This call increases by one the value that would be returned by a
      * call to {@code nextIndex} or {@code previousIndex}.)
+     * {@description.close}
      *
      * @param e the element to insert
      * @throws UnsupportedOperationException if the {@code add} method is

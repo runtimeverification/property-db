@@ -36,6 +36,7 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link SortedMap} extended with navigation methods returning the
  * closest matches for given search targets. Methods
  * {@code lowerEntry}, {@code floorEntry}, {@code ceilingEntry},
@@ -85,6 +86,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author Doug Lea
  * @author Josh Bloch
@@ -94,9 +96,11 @@ package java.util;
  */
 public interface NavigableMap<K,V> extends SortedMap<K,V> {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the greatest key
      * strictly less than the given key, or {@code null} if there is
      * no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return an entry with the greatest key less than {@code key},
@@ -109,8 +113,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> lowerEntry(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the greatest key strictly less than the given key, or
      * {@code null} if there is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return the greatest key less than {@code key},
@@ -123,9 +129,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     K lowerKey(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the greatest key
      * less than or equal to the given key, or {@code null} if there
      * is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return an entry with the greatest key less than or equal to
@@ -138,8 +146,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> floorEntry(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the greatest key less than or equal to the given key,
      * or {@code null} if there is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return the greatest key less than or equal to {@code key},
@@ -152,9 +162,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     K floorKey(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the least key
      * greater than or equal to the given key, or {@code null} if
      * there is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return an entry with the least key greater than or equal to
@@ -167,8 +179,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> ceilingEntry(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the least key greater than or equal to the given key,
      * or {@code null} if there is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return the least key greater than or equal to {@code key},
@@ -181,9 +195,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     K ceilingKey(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the least key
      * strictly greater than the given key, or {@code null} if there
      * is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return an entry with the least key greater than {@code key},
@@ -196,8 +212,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> higherEntry(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the least key strictly greater than the given key, or
      * {@code null} if there is no such key.
+     * {@description.close}
      *
      * @param key the key
      * @return the least key greater than {@code key},
@@ -210,8 +228,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     K higherKey(K key);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the least
      * key in this map, or {@code null} if the map is empty.
+     * {@description.close}
      *
      * @return an entry with the least key,
      *         or {@code null} if this map is empty
@@ -219,8 +239,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> firstEntry();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a key-value mapping associated with the greatest
      * key in this map, or {@code null} if the map is empty.
+     * {@description.close}
      *
      * @return an entry with the greatest key,
      *         or {@code null} if this map is empty
@@ -228,8 +250,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> lastEntry();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes and returns a key-value mapping associated with
      * the least key in this map, or {@code null} if the map is empty.
+     * {@description.close}
      *
      * @return the removed first entry of this map,
      *         or {@code null} if this map is empty
@@ -237,8 +261,10 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> pollFirstEntry();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes and returns a key-value mapping associated with
      * the greatest key in this map, or {@code null} if the map is empty.
+     * {@description.close}
      *
      * @return the removed last entry of this map,
      *         or {@code null} if this map is empty
@@ -246,55 +272,79 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     Map.Entry<K,V> pollLastEntry();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a reverse order view of the mappings contained in this map.
      * The descending map is backed by this map, so changes to the map are
-     * reflected in the descending map, and vice-versa.  If either map is
+     * reflected in the descending map, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If either map is
      * modified while an iteration over a collection view of either map
      * is in progress (except through the iterator's own {@code remove}
      * operation), the results of the iteration are undefined.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The returned map has an ordering equivalent to
      * <tt>{@link Collections#reverseOrder(Comparator) Collections.reverseOrder}(comparator())</tt>.
      * The expression {@code m.descendingMap().descendingMap()} returns a
      * view of {@code m} essentially equivalent to {@code m}.
+     * {@description.close}
      *
      * @return a reverse order view of this map
      */
     NavigableMap<K,V> descendingMap();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are reflected in
-     * the set, and vice-versa.  If the map is modified while an iteration
+     * the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
-     * remove} operation), the results of the iteration are undefined.  The
+     * remove} operation), the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The
      * set supports element removal, which removes the corresponding mapping
      * from the map, via the {@code Iterator.remove}, {@code Set.remove},
      * {@code removeAll}, {@code retainAll}, and {@code clear} operations.
      * It does not support the {@code add} or {@code addAll} operations.
+     * {@description.close}
      *
      * @return a navigable set view of the keys in this map
      */
     NavigableSet<K> navigableKeySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a reverse order {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in descending order.
      * The set is backed by the map, so changes to the map are reflected in
-     * the set, and vice-versa.  If the map is modified while an iteration
+     * the set, and vice-versa.
+     * {@description.close}
+     * {@property.open synchronized}
+     * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
-     * remove} operation), the results of the iteration are undefined.  The
+     * remove} operation), the results of the iteration are undefined.
+     * {@property.close}
+     * {@description.open}
+     * The
      * set supports element removal, which removes the corresponding mapping
      * from the map, via the {@code Iterator.remove}, {@code Set.remove},
      * {@code removeAll}, {@code retainAll}, and {@code clear} operations.
      * It does not support the {@code add} or {@code addAll} operations.
+     * {@description.close}
      *
      * @return a reverse order navigable set view of the keys in this map
      */
     NavigableSet<K> descendingKeySet();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys range from
      * {@code fromKey} to {@code toKey}.  If {@code fromKey} and
      * {@code toKey} are equal, the returned map is empty unless
@@ -306,6 +356,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * <p>The returned map will throw an {@code IllegalArgumentException}
      * on an attempt to insert a key outside of its range, or to construct a
      * submap either of whose endpoints lie outside its range.
+     * {@description.close}
      *
      * @param fromKey low endpoint of the keys in the returned map
      * @param fromInclusive {@code true} if the low endpoint
@@ -332,6 +383,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
                              K toKey,   boolean toInclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys are less than (or
      * equal to, if {@code inclusive} is true) {@code toKey}.  The returned
      * map is backed by this map, so changes in the returned map are reflected
@@ -340,6 +392,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      *
      * <p>The returned map will throw an {@code IllegalArgumentException}
      * on an attempt to insert a key outside its range.
+     * {@description.close}
      *
      * @param toKey high endpoint of the keys in the returned map
      * @param inclusive {@code true} if the high endpoint
@@ -361,6 +414,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     NavigableMap<K,V> headMap(K toKey, boolean inclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a view of the portion of this map whose keys are greater than (or
      * equal to, if {@code inclusive} is true) {@code fromKey}.  The returned
      * map is backed by this map, so changes in the returned map are reflected
@@ -369,6 +423,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      *
      * <p>The returned map will throw an {@code IllegalArgumentException}
      * on an attempt to insert a key outside its range.
+     * {@description.close}
      *
      * @param fromKey low endpoint of the keys in the returned map
      * @param inclusive {@code true} if the low endpoint
@@ -390,9 +445,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     NavigableMap<K,V> tailMap(K fromKey, boolean inclusive);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code subMap(fromKey, true, toKey, false)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
@@ -401,9 +458,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     SortedMap<K,V> subMap(K fromKey, K toKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code headMap(toKey, false)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}
@@ -412,9 +471,11 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     SortedMap<K,V> headMap(K toKey);
 
     /** {@collect.stats} 
+     * {@description.open}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code tailMap(fromKey, true)}.
+     * {@description.close}
      *
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException     {@inheritDoc}

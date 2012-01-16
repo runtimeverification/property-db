@@ -39,6 +39,7 @@ import java.util.Collection;
 import java.util.Queue;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A {@link java.util.Queue} that additionally supports operations
  * that wait for the queue to become non-empty when retrieving an
  * element, and wait for space to become available in the queue when
@@ -173,6 +174,7 @@ import java.util.Queue;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -180,12 +182,14 @@ import java.util.Queue;
  */
 public interface BlockingQueue<E> extends Queue<E> {
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an
      * <tt>IllegalStateException</tt> if no space is currently available.
      * When using a capacity-restricted queue, it is generally preferable to
      * use {@link #offer(Object) offer}.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> (as specified by {@link Collection#add})
@@ -200,12 +204,14 @@ public interface BlockingQueue<E> extends Queue<E> {
     boolean add(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and <tt>false</tt> if no space is currently
      * available.  When using a capacity-restricted queue, this method is
      * generally preferable to {@link #add}, which can fail to insert an
      * element only by throwing an exception.
+     * {@description.close}
      *
      * @param e the element to add
      * @return <tt>true</tt> if the element was added to this queue, else
@@ -219,8 +225,10 @@ public interface BlockingQueue<E> extends Queue<E> {
     boolean offer(E e);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue, waiting if necessary
      * for space to become available.
+     * {@description.close}
      *
      * @param e the element to add
      * @throws InterruptedException if interrupted while waiting
@@ -233,8 +241,10 @@ public interface BlockingQueue<E> extends Queue<E> {
     void put(E e) throws InterruptedException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element into this queue, waiting up to the
      * specified wait time if necessary for space to become available.
+     * {@description.close}
      *
      * @param e the element to add
      * @param timeout how long to wait before giving up, in units of
@@ -254,8 +264,10 @@ public interface BlockingQueue<E> extends Queue<E> {
         throws InterruptedException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the head of this queue, waiting if necessary
      * until an element becomes available.
+     * {@description.close}
      *
      * @return the head of this queue
      * @throws InterruptedException if interrupted while waiting
@@ -263,8 +275,10 @@ public interface BlockingQueue<E> extends Queue<E> {
     E take() throws InterruptedException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves and removes the head of this queue, waiting up to the
      * specified wait time if necessary for an element to become available.
+     * {@description.close}
      *
      * @param timeout how long to wait before giving up, in units of
      *        <tt>unit</tt>
@@ -278,6 +292,7 @@ public interface BlockingQueue<E> extends Queue<E> {
         throws InterruptedException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking, or <tt>Integer.MAX_VALUE</tt> if there is no intrinsic
@@ -287,18 +302,21 @@ public interface BlockingQueue<E> extends Queue<E> {
      * an element will succeed by inspecting <tt>remainingCapacity</tt>
      * because it may be the case that another thread is about to
      * insert or remove an element.
+     * {@description.close}
      *
      * @return the remaining capacity
      */
     int remainingCapacity();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element <tt>e</tt> such
      * that <tt>o.equals(e)</tt>, if this queue contains one or more such
      * elements.
      * Returns <tt>true</tt> if this queue contained the specified element
      * (or equivalently, if this queue changed as a result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
      * @return <tt>true</tt> if this queue changed as a result of the call
@@ -309,9 +327,11 @@ public interface BlockingQueue<E> extends Queue<E> {
     boolean remove(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this queue contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this queue contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
+     * {@description.close}
      *
      * @param o object to be checked for containment in this queue
      * @return <tt>true</tt> if this queue contains the specified element
@@ -322,16 +342,24 @@ public interface BlockingQueue<E> extends Queue<E> {
     public boolean contains(Object o);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes all available elements from this queue and adds them
      * to the given collection.  This operation may be more
      * efficient than repeatedly polling this queue.  A failure
      * encountered while attempting to add elements to
      * collection <tt>c</tt> may result in elements being in neither,
      * either or both collections when the associated exception is
-     * thrown.  Attempts to drain a queue to itself result in
-     * <tt>IllegalArgumentException</tt>. Further, the behavior of
+     * thrown.
+     * {@description.close}
+     * {@property.open formal:java.util.concurrent.BlockingQueue_SelfDrain}
+     * Attempts to drain a queue to itself result in
+     * <tt>IllegalArgumentException</tt>.
+     * {@property.close}
+     * {@property.open synchronized}
+     * Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.
+     * {@property.close}
      *
      * @param c the collection to transfer elements into
      * @return the number of elements transferred
@@ -347,15 +375,23 @@ public interface BlockingQueue<E> extends Queue<E> {
     int drainTo(Collection<? super E> c);
 
     /** {@collect.stats} 
+     * {@description.open}
      * Removes at most the given number of available elements from
      * this queue and adds them to the given collection.  A failure
      * encountered while attempting to add elements to
      * collection <tt>c</tt> may result in elements being in neither,
      * either or both collections when the associated exception is
-     * thrown.  Attempts to drain a queue to itself result in
-     * <tt>IllegalArgumentException</tt>. Further, the behavior of
+     * thrown.
+     * {@description.close}
+     * {@property.open formal:java.util.concurrent.BlockingQueue_SelfDrain}
+     * Attempts to drain a queue to itself result in
+     * <tt>IllegalArgumentException</tt>.
+     * {@property.close}
+     * {@property.open synchronized}
+     * Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.
+     * {@property.close}
      *
      * @param c the collection to transfer elements into
      * @param maxElements the maximum number of elements to transfer

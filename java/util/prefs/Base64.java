@@ -26,8 +26,10 @@
 package java.util.prefs;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Static methods for translating Base64 encoded strings to byte arrays
  * and vice-versa.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     Preferences
@@ -35,18 +37,22 @@ package java.util.prefs;
  */
 class Base64 {
     /** {@collect.stats} 
+     * {@description.open}
      * Translates the specified byte array into a Base64 string as per
      * Preferences.put(byte[]).
+     * {@description.close}
      */
     static String byteArrayToBase64(byte[] a) {
         return byteArrayToBase64(a, false);
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates the specified byte array into an "alternate representation"
      * Base64 string.  This non-standard variant uses an alphabet that does
      * not contain the uppercase alphabetic characters, which makes it
      * suitable for use in situations where case-folding occurs.
+     * {@description.close}
      */
     static String byteArrayToAltBase64(byte[] a) {
         return byteArrayToBase64(a, true);
@@ -93,9 +99,11 @@ class Base64 {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This array is a lookup table that translates 6-bit positive integer
      * index values into their "Base64 Alphabet" equivalents as specified
      * in Table 1 of RFC 2045.
+     * {@description.close}
      */
     private static final char intToBase64[] = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
@@ -106,11 +114,13 @@ class Base64 {
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * This array is a lookup table that translates 6-bit positive integer
      * index values into their "Alternate Base64 Alphabet" equivalents.
      * This is NOT the real Base64 Alphabet as per in Table 1 of RFC 2045.
      * This alternate alphabet does not use the capital letters.  It is
      * designed for use in environments where "case folding" occurs.
+     * {@description.close}
      */
     private static final char intToAltBase64[] = {
         '!', '"', '#', '$', '%', '&', '\'', '(', ')', ',', '-', '.', ':',
@@ -121,8 +131,10 @@ class Base64 {
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates the specified Base64 string (as per Preferences.get(byte[]))
      * into a byte array.
+     * {@description.close}
      *
      * @throw IllegalArgumentException if <tt>s</tt> is not a valid Base64
      *        string.
@@ -132,8 +144,10 @@ class Base64 {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates the specified "alternate representation" Base64 string
      * into a byte array.
+     * {@description.close}
      *
      * @throw IllegalArgumentException or ArrayOutOfBoundsException
      *        if <tt>s</tt> is not a valid alternate representation
@@ -191,8 +205,10 @@ class Base64 {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates the specified character, which is assumed to be in the
      * "Base 64 Alphabet" into its equivalent 6-bit positive integer.
+     * {@description.close}
      *
      * @throw IllegalArgumentException or ArrayOutOfBoundsException if
      *        c is not in the Base64 Alphabet.
@@ -205,11 +221,13 @@ class Base64 {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * This array is a lookup table that translates unicode characters
      * drawn from the "Base64 Alphabet" (as specified in Table 1 of RFC 2045)
      * into their 6-bit positive integer equivalents.  Characters that
      * are not in the Base64 alphabet but fall within the bounds of the
      * array are translated to -1.
+     * {@description.close}
      */
     private static final byte base64ToInt[] = {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -222,8 +240,10 @@ class Base64 {
     };
 
     /** {@collect.stats} 
+     * {@description.open}
      * This array is the analogue of base64ToInt, but for the nonstandard
      * variant that avoids the use of uppercase alphabetic characters.
+     * {@description.close}
      */
     private static final byte altBase64ToInt[] = {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,

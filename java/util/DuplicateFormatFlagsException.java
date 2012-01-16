@@ -26,12 +26,14 @@
 package java.util;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when duplicate flags are provided in the format
  * specifier.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
+ * {@description.close}
  *
  * @since 1.5
  */
@@ -42,7 +44,9 @@ public class DuplicateFormatFlagsException extends IllegalFormatException {
     private String flags;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance of this class with the specified flags.
+     * {@description.close}
      *
      * @param  f
      *         The set of format flags which contain a duplicate flag.
@@ -54,7 +58,9 @@ public class DuplicateFormatFlagsException extends IllegalFormatException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the set of flags which contains a duplicate flag.
+     * {@description.close}
      *
      * @return  The flags
      */

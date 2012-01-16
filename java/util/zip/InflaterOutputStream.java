@@ -30,8 +30,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Implements an output stream filter for uncompressing data stored in the
  * "deflate" compression format.
+ * {@description.close}
  *
  * @since       1.6
  * @author      David R Tribble (david@tribble.com)
@@ -42,23 +44,45 @@ import java.io.OutputStream;
  */
 
 public class InflaterOutputStream extends FilterOutputStream {
-    /** {@collect.stats}  Decompressor for this stream. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Decompressor for this stream. 
+     * {@description.close}
+     */
     protected final Inflater inf;
 
-    /** {@collect.stats}  Output buffer for writing uncompressed data. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Output buffer for writing uncompressed data. 
+     * {@description.close}
+     */
     protected final byte[] buf;
 
-    /** {@collect.stats}  Temporary write buffer. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Temporary write buffer. 
+     * {@description.close}
+     */
     private final byte[] wbuf = new byte[1];
 
-    /** {@collect.stats}  Default decompressor is used. */
+    /** {@collect.stats}
+     * {@description.open}
+     * Default decompressor is used. 
+     * {@description.close}
+     */
     private boolean usesDefaultInflater = false;
 
-    /** {@collect.stats}  true iff {@link #close()} has been called. */
+    /** {@collect.stats}
+     * {@description.open}
+     * true iff {@link #close()} has been called. 
+     * {@description.close}
+     */
     private boolean closed = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Checks to make sure that this stream has not been closed.
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (closed) {
@@ -67,8 +91,10 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with a default decompressor and buffer
      * size.
+     * {@description.close}
      *
      * @param out output stream to write the uncompressed data to
      * @throws NullPointerException if {@code out} is null
@@ -79,8 +105,10 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with the specified decompressor and a
      * default buffer size.
+     * {@description.close}
      *
      * @param out output stream to write the uncompressed data to
      * @param infl decompressor ("inflater") for this stream
@@ -91,8 +119,10 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new output stream with the specified decompressor and
      * buffer size.
+     * {@description.close}
      *
      * @param out output stream to write the uncompressed data to
      * @param infl decompressor ("inflater") for this stream
@@ -117,8 +147,10 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes any remaining uncompressed data to the output stream and closes
      * the underlying output stream.
+     * {@description.close}
      *
      * @throws IOException if an I/O error occurs
      */
@@ -135,8 +167,10 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Flushes this output stream, forcing any pending buffered output bytes to be
      * written.
+     * {@description.close}
      *
      * @throws IOException if an I/O error occurs or this stream is already
      * closed
@@ -172,9 +206,14 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finishes writing uncompressed data to the output stream without closing
-     * the underlying stream.  Use this method when applying multiple filters in
+     * the underlying stream.
+     * {@description.close}
+     * {@property.open}
+     * Use this method when applying multiple filters in
      * succession to the same output stream.
+     * {@property.close}
      *
      * @throws IOException if an I/O error occurs or this stream is already
      * closed
@@ -190,7 +229,9 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes a byte to the uncompressed output stream.
+     * {@description.close}
      *
      * @param b a single byte of compressed data to decompress and write to
      * the output stream
@@ -205,7 +246,9 @@ public class InflaterOutputStream extends FilterOutputStream {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes an array of bytes to the uncompressed output stream.
+     * {@description.close}
      *
      * @param b buffer containing compressed data to decompress and write to
      * the output stream

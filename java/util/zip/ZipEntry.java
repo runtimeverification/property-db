@@ -28,7 +28,9 @@ package java.util.zip;
 import java.util.Date;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class is used to represent a ZIP file entry.
+ * {@description.close}
  *
  * @author      David Connelly
  */
@@ -44,12 +46,16 @@ class ZipEntry implements ZipConstants, Cloneable {
     String comment;     // optional comment string for entry
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression method for uncompressed entries.
+     * {@description.close}
      */
     public static final int STORED = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compression method for compressed (deflated) entries.
+     * {@description.close}
      */
     public static final int DEFLATED = 8;
 
@@ -61,7 +67,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     private static native void initIDs();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new zip entry with the specified name.
+     * {@description.close}
      *
      * @param name the entry name
      * @exception NullPointerException if the entry name is null
@@ -79,8 +87,10 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new zip entry with fields taken from the specified
      * zip entry.
+     * {@description.close}
      * @param e a zip Entry object
      */
     public ZipEntry(ZipEntry e) {
@@ -114,7 +124,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the name of the entry.
+     * {@description.close}
      * @return the name of the entry
      */
     public String getName() {
@@ -122,7 +134,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the modification time of the entry.
+     * {@description.close}
      * @param time the entry modification time in number of milliseconds
      *             since the epoch
      * @see #getTime()
@@ -132,7 +146,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the modification time of the entry, or -1 if not specified.
+     * {@description.close}
      * @return the modification time of the entry, or -1 if not specified
      * @see #setTime(long)
      */
@@ -141,7 +157,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the uncompressed size of the entry data.
+     * {@description.close}
      * @param size the uncompressed size in bytes
      * @exception IllegalArgumentException if the specified size is less
      *            than 0 or greater than 0xFFFFFFFF bytes
@@ -155,7 +173,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the uncompressed size of the entry data, or -1 if not known.
+     * {@description.close}
      * @return the uncompressed size of the entry data, or -1 if not known
      * @see #setSize(long)
      */
@@ -164,9 +184,11 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the size of the compressed entry data, or -1 if not known.
      * In the case of a stored entry, the compressed size will be the same
      * as the uncompressed size of the entry.
+     * {@description.close}
      * @return the size of the compressed entry data, or -1 if not known
      * @see #setCompressedSize(long)
      */
@@ -175,7 +197,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the size of the compressed entry data.
+     * {@description.close}
      * @param csize the compressed size to set to
      * @see #getCompressedSize()
      */
@@ -184,7 +208,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the CRC-32 checksum of the uncompressed entry data.
+     * {@description.close}
      * @param crc the CRC-32 value
      * @exception IllegalArgumentException if the specified CRC-32 value is
      *            less than 0 or greater than 0xFFFFFFFF
@@ -198,8 +224,10 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the CRC-32 checksum of the uncompressed entry data, or -1 if
      * not known.
+     * {@description.close}
      * @return the CRC-32 checksum of the uncompressed entry data, or -1 if
      * not known
      * @see #setCrc(long)
@@ -209,7 +237,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the compression method for the entry.
+     * {@description.close}
      * @param method the compression method, either STORED or DEFLATED
      * @exception IllegalArgumentException if the specified compression
      *            method is invalid
@@ -223,7 +253,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the compression method of the entry, or -1 if not specified.
+     * {@description.close}
      * @return the compression method of the entry, or -1 if not specified
      * @see #setMethod(int)
      */
@@ -232,7 +264,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the optional extra field data for the entry.
+     * {@description.close}
      * @param extra the extra field data bytes
      * @exception IllegalArgumentException if the length of the specified
      *            extra field data is greater than 0xFFFF bytes
@@ -246,7 +280,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the extra field data for the entry, or null if none.
+     * {@description.close}
      * @return the extra field data for the entry, or null if none
      * @see #setExtra(byte[])
      */
@@ -255,7 +291,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the optional comment string for the entry.
+     * {@description.close}
      * @param comment the comment string
      * @exception IllegalArgumentException if the length of the specified
      *            comment string is greater than 0xFFFF bytes
@@ -270,7 +308,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the comment string for the entry, or null if none.
+     * {@description.close}
      * @return the comment string for the entry, or null if none
      * @see #setComment(String)
      */
@@ -279,8 +319,10 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns true if this is a directory entry. A directory entry is
      * defined to be one whose name ends with a '/'.
+     * {@description.close}
      * @return true if this is a directory entry
      */
     public boolean isDirectory() {
@@ -288,7 +330,9 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string representation of the ZIP entry.
+     * {@description.close}
      */
     public String toString() {
         return getName();
@@ -322,14 +366,18 @@ class ZipEntry implements ZipConstants, Cloneable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hash code value for this entry.
+     * {@description.close}
      */
     public int hashCode() {
         return name.hashCode();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a copy of this entry.
+     * {@description.close}
      */
     public Object clone() {
         try {

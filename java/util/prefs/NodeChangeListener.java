@@ -26,7 +26,9 @@
 package java.util.prefs;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A listener for receiving preference node change events.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     Preferences
@@ -37,7 +39,9 @@ package java.util.prefs;
 
 public interface NodeChangeListener extends java.util.EventListener {
     /** {@collect.stats} 
+     * {@description.open}
      * This method gets called when a child node is added.
+     * {@description.close}
      *
      * @param evt A node change event object describing the parent
      *            and child node.
@@ -45,7 +49,9 @@ public interface NodeChangeListener extends java.util.EventListener {
     void childAdded(NodeChangeEvent evt);
 
     /** {@collect.stats} 
+     * {@description.open}
      * This method gets called when a child node is removed.
+     * {@description.close}
      *
      * @param evt A node change event object describing the parent
      *            and child node.
