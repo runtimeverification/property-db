@@ -90,6 +90,7 @@ package java.util.regex;
  * #reset(java.lang.CharSequence) reset(CharSequence)} method.  Resetting a
  * matcher discards its explicit state information and sets the append position
  * to zero.
+ * {@description.close}
  *
  * {@property.open}
  * <p> Instances of this class are not safe for use by multiple concurrent

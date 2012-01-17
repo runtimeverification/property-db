@@ -411,6 +411,7 @@ class Inflater {
     /** {@collect.stats} 
      * {@description.open}
      * Closes the decompressor and discards any unprocessed input.
+     * {@description.close}
      * {@property.open}
      * This method should be called when the decompressor is no longer
      * being used, but will also be called automatically by the finalize()

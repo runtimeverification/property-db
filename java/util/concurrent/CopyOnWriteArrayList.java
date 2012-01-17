@@ -1046,9 +1046,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>The returned iterator provides a snapshot of the state of the list
      * when the iterator was constructed.
      * {@description.close}
@@ -1066,9 +1066,9 @@ public class CopyOnWriteArrayList<E>
     }
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>The returned iterator provides a snapshot of the state of the list
      * when the iterator was constructed.
      * {@description.close}

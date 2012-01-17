@@ -795,9 +795,9 @@ public class ArrayList<E> extends AbstractList<E>
      * {@description.open}
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
-     * {@description.close}
      *
      * <p>The returned list iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
+     * {@description.close}
      *
      * @see #listIterator(int)
      */

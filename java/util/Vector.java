@@ -605,22 +605,28 @@ public class Vector<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified object as a component in this vector at the
      * specified {@code index}. Each component in this vector with
      * an index greater or equal to the specified {@code index} is
      * shifted upward to have an index one greater than the value it had
      * previously.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>The index must be a value greater than or equal to {@code 0}
      * and less than or equal to the current size of the vector. (If the
      * index is equal to the current size of the vector, the new element
      * is appended to the Vector.)
+     * {@property.close}
      *
+     * {@description.open}
      * <p>This method is identical in functionality to the
      * {@link #add(int, Object) add(int, E)}
      * method (which is part of the {@link List} interface).  Note that the
      * {@code add} method reverses the order of the parameters, to more closely
      * match array usage.
+     * {@description.close}
      *
      * @param      obj     the component to insert
      * @param      index   where to insert the new component

@@ -34,6 +34,7 @@
  */
 
 /** {@collect.stats} 
+ * {@description.open}
  * Interfaces and classes providing a framework for locking and waiting
  * for conditions that is distinct from built-in synchronization and
  * monitors.  The framework permits much greater flexibility in the use of
@@ -73,6 +74,7 @@
  * class provides lower-level blocking and unblocking support that is
  * useful for those developers implementing their own customized lock
  * classes.
+ * {@description.close}
  *
  * @since 1.5
  */

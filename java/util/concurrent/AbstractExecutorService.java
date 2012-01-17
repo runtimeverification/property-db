@@ -56,7 +56,6 @@ import java.util.*;
  * public class CustomThreadPoolExecutor extends ThreadPoolExecutor {
  *
  *   static class CustomTask&lt;V&gt; implements RunnableFuture&lt;V&gt; {...}
- * {@description.close}
  *
  *   protected &lt;V&gt; RunnableFuture&lt;V&gt; newTaskFor(Callable&lt;V&gt; c) {
  *       return new CustomTask&lt;V&gt;(c);
@@ -67,6 +66,7 @@ import java.util.*;
  *   // ... add constructors, etc.
  * }
  * </pre>
+ * {@description.close}
  * @since 1.5
  * @author Doug Lea
  */

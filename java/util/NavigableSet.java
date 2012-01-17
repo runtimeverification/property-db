@@ -316,9 +316,9 @@ public interface NavigableSet<E> extends SortedSet<E> {
     NavigableSet<E> tailSet(E fromElement, boolean inclusive);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code subSet(fromElement, true, toElement, false)}.
      * {@description.close}
      *
@@ -329,9 +329,9 @@ public interface NavigableSet<E> extends SortedSet<E> {
     SortedSet<E> subSet(E fromElement, E toElement);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code headSet(toElement, false)}.
      * {@description.close}
      *
@@ -342,9 +342,9 @@ na     */
     SortedSet<E> headSet(E toElement);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code tailSet(fromElement, true)}.
      * {@description.close}
      *

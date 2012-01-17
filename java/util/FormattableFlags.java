@@ -46,10 +46,10 @@ public class FormattableFlags {
      * at the end of the converted value as required to fill the minimum width
      * of the field.  If this flag is not set then the output will be
      * right-justified.
-     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'-'</tt> (<tt>'&#92;u002d'</tt>) in
      * the format specifier.
+     * {@description.close}
      */
     public static final int LEFT_JUSTIFY = 1<<0; // '-'
 
@@ -63,10 +63,10 @@ public class FormattableFlags {
      *
      * <pre>
      *     out.toUpperCase() </pre>
-     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'^'</tt> (<tt>'&#92;u005e'</tt>) in
      * the format specifier.
+     * {@description.close}
      */
     public static final int UPPERCASE = 1<<1;    // '^'
 
@@ -74,10 +74,10 @@ public class FormattableFlags {
      * {@description.open}
      * Requires the output to use an alternate form.  The definition of the
      * form is specified by the <tt>Formattable</tt>.
-     * {@description.close}
      *
      * <p> This flag corresponds to <tt>'#'</tt> (<tt>'&#92;u0023'</tt>) in
      * the format specifier.
+     * {@description.close}
      */
     public static final int ALTERNATE = 1<<2;    // '#'
 }

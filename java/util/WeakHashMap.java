@@ -925,6 +925,7 @@ public class WeakHashMap<K,V>
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.

@@ -667,7 +667,7 @@ public class Collections {
      * {@description.open}
      * Returns the minimum element of the given collection, according to the
      * order induced by the specified comparator.
-     * {@description.open}
+     * {@description.close}
      * {@property.open}
      * All elements in the
      * collection must be <i>mutually comparable</i> by the specified

@@ -445,9 +445,9 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     NavigableMap<K,V> tailMap(K fromKey, boolean inclusive);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code subMap(fromKey, true, toKey, false)}.
      * {@description.close}
      *
@@ -458,9 +458,9 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     SortedMap<K,V> subMap(K fromKey, K toKey);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code headMap(toKey, false)}.
      * {@description.close}
      *
@@ -471,9 +471,9 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     SortedMap<K,V> headMap(K toKey);
 
     /** {@collect.stats} 
-     * {@description.open}
      * {@inheritDoc}
      *
+     * {@description.open}
      * <p>Equivalent to {@code tailMap(fromKey, true)}.
      * {@description.close}
      *

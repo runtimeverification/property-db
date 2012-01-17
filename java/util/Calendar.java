@@ -2093,11 +2093,11 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
      *
      * <p>Use the {@link #compareTo(Calendar) compareTo} method to
      * compare only the time values.
+     * {@description.close}
      *
      * @param obj the object to compare with.
      * @return <code>true</code> if this object is equal to <code>obj</code>;
      * <code>false</code> otherwise.
-     * {@description.close}
      */
     public boolean equals(Object obj) {
         if (this == obj)

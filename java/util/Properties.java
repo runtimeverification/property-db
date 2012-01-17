@@ -809,7 +809,6 @@ class Properties extends Hashtable<Object,Object> {
      * <li>Characters not in Latin-1 in the comments are written as
      * <code>&#92;u</code><i>xxxx</i> for their appropriate unicode
      * hexadecimal value <i>xxxx</i>.
-     * {@description.close}
      *
      * <li>Characters less than <code>&#92;u0020</code> and characters greater
      * than <code>&#92;u007E</code> in property keys or values are written
@@ -820,6 +819,7 @@ class Properties extends Hashtable<Object,Object> {
      * After the entries have been written, the output stream is flushed.
      * The output stream remains open after this method returns.
      * <p>
+     * {@description.close}
      * @param   out      an output stream.
      * @param   comments   a description of the property list.
      * @exception  IOException if writing this property list to the specified

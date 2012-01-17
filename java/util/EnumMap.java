@@ -259,13 +259,13 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
      * {@code k} to a value {@code v} such that {@code (key == k)},
      * then this method returns {@code v}; otherwise it returns
      * {@code null}.  (There can be at most one such mapping.)
-     * {@description.close}
      *
      * <p>A return value of {@code null} does not <i>necessarily</i>
      * indicate that the map contains no mapping for the key; it's also
      * possible that the map explicitly maps the key to {@code null}.
      * The {@link #containsKey containsKey} operation may be used to
      * distinguish these two cases.
+     * {@description.close}
      */
     public V get(Object key) {
         return (isValidKey(key) ?

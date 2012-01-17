@@ -705,9 +705,9 @@ public final class Pattern
      * <p>The flags CASE_INSENSITIVE and UNICODE_CASE retain their impact on
      * matching when used in conjunction with this flag. The other flags
      * become superfluous.
-     * {@description.close}
      *
      * <p> There is no embedded flag character for enabling literal parsing.
+     * {@description.close}
      * @since 1.5
      */
     public static final int LITERAL = 0x10;
