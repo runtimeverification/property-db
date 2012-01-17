@@ -1153,8 +1153,11 @@ class Properties extends Hashtable<Object,Object> {
         return hexDigit[(nibble & 0xF)];
     }
 
-    /** {@collect.stats}  A table of hex digits */
+    /** {@collect.stats}
      * {@description.open}
+     * A table of hex digits
+     * {@description.close}
+     */
     private static final char[] hexDigit = {
         '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'
     };

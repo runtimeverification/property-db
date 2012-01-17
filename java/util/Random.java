@@ -57,11 +57,15 @@ import sun.misc.Unsafe;
  */
 public
 class Random implements java.io.Serializable {
-    /** {@collect.stats}  use serialVersionUID from JDK 1.1 for interoperability */
+    /** {@collect.stats}
      * {@description.open}
+     * use serialVersionUID from JDK 1.1 for interoperability
+     * {@description.close}
+     */
     static final long serialVersionUID = 3905348978240129619L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The internal state associated with this pseudorandom number generator.
      * (The specs for the methods in this class describe the ongoing
      * computation of this value.)
