@@ -904,16 +904,17 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats} 
-     * {@description.open}
-     * {@description.close}
      * @since 1.6
      */
     public Iterator<E> descendingIterator() {
         return new DescendingIterator();
     }
 
-    /** {@collect.stats}  Adapter to provide descending iterators via ListItr.previous */
+    /** {@collect.stats}
      * {@description.open}
+     * Adapter to provide descending iterators via ListItr.previous
+     * {@description.close}
+     */
     private class DescendingIterator implements Iterator {
         final ListItr itr = new ListItr(size());
         public boolean hasNext() {
@@ -928,6 +929,7 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a shallow copy of this <tt>LinkedList</tt>. (The elements
      * themselves are not cloned.)
      * {@description.close}
