@@ -1,0 +1,48 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if the deque is modified while an iterator is being used.
+ *
+ * If the deque is modified at any time after the iterator is created, in any
+ * way except through the iterator's own remove() method, the iterator will
+ * generally throw a ConcurrentModificationException. However, the fail-fast
+ * behavior is not guaranteed.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/ArrayDeque.html
+ *
+ * This property warns if the deque is modified while an iterator is being
+ * used. Unlike the underlying system, where the fail-fast behavior is not
+ * guaranteed, this property always detects the problematic behavior.
+ *
+ * @severity error
+ */
+
+ArrayDeque_Iterator(ArrayDeque q, Iterator i) {
+	event create after(ArrayDeque q) returning(Iterator i) :
+		(
+			call(Iterator Iterable+.iterator()) ||
+			call(Iterator Deque+.descendingIterator())
+		) && target(q) {}
+
+	event modify before(ArrayDeque q) :
+		(
+			call(* Collection+.add*(..)) ||
+			call(* Collection+.clear(..)) ||
+			call(* Collection+.offer*(..)) ||
+			call(* Collection+.pop(..)) ||
+			call(* Collection+.push(..)) ||
+			call(* Collection+.remove*(..)) ||
+			call(* Collection+.retain*(..))
+		) && target(q) {}
+
+	event useiter before(Iterator i) :
+		call(* Iterator.*(..)) && target(i) {}
+
+	ere : create useiter* modify+ useiter
+
+	@match {
+		System.err.println("The deque was modified while an iterator is being used.");
+	}
+}
+

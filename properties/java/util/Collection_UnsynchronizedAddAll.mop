@@ -1,0 +1,44 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if the source collection is modified while Collection.addAll() is
+ * running.
+ *
+ * The behavior of AbstractQueue.addAll() is undefined if the specified source
+ * collection is modified while the operation is in progress.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/AbstractQueue.html#addAll%28java.util.Collection%29
+ * Similarly, the behavior of ArrayList.addAll() is undefined in such case.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html#addAll%28java.util.Collection%29
+ *
+ * Based on these common behaviors, this property assumes that addAll() of all
+ * Collection and its subclasses behave similarly, and warns if add*(),
+ * remove*(), clear() or retain*() is called on the collection that is passed
+ * to addAll() as an argument.
+ *
+ * @severity error
+ */
+
+Collection_UnsynchronizedAddAll(Collection t, Collection s) {
+	event enter before(Collection t, Collection s) :
+		call(boolean Collection+.addAll(..)) && target(t) && args(s) {}
+
+	event modify before(Collection s) :
+		(
+			call(* Collection+.add*(..)) ||
+			call(* Collection+.remove*(..)) ||
+			call(* Collection+.clear(..)) ||
+			call(* Collection+.retain*(..))
+		) && target(s) {}
+
+	event leave after(Collection t, Collection s) :
+		call(boolean Collection+.addAll(..)) && target(t) && args(s) {}
+
+	ere : enter modify+ leave
+
+	@match {
+		System.err.println("The source collection of addAll() has been modified.");
+	}
+}
+

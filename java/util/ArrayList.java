@@ -53,7 +53,7 @@ package java.util;
  * operation.  This may reduce the amount of incremental reallocation.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@property.open uncheckable}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access an <tt>ArrayList</tt> instance concurrently,
  * and at least one of the threads modifies the list structurally, it
@@ -538,7 +538,7 @@ public class ArrayList<E> extends AbstractList<E>
      * this list, in the order that they are returned by the
      * specified collection's Iterator.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is
      * undefined if the specified collection is modified while the operation
      * is in progress.  (This implies that the behavior of this call is
@@ -951,7 +951,7 @@ public class ArrayList<E> extends AbstractList<E>
      * {@link Collections} class can be applied to a subList.
      * {@description.close}
      *
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.ArrayList_UnsynchronizedSubList}
      * <p>The semantics of the list returned by this method become undefined if
      * the backing list (i.e., this list) is <i>structurally modified</i> in
      * any way other than via the returned list.  (Structural modifications are

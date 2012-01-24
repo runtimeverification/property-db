@@ -1,0 +1,40 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+
+/**
+ * Warns if a subclass of Collection does not define the two "standard"
+ * constructors.
+ *
+ * All general-purpose Collection implementation classes should provide two
+ * "standard" constructors: a no-arg constructor and a copy constructor. Java
+ * compilers do not enforce this requirement.
+ * http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
+ *
+ * Having two constructors cannot be enforced by the language, as interfaces
+ * cannot contain constructors. This specification dynamically checks the
+ * recommendation and warns if a collection does not have the two
+ * constructors. Since there is no way to detect if the class is
+ * "general-purpose", a violation of this property may be false positive.
+ *
+ * @severity warning
+ */
+
+Collection_StandardConstructors() {
+	event staticinit after() : staticinitialization(Collection+) {
+		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();		
+
+		if (klass != null) {
+			try {
+				Constructor ctor1 = klass.getDeclaredConstructor((Class[]) null);
+				Constructor ctor2 = klass.getDeclaredConstructor(Collection.class);
+			}
+			catch (NoSuchMethodException e) {
+				System.err.println(klass.getName() + " does not define the 'standard' constructors.");
+			}
+		}
+	}
+}
+

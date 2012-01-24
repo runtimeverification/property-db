@@ -58,7 +58,7 @@ package java.util;
  * <tt>add</tt> methods.<p>
  * {@property.close}
  *
- * {@property.open Property:java.util.Collection_StandardConstructors}
+ * {@property.open formal:java.util.Collection_StandardConstructors}
  * The programmer should generally provide a void (no argument) and collection
  * constructor, as per the recommendation in the <tt>Collection</tt> interface
  * specification.<p>

@@ -39,8 +39,6 @@ package java.util;
  * {@description.open}
  * This class provides skeletal implementations of some {@link Queue}
  * operations.
- * {@description.close}
- * {@property.open Property:java.util.AbstractQueue_NonNull}
  * The implementations in this class are appropriate when
  * the base implementation does <em>not</em> allow <tt>null</tt>
  * elements.  Methods {@link #add add}, {@link #remove remove}, and
@@ -48,7 +46,7 @@ package java.util;
  * #poll poll}, and {@link #peek peek}, respectively, but throw
  * exceptions instead of indicating failure via <tt>false</tt> or
  * <tt>null</tt> returns.
- * {@property.close}
+ * {@description.close}
  *
  * {@property.open static enforced}
  * <p> A <tt>Queue</tt> implementation that extends this class must
@@ -174,7 +172,7 @@ public abstract class AbstractQueue<E>
      * queue.  Attempts to addAll of a queue to itself result in
      * <tt>IllegalArgumentException</tt>.
      * {@description.close}
-     * {@property.open synchronization}
+     * {@property.open runtime formal:java.util.Collection_UnsynchronizedAddAll}
      * Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.

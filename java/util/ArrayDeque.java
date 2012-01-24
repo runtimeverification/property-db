@@ -41,10 +41,10 @@ import java.io.*;
  * deques have no capacity restrictions; they grow as necessary to support
  * usage.
  * {@description.close}
- * {@property.open synchronization}
+ * {@description.open synchronization}
  * They are not thread-safe; in the absence of external
  * synchronization, they do not support concurrent access by multiple threads.
- * {@property.close}
+ * {@description.close}
  * {@property.open Property:java.util.ArrayDequeue_NonNull}
  * Null elements are prohibited.
  * {@property.close}
@@ -63,7 +63,7 @@ import java.io.*;
  * time.
  * {@description.close}
  *
- * {@property.open synchronization}
+ * {@property.open runtime formal:java.util.ArrayDeque_Iterator}
  * <p>The iterators returned by this class's <tt>iterator</tt> method are
  * <i>fail-fast</i>: If the deque is modified at any time after the iterator
  * is created, in any way except through the iterator's own <tt>remove</tt>
