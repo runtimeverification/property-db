@@ -951,7 +951,7 @@ public class ArrayList<E> extends AbstractList<E>
      * {@link Collections} class can be applied to a subList.
      * {@description.close}
      *
-     * {@property.open formal:java.util.ArrayList_UnsynchronizedSubList}
+     * {@property.open formal:java.util.List_UnsynchronizedSubList}
      * <p>The semantics of the list returned by this method become undefined if
      * the backing list (i.e., this list) is <i>structurally modified</i> in
      * any way other than via the returned list.  (Structural modifications are

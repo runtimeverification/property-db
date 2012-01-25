@@ -8,8 +8,7 @@ import java.lang.reflect.*;
  * constructors.
  *
  * All general-purpose Collection implementation classes should provide two
- * "standard" constructors: a no-arg constructor and a copy constructor. Java
- * compilers do not enforce this requirement.
+ * "standard" constructors: a no-arg constructor and a copy constructor.
  * http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
  *
  * Having two constructors cannot be enforced by the language, as interfaces

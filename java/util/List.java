@@ -622,13 +622,15 @@ public interface List<E> extends Collection<E> {
      * Similar idioms may be constructed for <tt>indexOf</tt> and
      * <tt>lastIndexOf</tt>, and all of the algorithms in the
      * <tt>Collections</tt> class can be applied to a subList.<p>
+     * {@description.close}
      *
+     * {@property.open formal:java.util.List_UnsynchronizedSubList}
      * The semantics of the list returned by this method become undefined if
      * the backing list (i.e., this list) is <i>structurally modified</i> in
      * any way other than via the returned list.  (Structural modifications are
      * those that change the size of this list, or otherwise perturb it in such
      * a fashion that iterations in progress may yield incorrect results.)
-     * {@description.close}
+     * {@property.close}
      *
      * @param fromIndex low endpoint (inclusive) of the subList
      * @param toIndex high endpoint (exclusive) of the subList

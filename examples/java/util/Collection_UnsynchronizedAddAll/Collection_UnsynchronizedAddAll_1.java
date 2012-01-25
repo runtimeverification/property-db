@@ -23,7 +23,6 @@ public class Collection_UnsynchronizedAddAll_1 {
 		};
 		Thread modifying = new Thread(r);
 
-
 		// The other thread will be likely modifying the shared collection 'src',
 		// while addAll() is accessing 'src'.
 		modifying.start();
