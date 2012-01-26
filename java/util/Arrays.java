@@ -1158,12 +1158,9 @@ public class Arrays {
      * the {@linkplain Comparable natural ordering}
      * of its elements.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All elements in the array
-     * must implement the {@link Comparable} interface.
-     * {@property.close}
-     * {@property.open}
-     * Furthermore, all
+     * must implement the {@link Comparable} interface. Furthermore, all
      * elements in the array must be <i>mutually comparable</i> (that is,
      * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
      * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).<p>
@@ -1197,13 +1194,10 @@ public class Arrays {
      * <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.
      * (If <tt>fromIndex==toIndex</tt>, the range to be sorted is empty.)
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All
      * elements in this range must implement the {@link Comparable}
-     * interface.
-     * {@property.close}
-     * {@property.open}
-     * Furthermore, all elements in this range must be <i>mutually
+     * interface. Furthermore, all elements in this range must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the array).<p>
@@ -1310,7 +1304,7 @@ public class Arrays {
      * Sorts the specified array of objects according to the order induced by
      * the specified comparator.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All elements in the array must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
@@ -1350,7 +1344,7 @@ public class Arrays {
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be sorted is empty.)
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All elements in the range must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
