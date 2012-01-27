@@ -1455,7 +1455,7 @@ public class Arrays {
      * Searches the specified array of longs for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted (as
      * by the {@link #sort(long[])} method) prior to making this call.  If it
      * is not sorted, the results are undefined.
@@ -1487,7 +1487,7 @@ public class Arrays {
      * the specified array of longs for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted (as
      * by the {@link #sort(long[], int, int)} method)
      * prior to making this call.  If it
@@ -1551,7 +1551,7 @@ public class Arrays {
      * Searches the specified array of ints for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted (as
      * by the {@link #sort(int[])} method) prior to making this call.  If it
      * is not sorted, the results are undefined.
@@ -1583,7 +1583,7 @@ public class Arrays {
      * the specified array of ints for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted (as
      * by the {@link #sort(int[], int, int)} method)
      * prior to making this call.  If it
@@ -1647,7 +1647,7 @@ public class Arrays {
      * Searches the specified array of shorts for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted
      * (as by the {@link #sort(short[])} method) prior to making this call.  If
      * it is not sorted, the results are undefined.
@@ -1679,7 +1679,7 @@ public class Arrays {
      * the specified array of shorts for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted
      * (as by the {@link #sort(short[], int, int)} method)
      * prior to making this call.  If
@@ -1743,7 +1743,7 @@ public class Arrays {
      * Searches the specified array of chars for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted (as
      * by the {@link #sort(char[])} method) prior to making this call.  If it
      * is not sorted, the results are undefined.
@@ -1775,7 +1775,7 @@ public class Arrays {
      * the specified array of chars for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted (as
      * by the {@link #sort(char[], int, int)} method)
      * prior to making this call.  If it
@@ -1839,7 +1839,7 @@ public class Arrays {
      * Searches the specified array of bytes for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted (as
      * by the {@link #sort(byte[])} method) prior to making this call.  If it
      * is not sorted, the results are undefined.
@@ -1871,7 +1871,7 @@ public class Arrays {
      * the specified array of bytes for the specified value using the
      * binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted (as
      * by the {@link #sort(byte[], int, int)} method)
      * prior to making this call.  If it
@@ -1935,7 +1935,7 @@ public class Arrays {
      * Searches the specified array of doubles for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted
      * (as by the {@link #sort(double[])} method) prior to making this call.
      * If it is not sorted, the results are undefined.
@@ -1968,7 +1968,7 @@ public class Arrays {
      * the specified array of doubles for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted
      * (as by the {@link #sort(double[], int, int)} method)
      * prior to making this call.
@@ -2041,7 +2041,7 @@ public class Arrays {
      * Searches the specified array of floats for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted
      * (as by the {@link #sort(float[])} method) prior to making this call.  If
      * it is not sorted, the results are undefined.
@@ -2074,7 +2074,7 @@ public class Arrays {
      * the specified array of floats for the specified value using
      * the binary search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted
      * (as by the {@link #sort(float[], int, int)} method)
      * prior to making this call.  If
@@ -2148,7 +2148,7 @@ public class Arrays {
      * Searches the specified array for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted into ascending order
      * according to the
      * {@linkplain Comparable natural ordering}
@@ -2188,7 +2188,7 @@ public class Arrays {
      * the specified array for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted into ascending order
      * according to the
      * {@linkplain Comparable natural ordering}
@@ -2260,7 +2260,7 @@ public class Arrays {
      * Searches the specified array for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The array must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(Object[], Comparator) sort(T[], Comparator)}
@@ -2301,7 +2301,7 @@ public class Arrays {
      * the specified array for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_SortBeforeBinarySearch}
      * The range must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(Object[], int, int, Comparator)

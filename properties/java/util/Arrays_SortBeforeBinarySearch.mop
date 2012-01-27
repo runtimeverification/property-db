@@ -1,0 +1,53 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if binarySearch() is invoked on an unsorted array.
+ *
+ * Before calling binarySearch(), the array must be sorted by calling sort().
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Arrays.html#binarySearch%28java.lang.Object[],%20java.lang.Object%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Arrays.html#binarySearch%28java.lang.Object[],%20int,%20int,%20java.lang.Object%29
+ *
+ * This property checks if the range specified by a binarySearch() call is
+ * sorted into ascending order prior to making binarySearch() call. Since
+ * binarySearch() uses compareTo() for comparison, an array sorted using
+ * sort() with a special comparator is not considered sorted.
+ *
+ * @severity error
+ */
+
+Arrays_SortBeforeBinarySearch(Object[] arr) {
+	int fromIndex;
+	int toIndex;
+
+	event sort before(Object[] arr) :
+		call(void sort(Object[])) && args(arr) {
+		this.fromIndex = 0;
+		this.toIndex = arr.length;
+	}
+	event sort before(Object[] arr, int from, int to) :
+		call(void sort(Object[], int, int)) && args(arr, from, to) {
+		this.fromIndex = from;
+		this.toIndex = to;
+	}
+
+	event modify before(Object[] arr) :
+		set(Object[] *) && args(arr) {
+		this.toIndex = 0;
+	}
+
+	event bad_bsearch before(Object[] arr) :
+		call(int binarySearch(Object[], Object)) && args(arr) &&
+		condition(!(this.fromIndex <= 0 && arr.length <= this.toIndex)) {}
+	event bad_bsearch before(Object[] arr, int from, int to) :
+		call(int binarySearch(Object[], int, int, Object)) && args(arr) &&
+		condition(!(this.fromIndex <= from && to <= this.toIndex)) {}
+
+	ere : bad_bsearch
+
+	@match {
+		System.err.println("The array or part of the array must be sorted prior to making binarySearch() call.");
+	}
+}
+
