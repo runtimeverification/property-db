@@ -4044,7 +4044,7 @@ public class Arrays {
      * array.  If the array contains other arrays as elements, the
      * hash code is based on their contents and so on, ad infinitum.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Arrays_DeepHashCode}
      * It is therefore unacceptable to invoke this method on an array that
      * contains itself as an element, either directly or indirectly through
      * one or more levels of arrays.  The behavior of such an invocation is
