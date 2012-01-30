@@ -1304,7 +1304,7 @@ public class Arrays {
      * Sorts the specified array of objects according to the order induced by
      * the specified comparator.
      * {@description.close}
-     * {@property.open formal:java.util.Arrays_Comparable}
+     * {@property.open formal:java.util.Arrays_MutuallyComparable}
      * All elements in the array must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
@@ -1344,7 +1344,7 @@ public class Arrays {
      * <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex==toIndex</tt>, the
      * range to be sorted is empty.)
      * {@description.close}
-     * {@property.open formal:java.util.Arrays_Comparable}
+     * {@property.open formal:java.util.Arrays_MutuallyComparable}
      * All elements in the range must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>

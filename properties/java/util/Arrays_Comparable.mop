@@ -3,15 +3,16 @@ package mop;
 import java.util.*;
 
 /**
- * Warns if the argument of Arrays.sort() is not comparable.
+ * Warns if the argument of Arrays.sort(Object[]) or Arrays.sort(Object[],
+ * int, int) is not comparable.
  *
  * All elements in the argument of Arrays.sort() must implement the Comparable
  * interface, and they must be mutually comparable.
  * http://docs.oracle.com/javase/6/docs/api/java/util/Arrays.html#sort%28java.lang.Object[]%29
  *
- * This property checks if each element implements the Comparable interface,
- * and if comparing each pair of elements does not raise a ClassCastException.
- * This property requires O(n^2) time for n elements.
+ * This property verifies that each element implements the Comparable
+ * interface, and comparing each pair of elements does not raise a
+ * ClassCastException. This property requires O(n^2) time for n elements.
  *
  * @severity error
  */
@@ -19,7 +20,10 @@ import java.util.*;
 Arrays_Comparable() {
 	// JavaMOP raises an error for the following []:
 	event invalid_sort before(Object[] arr) :
-		call(void sort(Object[], ..)) && args(arr, ..) {
+		(
+			call(void sort(Object[])) ||
+			call(void sort(Object[], int, int))
+		) && args(arr, ..) {
 		for (int i = 0; i < arr.length; ++i) {
 			// Each element must implement the Comparable interface.
 			Object o1 = arr[i];

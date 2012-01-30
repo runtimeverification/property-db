@@ -105,7 +105,7 @@ public class Collections {
      * Sorts the specified list into ascending order, according to the
      * <i>natural ordering</i> of its elements.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_Sort}
      * All elements in the list must
      * implement the <tt>Comparable</tt> interface.  Furthermore, all elements
      * in the list must be <i>mutually comparable</i> (that is,
@@ -118,7 +118,7 @@ public class Collections {
      * not be reordered as a result of the sort.<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open uncheckable}
      * The specified list must be modifiable, but need not be resizable.<p>
      * {@property.close}
      *
@@ -157,7 +157,7 @@ public class Collections {
      * Sorts the specified list according to the order induced by the
      * specified comparator.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SortComparable}
      * All elements in the list must be <i>mutually
      * comparable</i> using the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
@@ -174,7 +174,7 @@ public class Collections {
      * n log(n) performance.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open uncheckable}
      * The specified list must be modifiable, but need not be resizable.
      * {@property.close}
      * {@description.open}

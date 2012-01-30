@@ -204,9 +204,7 @@ import sun.util.resources.LocaleData;
  *
  * The calendar fields can be changed using three methods:
  * <code>set()</code>, <code>add()</code>, and <code>roll()</code>.</p>
- * {@description.close}
  *
- * {@property.open}
  * <p><strong><code>set(f, value)</code></strong> changes calendar field
  * <code>f</code> to <code>value</code>.  In addition, it sets an
  * internal member variable to indicate that calendar field <code>f</code> has
@@ -222,9 +220,7 @@ import sun.util.resources.LocaleData;
  * the call to the <code>set</code> method
  * after the calendar fields have been recomputed. The specifics are determined by
  * the concrete calendar class.</p>
- * {@property.close}
  *
- * {@description.open}
  * <p><em>Example</em>: Consider a <code>GregorianCalendar</code>
  * originally set to August 31, 1999. Calling <code>set(Calendar.MONTH,
  * Calendar.SEPTEMBER)</code> sets the date to September 31,
@@ -257,15 +253,11 @@ import sun.util.resources.LocaleData;
  *   that are not expected to be invariant. The calendar system
  *   determines what fields are expected to be invariant.</p>
  * </blockquote>
- * {@description.close}
  *
- * {@property.open}
  * <p>In addition, unlike <code>set()</code>, <code>add()</code> forces
  * an immediate recomputation of the calendar's milliseconds and all
  * fields.</p>
- * {@property.close}
  *
- * {@property.open}
  * <p><em>Example</em>: Consider a <code>GregorianCalendar</code>
  * originally set to August 31, 1999. Calling <code>add(Calendar.MONTH,
  * 13)</code> sets the calendar to September 30, 2000. <strong>Add rule
@@ -277,9 +269,7 @@ import sun.util.resources.LocaleData;
  * it is a smaller field, <code>DAY_OF_WEEK</code> is not adjusted by
  * rule 2, since it is expected to change when the month changes in a
  * <code>GregorianCalendar</code>.</p>
- * {@property.close}
  *
- * {@description.open}
  * <p><strong><code>roll(f, delta)</code></strong> adds
  * <code>delta</code> to field <code>f</code> without changing larger
  * fields. This is equivalent to calling <code>add(f, delta)</code> with

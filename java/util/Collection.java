@@ -54,7 +54,7 @@ package java.util;
  * implementations in the Java platform libraries comply.
  * {@property.close}
  *
- * {@property.open}
+ * {@property.open uncheckable}
  * <p>The "destructive" methods contained in this interface, that is, the
  * methods that modify the collection on which they operate, are specified to
  * throw <tt>UnsupportedOperationException</tt> if this collection does not
@@ -66,7 +66,7 @@ package java.util;
  * is empty.
  * {@property.close}
  *
- * {@property.open}
+ * {@property.open uncheckable}
  * <p>Some collection implementations have restrictions on the elements that
  * they may contain.  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
@@ -82,7 +82,7 @@ package java.util;
  * interface.
  * {@property.close}
  *
- * {@property.open}
+ * {@property.open uncheckable}
  * <p>It is up to each collection to determine its own synchronization
  * policy.  In the absence of a stronger guarantee by the
  * implementation, undefined behavior may result from the invocation
@@ -342,7 +342,7 @@ public interface Collection<E> extends Iterable<E> {
      * Adds all of the elements in the specified collection to this collection
      * (optional operation).
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is undefined if
      * the specified collection is modified while the operation is in progress.
      * (This implies that the behavior of this call is undefined if the
@@ -445,7 +445,7 @@ public interface Collection<E> extends Iterable<E> {
      * <tt>Set</tt> interfaces mandate such value comparisons.)<p>
      * {@description.close}
      *
-     * {@property.open internal}
+     * {@property.open uncheckable}
      * The general contract for the <tt>Object.equals</tt> method states that
      * equals must be symmetric (in other words, <tt>a.equals(b)</tt> if and
      * only if <tt>b.equals(a)</tt>).  The contracts for <tt>List.equals</tt>
@@ -472,7 +472,7 @@ public interface Collection<E> extends Iterable<E> {
      * {@description.open}
      * Returns the hash code value for this collection.
      * {@description.close}
-     * {@property.open}
+     * {@property.open java.util.Collection_HashCode}
      * While the
      * <tt>Collection</tt> interface adds no stipulations to the general
      * contract for the <tt>Object.hashCode</tt> method, programmers should

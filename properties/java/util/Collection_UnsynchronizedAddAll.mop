@@ -6,16 +6,13 @@ import java.util.*;
  * Warns if the source collection is modified while Collection.addAll() is
  * running.
  *
- * The behavior of AbstractQueue.addAll() is undefined if the specified source
+ * The behavior of Collection.addAll() is undefined if the specified source
  * collection is modified while the operation is in progress.
- * http://docs.oracle.com/javase/6/docs/api/java/util/AbstractQueue.html#addAll%28java.util.Collection%29
- * Similarly, the behavior of ArrayList.addAll() is undefined in such case.
- * http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html#addAll%28java.util.Collection%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Collection.html#addAll%28java.util.Collection%29
  *
- * Based on these common behaviors, this property assumes that addAll() of all
- * Collection and its subclasses behave similarly, and warns if add*(),
- * remove*(), clear() or retain*() is called on the collection that is passed
- * to addAll() as an argument.
+ * This property assumes that addAll() of all Collection and its subclasses
+ * behave similarly, and warns if add*(), remove*(), clear() or retain*() is
+ * called on the collection that is passed to addAll() as an argument.
  *
  * @severity error
  */
