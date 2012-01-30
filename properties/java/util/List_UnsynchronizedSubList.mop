@@ -10,8 +10,8 @@ import java.util.*;
  * than via the returned list.
  * http://docs.oracle.com/javase/6/docs/api/java/util/List.html#subList%28int,%20int%29
  *
- * This property warns if the backing list modified while a sub-list, returned
- * by subList(), is being used.
+ * This property warns if the backing list is modified while a sub-list,
+ * returned by subList(), is being used.
  *
  * @severity error
  */
