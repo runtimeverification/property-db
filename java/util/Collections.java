@@ -105,7 +105,7 @@ public class Collections {
      * Sorts the specified list into ascending order, according to the
      * <i>natural ordering</i> of its elements.
      * {@description.close}
-     * {@property.open formal:java.util.Collections_Sort}
+     * {@property.open formal:java.util.Collections_ImplementComparable}
      * All elements in the list must
      * implement the <tt>Comparable</tt> interface.  Furthermore, all elements
      * in the list must be <i>mutually comparable</i> (that is,
@@ -157,7 +157,7 @@ public class Collections {
      * Sorts the specified list according to the order induced by the
      * specified comparator.
      * {@description.close}
-     * {@property.open formal:java.util.Collections_SortComparable}
+     * {@property.open formal:java.util.Collections_Comparable}
      * All elements in the list must be <i>mutually
      * comparable</i> using the specified comparator (that is,
      * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
@@ -586,7 +586,7 @@ public class Collections {
      * operation, the index of each copied element in the destination list
      * will be identical to its index in the source list.
      * {@description.close}
-     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
+     * {@property.open formal:java.util.Collections_CopySize}
      * The destination
      * list must be at least as long as the source list.
      * {@property.close}
