@@ -211,7 +211,7 @@ public class Collections {
      * Searches the specified list for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
      * The list must be sorted into ascending order
      * according to the {@linkplain Comparable natural ordering} of its
      * elements (as by the {@link #sort(List)} method) prior to making this
@@ -321,7 +321,7 @@ public class Collections {
      * Searches the specified list for the specified object using the binary
      * search algorithm.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
      * The list must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(List, Comparator) sort(List, Comparator)}
@@ -586,7 +586,7 @@ public class Collections {
      * operation, the index of each copied element in the destination list
      * will be identical to its index in the source list.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
      * The destination
      * list must be at least as long as the source list.
      * {@property.close}

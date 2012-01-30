@@ -1,0 +1,52 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if binarySearch() is invoked on an unsorted list.
+ *
+ * Before calling binarySearch(), the list must be sorted into ascending
+ * order.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Collections.html#binarySearch%28java.util.List,%20T%29
+ *
+ * This property verifies that sort() is invoked before calling
+ * binarySearch(), and no modifications are applied in between two calls.
+ *
+ * Since a list can be sorted without using sort(), this property may report a
+ * false warning.
+ *
+ * @severity error
+ */
+
+Collections_SortBeforeBinarySearch(List<T> list) {
+	Comparator comp;
+
+	event sort1 before(List<T> list) :
+		call(void sort(List<T>)) && args(list) {}
+	event sort2 before(List<T> list, Comparator comp) :
+		call(void sort(List<T>, Comparator)) && args(list, comp) {
+		this.comp = comp;
+	}
+
+	event modify before(List<T> list) :
+		(
+			call(* Collection+.add*(..)) ||
+			call(* Collection+.remove*(..)) ||
+			call(* Collection+.clear(..)) ||
+			call(* Collection+.retain*(..)) ||
+			call(* List+.set(..))
+		) && target(list) {}
+
+	event bsearch1 before(List<T> list) :
+		call(int binarySearch(List<T>, ..)) && args(list) {}
+	event bsearch2 before(List<T> list, Comparator comp) :
+		call(int binarySearch(List<T>, .., Comparator)) && args(list, .., comp) &&
+		condition(this.comp == comp) {}
+
+	ltl : []((bsearch1 => o sort1) or (bsearch2 => o sort2))
+
+	@violation {
+		System.err.println("The list must be sorted prior to making binarySearch() call.");
+	}
+}
+
