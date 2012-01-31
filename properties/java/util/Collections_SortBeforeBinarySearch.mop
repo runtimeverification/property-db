@@ -22,9 +22,9 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 	Comparator comp;
 
 	event sort1 before(List<T> list) :
-		call(void sort(List<T>)) && args(list) {}
+		call(void Collections.sort(List<T>)) && args(list) {}
 	event sort2 before(List<T> list, Comparator comp) :
-		call(void sort(List<T>, Comparator)) && args(list, comp) {
+		call(void Collections.sort(List<T>, Comparator)) && args(list, comp) {
 		this.comp = comp;
 	}
 
@@ -38,9 +38,9 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 		) && target(list) {}
 
 	event bsearch1 before(List<T> list) :
-		call(int binarySearch(List<T>, ..)) && args(list) {}
+		call(int Collections.binarySearch(List<T>, ..)) && args(list) {}
 	event bsearch2 before(List<T> list, Comparator comp) :
-		call(int binarySearch(List<T>, .., Comparator)) && args(list, .., comp) &&
+		call(int Collections.binarySearch(List<T>, .., Comparator)) && args(list, .., comp) &&
 		condition(this.comp == comp) {}
 
 	ltl : []((bsearch1 => o sort1) or (bsearch2 => o sort2))

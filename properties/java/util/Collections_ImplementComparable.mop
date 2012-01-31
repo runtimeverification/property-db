@@ -9,6 +9,11 @@ import java.util.*;
  * the Comparable interface, and they must be mutually comparable.
  * http://docs.oracle.com/javase/6/docs/api/java/util/Collections.html#sort%28java.util.List%29
  *
+ * Similarly, the argument of Collections.min(Collection<T>) and
+ * Collections.max(Collection<T>) must satisfy the same requirements.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Collections.html#min%28java.util.Collection%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Collections.html#max%28java.util.Collection%29
+ *
  * This property verifies that each element implements the Comparable
  * interface, and if comparing each pair of elements does not raise a
  * ClassCastException. This property requires O(n^2) time for n elements.
@@ -16,18 +21,18 @@ import java.util.*;
  * @severity error
  */
 
-Collections_Sort() {
-	event invalid_sort before(List<T> list) :
-		call(void sort(List<T>)) && args(list) {
-		for (int i = 0; i < list.size(); ++i) {
+Collections_ImplementComparable() {
+	private void validate(Object[] arr)
+	{
+		for (int i = 0; i < arr.length; ++i) {
 			// Each element must implement the Comparable interface.
-			Object o1 = list.get(i);
+			Object o1 = arr[i];
 			if (!(o1 instanceof Comparable))
 				System.err.println(i + "-th element does not implement the Comparable interface.");
 
 			// All elements must be mutually comparable.
-			for (int j = i + 1; j < list.size(); ++j) {
-				Object o2 = list.get(j);
+			for (int j = i + 1; j < arr.length; ++j) {
+				Object o2 = arr[j];
 				try {
 					o1.compareTo(o2);
 					o2.compareTo(o1);
@@ -37,6 +42,19 @@ Collections_Sort() {
 				}
 			}
 		}
+	}
+
+	event invalid_sort before(List<T> list) :
+		call(void Collections.sort(List<T>)) && args(list) {
+		this.validate(list.toArray());
+	}
+
+	event invalid_minmax before(Collection<T> col) :
+		(
+			call(* Collections.min(Collection)) ||
+			call(* Collections.max(Collection))
+		) && args(col) {
+		this.validate(col.toArray());
 	}
 }
 

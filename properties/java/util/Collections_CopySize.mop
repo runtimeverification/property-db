@@ -17,7 +17,7 @@ import java.util.*;
 
 Collections_CopySize() {
 	event bad_copy before(List dest, List src) :
-		call(void copy(List, List)) && args(dest, src) &&
+		call(void Collections.copy(List, List)) && args(dest, src) &&
 		condition(dest.size() < src.size()) {}
 
 	ere : bad_copy

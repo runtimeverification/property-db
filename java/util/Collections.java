@@ -628,7 +628,7 @@ public class Collections {
      * Returns the minimum element of the given collection, according to the
      * <i>natural ordering</i> of its elements.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_ImplementComparable}
      * All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
@@ -668,7 +668,7 @@ public class Collections {
      * Returns the minimum element of the given collection, according to the
      * order induced by the specified comparator.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_Comparable}
      * All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
@@ -712,7 +712,7 @@ public class Collections {
      * Returns the maximum element of the given collection, according to the
      * <i>natural ordering</i> of its elements.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_ImplementComparable}
      * All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
@@ -752,7 +752,7 @@ public class Collections {
      * Returns the maximum element of the given collection, according to the
      * order induced by the specified comparator.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_Comparable}
      * All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
@@ -1640,7 +1640,7 @@ public class Collections {
      * through the returned collection.<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * collection when iterating over it:
      * <pre>
@@ -1755,7 +1755,7 @@ public class Collections {
      * through the returned set.<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * set when iterating over it:
      * <pre>
@@ -1817,7 +1817,7 @@ public class Collections {
      * through the returned sorted set (or its views).<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * sorted set when iterating over it or any of its <tt>subSet</tt>,
      * <tt>headSet</tt>, or <tt>tailSet</tt> views.
@@ -1913,7 +1913,7 @@ public class Collections {
      * through the returned list.<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * list when iterating over it:
      * <pre>
@@ -2079,7 +2079,7 @@ public class Collections {
      * through the returned map.<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedMap}
      * It is imperative that the user manually synchronize on the returned
      * map when iterating over any of its collection views:
      * <pre>
@@ -2209,7 +2209,7 @@ public class Collections {
      * through the returned sorted map (or its views).<p>
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_SynchronizedMap}
      * It is imperative that the user manually synchronize on the returned
      * sorted map when iterating over any of its collection views, or the
      * collections views of any of its <tt>subMap</tt>, <tt>headMap</tt> or
@@ -3889,9 +3889,7 @@ public class Collections {
      * {@description.open}
      * Returns <tt>true</tt> if the two specified collections have no
      * elements in common.
-     * {@description.close}
      *
-     * {@property.open}
      * <p>Care must be exercised if this method is used on collections that
      * do not comply with the general contract for <tt>Collection</tt>.
      * Implementations may elect to iterate over either collection and test
@@ -3901,9 +3899,7 @@ public class Collections {
      * equals</i>, or the key set of an {@link IdentityHashMap}), both
      * collections must use the same nonstandard equality test, or the
      * result of this method is undefined.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>Note that it is permissible to pass the same collection in both
      * parameters, in which case the method will return true if and only if
      * the collection is empty.
@@ -3985,7 +3981,7 @@ public class Collections {
      * as a sequence of <tt>put</tt> invocations on the backing map.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Collections_NewSetFromMap}
      * <p>The specified map must be empty at the time this method is invoked,
      * and should not be accessed directly after this method returns.  These
      * conditions are ensured if the map is created empty, passed directly

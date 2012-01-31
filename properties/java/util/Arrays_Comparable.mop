@@ -21,8 +21,8 @@ Arrays_Comparable() {
 	// JavaMOP raises an error for the following []:
 	event invalid_sort before(Object[] arr) :
 		(
-			call(void sort(Object[])) ||
-			call(void sort(Object[], int, int))
+			call(void Arrays.sort(Object[])) ||
+			call(void Arrays.sort(Object[], int, int))
 		) && args(arr, ..) {
 		for (int i = 0; i < arr.length; ++i) {
 			// Each element must implement the Comparable interface.
