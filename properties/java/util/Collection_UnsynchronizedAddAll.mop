@@ -18,7 +18,7 @@ import java.util.*;
  */
 
 Collection_UnsynchronizedAddAll(Collection t, Collection s) {
-	event enter before(Collection t, Collection s) :
+	creation event enter before(Collection t, Collection s) :
 		call(boolean Collection+.addAll(..)) && target(t) && args(s) {}
 
 	event modify before(Collection s) :
@@ -32,9 +32,9 @@ Collection_UnsynchronizedAddAll(Collection t, Collection s) {
 	event leave after(Collection t, Collection s) :
 		call(boolean Collection+.addAll(..)) && target(t) && args(s) {}
 
-	ere : enter modify+ leave
+	ere : (enter leave modify*)*
 
-	@match {
+	@fail {
 		System.err.println("The source collection of addAll() has been modified.");
 	}
 }
