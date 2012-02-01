@@ -16,7 +16,6 @@ import java.util.*;
  */
 
 Arrays_MutuallyComparable() {
-	// JavaMOP raises an error for the following []:
 	event invalid_sort before(Object[] arr, Comparator comp) :
 		(
 			call(void Arrays.sort(Object[], Comparator)) ||

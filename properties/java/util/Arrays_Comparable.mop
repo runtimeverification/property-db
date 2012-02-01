@@ -18,7 +18,6 @@ import java.util.*;
  */
 
 Arrays_Comparable() {
-	// JavaMOP raises an error for the following []:
 	event invalid_sort before(Object[] arr) :
 		(
 			call(void Arrays.sort(Object[])) ||
