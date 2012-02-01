@@ -17,7 +17,7 @@ import java.util.*;
  */
 
 List_UnsynchronizedSubList(List b, List s) {
-	event createsublist after(List b) returning(List s) :
+	creation event createsublist after(List b) returning(List s) :
 		call(* subList(..)) && target(b) {}
 
 	event modifybackinglist before(List b) :
@@ -31,7 +31,7 @@ List_UnsynchronizedSubList(List b, List s) {
 	event usesublist before(List s) :
 		call(* List.*(..)) && target(s) {}
 
-	ere : createsublist usesublist+ modifybackinglist+ usesublist
+	ere : createsublist usesublist* modifybackinglist+ usesublist
 
 	@match {
 		System.err.println("The backing list was modified while a sub-list is being used.");
