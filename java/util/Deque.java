@@ -545,9 +545,16 @@ public interface Deque<E> extends Queue<E> {
      * immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an
      * <tt>IllegalStateException</tt> if no space is currently available.
-     *
-     * <p>This method is equivalent to {@link #addFirst}.
      * {@description.close}
+     *
+     * {@property.open formal:java.util.Deque_OfferRatherThanAdd}
+     * <p>This method is equivalent to {@link #addFirst}.
+     * {@new.open}
+     * As {@link #offerFirst} is generally preferable to the {@link #addFirst}
+     * method, this method is not preferable, when using a capacity-restricted
+     * deque.
+     * {@new.close}
+     * {@property.close}
      *
      * @param e the element to push
      * @throws IllegalStateException if the element cannot be added at this

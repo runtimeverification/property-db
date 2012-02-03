@@ -38,7 +38,7 @@ Arrays_DeepHashCode() {
 		return false;
 	}
 
-	event invalid_deephashcode(Object[] arr) :
+	event invalid_deephashcode before(Object[] arr) :
 		call(int Arrays.deepHashCode(Object[])) && args(arr) {
 		ArrayList<Object[]> enclosing = new ArrayList<Object[]>();
 		if (cycle(enclosing, arr))
