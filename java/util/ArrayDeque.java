@@ -63,7 +63,7 @@ import java.io.*;
  * time.
  * {@description.close}
  *
- * {@property.open runtime formal:java.util.ArrayDeque_Iterator}
+ * {@property.open runtime formal:java.util.ArrayDeque_UnsafeIterator}
  * <p>The iterators returned by this class's <tt>iterator</tt> method are
  * <i>fail-fast</i>: If the deque is modified at any time after the iterator
  * is created, in any way except through the iterator's own <tt>remove</tt>

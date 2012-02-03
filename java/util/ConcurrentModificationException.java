@@ -31,7 +31,7 @@ package java.util;
  * modification of an object when such modification is not permissible.
  * <p>
  * {@description.close}
- * {@property.open}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * For example, it is not generally permissible for one thread to modify a Collection
  * while another thread is iterating over it.  In general, the results of the
  * iteration are undefined under these circumstances.  Some Iterator
