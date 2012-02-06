@@ -16,7 +16,7 @@ import java.util.*;
 
 Dictionary_Obsolete(Dictionary d) {
 	event use before(Dictionary d) :
-		call(* Dictionary+.*(..)) {}
+		call(* Dictionary+.*(..)) && target(d) {}
 
 	ere : use+
 

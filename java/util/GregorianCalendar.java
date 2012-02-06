@@ -1959,7 +1959,7 @@ public class GregorianCalendar extends Calendar {
      * Returns the millisecond offset from the beginning of this
      * year.
      * {@description.close}
-     * {@property.open formal:java.util.GregorianCalendar_Normalize}
+     * {@property.open internal}
      * This Calendar object must have been normalized.
      * {@property.close}
      */
@@ -2779,7 +2779,7 @@ public class GregorianCalendar extends Calendar {
      * Determines if the specified year (normalized) is the Gregorian
      * cutover year.
      * {@description.close}
-     * {@property.open formal:java.util.GregorianCalendar_Normalize}
+     * {@property.open internal}
      * This object must have been normalized.
      * {@property.close}
      */
@@ -2900,7 +2900,7 @@ public class GregorianCalendar extends Calendar {
      * Returns the length of the specified month in the specified
      * year.
      * {@description.close}
-     * {@property.open formal:java.util.GregorianCalendar_Normalize}
+     * {@property.open internal}
      * The year number must be normalized.
      * {@property.close}
      *
@@ -2950,7 +2950,7 @@ public class GregorianCalendar extends Calendar {
      * {@description.open}
      * Returns the length (in days) of the specified year.
      * {@description.close}
-     * {@property.open formal:java.util.GregorianCalendar_Normalize}
+     * {@property.open internal}
      * The year
      * must be normalized.
      * {@property.close}
@@ -3000,7 +3000,7 @@ public class GregorianCalendar extends Calendar {
      * {@description.open}
      * Returns the fixed date value of this object.
      * {@description.close}
-     * {@property.open formal:java.util.GregorianCalendar_Synch}
+     * {@property.open internal}
      * The time value and
      * calendar fields must be in synch.
      * {@property.close}

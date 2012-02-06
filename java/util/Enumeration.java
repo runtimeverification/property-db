@@ -42,7 +42,7 @@ package java.util;
  * Enumerations are also used to specify the input streams to a
  * <code>SequenceInputStream</code>.
  * {@description.close}
- * {@property.open}
+ * {@property.open formal:java.util.Enumeration_Obsolete}
  * <p>
  * NOTE: The functionality of this interface is duplicated by the Iterator
  * interface.  In addition, Iterator adds an optional remove operation, and
