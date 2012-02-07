@@ -18,7 +18,7 @@ Dictionary_Obsolete(Dictionary d) {
 	event use before(Dictionary d) :
 		call(* Dictionary+.*(..)) && target(d) {}
 
-	ere : use+
+	ere : use
 
 	@match {
 		System.err.println("The Dictionary class is obsolete. New implementations should implement the Map interface.");

@@ -19,7 +19,7 @@ Enumeration_Obsolete(Enumeration e) {
 	event use before(Enumeration e) :
 		call(* Dictionary+.*(..)) && target(e) {}
 
-	ere : use+
+	ere : use
 
 	@match {
 		System.err.println("The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
