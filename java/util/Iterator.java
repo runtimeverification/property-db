@@ -79,8 +79,11 @@ public interface Iterator<E> {
      * {@property.open formal:java.util.Iterator_RemoveOnce}
      * This method can be called
      * only once per call to {@link #next}.
+     * {@new.open}
+     * If the {@link #next} method has not yet been called, this method cannot be called.
+     * {@new.close}
      * {@property.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsafeIterator formal:java.util.Map_UnsafeIterator}
      * The behavior of an iterator
      * is unspecified if the underlying collection is modified while the
      * iteration is in progress in any way other than by calling this

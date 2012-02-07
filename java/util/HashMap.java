@@ -72,7 +72,7 @@ import java.io.*;
  * needed to grow the table.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@description.open synchronization}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a hash map concurrently, and at least one of
  * the threads modifies the map structurally, it <i>must</i> be
@@ -87,9 +87,9 @@ import java.io.*;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map:<pre>
  *   Map m = Collections.synchronizedMap(new HashMap(...));</pre>
- * {@property.close}
+ * {@description.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by all of this class's "collection view methods"
  * are <i>fail-fast</i>: if the map is structurally modified at any time after
  * the iterator is created, in any way except through the iterator's own
@@ -962,20 +962,17 @@ public class HashMap<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set supports element removal,
+     * the iteration are undefined. The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
-     * {@description.close}
+     * {@property.close}
      */
     public Set<K> keySet() {
         Set<K> ks = keySet;
@@ -1006,20 +1003,17 @@ public class HashMap<K,V>
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The collection
+     * the results of the iteration are undefined. The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      */
     public Collection<V> values() {
         Collection<V> vs = values;
@@ -1047,21 +1041,18 @@ public class HashMap<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set
+     * iterator) the results of the iteration are undefined. The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a set view of the mappings contained in this map
      */

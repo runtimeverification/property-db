@@ -1,6 +1,7 @@
 package mop;
 
 import java.util.*;
+import java.lang.*;
 
 /**
  * Warns if a collection is modified while an iterator is being used.
@@ -34,7 +35,10 @@ Collection_UnsafeIterator(Collection c, Iterator i) {
 		) && target(c) {}
 
 	event useiter before(Iterator i) :
-		call(* Iterator.*(..)) && target(i) {}
+		(
+			call(* Iterator.hasNext(..)) ||
+			call(* Iterator.next(..))
+		) && target(i) {}
 
 	ere : create useiter* modify+ useiter
 

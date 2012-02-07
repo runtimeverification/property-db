@@ -43,7 +43,7 @@ package java.util;
  * high (or the load factor too low) if iteration performance is important.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@description.open synchronization}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a hash set concurrently, and at least one of
  * the threads modifies the set, it <i>must</i> be synchronized externally.
@@ -55,9 +55,9 @@ package java.util;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the set:<pre>
  *   Set s = Collections.synchronizedSet(new HashSet(...));</pre>
- * {@property.close}
+ * {@description.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p>The iterators returned by this class's <tt>iterator</tt> method are
  * <i>fail-fast</i>: if the set is modified at any time after the iterator is
  * created, in any way except through the iterator's own <tt>remove</tt>

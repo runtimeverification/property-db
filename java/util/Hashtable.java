@@ -81,7 +81,7 @@ import java.io.*;
  *   }}</pre>
  * {@description.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's "collection view methods" are
  * <em>fail-fast</em>: if the Hashtable is structurally modified at any time
@@ -643,20 +643,17 @@ public class Hashtable<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set supports element removal,
+     * the iteration are undefined. The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @since 1.2
      */
@@ -690,21 +687,18 @@ public class Hashtable<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronizedSet}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set
+     * iterator) the results of the iteration are undefined. The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @since 1.2
      */
@@ -779,20 +773,17 @@ public class Hashtable<K,V>
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open synchronizedSet}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The collection
+     * the results of the iteration are undefined. The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @since 1.2
      */

@@ -1,6 +1,7 @@
 package mop;
 
 import java.util.*;
+import java.lang.*;
 
 /**
  * Warns if a map is modified while an iterator is being used.
@@ -46,7 +47,10 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 		) && target(c) {}
 
 	event useiter before(Iterator i) :
-		call(* Iterator.*(..)) && target(i) {}
+		(
+			call(* Iterator.hasNext(..)) ||
+			call(* Iterator.next(..)) 
+		) && target(i) {}
 
 	ere : getset modify* getiter useiter* modify+ useiter
 

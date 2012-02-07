@@ -36,7 +36,7 @@ import java.io.IOException;
  * specification.<p>
  * {@description.close}
  *
- * {@property.open}
+ * {@property.open formal:java.util.InvalidPropertiesFormatException_NonSerializable}
  * Note, that although InvalidPropertiesFormatException inherits Serializable
  * interface from Exception, it is not intended to be Serializable. Appropriate
  * serialization methods are implemented to throw NotSerializableException.

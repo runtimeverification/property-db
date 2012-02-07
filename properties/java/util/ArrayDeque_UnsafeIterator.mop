@@ -1,6 +1,7 @@
 package mop;
 
 import java.util.*;
+import java.lang.*;
 
 /**
  * Warns if a deque is modified while an iterator is being used.

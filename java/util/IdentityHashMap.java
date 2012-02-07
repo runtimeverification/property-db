@@ -79,7 +79,7 @@ import java.io.*;
  * concerned with iteration performance or memory usage.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@description.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access an identity hash map concurrently, and at
  * least one of the threads modifies the map structurally, it <i>must</i>
@@ -94,9 +94,9 @@ import java.io.*;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map:<pre>
  *   Map m = Collections.synchronizedMap(new IdentityHashMap(...));</pre>
- * {@property.close}
+ * {@description.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the
  * collections returned by all of this class's "collection view
  * methods" are <i>fail-fast</i>: if the map is structurally modified
@@ -694,13 +694,13 @@ public class IdentityHashMap<K,V>
      * <tt>this.entrySet().equals(m.entrySet())</tt>.
      * {@description.close}
      *
-     * {@property.open}
+     * {@description.open}
      * <p><b>Owing to the reference-equality-based semantics of this map it is
      * possible that the symmetry and transitivity requirements of the
      * <tt>Object.equals</tt> contract may be violated if this map is compared
      * to a normal map.  However, the <tt>Object.equals</tt> contract is
      * guaranteed to hold among <tt>IdentityHashMap</tt> instances.</b>
-     * {@property.close}
+     * {@description.close}
      *
      * @param  o object to be compared for equality with this map
      * @return <tt>true</tt> if the specified object is equal to this map
@@ -991,18 +991,18 @@ public class IdentityHashMap<K,V>
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified while an iteration
      * over the set is in progress, the results of the iteration are
      * undefined.
-     * {@property.close}
-     * {@description.open}
      * The set supports element removal, which removes the
      * corresponding mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt>, and
      * <tt>clear</tt> methods.  It does not support the <tt>add</tt> or
      * <tt>addAll</tt> methods.
+     * {@property.close}
      *
+     * {@description.open}
      * <p><b>While the object returned by this method implements the
      * <tt>Set</tt> interface, it does <i>not</i> obey <tt>Set's</tt> general
      * contract.  Like its backing map, the set returned by this method
@@ -1086,19 +1086,18 @@ public class IdentityHashMap<K,V>
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is
      * modified while an iteration over the collection is in progress,
-     * the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The collection
+     * the results of the iteration are undefined. The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> methods.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> methods.
+     * {@property.close}
      *
+     * {@description.open}
      * <p><b>While the object returned by this method implements the
      * <tt>Collection</tt> interface, it does <i>not</i> obey
      * <tt>Collection's</tt> general contract.  Like its backing map,
@@ -1147,19 +1146,18 @@ public class IdentityHashMap<K,V>
      * <tt>Map.Entry</tt>.  The set is backed by the map, so changes
      * to the map are reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the
      * map is modified while an iteration over the set is in progress,
-     * the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set supports
+     * the results of the iteration are undefined. The set supports
      * element removal, which removes the corresponding mapping from
      * the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt>
      * methods.  It does not support the <tt>add</tt> or
      * <tt>addAll</tt> methods.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>Like the backing map, the <tt>Map.Entry</tt> objects in the set
      * returned by this method define key and value equality as
      * reference-equality rather than object-equality.  This affects the
