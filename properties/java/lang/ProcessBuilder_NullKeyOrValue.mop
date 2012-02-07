@@ -14,9 +14,9 @@ import java.util.*;
  * @severity error
  */
 
-ProcessBuilder_NullKeyOrValue(ProcessBuilder p, Map map){
-	creation event createMap after(ProcessBuilder p) returning(Map map) : 
-        call(* ProcessBuilder.environment()) && target(p) {}
+ProcessBuilder_NullKeyOrValue(Map map){
+	creation event createMap after() returning(Map map) : 
+        call(* ProcessBuilder.environment()) {}
               
 	event nullPut before(Map map, Object key, Object value) : 
         call(* Map.put(..)) && args(key, value) && target(map) && condition(key == null || value == null){}
