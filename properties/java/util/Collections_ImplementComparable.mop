@@ -29,13 +29,14 @@ Collections_ImplementComparable() {
 			Object o1 = arr[i];
 			if (!(o1 instanceof Comparable))
 				System.err.println(i + "-th element does not implement the Comparable interface.");
+			Comparable c1 = (Comparable)o1;
 
 			// All elements must be mutually comparable.
 			for (int j = i + 1; j < arr.length; ++j) {
-				Object o2 = arr[j];
 				try {
-					o1.compareTo(o2);
-					o2.compareTo(o1);
+					Comparable c2 = (Comparable)arr[j];
+					c1.compareTo(c2);
+					c2.compareTo(c1);
 				}
 				catch (ClassCastException e) {
 					System.err.println(i + "-th element and " + j + "-th element are not comparable.");
