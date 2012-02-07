@@ -17,7 +17,7 @@ import java.util.*;
 
 Enumeration_Obsolete(Enumeration e) {
 	event use before(Enumeration e) :
-		call(* Dictionary+.*(..)) && target(e) {}
+		call(* Enumeration+.*(..)) && target(e) {}
 
 	ere : use
 
