@@ -14,14 +14,10 @@ import java.util.*;
  * @severity error
  */
 
-Dictionary_NullKeyOrValue(Dictionary d) {
-	event nullPut before(Dictionary d, Object key, Object value) :
+Dictionary_NullKeyOrValue() {
+	event putnull before(Dictionary d, Object key, Object value) :
 		call(* Dictionary+.put(..)) && args(key, value) && target(map) &&
-		condition(key == null || value == null) {}
-
-	ere : nullPut+
-
-	@match {
+		condition(key == null || value == null) {
 		System.out.println("Dictionary allow neither null key nor null value.");
 	}
 }
