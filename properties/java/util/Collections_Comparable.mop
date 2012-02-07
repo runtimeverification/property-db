@@ -39,12 +39,12 @@ Collections_Comparable() {
 		}
 	}
 
-	event invalid_sort before(List<T> list, Comparator comp) :
-		call(void Collections.sort(List<T>, Comparator)) && args(list, comp) {
+	event invalid_sort before(List list, Comparator comp) :
+		call(void Collections.sort(List, Comparator)) && args(list, comp) {
 		this.validate(list.toArray(), comp);
 	}
 
-	event invalid_minmax before(Collection<T> col, Comparator comp) :
+	event invalid_minmax before(Collection col, Comparator comp) :
 		(
 			call(* Collections.min(Collection, Comparator)) ||
 			call(* Collections.max(Collection, Comparator))
