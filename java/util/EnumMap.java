@@ -42,7 +42,7 @@ import sun.misc.SharedSecrets;
  * {@link #entrySet()}, and {@link #values()}).
  * {@description.close}
  *
- * {@property.open synchronization}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>Iterators returned by the collection views are <i>weakly consistent</i>:
  * they will never throw {@link ConcurrentModificationException} and they may
  * or may not show the effects of any modifications to the map that occur while
@@ -56,7 +56,7 @@ import sun.misc.SharedSecrets;
  * Null values are permitted.
  * {@property.close}
  *
- * {@property.open synchronization}
+ * {@property.open formal:java.util.Collections_SynchronizedMap}
  * <P>Like most collection implementations <tt>EnumMap</tt> is not
  * synchronized. If multiple threads access an enum map concurrently, and at
  * least one of the threads modifies the map, it should be synchronized

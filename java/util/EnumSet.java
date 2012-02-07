@@ -43,7 +43,7 @@ import sun.misc.SharedSecrets;
  * elements in their <i>natural order</i> (the order in which the enum
  * constants are declared).
  * {@description.close}
- * {@property.open synchronization}
+ * {@description.open synchronization}
  * The returned iterator is <i>weakly
  * consistent</i>: it will never throw {@link ConcurrentModificationException}
  * and it may or may not show the effects of any modifications to the set that
@@ -57,7 +57,7 @@ import sun.misc.SharedSecrets;
  * properly.
  * {@property.close}
  *
- * {@property.open synchronization}
+ * {@property.open formal:java.util.Collections_SynchronizedCollection}
  * <P>Like most collection implementations, <tt>EnumSet</tt> is not
  * synchronized.  If multiple threads access an enum set concurrently, and at
  * least one of the threads modifies the set, it should be synchronized
