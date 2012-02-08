@@ -277,7 +277,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * The descending map is backed by this map, so changes to the map are
      * reflected in the descending map, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.NavigableMap_Modification}
      * If either map is
      * modified while an iteration over a collection view of either map
      * is in progress (except through the iterator's own {@code remove}
@@ -302,7 +302,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.NavigableMap_UnsafeIterator}
      * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
      * remove} operation), the results of the iteration are undefined.
@@ -326,7 +326,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.NavigableMap_UnsafeIterator}
      * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
      * remove} operation), the results of the iteration are undefined.

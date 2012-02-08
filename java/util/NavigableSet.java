@@ -185,7 +185,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      * The descending set is backed by this set, so changes to the set are
      * reflected in the descending set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.NavigableSet_Modification}
      * If either set is
      * modified while an iteration over either set is in progress (except
      * through the iterator's own {@code remove} operation), the results of

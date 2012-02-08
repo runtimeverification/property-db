@@ -42,7 +42,7 @@ package java.util;
  * class, do not.
  * {@description.close}
  *
- * {@property.open formal:java.util.Map_MutableKey}
+ * {@property.open formal:java.util.Map_ItselfAsKey}
  * <p>Note: great care must be exercised if mutable objects are used as map
  * keys.  The behavior of a map is not specified if the value of an object is
  * changed in a manner that affects <tt>equals</tt> comparisons while the
@@ -287,7 +287,7 @@ public interface Map<K,V> {
      * for each mapping from key <tt>k</tt> to value <tt>v</tt> in the
      * specified map.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsynchronizedAddAll}
      * The behavior of this operation is undefined if the
      * specified map is modified while the operation is in progress.
      * {@property.close}
@@ -325,7 +325,7 @@ public interface Map<K,V> {
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
@@ -350,7 +350,7 @@ public interface Map<K,V> {
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
@@ -375,7 +375,7 @@ public interface Map<K,V> {
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
@@ -427,7 +427,7 @@ public interface Map<K,V> {
          * {@description.open}
          * Returns the value corresponding to this entry.
          * {@description.close}
-         * {@property.open synchronized}
+         * {@property.open formal:java.util.Map_UnsafeIterator}
          * If the mapping
          * has been removed from the backing map (by the iterator's
          * <tt>remove</tt> operation), the results of this call are undefined.
@@ -445,7 +445,7 @@ public interface Map<K,V> {
          * Replaces the value corresponding to this entry with the specified
          * value (optional operation).  (Writes through to the map.)
          * {@description.close}
-         * {@property.open synchronized}
+         * {@property.open formal:java.util.Map_UnsafeIterator}
          * The
          * behavior of this call is undefined if the mapping has already been
          * removed from the map (by the iterator's <tt>remove</tt> operation).

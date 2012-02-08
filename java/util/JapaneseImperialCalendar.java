@@ -2258,7 +2258,7 @@ class JapaneseImperialCalendar extends Calendar {
      * Returns the length of the specified month in the specified
      * Gregorian year.
      * {@description.close}
-     * {@property.open formal:java.util.JapaneseImperialCalendar_Normalize}
+     * {@property.open internal}
      * The year number must be normalized.
      * {@property.close}
      *

@@ -89,7 +89,7 @@ class JumboEnumSet<E extends Enum<E>> extends EnumSet<E> {
      * iterator traverses the elements in their <i>natural order</i> (which is
      * the order in which the enum constants are declared).
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsafeIterator}
      * The returned
      * Iterator is a "weakly consistent" iterator that will never throw {@link
      * ConcurrentModificationException}.

@@ -92,7 +92,7 @@ import java.io.*;
  * by capacity.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@property.open formal:java.util.Collections_SynchronizedMap}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a linked hash map concurrently, and at least
  * one of the threads modifies the map structurally, it <em>must</em> be
@@ -114,7 +114,7 @@ import java.io.*;
  * modification.</strong>)
  * {@property.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's collection view methods are
  * <em>fail-fast</em>: if the map is structurally modified at any time after

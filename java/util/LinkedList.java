@@ -45,7 +45,7 @@ package java.util;
  * the beginning or the end, whichever is closer to the specified index.<p>
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@property.open formal:java.util.Collections_SynchronizedCollection}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a linked list concurrently, and at least
  * one of the threads modifies the list structurally, it <i>must</i> be
@@ -62,7 +62,7 @@ package java.util;
  *   List list = Collections.synchronizedList(new LinkedList(...));</pre>
  * {@property.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p>The iterators returned by this class's <tt>iterator</tt> and
  * <tt>listIterator</tt> methods are <i>fail-fast</i>: if the list is
  * structurally modified at any time after the iterator is created, in
@@ -286,7 +286,7 @@ public class LinkedList<E>
      * this list, in the order that they are returned by the specified
      * collection's iterator.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is undefined if
      * the specified collection is modified while the operation is in
      * progress.  (Note that this will occur if the specified collection is
@@ -751,7 +751,7 @@ public class LinkedList<E>
      * Obeys the general contract of <tt>List.listIterator(int)</tt>.<p>
      * {@description.close}
      *
-     * {@property.open fail-fast}
+     * {@property.open formal:java.util.List_UnsafeListIterator}
      * The list-iterator is <i>fail-fast</i>: if the list is structurally
      * modified at any time after the Iterator is created, in any way except
      * through the list-iterator's own <tt>remove</tt> or <tt>add</tt>

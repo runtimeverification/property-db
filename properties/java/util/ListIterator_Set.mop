@@ -1,0 +1,42 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+
+/**
+ * Warns if ListIterator.set() call is made without next()/previous(), or
+ * after remove()/add().
+ *
+ * ListIterator.set() can be made only if neither remove() nor add() have been
+ * called after the last call to next() or previous().
+ * http://docs.oracle.com/javase/6/docs/api/java/util/ListIterator.html#set%28E%29
+ *
+ * @severity error
+ */
+
+ListIterator_Set(ListIterator i) {
+	event creation create after() returning(ListIterator i) :
+		call(Iterator Iterable+.iterator()) {}
+
+	event remove before(ListIterator i) :
+		call(void Iterator+.remove()) && target(i) {}
+
+	event add before(ListIterator i) :
+		call(void ListIterator+.add(..)) && target(i) {}
+
+	event next before(ListIterator i) :
+		call(* Iterator+.next()) && target(i) {}
+
+	event previous before(ListIterator i) :
+		call(* ListIterator+.previous()) && target(i) {}
+
+	event set before(ListIterator i) :
+		call(* ListIterator+.set(..)) && target(i) {}
+
+	ere : create ((next | previous)+ (remove | add+ | set+ | epsilon))*
+
+	@fail {
+		System.err.println("ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
+	}
+}
+

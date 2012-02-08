@@ -48,7 +48,7 @@ import sun.misc.SharedSecrets;
  * consistent</i>: it will never throw {@link ConcurrentModificationException}
  * and it may or may not show the effects of any modifications to the set that
  * occur while the iteration is in progress.
- * {@property.close}
+ * {@description.close}
  *
  * {@property.open formal:java.util.EnumSet_NonNull}
  * <p>Null elements are not permitted.  Attempts to insert a null element

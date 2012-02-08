@@ -65,6 +65,12 @@ public interface Iterator<E> {
      * {@description.open}
      * Returns the next element in the iteration.
      * {@description.close}
+     * {@property.open formal:java.util.Iterator_HasNext}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
+     * {@property.close}
      *
      * @return the next element in the iteration
      * @throws NoSuchElementException if the iteration has no more elements

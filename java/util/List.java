@@ -297,7 +297,7 @@ public interface List<E> extends Collection<E> {
      * this list, in the order that they are returned by the specified
      * collection's iterator (optional operation).
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this
      * operation is undefined if the specified collection is modified while
      * the operation is in progress.  (Note that this will occur if the
@@ -328,7 +328,7 @@ public interface List<E> extends Collection<E> {
      * will appear in this list in the order that they are returned by the
      * specified collection's iterator.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is
      * undefined if the specified collection is modified while the
      * operation is in progress.  (Note that this will occur if the specified

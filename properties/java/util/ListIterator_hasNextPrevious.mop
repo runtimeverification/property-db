@@ -1,0 +1,40 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if next()/previous() is invoked when hasNext()/hasPrevious() is not
+ * invoked or returns false.
+ *
+ * This property requires that hasNext()/hasPrevious() be called before
+ * next()/previous() and that hasNext()/hasPrevious() return true.
+ *
+ * @severity warning
+ */
+
+ListIterator_hasNextPrevious(ListIterator i) {
+	event hasnexttrue after(ListIterator i) returning(boolean b) :
+		call(* ListIterator.hasNext()) && target(i) &&
+		condition(b) {}
+	event hasnextfalse after(ListIterator i) returning(boolean b) :
+		call(* ListIterator.hasNext()) && target(i) &&
+		condition(!b) {}
+	event next before(ListIterator i) :
+		call(* ListIterator.next()) && target(i) {}
+
+	event hasprevioustrue after(ListIterator i) returning(boolean b) :
+		call(* ListIterator.hasPrevious()) && target(i) &&
+		condition(b) {}
+	event haspreviousfalse after(ListIterator i) returning(boolean b) :
+		call(* ListIterator.hasPrevious()) && target(i) &&
+		condition(!b) {}
+	event previous before(ListIterator i) :
+		call(* ListIterator.previous()) && target(i) {}
+
+	ltl: []((next => (*) hasnexttrue) and (previous => (*) hasprevioustrue))
+
+	@violation {
+		System.out.println("ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
+	}
+}
+

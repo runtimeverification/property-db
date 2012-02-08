@@ -84,6 +84,10 @@ public interface ListIterator<E> extends Iterator<E> {
      * will return the same element repeatedly.)
      * {@description.close}
      * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@new.open}
+     * It is recommended to call hasNext() and check if the return value is
+     * true, before calling this method.
+     * {@new.close}
      * {@property.close}
      *
      * @return the next element in the list
@@ -114,6 +118,10 @@ public interface ListIterator<E> extends Iterator<E> {
      * element repeatedly.)
      * {@description.close}
      * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@new.open}
+     * It is recommended to call hasPrevious() and check if the return value is
+     * true, before calling this method.
+     * {@new.close}
      * {@property.close}
      *
      * @return the previous element in the list
@@ -157,7 +165,7 @@ public interface ListIterator<E> extends Iterator<E> {
      * #next} or {@link #previous} (optional operation).  This call can
      * only be made once per call to {@code next} or {@code previous}.
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.ListIterator_RemoveOnce}
      * It can be made only if {@link #add} has not been
      * called after the last call to {@code next} or {@code previous}.
      * {@property.close}
@@ -176,7 +184,7 @@ public interface ListIterator<E> extends Iterator<E> {
      * Replaces the last element returned by {@link #next} or
      * {@link #previous} with the specified element (optional operation).
      * {@description.close}
-     * {@property.open}
+     * {@property.open formal:java.util.ListIterator_Set}
      * This call can be made only if neither {@link #remove} nor {@link
      * #add} have been called after the last call to {@code next} or
      * {@code previous}.

@@ -24,7 +24,7 @@ Iterator_RemoveOnce(Iterator i) {
 	event next before(Iterator i) :
 		call(* Iterator+.next()) && target(i) {}
 
-	ere : create (next+ remove)*
+	ere : create (next+ (remove | epsilon))*
 
 	@fail {
 		System.err.println("Iterator.remove() can be called only once per call to next().");
