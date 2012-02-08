@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Warns read(), ready(), mark(), reset() or skip() after close().
  *
- * According to the Reader.close() document, read(), ready(), mark(),
+ * According to the Reader.close() documentation, read(), ready(), mark(),
  * reset() or skip() invocations will throw an IOException, once the stream
  * has been closed.
  * http://download.oracle.com/javase/6/docs/api/java/io/Reader.html#close%28%29

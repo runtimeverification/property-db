@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Warns if close() is invoked multiple times.
  *
- * According to the Closeable.close() document, closing a previously closed
+ * According to the Closeable.close() documentation, closing a previously closed
  * stream has no effect.
  * http://download.oracle.com/javase/6/docs/api/java/io/Closeable.html#close%28%29
  *
