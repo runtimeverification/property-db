@@ -1,0 +1,35 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+
+/**
+ * Warns if PriorityQueue is about to have a null element.
+ *
+ * PriorityQueue does not permit null elements.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/PriorityQueue.html
+ *
+ * This property warns if null is about to be inserted.
+ *
+ * @severity error
+ */
+
+PriorityQueue_NonNull() {
+	event insertnull before(Object e) :
+		(
+			call(* Collection+.add*(..)) ||
+			call(* Queue+.offer*(..))
+		) && args(e) && condition(e == null) {
+		System.err.println("PriorityQueue does not permit null.");
+	}
+
+	event insertnull before(Collection c) :
+		call(* Collection+.addAll(Collection)) && args(c) {
+		for (Object elem : c) {
+			if (elem == null) {
+				System.err.println("PriorityQueue does not permit null.");
+			}
+		}
+	}
+}
+
