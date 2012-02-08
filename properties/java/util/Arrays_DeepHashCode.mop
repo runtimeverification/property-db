@@ -41,8 +41,9 @@ Arrays_DeepHashCode() {
 	event invalid_deephashcode before(Object[] arr) :
 		call(int Arrays.deepHashCode(Object[])) && args(arr) {
 		ArrayList<Object[]> enclosing = new ArrayList<Object[]>();
-		if (cycle(enclosing, arr))
+		if (cycle(enclosing, arr)){
 			System.err.println("The specified array contains itself as an element.");
+		}
 	}
 }
 
