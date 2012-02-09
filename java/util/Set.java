@@ -45,7 +45,7 @@ package java.util;
  * (as defined above).
  * {@description.close}
  *
- * {@property.open}
+ * {@property.open formal:java.util.Set_ItselfAsElement}
  * <p>Note: Great care must be exercised if mutable objects are used as set
  * elements.  The behavior of a set is not specified if the value of an object
  * is changed in a manner that affects <tt>equals</tt> comparisons while the
@@ -297,7 +297,7 @@ public interface Set<E> extends Collection<E> {
      * modifies this set so that its value is the <i>union</i> of the two
      * sets.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is undefined if the specified
      * collection is modified while the operation is in progress.
      * {@property.close}

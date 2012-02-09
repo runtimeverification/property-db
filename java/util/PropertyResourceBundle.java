@@ -101,7 +101,7 @@ import sun.util.ResourceBundleEnumeration;
  * </blockquote>
  * {@description.close}
  *
- * {@property.open formal:java.util.PropertyResourceBundle_InputStreamEncoding}
+ * {@property.open uncheckable}
  * <p>
  * <strong>Note:</strong> PropertyResourceBundle can be constructed either
  * from an InputStream or a Reader, which represents a property file.
@@ -123,7 +123,7 @@ public class PropertyResourceBundle extends ResourceBundle {
      * Creates a property resource bundle from an {@link java.io.InputStream
      * InputStream}.
      * {@description.close}
-     * {@property.open formal:java.util.PropertyResourceBundle_InputStreamEncoding}
+     * {@property.open uncheckable}
      * The property file read with this constructor
      * must be encoded in ISO-8859-1.
      * {@property.close}

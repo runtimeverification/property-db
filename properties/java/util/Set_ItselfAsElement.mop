@@ -1,0 +1,39 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+
+/**
+ * Warns if a subclass of Set contains itself as an element.
+ *
+ * The behavior of a set is not specified if the value of an object is changed
+ * in a manner that affects equals() comparisons while the object is an
+ * element in the set. A special case of this prohibition is that it is not
+ * permissible for a set to contain itself as an element.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Set.html
+ *
+ * This property checks if the special case: a set contains itself by
+ * capturing add() and addAll(). It is hard to detect whether or not equals()
+ * comparisons are affected.
+ *
+ * @severity error
+ */
+
+Set_ItselfAsElement() {
+	event add before(Set set, Object elem) :
+		call(* Set+.add(Object) && target(set) && args(elem) {
+		if (elem == set) {
+			System.err.println("A set cannot contain itself as an element.");
+		}
+	}
+
+	event addall before(set, Collection src) :
+		call(* Set+.addAll(Collection) && target(set) && args(src) {
+		for (Object elem : src) {
+			if (elem == set) {
+				System.err.println("A set cannot contain itself as an element.");
+			}
+		}
+	}
+}
+

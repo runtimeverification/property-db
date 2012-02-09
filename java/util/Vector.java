@@ -43,7 +43,7 @@ package java.util;
  * components; this reduces the amount of incremental reallocation.
  * {@description.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p><a name="fail-fast"/>
  * The iterators returned by this class's {@link #iterator() iterator} and
  * {@link #listIterator(int) listIterator} methods are <em>fail-fast</em>:
@@ -613,7 +613,7 @@ public class Vector<E>
      * previously.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Vector_InsertIndex}
      * <p>The index must be a value greater than or equal to {@code 0}
      * and less than or equal to the current size of the vector. (If the
      * index is equal to the current size of the vector, the new element
@@ -941,7 +941,7 @@ public class Vector<E>
      * this Vector, in the order that they are returned by the specified
      * Collection's Iterator.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
      * The behavior of this operation is undefined if
      * the specified Collection is modified while the operation is in progress.
      * (This implies that the behavior of this call is undefined if the
@@ -1102,7 +1102,7 @@ public class Vector<E>
      * a subList.
      * {@description.close}
      *
-     * {@property.open syncornized}
+     * {@property.open formal:java.util.List_UnsynchronizedSubList}
      * <p>The semantics of the List returned by this method become undefined if
      * the backing list (i.e., this List) is <i>structurally modified</i> in
      * any way other than via the returned List.  (Structural modifications are

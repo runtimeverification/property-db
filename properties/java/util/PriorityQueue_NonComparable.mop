@@ -6,7 +6,7 @@ import java.lang.*;
 /**
  * Warns if PriorityQueue is about to have a non-comparable object.
  *
- * PriorityQueue does not permit null elements.
+ * PriorityQueue does not permit non-comparable elements.
  * http://docs.oracle.com/javase/6/docs/api/java/util/PriorityQueue.html
  *
  * The definition of a non-comparable object is not clear, but it is assumed
@@ -21,17 +21,18 @@ PriorityQueue_NonComparable() {
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Queue+.offer*(..))
-		) && args(e) {
+		) && target(PriorityQueue) && args(e) {
 		if (!(e instanceof Comparable)) {
-			System.err.println("PriorityQueue does not permit null.");
+			System.err.println("PriorityQueue does not permit non-comparable objects.");
 		}
 	}
 
 	event insertnull before(Collection c) :
-		call(* Collection+.addAll(Collection)) && args(c) {
+		call(* Collection+.addAll(Collection)) &&
+		target(PriorityQueue) && args(c) {
 		for (Object elem : c) {
 			if (!(elem instanceof Comparable)) {
-				System.err.println("PriorityQueue does not permit null.");
+				System.err.println("PriorityQueue does not permit non-comparable objects.");
 			}
 		}
 	}

@@ -1,0 +1,48 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+
+/**
+ * Warns if a non-comparable key is about to be inserted into TreeMap.
+ *
+ * When a TreeMap object is created without a specific comparator, all keys
+ * inserted into the map must implement the Comparable interface.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/TreeMap.html#TreeMap%28%29
+ *
+ * This property verifies that each key implements the Comparable interface,
+ * but does not verify if all keys are mutually comparable because of
+ * performance degradation.
+ *
+ * @severity error
+ */
+
+TreeMap_Comparable() {
+	private void validate(Object elem) {
+		if (!(elem instanceof Comparable)) {
+			System.err.println("A non-comparable object is being inserted into a TreeMap object.");
+		}
+	}
+
+	private void validateAll(Map src) {
+		for (Map.Entry<Object, Object> entry : src.entrySet()) {
+			validate(entry.getKey());
+		}
+	}
+
+	event create before(Map src) :
+		call(TreeMap.new(Map)) && args(src) {
+		validateAll(src);
+	}
+
+	event put before(Object key) :
+		call(* Map+.put(Object, Object) && args(key, ..) {
+		validate(key);
+	}
+
+	event putall before(Map src) :
+		call(* Map+.putAll(Map) && args(src) {
+		validateAll(src);
+	}
+}
+

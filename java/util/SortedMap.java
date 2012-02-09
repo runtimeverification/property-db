@@ -247,20 +247,17 @@ public interface SortedMap<K,V> extends Map<K,V> {
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
-     * the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set supports element removal,
+     * the iteration are undefined. The set supports element removal,
      * which removes the corresponding mapping from the map, via the
      * <tt>Iterator.remove</tt>, <tt>Set.remove</tt>,
      * <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt>
      * operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
      * operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a set view of the keys contained in this map, sorted in
      *         ascending order
@@ -275,20 +272,17 @@ public interface SortedMap<K,V> extends Map<K,V> {
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The collection
+     * the results of the iteration are undefined. The collection
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a collection view of the values contained in this map,
      *         sorted in ascending key order
@@ -302,21 +296,18 @@ public interface SortedMap<K,V> extends Map<K,V> {
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open synchronized}
+     * {@property.open formal:java.util.Map_UnsafeIterator}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
      * <tt>setValue</tt> operation on a map entry returned by the
-     * iterator) the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The set
+     * iterator) the results of the iteration are undefined. The set
      * supports element removal, which removes the corresponding
      * mapping from the map, via the <tt>Iterator.remove</tt>,
      * <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and
      * <tt>clear</tt> operations.  It does not support the
      * <tt>add</tt> or <tt>addAll</tt> operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a set view of the mappings contained in this map,
      *         sorted in ascending key order

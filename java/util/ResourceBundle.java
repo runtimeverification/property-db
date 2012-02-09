@@ -2238,7 +2238,7 @@ public abstract class ResourceBundle {
          * must not be used by application-defined formats.
          * {@description.close}
          *
-         * {@property.open}
+         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
          * <p>It is not a requirement to return an immutable (unmodifiable)
          * <code>List</code>.  However, the returned <code>List</code> must
          * not be mutated after it has been returned by
@@ -2293,7 +2293,7 @@ public abstract class ResourceBundle {
          * the base bundle as the resulting resource bundle.
          * {@description.close}
          *
-         * {@property.open}
+         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
          * <p>It is not a requirement to return an immutable
          * (unmodifiable) <code>List</code>. However, the returned
          * <code>List</code> must not be mutated after it has been

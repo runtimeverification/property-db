@@ -33,7 +33,7 @@ import java.util.Date;
  * repeated execution at regular intervals.
  * {@description.close}
  *
- * {@property.open}
+ * {@property.open uncheckable}
  * <p>Corresponding to each <tt>Timer</tt> object is a single background
  * thread that is used to execute all of the timer's tasks, sequentially.
  * Timer tasks should complete quickly.  If a timer task takes excessive time

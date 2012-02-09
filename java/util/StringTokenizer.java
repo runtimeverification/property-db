@@ -377,7 +377,7 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats} 
-     * {@property.open}
+     * {@description.open}
      * Returns the next token in this string tokenizer's string. First,
      * the set of characters considered to be delimiters by this
      * <tt>StringTokenizer</tt> object is changed to be the characters in
@@ -385,6 +385,12 @@ class StringTokenizer implements Enumeration<Object> {
      * after the current position is returned. The current position is
      * advanced beyond the recognized token.  The new delimiter set
      * remains the default after this call.
+     * {@description.close}
+     * {@property.open formal:java.util.StringTokenizer_HasMoreElements}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
      * {@property.close}
      *
      * @param      delim   the new delimiters.
@@ -404,11 +410,11 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats} 
-     * {@property.open}
+     * {@description.open}
      * Returns the same value as the <code>hasMoreTokens</code>
      * method. It exists so that this class can implement the
      * <code>Enumeration</code> interface.
-     * {@property.close}
+     * {@description.close}
      *
      * @return  <code>true</code> if there are more tokens;
      *          <code>false</code> otherwise.
@@ -420,11 +426,17 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats} 
-     * {@property.open}
+     * {@description.open}
      * Returns the same value as the <code>nextToken</code> method,
      * except that its declared return value is <code>Object</code> rather than
      * <code>String</code>. It exists so that this class can implement the
      * <code>Enumeration</code> interface.
+     * {@description.close}
+     * {@property.open formal:java.util.StringTokenizer_HasMoreElements}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
      * {@property.close}
      *
      * @return     the next token in the string.

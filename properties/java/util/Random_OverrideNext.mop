@@ -1,0 +1,33 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+
+/**
+ * Warns if a Random subclass does not override next(int).
+ *
+ * A subclass of Random should override next(int), according to the
+ * documentation.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Random.html#next%28int%29
+ *
+ * @severity warning
+ */
+
+Random_OverrideNext() {
+	event staticinit after() : staticinitialization(Random+) {
+		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();		
+		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();		
+
+		if (klass != null) {
+			try {
+				Method nextmethod = klass.getDeclaredMethod("next", Integer.class);
+			}
+			catch (NoSuchMethodException e) {
+				System.err.println(klass.getName() + " does not override int next(int bits).");
+			}
+		}
+	}
+}
+

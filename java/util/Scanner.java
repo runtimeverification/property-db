@@ -96,7 +96,7 @@ import sun.misc.LRUCache;
  * whitespace delimiter regardless of whether it was previously changed.
  * {@description.close}
  *
- * {@property.open blocking}
+ * {@description.open blocking}
  * <p>A scanning operation may block waiting for input.
  *
  * <p>The {@link #next} and {@link #hasNext} methods and their
@@ -106,7 +106,7 @@ import sun.misc.LRUCache;
  * and <tt>next</tt> methods may block waiting for further input.  Whether a
  * <tt>hasNext</tt> method blocks has no connection to whether or not its
  * associated <tt>next</tt> method will block.
- * {@property.close}
+ * {@description.close}
  *
  * {@description.open}
  * <p> The {@link #findInLine}, {@link #findWithinHorizon}, and {@link #skip}
@@ -133,15 +133,15 @@ import sun.misc.LRUCache;
  * underlying readable can be retrieved via the {@link #ioException} method.
  * {@description.close}
  *
- * {@property.open}
+ * {@property.open formal:java.util.Scanner_ManipulateAfterClose}
  * <p>When a <code>Scanner</code> is closed, it will close its input source
  * if the source implements the {@link java.io.Closeable} interface.
  * {@property.close}
  *
- * {@property.open synchronized}
+ * {@description.open synchronized}
  * <p>A <code>Scanner</code> is not safe for multithreaded use without
  * external synchronization.
- * {@property.close}
+ * {@description.close}
  *
  * {@description.open}
  * <p>Unless otherwise mentioned, passing a <code>null</code> parameter into
@@ -1110,7 +1110,7 @@ public final class Scanner implements Iterator<String> {
      * Closes this scanner.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Scanner_ManipulateAfterClose}
      * <p> If this scanner has not yet been closed then if its underlying
      * {@linkplain java.lang.Readable readable} also implements the {@link
      * java.io.Closeable} interface then the readable's <tt>close</tt> method
@@ -1326,15 +1326,10 @@ public final class Scanner implements Iterator<String> {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the match result of the last scanning operation performed
-     * by this scanner.
-     * {@description.close}
-     * {@property.open formal:java.util.Scanner_Match}
-     * This method throws <code>IllegalStateException</code>
+     * by this scanner. This method throws <code>IllegalStateException</code>
      * if no match has been performed, or if the last match was
      * not successful.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The various <code>next</code>methods of <code>Scanner</code>
      * make a match result available if they complete without throwing an
      * exception. For instance, after an invocation of the {@link #nextInt}
@@ -1388,9 +1383,9 @@ public final class Scanner implements Iterator<String> {
      * {@description.open}
      * Returns true if this scanner has another token in its input.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method may block while waiting for input to scan.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * The scanner does not advance past any input.
      * {@description.close}
@@ -1417,11 +1412,11 @@ public final class Scanner implements Iterator<String> {
      * A complete token is preceded and followed by input that matches
      * the delimiter pattern.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method may block while waiting for input
      * to scan, even if a previous invocation of {@link #hasNext} returned
      * <code>true</code>.
-     * {@property.close}
+     * {@description.close}
      *
      * @return the next token
      * @throws NoSuchElementException if no more tokens are available
@@ -1504,10 +1499,10 @@ public final class Scanner implements Iterator<String> {
      * A complete token is prefixed and postfixed by input that matches
      * the delimiter pattern.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method may block while waiting for input.
      * The scanner does not advance past any input.
-     * {@property.close}
+     * {@description.close}
      *
      * @param pattern the pattern to scan for
      * @return true if and only if this scanner has another token matching
@@ -1538,11 +1533,11 @@ public final class Scanner implements Iterator<String> {
      * {@description.open}
      * Returns the next token if it matches the specified pattern.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This
      * method may block while waiting for input to scan, even if a previous
      * invocation of {@link #hasNext(Pattern)} returned <code>true</code>.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * If the match is successful, the scanner advances past the input that
      * matched the pattern.
@@ -1582,9 +1577,9 @@ public final class Scanner implements Iterator<String> {
      * {@description.open}
      * Returns true if there is another line in the input of this scanner.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method may block while waiting for input.
-     * {@property.close}
+     * {@description.close}
      * {@description.open}
      * The scanner does not
      * advance past any input.
@@ -1679,10 +1674,10 @@ public final class Scanner implements Iterator<String> {
      * separator, then <code>null</code> is returned and the scanner's
      * position is unchanged.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This method may block waiting for input that
      * matches the pattern.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p>Since this method continues to search through the input looking
@@ -1756,10 +1751,10 @@ public final class Scanner implements Iterator<String> {
      * that matched the pattern. If no such pattern is detected then the
      * null is returned and the scanner's position remains unchanged.
      * {@description.close}
-     * {@property.open blocking}
+     * {@description.open blocking}
      * This
      * method may block waiting for input that matches the pattern.
-     * {@property.close}
+     * {@description.close}
      *
      * {@description.open}
      * <p>A scanner will never search more than <code>horizon</code> code

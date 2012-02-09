@@ -48,7 +48,7 @@ package java.util;
  * just fails to obey the general contract of the {@code Set} interface.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@property.open formal:java.util.Collections_SynchronizedCollection}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a tree set concurrently, and at least one
  * of the threads modifies the set, it <i>must</i> be synchronized
@@ -61,7 +61,7 @@ package java.util;
  *   SortedSet s = Collections.synchronizedSortedSet(new TreeSet(...));</pre>
  * {@property.close}
  *
- * {@property.open fail-fast}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p>The iterators returned by this class's {@code iterator} method are
  * <i>fail-fast</i>: if the set is modified at any time after the iterator is
  * created, in any way except through the iterator's own {@code remove}
