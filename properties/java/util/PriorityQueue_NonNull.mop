@@ -19,12 +19,13 @@ PriorityQueue_NonNull() {
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Queue+.offer*(..))
-		) && args(e) && condition(e == null) {
+		) && target(PriorityQueue) && args(e) && condition(e == null) {
 		System.err.println("PriorityQueue does not permit null.");
 	}
 
 	event insertnull before(Collection c) :
-		call(* Collection+.addAll(Collection)) && args(c) {
+		call(* Collection+.addAll(Collection)) &&
+		target(PriorityQueue) && args(c) {
 		for (Object elem : c) {
 			if (elem == null) {
 				System.err.println("PriorityQueue does not permit null.");
