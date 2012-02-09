@@ -5,9 +5,9 @@ import java.io.*;
 /**
  * Warns read(), available(), reset() or skip() after close().
  *
- * According to the BufferedInputStream.close() document, read(), available(),
- * reset() or skip() invocations will throw an IOException, once the stream
- * has been closed.
+ * According to the BufferedInputStream.close() documentation, read(),
+ * available(), reset() or skip() invocations will throw an IOException, once
+ * the stream has been closed.
  * http://download.oracle.com/javase/6/docs/api/java/io/BufferedInputStream.html#close%28%29
  *
  * Other subclasses of InputStream are deemed to be similar, except

@@ -65,13 +65,13 @@ package java.util;
  * traversal, consider using {@code Arrays.sort(pq.toArray())}.
  * {@description.close}
  *
- * {@property.open synchronized}
+ * {@description.open synchronized}
  * <p> <strong>Note that this implementation is not synchronized.</strong>
  * Multiple threads should not access a {@code PriorityQueue}
  * instance concurrently if any of the threads modifies the queue.
  * Instead, use the thread-safe {@link
  * java.util.concurrent.PriorityBlockingQueue} class.
- * {@property.close}
+ * {@description.close}
  *
  * {@description.open}
  * <p>Implementation note: this implementation provides

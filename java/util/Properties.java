@@ -874,7 +874,7 @@ class Properties extends Hashtable<Object,Object> {
      * above.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open formal:java.util.Properties_ManipulateAfterLoad}
      * <p>The specified stream is closed after this method returns.
      * {@property.close}
      *

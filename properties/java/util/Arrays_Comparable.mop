@@ -1,6 +1,7 @@
 package mop;
 
 import java.util.*;
+import java.lang.*;
 
 /**
  * Warns if the argument of Arrays.sort(Object[]) or Arrays.sort(Object[],

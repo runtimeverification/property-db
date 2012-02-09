@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Warns write(), or flush() after close().
  *
- * According to the Writer.close() document, further write() or flush()
+ * According to the Writer.close() documentation, further write() or flush()
  * invocations will cause an IOException to be thrown.
  * http://download.oracle.com/javase/6/docs/api/java/io/Writer.html#close%28%29
  *
