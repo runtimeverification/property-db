@@ -16,13 +16,13 @@ import java.lang.reflect.*;
 
 Map_ItselfAsValue() {
 	event put before(Map map, Object value) :
-		call(* Map+.put(Object, Object) && target(map) && args(.., value) {
+		call(* Map+.put(Object, Object)) && target(map) && args(.., value) {
 		if (value == map)
 			System.err.println("A map cannot contain itself as a value.");
 	}
 
 	event putall before(Map map, Map src) :
-		call(* Map+.putAll(Map) && target(map) && args(src) {
+		call(* Map+.putAll(Map)) && target(map) && args(src) {
 		for (Map.Entry<Object, Object> entry : src.entrySet()) {
 			if (entry.getValue() == map)
 				System.err.println("A map cannot contain itself as a value.");
