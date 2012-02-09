@@ -18,7 +18,7 @@ import java.util.*;
 
 List_UnsynchronizedSubList(List b, List s) {
 	creation event createsublist after(List b) returning(List s) :
-		call(* subList(..)) && target(b) {}
+		call(* List.subList(..)) && target(b) {}
 
 	event modifybackinglist before(List b) :
 		(
