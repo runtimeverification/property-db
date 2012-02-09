@@ -42,8 +42,12 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 
 	event modify before(Collection c) :
 		(
-			call(* Collection+.add(..)) ||
-			call(* Collection+.addAll(..))
+			call(* Collection+.clear(..)) ||
+			call(* Collection+.offer*(..)) ||
+			call(* Collection+.pop(..)) ||
+			call(* Collection+.push(..)) ||
+			call(* Collection+.remove*(..)) ||
+			call(* Collection+.retain*(..))
 		) && target(c) {}
 
 	event useiter before(Iterator i) :
