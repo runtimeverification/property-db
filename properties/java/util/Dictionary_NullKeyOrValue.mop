@@ -16,7 +16,7 @@ import java.util.*;
 
 Dictionary_NullKeyOrValue() {
 	event putnull before(Dictionary d, Object key, Object value) :
-		call(* Dictionary+.put(..)) && args(key, value) && target(map) &&
+		call(* Dictionary+.put(..)) && args(key, value) && target(d) &&
 		condition(key == null || value == null) {
 		System.out.println("Dictionary allow neither null key nor null value.");
 	}

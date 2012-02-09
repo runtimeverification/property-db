@@ -20,7 +20,7 @@ EnumMap_NonNull() {
 	}
 	event insertnull before(Map m) :
 		call(* EnumMap+.putAll(Map)) && args(m) {
-		for (Map.Entry<Object, Object> entry : m.entrySet()) {
+		for (Map.Entry entry : (Set<Map.Entry>)m.entrySet()) {
 			if (entry.getKey() == null)
 				System.err.println("EnumMap does not permit null.");
 		}
