@@ -18,11 +18,7 @@ import java.util.*;
 Collections_CopySize() {
 	event bad_copy before(List dest, List src) :
 		call(void Collections.copy(List, List)) && args(dest, src) &&
-		condition(dest.size() < src.size()) {}
-
-	ere : bad_copy
-
-	@match {
+		condition(dest.size() < src.size()) {
 		System.err.println("The destination list must be at least as long as the source list.");
 	}
 }
