@@ -302,18 +302,15 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.
      * {@description.close}
-     * {@property.open formal:java.util.NavigableMap_UnsafeIterator}
+     * {@property.open formal:java.util.NavigableMap_UnsafeIterator formal:java.util.Map_CollectionViewAdd}
      * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
-     * remove} operation), the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The
+     * remove} operation), the results of the iteration are undefined. The
      * set supports element removal, which removes the corresponding mapping
      * from the map, via the {@code Iterator.remove}, {@code Set.remove},
      * {@code removeAll}, {@code retainAll}, and {@code clear} operations.
      * It does not support the {@code add} or {@code addAll} operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a navigable set view of the keys in this map
      */
@@ -326,18 +323,15 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
      * The set is backed by the map, so changes to the map are reflected in
      * the set, and vice-versa.
      * {@description.close}
-     * {@property.open formal:java.util.NavigableMap_UnsafeIterator}
+     * {@property.open formal:java.util.NavigableMap_UnsafeIterator formal:java.util.Map_CollectionViewAdd}
      * If the map is modified while an iteration
      * over the set is in progress (except through the iterator's own {@code
-     * remove} operation), the results of the iteration are undefined.
-     * {@property.close}
-     * {@description.open}
-     * The
+     * remove} operation), the results of the iteration are undefined. The
      * set supports element removal, which removes the corresponding mapping
      * from the map, via the {@code Iterator.remove}, {@code Set.remove},
      * {@code removeAll}, {@code retainAll}, and {@code clear} operations.
      * It does not support the {@code add} or {@code addAll} operations.
-     * {@description.close}
+     * {@property.close}
      *
      * @return a reverse order navigable set view of the keys in this map
      */

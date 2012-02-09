@@ -1,0 +1,43 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+
+/**
+ * Warns if a set/collection from a map performs add() or addAll().
+ *
+ * The set/collection, which is returned by Map.keySet(), values() or
+ * entrySet(), supports element removal, but it does not support add() or
+ * addAll() operations.
+ * operations. However, it does not support the add() or addAll() operations.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Map.html#entrySet%28%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Map.html#keySet%28%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Map.html#values%28%29
+ *
+ * This property warns if a set/collection view of a map performs add() or
+ * addAll().
+ *
+ * @severity error
+ */
+
+Map_CollectionViewAdd(Map m, Collection c) {
+	creation event getset after(Map m) returning(Collection c) :
+		(
+			call(Set Map+.keySet()) ||
+			call(Set Map+.entrySet()) ||
+			call(Collection Map+.values())
+		) && target(m) {}
+
+	event modify before(Collection c) :
+		(
+			call(* Collection+.add(..)) ||
+			call(* Collection+.addAll(..))
+		) && target(c) {}
+
+	ere : getset modify+
+
+	@match {
+		System.err.println("A collection/set view of a map does not support add()/addAll().");
+	}
+}
+

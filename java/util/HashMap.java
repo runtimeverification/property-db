@@ -962,7 +962,7 @@ public class HashMap<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open formal:java.util.Map_UnsafeIterator}
+     * {@property.open formal:java.util.Map_UnsafeIterator formal:java.util.Map_CollectionViewAdd}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation), the results of
@@ -1003,7 +1003,7 @@ public class HashMap<K,V>
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.
      * {@description.close}
-     * {@property.open formal:java.util.Map_UnsafeIterator}
+     * {@property.open formal:java.util.Map_UnsafeIterator formal:java.util.Map_CollectionViewAdd}
      * If the map is
      * modified while an iteration over the collection is in progress
      * (except through the iterator's own <tt>remove</tt> operation),
@@ -1041,7 +1041,7 @@ public class HashMap<K,V>
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.
      * {@description.close}
-     * {@property.open formal:java.util.Map_UnsafeIterator}
+     * {@property.open formal:java.util.Map_UnsafeIterator formal:java.util.Map_CollectionViewAdd}
      * If the map is modified
      * while an iteration over the set is in progress (except through
      * the iterator's own <tt>remove</tt> operation, or through the
