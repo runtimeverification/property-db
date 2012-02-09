@@ -18,8 +18,6 @@ Random_OverrideNext() {
 	event staticinit after() : staticinitialization(Random+) {
 		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
 		Class klass = initsig.getDeclaringType();		
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
-		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {
 			try {

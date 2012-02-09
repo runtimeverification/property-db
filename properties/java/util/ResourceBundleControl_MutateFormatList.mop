@@ -29,7 +29,7 @@ ResourceBundleControl_MutateFormatList(List l) {
 			call(* Collection+.retain*(..))
 		) && target(l) {}
 
-	ere : create mutate+
+	ere : create mutate
 
 	@match {
 		System.err.println("The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
