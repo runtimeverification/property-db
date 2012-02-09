@@ -23,7 +23,7 @@ Map_ItselfAsValue() {
 
 	event putall before(Map map, Map src) :
 		call(* Map+.putAll(Map)) && target(map) && args(src) {
-		for (Map.Entry<Object, Object> entry : src.entrySet()) {
+		for (Map.Entry entry : (Set<Map.Entry>)src.entrySet()) {
 			if (entry.getValue() == map)
 				System.err.println("A map cannot contain itself as a value.");
 		}
