@@ -31,7 +31,7 @@ TreeMap_Comparable() {
 	}
 
 	event create before(Map src) :
-		call(* TreeMap.new(Map)) && args(src) {
+		call(TreeMap.new(Map)) && args(src) {
 		validateAll(src);
 	}
 
