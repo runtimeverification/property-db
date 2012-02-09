@@ -19,7 +19,7 @@ import java.util.*;
  * @severity error
  */
 
-Collections_SynchronizedMap(Map syncMap, Set+ mapSet, Iterator iter) {
+Collections_SynchronizedMap(Map syncMap, Collection col, Iterator iter) {
 	Map map;
 	creation event sync after() returning(Map syncMap) : 
 		call(* Collections.synchronizedMap(Map)) ||
@@ -28,15 +28,19 @@ Collections_SynchronizedMap(Map syncMap, Set+ mapSet, Iterator iter) {
 		this.map = syncMap;
 	}
 
-	event createSet after(Map syncMap) returning(Set+ mapSet) : 
-		call(* Map+.keySet()) && target(syncMap) {}
+	event createSet after(Map syncMap) returning(Collection col) : 
+		(
+			call(Set Map+.keySet()) ||
+			call(Set Map+.entrySet()) ||
+			call(Collection Map+.values())
+		) && target(syncMap) {}
 
-	event syncCreateIter after(Set+ mapSet) returning(Iterator iter) : 
-		call(* Collection+.iterator()) && target(mapSet) &&
+	event syncCreateIter after(Collection col) returning(Iterator iter) : 
+		call(* Collection+.iterator()) && target(col) &&
 		condition(Thread.holdsLock(map)) {}
 
-	event asyncCreateIter after(Set mapSet) returning(Iterator iter) : 
-		call(* Collection+.iterator()) && target(mapSet) &&
+	event asyncCreateIter after(Collection col) returning(Iterator iter) : 
+		call(* Collection+.iterator()) && target(col) &&
 		condition(!Thread.holdsLock(map)) {}
 
 	event accessIter before(Iterator iter) : 
