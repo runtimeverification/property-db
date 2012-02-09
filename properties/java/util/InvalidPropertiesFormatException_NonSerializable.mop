@@ -34,7 +34,5 @@ InvalidPropertiesFormatException_NonSerializable() {
 		call(* ObjectInputStream+.readObject(..)) && target(in) {
 		System.err.println("InvalidPropertiesFormatException is not intended to be Serialized.");
 	}
-
-	event af
 }
 
