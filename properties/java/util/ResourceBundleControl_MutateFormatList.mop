@@ -15,7 +15,7 @@ import java.util.*;
  */
 
 ResourceBundleControl_MutateFormatList(List l) {
-	creation event getformats after() returning(List l) :
+	creation event create after() returning(List l) :
 		(
 			call(List ResourceBundle.Control.getFormats(..)) ||
 			call(List ResourceBundle.Control.getCandidateLocales(..))

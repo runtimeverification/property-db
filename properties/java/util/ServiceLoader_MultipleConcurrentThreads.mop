@@ -32,7 +32,7 @@ ServiceLoader_MultipleConcurrentThreads(Thread t, ServiceLoader s) {
 			call(* ServiceLoader+.reload())
 		) && target(s) && thread(t2) && condition(this.t != t2) {}
 
-	ere : baduse+
+	ere : create baduse
 
 	@match {
 		System.err.println("A ServiceLoader object has been used by multiple threads.");

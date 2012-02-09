@@ -19,7 +19,7 @@ ServiceLoaderIterator_Remove(Iterator i) {
 	event remove before(Iterator i) :
 		call(* Iterator+.remove(..)) && target(i) {}
 
-	ere : remove+
+	ere : create remove
 
 	@match {
 		System.err.println("The iterator returned by ServiceLoader.iterator() does not support removal.");
