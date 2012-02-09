@@ -16,7 +16,7 @@ import java.lang.*;
  */
 
 ListIterator_RemoveOnce(ListIterator i) {
-	event creation create after() returning(ListIterator i) :
+	event create after() returning(ListIterator i) :
 		call(Iterator Iterable+.iterator()) {}
 
 	event remove before(ListIterator i) :

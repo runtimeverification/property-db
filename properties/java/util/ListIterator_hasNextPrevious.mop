@@ -31,9 +31,37 @@ ListIterator_hasNextPrevious(ListIterator i) {
 	event previous before(ListIterator i) :
 		call(* ListIterator.previous()) && target(i) {}
 
-	ltl: []((next => (*) hasnexttrue) and (previous => (*) hasprevioustrue))
+	fsm :
+		na [
+			hasnexttrue -> nextavailable
+			hasnextfalse -> na
+			hasprevioustrue -> prevavailable
+			haspreviousfalse -> na
+		]
+		nextavailable [
+			hasprevioustrue -> bothavailable
+			haspreviousfalse -> nextavailable
+			hasnexttrue -> nextavailable
+			hasnextfalse -> na
+			next -> na
+		]
+		prevavailable [
+			hasnexttrue -> bothavailable
+			hasnextfalse -> prevavailable
+			hasprevioustrue -> prevavailable
+			haspreviousfalse -> na
+			previous -> na
+		]
+		bothavailable [
+			hasnexttrue -> bothavailable
+			hasnextfalse -> prevavailable
+			hasprevioustrue -> bothavailable
+			haspreviousfalse -> nextavailable
+			next -> prevavailable
+			previous -> nextavailable
+		]
 
-	@violation {
+	@fail {
 		System.out.println("ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
 	}
 }
