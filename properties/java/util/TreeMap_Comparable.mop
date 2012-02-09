@@ -25,23 +25,23 @@ TreeMap_Comparable() {
 	}
 
 	private void validateAll(Map src) {
-		for (Map.Entry<Object, Object> entry : src.entrySet()) {
+		for (Map.Entry entry : (Collection<Map.Entry>)src.entrySet()) {
 			validate(entry.getKey());
 		}
 	}
 
 	event create before(Map src) :
-		call(TreeMap.new(Map)) && args(src) {
+		call(* TreeMap.new(Map)) && args(src) {
 		validateAll(src);
 	}
 
 	event put before(Object key) :
-		call(* Map+.put(Object, Object) && args(key, ..) {
+		call(* Map+.put(Object, Object) && args(key, ..) && target(TreeMap){
 		validate(key);
 	}
 
 	event putall before(Map src) :
-		call(* Map+.putAll(Map) && args(src) {
+		call(* Map+.putAll(Map) && args(src) &&target(TreeMap){
 		validateAll(src);
 	}
 }
