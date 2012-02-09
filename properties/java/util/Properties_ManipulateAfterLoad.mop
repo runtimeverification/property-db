@@ -28,11 +28,11 @@ Properties_ManipulateAfterLoad(InputStream i) {
 		) && target(i) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
 
-	creation event close before(Properties p, InputStream i) :
-		call(* Properties+.loadFromXML(InputStream)) && target(p) && args(i) &&
+	creation event close after(InputStream i) :
+		call(* Properties+.loadFromXML(InputStream)) && args(i) &&
 		!args(ByteArrayInputStream) && !args(StringBufferInputStream) {}
 
-	ere : close+ manipulate+
+	ere : close+ manipulate
 
 	@match {
 		System.err.println("read(), available(), reset() or skip() was invoked after Properties.loadFromXML() closes the stream.");
