@@ -25,7 +25,7 @@ Collections_NewSetFromMap(Map map) {
 	event access before(Map map) :
 		call(* Map+.*(..)) && target(map) {}
 
-	ere : bad_create | (create access+)
+	ere : bad_create | (create access)
 
 	@match {
 		System.err.println("The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
