@@ -14,11 +14,11 @@ import java.util.*;
  */
 
 Collections_NewSetFromMap(Map map) {
-	event create before(Map map) :
+	creation event create before(Map map) :
 		call(* newSetFromMap(Map)) && args(map) &&
 		condition(map.size() == 0) {}
 
-	event bad_create before(Map map) :
+	creation event bad_create before(Map map) :
 		call(* newSetFromMap(Map)) && args(map) &&
 		condition(map.size() > 0) {}
 
