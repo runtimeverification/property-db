@@ -11,7 +11,7 @@ import java.io.*;
  * and ReadableByteChannel, and uses it as input. When the Scanner object is
  * closed, the Closeable object is closed as well. Thus any further operations
  * on the Closeable object is prohibited.
- * http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html#loadFromXML%28java.io.InputStream%29
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Scanner.html
  *
  * This property warns if any method invocation on the Closeable object once
  * the object is passed to a Scanner object. This does not give false warning
