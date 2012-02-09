@@ -29,7 +29,7 @@ Scanner_ManipulateAfterClose(Scanner s, Closeable c) {
 			call(Scanner+.new(ReadableByteChannel, ..))
 		) && args(c, ..) {}
 
-	event close before(Scanner s) :
+	event close after(Scanner s) :
 		call(* Scanner+.close()) && target(s) &&
 		!args(ByteArrayInputStream) && !args(StringBufferInputStream) {}
 
@@ -44,7 +44,7 @@ Scanner_ManipulateAfterClose(Scanner s, Closeable c) {
 		) && target(c) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
 
-	ere : create close* manipulate+
+	ere : create close+ manipulate
 
 	@match {
 		System.err.println("The source stream or reader was used after the Scanner had been closed.");
