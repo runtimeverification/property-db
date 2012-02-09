@@ -26,7 +26,7 @@ InputStream_ManipulateAfterClose(InputStream i) {
 			call(* InputStream+.skip(..))
 		) && target(i) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
-	creation event close after(InputStream i) :
+	creation event close before(InputStream i) :
 		call(* InputStream+.close(..)) && target(i) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
 
