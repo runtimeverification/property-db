@@ -2,6 +2,7 @@ package mop;
 
 import java.util.*;
 import java.lang.reflect.*;
+import org.aspectj.lang.Signature;
 
 /**
  * Warns if a subclass of SortedSet does not define the four "standard" constructors.
