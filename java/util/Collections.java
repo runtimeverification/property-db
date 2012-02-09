@@ -3970,10 +3970,14 @@ public class Collections {
      * Returns a set backed by the specified map.  The resulting set displays
      * the same ordering, concurrency, and performance characteristics as the
      * backing map.  In essence, this factory method provides a {@link Set}
-     * implementation corresponding to any {@link Map} implementation.  There
+     * implementation corresponding to any {@link Map} implementation.
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_UnnecessaryNewSetFromMap}
+     * There
      * is no need to use this method on a {@link Map} implementation that
      * already has a corresponding {@link Set} implementation (such as {@link
      * HashMap} or {@link TreeMap}).
+     * {@property.close}
      *
      * <p>Each method invocation on the set returned by this method results in
      * exactly one method invocation on the backing map or its <tt>keySet</tt>
