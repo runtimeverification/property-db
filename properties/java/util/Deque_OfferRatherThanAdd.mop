@@ -21,7 +21,7 @@ import java.util.concurrent.*;
  * @severity suggestion
  */
 
-Deque_OfferRatherThanAdd() {
+Deque_OfferRatherThanAdd(Deque q) {
 	creation event create after() returning(Deque q) :
 		call(LinkedBlockingDeque+.new(int)) {}
 
