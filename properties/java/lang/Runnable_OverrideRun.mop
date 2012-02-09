@@ -14,7 +14,7 @@ import java.lang.reflect.*;
  */
 Runnable_OverrideRun() {
 	event staticinit after() : staticinitialization(Runnable+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

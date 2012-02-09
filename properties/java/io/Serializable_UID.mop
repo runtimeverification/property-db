@@ -27,7 +27,7 @@ import java.lang.reflect.*;
  */
 Serializable_UID() {
 	event staticinit after() : staticinitialization(Serializable+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {
