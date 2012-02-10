@@ -24,7 +24,7 @@ import java.util.*;
 Arrays_SortBeforeBinarySearch(Object[] arr) {
 	int fromIndex;
 	int toIndex;
-	Comparator comp;
+	Comparator comp = null;
 
 	event sort1 before(Object[] arr) :
 		call(void Arrays.sort(Object[])) && args(arr) {
