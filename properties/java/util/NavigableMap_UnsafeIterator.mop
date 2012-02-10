@@ -30,14 +30,14 @@ NavigableMap_UnsafeIterator(NavigableMap m, Set s, Iterator i) {
 	event getiter after(Set s) returning(Iterator i) :
 		call(Iterator Iterable+.iterator()) && target(s) {}
 
-	event modify before(NavigableMap m) :
+	event modifyMap before(NavigableMap m) :
 		(
 			call(* Map+.clear*(..)) ||
 			call(* Map+.put*(..)) ||
 			call(* Map+.remove(..))
 		) && target(m) {}
 
-	event modify before(Set s) :
+	event modifySet before(Set s) :
 		(
 			call(* Collection+.add(..)) ||
 			call(* Collection+.addAll(..))
@@ -49,7 +49,7 @@ NavigableMap_UnsafeIterator(NavigableMap m, Set s, Iterator i) {
 			call(* Iterator.next(..)) 
 		) && target(i) {}
 
-	ere : getset modify* getiter useiter* modify+ useiter
+	ere : getset (modifyMap | modifySet)* getiter useiter* (modifyMap | modifySet)+ useiter
 
 	@match {
 		System.err.println("The NavigableMap was modified while an iteration over the set is in progress.");
