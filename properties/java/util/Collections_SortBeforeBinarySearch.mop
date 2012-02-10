@@ -19,13 +19,13 @@ import java.util.*;
  */
 
 Collections_SortBeforeBinarySearch(List<T> list) {
-	Comparator comp;
+	Comparator comp = null;
 
-	event sort1 before(List<T> list) :
-		call(void Collections.sort(List<T>)) && args(list) {}
-	event sort2 before(List<T> list, Comparator comp) :
-		call(void Collections.sort(List<T>, Comparator)) && args(list, comp) {
-		this.comp = comp;
+	event sort1 before(List list) :
+		call(void Collections.sort(List)) && args(list) {}
+	event sort2 before(List list, Comparator comp2) :
+		call(void Collections.sort(List, Comparator)) && args(list, comp2) {
+		this.comp = comp2;
 	}
 
 	event modify before(List<T> list) :
@@ -37,13 +37,13 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 			call(* List+.set(..))
 		) && target(list) {}
 
-	event bsearch1 before(List<T> list) :
-		call(int Collections.binarySearch(List<T>, ..)) && args(list) {}
-	event bsearch2 before(List<T> list, Comparator comp) :
-		call(int Collections.binarySearch(List<T>, .., Comparator)) && args(list, .., comp) &&
-		condition(this.comp == comp) {}
+	event bsearch1 before(List list) :
+		call(int Collections.binarySearch(List, ..)) && args(list) {}
+	event bsearch2 before(List list, Comparator comp2) :
+		call(int Collections.binarySearch(List, .., Comparator)) && args(list, .., comp2) &&
+		condition(this.comp == comp2) {}
 
-	ltl : []((bsearch1 => o sort1) or (bsearch2 => o sort2))
+	ltl : []((bsearch1 => (*)sort1) or (bsearch2 => (*)sort2))
 
 	@violation {
 		System.err.println("The list must be sorted prior to making binarySearch() call.");
