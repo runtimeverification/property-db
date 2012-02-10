@@ -23,8 +23,8 @@ import java.lang.*;
 NavigableMap_UnsafeIterator(NavigableMap m, Set s, Iterator i) {
 	creation event getset after(NavigableMap m) returning(Set s) :
 		(
-			call(NavigableSet NavigableMap+.navigableKeySet()) ||
-			call(NavigableSet NavigableMap+.descendingKeySet())
+			call(Set NavigableMap+.navigableKeySet()) ||
+			call(Set NavigableMap+.descendingKeySet())
 		) && target(m) {}
 
 	event getiter after(Set s) returning(Iterator i) :
