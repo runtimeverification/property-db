@@ -17,13 +17,13 @@ NavigableMap_Modification(NavigableMap m1, NavigableMap m2, Collection c, Iterat
 	creation event create after(NavigableMap m1) returning(NavigableMap m2) :
 		call(NavigableMap NavigableMap+.descendingMap()) && target(m1) {}
 
-	event getset1 after(Map m1) returning(Collection c) :
+	event getset1 after(NavigableMap m1) returning(Collection c) :
 		(
 			call(Set Map+.keySet()) ||
 			call(Set Map+.entrySet()) ||
 			call(Collection Map+.values())
 		) && target(m1) {}
-	event getset2 after(Map m1) returning(Collection c) :
+	event getset2 after(NavigableMap m2) returning(Collection c) :
 		(
 			call(Set Map+.keySet()) ||
 			call(Set Map+.entrySet()) ||
@@ -33,20 +33,20 @@ NavigableMap_Modification(NavigableMap m1, NavigableMap m2, Collection c, Iterat
 	event getiter after(Collection c) returning(Iterator i) :
 		call(Iterator Iterable+.iterator()) && target(c) {}
 
-	event modify before(Map m1) :
+	event modify1 before(NavigableMap m1) :
 		(
 			call(* Map+.clear*(..)) ||
 			call(* Map+.put*(..)) ||
 			call(* Map+.remove(..))
 		) && target(m1) {}
-	event modify before(Map m2) :
+	event modify2 before(NavigableMap m2) :
 		(
 			call(* Map+.clear*(..)) ||
 			call(* Map+.put*(..)) ||
 			call(* Map+.remove(..))
 		) && target(m2) {}
 
-	event modify before(Collection c) :
+	event modify3 before(Collection c) :
 		(
 			call(* Collection+.add(..)) ||
 			call(* Collection+.addAll(..))
@@ -58,7 +58,7 @@ NavigableMap_Modification(NavigableMap m1, NavigableMap m2, Collection c, Iterat
 			call(* Iterator.next(..)) 
 		) && target(i) {}
 
-	ere : create (getset1 | getset2) modify* getiter useiter* modify+ useiter
+	ere : create (modify1 | modify2)* (getset1 | getset2) (modify1 | modify2 | modify3)* getiter useiter* (modify1 | modify2 | modify3)+ useiter
 
 	@match {
 		System.err.println("The NavigableMap was modified while an iteration over a collection view of a NavigableMap that shares the same storage.");
