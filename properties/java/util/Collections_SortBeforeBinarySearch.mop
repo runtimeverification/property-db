@@ -43,7 +43,24 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 		call(int Collections.binarySearch(List, .., Comparator)) && args(list, .., comp2) &&
 		condition(this.comp == comp2) {}
 
-	ltl : []((bsearch1 => (*)sort1) or (bsearch2 => (*)sort2))
+	fsm :
+		unsorted [
+			sort1 -> sorted1
+			sort2 -> sorted2
+			modify -> unsorted
+		]
+		sorted1 [
+			sort1 -> sorted1
+			sort2 -> sorted2
+			modify -> unsorted
+			bsearch1 -> sorted1
+		]
+		sorted2 [
+			sort1 -> sorted1
+			sort2 -> sorted2
+			modify -> unsorted
+			bsearch2 -> sorted2
+		]
 
 	@violation {
 		System.err.println("The list must be sorted prior to making binarySearch() call.");
