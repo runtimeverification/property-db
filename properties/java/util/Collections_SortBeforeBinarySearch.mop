@@ -18,7 +18,7 @@ import java.util.*;
  * @severity error
  */
 
-Collections_SortBeforeBinarySearch(List<T> list) {
+Collections_SortBeforeBinarySearch(List list) {
 	Comparator comp = null;
 
 	event sort1 before(List list) :
@@ -28,7 +28,7 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 		this.comp = comp2;
 	}
 
-	event modify before(List<T> list) :
+	event modify before(List list) :
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Collection+.remove*(..)) ||
