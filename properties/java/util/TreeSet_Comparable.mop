@@ -20,7 +20,7 @@ import java.lang.*;
 TreeSet_Comparable() {
 	event add before(Object e) :
 		(
-			call(* Collection+.add*(..)) ||
+			call(* Collection+.add*(..))
 		) && target(TreeSet) && args(e) {
 		if (!(e instanceof Comparable)) {
 			System.err.println("A non-comparable object is being inserted into a TreeSet object.");
