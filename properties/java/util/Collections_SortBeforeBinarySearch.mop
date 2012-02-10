@@ -62,7 +62,7 @@ Collections_SortBeforeBinarySearch(List<T> list) {
 			bsearch2 -> sorted2
 		]
 
-	@violation {
+	@fail {
 		System.err.println("The list must be sorted prior to making binarySearch() call.");
 	}
 }
