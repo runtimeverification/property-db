@@ -40,7 +40,7 @@ List_UnsafeListIterator(List l, ListIterator i) {
 			call(* Iterator+.hasNext(..)) ||
 			call(* ListIterator+.hasPrevious(..)) ||
 			call(* Iterator+.next(..)) ||
-			call(* ListIterator+.previous(..))
+			call(* ListIterator+.previous(..)) ||
 			call(* ListIterator+.nextIndex(..)) ||
 			call(* ListIterator+.previousIndex(..))
 		) && target(i) {}

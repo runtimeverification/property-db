@@ -1,6 +1,7 @@
 package mop;
 
 import java.util.*;
+import java.io.*;
 
 /**
  * Warns if an InvalidPropertiesFormatException object is being serialized or
