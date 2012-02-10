@@ -17,8 +17,11 @@ NavigableSet_Modification(NavigableSet s1, NavigableSet s2, Iterator i) {
 	creation event create after(NavigableSet s1) returning(NavigableSet s2) :
 		call(NavigableSet NavigableSet+.descendingSet()) && target(s1) {}
 
-	event getiter after(Collection c) returning(Iterator i) :
-		call(Iterator Iterable+.iterator()) && target(c) {}
+	event getiter1 after(NavigableSet s1) returning(Iterator i) :
+		call(Iterator Iterable+.iterator()) && target(s1) {}
+
+	event getiter2 after(NavigableSet s2) returning(Iterator i) :
+		call(Iterator Iterable+.iterator()) && target(s2) {}
 
 	event modify1 before(NavigableSet s1) :
 		(
@@ -42,7 +45,7 @@ NavigableSet_Modification(NavigableSet s1, NavigableSet s2, Iterator i) {
 			call(* Iterator.next(..)) 
 		) && target(i) {}
 
-	ere : create (modify1 | modify2)* getiter useiter* (modify1 | modify2)+ useiter
+	ere : create (modify1 | modify2)* (getiter1 | getiter2) useiter* (modify1 | modify2)+ useiter
 
 	@match {
 		System.err.println("The NavigableSet was modified while an iteration over a NavigableSet that shares the same storage.");
