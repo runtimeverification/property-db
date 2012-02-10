@@ -33,14 +33,14 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 	event getiter after(Collection c) returning(Iterator i) :
 		call(Iterator Iterable+.iterator()) && target(c) {}
 
-	event modify before(Map m) :
+	event modifyMap before(Map m) :
 		(
 			call(* Map+.clear*(..)) ||
 			call(* Map+.put*(..)) ||
 			call(* Map+.remove(..))
 		) && target(m) {}
 
-	event modify before(Collection c) :
+	event modifyCol before(Collection c) :
 		(
 			call(* Collection+.clear(..)) ||
 			call(* Collection+.offer*(..)) ||
@@ -56,7 +56,7 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 			call(* Iterator.next(..)) 
 		) && target(i) {}
 
-	ere : getset modify* getiter useiter* modify+ useiter
+	ere : getset (modifyMap | modifyCol)* getiter useiter* (modifyMap | modifyCol)+ useiter
 
 	@match {
 		System.err.println("The map was modified while an iteration over the set is in progress.");
