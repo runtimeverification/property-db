@@ -36,12 +36,12 @@ TreeMap_Comparable() {
 	}
 
 	event put before(Object key) :
-		call(* Map+.put(Object, Object) && args(key, ..) && target(TreeMap){
+		call(* Map+.put(Object, Object)) && args(key, ..) && target(TreeMap){
 		validate(key);
 	}
 
 	event putall before(Map src) :
-		call(* Map+.putAll(Map) && args(src) &&target(TreeMap){
+		call(* Map+.putAll(Map)) && args(src) &&target(TreeMap){
 		validateAll(src);
 	}
 }
