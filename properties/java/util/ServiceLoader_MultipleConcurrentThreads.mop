@@ -16,21 +16,21 @@ import java.util.*;
  * @severity warning
  */
 
-ServiceLoader_MultipleConcurrentThreads(Thread t, ServiceLoader s) {
+ServiceLoader_MultipleConcurrentThreads(ServiceLoader s) {
 	Thread t;
 	
-	creation event create after() returning(ServiceLoader s) :
-		call(ServiceLoader ServiceLoader+.load*(..)) && thread(t2) { 
-			this.t = t2;
+	creation event create after(Thread t2) returning(ServiceLoader s) :
+		call(ServiceLoader ServiceLoader+.load*(..)) && thread(t2) {
+			this.t = t2; 
 		}
 
-	event gooduse before(ServiceLoader s) :
+	event gooduse before(ServiceLoader s, Thread t2) :
 		(
 			call(* ServiceLoader+.iterator()) ||
 			call(* ServiceLoader+.reload())
 		) && target(s) && thread(t2) && condition(this.t == t2) {}
 
-	event baduse before(ServiceLoader s) :
+	event baduse before(ServiceLoader s, Thread t2) :
 		(
 			call(* ServiceLoader+.iterator()) ||
 			call(* ServiceLoader+.reload())
