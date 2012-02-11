@@ -15,8 +15,8 @@ import java.lang.*;
  */
 
 ListIterator_Set(ListIterator i) {
-	event create after() returning(ListIterator i) :
-		call(Iterator Iterable+.iterator()) {}
+	creation event create after() returning(ListIterator i) :
+		call(ListIterator Iterable+.listIterator()) {}
 
 	event remove before(ListIterator i) :
 		call(void Iterator+.remove()) && target(i) {}
@@ -33,7 +33,7 @@ ListIterator_Set(ListIterator i) {
 	event set before(ListIterator i) :
 		call(* ListIterator+.set(..)) && target(i) {}
 
-	ere : create ((next | previous)+ set* (remove | add+ | epsilon))*
+	ere : create add* ((next | previous)+ set* (remove | add+ | epsilon))*
 
 	@fail {
 		System.err.println("ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
