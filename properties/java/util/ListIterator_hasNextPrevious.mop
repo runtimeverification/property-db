@@ -43,14 +43,14 @@ ListIterator_hasNextPrevious(ListIterator i) {
 			haspreviousfalse -> nextavailable
 			hasnexttrue -> nextavailable
 			hasnextfalse -> na
-			next -> na
+			next -> prevavailable
 		]
 		prevavailable [
 			hasnexttrue -> bothavailable
 			hasnextfalse -> prevavailable
 			hasprevioustrue -> prevavailable
 			haspreviousfalse -> na
-			previous -> na
+			previous -> nextavailable
 		]
 		bothavailable [
 			hasnexttrue -> bothavailable
