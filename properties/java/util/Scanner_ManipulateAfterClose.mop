@@ -2,6 +2,7 @@ package mop;
 
 import java.util.*;
 import java.io.*;
+import java.nio.channels.*;
 
 /**
  * Warns if a Closeable object, used in Scanner, is used after the Scanner
