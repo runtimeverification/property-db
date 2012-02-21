@@ -19,7 +19,7 @@ import java.util.*;
 
 Collections_UnnecessaryNewSetFromMap() {
 	event unnecessary before() :
-		call(* newSetFromMap(Map)) &&
+		call(* Collections.newSetFromMap(Map)) &&
 		(
 			args(HashMap) ||
 			args(TreeMap)

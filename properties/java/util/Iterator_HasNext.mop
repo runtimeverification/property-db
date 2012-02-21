@@ -18,13 +18,13 @@ import java.util.*;
 
 Iterator_HasNext(Iterator i) {
 	event hasnexttrue after(Iterator i) returning(boolean b) :
-		call(* Iterator.hasNext())
+		call(* Iterator+.hasNext())
 		&& target(i) && condition(b) { }
 	event hasnextfalse after(Iterator i) returning(boolean b) :
-		call(* Iterator.hasNext())
+		call(* Iterator+.hasNext())
 		&& target(i) && condition(!b) { }
 	event next before(Iterator i) :
-		call(* Iterator.next())
+		call(* Iterator+.next())
 		&& target(i) { }
 
 	ltl: [](next => (*) hasnexttrue)
