@@ -38,10 +38,13 @@ Collections_SortBeforeBinarySearch(List list) {
 		) && target(list) {}
 
 	event bsearch1 before(List list) :
-		call(int Collections.binarySearch(List, ..)) && args(list) {}
+		call(int Collections.binarySearch(List, Object)) && args(list, ..) {}
 	event bsearch2 before(List list, Comparator comp2) :
-		call(int Collections.binarySearch(List, .., Comparator)) && args(list, .., comp2) &&
+		call(int Collections.binarySearch(List, Object, Comparator)) && args(list, .., comp2) &&
 		condition(this.comp == comp2) {}
+	event bad_bsearch2 before(List list, Comparator comp2) :
+		call(int Collections.binarySearch(List, Object, Comparator)) && args(list, .., comp2) &&
+		condition(this.comp != comp2) {}
 
 	fsm :
 		unsorted [
