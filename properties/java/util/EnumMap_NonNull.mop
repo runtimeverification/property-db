@@ -15,11 +15,11 @@ import java.util.*;
 
 EnumMap_NonNull() {
 	event insertnull before(Object e) :
-		call(* EnumMap+.put(Object, Object)) && args(e) && condition(e == null) {
+		call(* EnumMap.put(Object, Object)) && args(e, ..) && condition(e == null) {
 		System.err.println("EnumMap does not permit null.");
 	}
 	event insertnull before(Map m) :
-		call(* EnumMap+.putAll(Map)) && args(m) {
+		call(* EnumMap.putAll(Map)) && args(m) {
 		for (Map.Entry entry : (Set<Map.Entry>)m.entrySet()) {
 			if (entry.getKey() == null)
 				System.err.println("EnumMap does not permit null.");

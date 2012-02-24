@@ -20,9 +20,10 @@ import java.lang.*;
 
 Arrays_Comparable() {
 	event invalid_sort before(Object[] arr) :
+		target(Arrays) &&
 		(
 			call(void Arrays.sort(Object[])) ||
-			call(void Arrays.sort(Object[], int, int))
+			call(void Arrays.sort(Object[], ..))
 		) && args(arr, ..) {
 		for (int i = 0; i < arr.length; ++i) {
 			// Each element must implement the Comparable interface.

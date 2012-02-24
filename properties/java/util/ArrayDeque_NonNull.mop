@@ -19,7 +19,7 @@ ArrayDeque_NonNull() {
 			call(* ArrayDeque.add*(..)) ||
 			call(* ArrayDeque.offer*(..)) ||
 			call(* ArrayDeque.push(..))
-		) && args(e) && condition(e == null) {
+		) && args(Object+)  && args(e) && condition(e == null) {
 		System.err.println("ArrayDeque does not permit null.");
 	}
 }

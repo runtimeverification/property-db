@@ -22,9 +22,9 @@ Map_UnsynchronizedAddAll(Map t, Map s) {
 
 	event modify before(Map s) :
 		(
+			call(* Map+.clear(..)) ||
 			call(* Map+.put*(..)) ||
-			call(* Map+.remove*(..)) ||
-			call(* Map+.clear(..))
+			call(* Map+.remove*(..))
 		) && target(s) {}
 
 	event leave after(Map t, Map s) :

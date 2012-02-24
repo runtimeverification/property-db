@@ -15,8 +15,8 @@ import java.lang.reflect.*;
  */
 
 Map_ItselfAsValue() {
-	event put before(Map map, Object value) :
-		call(* Map+.put(Object, Object)) && target(map) && args(.., value) {
+	event put before(Map map, Object key, Object value) :
+		call(* Map+.put(Object, Object)) && target(map) && args(key, value) {
 		if (value == map)
 			System.err.println("A map cannot contain itself as a value.");
 	}

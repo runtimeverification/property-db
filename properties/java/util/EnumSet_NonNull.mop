@@ -21,8 +21,9 @@ EnumSet_NonNull() {
 	event insertnull before(Collection c) :
 		call(* EnumSet+.addAll(Collection)) && args(c) {
 		for (Object elem : c) {
-			if (elem == null)
+			if (elem == null){
 				System.err.println("EnumSet does not permit null.");
+			}
 		}
 	}
 }

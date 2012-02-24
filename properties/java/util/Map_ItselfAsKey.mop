@@ -20,8 +20,8 @@ import java.lang.reflect.*;
  */
 
 Map_ItselfAsKey() {
-	event put before(Map map, Object key) :
-		call(* Map+.put(Object, Object)) && target(map) && args(key, ..) {
+	event put before(Map map, Object key, Object value) :
+		call(* Map+.put(Object, Object)) && target(map) && args(key, value) {
 		if (key == map)
 			System.err.println("A map cannot contain itself as a key.");
 	}

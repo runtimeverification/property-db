@@ -21,12 +21,14 @@ import java.lang.*;
 
 ArrayDeque_UnsafeIterator(ArrayDeque q, Iterator i) {
 	creation event create after(ArrayDeque q) returning(Iterator i) :
+		target(ArrayDeque) &&
 		(
 			call(Iterator Iterable+.iterator()) ||
 			call(Iterator Deque+.descendingIterator())
 		) && target(q) {}
 
 	event modify before(ArrayDeque q) :
+		target(Collection+) &&
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Collection+.clear(..)) ||

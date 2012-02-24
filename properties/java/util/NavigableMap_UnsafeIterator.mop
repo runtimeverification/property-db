@@ -34,7 +34,7 @@ NavigableMap_UnsafeIterator(NavigableMap m, Set s, Iterator i) {
 		(
 			call(* Map+.clear*(..)) ||
 			call(* Map+.put*(..)) ||
-			call(* Map+.remove(..))
+			call(* Map+.remove*(..))
 		) && target(m) {}
 
 	event modifySet before(Set s) :
