@@ -14,10 +14,17 @@ import java.lang.*;
  */
  
 Object_NoClone() {
-	event clone before(Object o): 
-		call(* Object.clone()) && target(o) && if(o.getClass().getCanonicalName().equals("java.lang.Object")){
+	event clone before(Object o):
+		call(* Object.clone())
+		&& !within(org.apache.xerces.dom.NodeImpl)
+		&& !within(org.apache.batik.bridge.UpdateManager)
+		&& !within(org.codehaus.janino.ScriptEvaluator)
+		&& !within(org.apache.batik.ext.awt.image.codec.png.PNGEncodeParam)
+		&& !within(org.apache.batik.ext.awt.image.spi.MagicNumberRegistryEntry)
+		&& !within(org.apache.xerces.util.XMLCatalogResolver)
+		&& target(o) && condition(o.getClass().getCanonicalName().equals("java.lang.Object")){
 			System.err.println("Using the clone method on an Object instance will result in throwing an exception.");
-        }
-    
+	}
+
 }
 
