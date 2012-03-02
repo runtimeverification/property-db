@@ -16,7 +16,7 @@ import org.aspectj.lang.Signature;
 
 Random_OverrideNext() {
 	event staticinit after() : staticinitialization(Random+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

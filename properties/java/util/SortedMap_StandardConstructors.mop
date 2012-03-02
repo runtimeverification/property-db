@@ -30,7 +30,7 @@ import org.aspectj.lang.Signature;
 
 SortedMap_StandardConstructors() {
 	event staticinit after() : staticinitialization(SortedMap+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

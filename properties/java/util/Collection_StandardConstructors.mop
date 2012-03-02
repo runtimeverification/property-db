@@ -23,7 +23,7 @@ import org.aspectj.lang.Signature;
 
 Collection_StandardConstructors() {
 	event staticinit after() : staticinitialization(Collection+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

@@ -20,7 +20,7 @@ import org.aspectj.lang.Signature;
 
 Collection_HashCode() {
 	event staticinit after() : staticinitialization(Collection+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

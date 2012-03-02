@@ -23,7 +23,7 @@ import org.aspectj.lang.Signature;
 
 Map_StandardConstructors() {
 	event staticinit after() : staticinitialization(Map+) {
-		Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {
