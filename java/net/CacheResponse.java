@@ -31,10 +31,12 @@ import java.util.List;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Represent channels for retrieving resources from the
  * ResponseCache. Instances of such a class provide an
  * InputStream that returns the entity body, and also a
  * getHeaders() method which returns the associated response headers.
+ * {@description.close}
  *
  * @author Yingxian Wang
  * @since 1.5
@@ -42,7 +44,9 @@ import java.io.IOException;
 public abstract class CacheResponse {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the response headers as a Map.
+     * {@description.close}
      *
      * @return An immutable Map from response header field names to
      *         lists of field values. The status line has null as its
@@ -53,7 +57,9 @@ public abstract class CacheResponse {
     public abstract Map<String, List<String>> getHeaders() throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the response body as an InputStream.
+     * {@description.close}
      *
      * @return an InputStream from which the response body can
      *         be accessed

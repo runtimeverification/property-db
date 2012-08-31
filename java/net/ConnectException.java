@@ -26,19 +26,23 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that an error occurred while attempting to connect a
  * socket to a remote address and port.  Typically, the connection
  * was refused remotely (e.g., no process is listening on the
  * remote address/port).
+ * {@description.close}
  *
  * @since   JDK1.1
  */
 public class ConnectException extends SocketException {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new ConnectException with the specified detail
      * message as to why the connect error occurred.
      * A detail message is a String that gives a specific
      * description of this error.
+     * {@description.close}
      * @param msg the detail message
      */
     public ConnectException(String msg) {
@@ -46,7 +50,9 @@ public class ConnectException extends SocketException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a new ConnectException with no detailed message.
+     * {@description.close}
      */
     public ConnectException() {}
 }
