@@ -11,8 +11,11 @@ PROPERTYDIR=`pwd`/../properties
 BUILDIR=`pwd`/build
 
 properties=(
-	List_UnsynchronizedSubList
-
+        Collections_CopySize
+#       SortedSet_Comparable
+#       ListIterator_hasNextPrevious
+#       ArrayDeque_NonNull
+#	List_UnsynchronizedSubList
 #	ByteArrayInputStream_Close
 #	ByteArrayOutputStream_Close
 #	ByteArrayOutputStream_FlushBeforeRetrieve
