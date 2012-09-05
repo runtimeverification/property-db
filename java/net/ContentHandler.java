@@ -28,14 +28,19 @@ package java.net;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The abstract class <code>ContentHandler</code> is the superclass
  * of all classes that read an <code>Object</code> from a
  * <code>URLConnection</code>.
+ * {@description.close}
+ * {@property.open}
  * <p>
  * An application does not generally call the
  * <code>getContent</code> method in this class directly. Instead, an
  * application calls the <code>getContent</code> method in class
  * <code>URL</code> or in <code>URLConnection</code>.
+ * {@property.close}
+ * {@description.open}
  * The application's content handler factory (an instance of a class that
  * implements the interface <code>ContentHandlerFactory</code> set
  * up by a call to <code>setContentHandler</code>) is
@@ -58,6 +63,7 @@ import java.io.IOException;
  * If the loading of the content handler class would be performed by
  * a classloader that is outside of the delegation chain of the caller,
  * the JVM will need the RuntimePermission "getClassLoader".
+ * {@description.close}
  *
  * @author  James Gosling
  * @see     java.net.ContentHandler#getContent(java.net.URLConnection)
@@ -70,9 +76,11 @@ import java.io.IOException;
  */
 abstract public class ContentHandler {
     /** {@collect.stats} 
+     * {@description.open}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object from it.
+     * {@description.close}
      *
      * @param      urlc   a URL connection.
      * @return     the object read by the <code>ContentHandler</code>.
@@ -81,12 +89,14 @@ abstract public class ContentHandler {
     abstract public Object getContent(URLConnection urlc) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object that matches one of the types specified.
      *
      * The default implementation of this method should call getContent()
      * and screen the return type for a match of the suggested types.
+     * {@description.close}
      *
      * @param      urlc   a URL connection.
      * @param      classes      an array of types requested

@@ -26,6 +26,7 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class represents a datagram packet.
  * <p>
  * Datagram packets are used to implement a connectionless packet
@@ -34,6 +35,7 @@ package java.net;
  * Multiple packets sent from one machine to another might be routed
  * differently, and might arrive in any order. Packet delivery is
  * not guaranteed.
+ * {@description.close}
  *
  * @author  Pavani Diwanji
  * @author  Benjamin Renaud
@@ -43,7 +45,9 @@ public final
 class DatagramPacket {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class initialization
+     * {@description.close}
      */
     static {
         java.security.AccessController.doPrivileged(
@@ -63,11 +67,15 @@ class DatagramPacket {
     int port;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>, specifying an offset into the buffer.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * The <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      buffer for holding the incoming datagram.
      * @param   offset   the offset for the buffer
@@ -82,11 +90,15 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * The <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      buffer for holding the incoming datagram.
      * @param   length   the number of bytes to read.
@@ -96,11 +108,16 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> with offset <code>ioffset</code>to the
-     * specified port number on the specified host. The
+     * specified port number on the specified host.
+     * {@description.close}
+     * {@property.open}
+     * The
      * <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      the packet data.
      * @param   offset   the packet data offset.
@@ -119,11 +136,16 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> with offset <code>ioffset</code>to the
-     * specified port number on the specified host. The
+     * specified port number on the specified host.
+     * {@description.close}
+     * {@property.open}
+     * The
      * <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      the packet data.
      * @param   offset   the packet data offset.
@@ -141,10 +163,15 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> to the specified port number on the specified
-     * host. The <code>length</code> argument must be less than or equal
+     * host.
+     * {@description.close}
+     * {@property.open}
+     * The <code>length</code> argument must be less than or equal
      * to <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      the packet data.
      * @param   length   the packet length.
@@ -158,10 +185,15 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> to the specified port number on the specified
-     * host. The <code>length</code> argument must be less than or equal
+     * host.
+     * {@description.close}
+     * {@property.open}
+     * The <code>length</code> argument must be less than or equal
      * to <code>buf.length</code>.
+     * {@property.close}
      *
      * @param   buf      the packet data.
      * @param   length   the packet length.
@@ -176,8 +208,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the IP address of the machine to which this datagram is being
      * sent or from which the datagram was received.
+     * {@description.close}
      *
      * @return  the IP address of the machine to which this datagram is being
      *          sent or from which the datagram was received.
@@ -189,8 +223,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the port number on the remote host to which this datagram is
      * being sent or from which the datagram was received.
+     * {@description.close}
      *
      * @return  the port number on the remote host to which this datagram is
      *          being sent or from which the datagram was received.
@@ -201,9 +237,11 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the data buffer. The data received or the data to be sent
      * starts from the <code>offset</code> in the buffer,
      * and runs for <code>length</code> long.
+     * {@description.close}
      *
      * @return  the buffer used to receive or  send data
      * @see #setData(byte[], int, int)
@@ -213,8 +251,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the offset of the data to be sent or the offset of the
      * data received.
+     * {@description.close}
      *
      * @return  the offset of the data to be sent or the offset of the
      *          data received.
@@ -226,8 +266,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the length of the data to be sent or the length of the
      * data received.
+     * {@description.close}
      *
      * @return  the length of the data to be sent or the length of the
      *          data received.
@@ -238,8 +280,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the data buffer for this packet. This sets the
      * data, length and offset of the packet.
+     * {@description.close}
      *
      * @param buf the buffer to set for this packet
      *
@@ -270,8 +314,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the IP address of the machine to which this datagram
      * is being sent.
+     * {@description.close}
      * @param iaddr the <code>InetAddress</code>
      * @since   JDK1.1
      * @see #getAddress()
@@ -281,8 +327,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the port number on the remote host to which this datagram
      * is being sent.
+     * {@description.close}
      * @param iport the port number
      * @since   JDK1.1
      * @see #getPort()
@@ -295,8 +343,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the SocketAddress (usually IP address + port number) of the remote
      * host to which this datagram is being sent.
+     * {@description.close}
      *
      * @param address the <code>SocketAddress</code>
      * @throws  IllegalArgumentException if address is null or is a
@@ -316,8 +366,10 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the SocketAddress (usually IP address + port number) of the remote
      * host that this packet is being sent to or is coming from.
+     * {@description.close}
      *
      * @return the <code>SocketAddress</code>
      * @since 1.4
@@ -328,9 +380,11 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the data buffer for this packet. With the offset of
      * this DatagramPacket set to 0, and the length set to
      * the length of <code>buf</code>.
+     * {@description.close}
      *
      * @param buf the buffer to set for this packet.
      *
@@ -352,11 +406,16 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the length for this packet. The length of the packet is
      * the number of bytes from the packet's data buffer that will be
      * sent, or the number of bytes of the packet's data buffer that
-     * will be used for receiving data. The length must be lesser or
+     * will be used for receiving data.
+     * {@description.close}
+     * {@property.open}
+     * The length must be lesser or
      * equal to the offset plus the length of the packet's buffer.
+     * {@property.close}
      *
      * @param length the length to set for this packet.
      *
@@ -379,7 +438,9 @@ class DatagramPacket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class load-time initializations.
+     * {@description.close}
      */
     private native static void init();
 }

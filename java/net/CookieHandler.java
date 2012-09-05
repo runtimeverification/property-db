@@ -31,6 +31,7 @@ import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A CookieHandler object provides a callback mechanism to hook up a
  * HTTP state management policy implementation into the HTTP protocol
  * handler. The HTTP state management mechanism specifies a way to
@@ -45,14 +46,17 @@ import sun.security.util.SecurityConstants;
  * For more information on HTTP state management, see <a
  * href="http://www.ietf.org/rfc/rfc2965.txt""><i>RFC&nbsp;2965: HTTP
  * State Management Mechanism</i></a>
+ * {@description.close}
  *
  * @author Yingxian Wang
  * @since 1.5
  */
 public abstract class CookieHandler {
     /** {@collect.stats} 
+     * {@description.open}
      * The system-wide cookie handler that will apply cookies to the
      * request headers and manage cookies from the response headers.
+     * {@description.close}
      *
      * @see setDefault(CookieHandler)
      * @see getDefault()
@@ -60,7 +64,9 @@ public abstract class CookieHandler {
     private static CookieHandler cookieHandler;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the system-wide cookie handler.
+     * {@description.close}
      *
      * @return the system-wide cookie handler; A null return means
      *        there is no system-wide cookie handler currently set.
@@ -78,9 +84,11 @@ public abstract class CookieHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets (or unsets) the system-wide cookie handler.
      *
      * Note: non-standard http protocol handlers may ignore this setting.
+     * {@description.close}
      *
      * @param cHandler The HTTP cookie handler, or
      *       <code>null</code> to unset.
@@ -98,12 +106,16 @@ public abstract class CookieHandler {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets all the applicable cookies from a cookie cache for the
      * specified uri in the request header.
+     * {@description.close}
      *
+     * {@property.open}
      * HTTP protocol implementers should make sure that this method is
      * called after all request headers related to choosing cookies
      * are added, and before the request is sent.
+     * {@property.close}
      *
      * @param uri a <code>URI</code> to send cookies to in a request
      * @param requestHeaders - a Map from request header
@@ -122,9 +134,11 @@ public abstract class CookieHandler {
         throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets all the applicable cookies, examples are response header
      * fields that are named Set-Cookie2, present in the response
      * headers into a cookie cache.
+     * {@description.close}
      *
      * @param uri a <code>URI</code> where the cookies come from
      * @param responseHeaders an immutable map from field names to

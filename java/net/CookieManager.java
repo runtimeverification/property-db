@@ -32,6 +32,7 @@ import java.util.Comparator;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * CookieManager provides a concrete implementation of {@link CookieHandler},
  * which separates the storage of cookies from the policy surrounding accepting
  * and rejecting cookies. A CookieManager is initialized with a {@link CookieStore}
@@ -108,6 +109,7 @@ import java.io.IOException;
  * </blockquote>
  *
  * <p>The implementation conforms to RFC 2965, section 3.3.
+ * {@description.close}
  *
  * @author Edward Wang
  * @since 1.6
@@ -125,11 +127,13 @@ public class CookieManager extends CookieHandler
     /* ---------------- Ctors -------------- */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a new cookie manager.
      *
      * <p>This constructor will create new cookie manager with default
      * cookie store and accept policy. The effect is same as
      * <tt>CookieManager(null, null)</tt>.
+     * {@description.close}
      */
     public CookieManager() {
         this(null, null);
@@ -137,7 +141,9 @@ public class CookieManager extends CookieHandler
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a new cookie manager with specified cookie store and cookie policy.
+     * {@description.close}
      *
      * @param store     a <tt>CookieStore</tt> to be used by cookie manager.
      *                  if <tt>null</tt>, cookie manager will use a default one,
@@ -166,11 +172,13 @@ public class CookieManager extends CookieHandler
     /* ---------------- Public operations -------------- */
 
     /** {@collect.stats} 
+     * {@description.open}
      * To set the cookie policy of this cookie manager.
      *
      * <p> A instance of <tt>CookieManager</tt> will have
      * cookie policy ACCEPT_ORIGINAL_SERVER by default. Users always
      * can call this method to set another cookie policy.
+     * {@description.close}
      *
      * @param cookiePolicy      the cookie policy. Can be <tt>null</tt>, which
      *                          has no effects on current cookie policy.
@@ -181,7 +189,9 @@ public class CookieManager extends CookieHandler
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * To retrieve current cookie store.
+     * {@description.close}
      *
      * @return  the cookie store currently used by cookie manager.
      */

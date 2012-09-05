@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A CookieStore object represents a storage for cookie. Can store and retrieve
  * cookies.
  *
@@ -36,12 +37,14 @@ import java.util.Map;
  * for every incoming HTTP response, and call <tt>CookieStore.get</tt> to
  * retrieve cookie for every outgoing HTTP request. A CookieStore
  * is responsible for removing HttpCookie instances which have expired.
+ * {@description.close}
  *
  * @author Edward Wang
  * @since 1.6
  */
 public interface CookieStore {
     /** {@collect.stats} 
+     * {@description.open}
      * Adds one HTTP cookie to the store. This is called for every
      * incoming HTTP response.
      *
@@ -53,6 +56,7 @@ public interface CookieStore {
      *
      * <p>If a cookie corresponding to the given URI already exists,
      * then it is replaced with the new one.
+     * {@description.close}
      *
      * @param uri       the uri this cookie associated with.
      *                  if <tt>null</tt>, this cookie will not be associated
@@ -68,9 +72,11 @@ public interface CookieStore {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve cookies associated with given URI, or whose domain matches the
      * given URI. Only cookies that have not expired are returned.
      * This is called for every outgoing HTTP request.
+     * {@description.close}
      *
      * @return          an immutable list of HttpCookie,
      *                  return empty list if no cookies match the given URI
@@ -84,7 +90,9 @@ public interface CookieStore {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get all not-expired cookies in cookie store.
+     * {@description.close}
      *
      * @return          an immutable list of http cookies;
      *                  return empty list if there's no http cookie in store
@@ -93,7 +101,9 @@ public interface CookieStore {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get all URIs which identify the cookies in this cookie store.
+     * {@description.close}
      *
      * @return          an immutable list of URIs;
      *                  return empty list if no cookie in this cookie store
@@ -103,7 +113,9 @@ public interface CookieStore {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Remove a cookie from store.
+     * {@description.close}
      *
      * @param uri       the uri this cookie associated with.
      *                  if <tt>null</tt>, the cookie to be removed is not associated
@@ -119,7 +131,9 @@ public interface CookieStore {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Remove all cookies in this cookie store.
+     * {@description.close}
      *
      * @return          <tt>true</tt> if this store changed as a result of the call
      */
