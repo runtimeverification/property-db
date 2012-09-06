@@ -683,8 +683,9 @@ class DatagramSocket {
      * returns, the <code>DatagramPacket</code>'s buffer is filled with
      * the data received. The datagram packet also contains the sender's
      * IP address, and the port number on the sender's machine.
-     * <p>
+     * {@description.close}
      * {@property.open}
+     * <p>
      * This method blocks until a datagram is received.
      * {@property.close}
      * {@description.open}
