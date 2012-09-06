@@ -48,7 +48,7 @@ public class CreatePropertyFile {
         relativeUrlPrefix.append("../");
       }
       String linkBack =  relativeUrlPrefix.append(GenerateUrls.getUrl(tag)).toString();
-      String nameBack = tag.holder().toString();
+      String nameBack = tag.holder().toString().replaceAll("<","&lt;").replaceAll(">","&gt;");
       String htmlOutName = dir + File.separator + "__properties" + File.separator 
             + "html" +  File.separator + pathifiedName + ".html";
       try {
