@@ -140,20 +140,39 @@ public class GenerateUrls {
 
   public static String getUrl(Tag tag){
     Doc doc = tag.holder();
+    String name = doc.toString();
+    //remove anything between nested < and >
+    { 
+      StringBuilder nameFixer = new StringBuilder();
+      int nestedDepth = 0;
+      for(int i = 0; i < name.length(); ++i){
+        char c = name.charAt(i);
+        if(c == '<'){
+          ++nestedDepth;
+        }
+        else if(c == '>'){
+          --nestedDepth;
+        }
+        else if(nestedDepth == 0){
+          nameFixer.append(c);
+        }
+      }
+      name = nameFixer.toString();
+    }
     //If the document is a class, interface, or annotation it has its
     //own file, and the url to the file is constructed by classNameToUrl
     if(doc.isClass() || doc.isInterface() || doc.isAnnotationType() 
       || doc.isError() || doc.isException()){
-      return classNameToUrl(doc.toString());
+      return classNameToUrl(name);
     }
     //Methods must be handled specially
     if(doc.isMethod() || doc.isConstructor() || doc.isAnnotationTypeElement()){
-      return methodNameToUrl(doc.toString()); 
+      return methodNameToUrl(name); 
     }
     //Non-method elements, such as fields, are handled with a simpler method:
     //elementNameToUrl
     if(doc.isField() || doc.isEnumConstant()){
-      return elementNameToUrl(doc.toString());
+      return elementNameToUrl(name);
     } 
     throw new RuntimeException("Type of tag: " + tag + " could not be handled!");
   }

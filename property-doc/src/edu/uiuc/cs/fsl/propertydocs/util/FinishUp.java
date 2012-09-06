@@ -44,6 +44,7 @@ public class FinishUp {
                  + "\nul { color:inherit;background-color:inherit }"
                  + "\nol { color:inherit;background-color:inherit }"
                  + "\npre { color:inherit;background-color:inherit }"
+                 + "\ntable { color:inherit;background-color:inherit }"
                  );
      } catch (java.io.IOException e){
         throw new RuntimeException(e);

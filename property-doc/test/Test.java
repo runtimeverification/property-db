@@ -60,7 +60,7 @@ package hello.world;
 
 */
 
-public interface Test {
+public interface Test<K, V> {
   /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
