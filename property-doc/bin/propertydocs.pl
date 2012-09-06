@@ -126,6 +126,7 @@ $docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
 $dflag = 0;
 $pflag = 0;
 $rootflag = 0;
+$helpflag = 0;
 $dir = ".";
 $property_path = "properties";
 
@@ -164,6 +165,14 @@ foreach(@ARGV){
   }
   #anything else isn't special and should just be passed
   #to javadoc without alteration
+  elsif(/--help/){
+    &print_help;
+    $helpflag = 1;
+  }
+  elsif(/-h/){
+    &print_help;
+    $helpflag = 1;
+  }
   else {
     $docscmd .= " $_";
   }
@@ -185,6 +194,11 @@ system $docscmd;
 #and call the FinishUp class.  The FinishUp class will modify
 #the css with the styles we need, and it will generate 
 #the property-list.html file
+
+#if we are printing help, do not call finish up
+if($helpflag == 1){
+  exit(0);
+}
 print "...finishing up"."\n";
 mkdir $destjspath;
 #copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
@@ -215,5 +229,14 @@ mkdir $destimgpath;
  copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
  copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
 system $propertypagecmd;
+
+sub print_help{
+  print "the flags specific to properydocs are:\n";
+  print "    -d: the output directory for the generated html\n";
+  print "    -propertypath:  the root directory for MOP properties\n";
+  print "    -outroot: the root directory for the generated html, necessary to make the pop-up baloons work correctly\n";
+  print "\nThe following is help info from the base javadocs program, propertydocs passes options it does not know straight to javadoc:\n";  
+}
+
 #}
 
