@@ -5,12 +5,18 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.HashSet;
 
 import com.sun.tools.doclets.standard.Standard;
+import com.sun.javadoc.Tag;
 
 public class CreatePropertyFile {
 
   private static final String dir = Standard.htmlDoclet.configuration().destDirName;
+
+  private static HashSet<PositionWrapper> seenPositions
+    = new HashSet<PositionWrapper> (); //this is to ensure that we don't link back
+                           //to the same location multiple times
 
   public static final String PROPDIR = "__ANNOTATED_DOC_PROPERTY_PATH__";
 
@@ -25,14 +31,31 @@ public class CreatePropertyFile {
 
   public static void forceInit() { /* call this method to force this class to be initialized */ }
 
-  public static void createPropertyFile(String name){
+  //Name is the name of the property
+  //tag is the PropertyOpen Tag referencing the property
+  //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.mop 
+  //  is 4 (3 + 1, + 1 because of __properties dir)
+  public static void createOrModifyPropertyFile(String name, PositionWrapper p, Tag tag, int depth){
+      if(seenPositions.contains(p)) return;
+      seenPositions.add(p);
       String pathifiedName =  name.replaceAll("[.]","/");
+      StringBuilder relativeUrlPrefix = new StringBuilder();
+      for(int i = 0; i < depth; ++i){
+        relativeUrlPrefix.append("../");
+      }
+      String linkBack =  relativeUrlPrefix.append(GenerateUrls.getUrl(tag)).toString();
+      String nameBack = tag.holder().toString();
+      String htmlOutName = dir + File.separator + "__properties" + File.separator 
+            + "html" +  File.separator + pathifiedName + ".html";
       try {
         //copy specified mop file
         File in = new File(System.getenv().get(PROPDIR) + File.separator + pathifiedName + ".mop");
         String outName = dir + "__properties" + File.separator 
             + "mop" +  File.separator + pathifiedName + ".mop";
-        if(new File(outName).exists()) return;
+        if(new File(outName).exists()) {
+          modifyPropertyFile(htmlOutName, linkBack, nameBack);
+          return;
+        }
         populate(outName);
         File out = new File(outName);
         FileReader fr = new FileReader(in);
@@ -49,15 +72,15 @@ public class CreatePropertyFile {
         ps.close();
 
         //create the HTML file that will link to the given mop file
-        String htmlOutName = dir + File.separator + "__properties" + File.separator 
-            + "html" +  File.separator + pathifiedName + ".html";
         populate(htmlOutName);
         File htmlOut = new File(htmlOutName);
         FileOutputStream htmlfos = new FileOutputStream(htmlOut);
         PrintStream htmlps = new PrintStream(htmlfos);
         htmlps.print(getHtmlHeader(pathifiedName));
         htmlps.print("<P><IFRAME SRC='" + buildRelativeUrlFromName(pathifiedName)  
-            + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='600'></IFRAME></P>");
+            + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");
+        htmlps.print("<P>This property is referenced in the following locations:</P>\n");
+        htmlps.print("<UL>\n<LI><A HREF='" + linkBack +"'>" + nameBack + "</A></LI></UL>\n");
         htmlps.print(getHtmlFooter(pathifiedName));
         htmlps.close();
       }
@@ -66,7 +89,36 @@ public class CreatePropertyFile {
       }
   }
 
-  
+  //This is for adding a link on an already existing HTML file.  Because I don't want to
+  //deal with collecting a list and generating the HTML property file at the end... because
+  //such would require using a finalizer or some such thanks to how JavaDoc works (sigh),
+  //I, instead, modify the HTML files as each new link is found.  This is sort of ugly,
+  //but it's better than messing with finalizers that may or may not get called
+  private static void modifyPropertyFile(String htmlOutName, String linkBack, String nameBack) 
+    throws java.io.FileNotFoundException, java.io.IOException{
+    FileReader htmlReader = new FileReader(htmlOutName);
+    StringBuilder htmlText = new StringBuilder();
+    int b;
+    while((b = htmlReader.read()) != -1){
+      htmlText.append((char) b);
+    } 
+    String[] parts = htmlText.toString().split("</UL>"); 
+    FileOutputStream htmlfos = new FileOutputStream(htmlOutName);
+    PrintStream htmlps = new PrintStream(htmlfos);
+    htmlps.print(parts[0]);
+    htmlps.print(linkBackItem(linkBack, nameBack));
+    htmlps.print("</UL>"); 
+    htmlps.print(parts[1]);
+  }
+
+  //Simple helper method, see usage points in this file
+  private static String linkBackItem(String linkBack, String nameBack){
+    return "<LI><A HREF='" + linkBack + "'>" + nameBack + "</A></LI>";
+  }
+
+  //This method generates the necessary directory structure for a deeply
+  //nested file, like java/util/concurrent/Foo.java
+  //
   //Why the hell doesn't the standard library do this if you try to create
   //a long path with non-existent intervening directories already?
   public static void populate(String path){

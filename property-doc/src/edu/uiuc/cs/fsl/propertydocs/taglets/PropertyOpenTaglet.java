@@ -146,7 +146,9 @@ public class PropertyOpenTaglet implements Taglet {
         if(isLink(arg)) {
           String[] parts = arg.split(":");
           if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
-          CreatePropertyFile.createPropertyFile(parts[1]);
+          int depth = parts[1].split("[.]").length + 1;
+          CreatePropertyFile.createOrModifyPropertyFile(parts[1], p, tag, depth);
+          
           ret += "<A HREF=\\'" + GenerateUrls.buildRelativeUrl(tag) 
             + "__properties/html/" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
         }

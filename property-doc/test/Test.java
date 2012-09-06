@@ -64,7 +64,7 @@ public class Test {
   /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
-   *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo xyz}
+   *  {@property.open Property:java.io.Foo2 Property:Bar me you are foo xyz}
    *    WE HAVE A BUNCH O' PROPERTIES HERE!
    *  {@property.close}
    *  <br />
@@ -76,10 +76,17 @@ public class Test {
 
    */
 
-  public void main(){
+  public void main(Object foo){
     for(int i = 0; i < 255; ++i){
       System.out.print('a');
     }
   }
+  
+  /**
+  *{@property.open Property:Bar}
+  *   ONE PROPERTY
+  *{@property.close} 
+  */
+  public static int ASDFasdf = 1;
 }
 
