@@ -142,11 +142,12 @@ public class GenerateUrls {
     Doc doc = tag.holder();
     //If the document is a class, interface, or annotation it has its
     //own file, and the url to the file is constructed by classNameToUrl
-    if(doc.isClass() || doc.isInterface() || doc.isAnnotationType()){
+    if(doc.isClass() || doc.isInterface() || doc.isAnnotationType() 
+      || doc.isError() || doc.isException()){
       return classNameToUrl(doc.toString());
     }
     //Methods must be handled specially
-    if(doc.isMethod()){
+    if(doc.isMethod() || doc.isConstructor() || doc.isAnnotationTypeElement()){
       return methodNameToUrl(doc.toString()); 
     }
     //Non-method elements, such as fields, are handled with a simpler method:
