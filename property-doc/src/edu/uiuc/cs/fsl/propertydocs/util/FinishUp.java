@@ -40,7 +40,12 @@ public class FinishUp {
          .println( ".Red { background-color:#EE0000; color:#FFFFFF }" 
                  + "\n.HLon  { color:#0000E2 }"
                  + "\n.HLoff { color:#450082 }"
-                 + "\np { color:inherit;background-color:inherit }");
+                 + "\np { color:inherit;background-color:inherit }"
+                 + "\nul { color:inherit;background-color:inherit }"
+                 + "\nol { color:inherit;background-color:inherit }"
+                 + "\npre { color:inherit;background-color:inherit }"
+                 + "\ntable { color:inherit;background-color:inherit }"
+                 );
      } catch (java.io.IOException e){
         throw new RuntimeException(e);
      }

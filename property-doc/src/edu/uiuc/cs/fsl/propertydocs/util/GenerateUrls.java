@@ -95,7 +95,88 @@ public class GenerateUrls {
     }  
       return href.toString();
   }
- 
+
+  //Anything that gets its own webpage in javadoc
+  private static String classNameToUrl(String name){
+    return name.replaceAll("[.]","/") + ".html";
+  }
+
+  //this is for turning a method to a url.
+  //this will generate a url that points to the middle of a webpage somewhere
+  private static String methodNameToUrl(String name){
+    String[] toplevel = name.split("[(]");
+    String[] pieces = toplevel[0].split("[.]"); 
+    StringBuilder ret = new StringBuilder();
+    { int i = 0;
+      for(; i < pieces.length - 2; ++i){
+        ret.append(pieces[i]);
+        ret.append("/");
+      }
+      ret.append(pieces[i]);
+    }
+    ret.append(".html#");
+    ret.append(pieces[pieces.length - 1]);
+    ret.append("(");
+    ret.append(toplevel[1]);
+    return ret.toString();
+  }
+
+  //this is for class elements that are not methods.
+  //these are easier to handle because they do not have possible
+  //arguments, as arguments to methods do NOT have their "."'s changed
+  //to "/".  Everything is convoluted here, /sigh
+  private static String elementNameToUrl(String name){
+    String[] pieces = name.split("[.]");
+    StringBuilder ret = new StringBuilder();
+    for(int i = 0; i < pieces.length - 2; ++i){
+      ret.append(pieces[i]);
+      ret.append("/");
+    }
+    ret.append(pieces[pieces.length - 2]);
+    ret.append(".html#");
+    ret.append(pieces[pieces.length - 1]);
+    return ret.toString();
+  }
+
+  public static String getUrl(Tag tag){
+    Doc doc = tag.holder();
+    String name = doc.toString();
+    //remove anything between nested < and >
+    { 
+      StringBuilder nameFixer = new StringBuilder();
+      int nestedDepth = 0;
+      for(int i = 0; i < name.length(); ++i){
+        char c = name.charAt(i);
+        if(c == '<'){
+          ++nestedDepth;
+        }
+        else if(c == '>'){
+          --nestedDepth;
+        }
+        else if(nestedDepth == 0){
+          nameFixer.append(c);
+        }
+      }
+      name = nameFixer.toString();
+    }
+    //If the document is a class, interface, or annotation it has its
+    //own file, and the url to the file is constructed by classNameToUrl
+    if(doc.isClass() || doc.isInterface() || doc.isAnnotationType() 
+      || doc.isError() || doc.isException()){
+      return classNameToUrl(name);
+    }
+    //Methods must be handled specially
+    if(doc.isMethod() || doc.isConstructor() || doc.isAnnotationTypeElement()){
+      return methodNameToUrl(name); 
+    }
+    //Non-method elements, such as fields, are handled with a simpler method:
+    //elementNameToUrl
+    if(doc.isField() || doc.isEnumConstant()){
+      return elementNameToUrl(name);
+    } 
+    throw new RuntimeException("Type of tag: " + tag + " could not be handled!");
+  }
+
   private static String[] getUrlAndName(Tag tag){
     String text = tag.text().trim();
 //I'm tired of java and it's uninitialized ERROR.  Make it a warning.  Total dumbassery
@@ -112,7 +193,7 @@ public class GenerateUrls {
     }
     String[] ret = new String[3];
     ret[0] = buildRelativeUrl(tag);
-    ret[1] = urlPart.replaceAll("[.]","/") + ".html";
+    ret[1] = classNameToUrl(urlPart);
     ret[2] = namePart;
     return ret;
   }

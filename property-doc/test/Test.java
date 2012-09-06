@@ -60,11 +60,11 @@ package hello.world;
 
 */
 
-public class Test {
+public interface Test<K, V> {
   /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
-   *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo xyz}
+   *  {@property.open Property:java.io.Foo2 Property:Bar me you are foo xyz}
    *    WE HAVE A BUNCH O' PROPERTIES HERE!
    *  {@property.close}
    *  <br />
@@ -76,10 +76,6 @@ public class Test {
 
    */
 
-  public void main(){
-    for(int i = 0; i < 255; ++i){
-      System.out.print('a');
-    }
-  }
+  public void main(Object foo){}
 }
 
