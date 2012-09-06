@@ -18,6 +18,10 @@ public class CreatePropertyFile {
     = new HashSet<PositionWrapper> (); //this is to ensure that we don't link back
                            //to the same location multiple times
 
+  private static HashSet<String> seenNames
+    = new HashSet<String>(); //since we modify property files in place, we need this to
+                             //ensure that we delete the files on a fresh run
+
   public static final String PROPDIR = "__ANNOTATED_DOC_PROPERTY_PATH__";
 
   static {
@@ -50,14 +54,22 @@ public class CreatePropertyFile {
       try {
         //copy specified mop file
         File in = new File(System.getenv().get(PROPDIR) + File.separator + pathifiedName + ".mop");
+        File htmlOut = new File(htmlOutName);
+        //create the HTML file that will link to the given mop file
+        populate(htmlOutName);
         String outName = dir + "__properties" + File.separator 
             + "mop" +  File.separator + pathifiedName + ".mop";
-        if(new File(outName).exists()) {
+        populate(outName);
+        File out = new File(outName);
+        if(!seenNames.contains(name)){
+          out.delete();
+          htmlOut.delete();
+          seenNames.add(name);
+        }
+        if(out.exists()) {
           modifyPropertyFile(htmlOutName, linkBack, nameBack);
           return;
         }
-        populate(outName);
-        File out = new File(outName);
         FileReader fr = new FileReader(in);
         FileOutputStream fos = new FileOutputStream(out);
         BufferedReader br = new BufferedReader(fr);
@@ -71,9 +83,6 @@ public class CreatePropertyFile {
         br.close(); 
         ps.close();
 
-        //create the HTML file that will link to the given mop file
-        populate(htmlOutName);
-        File htmlOut = new File(htmlOutName);
         FileOutputStream htmlfos = new FileOutputStream(htmlOut);
         PrintStream htmlps = new PrintStream(htmlfos);
         htmlps.print(getHtmlHeader(pathifiedName));
