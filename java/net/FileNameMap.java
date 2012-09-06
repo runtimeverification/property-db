@@ -26,8 +26,10 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A simple interface which provides a mechanism to map
  * between a file name and a MIME type string.
+ * {@description.close}
  *
  * @author  Steven B. Byrne
  * @since   JDK1.1
@@ -35,7 +37,9 @@ package java.net;
 public interface FileNameMap {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the MIME type for the specified file name.
+     * {@description.close}
      * @param fileName the specified file name
      * @return a <code>String</code> indicating the MIME
      * type for the specified file name.

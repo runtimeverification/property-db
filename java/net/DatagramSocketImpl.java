@@ -30,7 +30,9 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Abstract datagram and multicast socket implementation base class.
+ * {@description.close}
  * @author Pavani Diwanji
  * @since  JDK1.1
  */
@@ -38,24 +40,32 @@ import java.io.InterruptedIOException;
 public abstract class DatagramSocketImpl implements SocketOptions {
 
     /** {@collect.stats} 
+     * {@description.open}
      * The local port number.
+     * {@description.close}
      */
     protected int localPort;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The file descriptor object.
+     * {@description.close}
      */
     protected FileDescriptor fd;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a datagram socket.
+     * {@description.close}
      * @exception SocketException if there is an error in the
      * underlying protocol, such as a TCP error.
      */
     protected abstract void create() throws SocketException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Binds a datagram socket to a local port and address.
+     * {@description.close}
      * @param lport the local port
      * @param laddr the local address
      * @exception SocketException if there is an error in the
@@ -64,8 +74,10 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void bind(int lport, InetAddress laddr) throws SocketException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sends a datagram packet. The packet contains the data and the
      * destination address to send the packet to.
+     * {@description.close}
      * @param p the packet to be sent.
      * @exception IOException if an I/O exception occurs while sending the
      * datagram packet.
@@ -76,6 +88,7 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void send(DatagramPacket p) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Connects a datagram socket to a remote destination. This associates the remote
      * address with the local socket so that datagrams may only be sent to this destination
      * and received from this destination. This may be overridden to call a native
@@ -86,6 +99,7 @@ public abstract class DatagramSocketImpl implements SocketOptions {
      * packet has been received for that address, then a subsequent call to
      * send or receive may throw a PortUnreachableException.
      * Note, there is no guarantee that the exception will be thrown.
+     * {@description.close}
      * @param address the remote InetAddress to connect to
      * @param port the remote port number
      * @exception   SocketException may be thrown if the socket cannot be
@@ -95,14 +109,18 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected void connect(InetAddress address, int port) throws SocketException {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disconnects a datagram socket from its remote destination.
+     * {@description.close}
      * @since 1.4
      */
     protected void disconnect() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Peek at the packet to see who it is from. Updates the specified <code>InetAddress</code>
      * to the address which the packet came from.
+     * {@description.close}
      * @param i an InetAddress object
      * @return the port number which the packet came from.
      * @exception IOException if an I/O exception occurs
@@ -113,10 +131,12 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract int peek(InetAddress i) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Peek at the packet to see who it is from. The data is copied into the specified
      * <code>DatagramPacket</code>. The data is returned,
      * but not consumed, so that a subsequent peekData/receive operation
      * will see the same data.
+     * {@description.close}
      * @param p the Packet Received.
      * @return the port number which the packet came from.
      * @exception IOException if an I/O exception occurs
@@ -127,7 +147,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
      */
     protected abstract int peekData(DatagramPacket p) throws IOException;
     /** {@collect.stats} 
+     * {@description.open}
      * Receive the datagram packet.
+     * {@description.close}
      * @param p the Packet Received.
      * @exception IOException if an I/O exception occurs
      * while receiving the datagram packet.
@@ -138,7 +160,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void receive(DatagramPacket p) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the TTL (time-to-live) option.
+     * {@description.close}
      * @param ttl a byte specifying the TTL value
      *
      * @deprecated use setTimeToLive instead.
@@ -150,7 +174,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void setTTL(byte ttl) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve the TTL (time-to-live) option.
+     * {@description.close}
      *
      * @exception IOException if an I/O exception occurs
      * while retrieving the time-to-live option
@@ -162,7 +188,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract byte getTTL() throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the TTL (time-to-live) option.
+     * {@description.close}
      * @param ttl an <tt>int</tt> specifying the time-to-live value
      * @exception IOException if an I/O exception occurs
      * while setting the time-to-live option.
@@ -171,7 +199,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void setTimeToLive(int ttl) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve the TTL (time-to-live) option.
+     * {@description.close}
      * @exception IOException if an I/O exception occurs
      * while retrieving the time-to-live option
      * @return an <tt>int</tt> representing the time-to-live value
@@ -180,7 +210,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract int getTimeToLive() throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Join the multicast group.
+     * {@description.close}
      * @param inetaddr multicast address to join.
      * @exception IOException if an I/O exception occurs
      * while joining the multicast group.
@@ -188,7 +220,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void join(InetAddress inetaddr) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Leave the multicast group.
+     * {@description.close}
      * @param inetaddr multicast address to leave.
      * @exception IOException if an I/O exception occurs
      * while leaving the multicast group.
@@ -196,7 +230,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     protected abstract void leave(InetAddress inetaddr) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Join the multicast group.
+     * {@description.close}
      * @param mcastaddr address to join.
      * @param netIf specifies the local interface to receive multicast
      *        datagram packets
@@ -209,7 +245,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
         throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Leave the multicast group.
+     * {@description.close}
      * @param mcastaddr address to leave.
      * @param netIf specified the local interface to leave the group at
      * @throws IOException if an I/O exception occurs while leaving
@@ -221,12 +259,16 @@ public abstract class DatagramSocketImpl implements SocketOptions {
         throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Close the socket.
+     * {@description.close}
      */
     protected abstract void close();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the local port.
+     * {@description.close}
      * @return an <tt>int</tt> representing the local port value
      */
     protected int getLocalPort() {
@@ -234,7 +276,9 @@ public abstract class DatagramSocketImpl implements SocketOptions {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the datagram socket file descriptor.
+     * {@description.close}
      * @return a <tt>FileDescriptor</tt> object representing the datagram socket
      * file descriptor
      */

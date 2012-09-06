@@ -26,9 +26,11 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This interface defines a factory for datagram socket implementations. It
  * is used by the classes <code>DatagramSocket</code> to create actual socket
  * implementations.
+ * {@description.close}
  *
  * @author  Yingxian Wang
  * @see     java.net.DatagramSocket
@@ -37,7 +39,9 @@ package java.net;
 public
 interface DatagramSocketImplFactory {
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>DatagramSocketImpl</code> instance.
+     * {@description.close}
      *
      * @return  a new instance of <code>DatagramSocketImpl</code>.
      * @see     java.net.DatagramSocketImpl

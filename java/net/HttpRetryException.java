@@ -28,9 +28,11 @@ package java.net;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that a HTTP request needs to be retried
  * but cannot be retried automatically, due to streaming mode
  * being enabled.
+ * {@description.close}
  *
  * @author  Michael McMahon
  * @since   1.5
@@ -42,8 +44,10 @@ class HttpRetryException extends IOException {
     private String location;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>HttpRetryException</code> from the
      * specified response code and exception detail message
+     * {@description.close}
      *
      * @param   detail   the detail message.
      * @param   code   the HTTP response code from server.
@@ -54,8 +58,10 @@ class HttpRetryException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>HttpRetryException</code> with detail message
      * responseCode and the contents of the Location response header field.
+     * {@description.close}
      *
      * @param   detail   the detail message.
      * @param   code   the HTTP response code from server.
@@ -68,7 +74,9 @@ class HttpRetryException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the http response code
+     * {@description.close}
      *
      * @return  The http response code.
      */
@@ -77,8 +85,10 @@ class HttpRetryException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string explaining why the http request could
      * not be retried.
+     * {@description.close}
      *
      * @return  The reason string
      */
@@ -87,8 +97,10 @@ class HttpRetryException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the Location header field if the
      * error resulted from redirection.
+     * {@description.close}
      *
      * @return The location string
      */
