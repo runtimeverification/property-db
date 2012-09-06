@@ -60,7 +60,7 @@ package hello.world;
 
 */
 
-public class Test {
+public interface Test {
   /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
@@ -76,17 +76,6 @@ public class Test {
 
    */
 
-  public void main(Object foo){
-    for(int i = 0; i < 255; ++i){
-      System.out.print('a');
-    }
-  }
-  
-  /**
-  *{@property.open Property:Bar}
-  *   ONE PROPERTY
-  *{@property.close} 
-  */
-  public static int ASDFasdf = 1;
+  public void main(Object foo){}
 }
 

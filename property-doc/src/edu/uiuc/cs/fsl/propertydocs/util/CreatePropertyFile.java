@@ -14,8 +14,8 @@ public class CreatePropertyFile {
 
   private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
-  private static HashSet<PositionWrapper> seenPositions
-    = new HashSet<PositionWrapper> (); //this is to ensure that we don't link back
+  private static HashSet<String> seenPositions
+    = new HashSet<String> (); //this is to ensure that we don't link back
                            //to the same location multiple times
 
   private static HashSet<String> seenNames
@@ -40,8 +40,8 @@ public class CreatePropertyFile {
   //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.mop 
   //  is 4 (3 + 1, + 1 because of __properties dir)
   public static void createOrModifyPropertyFile(String name, PositionWrapper p, Tag tag, int depth){
-      if(seenPositions.contains(p)) return;
-      seenPositions.add(p);
+      if(seenPositions.contains(p.toString() + name)) return;
+      seenPositions.add(p.toString() + name);
       String pathifiedName =  name.replaceAll("[.]","/");
       StringBuilder relativeUrlPrefix = new StringBuilder();
       for(int i = 0; i < depth; ++i){
