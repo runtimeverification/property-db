@@ -66,7 +66,8 @@ Collections_SortBeforeBinarySearch(List list) {
 		]
 
 	@fail {
-		System.err.println("The list must be sorted prior to making binarySearch() call.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_SortBeforeBinarySearch was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The list must be sorted prior to making binarySearch() call.");
 	}
 }
 

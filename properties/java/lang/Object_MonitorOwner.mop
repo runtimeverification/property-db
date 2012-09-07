@@ -19,12 +19,14 @@ import java.lang.*;
 Object_MonitorOwner() {
 	event bad_notify before(Object o): 
 		(call(* Object+.notify(..)) || call(* Object+.notifyAll(..)))&& target(o) && if(!Thread.holdsLock(o)) {
-			System.err.println("notify() and notifyAll() can be called only by the owner of this object's monitor.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_MonitorOwner was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "notify() and notifyAll() can be called only by the owner of this object's monitor.");
 		}
         
 	event bad_wait before(Object o): 
 		call(* Object+.wait(..)) && target(o) && if(!Thread.holdsLock(o)) {
-			System.err.println("wait() can be called only by the owner of this object's monitor.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_MonitorOwner was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "wait() can be called only by the owner of this object's monitor.");
 		}
         
     

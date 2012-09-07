@@ -86,9 +86,10 @@ InputStream_ReadAheadLimit(InputStream i) {
 	ere : (mark | read | goodreset)* badreset+
 
 	@match {
-		System.err.println("The position mark has been invalidated.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_ReadAheadLimit was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The position mark has been invalidated.");
 		if (this.LOC != null)
-			System.err.println("read() at line " + this.LOC + " invalidated the mark.");
+			javamoprt.MOPLogging.out.println(ERROR, "read() at line " + this.LOC + " invalidated the mark.");
 	}
 }
 

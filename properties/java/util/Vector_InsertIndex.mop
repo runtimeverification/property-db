@@ -16,7 +16,8 @@ Vector_InsertIndex() {
 	event insert before(Vector v, int index) :
 		call(* Vector+.insertElementAt(Object, int)) && target(v) && args(.., index) {
 		if (!(0 <= index && index <= v.size())) {
-			System.err.println("The index passed to insertElementAt() is invalid.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Vector_InsertIndex was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "The index passed to insertElementAt() is invalid.");
 		}
 	}
 }

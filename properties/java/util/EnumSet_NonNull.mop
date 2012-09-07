@@ -16,13 +16,15 @@ import java.util.*;
 EnumSet_NonNull() {
 	event insertnull before(Object e) :
 		call(* EnumSet+.add(Object)) && args(e) && condition(e == null) {
-		System.err.println("EnumSet does not permit null.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumSet_NonNull was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "EnumSet does not permit null.");
 	}
 	event insertnull before(Collection c) :
 		call(* EnumSet+.addAll(Collection)) && args(c) {
 		for (Object elem : c) {
 			if (elem == null){
-				System.err.println("EnumSet does not permit null.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumSet_NonNull was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "EnumSet does not permit null.");
 			}
 		}
 	}

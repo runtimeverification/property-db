@@ -32,7 +32,8 @@ SortedSet_Comparable() {
 			call(* Queue+.offer*(..))
 		) && target(SortedSet) && args(e) {
 		if (!(e instanceof Comparable)) {
-			System.err.println("A non-comparable object is being inserted into a SortedSet object.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SortedSet_Comparable was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "A non-comparable object is being inserted into a SortedSet object.");
 		}
 	}
 
@@ -41,7 +42,8 @@ SortedSet_Comparable() {
 		target(SortedSet) && args(c) {
 		for (Object elem : c) {
 			if (!(elem instanceof Comparable)) {
-				System.err.println("A non-comparable object is being inserted into a SortedSet object.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SortedSet_Comparable was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "A non-comparable object is being inserted into a SortedSet object.");
 			}
 		}
 	}

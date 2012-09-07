@@ -28,7 +28,8 @@ Collections_NewSetFromMap(Map map) {
 	ere : bad_create | (create access)
 
 	@match {
-		System.err.println("The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_NewSetFromMap was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
 	}
 }
 

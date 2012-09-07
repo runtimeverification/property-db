@@ -30,7 +30,8 @@ Iterator_HasNext(Iterator i) {
 	ltl: [](next => (*) hasnexttrue)
 
 	@violation {
-		System.out.println("Iterator.hasNext() was not called before calling next().");
+		javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Iterator_HasNext was violated.");
+		javamoprt.MOPLogging.out.println(WARNING, "Iterator.hasNext() was not called before calling next().");
 	}
 }
 

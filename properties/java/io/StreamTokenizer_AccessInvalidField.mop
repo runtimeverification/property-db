@@ -65,7 +65,8 @@ StreamTokenizer_AccessInvalidField(StreamTokenizer s) {
 		]
 
 	@fail {
-		System.err.println("The caller attempted to read an invalidated value. " + __LOC);
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StreamTokenizer_AccessInvalidField was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The caller attempted to read an invalidated value. " + __LOC);
 		__RESET;
 	}
 }

@@ -16,7 +16,8 @@ import java.lang.*;
 Float_StaticFactory() {
     event constructor_create after() returning(Float f): 
         call(Float+.new(float)) {
-            System.err.println("Using the constructor Float(float value) might be inefficient. Use valueOf(float) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Float_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Float(float value) might be inefficient. Use valueOf(float) if it is appropriate.");
         }
     
 }

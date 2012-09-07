@@ -16,7 +16,8 @@ import java.lang.*;
 ClassLoader_UnsafeClassDefinition() {
 	event defineClass before(String name) :
 		call(* ClassLoader+.defineClass(String, ..)) && args(name, ..) && condition(name.startsWith("java.")){
-			System.err.println("An invalid binary name is used");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ClassLoader_UnsafeClassDefinition was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "An invalid binary name is used");
 		}
 }
 

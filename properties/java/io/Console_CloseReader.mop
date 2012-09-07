@@ -23,7 +23,8 @@ Console_CloseReader(Reader r) {
 	ere : getreader close+
 
 	@match {
-		System.err.println("Invoking close() on the object returned by Console.reader() does not close the underlying stream.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Console_CloseReader was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Invoking close() on the object returned by Console.reader() does not close the underlying stream.");
 	}
 }
 

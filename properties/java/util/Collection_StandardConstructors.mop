@@ -32,7 +32,8 @@ Collection_StandardConstructors() {
 				Constructor ctor2 = klass.getDeclaredConstructor(Collection.class);
 			}
 			catch (NoSuchMethodException e) {
-				System.err.println(klass.getName() + " does not define the 'standard' constructors.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_StandardConstructors was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not define the 'standard' constructors.");
 			}
 		}
 	}

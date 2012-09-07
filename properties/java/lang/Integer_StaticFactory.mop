@@ -16,7 +16,8 @@ import java.lang.*;
 Integer_StaticFactory() {
     event constructor_create after() returning(Integer i): 
         call(Integer+.new(int)) {
-            System.err.println("Using the constructor Integer(int value) might be inefficient. Use valueOf(int) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Integer(int value) might be inefficient. Use valueOf(int) if it is appropriate.");
         }
     
 }

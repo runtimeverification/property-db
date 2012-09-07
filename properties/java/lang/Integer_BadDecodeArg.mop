@@ -17,12 +17,14 @@ Integer_BadDecodeArg() {
     event decode before(Integer i, String nm) : 
         call(* Integer.decode(String)) && args(nm) && target(i) {
         if(nm == null || nm.length() == 0){
-            System.err.println("Wrong argument to Integer.decode(String nm)");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
         } else {
             //whitespace check
             for(int j = 0; j < nm.length(); j++){
                 if(Character.isWhitespace(nm.charAt(j))){
-                    System.err.println("Wrong argument to Integer.decode(String nm)");
+                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
+                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
                 }
             }
             
@@ -50,10 +52,12 @@ Integer_BadDecodeArg() {
             
             try{
                 if(Integer.parseInt(sub, radix) < 0){
-                    System.err.println("Wrong argument to Integer.decode(String nm)");
+                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
+                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
                 }
             } catch(Exception e){
-                System.err.println("Wrong argument to Integer.decode(String nm)");
+                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
+                javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
             }
             
         }

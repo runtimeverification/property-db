@@ -54,8 +54,10 @@ Serializable_NoArgConstructor() {
 				}
 				catch (NoSuchMethodException e) {
 				}
-				if (inaccessible)
-					System.err.println("The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
+				if (inaccessible) {
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_NoArgConstructor was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
+				}
 			}
 		}
 	}

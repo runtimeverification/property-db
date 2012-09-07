@@ -30,6 +30,7 @@ Reader_ManipulateAfterClose(Reader r) {
 	ere : close+ manipulate+
 
 	@match {
-		System.err.println("read(), ready(), mark(), reset() or skip() was invoked after close().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Reader_ManipulateAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "read(), ready(), mark(), reset() or skip() was invoked after close().");
 	}
 }

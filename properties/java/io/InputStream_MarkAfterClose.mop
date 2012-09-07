@@ -18,6 +18,7 @@ InputStream_MarkAfterClose(InputStream i) {
 	ere : close+ mark+
 
 	@match {
-		System.err.println("mark() after close() had no effect.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_MarkAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "mark() after close() had no effect.");
 	}
 }

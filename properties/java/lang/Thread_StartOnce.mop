@@ -20,7 +20,8 @@ Thread_StartOnce(Thread t){
     ere : start start+ 
 
 	@match{
-           System.out.println("Thread should not be started more than once.");
+           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Thread_StartOnce was violated.");
+           javamoprt.MOPLogging.out.println(WARNING, "Thread should not be started more than once.");
 	}
 }
 		

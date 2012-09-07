@@ -18,14 +18,16 @@ Character_ValidateChar() {
     event charCount before(int codePoint): 
         call(* Character.charCount(int)) && args(codePoint) {
             if(!Character.isValidCodePoint(codePoint)){
-                System.err.println("The code point used in charCount(int codePoint) is not valid.");
+                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_ValidateChar was violated.");
+                javamoprt.MOPLogging.out.println(ERROR, "The code point used in charCount(int codePoint) is not valid.");
             }
         }
 
     event toCodePoint before(char high, char low): 
         call(* Character.toCodePoint(char, char)) && args(high, low) {
             if(!Character.isSurrogatePair(high, low)){
-                System.err.println("The surrogate pair used in toCodePoint(char high, char low) is not valid.");
+                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_ValidateChar was violated.");
+                javamoprt.MOPLogging.out.println(ERROR, "The surrogate pair used in toCodePoint(char high, char low) is not valid.");
             }
         }
     

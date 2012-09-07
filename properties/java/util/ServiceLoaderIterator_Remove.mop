@@ -22,7 +22,8 @@ ServiceLoaderIterator_Remove(Iterator i) {
 	ere : create remove
 
 	@match {
-		System.err.println("The iterator returned by ServiceLoader.iterator() does not support removal.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ServiceLoaderIterator_Remove was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The iterator returned by ServiceLoader.iterator() does not support removal.");
 	}
 }
 

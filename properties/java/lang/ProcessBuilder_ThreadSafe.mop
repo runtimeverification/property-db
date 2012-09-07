@@ -30,7 +30,8 @@ ProcessBuilder_ThreadSafe(ProcessBuilder p){
 	ere: safe_oper*
 
 	@fail {
-		System.err.println("More than two threads attempted to use a ProcessBuilder instance, which may lead to a race condition");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ProcessBuilder_ThreadSafe was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "More than two threads attempted to use a ProcessBuilder instance, which may lead to a race condition");
 		__RESET;
 	}
 }

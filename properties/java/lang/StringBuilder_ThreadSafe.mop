@@ -30,7 +30,8 @@ StringBuilder_ThreadSafe(StringBuilder b){
 	ere: safe_oper*
 
 	@fail {
-		System.err.println("More than two threads attempted to use a StringBuilder instance, which may lead to a race condition. Use StringBuffer instead.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StringBuilder_ThreadSafe was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "More than two threads attempted to use a StringBuilder instance, which may lead to a race condition. Use StringBuffer instead.");
 		__RESET;
 	}
 }

@@ -36,7 +36,8 @@ ListIterator_Set(ListIterator i) {
 	ere : create add* ((next | previous)+ set* (remove | add+ | epsilon))*
 
 	@fail {
-		System.err.println("ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ListIterator_Set was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
 	}
 }
 

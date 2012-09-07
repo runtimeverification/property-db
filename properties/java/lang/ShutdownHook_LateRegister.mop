@@ -27,7 +27,8 @@ ShutdownHook_LateRegister() {
 	ere : (register | unregister)* start+ (register | unregister)
 	
 	@match {
-		System.err.println("A shutdown hook was registered/unregister after the shutdown sequence had begun.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_LateRegister was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A shutdown hook was registered/unregister after the shutdown sequence had begun.");
 	}
 }
 

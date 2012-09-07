@@ -39,7 +39,8 @@ StringTokenizer_HasMoreElements(StringTokenizer i) {
 	ltl: [](next => (*) hasnexttrue)
 
 	@violation {
-		System.err.println("StringTokenizer.hasMoreTokens()/hasMoreElements() did not return false before calling nextToken()/nextElement().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StringTokenizer_HasMoreElements was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "StringTokenizer.hasMoreTokens()/hasMoreElements() did not return false before calling nextToken()/nextElement().");
 	}
 }
 

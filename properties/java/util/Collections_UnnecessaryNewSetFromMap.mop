@@ -24,7 +24,8 @@ Collections_UnnecessaryNewSetFromMap() {
 			args(HashMap) ||
 			args(TreeMap)
 		) {
-		System.err.println("There is no need to use Collections.newSetFromMap() on HashMap or TreeMap.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_UnnecessaryNewSetFromMap was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "There is no need to use Collections.newSetFromMap() on HashMap or TreeMap.");
 	}
 }
 

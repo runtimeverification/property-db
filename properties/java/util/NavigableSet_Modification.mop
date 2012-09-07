@@ -48,7 +48,8 @@ NavigableSet_Modification(NavigableSet s1, NavigableSet s2, Iterator i) {
 	ere : create (modify1 | modify2)* (getiter1 | getiter2) useiter* (modify1 | modify2)+ useiter
 
 	@match {
-		System.err.println("The NavigableSet was modified while an iteration over a NavigableSet that shares the same storage.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " NavigableSet_Modification was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The NavigableSet was modified while an iteration over a NavigableSet that shares the same storage.");
 	}
 }
 

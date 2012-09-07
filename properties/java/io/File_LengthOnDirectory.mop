@@ -15,7 +15,8 @@ import java.io.*;
 File_LengthOnDirectory() {
 	event bad_length before(File f) :
 		call(* File+.length()) && target(f) && condition(f.isDirectory()) {
-		System.err.println("length() was invoked on a File instance that represents a directory.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " File_LengthOnDirectory was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "length() was invoked on a File instance that represents a directory.");
 	}
 
 }

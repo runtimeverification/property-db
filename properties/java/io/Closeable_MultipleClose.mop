@@ -22,7 +22,8 @@ Closeable_MultipleClose(Closeable c) {
 	ere : close close+
 
 	@match {
-		System.err.println("close() was invoked multiple times.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Closeable_MultipleClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "close() was invoked multiple times.");
 	}
 }
 

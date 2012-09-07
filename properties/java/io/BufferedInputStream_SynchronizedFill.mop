@@ -19,7 +19,8 @@ BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 	ptcaret : [*s@b] fill
 
 	@match {
-		System.err.println("BufferedInputStream.fill() is being called by a non-synchronized method.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " BufferedInputStream_SynchronizedFill was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "BufferedInputStream.fill() is being called by a non-synchronized method.");
 	}
 }
 

@@ -40,7 +40,8 @@ ShutdownHook_SystemExit(Thread t) {
 		]
 
 	@unsafe {
-		System.err.println("Invoking System.exit() in a shutdown hook was suppressed because it may lead to deadlocks.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_SystemExit was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Invoking System.exit() in a shutdown hook was suppressed because it may lead to deadlocks.");
 	}
 }
 

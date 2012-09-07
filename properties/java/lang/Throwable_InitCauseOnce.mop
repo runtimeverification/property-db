@@ -26,7 +26,8 @@ Throwable_InitCauseOnce(Throwable t){
     ere : (createWithoutThrowable initCause initCause+) | (createWithThrowable initCause+)  
 
 	@match{
-           System.out.println("initCause should not be called more than once.");
+           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Throwable_InitCauseOnce was violated.");
+           javamoprt.MOPLogging.out.println(WARNING, "initCause should not be called more than once.");
 	}
 }
 		

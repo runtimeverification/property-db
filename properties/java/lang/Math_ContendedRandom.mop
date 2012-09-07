@@ -28,6 +28,7 @@ Math_ContendedRandom() {
 	ere : onethread_use*
 
 	@fail {
-		System.err.println("Math.random() is used by multiple threads. If there is contention, we recommend you to use Random.nextDouble().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Math_ContendedRandom was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Math.random() is used by multiple threads. If there is contention, we recommend you to use Random.nextDouble().");
 	}
 }

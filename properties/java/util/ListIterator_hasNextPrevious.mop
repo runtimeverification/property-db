@@ -62,7 +62,8 @@ ListIterator_hasNextPrevious(ListIterator i) {
 		]
 
 	@fail {
-		System.out.println("ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
+		javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " ListIterator_hasNextPrevious was violated.");
+		javamoprt.MOPLogging.out.println(WARNING, "ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
 	}
 }
 

@@ -41,7 +41,8 @@ SortedSet_StandardConstructors() {
 				Constructor ctor4 = klass.getDeclaredConstructor(SortedSet.class);
 			}
 			catch (NoSuchMethodException e) {
-				System.err.println(klass.getName() + " does not define the 'standard' SortedSet constructors.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SortedSet_StandardConstructors was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not define the 'standard' SortedSet constructors.");
 			}
 		}
 	}

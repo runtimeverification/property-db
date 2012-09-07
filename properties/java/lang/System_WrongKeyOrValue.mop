@@ -34,7 +34,8 @@ System_WrongKeyOrValue(Map map){
     ere : createMap (nullPut | nullQuery | notStringQuery)+ 
 
 	@match{
-           System.out.println("null key or value is not permitted in the map from System.getenv(). Also key or value which is not of type String is not allowed.");
+           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " System_WrongKeyOrValue was violated.");
+           javamoprt.MOPLogging.out.println(WARNING, "null key or value is not permitted in the map from System.getenv(). Also key or value which is not of type String is not allowed.");
 	}
 }
 		

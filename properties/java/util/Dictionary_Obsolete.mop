@@ -21,7 +21,8 @@ Dictionary_Obsolete(Dictionary d) {
 	ere : use
 
 	@match {
-		System.err.println("The Dictionary class is obsolete. New implementations should implement the Map interface.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Dictionary_Obsolete was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The Dictionary class is obsolete. New implementations should implement the Map interface.");
 	}
 }
 

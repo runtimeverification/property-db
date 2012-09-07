@@ -25,7 +25,8 @@ Thread_SetDaemonBeforeStart(Thread t){
     ere : setDaemon* start 
 
 	@fail{
-           System.err.println("setDaemon should not be set after the thread started");
+           javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Thread_SetDaemonBeforeStart was violated.");
+           javamoprt.MOPLogging.out.println(ERROR, "setDaemon should not be set after the thread started");
 	}
 }
 		

@@ -33,7 +33,8 @@ InputStream_ManipulateAfterClose(InputStream i) {
 	ere : close+ manipulate
 
 	@match {
-		System.err.println("read(), available(), reset() or skip() was invoked after close().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_ManipulateAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "read(), available(), reset() or skip() was invoked after close().");
 	}
 }
 

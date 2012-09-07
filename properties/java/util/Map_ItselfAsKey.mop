@@ -22,15 +22,19 @@ import java.lang.reflect.*;
 Map_ItselfAsKey() {
 	event put before(Map map, Object key, Object value) :
 		call(* Map+.put(Object, Object)) && target(map) && args(key, value) {
-		if (key == map)
-			System.err.println("A map cannot contain itself as a key.");
+		if (key == map) {
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_ItselfAsKey was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "A map cannot contain itself as a key.");
+		}
 	}
 
 	event putall before(Map map, Map src) :
 		call(* Map+.putAll(Map)) && target(map) && args(src) {
 		for (Map.Entry entry : (Set<Map.Entry>)src.entrySet()) {
-			if (entry.getKey() == map)
-				System.err.println("A map cannot contain itself as a key.");
+			if (entry.getKey() == map) {
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_ItselfAsKey was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "A map cannot contain itself as a key.");
+			}
 		}
 	}
 }

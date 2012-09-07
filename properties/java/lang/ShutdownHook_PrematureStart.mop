@@ -38,7 +38,8 @@ ShutdownHook_PrematureStart(Thread t) {
 		]
 
 	@err {
-		System.err.println("A virtual-machine shutdown hook has been started by the user code.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_PrematureStart was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A virtual-machine shutdown hook has been started by the user code.");
 	}
 }
 

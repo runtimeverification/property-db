@@ -16,6 +16,7 @@ import java.lang.*;
 Enum_NoExtraWhiteSpace() {
 	event valueOf before(Class c, String name) : call(* Enum+.valueOf(Class, String)) && args(c, name) 
 		&& condition(name.length() != name.trim().length()) {
-		System.err.println("Please use the exact name. No extraneous whitespace characters are permitted");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enum_NoExtraWhiteSpace was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Please use the exact name. No extraneous whitespace characters are permitted");
 	}
 }

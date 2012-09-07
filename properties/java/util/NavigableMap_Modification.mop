@@ -61,7 +61,8 @@ NavigableMap_Modification(NavigableMap m1, NavigableMap m2, Collection c, Iterat
 	ere : create (modify1 | modify2)* (getset1 | getset2) (modify1 | modify2 | modify3)* getiter useiter* (modify1 | modify2 | modify3)+ useiter
 
 	@match {
-		System.err.println("The NavigableMap was modified while an iteration over a collection view of a NavigableMap that shares the same storage.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " NavigableMap_Modification was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The NavigableMap was modified while an iteration over a collection view of a NavigableMap that shares the same storage.");
 	}
 }
 

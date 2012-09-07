@@ -15,7 +15,8 @@ import java.lang.*;
 RuntimePermission_NullAction() {
 	event constructor_runtimeperm after(String name, String actions) returning(RuntimePermission r): 
 		call(RuntimePermission.new(String, String)) && args(name, actions) && condition(actions != null) {
-			System.err.println("The actions string should be null.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " RuntimePermission_NullAction was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "The actions string should be null.");
 		}
 }
 

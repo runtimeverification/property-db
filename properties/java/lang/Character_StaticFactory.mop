@@ -16,7 +16,8 @@ import java.lang.*;
 Character_StaticFactory() {
     event constructor_create after() returning(Character b): 
         call(Character+.new(char)) {
-            System.err.println("Using the constructor Character(char value) might be inefficient. Use valueOf(char c) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Character(char value) might be inefficient. Use valueOf(char c) if it is appropriate.");
         }
     
 }

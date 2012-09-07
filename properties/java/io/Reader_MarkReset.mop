@@ -19,12 +19,14 @@ Reader_MarkReset() {
 	event mark before(Reader+ r) : 
 		call(* Reader+.mark(..)) && target(r) 
 		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Reader_MarkReset was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
 
 	event reset before(Reader+ r) : 
 		call(* Reader+.reset(..)) && target(r)
 		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
-			System.err.println("PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Reader_MarkReset was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
 }

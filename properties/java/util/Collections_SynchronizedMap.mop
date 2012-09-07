@@ -50,7 +50,8 @@ Collections_SynchronizedMap(Map syncMap, Collection col, Iterator iter) {
 	ere : sync createSet (asyncCreateIter | (syncCreateIter accessIter))
 
 	@match {
-		System.err.println("A collection view of a synchronized map was accessed in a thread-unsafe manner.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_SynchronizedMap was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A collection view of a synchronized map was accessed in a thread-unsafe manner.");
 	}
 }
 

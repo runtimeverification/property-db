@@ -42,7 +42,8 @@ Arrays_DeepHashCode() {
 		call(int Arrays.deepHashCode(Object[])) && args(arr) {
 		ArrayList<Object[]> enclosing = new ArrayList<Object[]>();
 		if (cycle(enclosing, arr)){
-			System.err.println("The specified array contains itself as an element.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Arrays_DeepHashCode was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "The specified array contains itself as an element.");
 		}
 	}
 }

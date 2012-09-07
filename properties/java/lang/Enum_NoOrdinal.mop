@@ -14,7 +14,8 @@ import java.lang.*;
 
 Enum_NoOrdinal() {
 	event ordinal before() : call(* Enum+.ordinal()) {
-		System.err.println("Most programmers will have no use for ordinal() method."); 
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enum_NoOrdinal was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Most programmers will have no use for ordinal() method."); 
 	}
 
 	

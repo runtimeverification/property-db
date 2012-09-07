@@ -17,12 +17,14 @@ Long_BadDecodeArg() {
     event decode before(Long l, String nm) : 
         call(* Long.decode(String)) && args(nm) && target(l) {
         if(nm == null || nm.length() == 0){
-            System.err.println("Wrong argument to Long.decode(String nm)");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadDecodeArg was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.decode(String nm)");
         } else {
             //whitespace check
             for(int j = 0; j < nm.length(); j++){
                 if(Character.isWhitespace(nm.charAt(j))){
-                    System.err.println("Wrong argument to Long.decode(String nm)");
+                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadDecodeArg was violated.");
+                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.decode(String nm)");
                 }
             }
             
@@ -50,10 +52,12 @@ Long_BadDecodeArg() {
             
             try{
                 if(Long.parseLong(sub, radix) < 0){
-                    System.err.println("Wrong argument to Long.decode(String nm)");
+                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadDecodeArg was violated.");
+                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.decode(String nm)");
                 }
             } catch(Exception e){
-                System.err.println("Wrong argument to Long.decode(String nm)");
+                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadDecodeArg was violated.");
+                javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.decode(String nm)");
             }
             
         }

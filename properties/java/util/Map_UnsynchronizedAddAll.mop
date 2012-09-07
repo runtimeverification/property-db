@@ -33,7 +33,8 @@ Map_UnsynchronizedAddAll(Map t, Map s) {
 	ere : (enter leave modify*)*
 
 	@fail {
-		System.err.println("The source map of putAll() has been modified.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_UnsynchronizedAddAll was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The source map of putAll() has been modified.");
 	}
 }
 

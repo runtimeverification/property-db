@@ -22,7 +22,8 @@ Enumeration_Obsolete(Enumeration e) {
 	ere : use
 
 	@match {
-		System.err.println("The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enumeration_Obsolete was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
 	}
 }
 

@@ -25,7 +25,8 @@ ObjectStreamClass_Initialize(ObjectStreamClass c) {
 	ltl : [](create => o init)
 
 	@violation {
-		System.err.println("An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ObjectStreamClass_Initialize was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
 	}
 }
 

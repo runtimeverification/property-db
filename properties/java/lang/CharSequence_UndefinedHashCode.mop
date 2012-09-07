@@ -18,10 +18,12 @@ import java.nio.*;
 
 CharSequence_UndefinedHashCode() {
 	event equals before() : call(* CharSequence+.equals(..)) && !target(String) && !target(CharBuffer){
-		System.err.println("equals and hashCode methods might not be supported in CharSequence"); 
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_UndefinedHashCode was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "equals and hashCode methods might not be supported in CharSequence"); 
 	}
 	
 	event hashCode before() : call(* CharSequence+.hashCode(..)) && !target(String) && !target(CharBuffer){
-		System.err.println("equals and hashCode methods might not be supported in CharSequence"); 
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_UndefinedHashCode was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "equals and hashCode methods might not be supported in CharSequence"); 
 	}
 }

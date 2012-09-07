@@ -59,7 +59,8 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 	ere : getset (modifyMap | modifyCol)* getiter useiter* (modifyMap | modifyCol)+ useiter
 
 	@match {
-		System.err.println("The map was modified while an iteration over the set is in progress.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_UnsafeIterator was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The map was modified while an iteration over the set is in progress.");
 	}
 }
 

@@ -31,7 +31,8 @@ Appendable_ThreadSafe(Appendable a) {
 	ere: safe_append*
 
 	@fail {
-		System.err.println("More than two threads attempted to use an Appendable instance, which may lead to a race condition");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Appendable_ThreadSafe was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "More than two threads attempted to use an Appendable instance, which may lead to a race condition");
 	}
 }
 

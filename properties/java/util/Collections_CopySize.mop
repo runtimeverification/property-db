@@ -19,7 +19,8 @@ Collections_CopySize() {
 	event bad_copy before(List dest, List src) :
 		call(void Collections.copy(List, List)) && args(dest, src) &&
 		condition(dest.size() < src.size()) {
-		System.err.println("The destination list must be at least as long as the source list.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_CopySize was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The destination list must be at least as long as the source list.");
 	}
 }
 

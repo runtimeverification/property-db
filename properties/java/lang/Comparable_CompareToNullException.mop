@@ -16,10 +16,12 @@ Comparable_CompareToNullException() {
 
 	event badexception after(Object o) throwing(Exception e) : call(* Comparable+.compareTo(..)) 
 		&& args(o) && if(o == null) && condition(!(e instanceof NullPointerException)) {
-			System.err.println("NullPointerException should be thrown when an object is compared to null");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Comparable_CompareToNullException was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "NullPointerException should be thrown when an object is compared to null");
 		}
 	event badcompare after(Object o) returning(int i) : call(* Comparable+.compareTo(..)) 
 		&& args(o) && if(o == null) {
-			System.err.println("NullPointerException should be thrown when an object is compared to null");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Comparable_CompareToNullException was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "NullPointerException should be thrown when an object is compared to null");
 		}
 }

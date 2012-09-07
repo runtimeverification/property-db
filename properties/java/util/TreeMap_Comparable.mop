@@ -20,7 +20,8 @@ import java.lang.*;
 TreeMap_Comparable() {
 	private void validate(Object elem) {
 		if (!(elem instanceof Comparable)) {
-			System.err.println("A non-comparable object is being inserted into a TreeMap object.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " TreeMap_Comparable was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "A non-comparable object is being inserted into a TreeMap object.");
 		}
 	}
 

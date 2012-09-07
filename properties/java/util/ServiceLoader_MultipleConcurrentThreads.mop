@@ -39,7 +39,8 @@ ServiceLoader_MultipleConcurrentThreads(ServiceLoader s) {
 	ere : create gooduse* baduse
 
 	@match {
-		System.err.println("A ServiceLoader object has been used by multiple threads.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ServiceLoader_MultipleConcurrentThreads was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A ServiceLoader object has been used by multiple threads.");
 	}
 }
 

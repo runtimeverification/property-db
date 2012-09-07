@@ -16,9 +16,11 @@ Long_BadParsingArgs() {
 	event bad_arg before(String s, int radix) : 
 		call(* Long.parseLong(String, int)) && args(s, radix) {
 			if(s == null || s.length() == 0){
-				System.err.println("Wrong argument to Long.parseLong(String s, int radix)");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadParsingArgs was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.parseLong(String s, int radix)");
 			} else if(radix < java.lang.Character.MIN_RADIX || radix > java.lang.Character.MAX_RADIX){
-				System.err.println("Wrong argument to Long.parseLong(String s, int radix)");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadParsingArgs was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.parseLong(String s, int radix)");
 			} else {
 				for(int j = 0; j < s.length(); j++){
 					if(Character.digit(s.charAt(j), radix) == -1){
@@ -27,7 +29,8 @@ Long_BadParsingArgs() {
 						} else if(j == s.length() - 1 && (s.charAt(j) == 'l' || s.charAt(j) == 'L')){
 							//okay
 						} else {
-							System.err.println("Wrong argument to Long.parseLong(String s, int radix)");
+							javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadParsingArgs was violated.");
+							javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.parseLong(String s, int radix)");
 						}
 					} 
 				}
@@ -37,7 +40,8 @@ Long_BadParsingArgs() {
 	event bad_arg2 before(String s) : 
 		call(* Long.parseLong(String)) && args(s) {
 			if(s == null || s.length() == 0){
-				System.err.println("Wrong argument to Long.parseLong(String s)");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadParsingArgs was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.parseLong(String s)");
 			} else {
 				for(int j = 0; j < s.length(); j++){
 					if(Character.digit(s.charAt(j), 10) == -1){
@@ -46,7 +50,8 @@ Long_BadParsingArgs() {
 						} else if(j == s.length() - 1 && (s.charAt(j) == 'l' || s.charAt(j) == 'L')){
 							//okay
 						} else {
-							System.err.println("Wrong argument to Long.parseLong(String s)");
+							javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_BadParsingArgs was violated.");
+							javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Long.parseLong(String s)");
 						}
 					} 
 				}

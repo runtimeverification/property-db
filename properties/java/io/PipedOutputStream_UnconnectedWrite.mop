@@ -41,7 +41,8 @@ PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
 		]
 
 	@fail {
-		System.err.println("An unconnected PipedOutputStream performed write() operation.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PipedOutputStream_UnconnectedWrite was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "An unconnected PipedOutputStream performed write() operation.");
 	}
 }
 

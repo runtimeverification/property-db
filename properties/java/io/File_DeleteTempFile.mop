@@ -33,7 +33,8 @@ File_DeleteTempFile(File f) {
 	ltl : [](create => o (explicit or implicit))
 
 	@violation {
-		System.err.println("A temporary file has not been deleted.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " File_DeleteTempFile was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A temporary file has not been deleted.");
 	}
 }
 

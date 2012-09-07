@@ -15,7 +15,8 @@ import java.lang.*;
 System_NullArrayCopy() {
 	event null_arraycopy before(Object src, int srcPos, Object dest, int destPos, int length): 
 		call(* System.arraycopy(Object, int, Object, int, int)) && args(src, srcPos, dest, destPos, length) && condition(src == null || dest == null) {
-			System.err.println("src or dest should not be null.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " System_NullArrayCopy was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "src or dest should not be null.");
 		}
 }
 

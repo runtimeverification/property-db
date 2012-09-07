@@ -40,14 +40,18 @@ Serializable_UID() {
 				boolean islong = fieldtype.getName() == "long";
 
 				if (!isstatic)
-					System.err.println("The serialVersionUID field of " + klass.getName() + " is not a static field.");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
 				if (!isfinal)
-					System.err.println("The serialVersionUID field of " + klass.getName() + " is not a final field.");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
 				if (!islong)
-					System.err.println("The serialVersionUID field of " + klass.getName() + " is not of type long.");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
 			}
 			catch (NoSuchFieldException e) {
-				System.err.println("A serializable class " + klass.getName() + " does not declare a serialVersionUID");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
 			}
 		}
 	}

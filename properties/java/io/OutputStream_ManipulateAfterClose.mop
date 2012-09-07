@@ -30,7 +30,8 @@ OutputStream_ManipulateAfterClose(OutputStream o) {
 	ere : close+ manipulate+
 
 	@match {
-		System.err.println("write() or flush() was invoked after close()."); 
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " OutputStream_ManipulateAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "write() or flush() was invoked after close()."); 
 	}
 }
 

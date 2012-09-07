@@ -57,7 +57,8 @@ ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream 
 		]
 
 	@fail {
-		System.err.println("flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ByteArrayOutputStream_FlushBeforeRetrieve was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
 	}
 }
 

@@ -41,7 +41,8 @@ SortedMap_StandardConstructors() {
 				Constructor ctor4 = klass.getDeclaredConstructor(SortedMap.class);
 			}
 			catch (NoSuchMethodException e) {
-				System.err.println(klass.getName() + " does not define the 'standard' SortedMap constructors.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SortedMap_StandardConstructors was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not define the 'standard' SortedMap constructors.");
 			}
 		}
 	}

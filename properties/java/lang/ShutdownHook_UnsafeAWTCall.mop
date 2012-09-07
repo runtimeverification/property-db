@@ -41,7 +41,8 @@ ShutdownHook_UnsafeAWTCall(Thread t) {
 		]
 
 	@unsafe {
-		System.err.println("An operation that potentially leads to deadlocks was performed in a shutdown hook.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_UnsafeAWTCall was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "An operation that potentially leads to deadlocks was performed in a shutdown hook.");
 	}
 }
 

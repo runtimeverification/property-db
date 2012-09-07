@@ -31,7 +31,8 @@ Closeable_MeaninglessClose() {
 			target(CharArrayWriter) ||
 			target(StringWriter)
 		) {
-			System.err.println("close() has no effect.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Closeable_MeaninglessClose was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "close() has no effect.");
 		}
 
 }

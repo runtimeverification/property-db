@@ -34,7 +34,8 @@ Collections_Comparable() {
 					comp.compare(o2, o1);
 				}
 				catch (ClassCastException e) {
-					System.err.println(i + "-th element and " + j + "-th element are not comparable.");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_Comparable was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, i + "-th element and " + j + "-th element are not comparable.");
 				}
 			}
 		}

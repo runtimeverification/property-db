@@ -19,9 +19,11 @@ RuntimePermission_PermName() {
 			int index = name.indexOf("*");
 			if(index != -1 && name.length() > 1){
 				if(index != name.length() - 1){
-					System.err.println("The permission name for RuntimePermission is invalid");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " RuntimePermission_PermName was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The permission name for RuntimePermission is invalid");
 				} else if (name.charAt(index - 1) != '.'){
-					System.err.println("The permission name for RuntimePermission is invalid");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " RuntimePermission_PermName was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "The permission name for RuntimePermission is invalid");
 				}
 			}
 		}

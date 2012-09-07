@@ -20,7 +20,8 @@ ObjectInput_Close(ObjectInput i) {
 	ltl : [](create => o close)
 
 	@violation {
-		System.err.println("close() was not called.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ObjectInput_Close was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "close() was not called.");
 	}
 }
 

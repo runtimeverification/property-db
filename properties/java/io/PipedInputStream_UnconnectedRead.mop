@@ -45,7 +45,8 @@ PipedInputStream_UnconnectedRead(PipedInputStream i) {
 		]
 
 	@fail {
-		System.err.println("An unconnected PipedInputStream performed read() operation.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PipedInputStream_UnconnectedRead was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "An unconnected PipedInputStream performed read() operation.");
 	}
 }
 

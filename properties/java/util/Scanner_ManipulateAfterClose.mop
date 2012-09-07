@@ -48,7 +48,8 @@ Scanner_ManipulateAfterClose(Scanner s, Closeable c) {
 	ere : create close+ manipulate
 
 	@match {
-		System.err.println("The source stream or reader was used after the Scanner had been closed.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Scanner_ManipulateAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The source stream or reader was used after the Scanner had been closed.");
 	}
 }
 

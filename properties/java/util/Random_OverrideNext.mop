@@ -24,7 +24,8 @@ Random_OverrideNext() {
 				Method nextmethod = klass.getDeclaredMethod("next", Integer.class);
 			}
 			catch (NoSuchMethodException e) {
-				System.err.println(klass.getName() + " does not override int next(int bits).");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Random_OverrideNext was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not override int next(int bits).");
 			}
 		}
 	}

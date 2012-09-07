@@ -27,7 +27,8 @@ RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
 	ere : close+ manipulate+
 
 	@match {
-		System.err.println("A closed random access file cannot perform input or output operations.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " RandomAccessFile_ManipulateAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A closed random access file cannot perform input or output operations.");
 	}
 }
 

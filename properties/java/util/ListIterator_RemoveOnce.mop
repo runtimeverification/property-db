@@ -28,7 +28,8 @@ ListIterator_RemoveOnce(ListIterator i) {
 	ere : ((next | previous)+ (remove | epsilon))*
 
 	@fail {
-		System.err.println("ListIterator.remove() can be called only once per call to next()/previous().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ListIterator_RemoveOnce was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "ListIterator.remove() can be called only once per call to next()/previous().");
 	}
 }
 

@@ -48,7 +48,8 @@ List_UnsafeListIterator(List l, ListIterator i) {
 	ere : create useiter* modify+ useiter
 
 	@match {
-		System.err.println("The list was modified while a list iterator is being used.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " List_UnsafeListIterator was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The list was modified while a list iterator is being used.");
 	}
 }
 

@@ -23,14 +23,16 @@ CharSequence_NotInMap(Map map) {
 	event map_put before(Map map) : call(* Map+.put(..)) && target(map) && args(CharSequence, ..) && !args(String, ..) && !args(CharBuffer, ..)
 		&& condition(!flag){
 			flag = true;
-			System.err.println("It might not be safe to add a CharSequence instance into a map as a key"); 
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_NotInMap was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "It might not be safe to add a CharSequence instance into a map as a key"); 
 		}
 
 	event map_putall before(Map map, Map m) : call(* Map+.putAll(Map)) && args(m) && target(map) && condition(!flag) {
 			for(Object o : m.keySet()){
 				if(o instanceof CharSequence && !(o instanceof String) && !(o instanceof CharBuffer)){
 					flag = true;
-					System.err.println("It might not be safe to add a CharSequence instance into a map as a key");
+					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_NotInMap was violated.");
+					javamoprt.MOPLogging.out.println(ERROR, "It might not be safe to add a CharSequence instance into a map as a key");
 				}
 			} 
 		}

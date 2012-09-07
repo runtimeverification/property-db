@@ -107,7 +107,8 @@ PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {
 	ere : create (read | safeunread)*
 
 	@fail {
-		System.err.println("unread() cannot be performed because the internal pushback buffer is full.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PushbackInputStream_UnreadAheadLimit was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "unread() cannot be performed because the internal pushback buffer is full.");
 	}
 }
 

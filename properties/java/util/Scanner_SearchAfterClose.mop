@@ -27,7 +27,8 @@ Scanner_SearchAfterClose(Scanner s) {
 	ere : close+ search+
 
 	@match {
-		System.err.println("A closed Scanner object attempted to perform search operations.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Scanner_SearchAfterClose was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A closed Scanner object attempted to perform search operations.");
 	}
 }
 

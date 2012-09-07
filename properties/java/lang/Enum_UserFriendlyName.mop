@@ -14,7 +14,8 @@ import java.lang.*;
 
 Enum_UserFriendlyName() {
 	event name before() : call(* Enum+.name()) {
-		System.err.println("Most programmers should use toString(). It gives a more user-friendly name."); 
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enum_UserFriendlyName was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Most programmers should use toString(). It gives a more user-friendly name."); 
 	}
 
 	

@@ -43,7 +43,8 @@ Collection_UnsafeIterator(Collection c, Iterator i) {
 	ere : create useiter* modify+ useiter
 
 	@match {
-		System.err.println("The collection was modified while an iterator is being used.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_UnsafeIterator was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The collection was modified while an iterator is being used.");
 	}
 }
 

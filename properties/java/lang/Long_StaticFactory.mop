@@ -16,7 +16,8 @@ import java.lang.*;
 Long_StaticFactory() {
     event constructor_create after() returning(Long l): 
         call(Long+.new(long)) {
-            System.err.println("Using the constructor Long(long value) might be inefficient. Use valueOf(long) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Long_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Long(long value) might be inefficient. Use valueOf(long) if it is appropriate.");
         }
     
 }

@@ -32,7 +32,8 @@ ResourceBundleControl_MutateFormatList(List l) {
 	ere : create mutate
 
 	@match {
-		System.err.println("The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ResourceBundleControl_MutateFormatList was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
 	}
 }
 

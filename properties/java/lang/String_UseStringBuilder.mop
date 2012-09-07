@@ -16,7 +16,8 @@ import java.lang.*;
 String_UseStringBuilder() {
     event constructor_create after() returning(String b): 
         call(String.new(StringBuilder)) {
-            System.err.println("Using the constructor String(StringBuilder builder) is inefficient. Use toString() method on the StringBuilder.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " String_UseStringBuilder was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor String(StringBuilder builder) is inefficient. Use toString() method on the StringBuilder.");
         }
     
 }

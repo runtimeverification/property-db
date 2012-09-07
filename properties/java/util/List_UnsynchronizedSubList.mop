@@ -34,7 +34,8 @@ List_UnsynchronizedSubList(List b, List s) {
 	ere : createsublist usesublist* modifybackinglist+ usesublist
 
 	@match {
-		System.err.println("The backing list was modified while a sub-list is being used.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " List_UnsynchronizedSubList was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The backing list was modified while a sub-list is being used.");
 	}
 }
 

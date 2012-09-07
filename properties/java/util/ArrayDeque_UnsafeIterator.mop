@@ -45,7 +45,8 @@ ArrayDeque_UnsafeIterator(ArrayDeque q, Iterator i) {
 	ere : create useiter* modify+ useiter
 
 	@match {
-		System.err.println("The deque was modified while an iterator is being used.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ArrayDeque_UnsafeIterator was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The deque was modified while an iterator is being used.");
 	}
 }
 

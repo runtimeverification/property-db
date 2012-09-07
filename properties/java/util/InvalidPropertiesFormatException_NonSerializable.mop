@@ -28,12 +28,14 @@ InvalidPropertiesFormatException_NonSerializable() {
 	event serialize before(ObjectOutputStream out, InvalidPropertiesFormatException obj) :
 		call(* ObjectOutputStream+.writeObject(..)) &&
 		target(out) && args(obj) {
-		System.err.println("InvalidPropertiesFormatException is not intended to be Serialized.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InvalidPropertiesFormatException_NonSerializable was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "InvalidPropertiesFormatException is not intended to be Serialized.");
 	}
 
 	event deserialize after(ObjectInputStream in) returning(InvalidPropertiesFormatException obj) :
 		call(* ObjectInputStream+.readObject(..)) && target(in) {
-		System.err.println("InvalidPropertiesFormatException is not intended to be Serialized.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InvalidPropertiesFormatException_NonSerializable was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "InvalidPropertiesFormatException is not intended to be Serialized.");
 	}
 }
 

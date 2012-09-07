@@ -36,7 +36,8 @@ Deque_OfferRatherThanAdd(Deque q) {
 	ere : create add+
 
 	@match {
-		System.err.println("When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Deque_OfferRatherThanAdd was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
 	}
 }
 

@@ -35,7 +35,8 @@ Collection_UnsynchronizedAddAll(Collection t, Collection s) {
 	ere : (enter leave modify*)*
 
 	@fail {
-		System.err.println("The source collection of addAll() has been modified.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_UnsynchronizedAddAll was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "The source collection of addAll() has been modified.");
 	}
 }
 

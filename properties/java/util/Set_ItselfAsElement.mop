@@ -22,14 +22,16 @@ import java.lang.reflect.*;
 Set_ItselfAsElement() {
 	event add before(Set s, Object elem) :
 		call(* Set+.add(Object)) && target(s) && args(elem) && condition(elem == s){
-		System.err.println("A set cannot contain itself as an element.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Set_ItselfAsElement was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A set cannot contain itself as an element.");
 	}
 
 	event addall before(Set s, Collection src) :
 		call(* Set+.addAll(Collection)) && target(s) && args(src) {
 		for (Object elem : src) {
 			if (elem == s) {
-				System.err.println("A set cannot contain itself as an element.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Set_ItselfAsElement was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "A set cannot contain itself as an element.");
 			}
 		}
 	}

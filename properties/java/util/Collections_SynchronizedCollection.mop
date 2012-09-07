@@ -44,7 +44,8 @@ Collections_SynchronizedCollection(Collection col, Iterator iter) {
 	ere : (sync asyncCreateIter) | (sync syncCreateIter accessIter)
 
 	@match {
-		System.err.println("A synchronized collection was accessed in a thread-unsafe manner.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_SynchronizedCollection was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A synchronized collection was accessed in a thread-unsafe manner.");
 	}
 }
 

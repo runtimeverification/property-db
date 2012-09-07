@@ -36,7 +36,8 @@ Map_CollectionViewAdd(Map m, Collection c) {
 	ere : getset add+
 
 	@match {
-		System.err.println("A collection/set view of a map does not support add()/addAll().");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_CollectionViewAdd was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "A collection/set view of a map does not support add()/addAll().");
 	}
 }
 

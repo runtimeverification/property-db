@@ -16,7 +16,8 @@ import java.lang.*;
 Byte_StaticFactory() {
     event constructor_create after() returning(Byte b): 
         call(Byte+.new(byte)) {
-            System.err.println("Using the constructor Byte(byte value) might be inefficient. Use valueOf(byte) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Byte_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Byte(byte value) might be inefficient. Use valueOf(byte) if it is appropriate.");
         }
     
 }

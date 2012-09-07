@@ -16,7 +16,8 @@ import java.lang.*;
 Double_StaticFactory() {
     event constructor_create after() returning(Double d): 
         call(Double+.new(double)) {
-            System.err.println("Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Double_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
         }
     
 }

@@ -23,7 +23,8 @@ Object_NoClone() {
 		&& !within(org.apache.batik.ext.awt.image.spi.MagicNumberRegistryEntry)
 		&& !within(org.apache.xerces.util.XMLCatalogResolver)
 		&& target(o) && condition(o.getClass().getCanonicalName().equals("java.lang.Object")){
-			System.err.println("Using the clone method on an Object instance will result in throwing an exception.");
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_NoClone was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "Using the clone method on an Object instance will result in throwing an exception.");
 	}
 
 }

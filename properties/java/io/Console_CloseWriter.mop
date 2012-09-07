@@ -23,7 +23,8 @@ Console_CloseWriter(Writer w) {
 	ere : getwriter close+
 
 	@match {
-		System.err.println("Invoking close() on the object returned by Console.writer() does not close the underlying stream.");
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Console_CloseWriter was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Invoking close() on the object returned by Console.writer() does not close the underlying stream.");
 	}
 }
 

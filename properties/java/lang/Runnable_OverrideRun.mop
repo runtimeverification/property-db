@@ -22,7 +22,8 @@ Runnable_OverrideRun() {
 			try{
 				m = klass.getMethod("run");
 			} catch (NoSuchMethodException e){
-				System.err.println("A Runnable class should provide/override run() method.");
+				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Runnable_OverrideRun was violated.");
+				javamoprt.MOPLogging.out.println(ERROR, "A Runnable class should provide/override run() method.");
 			}
 		}
 	}
