@@ -166,9 +166,11 @@ abstract public class HttpURLConnection extends URLConnection {
      * A HttpRetryException will be thrown when reading
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * This method must be called before the URLConnection is connected.
-     * {@description.close}
+     * {@property.close}
      *
      * @param   chunklen The number of bytes to write in each chunk.
      *          If chunklen is less than or equal to zero, a default

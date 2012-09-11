@@ -110,12 +110,16 @@ public final class HttpCookie implements Cloneable {
     /** {@collect.stats} 
      * {@description.open}
      * Constructs a cookie with a specified name and value.
+     * {@description.close}
      *
+     * {@property.open}
      * <p>The name must conform to RFC 2965. That means it can contain
      * only ASCII alphanumeric characters and cannot contain commas,
      * semicolons, or white space or begin with a $ character. The cookie's
      * name cannot be changed after creation.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>The value can be anything the server chooses to send. Its
      * value is probably of interest only to the server. The cookie's
      * value can be changed after creation with the
@@ -388,8 +392,13 @@ public final class HttpCookie implements Cloneable {
      * {@description.open}
      *
      * Specifies the domain within which this cookie should be presented.
+     * {@description.close}
      *
-     * <p>The form of the domain name is specified by RFC 2965. A domain
+     * {@property.open}
+     * <p>The form of the domain name is specified by RFC 2965.
+     * {@property.close}
+     * {@description.open}
+     * A domain
      * name begins with a dot (<code>.foo.com</code>) and means that
      * the cookie is visible to servers in a specified Domain Name System
      * (DNS) zone (for example, <code>www.foo.com</code>, but not
