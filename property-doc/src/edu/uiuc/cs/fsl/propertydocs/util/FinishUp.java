@@ -45,6 +45,10 @@ public class FinishUp {
                  + "\nol { color:inherit;background-color:inherit }"
                  + "\ndl { color:inherit;background-color:inherit }"
                  + "\npre { color:inherit;background-color:inherit }"
+                 + "\nh1 { color:inherit;background-color:inherit }"
+                 + "\nh2 { color:inherit;background-color:inherit }"
+                 + "\nh3 { color:inherit;background-color:inherit }"
+                 + "\nh4 { color:inherit;background-color:inherit }"
                  + "\ncode { color:inherit;background-color:inherit }"
                  + "\ntable { color:inherit;background-color:inherit }"
                  );
