@@ -43,6 +43,7 @@ import sun.misc.Service;
 import sun.net.spi.nameservice.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class represents an Internet Protocol (IP) address.
  *
  * <p> An IP address is either a 32-bit or 128-bit unsigned number
@@ -170,6 +171,7 @@ import sun.net.spi.nameservice.*;
  * </dd>
  * </dl>
  * </blockquote>
+ * {@description.close}
  *
  * @author  Chris Warth
  * @see     java.net.InetAddress#getByAddress(byte[])
@@ -182,13 +184,17 @@ import sun.net.spi.nameservice.*;
 public
 class InetAddress implements java.io.Serializable {
     /** {@collect.stats} 
+     * {@description.open}
      * Specify the address family: Internet Protocol, Version 4
+     * {@description.close}
      * @since 1.4
      */
     static final int IPv4 = 1;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Specify the address family: Internet Protocol, Version 6
+     * {@description.close}
      * @since 1.4
      */
     static final int IPv6 = 2;
@@ -202,15 +208,19 @@ class InetAddress implements java.io.Serializable {
     String hostName;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Holds a 32-bit IPv4 address.
+     * {@description.close}
      *
      * @serial
      */
     int address;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Specifies the address family type, for instance, '1' for IPv4
      * addresses, and '2' for IPv6 addresses.
+     * {@description.close}
      *
      * @serial
      */
@@ -222,7 +232,11 @@ class InetAddress implements java.io.Serializable {
     /* Used to store the best available hostname */
     private transient String canonicalHostName = null;
 
-    /** {@collect.stats}  use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats}
+     * {@description.open}
+     * use serialVersionUID from JDK 1.0.2 for interoperability 
+     * {@description.close}
+     */
     private static final long serialVersionUID = 3286316764910316507L;
 
     /*
@@ -236,16 +250,20 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructor for the Socket.accept() method.
      * This creates an empty InetAddress, which is filled in by
      * the accept() method.  This InetAddress, however, is not
      * put in the address cache, since it is not created by name.
+     * {@description.close}
      */
     InetAddress() {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Replaces the de-serialized object with an Inet4Address object.
+     * {@description.close}
      *
      * @return the alternate object to the de-serialized object.
      *
@@ -258,8 +276,10 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is an
      * IP multicast address.
+     * {@description.close}
      * @return a <code>boolean</code> indicating if the InetAddress is
      * an IP multicast address
      * @since   JDK1.1
@@ -269,7 +289,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress in a wildcard address.
+     * {@description.close}
      * @return a <code>boolean</code> indicating if the Inetaddress is
      *         a wildcard address.
      * @since 1.4
@@ -279,7 +301,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is a loopback address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a loopback address; or false otherwise.
@@ -290,7 +314,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is an link local address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a link local address; or false if address is not a link local unicast address.
@@ -301,7 +327,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is a site local address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a site local address; or false if address is not a site local unicast address.
@@ -312,7 +340,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has global scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of global scope, false if it is not
@@ -324,7 +354,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has node scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of node-local scope, false if it is not
@@ -336,7 +368,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has link scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of link-local scope, false if it is not
@@ -348,7 +382,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has site scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of site-local scope, false if it is not
@@ -360,7 +396,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has organization scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of organization-local scope,
@@ -374,6 +412,7 @@ class InetAddress implements java.io.Serializable {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Test whether that address is reachable. Best effort is made by the
      * implementation to try to reach the host, but firewalls and server
      * configuration may block requests resulting in a unreachable status
@@ -384,8 +423,12 @@ class InetAddress implements java.io.Serializable {
      * <p>
      * The timeout value, in milliseconds, indicates the maximum amount of time
      * the try should take. If the operation times out before getting an
-     * answer, the host is deemed unreachable. A negative value will result
+     * answer, the host is deemed unreachable.
+     * {@description.close}
+     * {@property.open}
+     * A negative value will result
      * in an IllegalArgumentException being thrown.
+     * {@property.close}
      *
      * @param   timeout the time, in milliseconds, before the call aborts
      * @return a <code>boolean</code> indicating if the address is reachable.
@@ -398,6 +441,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Test whether that address is reachable. Best effort is made by the
      * implementation to try to reach the host, but firewalls and server
      * configuration may block requests resulting in a unreachable status
@@ -414,8 +458,12 @@ class InetAddress implements java.io.Serializable {
      * <p>
      * The timeout value, in milliseconds, indicates the maximum amount of time
      * the try should take. If the operation times out before getting an
-     * answer, the host is deemed unreachable. A negative value will result
+     * answer, the host is deemed unreachable.
+     * {@description.close}
+     * {@property.open}
+     * A negative value will result
      * in an IllegalArgumentException being thrown.
+     * {@property.close}
      *
      * @param   netif   the NetworkInterface through which the
      *                    test will be done, or null for any interface
@@ -439,6 +487,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the host name for this IP address.
      *
      * <p>If this InetAddress was created with a host name,
@@ -455,6 +504,7 @@ class InetAddress implements java.io.Serializable {
      * as its arguments to see if the operation is allowed.
      * If the operation is not allowed, it will return
      * the textual representation of the IP address.
+     * {@description.close}
      *
      * @return  the host name for this IP address, or if the operation
      *    is not allowed by the security check, the textual
@@ -468,6 +518,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hostname for this address.
      * If the host is equal to null, then this address refers to any
      * of the local machine's available network addresses.
@@ -481,6 +532,7 @@ class InetAddress implements java.io.Serializable {
      * the hostname for this IP address, i.e., to connect to the host.
      * If the operation is not allowed, it will return
      * the textual representation of the IP address.
+     * {@description.close}
      *
      * @return  the host name for this IP address, or if the operation
      *    is not allowed by the security check, the textual
@@ -498,6 +550,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the fully qualified domain name for this IP address.
      * Best effort method, meaning we may not be able to return
      * the FQDN depending on the underlying system configuration.
@@ -509,6 +562,7 @@ class InetAddress implements java.io.Serializable {
      * the hostname for this IP address, i.e., to connect to the host.
      * If the operation is not allowed, it will return
      * the textual representation of the IP address.
+     * {@description.close}
      *
      * @return  the fully qualified domain name for this IP address,
      *    or if the operation is not allowed by the security check,
@@ -527,6 +581,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hostname for this address.
      *
      * <p>If there is a security manager, this method first
@@ -536,6 +591,7 @@ class InetAddress implements java.io.Serializable {
      * the hostname for this IP address, i.e., to connect to the host.
      * If the operation is not allowed, it will return
      * the textual representation of the IP address.
+     * {@description.close}
      *
      * @return  the host name for this IP address, or if the operation
      *    is not allowed by the security check, the textual
@@ -597,9 +653,11 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw IP address of this <code>InetAddress</code>
      * object. The result is in network byte order: the highest order
      * byte of the address is in <code>getAddress()[0]</code>.
+     * {@description.close}
      *
      * @return  the raw IP address of this object.
      */
@@ -608,7 +666,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the IP address string in textual presentation.
+     * {@description.close}
      *
      * @return  the raw IP address in a string format.
      * @since   JDK1.0.2
@@ -618,7 +678,9 @@ class InetAddress implements java.io.Serializable {
      }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hashcode for this IP address.
+     * {@description.close}
      *
      * @return  a hash code value for this IP address.
      */
@@ -627,6 +689,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same IP address as
@@ -636,6 +699,7 @@ class InetAddress implements java.io.Serializable {
      * address if the length of the byte arrays returned by
      * <code>getAddress</code> is the same for both, and each of the
      * array components is the same for the byte arrays.
+     * {@description.close}
      *
      * @param   obj   the object to compare against.
      * @return  <code>true</code> if the objects are the same;
@@ -647,12 +711,14 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts this IP address to a <code>String</code>. The
      * string returned is of the form: hostname / literal IP
      * address.
      *
      * If the host name is unresolved, no reverse name service lookup
      * is performed. The hostname part will be represented by an empty string.
+     * {@description.close}
      *
      * @return  a string representation of this IP address.
      */
@@ -677,7 +743,9 @@ class InetAddress implements java.io.Serializable {
     private static HashMap          lookupTable = new HashMap();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Represents a cache entry
+     * {@description.close}
      */
     static final class CacheEntry {
 
@@ -691,8 +759,10 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * A cache that manages entries based on a policy specified
      * at creation time.
+     * {@description.close}
      */
     static final class Cache {
         private LinkedHashMap cache;
@@ -701,7 +771,9 @@ class InetAddress implements java.io.Serializable {
         enum Type {Positive, Negative};
 
         /** {@collect.stats} 
+         * {@description.open}
          * Create cache
+         * {@description.close}
          */
         public Cache(Type type) {
             this.type = type;
@@ -717,9 +789,11 @@ class InetAddress implements java.io.Serializable {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Add an entry to the cache. If there's already an
          * entry then for this host then the entry will be
          * replaced.
+         * {@description.close}
          */
         public Cache put(String host, Object address) {
             int policy = getPolicy();
@@ -769,8 +843,10 @@ class InetAddress implements java.io.Serializable {
         }
 
         /** {@collect.stats} 
+         * {@description.open}
          * Query the cache for the specific host. If found then
          * return its CacheEntry, or null if not found.
+         * {@description.close}
          */
         public CacheEntry get(String host) {
             int policy = getPolicy();
@@ -936,6 +1012,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an InetAddress based on the provided host name and IP address
      * No name service is checked for the validity of the address.
      *
@@ -950,6 +1027,7 @@ class InetAddress implements java.io.Serializable {
      *
      * <p> IPv4 address byte array must be 4 bytes long and IPv6 byte array
      * must be 16 bytes long
+     * {@description.close}
      *
      * @param host the specified host
      * @param addr the raw IP address in network byte order
@@ -982,6 +1060,7 @@ class InetAddress implements java.io.Serializable {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Determines the IP address of a host, given the host's name.
      *
      * <p> The host name can either be a machine name, such as
@@ -1000,6 +1079,7 @@ class InetAddress implements java.io.Serializable {
      * See <a href="http://www.ietf.org/rfc/rfc3330.txt">RFC&nbsp;3330</a>
      * section&nbsp;2 and <a href="http://www.ietf.org/rfc/rfc2373.txt">RFC&nbsp;2373</a>
      * section&nbsp;2.5.3. </p>
+     * {@description.close}
      *
      * @param      host   the specified host, or <code>null</code>.
      * @return     an IP address for the given host name.
@@ -1021,6 +1101,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Given the name of a host, returns an array of its IP addresses,
      * based on the configured name service on the system.
      *
@@ -1047,6 +1128,7 @@ class InetAddress implements java.io.Serializable {
      * <code>checkConnect</code> method is called
      * with the hostname and <code>-1</code>
      * as its arguments to see if the operation is allowed.
+     * {@description.close}
      *
      * @param      host   the name of the host, or <code>null</code>.
      * @return     an array of all the IP addresses for a given host name.
@@ -1129,11 +1211,13 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * check if the literal address string has %nn appended
      * returns -1 if not, or the numeric value otherwise.
      *
      * %nn may also be a string that represents the displayName of
      * a currently available NetworkInterface.
+     * {@description.close}
      */
     private static int checkNumericZone (String s) throws UnknownHostException {
         int percent = s.indexOf ('%');
@@ -1166,7 +1250,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * package private so SocketPermission can call it
+     * {@description.close}
      */
     static InetAddress[] getAllByName0 (String host, boolean check)
         throws UnknownHostException  {
@@ -1343,6 +1429,7 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an <code>InetAddress</code> object given the raw IP address .
      * The argument is in network byte order: the highest order
      * byte of the address is in <code>getAddress()[0]</code>.
@@ -1352,6 +1439,7 @@ class InetAddress implements java.io.Serializable {
      *
      * <p> IPv4 address byte array must be 4 bytes long and IPv6 byte array
      * must be 16 bytes long
+     * {@description.close}
      *
      * @param addr the raw IP address in network byte order
      * @return  an InetAddress object created from the raw IP address.
@@ -1369,6 +1457,7 @@ class InetAddress implements java.io.Serializable {
     private static final Object cacheLock = new Object();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the address of the local host. This is achieved by retrieving
      * the name of the host from the system, then resolving that name into
      * an <code>InetAddress</code>.
@@ -1382,6 +1471,7 @@ class InetAddress implements java.io.Serializable {
      * as its arguments to see if the operation is allowed.
      * If the operation is not allowed, an InetAddress representing
      * the loopback address is returned.
+     * {@description.close}
      *
      * @return     the address of the local host.
      *
@@ -1437,7 +1527,9 @@ class InetAddress implements java.io.Serializable {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class load-time initializations.
+     * {@description.close}
      */
     private static native void init();
 

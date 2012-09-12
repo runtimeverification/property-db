@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 
 /** {@collect.stats} 
+ * {@description.open}
  *
  * This class implements an IP Socket Address (IP address + port number)
  * It can also be a pair (hostname + port number), in which case an attempt
@@ -41,6 +42,7 @@ import java.io.InvalidObjectException;
  * <p>
  * The <i>wildcard</i> is a special local IP address. It usually means "any"
  * and can only be used for <code>bind</code> operations.
+ * {@description.close}
  *
  * @see java.net.Socket
  * @see java.net.ServerSocket
@@ -66,13 +68,19 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a socket address where the IP address is the wildcard address
      * and the port number a specified value.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * A valid port value is between 0 and 65535.
+     * {@property.close}
+     * {@description.open}
      * A port number of <code>zero</code> will let the system pick up an
      * ephemeral port in a <code>bind</code> operation.
      * <p>
+     * {@description.close}
      * @param   port    The port number
      * @throws IllegalArgumentException if the port parameter is outside the specified
      * range of valid port values.
@@ -82,15 +90,20 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
-     *
+     * {@description.open}
      * Creates a socket address from an IP address and a port number.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * A valid port value is between 0 and 65535.
+     * {@property.close}
+     * {@description.open}
      * A port number of <code>zero</code> will let the system pick up an
      * ephemeral port in a <code>bind</code> operation.
      * <P>
      * A <code>null</code> address will assign the <i>wildcard</i> address.
      * <p>
+     * {@description.close}
      * @param   addr    The IP address
      * @param   port    The port number
      * @throws IllegalArgumentException if the port parameter is outside the specified
@@ -108,6 +121,7 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *
      * Creates a socket address from a hostname and a port number.
      * <p>
@@ -117,11 +131,16 @@ public class InetSocketAddress extends SocketAddress {
      * If there is a security manager, its <code>checkConnect</code> method
      * is called with the host name as its argument to check the permissiom
      * to resolve it. This could result in a SecurityException.
+     * {@description.close}
+     * {@property.open}
      * <P>
      * A valid port value is between 0 and 65535.
+     * {@property.close}
+     * {@description.open}
      * A port number of <code>zero</code> will let the system pick up an
      * ephemeral port in a <code>bind</code> operation.
      * <P>
+     * {@description.close}
      * @param   hostname the Host name
      * @param   port    The port number
      * @throws IllegalArgumentException if the port parameter is outside the range
@@ -148,16 +167,22 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *
      * Creates an unresolved socket address from a hostname and a port number.
      * <p>
      * No attempt will be made to resolve the hostname into an InetAddress.
      * The address will be flagged as <I>unresolved</I>.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * A valid port value is between 0 and 65535.
+     * {@property.close}
+     * {@description.open}
      * A port number of <code>zero</code> will let the system pick up an
      * ephemeral port in a <code>bind</code> operation.
      * <P>
+     * {@description.close}
      * @param   host    the Host name
      * @param   port    The port number
      * @throws IllegalArgumentException if the port parameter is outside
@@ -198,7 +223,9 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the port number.
+     * {@description.close}
      *
      * @return the port number.
      */
@@ -207,8 +234,10 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *
      * Gets the <code>InetAddress</code>.
+     * {@description.close}
      *
      * @return the InetAdress or <code>null</code> if it is unresolved.
      */
@@ -217,7 +246,9 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the <code>hostname</code>.
+     * {@description.close}
      *
      * @return  the hostname part of the address.
      */
@@ -230,9 +261,11 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the hostname, or the String form of the address if it
      * doesn't have a hostname (it was created using a literal).
      * This has the benefit of <b>not</b> attemptimg a reverse lookup.
+     * {@description.close}
      *
      * @return the hostname, or String representation of the address.
      * @since 1.6
@@ -250,7 +283,9 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Checks whether the address has been resolved or not.
+     * {@description.close}
      *
      * @return <code>true</code> if the hostname couldn't be resolved into
      *          an <code>InetAddress</code>.
@@ -260,10 +295,12 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a string representation of this InetSocketAddress.
      * This String is constructed by calling toString() on the InetAddress
      * and concatenating the port number (with a colon). If the address
      * is unresolved then the part before the colon will only contain the hostname.
+     * {@description.close}
      *
      * @return  a string representation of this object.
      */
@@ -276,6 +313,7 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same address as
@@ -286,6 +324,7 @@ public class InetSocketAddress extends SocketAddress {
      * numbers are equal.
      * If both addresses are unresolved, then the hostname & the port number
      * are compared.
+     * {@description.close}
      *
      * @param   obj   the object to compare against.
      * @return  <code>true</code> if the objects are the same;
@@ -308,7 +347,9 @@ public class InetSocketAddress extends SocketAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hashcode for this socket address.
+     * {@description.close}
      *
      * @return  a hash code value for this socket address.
      */

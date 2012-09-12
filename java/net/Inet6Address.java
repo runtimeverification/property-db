@@ -34,6 +34,7 @@ import sun.security.action.*;
 import java.util.Enumeration;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class represents an Internet Protocol version 6 (IPv6) address.
  * Defined by <a href="http://www.ietf.org/rfc/rfc2373.txt">
  * <i>RFC&nbsp;2373: IP Version 6 Addressing Architecture</i></a>.
@@ -124,6 +125,7 @@ import java.util.Enumeration;
  *         represent an IPv4 address. It allows the native program to
  *         use the same address data structure and also the same
  *         socket when communicating with both IPv4 and IPv6 nodes.
+ * {@description.close}
  *
  *         <p>In InetAddress and Inet6Address, it is used for internal
  *         representation; it has no functional role. Java will never
@@ -175,33 +177,43 @@ class Inet6Address extends InetAddress {
     private transient int cached_scope_id = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Holds a 128-bit (16 bytes) IPv6 address.
+     * {@description.close}
      *
      * @serial
      */
     byte[] ipaddress;
 
     /** {@collect.stats} 
+     * {@description.open}
      * scope_id. The scope specified when the object is created. If the object is created
      * with an interface name, then the scope_id is not determined until the time it is needed.
+     * {@description.close}
      */
     private int scope_id = 0;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This will be set to true when the scope_id field contains a valid
      * integer scope_id.
+     * {@description.close}
      */
     private boolean scope_id_set = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * scoped interface. scope_id is derived from this as the scope_id of the first
      * address whose scope is the same as this address for the named interface.
+     * {@description.close}
      */
     private transient NetworkInterface scope_ifname = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * set if the object is constructed with a scoped interface instead of a
      * numeric scope id.
+     * {@description.close}
      */
     private boolean scope_ifname_set = false;
 
@@ -251,6 +263,7 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an Inet6Address in the exact manner of {@link InetAddress#getByAddress(String,byte[])}
      * except that the IPv6 scope_id is set to the value corresponding to the given interface
      * for the address type specified in <code>addr</code>.
@@ -258,6 +271,7 @@ class Inet6Address extends InetAddress {
      * scope_id assigned for the given address type (eg. link-local or site-local).
      * See <a href="Inet6Address.html#scoped">here</a> for a description of IPv6
      * scoped addresses.
+     * {@description.close}
      *
      * @param host the specified host
      * @param addr the raw IP address in network byte order
@@ -285,11 +299,13 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create an Inet6Address in the exact manner of {@link InetAddress#getByAddress(String,byte[])}
      * except that the IPv6 scope_id is set to the given numeric value.
      * The scope_id is not checked to determine if it corresponds to any interface on the system.
      * See <a href="Inet6Address.html#scoped">here</a> for a description of IPv6
      * scoped addresses.
+     * {@description.close}
      *
      * @param host the specified host
      * @param addr the raw IP address in network byte order
@@ -407,9 +423,11 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * restore the state of this object from stream
      * including the scope information, only if the
      * scoped interface name is valid on this system
+     * {@description.close}
      */
     private void readObject(ObjectInputStream s)
         throws IOException, ClassNotFoundException {
@@ -452,9 +470,11 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is an IP multicast
      * address. 11111111 at the start of the address identifies the
      * address as being a multicast address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * an IP multicast address
@@ -465,7 +485,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress in a wildcard address.
+     * {@description.close}
      * @return a <code>boolean</code> indicating if the Inetaddress is
      *         a wildcard address.
      * @since 1.4
@@ -479,7 +501,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is a loopback address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a loopback address; or false otherwise.
@@ -494,7 +518,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is an link local address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a link local address; or false if address is not a link local unicast address.
@@ -506,7 +532,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is a site local address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * a site local address; or false if address is not a site local unicast address.
@@ -518,7 +546,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has global scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of global scope, false if it is not
@@ -531,7 +561,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has node scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of node-local scope, false if it is not
@@ -544,7 +576,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has link scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of link-local scope, false if it is not
@@ -557,7 +591,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has site scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of site-local scope, false if it is not
@@ -570,7 +606,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the multicast address has organization scope.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the address has
      *         is a multicast address of organization-local scope,
@@ -584,9 +622,11 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw IP address of this <code>InetAddress</code>
      * object. The result is in network byte order: the highest order
      * byte of the address is in <code>getAddress()[0]</code>.
+     * {@description.close}
      *
      * @return  the raw IP address of this object.
      */
@@ -595,8 +635,10 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the numeric scopeId, if this instance is associated with
      * an interface. If no scoped_id is set, the returned value is zero.
+     * {@description.close}
      *
      * @return the scopeId, or zero if not set.
      * @since 1.5
@@ -606,8 +648,10 @@ class Inet6Address extends InetAddress {
      }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the scoped interface, if this instance was created with
      * with a scoped interface.
+     * {@description.close}
      *
      * @return the scoped interface, or null if not set.
      * @since 1.5
@@ -617,10 +661,12 @@ class Inet6Address extends InetAddress {
      }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the IP address string in textual presentation. If the instance was created
      * specifying a scope identifier then the scope id is appended to the IP address preceded by
      * a "%" (per-cent) character. This can be either a numeric value or a string, depending on which
      * was used to createthe instance.
+     * {@description.close}
      *
      * @return  the raw IP address in a string format.
      */
@@ -635,7 +681,9 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hashcode for this IP address.
+     * {@description.close}
      *
      * @return  a hash code value for this IP address.
      */
@@ -662,6 +710,7 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same IP address as
@@ -671,6 +720,7 @@ class Inet6Address extends InetAddress {
      * address if the length of the byte arrays returned by
      * <code>getAddress</code> is the same for both, and each of the
      * array components is the same for the byte arrays.
+     * {@description.close}
      *
      * @param   obj   the object to compare against.
      * @return  <code>true</code> if the objects are the same;
@@ -693,8 +743,10 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility routine to check if the InetAddress is an
      * IPv4 compatible IPv6 address.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
      * an IPv4 compatible IPv6 address; or false if address is IPv4 address.
@@ -736,19 +788,25 @@ class Inet6Address extends InetAddress {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class load-time initializations.
+     * {@description.close}
      */
     private static native void init();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Following field is only used during (de)/serialization
+     * {@description.close}
      */
     private String ifname;
 
     /** {@collect.stats} 
+     * {@description.open}
      * default behavior is overridden in order to write the
      * scope_ifname field as a String, rather than a NetworkInterface
      * which is not serializable
+     * {@description.close}
      */
     private synchronized void writeObject(java.io.ObjectOutputStream s)
         throws IOException
