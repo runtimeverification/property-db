@@ -32,6 +32,7 @@ import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements server sockets. A server socket waits for
  * requests to come in over the network. It performs some operation
  * based on that request, and then possibly returns a result to the requester.
@@ -41,6 +42,7 @@ import java.security.PrivilegedExceptionAction;
  * change the socket factory that creates the socket
  * implementation to configure itself to create sockets
  * appropriate to the local firewall.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.net.SocketImpl
@@ -51,7 +53,9 @@ import java.security.PrivilegedExceptionAction;
 public
 class ServerSocket {
     /** {@collect.stats} 
+     * {@description.open}
      * Various states of this socket.
+     * {@description.close}
      */
     private boolean created = false;
     private boolean bound = false;
@@ -59,17 +63,23 @@ class ServerSocket {
     private Object closeLock = new Object();
 
     /** {@collect.stats} 
+     * {@description.open}
      * The implementation of this Socket.
+     * {@description.close}
      */
     private SocketImpl impl;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Are we using an older SocketImpl?
+     * {@description.close}
      */
     private boolean oldImpl = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an unbound server socket.
+     * {@description.close}
      *
      * @exception IOException IO error when opening the socket.
      * @revised 1.4
@@ -79,6 +89,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a server socket, bound to the specified port. A port of
      * <code>0</code> creates a socket on any free port.
      * <p>
@@ -96,6 +107,7 @@ class ServerSocket {
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      *
+     * {@description.close}
      *
      * @param      port  the port number, or <code>0</code> to use any
      *                   free port.
@@ -115,6 +127,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a server socket and binds it to the specified local port
      * number, with the specified backlog.
      * A port number of <code>0</code> creates a socket on any
@@ -134,11 +147,14 @@ class ServerSocket {
      * with the <code>port</code> argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
+     * {@property.open}
      * <P>The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
      * <P>
+     * {@property.close}
      *
      * @param      port     the port number, or <code>0</code> to use
      *                      any free port.
@@ -159,24 +175,32 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Create a server with the specified port, listen backlog, and
      * local IP address to bind to.  The <i>bindAddr</i> argument
      * can be used on a multi-homed host for a ServerSocket that
      * will only accept connect requests to one of its addresses.
      * If <i>bindAddr</i> is null, it will default accepting
      * connections on any/all local addresses.
+     * {@description.close}
+     * {@property.open}
      * The port must be between 0 and 65535, inclusive.
+     * {@property.close}
      *
+     * {@description.open}
      * <P>If there is a security manager, this method
      * calls its <code>checkListen</code> method
      * with the <code>port</code> argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
+     * {@property.open}
      * <P>The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
      * <P>
+     * {@property.close}
      * @param port the local TCP port
      * @param backlog the listen backlog
      * @param bindAddr the local InetAddress the server will bind to
@@ -210,8 +234,10 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the <code>SocketImpl</code> attached to this socket, creating
      * it if necessary.
+     * {@description.close}
      *
      * @return  the <code>SocketImpl</code> attached to that ServerSocket.
      * @throws SocketException if creation fails.
@@ -257,7 +283,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates the socket implementation.
+     * {@description.close}
      *
      * @throws IOException if creation fails
      * @since 1.4
@@ -274,6 +302,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *
      * Binds the <code>ServerSocket</code> to a specific address
      * (IP address and port number).
@@ -281,6 +310,7 @@ class ServerSocket {
      * If the address is <code>null</code>, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      * <p>
+     * {@description.close}
      * @param   endpoint        The IP address & port number to bind to.
      * @throws  IOException if the bind operation fails, or if the socket
      *                     is already bound.
@@ -295,16 +325,20 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *
      * Binds the <code>ServerSocket</code> to a specific address
      * (IP address and port number).
      * <p>
      * If the address is <code>null</code>, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
+     * {@description.close}
+     * {@property.open}
      * <P>
      * The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
+     * {@property.close}
      * @param   endpoint        The IP address & port number to bind to.
      * @param   backlog         The listen backlog length.
      * @throws  IOException if the bind operation fails, or if the socket
@@ -346,7 +380,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the local address of this server socket.
+     * {@description.close}
      *
      * @return  the address to which this socket is bound,
      *          or <code>null</code> if the socket is unbound.
@@ -365,7 +401,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the port number on which this socket is listening.
+     * {@description.close}
      *
      * @return  the port number to which this socket is listening or
      *          -1 if the socket is not bound yet.
@@ -384,8 +422,10 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
+     * {@description.close}
      *
      * @return a <code>SocketAddress</code> representing the local endpoint of this
      *         socket, or <code>null</code> if it is not bound yet.
@@ -402,6 +442,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Listens for a connection to be made to this socket and accepts
      * it. The method blocks until a connection is made.
      *
@@ -412,6 +453,7 @@ class ServerSocket {
      * <code>s.getPort()</code>
      * as its arguments to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs when waiting for a
      *               connection.
@@ -440,10 +482,12 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Subclasses of ServerSocket use this method to override accept()
      * to return their own subclass of socket.  So a FooServerSocket
      * will typically hand this method an <i>empty</i> FooSocket.  On
      * return from implAccept the FooSocket will be connected to a client.
+     * {@description.close}
      *
      * @param s the Socket
      * @throws java.nio.channels.IllegalBlockingModeException
@@ -490,6 +534,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes this socket.
      *
      * Any thread currently blocked in {@link #accept()} will throw
@@ -497,6 +542,7 @@ class ServerSocket {
      *
      * <p> If this socket has an associated channel then the channel is closed
      * as well.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs when closing the socket.
      * @revised 1.4
@@ -513,6 +559,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the unique {@link java.nio.channels.ServerSocketChannel} object
      * associated with this socket, if any.
      *
@@ -520,6 +567,7 @@ class ServerSocket {
      * itself was created via the {@link
      * java.nio.channels.ServerSocketChannel#open ServerSocketChannel.open}
      * method.
+     * {@description.close}
      *
      * @return  the server-socket channel associated with this socket,
      *          or <tt>null</tt> if this socket was not created
@@ -533,7 +581,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the binding state of the ServerSocket.
+     * {@description.close}
      *
      * @return true if the ServerSocket succesfuly bound to an address
      * @since 1.4
@@ -544,7 +594,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the closed state of the ServerSocket.
+     * {@description.close}
      *
      * @return true if the socket has been closed
      * @since 1.4
@@ -556,15 +608,25 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable SO_TIMEOUT with the specified timeout, in
      * milliseconds.  With this option set to a non-zero timeout,
      * a call to accept() for this ServerSocket
      * will block for only this amount of time.  If the timeout expires,
      * a <B>java.net.SocketTimeoutException</B> is raised, though the
-     * ServerSocket is still valid.  The option <B>must</B> be enabled
-     * prior to entering the blocking operation to have effect.  The
+     * ServerSocket is still valid.
+     * {@description.close}
+     * {@property.open}
+     * The option <B>must</B> be enabled
+     * prior to entering the blocking operation to have effect.
+     * {@property.close}
+     * {@property.open}
+     * The
      * timeout must be > 0.
+     * {@property.close}
+     * {@description.open}
      * A timeout of zero is interpreted as an infinite timeout.
+     * {@description.close}
      * @param timeout the specified timeout, in milliseconds
      * @exception SocketException if there is an error in
      * the underlying protocol, such as a TCP error.
@@ -578,8 +640,10 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
+     * {@description.close}
      * @return the SO_TIMEOUT value
      * @exception IOException if an I/O error occurs
      * @since   JDK1.1
@@ -598,6 +662,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * When a TCP connection is closed the connection may remain
@@ -618,10 +683,13 @@ class ServerSocket {
      * of <tt>SO_REUSEADDR</tt> is not defined. Applications can
      * use {@link #getReuseAddress()} to determine the initial
      * setting of <tt>SO_REUSEADDR</tt>.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * The behaviour when <tt>SO_REUSEADDR</tt> is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
+     * {@property.close}
      *
      * @param on  whether to enable or disable the socket option
      * @exception SocketException if an error occurs enabling or
@@ -640,7 +708,9 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if SO_REUSEADDR is enabled.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
      * @exception SocketException if there is an error
@@ -655,8 +725,10 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the implementation address and implementation port of
      * this socket as a <code>String</code>.
+     * {@description.close}
      *
      * @return  a string representation of this socket.
      */
@@ -677,11 +749,14 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The factory for all server sockets.
+     * {@description.close}
      */
     private static SocketImplFactory factory = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the server socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -696,6 +771,7 @@ class ServerSocket {
      * the security manager's <code>checkSetFactory</code> method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @param      fac   the desired factory.
      * @exception  IOException  if an I/O error occurs when setting the
@@ -718,6 +794,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets a default proposed value for the SO_RCVBUF option for sockets
      * accepted from this <tt>ServerSocket</tt>. The value actually set
      * in the accepted socket must be determined by calling
@@ -729,7 +806,10 @@ class ServerSocket {
      * that is advertized to the remote peer.
      * <p>
      * It is possible to change the value subsequently, by calling
-     * {@link Socket#setReceiveBufferSize(int)}. However, if the application
+     * {@link Socket#setReceiveBufferSize(int)}.
+     * {@description.close}
+     * {@property.open}
+     * However, if the application
      * wishes to allow a receive window larger than 64K bytes, as defined by RFC1323
      * then the proposed value must be set in the ServerSocket <B>before</B>
      * it is bound to a local address. This implies, that the ServerSocket must be
@@ -739,6 +819,7 @@ class ServerSocket {
      * Failure to do this will not cause an error, and the buffer size may be set to the
      * requested value but the TCP receive window in sockets accepted from
      * this ServerSocket will be no larger than 64K bytes.
+     * {@property.close}
      *
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -762,12 +843,14 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the value of the SO_RCVBUF option for this <tt>ServerSocket</tt>,
      * that is the proposed buffer size that will be used for Sockets accepted
      * from this <tt>ServerSocket</tt>.
      *
      * <p>Note, the value actually set in the accepted socket is determined by
      * calling {@link Socket#getReceiveBufferSize()}.
+     * {@description.close}
      * @return the value of the SO_RCVBUF option for this <tt>Socket</tt>.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -787,6 +870,7 @@ class ServerSocket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets performance preferences for this ServerSocket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations
@@ -805,10 +889,13 @@ class ServerSocket {
      * <tt>(1, 0, 0)</tt>.  If the application prefers high bandwidth above low
      * latency, and low latency above short connection time, then it could
      * invoke this method with the values <tt>(0, 1, 2)</tt>.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> Invoking this method after this socket has been bound
      * will have no effect. This implies that in order to use this capability
      * requires the socket to be created with the no-argument constructor.
+     * {@property.close}
      *
      * @param  connectionTime
      *         An <tt>int</tt> expressing the relative importance of a short

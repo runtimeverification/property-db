@@ -28,8 +28,10 @@ package java.net;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that there is an error in the underlying
  * protocol, such as a TCP error.
+ * {@description.close}
  *
  * @author  Chris Warth
  * @since   JDK1.0
@@ -37,8 +39,10 @@ import java.io.IOException;
 public
 class ProtocolException extends IOException {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>ProtocolException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param   host   the detail message.
      */
@@ -47,7 +51,9 @@ class ProtocolException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>ProtocolException</code> with no detail message.
+     * {@description.close}
      */
     public ProtocolException() {
     }

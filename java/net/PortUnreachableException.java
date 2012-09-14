@@ -26,8 +26,10 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that an ICMP Port Unreachable message has been
  * received on a connected datagram.
+ * {@description.close}
  *
  * @since   1.4
  */
@@ -35,8 +37,10 @@ package java.net;
 public class PortUnreachableException extends SocketException {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>PortUnreachableException</code> with a
      * detail message.
+     * {@description.close}
      * @param msg the detail message
      */
     public PortUnreachableException(String msg) {
@@ -44,8 +48,10 @@ public class PortUnreachableException extends SocketException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a new <code>PortUnreachableException</code> with no
      * detailed message.
+     * {@description.close}
      */
     public PortUnreachableException() {}
 }

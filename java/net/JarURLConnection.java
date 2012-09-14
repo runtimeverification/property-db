@@ -34,6 +34,7 @@ import java.security.Permission;
 import sun.net.www.ParseUtil;
 
 /** {@collect.stats} 
+ * {@description.open}
  * A URL Connection to a Java ARchive (JAR) file or an entry in a JAR
  * file.
  *
@@ -126,6 +127,7 @@ import sun.net.www.ParseUtil;
  * </dl>
  *
  * </ul>
+ * {@description.close}
  *
  * @see java.net.URL
  * @see java.net.URLConnection
@@ -144,13 +146,17 @@ public abstract class JarURLConnection extends URLConnection {
     private String entryName;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The connection to the JAR file URL, if the connection has been
      * initiated. This should be set by connect.
+     * {@description.close}
      */
     protected URLConnection jarFileURLConnection;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates the new JarURLConnection to the specified URL.
+     * {@description.close}
      * @param url the URL
      * @throws MalformedURLException if no legal protocol
      * could be found in a specification string or the
@@ -187,7 +193,9 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the URL for the Jar file for this connection.
+     * {@description.close}
      *
      * @return the URL for the Jar file for this connection.
      */
@@ -196,9 +204,11 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the entry name for this connection. This method
      * returns null if the JAR file URL corresponding to this
      * connection points to a JAR file and not a JAR file entry.
+     * {@description.close}
      *
      * @return the entry name for this connection, if any.
      */
@@ -207,7 +217,9 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the JAR file for this connection.
+     * {@description.close}
      *
      * @return the JAR file for this connection. If the connection is
      * a connection to an entry of a JAR file, the JAR file object is
@@ -221,7 +233,9 @@ public abstract class JarURLConnection extends URLConnection {
     public abstract JarFile getJarFile() throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the Manifest for this connection, or null if none.
+     * {@description.close}
      *
      * @return the manifest object corresponding to the JAR file object
      * for this connection.
@@ -236,9 +250,11 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the JAR entry object for this connection, if any. This
      * method returns null if the JAR file URL corresponding to this
      * connection points to a JAR file and not a JAR file entry.
+     * {@description.close}
      *
      * @return the JAR entry object for this connection, or null if
      * the JAR URL for this connection points to a JAR file.
@@ -254,8 +270,10 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the Attributes object for this connection if the URL
      * for it points to a JAR file entry, null otherwise.
+     * {@description.close}
      *
      * @return the Attributes object for this connection if the URL
      * for it points to a JAR file entry, null otherwise.
@@ -271,8 +289,10 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the main Attributes for the JAR file for this
      * connection.
+     * {@description.close}
      *
      * @return the main Attributes for the JAR file for this
      * connection.
@@ -289,12 +309,17 @@ public abstract class JarURLConnection extends URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Return the Certificate object for this connection if the URL
-     * for it points to a JAR file entry, null otherwise. This method
+     * for it points to a JAR file entry, null otherwise.
+     * {@description.close}
+     * {@property.open}
+     * This method
      * can only be called once
      * the connection has been completely verified by reading
      * from the input stream until the end of the stream has been
      * reached. Otherwise, this method will return <code>null</code>
+     * {@property.close}
      *
      * @return the Certificate object for this connection if the URL
      * for it points to a JAR file entry, null otherwise.

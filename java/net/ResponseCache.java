@@ -31,6 +31,7 @@ import java.util.List;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Represents implementations of URLConnection caches. An instance of
  * such a class can be registered with the system by doing
  * ResponseCache.setDefault(ResponseCache), and the system will call
@@ -54,6 +55,7 @@ import sun.security.util.SecurityConstants;
  * For more information on HTTP caching, see <a
  * href="http://www.ietf.org/rfc/rfc2616.txt""><i>RFC&nbsp;2616: Hypertext
  * Transfer Protocol -- HTTP/1.1</i></a>
+ * {@description.close}
  *
  * @author Yingxian Wang
  * @since 1.5
@@ -61,8 +63,10 @@ import sun.security.util.SecurityConstants;
 public abstract class ResponseCache {
 
     /** {@collect.stats} 
+     * {@description.open}
      * The system wide cache that provides access to a url
      * caching mechanism.
+     * {@description.close}
      *
      * @see #setDefault(ResponseCache)
      * @see #getDefault()
@@ -70,7 +74,9 @@ public abstract class ResponseCache {
     private static ResponseCache theResponseCache;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the system-wide response cache.
+     * {@description.close}
      *
      * @throws  SecurityException
      *          If a security manager has been installed and it denies
@@ -89,9 +95,11 @@ public abstract class ResponseCache {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets (or unsets) the system-wide cache.
      *
      * Note: non-standard procotol handlers may ignore this setting.
+     * {@description.close}
      *
      * @param responseCache The response cache, or
      *          <code>null</code> to unset the cache.
@@ -112,11 +120,13 @@ public abstract class ResponseCache {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieve the cached response based on the requesting uri,
      * request method and request headers. Typically this method is
      * called by the protocol handler before it sends out the request
      * to get the network resource. If a cached response is returned,
      * that resource is used instead.
+     * {@description.close}
      *
      * @param uri a <code>URI</code> used to reference the requested
      *            network resource
@@ -140,13 +150,18 @@ public abstract class ResponseCache {
         throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The protocol handler calls this method after a resource has
      * been retrieved, and the ResponseCache must decide whether or
-     * not to store the resource in its cache. If the resource is to
+     * not to store the resource in its cache.
+     * {@description.close}
+     * {@property.open}
+     * If the resource is to
      * be cached, then put() must return a CacheRequest object which
      * contains an OutputStream that the protocol handler will
      * use to write the resource into the cache. If the resource is
      * not to be cached, then put must return null.
+     * {@property.close}
      *
      * @param uri a <code>URI</code> used to reference the requested
      *            network resource

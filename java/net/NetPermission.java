@@ -31,10 +31,13 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class is for various network permissions.
  * A NetPermission contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
  * or you don't.
+ * {@description.close}
+ * {@property.open}
  * <P>
  * The target name is the name of the network permission (see below). The naming
  * convention follows the  hierarchical property naming convention.
@@ -42,6 +45,8 @@ import java.util.StringTokenizer;
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "foo.*" or "*" is valid,
  * "*foo" or "a*b" is not valid.
+ * {@property.close}
+ * {@description.open}
  * <P>
  * The following table lists all the possible NetPermission target names,
  * and for each provides a description of what the permission allows
@@ -140,6 +145,7 @@ that class really didn't come from that location.</td>
  *   </tr>
  *
  * </table>
+ * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -156,11 +162,16 @@ public final class NetPermission extends BasicPermission {
     private static final long serialVersionUID = -8343910153355041693L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new NetPermission with the specified name.
      * The name is the symbolic name of the NetPermission, such as
-     * "setDefaultAuthenticator", etc. An asterisk
+     * "setDefaultAuthenticator", etc.
+     * {@description.close}
+     * {@property.open}
+     * An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
+     * {@property.close}
      *
      * @param name the name of the NetPermission.
      *
@@ -174,9 +185,14 @@ public final class NetPermission extends BasicPermission {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new NetPermission object with the specified name.
-     * The name is the symbolic name of the NetPermission, and the
+     * The name is the symbolic name of the NetPermission, and
+     * {@description.close}
+     * {@property.open}
+     * the
      * actions String is currently unused and should be null.
+     * {@property.close}
      *
      * @param name the name of the NetPermission.
      * @param actions should be null.
