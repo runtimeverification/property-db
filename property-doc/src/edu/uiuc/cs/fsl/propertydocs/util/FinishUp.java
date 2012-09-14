@@ -43,8 +43,17 @@ public class FinishUp {
                  + "\np { color:inherit;background-color:inherit }"
                  + "\nul { color:inherit;background-color:inherit }"
                  + "\nol { color:inherit;background-color:inherit }"
+                 + "\ndl { color:inherit;background-color:inherit }"
                  + "\npre { color:inherit;background-color:inherit }"
+                 + "\nh1 { color:inherit;background-color:inherit }"
+                 + "\nh2 { color:inherit;background-color:inherit }"
+                 + "\nh3 { color:inherit;background-color:inherit }"
+                 + "\nh4 { color:inherit;background-color:inherit }"
+                 + "\ncode { color:inherit;background-color:inherit }"
                  + "\ntable { color:inherit;background-color:inherit }"
+                 + "\ntr { color:inherit;background-color:inherit }"
+                 + "\ntd { color:inherit;background-color:inherit }"
+                 + "\nth { color:inherit;background-color:inherit }"
                  );
      } catch (java.io.IOException e){
         throw new RuntimeException(e);
