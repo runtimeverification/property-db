@@ -125,7 +125,6 @@ import java.util.Enumeration;
  *         represent an IPv4 address. It allows the native program to
  *         use the same address data structure and also the same
  *         socket when communicating with both IPv4 and IPv6 nodes.
- * {@description.close}
  *
  *         <p>In InetAddress and Inet6Address, it is used for internal
  *         representation; it has no functional role. Java will never
@@ -164,6 +163,7 @@ import java.util.Enumeration;
  * </ol><p>
  * Note also, that the numeric <i>scope_id</i> can be retrieved from Inet6Address instances returned from the
  * NetworkInterface class. This can be used to find out the current scope ids configured on the system.
+ * {@description.close}
  * @since 1.4
  */
 

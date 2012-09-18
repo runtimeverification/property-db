@@ -74,7 +74,6 @@ import sun.security.action.*;
  * value, the first form, i.e. a dotted-quad string, is used.
  *
  * <h4> The Scope of a Multicast Address </h4>
- * {@description.close}
  *
  * Historically the IPv4 TTL field in the IP header has doubled as a
  * multicast scope field: a TTL of 0 means node-local, 1 means
@@ -83,6 +82,7 @@ import sun.security.action.*;
  * 255 are global. However, the administrative scoping is preferred.
  * Please refer to <a href="http://www.ietf.org/rfc/rfc2365.txt">
  * <i>RFC&nbsp;2365: Administratively Scoped IP Multicast</i></a>
+ * {@description.close}
  * @since 1.4
  */
 

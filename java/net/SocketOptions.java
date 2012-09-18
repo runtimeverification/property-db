@@ -172,8 +172,9 @@ public interface SocketOptions {
 
     public final static int SO_BINDADDR = 0x000F;
 
-    /** {@collect.stats}  Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
+    /** {@collect.stats}
      * {@description.open}
+     * Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
      * in java, and it is set by default for MulticastSockets.
      * <P>
      * Valid for: DatagramSocketImpl
@@ -195,8 +196,9 @@ public interface SocketOptions {
 
     public final static int SO_BROADCAST = 0x0020;
 
-    /** {@collect.stats}  Set which outgoing interface on which to send multicast packets.
+    /** {@collect.stats}
      * {@description.open}
+     * Set which outgoing interface on which to send multicast packets.
      * Useful on hosts with multiple network interfaces, where applications
      * want to use other than the system default.  Takes/returns an InetAddress.
      * <P>
@@ -209,14 +211,15 @@ public interface SocketOptions {
 
     public final static int IP_MULTICAST_IF = 0x10;
 
-    /** {@collect.stats}  Same as above. This option is introduced so that the behaviour
+    /** {@collect.stats}
      * {@description.open}
+     * Same as above. This option is introduced so that the behaviour
      *  with IP_MULTICAST_IF will be kept the same as before, while
      *  this new option can support setting outgoing interfaces with either
      *  IPv4 and IPv6 addresses.
-     * {@description.close}
      *
      *  NOTE: make sure there is no conflict with this
+     * {@description.close}
      * @see MulticastSocket#setNetworkInterface(NetworkInterface)
      * @see MulticastSocket#getNetworkInterface()
      * @since 1.4
@@ -263,8 +266,9 @@ public interface SocketOptions {
      */
     public final static int SO_LINGER = 0x0080;
 
-    /** {@collect.stats}  Set a timeout on blocking Socket operations:
+    /** {@collect.stats}
      * {@description.open}
+     * Set a timeout on blocking Socket operations:
      * <PRE>
      * ServerSocket.accept();
      * SocketInputStream.read();

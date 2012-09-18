@@ -839,8 +839,9 @@ class DatagramSocket {
         }
     }
 
-    /** {@collect.stats}  Enable/disable SO_TIMEOUT with the specified timeout, in
+    /** {@collect.stats}
      * {@description.open}
+     * Enable/disable SO_TIMEOUT with the specified timeout, in
      *  milliseconds. With this option set to a non-zero timeout,
      *  a call to receive() for this DatagramSocket
      *  will block for only this amount of time.  If the timeout expires,
