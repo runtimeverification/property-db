@@ -45,6 +45,7 @@ import java.lang.NullPointerException;  // for javadoc
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Represents a Uniform Resource Identifier (URI) reference.
  *
  * <p> Aside from some minor deviations noted below, an instance of this
@@ -453,6 +454,7 @@ import java.lang.NullPointerException;  // for javadoc
  * resolution as well as the network I/O operations of looking up the host and
  * opening a connection to the specified resource.
  *
+ * {@description.close}
  *
  * @author Mark Reinhold
  * @since 1.4
@@ -510,7 +512,9 @@ public final class URI
     private volatile transient String decodedSchemeSpecificPart = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The string form of this URI.
+     * {@description.close}
      *
      * @serial
      */
@@ -523,6 +527,7 @@ public final class URI
     private URI() { }                           // Used internally
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a URI by parsing the given string.
      *
      * <p> This constructor parses the given string exactly as specified by the
@@ -581,6 +586,7 @@ public final class URI
      *   character set. </p></li>
      *
      * </ul>
+     * {@description.close}
      *
      * @param  str   The string to be parsed into a URI
      *
@@ -596,6 +602,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a hierarchical URI from the given components.
      *
      * <p> If a scheme is given then the path, if also given, must either be
@@ -653,6 +660,7 @@ public final class URI
      * #URI(String)} constructor and then invoking the {@link
      * #parseServerAuthority()} method upon the result; this may cause a {@link
      * URISyntaxException} to be thrown.  </p>
+     * {@description.close}
      *
      * @param   scheme    Scheme name
      * @param   userInfo  User name and authorization information
@@ -681,6 +689,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a hierarchical URI from the given components.
      *
      * <p> If a scheme is given then the path, if also given, must either be
@@ -728,6 +737,7 @@ public final class URI
      * #URI(String)} constructor and then invoking the {@link
      * #parseServerAuthority()} method upon the result; this may cause a {@link
      * URISyntaxException} to be thrown.  </p>
+     * {@description.close}
      *
      * @param   scheme     Scheme name
      * @param   authority  Authority
@@ -754,6 +764,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a hierarchical URI from the given components.
      *
      * <p> A component may be left undefined by passing <tt>null</tt>.
@@ -765,6 +776,7 @@ public final class URI
      * new&nbsp;{@link #URI(String, String, String, int, String, String, String)
      * URI}(scheme,&nbsp;null,&nbsp;host,&nbsp;-1,&nbsp;path,&nbsp;null,&nbsp;fragment);
      * </tt></blockquote>
+     * {@description.close}
      *
      * @param   scheme    Scheme name
      * @param   host      Host name
@@ -782,6 +794,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a URI from the given components.
      *
      * <p> A component may be left undefined by passing <tt>null</tt>.
@@ -809,6 +822,7 @@ public final class URI
      * <p> The resulting URI string is then parsed in order to create the new
      * URI instance as if by invoking the {@link #URI(String)} constructor;
      * this may cause a {@link URISyntaxException} to be thrown.  </p>
+     * {@description.close}
      *
      * @param   scheme    Scheme name
      * @param   ssp       Scheme-specific part
@@ -828,6 +842,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a URI by parsing the given string.
      *
      * <p> This convenience factory method works as if by invoking the {@link
@@ -842,6 +857,7 @@ public final class URI
      * {@link URISyntaxException} directly, should be used situations where a
      * URI is being constructed from user input or from some other source that
      * may be prone to errors.  </p>
+     * {@description.close}
      *
      * @param  str   The string to be parsed into a URI
      * @return The new URI
@@ -866,6 +882,7 @@ public final class URI
     // -- Operations --
 
     /** {@collect.stats} 
+     * {@description.open}
      * Attempts to parse this URI's authority component, if defined, into
      * user-information, host, and port components.
      *
@@ -903,6 +920,7 @@ public final class URI
      * ensures that if the authority could not be parsed in that way then an
      * appropriate diagnostic message can be issued based upon the exception
      * that is thrown. </p>
+     * {@description.close}
      *
      * @return  A URI whose authority field has been parsed
      *          as a server-based authority
@@ -926,6 +944,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Normalizes this URI's path.
      *
      * <p> If this URI is opaque, or if its path is already in normal form,
@@ -958,6 +977,7 @@ public final class URI
      * allow their removal.  A normalized path will begin with a <tt>"."</tt>
      * segment if one was inserted by step 3 above.  Otherwise, a normalized
      * path will not contain any <tt>"."</tt> or <tt>".."</tt> segments. </p>
+     * {@description.close}
      *
      * @return  A URI equivalent to this URI,
      *          but whose path is in normal form
@@ -967,6 +987,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Resolves the given URI against this URI.
      *
      * <p> If the given URI is already absolute, or if this URI is opaque, then
@@ -1013,6 +1034,7 @@ public final class URI
      *
      * <p> The result of this method is absolute if, and only if, either this
      * URI is absolute or the given URI is absolute.  </p>
+     * {@description.close}
      *
      * @param  uri  The URI to be resolved against this URI
      * @return The resulting URI
@@ -1025,12 +1047,14 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new URI by parsing the given string and then resolving it
      * against this URI.
      *
      * <p> This convenience method works as if invoking it were equivalent to
      * evaluating the expression <tt>{@link #resolve(java.net.URI)
      * resolve}(URI.{@link #create(String) create}(str))</tt>. </p>
+     * {@description.close}
      *
      * @param  str   The string to be parsed into a URI
      * @return The resulting URI
@@ -1046,6 +1070,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Relativizes the given URI against this URI.
      *
      * <p> The relativization of the given URI against this URI is computed as
@@ -1064,6 +1089,7 @@ public final class URI
      *   the given URI's path. </p></li>
      *
      * </ol>
+     * {@description.close}
      *
      * @param  uri  The URI to be relativized against this URI
      * @return The resulting URI
@@ -1076,11 +1102,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a URL from this URI.
      *
      * <p> This convenience method works as if invoking it were equivalent to
      * evaluating the expression <tt>new&nbsp;URL(this.toString())</tt> after
      * first checking that this URI is absolute. </p>
+     * {@description.close}
      *
      * @return  A URL constructed from this URI
      *
@@ -1101,6 +1129,7 @@ public final class URI
     // -- Component access methods --
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the scheme component of this URI.
      *
      * <p> The scheme component of a URI, if defined, only contains characters
@@ -1109,6 +1138,7 @@ public final class URI
      *
      * The scheme component of a URI cannot contain escaped octets, hence this
      * method does not perform any decoding.
+     * {@description.close}
      *
      * @return  The scheme component of this URI,
      *          or <tt>null</tt> if the scheme is undefined
@@ -1118,9 +1148,11 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tells whether or not this URI is absolute.
      *
      * <p> A URI is absolute if, and only if, it has a scheme component. </p>
+     * {@description.close}
      *
      * @return  <tt>true</tt> if, and only if, this URI is absolute
      */
@@ -1129,12 +1161,14 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tells whether or not this URI is opaque.
      *
      * <p> A URI is opaque if, and only if, it is absolute and its
      * scheme-specific part does not begin with a slash character ('/').
      * An opaque URI has a scheme, a scheme-specific part, and possibly
      * a fragment; all other components are undefined. </p>
+     * {@description.close}
      *
      * @return  <tt>true</tt> if, and only if, this URI is opaque
      */
@@ -1143,11 +1177,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw scheme-specific part of this URI.  The scheme-specific
      * part is never undefined, though it may be empty.
      *
      * <p> The scheme-specific part of a URI only contains legal URI
      * characters. </p>
+     * {@description.close}
      *
      * @return  The raw scheme-specific part of this URI
      *          (never <tt>null</tt>)
@@ -1158,12 +1194,14 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded scheme-specific part of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawSchemeSpecificPart() getRawSchemeSpecificPart} method
      * except that all sequences of escaped octets are <a
      * href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded scheme-specific part of this URI
      *          (never <tt>null</tt>)
@@ -1175,6 +1213,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw authority component of this URI.
      *
      * <p> The authority component of a URI, if defined, only contains the
@@ -1183,6 +1222,7 @@ public final class URI
      * categories.  If the authority is server-based then it is further
      * constrained to have valid user-information, host, and port
      * components. </p>
+     * {@description.close}
      *
      * @return  The raw authority component of this URI,
      *          or <tt>null</tt> if the authority is undefined
@@ -1192,11 +1232,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded authority component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawAuthority() getRawAuthority} method except that all
      * sequences of escaped octets are <a href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded authority component of this URI,
      *          or <tt>null</tt> if the authority is undefined
@@ -1208,11 +1250,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw user-information component of this URI.
      *
      * <p> The user-information component of a URI, if defined, only contains
      * characters in the <i>unreserved</i>, <i>punct</i>, <i>escaped</i>, and
      * <i>other</i> categories. </p>
+     * {@description.close}
      *
      * @return  The raw user-information component of this URI,
      *          or <tt>null</tt> if the user information is undefined
@@ -1222,11 +1266,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded user-information component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawUserInfo() getRawUserInfo} method except that all
      * sequences of escaped octets are <a href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded user-information component of this URI,
      *          or <tt>null</tt> if the user information is undefined
@@ -1238,6 +1284,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the host component of this URI.
      *
      * <p> The host component of a URI, if defined, will have one of the
@@ -1269,6 +1316,7 @@ public final class URI
      *
      * The host component of a URI cannot contain escaped octets, hence this
      * method does not perform any decoding.
+     * {@description.close}
      *
      * @return  The host component of this URI,
      *          or <tt>null</tt> if the host is undefined
@@ -1278,10 +1326,12 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the port number of this URI.
      *
      * <p> The port component of a URI, if defined, is a non-negative
      * integer. </p>
+     * {@description.close}
      *
      * @return  The port component of this URI,
      *          or <tt>-1</tt> if the port is undefined
@@ -1291,12 +1341,14 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw path component of this URI.
      *
      * <p> The path component of a URI, if defined, only contains the slash
      * character (<tt>'/'</tt>), the commercial-at character (<tt>'@'</tt>),
      * and characters in the <i>unreserved</i>, <i>punct</i>, <i>escaped</i>,
      * and <i>other</i> categories. </p>
+     * {@description.close}
      *
      * @return  The path component of this URI,
      *          or <tt>null</tt> if the path is undefined
@@ -1306,11 +1358,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded path component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawPath() getRawPath} method except that all sequences of
      * escaped octets are <a href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded path component of this URI,
      *          or <tt>null</tt> if the path is undefined
@@ -1322,10 +1376,12 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw query component of this URI.
      *
      * <p> The query component of a URI, if defined, only contains legal URI
      * characters. </p>
+     * {@description.close}
      *
      * @return  The raw query component of this URI,
      *          or <tt>null</tt> if the query is undefined
@@ -1335,11 +1391,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded query component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawQuery() getRawQuery} method except that all sequences of
      * escaped octets are <a href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded query component of this URI,
      *          or <tt>null</tt> if the query is undefined
@@ -1351,10 +1409,12 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the raw fragment component of this URI.
      *
      * <p> The fragment component of a URI, if defined, only contains legal URI
      * characters. </p>
+     * {@description.close}
      *
      * @return  The raw fragment component of this URI,
      *          or <tt>null</tt> if the fragment is undefined
@@ -1364,11 +1424,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the decoded fragment component of this URI.
      *
      * <p> The string returned by this method is equal to that returned by the
      * {@link #getRawFragment() getRawFragment} method except that all
      * sequences of escaped octets are <a href="#decode">decoded</a>.  </p>
+     * {@description.close}
      *
      * @return  The decoded fragment component of this URI,
      *          or <tt>null</tt> if the fragment is undefined
@@ -1383,6 +1445,7 @@ public final class URI
     // -- Equality, comparison, hash code, toString, and serialization --
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests this URI for equality with another object.
      *
      * <p> If the given object is not a URI then this method immediately
@@ -1413,6 +1476,7 @@ public final class URI
      *
      * <p> This method satisfies the general contract of the {@link
      * java.lang.Object#equals(Object) Object.equals} method. </p>
+     * {@description.close}
      *
      * @param   ob   The object to which this object is to be compared
      *
@@ -1455,9 +1519,11 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash-code value for this URI.  The hash code is based upon all
      * of the URI's components, and satisfies the general contract of the
      * {@link java.lang.Object#hashCode() Object.hashCode} method.
+     * {@description.close}
      *
      * @return  A hash-code value for this URI
      */
@@ -1484,6 +1550,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Compares this URI to another object, which must be a URI.
      *
      * <p> When comparing corresponding components of two URIs, if one
@@ -1541,6 +1608,7 @@ public final class URI
      * <p> This method satisfies the general contract of the {@link
      * java.lang.Comparable#compareTo(Object) Comparable.compareTo}
      * method. </p>
+     * {@description.close}
      *
      * @param   that
      *          The object to which this URI is to be compared
@@ -1595,6 +1663,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the content of this URI as a string.
      *
      * <p> If this URI was created by invoking one of the constructors in this
@@ -1605,6 +1674,7 @@ public final class URI
      * components according to the rules specified in <a
      * href="http://www.ietf.org/rfc/rfc2396.txt">RFC&nbsp;2396</a>,
      * section&nbsp;5.2, step&nbsp;7. </p>
+     * {@description.close}
      *
      * @return  The string form of this URI
      */
@@ -1614,6 +1684,7 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the content of this URI as a US-ASCII string.
      *
      * <p> If this URI does not contain any characters in the <i>other</i>
@@ -1621,6 +1692,7 @@ public final class URI
      * an invocation of the {@link #toString() toString} method.  Otherwise
      * this method works as if by invoking that method and then <a
      * href="#encode">encoding</a> the result.  </p>
+     * {@description.close}
      *
      * @return  The string form of this URI, encoded as needed
      *          so that it only contains characters in the US-ASCII
@@ -1635,12 +1707,14 @@ public final class URI
     // -- Serialization support --
 
     /** {@collect.stats} 
+     * {@description.open}
      * Saves the content of this URI to the given serial stream.
      *
      * <p> The only serializable field of a URI instance is its <tt>string</tt>
      * field.  That field is given a value, if it does not have one already,
      * and then the {@link java.io.ObjectOutputStream#defaultWriteObject()}
      * method of the given object-output stream is invoked. </p>
+     * {@description.close}
      *
      * @param  os  The object-output stream to which this object
      *             is to be written
@@ -1653,11 +1727,13 @@ public final class URI
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reconstitutes a URI from the given serial stream.
      *
      * <p> The {@link java.io.ObjectInputStream#defaultReadObject()} method is
      * invoked to read the value of the <tt>string</tt> field.  The result is
      * then parsed in the usual way.
+     * {@description.close}
      *
      * @param  is  The object-input stream from which this object
      *             is being read

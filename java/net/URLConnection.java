@@ -40,6 +40,7 @@ import sun.security.util.SecurityConstants;
 import sun.net.www.MessageHeader;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The abstract class <code>URLConnection</code> is the superclass
  * of all classes that represent a communications link between the
  * application and a URL. Instances of this class can be used both to
@@ -142,6 +143,7 @@ import sun.net.www.MessageHeader;
  * <tt>URLConnection</tt> after a request may free network resources associated with this
  * instance, unless particular protocol specifications specify different behaviours
  * for it.
+ * {@description.close}
  *
  * @author  James Gosling
  * @see     java.net.URL#openConnection()
@@ -169,6 +171,7 @@ import sun.net.www.MessageHeader;
 public abstract class URLConnection {
 
    /** {@collect.stats} 
+    * {@description.open}
      * The URL represents the remote object on the World Wide Web to
      * which this connection is opened.
      * <p>
@@ -177,6 +180,7 @@ public abstract class URLConnection {
      * <p>
      * The default value of this variable is the value of the URL
      * argument in the <code>URLConnection</code> constructor.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#getURL()
      * @see     java.net.URLConnection#url
@@ -184,6 +188,7 @@ public abstract class URLConnection {
     protected URL url;
 
    /** {@collect.stats} 
+    * {@description.open}
      * This variable is set by the <code>setDoInput</code> method. Its
      * value is returned by the <code>getDoInput</code> method.
      * <p>
@@ -192,6 +197,7 @@ public abstract class URLConnection {
      * the application intends to read data from the URL connection.
      * <p>
      * The default value of this field is <code>true</code>.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#getDoInput()
      * @see     java.net.URLConnection#setDoInput(boolean)
@@ -199,6 +205,7 @@ public abstract class URLConnection {
     protected boolean doInput = true;
 
    /** {@collect.stats} 
+    * {@description.open}
      * This variable is set by the <code>setDoOutput</code> method. Its
      * value is returned by the <code>getDoOutput</code> method.
      * <p>
@@ -207,6 +214,7 @@ public abstract class URLConnection {
      * that the application intends to write data to the URL connection.
      * <p>
      * The default value of this field is <code>false</code>.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#getDoOutput()
      * @see     java.net.URLConnection#setDoOutput(boolean)
@@ -216,6 +224,7 @@ public abstract class URLConnection {
     private static boolean defaultAllowUserInteraction = false;
 
    /** {@collect.stats} 
+    * {@description.open}
      * If <code>true</code>, this <code>URL</code> is being examined in
      * a context in which it makes sense to allow user interactions such
      * as popping up an authentication dialog. If <code>false</code>,
@@ -227,6 +236,7 @@ public abstract class URLConnection {
      * <code>getAllowUserInteraction</code> method.
      * Its default value is the value of the argument in the last invocation
      * of the <code>setDefaultAllowUserInteraction</code> method.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#getAllowUserInteraction()
      * @see     java.net.URLConnection#setAllowUserInteraction(boolean)
@@ -237,6 +247,7 @@ public abstract class URLConnection {
     private static boolean defaultUseCaches = true;
 
    /** {@collect.stats} 
+    * {@description.open}
      * If <code>true</code>, the protocol is allowed to use caching
      * whenever it can. If <code>false</code>, the protocol must always
      * try to get a fresh copy of the object.
@@ -246,6 +257,7 @@ public abstract class URLConnection {
      * <p>
      * Its default value is the value given in the last invocation of the
      * <code>setDefaultUseCaches</code> method.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#setUseCaches(boolean)
      * @see     java.net.URLConnection#getUseCaches()
@@ -254,6 +266,7 @@ public abstract class URLConnection {
     protected boolean useCaches = defaultUseCaches;
 
    /** {@collect.stats} 
+    * {@description.open}
      * Some protocols support skipping the fetching of the object unless
      * the object has been modified more recently than a certain time.
      * <p>
@@ -267,6 +280,7 @@ public abstract class URLConnection {
      * <p>
      * The default value of this field is <code>0</code>, indicating
      * that the fetching must always occur.
+     * {@description.close}
      *
      * @see     java.net.URLConnection#getIfModifiedSince()
      * @see     java.net.URLConnection#setIfModifiedSince(long)
@@ -274,39 +288,51 @@ public abstract class URLConnection {
     protected long ifModifiedSince = 0;
 
    /** {@collect.stats} 
+    * {@description.open}
      * If <code>false</code>, this connection object has not created a
      * communications link to the specified URL. If <code>true</code>,
      * the communications link has been established.
+     * {@description.close}
      */
     protected boolean connected = false;
 
     /** {@collect.stats} 
+     * {@description.open}
+     * {@description.close}
      * @since 1.5
      */
     private int connectTimeout;
     private int readTimeout;
 
     /** {@collect.stats} 
+     * {@description.open}
+     * {@description.close}
      * @since 1.6
      */
     private MessageHeader requests;
 
    /** {@collect.stats} 
+    * {@description.open}
+    * {@description.close}
     * @since   JDK1.1
     */
     private static FileNameMap fileNameMap;
 
     /** {@collect.stats} 
+     * {@description.open}
+     * {@description.close}
      * @since 1.2.2
      */
     private static boolean fileNameMapLoaded = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Loads filename map (a mimetable) from a data file. It will
      * first try to load the user-specific table, defined
      * by &quot;content.types.user.table&quot; property. If that fails,
      * it tries to load the default built-in table at
      * lib/content-types.properties under java home.
+     * {@description.close}
      *
      * @return the FileNameMap
      * @since 1.2
@@ -327,12 +353,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the FileNameMap.
      * <p>
      * If there is a security manager, this method first calls
      * the security manager's <code>checkSetFactory</code> method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @param map the FileNameMap to be set
      * @exception  SecurityException  if a security manager exists and its
@@ -348,20 +376,32 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Opens a communications link to the resource referenced by this
      * URL, if such a connection has not already been established.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * If the <code>connect</code> method is called when the connection
      * has already been opened (indicated by the <code>connected</code>
      * field having the value <code>true</code>), the call is ignored.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * URLConnection objects go through two phases: first they are
      * created, then they are connected.  After being created, and
      * before being connected, various options can be specified
-     * (e.g., doInput and UseCaches).  After connecting, it is an
-     * error to try to set them.  Operations that depend on being
+     * (e.g., doInput and UseCaches).
+     * {@description.close}
+     * {@property.open}
+     * After connecting, it is an
+     * error to try to set them.
+     * {@property.close}
+     * {@property.open}
+     * Operations that depend on being
      * connected, like getContentLength, will implicitly perform the
      * connection, if necessary.
+     * {@property.close}
      *
      * @throws SocketTimeoutException if the timeout expires before
      *               the connection can be established
@@ -374,6 +414,7 @@ public abstract class URLConnection {
     abstract public void connect() throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets a specified timeout value, in milliseconds, to be used
      * when opening a communications link to the resource referenced
      * by this URLConnection.  If the timeout expires before the
@@ -384,6 +425,7 @@ public abstract class URLConnection {
      * <p> Some non-standard implmentation of this method may ignore
      * the specified timeout. To see the connect timeout set, please
      * call getConnectTimeout().
+     * {@description.close}
      *
      * @param timeout an <code>int</code> that specifies the connect
      *               timeout value in milliseconds
@@ -401,10 +443,12 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns setting for connect timeout.
      * <p>
      * 0 return implies that the option is disabled
      * (i.e., timeout of infinity).
+     * {@description.close}
      *
      * @return an <code>int</code> that indicates the connect timeout
      *         value in milliseconds
@@ -417,16 +461,20 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the read timeout to a specified timeout, in
      * milliseconds. A non-zero value specifies the timeout when
      * reading from Input stream when a connection is established to a
      * resource. If the timeout expires before there is data available
      * for read, a java.net.SocketTimeoutException is raised. A
      * timeout of zero is interpreted as an infinite timeout.
+     * {@description.close}
      *
+     * {@property.open}
      *<p> Some non-standard implementation of this method ignores the
      * specified timeout. To see the read timeout set, please call
      * getReadTimeout().
+     * {@property.close}
      *
      * @param timeout an <code>int</code> that specifies the timeout
      * value to be used in milliseconds
@@ -444,8 +492,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns setting for read timeout. 0 return implies that the
      * option is disabled (i.e., timeout of infinity).
+     * {@description.close}
      *
      * @return an <code>int</code> that indicates the read timeout
      *         value in milliseconds
@@ -459,8 +509,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a URL connection to the specified URL. A connection to
      * the object referenced by the URL is not created.
+     * {@description.close}
      *
      * @param   url   the specified URL.
      */
@@ -469,8 +521,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of this <code>URLConnection</code>'s <code>URL</code>
      * field.
+     * {@description.close}
      *
      * @return  the value of this <code>URLConnection</code>'s <code>URL</code>
      *          field.
@@ -481,7 +535,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>content-length</code> header field.
+     * {@description.close}
      *
      * @return  the content length of the resource that this connection's URL
      *          references, or <code>-1</code> if the content length is
@@ -492,7 +548,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>content-type</code> header field.
+     * {@description.close}
      *
      * @return  the content type of the resource that the URL references,
      *          or <code>null</code> if not known.
@@ -503,7 +561,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>content-encoding</code> header field.
+     * {@description.close}
      *
      * @return  the content encoding of the resource that the URL references,
      *          or <code>null</code> if not known.
@@ -514,7 +574,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>expires</code> header field.
+     * {@description.close}
      *
      * @return  the expiration date of the resource that this URL references,
      *          or 0 if not known. The value is the number of milliseconds since
@@ -526,7 +588,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>date</code> header field.
+     * {@description.close}
      *
      * @return  the sending date of the resource that the URL references,
      *          or <code>0</code> if not known. The value returned is the
@@ -538,8 +602,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>last-modified</code> header field.
      * The result is the number of milliseconds since January 1, 1970 GMT.
+     * {@description.close}
      *
      * @return  the date the resource referenced by this
      *          <code>URLConnection</code> was last modified, or 0 if not known.
@@ -550,11 +616,13 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the named header field.
      * <p>
      * If called on a connection that sets the same header multiple times
      * with possibly different values, only the last value is returned.
      *
+     * {@description.close}
      *
      * @param   name   the name of a header field.
      * @return  the value of the named header field, or <code>null</code>
@@ -565,11 +633,13 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable Map of the header fields.
      * The Map keys are Strings that represent the
      * response-header field names. Each Map value is an
      * unmodifiable List of Strings that represents
      * the corresponding field values.
+     * {@description.close}
      *
      * @return a Map of header fields
      * @since 1.4
@@ -579,12 +649,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the named field parsed as a number.
      * <p>
      * This form of <code>getHeaderField</code> exists because some
      * connection types (e.g., <code>http-ng</code>) have pre-parsed
      * headers. Classes for that connection type can override this method
      * and short-circuit the parsing.
+     * {@description.close}
      *
      * @param   name      the name of the header field.
      * @param   Default   the default value.
@@ -601,6 +673,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the named field parsed as date.
      * The result is the number of milliseconds since January 1, 1970 GMT
      * represented by the named field.
@@ -609,6 +682,7 @@ public abstract class URLConnection {
      * connection types (e.g., <code>http-ng</code>) have pre-parsed
      * headers. Classes for that connection type can override this method
      * and short-circuit the parsing.
+     * {@description.close}
      *
      * @param   name     the name of the header field.
      * @param   Default   a default value.
@@ -625,8 +699,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the key for the <code>n</code><sup>th</sup> header field.
      * It returns <code>null</code> if there are fewer than <code>n+1</code> fields.
+     * {@description.close}
      *
      * @param   n   an index, where n>=0
      * @return  the key for the <code>n</code><sup>th</sup> header field,
@@ -638,6 +714,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value for the <code>n</code><sup>th</sup> header field.
      * It returns <code>null</code> if there are fewer than
      * <code>n+1</code>fields.
@@ -645,6 +722,7 @@ public abstract class URLConnection {
      * This method can be used in conjunction with the
      * {@link #getHeaderFieldKey(int) getHeaderFieldKey} method to iterate through all
      * the headers in the message.
+     * {@description.close}
      *
      * @param   n   an index, where n>=0
      * @return  the value of the <code>n</code><sup>th</sup> header field
@@ -656,6 +734,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the contents of this URL connection.
      * <p>
      * This method first determines the content type of the object by
@@ -686,6 +765,7 @@ public abstract class URLConnection {
      *     <code>ContentHandler</code>, then an
      *     <code>UnknownServiceException</code> is thrown.
      * </ol>
+     * {@description.close}
      *
      * @return     the object fetched. The <code>instanceof</code> operator
      *               should be used to determine the specific kind of object
@@ -707,7 +787,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Retrieves the contents of this URL connection.
+     * {@description.close}
      *
      * @param classes the <code>Class</code> array
      * indicating the requested types
@@ -735,14 +817,21 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a permission object representing the permission
      * necessary to make the connection represented by this
      * object. This method returns null if no permission is
      * required to make the connection. By default, this method
-     * returns <code>java.security.AllPermission</code>. Subclasses
+     * returns <code>java.security.AllPermission</code>.
+     * {@description.close}
+     * {@property.open}
+     * Subclasses
      * should override this method and return the permission
      * that best represents the permission required to make a
-     * a connection to the URL. For example, a <code>URLConnection</code>
+     * a connection to the URL.
+     * {@property.close}
+     * {@description.open}
+     * For example, a <code>URLConnection</code>
      * representing a <code>file:</code> URL would return a
      * <code>java.io.FilePermission</code> object.
      *
@@ -764,6 +853,7 @@ public abstract class URLConnection {
      * to the host from which the data was ultimately fetched. In the
      * second case, the permission should be obtained and tested
      * <em>before</em> connecting.
+     * {@description.close}
      *
      * @return the permission object representing the permission
      * necessary to make the connection represented by this
@@ -778,11 +868,13 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an input stream that reads from this open connection.
      *
      * A SocketTimeoutException can be thrown when reading from the
      * returned input stream if the read timeout expires before data
      * is available for read.
+     * {@description.close}
      *
      * @return     an input stream that reads from this open connection.
      * @exception  IOException              if an I/O error occurs while
@@ -797,7 +889,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an output stream that writes to this connection.
+     * {@description.close}
      *
      * @return     an output stream that writes to this connection.
      * @exception  IOException              if an I/O error occurs while
@@ -810,7 +904,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a <code>String</code> representation of this URL connection.
+     * {@description.close}
      *
      * @return  a string representation of this <code>URLConnection</code>.
      */
@@ -819,12 +915,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the value of the <code>doInput</code> field for this
      * <code>URLConnection</code> to the specified value.
      * <p>
      * A URL connection can be used for input and/or output.  Set the DoInput
      * flag to true if you intend to use the URL connection for input,
      * false if not.  The default is true.
+     * {@description.close}
      *
      * @param   doinput   the new value.
      * @throws IllegalStateException if already connected
@@ -838,8 +936,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of this <code>URLConnection</code>'s
      * <code>doInput</code> flag.
+     * {@description.close}
      *
      * @return  the value of this <code>URLConnection</code>'s
      *          <code>doInput</code> flag.
@@ -850,12 +950,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the value of the <code>doOutput</code> field for this
      * <code>URLConnection</code> to the specified value.
      * <p>
      * A URL connection can be used for input and/or output.  Set the DoOutput
      * flag to true if you intend to use the URL connection for output,
      * false if not.  The default is false.
+     * {@description.close}
      *
      * @param   dooutput   the new value.
      * @throws IllegalStateException if already connected
@@ -868,8 +970,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of this <code>URLConnection</code>'s
      * <code>doOutput</code> flag.
+     * {@description.close}
      *
      * @return  the value of this <code>URLConnection</code>'s
      *          <code>doOutput</code> flag.
@@ -880,8 +984,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set the value of the <code>allowUserInteraction</code> field of
      * this <code>URLConnection</code>.
+     * {@description.close}
      *
      * @param   allowuserinteraction   the new value.
      * @throws IllegalStateException if already connected
@@ -894,8 +1000,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the <code>allowUserInteraction</code> field for
      * this object.
+     * {@description.close}
      *
      * @return  the value of the <code>allowUserInteraction</code> field for
      *          this object.
@@ -906,9 +1014,11 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the default value of the
      * <code>allowUserInteraction</code> field for all future
      * <code>URLConnection</code> objects to the specified value.
+     * {@description.close}
      *
      * @param   defaultallowuserinteraction   the new value.
      * @see     #getDefaultAllowUserInteraction()
@@ -918,12 +1028,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the default value of the <code>allowUserInteraction</code>
      * field.
      * <p>
      * Ths default is "sticky", being a part of the static state of all
      * URLConnections.  This flag applies to the next, and all following
      * URLConnections that are created.
+     * {@description.close}
      *
      * @return  the default value of the <code>allowUserInteraction</code>
      *          field.
@@ -934,6 +1046,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the value of the <code>useCaches</code> field of this
      * <code>URLConnection</code> to the specified value.
      * <p>
@@ -944,6 +1057,7 @@ public abstract class URLConnection {
      *  If false, caches are to be ignored.
      *  The default value comes from DefaultUseCaches, which defaults to
      * true.
+     * {@description.close}
      *
      * @param usecaches a <code>boolean</code> indicating whether
      * or not to allow caching
@@ -957,8 +1071,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of this <code>URLConnection</code>'s
      * <code>useCaches</code> field.
+     * {@description.close}
      *
      * @return  the value of this <code>URLConnection</code>'s
      *          <code>useCaches</code> field.
@@ -969,8 +1085,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the value of the <code>ifModifiedSince</code> field of
      * this <code>URLConnection</code> to the specified value.
+     * {@description.close}
      *
      * @param   ifmodifiedsince   the new value.
      * @throws IllegalStateException if already connected
@@ -983,7 +1101,9 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of this object's <code>ifModifiedSince</code> field.
+     * {@description.close}
      *
      * @return  the value of this object's <code>ifModifiedSince</code> field.
      * @see #setIfModifiedSince(long)
@@ -993,12 +1113,14 @@ public abstract class URLConnection {
     }
 
    /** {@collect.stats} 
+    * {@description.open}
      * Returns the default value of a <code>URLConnection</code>'s
      * <code>useCaches</code> flag.
      * <p>
      * Ths default is "sticky", being a part of the static state of all
      * URLConnections.  This flag applies to the next, and all following
      * URLConnections that are created.
+     * {@description.close}
      *
      * @return  the default value of a <code>URLConnection</code>'s
      *          <code>useCaches</code> flag.
@@ -1009,8 +1131,10 @@ public abstract class URLConnection {
     }
 
    /** {@collect.stats} 
+    * {@description.open}
      * Sets the default value of the <code>useCaches</code> field to the
      * specified value.
+     * {@description.close}
      *
      * @param   defaultusecaches   the new value.
      * @see     #getDefaultUseCaches()
@@ -1020,6 +1144,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the general request property. If a property with the key already
      * exists, overwrite its value with the new value.
      *
@@ -1027,6 +1152,7 @@ public abstract class URLConnection {
      * legally have multiple instances with the same key
      * to use a comma-seperated list syntax which enables multiple
      * properties to be appended into a single property.
+     * {@description.close}
      *
      * @param   key     the keyword by which the request is known
      *                  (e.g., "<code>accept</code>").
@@ -1048,9 +1174,11 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Adds a general request property specified by a
      * key-value pair.  This method will not overwrite
      * existing values associated with the same key.
+     * {@description.close}
      *
      * @param   key     the keyword by which the request is known
      *                  (e.g., "<code>accept</code>").
@@ -1074,8 +1202,10 @@ public abstract class URLConnection {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the named general request property for this
      * connection.
+     * {@description.close}
      *
      * @param key the keyword by which the request is known (e.g., "accept").
      * @return  the value of the named general request property for this
@@ -1094,12 +1224,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an unmodifiable Map of general request
      * properties for this connection. The Map keys
      * are Strings that represent the request-header
      * field names. Each Map value is a unmodifiable List
      * of Strings that represents the corresponding
      * field values.
+     * {@description.close}
      *
      * @return  a Map of the general request properties for this connection.
      * @throws IllegalStateException if already connected
@@ -1116,9 +1248,11 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the default value of a general request property. When a
      * <code>URLConnection</code> is created, it is initialized with
      * these properties.
+     * {@description.close}
      *
      * @param   key     the keyword by which the request is known
      *                  (e.g., "<code>accept</code>").
@@ -1137,8 +1271,10 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the value of the default request property. Default request
      * properties are set for every connection.
+     * {@description.close}
      *
      * @param key the keyword by which the request is known (e.g., "accept").
      * @return  the value of the default request property
@@ -1158,11 +1294,14 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The ContentHandler factory.
+     * {@description.close}
      */
     static ContentHandlerFactory factory;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the <code>ContentHandlerFactory</code> of an
      * application. It can be called at most once by an application.
      * <p>
@@ -1173,6 +1312,7 @@ public abstract class URLConnection {
      * the security manager's <code>checkSetFactory</code> method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @param      fac   the desired factory.
      * @exception  Error  if the factory has already been defined.
@@ -1197,7 +1337,9 @@ public abstract class URLConnection {
     private static final ContentHandler UnknownContentHandlerP = new UnknownContentHandler();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the Content Handler appropriate for this connection.
+     * {@description.close}
      * @param connection the connection to use.
      */
     synchronized ContentHandler getContentHandler()
@@ -1249,6 +1391,7 @@ public abstract class URLConnection {
     private static final String contentPathProp = "java.content.handler.pkgs";
 
     /** {@collect.stats} 
+     * {@description.open}
      * Looks for a content handler in a user-defineable set of places.
      * By default it looks in sun.net.www.content, but users can define a
      * vertical-bar delimited set of class prefixes to search through in
@@ -1259,6 +1402,7 @@ public abstract class URLConnection {
      * e.g.
      *     YoyoDyne.experimental.text.plain
      * </pre>
+     * {@description.close}
      */
     private ContentHandler lookupContentHandlerClassFor(String contentType)
         throws InstantiationException, IllegalAccessException, ClassNotFoundException {
@@ -1296,9 +1440,11 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Utility function to map a MIME content type into an equivalent
      * pair of class name components.  For example: "text/html" would
      * be returned as "text.html"
+     * {@description.close}
      */
     private String typeToPackageName(String contentType) {
         // make sure we canonicalize the class name: all lower case
@@ -1321,11 +1467,13 @@ public abstract class URLConnection {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a vertical bar separated list of package prefixes for potential
      * content handlers.  Tries to get the java.content.handler.pkgs property
      * to use as a set of package prefixes to search.  Whether or not
      * that property has been defined, the sun.net.www.content is always
      * the last one on the returned package list.
+     * {@description.close}
      */
     private String getContentHandlerPkgPrefixes() {
         String packagePrefixList = AccessController.doPrivileged(
@@ -1339,10 +1487,12 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tries to determine the content type of an object, based
      * on the specified "file" component of a URL.
      * This is a convenience method that can be used by
      * subclasses that override the <code>getContentType</code> method.
+     * {@description.close}
      *
      * @param   fname   a filename.
      * @return  a guess as to what the content type of the object is,
@@ -1354,6 +1504,7 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tries to determine the type of an input stream based on the
      * characters at the beginning of the input stream. This method can
      * be used by subclasses that override the
@@ -1364,6 +1515,7 @@ public abstract class URLConnection {
      * addition, there are many nonstandard extensions. Direct inspection
      * of the bytes to determine the content type is often more accurate
      * than believing the content type claimed by the <code>http</code> server.
+     * {@description.close}
      *
      * @param      is   an input stream that supports marks.
      * @return     a guess at the content type, or <code>null</code> if none
@@ -1459,10 +1611,12 @@ public abstract class URLConnection {
             }
 
             /** {@collect.stats} 
+             * {@description.open}
              * File format used by digital cameras to store images.
              * Exif Format can be read by any application supporting
              * JPEG. Exif Spec can be found at:
              * http://www.pima.net/standards/it10/PIMA15740/Exif_2-1.PDF
+             * {@description.close}
              */
             if ((c4 == 0xE1) &&
                 (c7 == 'E' && c8 == 'x' && c9 == 'i' && c10 =='f' &&
@@ -1505,10 +1659,12 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Check for FlashPix image data in InputStream is.  Return true if
      * the stream has FlashPix data, false otherwise.  Before calling this
      * method, the stream should have already been checked to be sure it
      * contains Microsoft Structured Storage data.
+     * {@description.close}
      */
     static private boolean checkfpx(InputStream is) throws IOException {
 
@@ -1667,9 +1823,11 @@ public abstract class URLConnection {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tries to read the specified number of bytes from the stream
      * Returns -1, If EOF is reached before len bytes are read, returns 0
      * otherwise
+     * {@description.close}
      */
     static private int readBytes(int c[], int len, InputStream is)
                 throws IOException {
@@ -1688,9 +1846,11 @@ public abstract class URLConnection {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Skips through the specified number of bytes from the stream
      * until either EOF is reached, or the specified
      * number of bytes have been skipped
+     * {@description.close}
      */
     static private long skipForward(InputStream is, long toSkip)
                 throws IOException {

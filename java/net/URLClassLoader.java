@@ -55,6 +55,7 @@ import sun.net.www.ParseUtil;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class loader is used to load classes and resources from a search
  * path of URLs referring to both JAR files and directories. Any URL that
  * ends with a '/' is assumed to refer to a directory. Otherwise, the URL
@@ -66,6 +67,7 @@ import sun.security.util.SecurityConstants;
  * <p>
  * The classes that are loaded are by default granted permission only to
  * access the URLs specified when the URLClassLoader was created.
+ * {@description.close}
  *
  * @author  David Connelly
  * @since   1.2
@@ -78,6 +80,7 @@ public class URLClassLoader extends SecureClassLoader {
     private AccessControlContext acc;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new URLClassLoader for the given URLs. The URLs will be
      * searched in the order specified for classes and resources after first
      * searching in the specified parent class loader. Any URL that ends with
@@ -87,6 +90,7 @@ public class URLClassLoader extends SecureClassLoader {
      * <p>If there is a security manager, this method first
      * calls the security manager's <code>checkCreateClassLoader</code> method
      * to ensure creation of a class loader is allowed.
+     * {@description.close}
      *
      * @param urls the URLs from which to load classes and resources
      * @param parent the parent class loader for delegation
@@ -107,6 +111,7 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new URLClassLoader for the specified URLs using the
      * default delegation parent <code>ClassLoader</code>. The URLs will
      * be searched in the order specified for classes and resources after
@@ -118,6 +123,7 @@ public class URLClassLoader extends SecureClassLoader {
      * <p>If there is a security manager, this method first
      * calls the security manager's <code>checkCreateClassLoader</code> method
      * to ensure creation of a class loader is allowed.
+     * {@description.close}
      *
      * @param urls the URLs from which to load classes and resources
      *
@@ -138,6 +144,7 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new URLClassLoader for the specified URLs, parent
      * class loader, and URLStreamHandlerFactory. The parent argument
      * will be used as the parent class loader for delegation. The
@@ -147,6 +154,7 @@ public class URLClassLoader extends SecureClassLoader {
      * <p>If there is a security manager, this method first
      * calls the security manager's <code>checkCreateClassLoader</code> method
      * to ensure creation of a class loader is allowed.
+     * {@description.close}
      *
      * @param urls the URLs from which to load classes and resources
      * @param parent the parent class loader for delegation
@@ -170,8 +178,10 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Appends the specified URL to the list of URLs to search for
      * classes and resources.
+     * {@description.close}
      *
      * @param url the URL to be added to the search path of URLs
      */
@@ -180,9 +190,11 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the search path of URLs for loading classes and resources.
      * This includes the original list of URLs specified to the constructor,
      * along with any URLs subsequently appended by the addURL() method.
+     * {@description.close}
      * @return the search path of URLs for loading classes and resources.
      */
     public URL[] getURLs() {
@@ -190,9 +202,11 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finds and loads the class with the specified name from the URL search
      * path. Any URLs referring to JAR files are loaded and opened as needed
      * until the class is found.
+     * {@description.close}
      *
      * @param name the name of the class
      * @return the resulting class
@@ -279,10 +293,12 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Defines a new package by name in this ClassLoader. The attributes
      * contained in the specified Manifest will be used to obtain package
      * version and sealing information. For sealed packages, the additional
      * URL specifies the code source URL from which the package was loaded.
+     * {@description.close}
      *
      * @param name  the package name
      * @param man   the Manifest containing package version and sealing
@@ -363,7 +379,9 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Finds the resource with the specified name on the URL search path.
+     * {@description.close}
      *
      * @param name the name of the resource
      * @return a <code>URL</code> for the resource, or <code>null</code>
@@ -384,8 +402,10 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an Enumeration of URLs representing all of the resources
      * on the URL search path having the specified name.
+     * {@description.close}
      *
      * @param name the resource name
      * @exception IOException if an I/O exception occurs
@@ -435,6 +455,7 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the permissions for the given codesource object.
      * The implementation of this method first calls super.getPermissions
      * and then adds permissions based on the URL of the codesource.
@@ -452,6 +473,7 @@ public class URLClassLoader extends SecureClassLoader {
      * <p>
      * If the protocol is not "file", then permission
      * to connect to and accept connections from the URL's host is granted.
+     * {@description.close}
      * @param codesource the codesource
      * @return the permissions granted to the codesource
      */
@@ -489,9 +511,11 @@ public class URLClassLoader extends SecureClassLoader {
             p =  new FilePermission(path, SecurityConstants.FILE_READ_ACTION);
         } else {
             /** {@collect.stats} 
+             * {@description.open}
              * Not loading from a 'file:' URL so we want to give the class
              * permission to connect to and accept from the remote host
              * after we've made sure the host is the correct one and is valid.
+             * {@description.close}
              */
             URL locUrl = url;
             if (urlConnection instanceof JarURLConnection) {
@@ -523,12 +547,14 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new instance of URLClassLoader for the specified
      * URLs and parent class loader. If a security manager is
      * installed, the <code>loadClass</code> method of the URLClassLoader
      * returned by this method will invoke the
      * <code>SecurityManager.checkPackageAccess</code> method before
      * loading the class.
+     * {@description.close}
      *
      * @param urls the URLs to search for classes and resources
      * @param parent the parent class loader for delegation
@@ -552,12 +578,14 @@ public class URLClassLoader extends SecureClassLoader {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new instance of URLClassLoader for the specified
      * URLs and default parent class loader. If a security manager is
      * installed, the <code>loadClass</code> method of the URLClassLoader
      * returned by this method will invoke the
      * <code>SecurityManager.checkPackageAccess</code> before
      * loading the class.
+     * {@description.close}
      *
      * @param urls the URLs to search for classes and resources
      * @return the resulting class loader

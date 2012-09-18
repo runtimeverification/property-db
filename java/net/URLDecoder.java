@@ -28,6 +28,7 @@ package java.net;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Utility class for HTML form decoding. This class contains static methods
  * for decoding a String from the <CODE>application/x-www-form-urlencoded</CODE>
  * MIME format.
@@ -69,6 +70,7 @@ import java.io.*;
  * it could throw an <tt>{@link java.lang.IllegalArgumentException}</tt>.
  * Which approach the decoder takes is left to the
  * implementation.
+ * {@description.close}
  *
  * @author  Mark Chamness
  * @author  Michael McCloskey
@@ -81,10 +83,12 @@ public class URLDecoder {
     static String dfltEncName = URLEncoder.dfltEncName;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Decodes a <code>x-www-form-urlencoded</code> string.
      * The platform's default encoding is used to determine what characters
      * are represented by any consecutive sequences of the form
      * "<code>%<i>xy</i></code>".
+     * {@description.close}
      * @param s the <code>String</code> to decode
      * @deprecated The resulting string may vary depending on the platform's
      *          default encoding. Instead, use the decode(String,String) method
@@ -106,17 +110,21 @@ public class URLDecoder {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Decodes a <code>application/x-www-form-urlencoded</code> string using a specific
      * encoding scheme.
      * The supplied encoding is used to determine
      * what characters are represented by any consecutive sequences of the
      * form "<code>%<i>xy</i></code>".
+     * {@description.close}
+     * {@property.open}
      * <p>
      * <em><strong>Note:</strong> The <a href=
      * "http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars">
      * World Wide Web Consortium Recommendation</a> states that
      * UTF-8 should be used. Not doing so may introduce
      * incompatibilites.</em>
+     * {@property.close}
      *
      * @param s the <code>String</code> to decode
      * @param enc   The name of a supported

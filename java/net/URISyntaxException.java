@@ -27,8 +27,10 @@ package java.net;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Checked exception thrown to indicate that a string could not be parsed as a
  * URI reference.
+ * {@description.close}
  *
  * @author Mark Reinhold
  * @see URI
@@ -42,8 +44,10 @@ public class URISyntaxException
     private int index;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance from the given input string, reason, and error
      * index.
+     * {@description.close}
      *
      * @param  input   The input string
      * @param  reason  A string explaining why the input could not be parsed
@@ -67,8 +71,10 @@ public class URISyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs an instance from the given input string and reason.  The
      * resulting object will have an error index of <tt>-1</tt>.
+     * {@description.close}
      *
      * @param  input   The input string
      * @param  reason  A string explaining why the input could not be parsed
@@ -81,7 +87,9 @@ public class URISyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input string.
+     * {@description.close}
      *
      * @return  The input string
      */
@@ -90,7 +98,9 @@ public class URISyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string explaining why the input string could not be parsed.
+     * {@description.close}
      *
      * @return  The reason string
      */
@@ -99,8 +109,10 @@ public class URISyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an index into the input string of the position at which the
      * parse error occurred, or <tt>-1</tt> if this position is not known.
+     * {@description.close}
      *
      * @return  The error index
      */
@@ -109,12 +121,14 @@ public class URISyntaxException
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns a string describing the parse error.  The resulting string
      * consists of the reason string followed by a colon character
      * (<tt>':'</tt>), a space, and the input string.  If the error index is
      * defined then the string <tt>" at index "</tt> followed by the index, in
      * decimal, is inserted after the reason string and before the colon
      * character.
+     * {@description.close}
      *
      * @return  A string describing the parse error
      */

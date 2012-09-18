@@ -26,6 +26,7 @@ package java.net;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  *
  * This class represents a Socket Address with no protocol attachment.
  * As an abstract class, it is meant to be subclassed with a specific,
@@ -33,6 +34,7 @@ package java.net;
  * <p>
  * It provides an immutable object used by sockets for binding, connecting, or
  * as returned values.
+ * {@description.close}
  *
  * @see java.net.Socket
  * @see java.net.ServerSocket

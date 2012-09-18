@@ -26,7 +26,9 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Signals that a timeout has occurred on a socket read or accept.
+ * {@description.close}
  *
  * @since   1.4
  */
@@ -34,8 +36,10 @@ package java.net;
 public class SocketTimeoutException extends java.io.InterruptedIOException {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new SocketTimeoutException with a detail
      * message.
+     * {@description.close}
      * @param msg the detail message
      */
     public SocketTimeoutException(String msg) {
@@ -43,7 +47,9 @@ public class SocketTimeoutException extends java.io.InterruptedIOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Construct a new SocketTimeoutException with no detailed message.
+     * {@description.close}
      */
     public SocketTimeoutException() {}
 }

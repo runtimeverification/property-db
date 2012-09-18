@@ -33,9 +33,11 @@ import java.nio.channels.FileChannel;
 import sun.net.ConnectionResetException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This stream extends FileInputStream to implement a
  * SocketInputStream. Note that this class should <b>NOT</b> be
  * public.
+ * {@description.close}
  *
  * @author      Jonathan Payne
  * @author      Arthur van Hoff
@@ -52,9 +54,11 @@ class SocketInputStream extends FileInputStream
     private Socket socket = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new SocketInputStream. Can only be called
      * by a Socket. This method needs to hang on to the owner Socket so
      * that the fd will not be closed.
+     * {@description.close}
      * @param impl the implemented socket input stream
      */
     SocketInputStream(AbstractPlainSocketImpl impl) throws IOException {
@@ -64,11 +68,13 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file input stream.</p>
      *
      * The <code>getChannel</code> method of <code>SocketInputStream</code>
      * returns <code>null</code> since it is a socket based stream.</p>
+     * {@description.close}
      *
      * @return  the file channel associated with this file input stream
      *
@@ -80,8 +86,10 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads into an array of bytes at the specified offset using
      * the received socket primitive.
+     * {@description.close}
      * @param fd the FileDescriptor
      * @param b the buffer into which the data is read
      * @param off the start offset of the data
@@ -97,7 +105,9 @@ class SocketInputStream extends FileInputStream
         throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads into a byte array data from the socket.
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @return the actual number of bytes read, -1 is
      *          returned when the end of the stream is reached.
@@ -108,8 +118,10 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads into a byte array <i>b</i> at offset <i>off</i>,
      * <i>length</i> bytes of data.
+     * {@description.close}
      * @param b the buffer into which the data is read
      * @param off the start offset of the data
      * @param len the maximum number of bytes read
@@ -189,7 +201,9 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Reads a single byte from the socket.
+     * {@description.close}
      */
     public int read() throws IOException {
         if (eof) {
@@ -204,7 +218,9 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Skips n bytes of input.
+     * {@description.close}
      * @param n the number of bytes to skip
      * @return  the actual number of bytes skipped.
      * @exception IOException If an I/O error has occurred.
@@ -227,7 +243,9 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of bytes that can be read without blocking.
+     * {@description.close}
      * @return the number of immediately available bytes
      */
     public int available() throws IOException {
@@ -235,7 +253,9 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the stream.
+     * {@description.close}
      */
     private boolean closing = false;
     public void close() throws IOException {
@@ -256,12 +276,16 @@ class SocketInputStream extends FileInputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Overrides finalize, the fd is closed by the Socket.
+     * {@description.close}
      */
     protected void finalize() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class load-time initializations.
+     * {@description.close}
      */
     private native static void init();
 }

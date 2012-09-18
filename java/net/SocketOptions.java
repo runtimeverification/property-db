@@ -26,6 +26,7 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Interface of methods to get/set socket options.  This interface is
  * implemented by: <B>SocketImpl</B> and  <B>DatagramSocketImpl</B>.
  * Subclasses of these should override the methods
@@ -37,6 +38,7 @@ package java.net;
  * type-safe methods to get/set each of these options in Socket, ServerSocket,
  * DatagramSocket and MulticastSocket.
  * <P>
+ * {@description.close}
  * @author David Brown
  */
 
@@ -44,6 +46,7 @@ package java.net;
 public interface SocketOptions {
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable the option specified by <I>optID</I>.  If the option
      * is to be enabled, and it takes an option-specific "value",  this is
      * passed in <I>value</I>.  The actual type of value is option-specific,
@@ -78,6 +81,7 @@ public interface SocketOptions {
      * Throws SocketException if the option is unrecognized,
      * the socket is closed, or some low-level error occurred
      * <BR>
+     * {@description.close}
      * @param optID identifies the option
      * @param value the parameter of the socket option
      * @throws SocketException if the option is unrecognized,
@@ -88,6 +92,7 @@ public interface SocketOptions {
         setOption(int optID, Object value) throws SocketException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fetch the value of an option.
      * Binary options will return java.lang.Boolean(true)
      * if enabled, java.lang.Boolean(false) if disabled, e.g.:
@@ -112,6 +117,7 @@ public interface SocketOptions {
      *   // the true type of o is java.lang.Boolean(false);
      * }
      * </PRE>
+     * {@description.close}
      *
      * @param optID an <code>int</code> identifying the option to fetch
      * @return the value of the option
@@ -123,16 +129,20 @@ public interface SocketOptions {
     public Object getOption(int optID) throws SocketException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The java-supported BSD-style options.
+     * {@description.close}
      */
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disable Nagle's algorithm for this connection.  Written data
      * to the network is not buffered pending acknowledgement of
      * previously written data.
      *<P>
      * Valid for TCP only: SocketImpl.
      * <P>
+     * {@description.close}
      * @see Socket#setTcpNoDelay
      * @see Socket#getTcpNoDelay
      */
@@ -140,6 +150,7 @@ public interface SocketOptions {
     public final static int TCP_NODELAY = 0x0001;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Fetch the local address binding of a socket (this option cannot
      * be "set" only "gotten", since sockets are bound at creation time,
      * and so the locally bound address cannot be changed).  The default local
@@ -154,6 +165,7 @@ public interface SocketOptions {
      * <P>
      * Valid for: SocketImpl, DatagramSocketImpl
      * <P>
+     * {@description.close}
      * @see Socket#getLocalAddress
      * @see DatagramSocket#getLocalAddress
      */
@@ -161,30 +173,36 @@ public interface SocketOptions {
     public final static int SO_BINDADDR = 0x000F;
 
     /** {@collect.stats}  Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
+     * {@description.open}
      * in java, and it is set by default for MulticastSockets.
      * <P>
      * Valid for: DatagramSocketImpl
+     * {@description.close}
      */
 
     public final static int SO_REUSEADDR = 0x04;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets SO_BROADCAST for a socket. This option enables and disables
      * the ability of the process to send broadcast messages. It is supported
      * for only datagram sockets and only on networks that support
      * the concept of a broadcast message (e.g. Ethernet, token ring, etc.),
      * and it is set by default for DatagramSockets.
+     * {@description.close}
      * @since 1.4
      */
 
     public final static int SO_BROADCAST = 0x0020;
 
     /** {@collect.stats}  Set which outgoing interface on which to send multicast packets.
+     * {@description.open}
      * Useful on hosts with multiple network interfaces, where applications
      * want to use other than the system default.  Takes/returns an InetAddress.
      * <P>
      * Valid for Multicast: DatagramSocketImpl
      * <P>
+     * {@description.close}
      * @see MulticastSocket#setInterface(InetAddress)
      * @see MulticastSocket#getInterface()
      */
@@ -192,9 +210,11 @@ public interface SocketOptions {
     public final static int IP_MULTICAST_IF = 0x10;
 
     /** {@collect.stats}  Same as above. This option is introduced so that the behaviour
+     * {@description.open}
      *  with IP_MULTICAST_IF will be kept the same as before, while
      *  this new option can support setting outgoing interfaces with either
      *  IPv4 and IPv6 addresses.
+     * {@description.close}
      *
      *  NOTE: make sure there is no conflict with this
      * @see MulticastSocket#setNetworkInterface(NetworkInterface)
@@ -204,22 +224,27 @@ public interface SocketOptions {
     public final static int IP_MULTICAST_IF2 = 0x1f;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This option enables or disables local loopback of multicast datagrams.
      * This option is enabled by default for Multicast Sockets.
+     * {@description.close}
      * @since 1.4
      */
 
     public final static int IP_MULTICAST_LOOP = 0x12;
 
     /** {@collect.stats} 
+     * {@description.open}
      * This option sets the type-of-service or traffic class field
      * in the IP header for a TCP or UDP socket.
+     * {@description.close}
      * @since 1.4
      */
 
     public final static int IP_TOS = 0x3;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Specify a linger-on-close timeout.  This option disables/enables
      * immediate return from a <B>close()</B> of a TCP Socket.  Enabling
      * this option with a non-zero Integer <I>timeout</I> means that a
@@ -231,6 +256,7 @@ public interface SocketOptions {
      * timeout value exceeds 65,535 it will be reduced to 65,535.
      * <P>
      * Valid only for TCP: SocketImpl
+     * {@description.close}
      *
      * @see Socket#setSoLinger
      * @see Socket#getSoLinger
@@ -238,6 +264,7 @@ public interface SocketOptions {
     public final static int SO_LINGER = 0x0080;
 
     /** {@collect.stats}  Set a timeout on blocking Socket operations:
+     * {@description.open}
      * <PRE>
      * ServerSocket.accept();
      * SocketInputStream.read();
@@ -251,6 +278,7 @@ public interface SocketOptions {
      * not closed in this case.
      *
      * <P> Valid for all sockets: SocketImpl, DatagramSocketImpl
+     * {@description.close}
      *
      * @see Socket#setSoTimeout
      * @see ServerSocket#setSoTimeout
@@ -259,6 +287,7 @@ public interface SocketOptions {
     public final static int SO_TIMEOUT = 0x1006;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a hint the size of the underlying buffers used by the
      * platform for outgoing network I/O. When used in set, this is a
      * suggestion to the kernel from the application about the size of
@@ -267,6 +296,7 @@ public interface SocketOptions {
      * used by the platform when sending out data on this socket.
      *
      * Valid for all sockets: SocketImpl, DatagramSocketImpl
+     * {@description.close}
      *
      * @see Socket#setSendBufferSize
      * @see Socket#getSendBufferSize
@@ -276,6 +306,7 @@ public interface SocketOptions {
     public final static int SO_SNDBUF = 0x1001;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Set a hint the size of the underlying buffers used by the
      * platform for incoming network I/O. When used in set, this is a
      * suggestion to the kernel from the application about the size of
@@ -285,6 +316,7 @@ public interface SocketOptions {
      * this socket.
      *
      * Valid for all sockets: SocketImpl, DatagramSocketImpl
+     * {@description.close}
      *
      * @see Socket#setReceiveBufferSize
      * @see Socket#getReceiveBufferSize
@@ -294,6 +326,7 @@ public interface SocketOptions {
     public final static int SO_RCVBUF = 0x1002;
 
     /** {@collect.stats} 
+     * {@description.open}
      * When the keepalive option is set for a TCP socket and no data
      * has been exchanged across the socket in either direction for
      * 2 hours (NOTE: the actual value is implementation dependent),
@@ -310,6 +343,7 @@ public interface SocketOptions {
      * The purpose of this option is to detect if the peer host crashes.
      *
      * Valid only for TCP socket: SocketImpl
+     * {@description.close}
      *
      * @see Socket#setKeepAlive
      * @see Socket#getKeepAlive
@@ -317,10 +351,12 @@ public interface SocketOptions {
     public final static int SO_KEEPALIVE = 0x0008;
 
     /** {@collect.stats} 
+     * {@description.open}
      * When the OOBINLINE option is set, any TCP urgent data received on
      * the socket will be received through the socket input stream.
      * When the option is disabled (which is the default) urgent data
      * is silently discarded.
+     * {@description.close}
      *
      * @see Socket#setOOBInline
      * @see Socket#getOOBInline

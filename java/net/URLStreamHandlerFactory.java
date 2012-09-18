@@ -26,11 +26,13 @@
 package java.net;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This interface defines a factory for <code>URL</code> stream
  * protocol handlers.
  * <p>
  * It is used by the <code>URL</code> class to create a
  * <code>URLStreamHandler</code> for a specific protocol.
+ * {@description.close}
  *
  * @author  Arthur van Hoff
  * @see     java.net.URL
@@ -39,8 +41,10 @@ package java.net;
  */
 public interface URLStreamHandlerFactory {
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new <code>URLStreamHandler</code> instance with the specified
      * protocol.
+     * {@description.close}
      *
      * @param   protocol   the protocol ("<code>ftp</code>",
      *                     "<code>http</code>", "<code>nntp</code>", etc.).

@@ -28,7 +28,9 @@ package java.net;
 import java.io.IOException;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that there is an error creating or accessing a Socket.
+ * {@description.close}
  *
  * @author  Jonathan Payne
  * @since   JDK1.0
@@ -36,8 +38,10 @@ import java.io.IOException;
 public
 class SocketException extends IOException {
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>SocketException</code> with the
      * specified detail message.
+     * {@description.close}
      *
      * @param msg the detail message.
      */
@@ -46,7 +50,9 @@ class SocketException extends IOException {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a new <code>SocketException</code> with no detail message.
+     * {@description.close}
      */
     public SocketException() {
     }

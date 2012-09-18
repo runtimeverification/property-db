@@ -41,6 +41,7 @@ import sun.security.action.GetBooleanAction;
 import sun.security.action.GetPropertyAction;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Utility class for HTML form encoding. This class contains static methods
  * for converting a String to the <CODE>application/x-www-form-urlencoded</CODE> MIME
  * format. For more information about HTML form encoding, consult the HTML
@@ -76,6 +77,7 @@ import sun.security.action.GetPropertyAction;
  * &quot;The+string+%C3%BC%40foo-bar&quot; because in UTF-8 the character
  * &#252; is encoded as two bytes C3 (hex) and BC (hex), and the
  * character @ is encoded as one byte 40 (hex).
+ * {@description.close}
  *
  * @author  Herb Jellinek
  * @since   JDK1.0
@@ -147,14 +149,18 @@ public class URLEncoder {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * You can't call the constructor.
+     * {@description.close}
      */
     private URLEncoder() { }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates a string into <code>x-www-form-urlencoded</code>
      * format. This method uses the platform's default encoding
      * as the encoding scheme to obtain the bytes for unsafe characters.
+     * {@description.close}
      *
      * @param   s   <code>String</code> to be translated.
      * @deprecated The resulting string may vary depending on the platform's
@@ -177,16 +183,20 @@ public class URLEncoder {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Translates a string into <code>application/x-www-form-urlencoded</code>
      * format using a specific encoding scheme. This method uses the
      * supplied encoding scheme to obtain the bytes for unsafe
      * characters.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * <em><strong>Note:</strong> The <a href=
      * "http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars">
      * World Wide Web Consortium Recommendation</a> states that
      * UTF-8 should be used. Not doing so may introduce
      * incompatibilites.</em>
+     * {@property.close}
      *
      * @param   s   <code>String</code> to be translated.
      * @param   enc   The name of a supported

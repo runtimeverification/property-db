@@ -35,6 +35,7 @@ import java.security.PrivilegedExceptionAction;
 import java.security.PrivilegedAction;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This class implements client sockets (also called just
  * "sockets"). A socket is an endpoint for communication
  * between two machines.
@@ -44,6 +45,7 @@ import java.security.PrivilegedAction;
  * the socket factory that creates the socket implementation,
  * can configure itself to create sockets appropriate to the local
  * firewall.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.net.Socket#setSocketImplFactory(java.net.SocketImplFactory)
@@ -54,7 +56,9 @@ import java.security.PrivilegedAction;
 public
 class Socket {
     /** {@collect.stats} 
+     * {@description.open}
      * Various states of this socket.
+     * {@description.close}
      */
     private boolean created = false;
     private boolean bound = false;
@@ -65,18 +69,24 @@ class Socket {
     private boolean shutOut = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * The implementation of this Socket.
+     * {@description.close}
      */
     SocketImpl impl;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Are we using an older SocketImpl?
+     * {@description.close}
      */
     private boolean oldImpl = false;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an unconnected socket, with the
      * system-default type of SocketImpl.
+     * {@description.close}
      *
      * @since   JDK1.1
      * @revised 1.4
@@ -86,6 +96,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an unconnected socket, specifying the type of proxy, if any,
      * that should be used regardless of any other settings.
      * <P>
@@ -100,6 +111,7 @@ class Socket {
      * will create a socket connecting through the specified SOCKS proxy
      * server.</LI>
      * </UL>
+     * {@description.close}
      *
      * @param proxy a {@link java.net.Proxy Proxy} object specifying what kind
      *              of proxying should be used.
@@ -150,9 +162,11 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates an unconnected Socket with a user-specified
      * SocketImpl.
      * <P>
+     * {@description.close}
      * @param impl an instance of a <B>SocketImpl</B>
      * the subclass wishes to use on the Socket.
      *
@@ -169,6 +183,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a stream socket and connects it to the specified port
      * number on the named host.
      * <p>
@@ -185,6 +200,7 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
      *
      * @param      host   the host name, or <code>null</code> for the loopback address.
      * @param      port   the port number.
@@ -209,6 +225,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a stream socket and connects it to the specified port
      * number at the specified IP address.
      * <p>
@@ -220,6 +237,7 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
      *
      * @param      address   the IP address.
      * @param      port      the port number.
@@ -237,6 +255,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a socket and connects it to the specified remote host on
      * the specified remote port. The Socket will also bind() to the local
      * address and port supplied.
@@ -250,6 +269,7 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
      *
      * @param host the name of the remote host, or <code>null</code> for the loopback address.
      * @param port the remote port
@@ -269,6 +289,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a socket and connects it to the specified remote address on
      * the specified remote port. The Socket will also bind() to the local
      * address and port supplied.
@@ -277,6 +298,7 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
      *
      * @param address the remote address
      * @param port the remote port
@@ -295,6 +317,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a stream socket and connects it to the specified port
      * number on the named host.
      * <p>
@@ -315,8 +338,11 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * If a UDP socket is used, TCP/IP related socket options will not apply.
+     * {@property.close}
      *
      * @param      host     the host name, or <code>null</code> for the loopback address.
      * @param      port     the port number.
@@ -339,6 +365,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a socket and connects it to the specified port number at
      * the specified IP address.
      * <p>
@@ -354,8 +381,11 @@ class Socket {
      * <code>checkConnect</code> method is called
      * with <code>host.getHostAddress()</code> and <code>port</code>
      * as its arguments. This could result in a SecurityException.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * If UDP socket is used, TCP/IP related socket options will not apply.
+     * {@property.close}
      *
      * @param      host     the IP address.
      * @param      port      the port number.
@@ -397,7 +427,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates the socket implementation.
+     * {@description.close}
      *
      * @param stream a <code>boolean</code> value : <code>true</code> for a TCP socket,
      *               <code>false</code> for UDP.
@@ -447,7 +479,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets impl to the system-default type of SocketImpl.
+     * {@description.close}
      * @since 1.4
      */
     void setImpl() {
@@ -465,8 +499,10 @@ class Socket {
 
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get the <code>SocketImpl</code> attached to this socket, creating
      * it if necessary.
+     * {@description.close}
      *
      * @return  the <code>SocketImpl</code> attached to that ServerSocket.
      * @throws SocketException if creation fails
@@ -479,7 +515,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Connects this socket to the server.
+     * {@description.close}
      *
      * @param   endpoint the <code>SocketAddress</code>
      * @throws  IOException if an error occurs during the connection
@@ -496,9 +534,11 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Connects this socket to the server with a specified timeout value.
      * A timeout of zero is interpreted as an infinite timeout. The connection
      * will then block until established or an error occurs.
+     * {@description.close}
      *
      * @param   endpoint the <code>SocketAddress</code>
      * @param   timeout  the timeout value to be used in milliseconds.
@@ -560,10 +600,12 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Binds the socket to a local address.
      * <P>
      * If the address is <code>null</code>, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
+     * {@description.close}
      *
      * @param   bindpoint the <code>SocketAddress</code> to bind to
      * @throws  IOException if the bind operation fails, or if the socket
@@ -605,7 +647,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * set the flags after an accept() call.
+     * {@description.close}
      */
     final void postAccept() {
         connected = true;
@@ -626,7 +670,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the address to which the socket is connected.
+     * {@description.close}
      *
      * @return  the remote IP address to which this socket is connected,
      *          or <code>null</code> if the socket is not connected.
@@ -642,7 +688,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the local address to which the socket is bound.
+     * {@description.close}
      *
      * @return the local address to which the socket is bound or
      *         <code>InetAddress.anyLocalAddress()</code>
@@ -666,7 +714,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the remote port number to which this socket is connected.
+     * {@description.close}
      *
      * @return  the remote port number to which this socket is connected, or
      *          0 if the socket is not connected yet.
@@ -683,7 +733,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the local port number to which this socket is bound.
+     * {@description.close}
      *
      * @return  the local port number to which this socket is bound or -1
      *          if the socket is not bound yet.
@@ -700,8 +752,10 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the address of the endpoint this socket is connected to, or
      * <code>null</code> if it is unconnected.
+     * {@description.close}
      *
      * @return a <code>SocketAddress</code> reprensenting the remote endpoint of this
      *         socket, or <code>null</code> if it is not connected yet.
@@ -718,8 +772,10 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
+     * {@description.close}
      *
      * @return a <code>SocketAddress</code> representing the local endpoint of this
      *         socket, or <code>null</code> if it is not bound yet.
@@ -736,6 +792,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the unique {@link java.nio.channels.SocketChannel SocketChannel}
      * object associated with this socket, if any.
      *
@@ -744,6 +801,7 @@ class Socket {
      * SocketChannel.open} or {@link
      * java.nio.channels.ServerSocketChannel#accept ServerSocketChannel.accept}
      * methods.
+     * {@description.close}
      *
      * @return  the socket channel associated with this socket,
      *          or <tt>null</tt> if this socket was not created
@@ -757,13 +815,19 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an input stream for this socket.
      *
      * <p> If this socket has an associated channel then the resulting input
-     * stream delegates all of its operations to the channel.  If the channel
+     * stream delegates all of its operations to the channel.
+     * {@description.close}
+     * {@property.open}
+     * If the channel
      * is in non-blocking mode then the input stream's <tt>read</tt> operations
      * will throw an {@link java.nio.channels.IllegalBlockingModeException}.
+     * {@property.close}
      *
+     * {@description.open}
      * <p>Under abnormal conditions the underlying connection may be
      * broken by the remote host or the network software (for example
      * a connection reset in the case of TCP connections). When a
@@ -791,6 +855,13 @@ class Socket {
      *
      * <p> Closing the returned {@link java.io.InputStream InputStream}
      * will close the associated socket.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open}
+     * An input stream is unavailable if the socket is closed, is not connected,
+     * or the socket input has been shutdown.
+     * {@new.close}
+     * {@property.close}
      *
      * @return     an input stream for reading bytes from this socket.
      * @exception  IOException  if an I/O error occurs when creating the
@@ -824,16 +895,28 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns an output stream for this socket.
      *
      * <p> If this socket has an associated channel then the resulting output
-     * stream delegates all of its operations to the channel.  If the channel
+     * stream delegates all of its operations to the channel.
+     * {@description.close}
+     * {@property.open}
+     * If the channel
      * is in non-blocking mode then the output stream's <tt>write</tt>
      * operations will throw an {@link
      * java.nio.channels.IllegalBlockingModeException}.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> Closing the returned {@link java.io.OutputStream OutputStream}
      * will close the associated socket.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open}
+     * An output stream is unavailable if the socket is not connected.
+     * {@new.close}
+     * {@property.close}
      *
      * @return     an output stream for writing bytes to this socket.
      * @exception  IOException  if an I/O error occurs when creating the
@@ -864,7 +947,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable TCP_NODELAY (disable/enable Nagle's algorithm).
+     * {@description.close}
      *
      * @param on <code>true</code> to enable TCP_NODELAY,
      * <code>false</code> to disable.
@@ -883,7 +968,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if TCP_NODELAY is enabled.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating whether or not TCP_NODELAY is enabled.
      * @exception SocketException if there is an error
@@ -898,10 +985,12 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable SO_LINGER with the specified linger time in seconds.
      * The maximum timeout value is platform specific.
      *
      * The setting only affects socket close.
+     * {@description.close}
      *
      * @param on     whether or not to linger on.
      * @param linger how long to linger for, if on is true.
@@ -927,10 +1016,12 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns setting for SO_LINGER. -1 returns implies that the
      * option is disabled.
      *
      * The setting only affects socket close.
+     * {@description.close}
      *
      * @return the setting for SO_LINGER.
      * @exception SocketException if there is an error
@@ -950,10 +1041,12 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Send one byte of urgent data on the socket. The byte to be sent is the lowest eight
      * bits of the data parameter. The urgent byte is
      * sent after any preceding writes to the socket OutputStream
      * and before any future writes to the OutputStream.
+     * {@description.close}
      * @param data The byte of data to send
      * @exception IOException if there is an error
      *  sending the data.
@@ -967,6 +1060,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable OOBINLINE (receipt of TCP urgent data)
      *
      * By default, this option is disabled and TCP urgent data received on a
@@ -978,6 +1072,7 @@ class Socket {
      * data. In particular, no notification of incoming urgent data is provided
      * and there is no capability to distinguish between normal data and urgent
      * data unless provided by a higher level protocol.
+     * {@description.close}
      *
      * @param on <code>true</code> to enable OOBINLINE,
      * <code>false</code> to disable.
@@ -996,7 +1091,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if OOBINLINE is enabled.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating whether or not OOBINLINE is enabled.
      * @exception SocketException if there is an error
@@ -1011,15 +1108,22 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      *  Enable/disable SO_TIMEOUT with the specified timeout, in
      *  milliseconds.  With this option set to a non-zero timeout,
      *  a read() call on the InputStream associated with this Socket
      *  will block for only this amount of time.  If the timeout expires,
      *  a <B>java.net.SocketTimeoutException</B> is raised, though the
      *  Socket is still valid. The option <B>must</B> be enabled
-     *  prior to entering the blocking operation to have effect. The
+     *  prior to entering the blocking operation to have effect.
+     * {@description.close}
+     * {@property.open}
+     *  The
      *  timeout must be > 0.
+     * {@property.close}
+     * {@description.open}
      *  A timeout of zero is interpreted as an infinite timeout.
+     * {@description.close}
      * @param timeout the specified timeout, in milliseconds.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -1036,8 +1140,10 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
+     * {@description.close}
      * @return the setting for SO_TIMEOUT
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -1057,6 +1163,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the SO_SNDBUF option to the specified value for this
      * <tt>Socket</tt>. The SO_SNDBUF option is used by the platform's
      * networking code as a hint for the size to set
@@ -1065,6 +1172,7 @@ class Socket {
      * <p>Because SO_SNDBUF is a hint, applications that want to
      * verify what size the buffers were set to should call
      * {@link #getSendBufferSize()}.
+     * {@description.close}
      *
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -1089,9 +1197,11 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Get value of the SO_SNDBUF option for this <tt>Socket</tt>,
      * that is the buffer size used by the platform
      * for output on this <tt>Socket</tt>.
+     * {@description.close}
      * @return the value of the SO_SNDBUF option for this <tt>Socket</tt>.
      *
      * @exception SocketException if there is an error
@@ -1112,6 +1222,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the SO_RCVBUF option to the specified value for this
      * <tt>Socket</tt>. The SO_RCVBUF option is used by the platform's
      * networking code as a hint for the size to set
@@ -1127,7 +1238,10 @@ class Socket {
      *
      * <p>The value of SO_RCVBUF is also used to set the TCP receive window
      * that is advertized to the remote peer. Generally, the window size
-     * can be modified at any time when a socket is connected. However, if
+     * can be modified at any time when a socket is connected.
+     * {@description.close}
+     * {@property.open}
+     * However, if
      * a receive window larger than 64K is required then this must be requested
      * <B>before</B> the socket is connected to the remote peer. There are two
      * cases to be aware of:<p>
@@ -1137,6 +1251,7 @@ class Socket {
      * is bound to a local address.<p></li>
      * <li>For client sockets, setReceiveBufferSize() must be called before
      * connecting the socket to its remote peer.<p></li></ol>
+     * {@property.close}
      * @param size the size to which to set the receive buffer
      * size. This value must be greater than 0.
      *
@@ -1161,9 +1276,11 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets the value of the SO_RCVBUF option for this <tt>Socket</tt>,
      * that is the buffer size used by the platform for
      * input on this <tt>Socket</tt>.
+     * {@description.close}
      *
      * @return the value of the SO_RCVBUF option for this <tt>Socket</tt>.
      * @exception SocketException if there is an error
@@ -1184,7 +1301,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable SO_KEEPALIVE.
+     * {@description.close}
      *
      * @param on     whether or not to have socket keep alive turned on.
      * @exception SocketException if there is an error
@@ -1199,7 +1318,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if SO_KEEPALIVE is enabled.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating whether or not SO_KEEPALIVE is enabled.
      * @exception SocketException if there is an error
@@ -1214,13 +1335,18 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets traffic class or type-of-service octet in the IP
      * header for packets sent from this Socket.
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
+     * {@description.close}
      *
+     * {@property.open}
      * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
      * 255</code> or an IllegalArgumentException will be thrown.
+     * {@property.close}
+     * {@description.open}
      * <p>Notes:
      * <p> For Internet Protocol v4 the value consists of an octet
      * with precedence and TOS fields as detailed in RFC 1349. The
@@ -1250,6 +1376,7 @@ class Socket {
      * <p>
      * For Internet Protocol v6 <code>tc</code> is the value that
      * would be placed into the sin6_flowinfo field of the IP header.
+     * {@description.close}
      *
      * @param tc        an <code>int</code> value for the bitset.
      * @throws SocketException if there is an error setting the
@@ -1267,6 +1394,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Gets traffic class or type-of-service in the IP header
      * for packets sent from this Socket
      * <p>
@@ -1274,6 +1402,7 @@ class Socket {
      * traffic class or type-of-service set using {@link #setTrafficClass(int)}
      * this method may return a different value than was previously
      * set using the {@link #setTrafficClass(int)} method on this Socket.
+     * {@description.close}
      *
      * @return the traffic class or type-of-service already set
      * @throws SocketException if there is an error obtaining the
@@ -1286,6 +1415,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * When a TCP connection is closed the connection may remain
@@ -1304,10 +1434,13 @@ class Socket {
      * <p>
      * When a <tt>Socket</tt> is created the initial setting
      * of <tt>SO_REUSEADDR</tt> is disabled.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * The behaviour when <tt>SO_REUSEADDR</tt> is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
+     * {@property.close}
      *
      * @param on  whether to enable or disable the socket option
      * @exception SocketException if an error occurs enabling or
@@ -1326,7 +1459,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Tests if SO_REUSEADDR is enabled.
+     * {@description.close}
      *
      * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
      * @exception SocketException if there is an error
@@ -1341,21 +1476,29 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes this socket.
      * <p>
      * Any thread currently blocked in an I/O operation upon this socket
      * will throw a {@link SocketException}.
+     * {@description.close}
+     * {@property.open}
      * <p>
      * Once a socket has been closed, it is not available for further networking
      * use (i.e. can't be reconnected or rebound). A new socket needs to be
      * created.
+     * {@property.close}
      *
+     * {@property.open}
      * <p> Closing this socket will also close the socket's
      * {@link java.io.InputStream InputStream} and
      * {@link java.io.OutputStream OutputStream}.
+     * {@property.close}
      *
+     * {@property.open}
      * <p> If this socket has an associated channel then the channel is closed
      * as well.
+     * {@property.close}
      *
      * @exception  IOException  if an I/O error occurs when closing this socket.
      * @revised 1.4
@@ -1373,12 +1516,14 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Places the input stream for this socket at "end of stream".
      * Any data sent to the input stream side of the socket is acknowledged
      * and then silently discarded.
      * <p>
      * If you read from a socket input stream after invoking
      * shutdownInput() on the socket, the stream will return EOF.
+     * {@description.close}
      *
      * @exception IOException if an I/O error occurs when shutting down this
      * socket.
@@ -1402,13 +1547,17 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Disables the output stream for this socket.
      * For a TCP socket, any previously written data will be sent
      * followed by TCP's normal connection termination sequence.
+     * {@description.close}
      *
+     * {@property.open}
      * If you write to a socket output stream after invoking
      * shutdownOutput() on the socket, the stream will throw
      * an IOException.
+     * {@property.close}
      *
      * @exception IOException if an I/O error occurs when shutting down this
      * socket.
@@ -1432,7 +1581,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Converts this socket to a <code>String</code>.
+     * {@description.close}
      *
      * @return  a string representation of this socket.
      */
@@ -1448,7 +1599,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the connection state of the socket.
+     * {@description.close}
      *
      * @return true if the socket successfuly connected to a server
      * @since 1.4
@@ -1459,7 +1612,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the binding state of the socket.
+     * {@description.close}
      *
      * @return true if the socket successfuly bound to an address
      * @since 1.4
@@ -1471,7 +1626,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the closed state of the socket.
+     * {@description.close}
      *
      * @return true if the socket has been closed
      * @since 1.4
@@ -1484,7 +1641,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the read-half of the socket connection is closed.
+     * {@description.close}
      *
      * @return true if the input of the socket has been shutdown
      * @since 1.4
@@ -1495,7 +1654,9 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns whether the write-half of the socket connection is closed.
+     * {@description.close}
      *
      * @return true if the output of the socket has been shutdown
      * @since 1.4
@@ -1506,11 +1667,14 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * The factory for all client sockets.
+     * {@description.close}
      */
     private static SocketImplFactory factory = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets the client socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -1524,6 +1688,7 @@ class Socket {
      * the security manager's <code>checkSetFactory</code> method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
+     * {@description.close}
      *
      * @param      fac   the desired factory.
      * @exception  IOException  if an I/O error occurs when setting the
@@ -1548,6 +1713,7 @@ class Socket {
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Sets performance preferences for this socket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations
@@ -1567,9 +1733,12 @@ class Socket {
      * <tt>(1, 0, 0)</tt>.  If the application prefers high bandwidth above low
      * latency, and low latency above short connection time, then it could
      * invoke this method with the values <tt>(0, 1, 2)</tt>.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> Invoking this method after this socket has been connected
      * will have no effect.
+     * {@property.close}
      *
      * @param  connectionTime
      *         An <tt>int</tt> expressing the relative importance of a short

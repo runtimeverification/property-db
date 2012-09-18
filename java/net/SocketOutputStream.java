@@ -31,9 +31,11 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 /** {@collect.stats} 
+ * {@description.open}
  * This stream extends FileOutputStream to implement a
  * SocketOutputStream. Note that this class should <b>NOT</b> be
  * public.
+ * {@description.close}
  *
  * @author      Jonathan Payne
  * @author      Arthur van Hoff
@@ -49,9 +51,11 @@ class SocketOutputStream extends FileOutputStream
     private Socket socket = null;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new SocketOutputStream. Can only be called
      * by a Socket. This method needs to hang on to the owner Socket so
      * that the fd will not be closed.
+     * {@description.close}
      * @param impl the socket output stream inplemented
      */
     SocketOutputStream(AbstractPlainSocketImpl impl) throws IOException {
@@ -61,11 +65,13 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file output stream. </p>
      *
      * The <code>getChannel</code> method of <code>SocketOutputStream</code>
      * returns <code>null</code> since it is a socket based stream.</p>
+     * {@description.close}
      *
      * @return  the file channel associated with this file output stream
      *
@@ -77,7 +83,9 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes to the socket.
+     * {@description.close}
      * @param fd the FileDescriptor
      * @param b the data to be written
      * @param off the start offset in the data
@@ -88,8 +96,10 @@ class SocketOutputStream extends FileOutputStream
                                      int len) throws IOException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes to the socket with appropriate locking of the
      * FileDescriptor.
+     * {@description.close}
      * @param b the data to be written
      * @param off the start offset in the data
      * @param len the number of bytes that are written
@@ -123,7 +133,9 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes a byte to the socket.
+     * {@description.close}
      * @param b the data to be written
      * @exception IOException If an I/O error has occurred.
      */
@@ -133,7 +145,9 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes the contents of the buffer <i>b</i> to the socket.
+     * {@description.close}
      * @param b the data to be written
      * @exception SocketException If an I/O error has occurred.
      */
@@ -142,8 +156,10 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Writes <i>length</i> bytes from buffer <i>b</i> starting at
      * offset <i>len</i>.
+     * {@description.close}
      * @param b the data to be written
      * @param off the start offset in the data
      * @param len the number of bytes that are written
@@ -154,7 +170,9 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Closes the stream.
+     * {@description.close}
      */
     private boolean closing = false;
     public void close() throws IOException {
@@ -171,12 +189,16 @@ class SocketOutputStream extends FileOutputStream
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Overrides finalize, the fd is closed by the Socket.
+     * {@description.close}
      */
     protected void finalize() {}
 
     /** {@collect.stats} 
+     * {@description.open}
      * Perform class load-time initializations.
+     * {@description.close}
      */
     private native static void init();
 
