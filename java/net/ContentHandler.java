@@ -33,7 +33,7 @@ import java.io.IOException;
  * of all classes that read an <code>Object</code> from a
  * <code>URLConnection</code>.
  * {@description.close}
- * {@property.open}
+ * {@property.open runtime formal:java.net.ContentHandler_GetContent}
  * <p>
  * An application does not generally call the
  * <code>getContent</code> method in this class directly. Instead, an

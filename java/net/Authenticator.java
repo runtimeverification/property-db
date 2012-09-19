@@ -31,7 +31,7 @@ package java.net;
  * authentication for a network connection.  Usually, it will do this
  * by prompting the user for information.
  * {@description.close}
- * {@property.open}
+ * {@property.open runtime formal:java.net.Authenticator_OverrideGetPasswordAuthentication}
  * <p>
  * Applications use this class by overriding {@link
  * #getPasswordAuthentication()} in a sub-class. This method will
@@ -424,7 +424,7 @@ class Authenticator {
      * {@description.open}
      * Called when password authorization is needed.
      * {@description.close}
-     * {@property.open static}
+     * {@property.open runtime formal:java.net.Authenticator_OverrideGetPasswordAuthentication}
      * Subclasses should
      * override the default implementation, which returns null.
      * {@property.close}

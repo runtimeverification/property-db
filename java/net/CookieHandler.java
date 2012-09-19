@@ -111,7 +111,7 @@ public abstract class CookieHandler {
      * specified uri in the request header.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open unchecked}
      * HTTP protocol implementers should make sure that this method is
      * called after all request headers related to choosing cookies
      * are added, and before the request is sent.
