@@ -257,6 +257,11 @@ class DatagramSocket {
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
+     * {@property.open runtime formal:java.net.DatagramSocket_Port}
+     * {@new.open}
+     * The local port must be between 0 and 65535 inclusive.
+     * {@new.close}
+     * {@property.close}
      *
      * @param      port port to use.
      * @exception  SocketException  if the socket could not be opened,
@@ -275,7 +280,7 @@ class DatagramSocket {
      * Creates a datagram socket, bound to the specified local
      * address.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.DatagramSocket_Port}
      * The local port must be between 0 and 65535 inclusive.
      * {@property.close}
      * {@description.open}
@@ -683,13 +688,8 @@ class DatagramSocket {
      * returns, the <code>DatagramPacket</code>'s buffer is filled with
      * the data received. The datagram packet also contains the sender's
      * IP address, and the port number on the sender's machine.
-     * {@description.close}
-     * {@property.open}
      * <p>
-     * This method blocks until a datagram is received.
-     * {@property.close}
-     * {@description.open}
-     * The
+     * This method blocks until a datagram is received. The
      * <code>length</code> field of the datagram packet object contains
      * the length of the received message. If the message is longer than
      * the packet's length, the message is truncated.
@@ -849,7 +849,7 @@ class DatagramSocket {
      *  DatagramSocket is still valid.  The option <B>must</B> be enabled
      *  prior to entering the blocking operation to have effect.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.DatagramSocket_SoTimeout}
      *  The
      *  timeout must be > 0.
      *  A timeout of zero is interpreted as an infinite timeout.
@@ -1120,7 +1120,7 @@ class DatagramSocket {
      * value applications should consider it a hint.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
      * 255</code> or an IllegalArgumentException will be thrown.
      * {@property.close}
@@ -1137,10 +1137,10 @@ class DatagramSocket {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
+     * {@description.close}
+     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.
-     * {@description.close}
-     * {@property.open}
      * <p>
      * Setting bits in the precedence field may result in a
      * SocketException indicating that the operation is not

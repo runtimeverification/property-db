@@ -112,7 +112,7 @@ public final class HttpCookie implements Cloneable {
      * Constructs a cookie with a specified name and value.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.HttpCookie_Name}
      * <p>The name must conform to RFC 2965. That means it can contain
      * only ASCII alphanumeric characters and cannot contain commas,
      * semicolons, or white space or begin with a $ character. The cookie's
@@ -394,7 +394,7 @@ public final class HttpCookie implements Cloneable {
      * Specifies the domain within which this cookie should be presented.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.HttpCookie_Domain}
      * <p>The form of the domain name is specified by RFC 2965.
      * {@property.close}
      * {@description.open}
