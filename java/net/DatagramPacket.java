@@ -71,7 +71,7 @@ class DatagramPacket {
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>, specifying an offset into the buffer.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * <p>
      * The <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
@@ -94,7 +94,7 @@ class DatagramPacket {
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * <p>
      * The <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
@@ -113,7 +113,7 @@ class DatagramPacket {
      * <code>length</code> with offset <code>ioffset</code>to the
      * specified port number on the specified host.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The
      * <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
@@ -141,7 +141,7 @@ class DatagramPacket {
      * <code>length</code> with offset <code>ioffset</code>to the
      * specified port number on the specified host.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The
      * <code>length</code> argument must be less than or equal to
      * <code>buf.length</code>.
@@ -168,7 +168,7 @@ class DatagramPacket {
      * <code>length</code> to the specified port number on the specified
      * host.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The <code>length</code> argument must be less than or equal
      * to <code>buf.length</code>.
      * {@property.close}
@@ -190,7 +190,7 @@ class DatagramPacket {
      * <code>length</code> to the specified port number on the specified
      * host.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_Length}
+     * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The <code>length</code> argument must be less than or equal
      * to <code>buf.length</code>.
      * {@property.close}
@@ -412,7 +412,7 @@ class DatagramPacket {
      * sent, or the number of bytes of the packet's data buffer that
      * will be used for receiving data.
      * {@description.close}
-     * {@property.open runtime formal:DatagramPacket_SetLength}
+     * {@property.open runtime formal:java.net.DatagramPacket_SetLength}
      * The length must be lesser or
      * equal to the offset plus the length of the packet's buffer.
      * {@property.close}
