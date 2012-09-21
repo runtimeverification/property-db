@@ -63,8 +63,8 @@ HttpCookie_Name() {
 		}
 
 		if (outofrange || hasctrl || hassep) {
-			javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " HttpCookie_Name was violated.");
-			javamoprt.MOPLogging.out.println(Level.CRITICAL, "The specified cookie name '" + name + "' is invalid; it cannot contain '" + ch + "'.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "The specified cookie name '" + name + "' is invalid; it cannot contain '" + ch + "'.");
 		}
 	}
 }

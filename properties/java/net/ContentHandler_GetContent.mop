@@ -22,8 +22,8 @@ ContentHandler_GetContent() {
 	event get_content before() : 
 		call(* ContentHandler+.getContent(..))
 	{
-		javamoprt.MOPLogging.out.println(Level.WARNING, "At line " + __LOC + " ContentHandler_GetContent was violated.");
-		javamoprt.MOPLogging.out.println(Level.WARNING, "An application does not generally call ContentHandler.getContent().");
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "An application does not generally call ContentHandler.getContent().");
 	}
 }
 

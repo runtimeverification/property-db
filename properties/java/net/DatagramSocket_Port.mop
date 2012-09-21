@@ -24,8 +24,8 @@ DatagramSocket_Port() {
 		if (0 <= port && port <= 65535)
 			return;
 
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " DatagramSocket_Port was violated.");
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "The specified port " + port + " is out of range; [0 ~ 65535]");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The specified port " + port + " is out of range; [0 ~ 65535]");
 	}
 }
 

@@ -66,8 +66,8 @@ HttpCookie_Domain() {
 		}
 
 		if (outofrange || hasctrl || hassep) {
-			javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " HttpCookie_Domain was violated.");
-			javamoprt.MOPLogging.out.println(Level.CRITICAL, "The specified domain '" + name + "' is invalid; it cannot contain '" + ch + "'.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "The specified domain '" + name + "' is invalid; it cannot contain '" + ch + "'.");
 		}
 	}
 }

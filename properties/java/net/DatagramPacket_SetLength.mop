@@ -28,8 +28,8 @@ DatagramPacket_SetLength() {
 		if (length + offset <= buffer.length)
 			return;
 
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " DatagramPacket_SetLength was violated.");
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "The length argument is out of range; " + offset + " + " + length + " > " + buffer.length);
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The length argument is out of range; " + offset + " + " + length + " > " + buffer.length);
 	}
 }
 

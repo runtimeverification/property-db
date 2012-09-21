@@ -21,8 +21,8 @@ DatagramSocket_SoTimeout() {
 		if (timeout >= 0)
 			return;
 
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " DatagramSocket_SoTimeout was violated.");
-		javamoprt.MOPLogging.out.println(Level.CRITICAL, "The timeout value " + timeout + " is out of range; [0 ~ ]");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The timeout value " + timeout + " is out of range; [0 ~ ]");
 	}
 }
 

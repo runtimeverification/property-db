@@ -36,14 +36,14 @@ DatagramSocket_TrafficClass() {
 		}
 
 		if (outofrange || mbz || precedence) {
-			javamoprt.MOPLogging.out.println(Level.CRITICAL, "At line " + __LOC + " DatagramSocket_TrafficClass was violated.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 			if (outofrange)
-				javamoprt.MOPLogging.out.println(Level.CRITICAL, "The traffic class value " + tc + " is out of range; [0 ~ 255].");
+				MOPLogging.out.println(Level.CRITICAL, "The traffic class value " + tc + " is out of range; [0 ~ 255].");
 			else {
 				if (mbz)
-					javamoprt.MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets 1 to MBZ.");
+					MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets 1 to MBZ.");
 				if (precedence)
-					javamoprt.MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets non-zero precedence.");
+					MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets non-zero precedence.");
 			}
 		}
 	}
