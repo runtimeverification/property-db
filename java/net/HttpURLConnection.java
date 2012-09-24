@@ -102,7 +102,7 @@ abstract public class HttpURLConnection extends URLConnection {
      * without internal buffering, when the content length is known in
      * advance.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * <p>
      * An exception will be thrown if the application
      * attempts to write more data than the indicated
@@ -117,7 +117,7 @@ abstract public class HttpURLConnection extends URLConnection {
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.HttpURLConnection_FixedLengthStreamingMode}
      * <p>
      * This method must be called before the URLConnection is connected.
      * {@property.close}
