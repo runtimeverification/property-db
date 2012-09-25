@@ -96,7 +96,7 @@ public final class IDN {
      * as defined by the ToASCII operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.IDN_ToAscii}
      * <p>ToASCII operation can fail. ToASCII fails if any step of it fails.
      * If ToASCII operation fails, an IllegalArgumentException will be thrown.
      * In this case, the input string should not be used in an internationalized domain name.
@@ -147,6 +147,11 @@ public final class IDN {
      * {@link #toASCII(String, int) toASCII}(input,&nbsp;0);
      * </tt></blockquote>
      * {@description.close}
+     * {@property.open runtime formal:java.net.IDN_ToAscii}
+     * {@new.open}
+     * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
+     * {@new.close}
+     * {@property.close}
      *
      * @param input     the string to be processed
      *

@@ -425,7 +425,7 @@ class InetAddress implements java.io.Serializable {
      * the try should take. If the operation times out before getting an
      * answer, the host is deemed unreachable.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetAddress_IsReachable}
      * A negative value will result
      * in an IllegalArgumentException being thrown.
      * {@property.close}
@@ -453,14 +453,18 @@ class InetAddress implements java.io.Serializable {
      * The <code>network interface</code> and <code>ttl</code> parameters
      * let the caller specify which network interface the test will go through
      * and the maximum number of hops the packets should go through.
+     * {@description.close}
+     * {@property.open runtime formal:java.net.InetAddress_IsReachable}
      * A negative value for the <code>ttl</code> will result in an
      * IllegalArgumentException being thrown.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * The timeout value, in milliseconds, indicates the maximum amount of time
      * the try should take. If the operation times out before getting an
      * answer, the host is deemed unreachable.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetAddress_IsReachable}
      * A negative value will result
      * in an IllegalArgumentException being thrown.
      * {@property.close}

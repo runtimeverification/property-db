@@ -117,7 +117,7 @@ abstract public class HttpURLConnection extends URLConnection {
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
      * {@description.close}
-     * {@property.open runtime formal:java.net.HttpURLConnection_FixedLengthStreamingMode}
+     * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
      * <p>
      * This method must be called before the URLConnection is connected.
      * {@property.close}
@@ -167,7 +167,7 @@ abstract public class HttpURLConnection extends URLConnection {
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
      * <p>
      * This method must be called before the URLConnection is connected.
      * {@property.close}
@@ -369,6 +369,12 @@ abstract public class HttpURLConnection extends URLConnection {
      * </UL> are legal, subject to protocol restrictions.  The default
      * method is GET.
      * {@description.close}
+     * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
+     * {@new.open}
+     * <p>
+     * This method must be called before the URLConnection is connected.
+     * {@new.close}
+     * {@property.close}
      *
      * @param method the HTTP method
      * @exception ProtocolException if the method cannot be reset or if

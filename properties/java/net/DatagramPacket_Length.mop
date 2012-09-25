@@ -14,8 +14,8 @@ import javamoprt.MOPLogging.Level;
  *
  * It is considered that the explanation of the length parameter is incorrect
  * when a constructor takes an offset as another parameter. Unlike the
- * reference, specifying length &lt; buffer.length, this property warns if
- * (offset + length) &lt; buffer.length is violated, when offset is available.
+ * reference, specifying length < buffer.length, this property warns if
+ * (offset + length) < buffer.length is violated, when offset is available.
  *
  * @severity error
  */
