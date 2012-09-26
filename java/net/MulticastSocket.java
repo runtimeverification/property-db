@@ -76,7 +76,7 @@ import java.util.Enumeration;
  * Multiple MulticastSocket's</B> may subscribe to a multicast group
  * and port concurrently, and they will all receive group datagrams.
  * {@description.close}
- * {@property.open}
+ * {@property.open unchecked}
  * <P>
  * Currently applets are not allowed to use multicast sockets.
  * {@property.close}
@@ -207,7 +207,7 @@ class MulticastSocket extends DatagramSocket {
      * scope of the multicasts.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.MulticastSocket_TTL}
      * <p>The ttl is an <b>unsigned</b> 8-bit quantity, and so <B>must</B> be
      * in the range <code> 0 <= ttl <= 0xFF </code>.
      * {@property.close}
@@ -233,7 +233,7 @@ class MulticastSocket extends DatagramSocket {
      * scope of the multicasts.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.MulticastSocket_TTL}
      * <P> The ttl <B>must</B> be in the range {@code  0 <= ttl <=
      * 255} or an {@code IllegalArgumentException} will be thrown.
      * {@property.close}

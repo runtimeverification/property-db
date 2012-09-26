@@ -77,7 +77,7 @@ public final class PasswordAuthentication {
      * Returns the user password.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.PasswordAuthentication_FillZeroPassword}
      * <p> Note that this method returns a reference to the password. It is
      * the caller's responsibility to zero out the password information after
      * it is no longer needed.

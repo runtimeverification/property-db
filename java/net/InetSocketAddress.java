@@ -72,7 +72,7 @@ public class InetSocketAddress extends SocketAddress {
      * Creates a socket address where the IP address is the wildcard address
      * and the port number a specified value.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <p>
      * A valid port value is between 0 and 65535.
      * {@property.close}
@@ -93,7 +93,7 @@ public class InetSocketAddress extends SocketAddress {
      * {@description.open}
      * Creates a socket address from an IP address and a port number.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <p>
      * A valid port value is between 0 and 65535.
      * {@property.close}
@@ -132,7 +132,7 @@ public class InetSocketAddress extends SocketAddress {
      * is called with the host name as its argument to check the permissiom
      * to resolve it. This could result in a SecurityException.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <P>
      * A valid port value is between 0 and 65535.
      * {@property.close}
@@ -174,7 +174,7 @@ public class InetSocketAddress extends SocketAddress {
      * No attempt will be made to resolve the hostname into an InetAddress.
      * The address will be flagged as <I>unresolved</I>.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <p>
      * A valid port value is between 0 and 65535.
      * {@property.close}

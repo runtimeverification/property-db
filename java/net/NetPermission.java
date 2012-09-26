@@ -37,7 +37,7 @@ import java.util.StringTokenizer;
  * no actions list; you either have the named permission
  * or you don't.
  * {@description.close}
- * {@property.open}
+ * {@property.open runtime formal:java.net.NetPermission_Name}
  * <P>
  * The target name is the name of the network permission (see below). The naming
  * convention follows the  hierarchical property naming convention.
@@ -167,7 +167,7 @@ public final class NetPermission extends BasicPermission {
      * The name is the symbolic name of the NetPermission, such as
      * "setDefaultAuthenticator", etc.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.NetPermission_Name}
      * An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
@@ -189,7 +189,7 @@ public final class NetPermission extends BasicPermission {
      * Creates a new NetPermission object with the specified name.
      * The name is the symbolic name of the NetPermission, and
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.NetPermission_Actions}
      * the
      * actions String is currently unused and should be null.
      * {@property.close}

@@ -21,7 +21,12 @@ properties=(
 #	HttpCookie_Name
 #	HttpURLConnection_SetBeforeConnect
 #	IDN_ToAscii
-	InetAddress_IsReachable
+#	InetAddress_IsReachable
+#	InetSocketAddress_Port
+#	MulticastSocket_TTL
+#	NetPermission_Name
+#	NetPermission_Actions
+	PasswordAuthentication_FillZeroPassword
 )
 
 function handle_property {

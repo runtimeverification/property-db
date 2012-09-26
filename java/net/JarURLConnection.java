@@ -313,7 +313,7 @@ public abstract class JarURLConnection extends URLConnection {
      * Return the Certificate object for this connection if the URL
      * for it points to a JAR file entry, null otherwise.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * This method
      * can only be called once
      * the connection has been completely verified by reading
