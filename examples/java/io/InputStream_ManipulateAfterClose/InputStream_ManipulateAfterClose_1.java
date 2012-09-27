@@ -9,11 +9,13 @@ public class InputStream_ManipulateAfterClose_1 {
 		file.deleteOnExit();
 
 		InputStream input = new FileInputStream(file);
-		int i = input.read();
+
+		byte[] buf = new byte[5];
+		int i = input.read(buf);
 		input.close();
 
 		// After a stream is closed, most operations, such as read() and reset(), are banned.
-		int j = input.read();
+		int j = input.read(buf);
 	}
 }
 
