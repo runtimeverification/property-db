@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns read(), available(), reset() or skip() after close().
@@ -20,21 +22,21 @@ import java.io.*;
 InputStream_ManipulateAfterClose(InputStream i) {
 	event manipulate before(InputStream i) :
 		(
-			call(* InputStream+.read(..)) ||
-			call(* InputStream+.available(..)) ||
-			call(* InputStream+.reset(..)) ||
-			call(* InputStream+.skip(..))
+			execution(* InputStream+.read(..)) ||
+			execution(* InputStream+.available(..)) ||
+			execution(* InputStream+.reset(..)) ||
+			execution(* InputStream+.skip(..))
 		) && target(i) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
 	creation event close before(InputStream i) :
-		call(* InputStream+.close(..)) && target(i) &&
+		execution(* InputStream+.close(..)) && target(i) &&
 		!target(ByteArrayInputStream) && !target(StringBufferInputStream) {}
 
 	ere : close+ manipulate
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_ManipulateAfterClose was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "read(), available(), reset() or skip() was invoked after close().");
+		MOPLogging.err.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.err.println(Level.CRITICAL, "read(), available(), reset() or skip() was invoked after close().");
 	}
 }
 
