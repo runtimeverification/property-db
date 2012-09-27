@@ -4,7 +4,7 @@ JAVAMOP=javamop.bat
 AJC=ajc.bat
 JAVA=java
 
-PACKAGE=java/net
+PACKAGE=java/io
 
 EXAMPLEDIR=`pwd`
 PROPERTYDIR=`pwd`/../properties
@@ -26,7 +26,8 @@ properties=(
 #	MulticastSocket_TTL
 #	NetPermission_Name
 #	NetPermission_Actions
-	PasswordAuthentication_FillZeroPassword
+#	PasswordAuthentication_FillZeroPassword
+	InputStream_ManipulateAfterClose
 )
 
 function handle_property {

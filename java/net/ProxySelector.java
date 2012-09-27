@@ -39,7 +39,7 @@ import sun.security.util.SecurityConstants;
  * {@link java.net.ProxySelector#getDefault getDefault} method.
  * {@description.close}
  *
- * {@property.open}
+ * {@property.open unchecked}
  * <p> When a proxy selector is registered, for instance, a subclass
  * of URLConnection class should call the {@link #select select}
  * method for each URL request so that the proxy selector can decide
