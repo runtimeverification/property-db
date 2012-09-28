@@ -55,7 +55,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
      * handshaking of the original connection that retrieved the
      * network resource.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * Note: This method is useful only
      * when using certificate-based cipher suites.
      * {@property.close}
@@ -73,7 +73,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
      * part of defining the session in the original connection that
      * retrieved the network resource, from cache.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * Note: This method
      * can be used only when using certificate-based cipher suites;
      * using it with non-certificate-based cipher suites, such as

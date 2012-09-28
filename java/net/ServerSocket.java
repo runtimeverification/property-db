@@ -149,7 +149,7 @@ class ServerSocket {
      * This could result in a SecurityException.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
@@ -183,7 +183,7 @@ class ServerSocket {
      * If <i>bindAddr</i> is null, it will default accepting
      * connections on any/all local addresses.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_Port}
      * The port must be between 0 and 65535, inclusive.
      * {@property.close}
      *
@@ -195,7 +195,7 @@ class ServerSocket {
      * This could result in a SecurityException.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
@@ -333,7 +333,7 @@ class ServerSocket {
      * If the address is <code>null</code>, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>
      * The <code>backlog</code> argument must be a positive
      * value greater than 0. If the value passed is equal or less
@@ -616,11 +616,11 @@ class ServerSocket {
      * a <B>java.net.SocketTimeoutException</B> is raised, though the
      * ServerSocket is still valid.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_SetTimeoutBeforeBlocking}
      * The option <B>must</B> be enabled
      * prior to entering the blocking operation to have effect.
      * {@property.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_Timeout}
      * The
      * timeout must be > 0.
      * {@property.close}
@@ -684,7 +684,7 @@ class ServerSocket {
      * use {@link #getReuseAddress()} to determine the initial
      * setting of <tt>SO_REUSEADDR</tt>.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_ReuseAddress}
      * <p>
      * The behaviour when <tt>SO_REUSEADDR</tt> is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
@@ -808,7 +808,7 @@ class ServerSocket {
      * It is possible to change the value subsequently, by calling
      * {@link Socket#setReceiveBufferSize(int)}.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_LargeReceiveBuffer}
      * However, if the application
      * wishes to allow a receive window larger than 64K bytes, as defined by RFC1323
      * then the proposed value must be set in the ServerSocket <B>before</B>
@@ -891,7 +891,7 @@ class ServerSocket {
      * invoke this method with the values <tt>(0, 1, 2)</tt>.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.ServerSocket_PerformancePreferences}
      * <p> Invoking this method after this socket has been bound
      * will have no effect. This implies that in order to use this capability
      * requires the socket to be created with the no-argument constructor.

@@ -1,0 +1,27 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Warns if SO_REUSEADDR is enabled or disabled after a ServerSocket is bound.
+ *
+ * The behavior when SO_REUSEADDR is enabled or disabled after a socket is
+ * bound is not defined.
+ * http://docs.oracle.com/javase/6/docs/api/java/net/ServerSocket.html#setReuseAddress%28boolean%29
+ *
+ * @severity warning
+ */
+
+ServerSocket_ReuseAddress() {
+	event set before(ServerSocket sock) :
+		call(* ServerSocket+.setReuseAddress(..)) && target(sock) {
+		if (!sock.isBound())
+			return;
+
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The behavior of setting SO_REUSEADDR after a socket is bound is not defined.");
+	}
+}
+

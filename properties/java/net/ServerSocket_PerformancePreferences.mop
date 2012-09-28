@@ -1,0 +1,28 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Warns if ServerSocket.setPerformancePreferences() is invoked after the
+ * socket has been bound.
+ *
+ * Invoking ServerSocket.setPerformancePreferences() after the socket has been
+ * bound will have no effect.
+ * http://docs.oracle.com/javase/6/docs/api/java/net/ServerSocket.html#setPerformancePreferences%28int,%20int,%20int%29
+ *
+ * @severity warning
+ */
+
+ServerSocket_PerformancePreferences() {
+	event set before(ServerSocket sock) :
+		call(* ServerSocket+.setPerformancePreferences(..)) && target(sock) {
+		if (!sock.isBound())
+			return;
+
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Invoking ServerSocket.setPerformancePreferences() after the socket has been bound will have no effect.");
+	}
+}
+

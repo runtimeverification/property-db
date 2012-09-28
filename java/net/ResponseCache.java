@@ -155,7 +155,7 @@ public abstract class ResponseCache {
      * been retrieved, and the ResponseCache must decide whether or
      * not to store the resource in its cache.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * If the resource is to
      * be cached, then put() must return a CacheRequest object which
      * contains an OutputStream that the protocol handler will
