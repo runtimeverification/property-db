@@ -17,15 +17,13 @@ public class InputStream_ManipulateAfterClose_3 {
 		bis.close();
 
 		// Since 'fis' has been also closed, the following should be caught by
-		// the handler of the InputStream_ManipulateAfterClose property.
-		// If the property uses the 'call' pointcut, as opposed to the
-		// 'execution' pointcut, the property handler will not be triggered.
+		// the handler of the InputStream_ManipulateAfterClose property. However,
+		// the property handler will not be triggered if the property is not
+		// thoroughly applied to all the necessary class files. For example,
+		// unless rt.jar is weaved, the following call will not fire any event,
+		// causing the property handler not to be triggered.
 		byte[] buf = new byte[5];
 		int j = fis.read(buf);
-
-		// Note that FileInputStream.read() does not fire an event because it is
-		// a native method. As a result, if one replace the above fis.read(buf)
-		// by fis.read(), the propery handler will not be triggered.
 	}
 }
 
