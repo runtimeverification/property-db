@@ -132,7 +132,7 @@ class Dictionary<K,V> {
      * Maps the specified <code>key</code> to the specified
      * <code>value</code> in this dictionary.
      * {@description.close}
-     * {@property.open formal:java.util.Dictionary_NonNull}
+     * {@property.open formal:java.util.Dictionary_NullKeyOrValue}
      * Neither the key nor the
      * value can be <code>null</code>.
      * {@property.close}
