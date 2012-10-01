@@ -189,7 +189,7 @@ public class URLEncoder {
      * supplied encoding scheme to obtain the bytes for unsafe
      * characters.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLEncoder_EncodeUTF8}
      * <p>
      * <em><strong>Note:</strong> The <a href=
      * "http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars">

@@ -380,7 +380,7 @@ public abstract class URLConnection {
      * Opens a communications link to the resource referenced by this
      * URL, if such a connection has not already been established.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLConnection_Connect}
      * <p>
      * If the <code>connect</code> method is called when the connection
      * has already been opened (indicated by the <code>connected</code>
@@ -393,11 +393,11 @@ public abstract class URLConnection {
      * before being connected, various options can be specified
      * (e.g., doInput and UseCaches).
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLConnection_SetBeforeConnect}
      * After connecting, it is an
      * error to try to set them.
      * {@property.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLConnection_Connect formal:java.net.URLConnection_SetBeforeConnect}
      * Operations that depend on being
      * connected, like getContentLength, will implicitly perform the
      * connection, if necessary.
@@ -468,13 +468,11 @@ public abstract class URLConnection {
      * resource. If the timeout expires before there is data available
      * for read, a java.net.SocketTimeoutException is raised. A
      * timeout of zero is interpreted as an infinite timeout.
-     * {@description.close}
      *
-     * {@property.open}
      *<p> Some non-standard implementation of this method ignores the
      * specified timeout. To see the read timeout set, please call
      * getReadTimeout().
-     * {@property.close}
+     * {@description.close}
      *
      * @param timeout an <code>int</code> that specifies the timeout
      * value to be used in milliseconds
@@ -824,7 +822,7 @@ public abstract class URLConnection {
      * required to make the connection. By default, this method
      * returns <code>java.security.AllPermission</code>.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLConnection_OverrideGetPermission}
      * Subclasses
      * should override this method and return the permission
      * that best represents the permission required to make a

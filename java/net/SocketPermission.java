@@ -272,7 +272,7 @@ implements java.io.Serializable
      * To specify the local machine, use "localhost" as the <i>host</i>.
      * Also note: An empty <i>host</i> String ("") is equivalent to "localhost".
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.SocketPermission_Actions}
      * <p>
      * The <i>actions</i> parameter contains a comma-separated list of the
      * actions granted for the specified host (and port(s)). Possible actions are

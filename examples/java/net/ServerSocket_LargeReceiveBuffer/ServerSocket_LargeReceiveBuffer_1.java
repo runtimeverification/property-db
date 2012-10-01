@@ -18,7 +18,7 @@ public class ServerSocket_LargeReceiveBuffer_1 {
 		ServerSocket bound = new ServerSocket(65535);
 		// As the 'bound' socket was bound above, the following call should
 		// trigger the property handler.
-		unbound.setReceiveBufferSize(largebuffer);
+		bound.setReceiveBufferSize(largebuffer);
 	}
 }
 

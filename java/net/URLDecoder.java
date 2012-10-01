@@ -117,7 +117,7 @@ public class URLDecoder {
      * what characters are represented by any consecutive sequences of the
      * form "<code>%<i>xy</i></code>".
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URLDecoder_DecodeUTF8}
      * <p>
      * <em><strong>Note:</strong> The <a href=
      * "http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars">

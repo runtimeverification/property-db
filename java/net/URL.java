@@ -1159,7 +1159,7 @@ public final class URL implements java.io.Serializable {
      * {@description.open}
      * Sets an application's <code>URLStreamHandlerFactory</code>.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.URL_SetURLStreamHandlerFactory}
      * This method can be called at most once in a given Java Virtual
      * Machine.
      * {@property.close}

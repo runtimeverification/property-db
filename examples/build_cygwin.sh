@@ -33,7 +33,26 @@ properties=(
 #	ServerSocket_Timeout
 #	ServerSocket_ReuseAddress
 #	ServerSocket_LargeReceiveBuffer
-	ServerSocket_PerformancePreferences
+#	ServerSocket_PerformancePreferences
+#	Socket_InputStreamUnavailable
+#	Socket_OutputStreamUnavailable
+#	Socket_Timeout
+#	Socket_SetTimeoutBeforeBlockingInput
+#	Socket_LargeReceiveBuffer
+#	Socket_TrafficClass
+#	Socket_ReuseAddress
+#	Socket_ReuseSocket
+#	Socket_CloseInput
+#	Socket_CloseOutput
+#	Socket_PerformancePreferences
+#	SocketImpl_CloseOutput
+#	SocketPermission_Actions
+#	URL_SetURLStreamHandlerFactory
+#	URLConnection_Connect
+#	URLConnection_SetBeforeConnect
+#	URLConnection_OverrideGetPermission
+#	URLDecoder_DecodeUTF8
+#	URLEncoder_EncodeUTF8
 )
 
 function handle_property {

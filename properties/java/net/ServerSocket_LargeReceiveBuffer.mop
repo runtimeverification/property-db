@@ -5,11 +5,11 @@ import javamoprt.MOPLogging;
 import javamoprt.MOPLogging.Level;
 
 /**
- * Warns if SO_REUSEADDR is enabled or disabled after a ServerSocket is bound.
+ * Warns if a large receive buffer is set after the server socket is bound.
  *
  * It is possible to change the value subsequently, by calling
- * Socket.setReceiveBufferSize(int). However, if the application wishes to
- * allow a receive window larger than 64K bytes, as defined by RFC1323 then
+ * ServerSocket.setReceiveBufferSize(int). However, if the application wishes
+ * to allow a receive window larger than 64K bytes, as defined by RFC1323 then
  * the proposed value must be set in the ServerSocket before it is bound to a
  * local address.
  * http://docs.oracle.com/javase/6/docs/api/java/net/ServerSocket.html#setReceiveBufferSize%28int%29
@@ -17,17 +17,25 @@ import javamoprt.MOPLogging.Level;
  * @severity error
  */
 
-ServerSocket_LargeReceiveBuffer() {
+ServerSocket_LargeReceiveBuffer(ServerSocket sock) {
+	creation event create_bound after() returning(ServerSocket sock) :
+		call(ServerSocket.new(int, ..)) {}
+
+	creation event create_unbound after() returning(ServerSocket sock) :
+		call(ServerSocket.new()) {}
+
+	event bind before(ServerSocket sock) :
+		call(* ServerSocket+.bind(..)) && target(sock) {}
+
 	event set before(ServerSocket sock, int size) :
-		call(* ServerSocket+.setReceiveBufferSize(int)) && target(sock) && args(size) {
-		if (!sock.isBound())
-			return;
+		call(* ServerSocket+.setReceiveBufferSize(int)) &&
+		target(sock) && args(size) && condition(size > 65536) {}
 
-		if (size <= 65536)
-			return;
+	ere : (create_bound | create_unbound set* bind+) set
 
+	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "A receive window large than 64K bytes must be set before the socket is bound.");
+		MOPLogging.out.println(Level.CRITICAL, "A receive window large than 64K bytes must be set before the server socket is bound.");
 	}
 }
 

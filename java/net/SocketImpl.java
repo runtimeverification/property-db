@@ -238,7 +238,7 @@ public abstract class SocketImpl implements SocketOptions {
      * followed by TCP's normal connection termination sequence.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.SocketImpl_CloseOutput}
      * If you write to a socket output stream after invoking
      * shutdownOutput() on the socket, the stream will throw
      * an IOException.

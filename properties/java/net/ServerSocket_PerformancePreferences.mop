@@ -15,12 +15,22 @@ import javamoprt.MOPLogging.Level;
  * @severity warning
  */
 
-ServerSocket_PerformancePreferences() {
-	event set before(ServerSocket sock) :
-		call(* ServerSocket+.setPerformancePreferences(..)) && target(sock) {
-		if (!sock.isBound())
-			return;
+ServerSocket_PerformancePreferences(ServerSocket sock) {
+	creation event create_bound after() returning(ServerSocket sock) :
+		call(ServerSocket.new(int, ..)) {}
 
+	creation event create_unbound after() returning(ServerSocket sock) :
+		call(ServerSocket.new()) {}
+
+	event bind before(ServerSocket sock) :
+		call(* ServerSocket+.bind(..)) && target(sock) {}
+
+	event set before(ServerSocket sock) :
+		call(* ServerSocket+.setPerformancePreferences(..)) && target(sock) {}
+
+	ere : (create_bound | create_unbound set* bind+) set
+
+	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 		MOPLogging.out.println(Level.CRITICAL, "Invoking ServerSocket.setPerformancePreferences() after the socket has been bound will have no effect.");
 	}

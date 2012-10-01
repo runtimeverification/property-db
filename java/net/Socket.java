@@ -339,7 +339,7 @@ class Socket {
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * <p>
      * If a UDP socket is used, TCP/IP related socket options will not apply.
      * {@property.close}
@@ -382,7 +382,7 @@ class Socket {
      * with <code>host.getHostAddress()</code> and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * <p>
      * If UDP socket is used, TCP/IP related socket options will not apply.
      * {@property.close}
@@ -821,7 +821,7 @@ class Socket {
      * <p> If this socket has an associated channel then the resulting input
      * stream delegates all of its operations to the channel.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * If the channel
      * is in non-blocking mode then the input stream's <tt>read</tt> operations
      * will throw an {@link java.nio.channels.IllegalBlockingModeException}.
@@ -856,7 +856,7 @@ class Socket {
      * <p> Closing the returned {@link java.io.InputStream InputStream}
      * will close the associated socket.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_InputStreamUnavailable}
      * {@new.open}
      * An input stream is unavailable if the socket is closed, is not connected,
      * or the socket input has been shutdown.
@@ -901,7 +901,7 @@ class Socket {
      * <p> If this socket has an associated channel then the resulting output
      * stream delegates all of its operations to the channel.
      * {@description.close}
-     * {@property.open}
+     * {@property.open unchecked}
      * If the channel
      * is in non-blocking mode then the output stream's <tt>write</tt>
      * operations will throw an {@link
@@ -912,9 +912,10 @@ class Socket {
      * <p> Closing the returned {@link java.io.OutputStream OutputStream}
      * will close the associated socket.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_OutputStreamUnavailable}
      * {@new.open}
-     * An output stream is unavailable if the socket is not connected.
+     * An output stream is unavailable if the socket is closed, is not connected,
+     * or the socket output has been shutdown.
      * {@new.close}
      * {@property.close}
      *
@@ -1114,10 +1115,13 @@ class Socket {
      *  a read() call on the InputStream associated with this Socket
      *  will block for only this amount of time.  If the timeout expires,
      *  a <B>java.net.SocketTimeoutException</B> is raised, though the
-     *  Socket is still valid. The option <B>must</B> be enabled
-     *  prior to entering the blocking operation to have effect.
+     *  Socket is still valid.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_SetTimeoutBeforeBlockingInput formal:java.net.Socket_SetTimeoutBeforeBlockingOutput}
+     *  The option <B>must</B> be enabled
+     *  prior to entering the blocking operation to have effect.
+     * {@property.close}
+     * {@property.open runtime formal:java.net.Socket_Timeout}
      *  The
      *  timeout must be > 0.
      * {@property.close}
@@ -1240,7 +1244,7 @@ class Socket {
      * that is advertized to the remote peer. Generally, the window size
      * can be modified at any time when a socket is connected.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_LargeReceiveBuffer}
      * However, if
      * a receive window larger than 64K is required then this must be requested
      * <B>before</B> the socket is connected to the remote peer. There are two
@@ -1342,7 +1346,7 @@ class Socket {
      * value applications should consider it a hint.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_TrafficClass}
      * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
      * 255</code> or an IllegalArgumentException will be thrown.
      * {@property.close}
@@ -1359,12 +1363,15 @@ class Socket {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
+     * {@property.open runtime formal:java.net.Socket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.
      * <p>
      * Setting bits in the precedence field may result in a
      * SocketException indicating that the operation is not
      * permitted.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * As RFC 1122 section 4.2.4.2 indicates, a compliant TCP
      * implementation should, but is not required to, let application
@@ -1435,7 +1442,7 @@ class Socket {
      * When a <tt>Socket</tt> is created the initial setting
      * of <tt>SO_REUSEADDR</tt> is disabled.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_ReuseAddress}
      * <p>
      * The behaviour when <tt>SO_REUSEADDR</tt> is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
@@ -1482,20 +1489,20 @@ class Socket {
      * Any thread currently blocked in an I/O operation upon this socket
      * will throw a {@link SocketException}.
      * {@description.close}
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_ReuseSocket}
      * <p>
      * Once a socket has been closed, it is not available for further networking
      * use (i.e. can't be reconnected or rebound). A new socket needs to be
      * created.
      * {@property.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_CloseInput formal:java.net.Socket_CloseOutput}
      * <p> Closing this socket will also close the socket's
      * {@link java.io.InputStream InputStream} and
      * {@link java.io.OutputStream OutputStream}.
      * {@property.close}
      *
-     * {@property.open}
+     * {@property.open unchecked}
      * <p> If this socket has an associated channel then the channel is closed
      * as well.
      * {@property.close}
@@ -1553,7 +1560,7 @@ class Socket {
      * followed by TCP's normal connection termination sequence.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_CloseOutput}
      * If you write to a socket output stream after invoking
      * shutdownOutput() on the socket, the stream will throw
      * an IOException.
@@ -1735,7 +1742,7 @@ class Socket {
      * invoke this method with the values <tt>(0, 1, 2)</tt>.
      * {@description.close}
      *
-     * {@property.open}
+     * {@property.open runtime formal:java.net.Socket_PerformancePreferences}
      * <p> Invoking this method after this socket has been connected
      * will have no effect.
      * {@property.close}
