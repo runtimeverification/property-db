@@ -38,7 +38,7 @@ package java.util;
  * implementations of this class to decide if two keys are the same.
  * <p>
  * {@description.close}
- * {@property.open formal:Dictionary_Obsolete}
+ * {@property.open formal:java.util.Dictionary_Obsolete}
  * <strong>NOTE: This class is obsolete.  New implementations should
  * implement the Map interface, rather than extending this class.</strong>
  * {@property.close}
@@ -132,7 +132,7 @@ class Dictionary<K,V> {
      * Maps the specified <code>key</code> to the specified
      * <code>value</code> in this dictionary.
      * {@description.close}
-     * {@property.open formal:Dictionary_NonNull}
+     * {@property.open formal:java.util.Dictionary_NonNull}
      * Neither the key nor the
      * value can be <code>null</code>.
      * {@property.close}

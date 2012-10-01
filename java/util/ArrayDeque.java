@@ -45,7 +45,7 @@ import java.io.*;
  * They are not thread-safe; in the absence of external
  * synchronization, they do not support concurrent access by multiple threads.
  * {@description.close}
- * {@property.open Property:java.util.ArrayDequeue_NonNull}
+ * {@property.open Property:java.util.ArrayDeque_NonNull}
  * Null elements are prohibited.
  * {@property.close}
  * {@description.open}

@@ -49,7 +49,7 @@ import java.util.Map.Entry;
  * <tt>remove</tt> method.
  * {@property.close}
  *
- * {@property.open Property:Map_StandardConstructors}
+ * {@property.open formal:java.util.Map_StandardConstructors}
  * <p>The programmer should generally provide a void (no argument) and map
  * constructor, as per the recommendation in the <tt>Map</tt> interface
  * specification.

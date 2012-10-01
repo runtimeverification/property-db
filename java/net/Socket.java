@@ -1363,6 +1363,7 @@ class Socket {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
+     * {@description.close}
      * {@property.open runtime formal:java.net.Socket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.

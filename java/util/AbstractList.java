@@ -48,7 +48,7 @@ package java.util;
  * {@link #add(int, Object) add(int, E)} and {@link #remove(int)} methods.
  * {@property.close}
  *
- * {@property.open Property:Collection_StandardConstructors}
+ * {@property.open formal:java.util.Collection_StandardConstructors}
  * <p>The programmer should generally provide a void (no argument) and collection
  * constructor, as per the recommendation in the {@link Collection} interface
  * specification.
