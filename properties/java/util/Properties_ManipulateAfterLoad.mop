@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns read(), available(), reset() or skip() after close().
@@ -35,8 +37,8 @@ Properties_ManipulateAfterLoad(InputStream i) {
 	ere : close+ manipulate
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Properties_ManipulateAfterLoad was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "read(), available(), reset() or skip() was invoked after Properties.loadFromXML() closes the stream.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "read(), available(), reset() or skip() was invoked after Properties.loadFromXML() closes the stream.");
 	}
 }
 

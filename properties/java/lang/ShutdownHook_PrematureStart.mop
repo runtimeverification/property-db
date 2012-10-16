@@ -1,6 +1,8 @@
 package mop;
 
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Prevents registering a shutdown hook that has been started.
@@ -38,8 +40,8 @@ ShutdownHook_PrematureStart(Thread t) {
 		]
 
 	@err {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_PrematureStart was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "A virtual-machine shutdown hook has been started by the user code.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A virtual-machine shutdown hook has been started by the user code.");
 	}
 }
 

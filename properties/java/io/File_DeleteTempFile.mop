@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Checks if a temporary file is explicitly deleted or scheduled to be deleted
@@ -33,8 +35,8 @@ File_DeleteTempFile(File f) {
 	ltl : [](create => o (explicit or implicit))
 
 	@violation {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " File_DeleteTempFile was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "A temporary file has not been deleted.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A temporary file has not been deleted.");
 	}
 }
 

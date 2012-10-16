@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the Enumeration class is used.
@@ -22,8 +24,8 @@ Enumeration_Obsolete(Enumeration e) {
 	ere : use
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enumeration_Obsolete was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
 	}
 }
 

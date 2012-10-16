@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if close() is invoked multiple times.
@@ -22,8 +24,8 @@ Closeable_MultipleClose(Closeable c) {
 	ere : close close+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Closeable_MultipleClose was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "close() was invoked multiple times.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() was invoked multiple times.");
 	}
 }
 

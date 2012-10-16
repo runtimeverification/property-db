@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if null is provided as a key of an EnumMap object.
@@ -16,15 +18,15 @@ import java.util.*;
 EnumMap_NonNull() {
 	event insertnull before(Object e) :
 		call(* EnumMap.put(Object, Object)) && args(e, ..) && condition(e == null) {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumMap_NonNull was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "EnumMap does not permit null.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
 	}
 	event insertnull before(Map m) :
 		call(* EnumMap.putAll(Map)) && args(m) {
 		for (Map.Entry entry : (Set<Map.Entry>)m.entrySet()) {
 			if (entry.getKey() == null)
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumMap_NonNull was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "EnumMap does not permit null.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
 		}
 	}
 }

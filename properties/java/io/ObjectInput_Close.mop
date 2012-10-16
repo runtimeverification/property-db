@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if an ObjectInput instance does not close.
@@ -20,8 +22,8 @@ ObjectInput_Close(ObjectInput i) {
 	ltl : [](create => o close)
 
 	@violation {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ObjectInput_Close was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "close() was not called.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() was not called.");
 	}
 }
 

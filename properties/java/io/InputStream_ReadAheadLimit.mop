@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Raises an error if mark() is invalidated by reading.
@@ -86,10 +88,10 @@ InputStream_ReadAheadLimit(InputStream i) {
 	ere : (mark | read | goodreset)* badreset+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_ReadAheadLimit was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The position mark has been invalidated.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The position mark has been invalidated.");
 		if (this.LOC != null)
-			javamoprt.MOPLogging.out.println(ERROR, "read() at line " + this.LOC + " invalidated the mark.");
+			MOPLogging.out.println(Level.CRITICAL, "read() at line " + this.LOC + " invalidated the mark.");
 	}
 }
 

@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns write(), or flush() after close().
@@ -31,7 +33,7 @@ Writer_ManipulateAfterClose(Writer w) {
 	ere : close+ manipulate+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Writer_ManipulateAfterClose was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "write() or flush() was invoked after close().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "write() or flush() was invoked after close().");
 	}
 }

@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if null is added to an EnumSet object.
@@ -16,15 +18,15 @@ import java.util.*;
 EnumSet_NonNull() {
 	event insertnull before(Object e) :
 		call(* EnumSet+.add(Object)) && args(e) && condition(e == null) {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumSet_NonNull was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "EnumSet does not permit null.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "EnumSet does not permit null.");
 	}
 	event insertnull before(Collection c) :
 		call(* EnumSet+.addAll(Collection)) && args(c) {
 		for (Object elem : c) {
 			if (elem == null){
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " EnumSet_NonNull was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "EnumSet does not permit null.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "EnumSet does not permit null.");
 			}
 		}
 	}

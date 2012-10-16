@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if ListIterator.set() call is made without next()/previous(), or
@@ -36,8 +38,8 @@ ListIterator_Set(ListIterator i) {
 	ere : create add* ((next | previous)+ set* (remove | add+ | epsilon))*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ListIterator_Set was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
 	}
 }
 

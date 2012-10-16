@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if next() is invoked when hasNext() is not invoked or returns false.
@@ -30,8 +32,8 @@ Iterator_HasNext(Iterator i) {
 	ltl: [](next => (*) hasnexttrue)
 
 	@violation {
-		javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Iterator_HasNext was violated.");
-		javamoprt.MOPLogging.out.println(WARNING, "Iterator.hasNext() was not called before calling next().");
+		MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(WARNING, "Iterator.hasNext() was not called before calling next().");
 	}
 }
 

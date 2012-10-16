@@ -2,6 +2,8 @@ package mop;
 
 import java.lang.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if one registers a new shutdown hook after the shutdown sequence has begun.
@@ -27,8 +29,8 @@ ShutdownHook_LateRegister() {
 	ere : (register | unregister)* start+ (register | unregister)
 	
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ShutdownHook_LateRegister was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "A shutdown hook was registered/unregister after the shutdown sequence had begun.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A shutdown hook was registered/unregister after the shutdown sequence had begun.");
 	}
 }
 

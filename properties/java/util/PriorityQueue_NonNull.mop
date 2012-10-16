@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if PriorityQueue is about to have a null element.
@@ -20,8 +22,8 @@ PriorityQueue_NonNull() {
 			call(* Collection+.add*(..)) ||
 			call(* Queue+.offer*(..))
 		) && target(PriorityQueue) && args(e) && condition(e == null) {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PriorityQueue_NonNull was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "PriorityQueue does not permit null.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit null.");
 	}
 
 	event insertnull before(Collection c) :
@@ -29,8 +31,8 @@ PriorityQueue_NonNull() {
 		target(PriorityQueue) && args(c) {
 		for (Object elem : c) {
 			if (elem == null) {
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PriorityQueue_NonNull was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "PriorityQueue does not permit null.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit null.");
 			}
 		}
 	}

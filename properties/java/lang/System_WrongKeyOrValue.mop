@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if null key or value is inserted, or non-String key or value is used.
@@ -34,8 +36,8 @@ System_WrongKeyOrValue(Map map){
     ere : createMap (nullPut | nullQuery | notStringQuery)+ 
 
 	@match{
-           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " System_WrongKeyOrValue was violated.");
-           javamoprt.MOPLogging.out.println(WARNING, "null key or value is not permitted in the map from System.getenv(). Also key or value which is not of type String is not allowed.");
+           MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(WARNING, "null key or value is not permitted in the map from System.getenv(). Also key or value which is not of type String is not allowed.");
 	}
 }
 		

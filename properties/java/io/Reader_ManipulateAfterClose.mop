@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns read(), ready(), mark(), reset() or skip() after close().
@@ -30,7 +32,7 @@ Reader_ManipulateAfterClose(Reader r) {
 	ere : close+ manipulate+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Reader_ManipulateAfterClose was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "read(), ready(), mark(), reset() or skip() was invoked after close().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "read(), ready(), mark(), reset() or skip() was invoked after close().");
 	}
 }

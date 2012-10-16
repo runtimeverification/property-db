@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.lang.reflect.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a class is runnable without overriding run() method.
@@ -22,8 +24,8 @@ Runnable_OverrideRun() {
 			try{
 				m = klass.getMethod("run");
 			} catch (NoSuchMethodException e){
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Runnable_OverrideRun was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "A Runnable class should provide/override run() method.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A Runnable class should provide/override run() method.");
 			}
 		}
 	}

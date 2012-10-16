@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if there are a NavigableSet object and its descending set, and either
@@ -48,8 +50,8 @@ NavigableSet_Modification(NavigableSet s1, NavigableSet s2, Iterator i) {
 	ere : create (modify1 | modify2)* (getiter1 | getiter2) useiter* (modify1 | modify2)+ useiter
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " NavigableSet_Modification was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The NavigableSet was modified while an iteration over a NavigableSet that shares the same storage.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The NavigableSet was modified while an iteration over a NavigableSet that shares the same storage.");
 	}
 }
 

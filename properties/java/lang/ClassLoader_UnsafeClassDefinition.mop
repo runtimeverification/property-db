@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  *
@@ -16,8 +18,8 @@ import java.lang.*;
 ClassLoader_UnsafeClassDefinition() {
 	event defineClass before(String name) :
 		call(* ClassLoader+.defineClass(String, ..)) && args(name, ..) && condition(name.startsWith("java.")){
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ClassLoader_UnsafeClassDefinition was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "An invalid binary name is used");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "An invalid binary name is used");
 		}
 }
 

@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Suggests to use toString() instead of name() in Enum.
@@ -14,8 +16,8 @@ import java.lang.*;
 
 Enum_UserFriendlyName() {
 	event name before() : call(* Enum+.name()) {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enum_UserFriendlyName was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "Most programmers should use toString(). It gives a more user-friendly name."); 
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Most programmers should use toString(). It gives a more user-friendly name."); 
 	}
 
 	

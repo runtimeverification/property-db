@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if src or dest is null.
@@ -15,8 +17,8 @@ import java.lang.*;
 System_NullArrayCopy() {
 	event null_arraycopy before(Object src, int srcPos, Object dest, int destPos, int length): 
 		call(* System.arraycopy(Object, int, Object, int, int)) && args(src, srcPos, dest, destPos, length) && condition(src == null || dest == null) {
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " System_NullArrayCopy was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "src or dest should not be null.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "src or dest should not be null.");
 		}
 }
 

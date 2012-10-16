@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a Throwable object initializes its cause more than once.
@@ -26,8 +28,8 @@ Throwable_InitCauseOnce(Throwable t){
     ere : (createWithoutThrowable initCause initCause+) | (createWithThrowable initCause+)  
 
 	@match{
-           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Throwable_InitCauseOnce was violated.");
-           javamoprt.MOPLogging.out.println(WARNING, "initCause should not be called more than once.");
+           MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(WARNING, "initCause should not be called more than once.");
 	}
 }
 		

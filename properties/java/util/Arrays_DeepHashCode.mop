@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if Arrays.deepHashCode() is invoked on an array that contains itself
@@ -42,8 +44,8 @@ Arrays_DeepHashCode() {
 		call(int Arrays.deepHashCode(Object[])) && args(arr) {
 		ArrayList<Object[]> enclosing = new ArrayList<Object[]>();
 		if (cycle(enclosing, arr)){
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Arrays_DeepHashCode was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "The specified array contains itself as an element.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "The specified array contains itself as an element.");
 		}
 	}
 }

@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if setDaemon is called after starting the thread.
@@ -25,8 +27,8 @@ Thread_SetDaemonBeforeStart(Thread t){
     ere : setDaemon* start 
 
 	@fail{
-           javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Thread_SetDaemonBeforeStart was violated.");
-           javamoprt.MOPLogging.out.println(ERROR, "setDaemon should not be set after the thread started");
+           MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(Level.CRITICAL, "setDaemon should not be set after the thread started");
 	}
 }
 		

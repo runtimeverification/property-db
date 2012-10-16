@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if Collections.newSetFromMap() is invoked on HashMap or TreeMap.
@@ -24,8 +26,8 @@ Collections_UnnecessaryNewSetFromMap() {
 			args(HashMap) ||
 			args(TreeMap)
 		) {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_UnnecessaryNewSetFromMap was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "There is no need to use Collections.newSetFromMap() on HashMap or TreeMap.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "There is no need to use Collections.newSetFromMap() on HashMap or TreeMap.");
 	}
 }
 

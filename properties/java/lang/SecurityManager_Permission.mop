@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.security.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the context argument to checkPermission method is not from getSecurityContext method call. 
@@ -23,8 +25,8 @@ SecurityManager_Permission(SecurityManager manager, Object context) {
 
 	ere: get (get | check)*
 	@fail{
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SecurityManager_Permission was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The context argument to checkPermission must come from getSecurityContext method call.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The context argument to checkPermission must come from getSecurityContext method call.");
 	}
 }
 

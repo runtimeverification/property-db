@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Suggests if the constructor of Character is used.
@@ -16,9 +18,8 @@ import java.lang.*;
 Character_StaticFactory() {
     event constructor_create after() returning(Character b): 
         call(Character+.new(char)) {
-            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_StaticFactory was violated.");
-            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Character(char value) might be inefficient. Use valueOf(char c) if it is appropriate.");
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "Using the constructor Character(char value) might be inefficient. Use valueOf(char c) if it is appropriate.");
         }
-    
 }
 

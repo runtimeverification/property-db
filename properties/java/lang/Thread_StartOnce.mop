@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a thread is started more than once.
@@ -20,8 +22,8 @@ Thread_StartOnce(Thread t){
     ere : start start+ 
 
 	@match{
-           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " Thread_StartOnce was violated.");
-           javamoprt.MOPLogging.out.println(WARNING, "Thread should not be started more than once.");
+           MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(WARNING, "Thread should not be started more than once.");
 	}
 }
 		

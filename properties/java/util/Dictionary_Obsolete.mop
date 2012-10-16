@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if an obsolete class Dictionary is used.
@@ -21,8 +23,8 @@ Dictionary_Obsolete(Dictionary d) {
 	ere : use
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Dictionary_Obsolete was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The Dictionary class is obsolete. New implementations should implement the Map interface.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The Dictionary class is obsolete. New implementations should implement the Map interface.");
 	}
 }
 

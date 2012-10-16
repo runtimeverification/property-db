@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.util.concurrent.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a capacity-restricted deque performs a less preferable operation.
@@ -36,8 +38,8 @@ Deque_OfferRatherThanAdd(Deque q) {
 	ere : create add+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Deque_OfferRatherThanAdd was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
 	}
 }
 

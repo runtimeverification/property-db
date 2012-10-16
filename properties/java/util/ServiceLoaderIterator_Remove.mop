@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if an iterator from a ServiceLoader object attempts to invoke
@@ -22,8 +24,8 @@ ServiceLoaderIterator_Remove(Iterator i) {
 	ere : create remove
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ServiceLoaderIterator_Remove was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The iterator returned by ServiceLoader.iterator() does not support removal.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The iterator returned by ServiceLoader.iterator() does not support removal.");
 	}
 }
 

@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.reflect.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a Serializable class does not declare a serialVersionUID.
@@ -40,18 +42,18 @@ Serializable_UID() {
 				boolean islong = fieldtype.getName() == "long";
 
 				if (!isstatic)
-					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
-					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
 				if (!isfinal)
-					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
-					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
 				if (!islong)
-					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
-					javamoprt.MOPLogging.out.println(ERROR, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
 			}
 			catch (NoSuchFieldException e) {
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Serializable_UID was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
 			}
 		}
 	}

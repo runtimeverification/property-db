@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns when the argument to decode is wrong
@@ -17,14 +19,14 @@ Integer_BadDecodeArg() {
     event decode before(Integer i, String nm) : 
         call(* Integer.decode(String)) && args(nm) && target(i) {
         if(nm == null || nm.length() == 0){
-            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
-            javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Integer.decode(String nm)");
         } else {
             //whitespace check
             for(int j = 0; j < nm.length(); j++){
                 if(Character.isWhitespace(nm.charAt(j))){
-                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
-                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
+                    MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+                    MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Integer.decode(String nm)");
                 }
             }
             
@@ -52,12 +54,12 @@ Integer_BadDecodeArg() {
             
             try{
                 if(Integer.parseInt(sub, radix) < 0){
-                    javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
-                    javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
+                    MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+                    MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Integer.decode(String nm)");
                 }
             } catch(Exception e){
-                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_BadDecodeArg was violated.");
-                javamoprt.MOPLogging.out.println(ERROR, "Wrong argument to Integer.decode(String nm)");
+                MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+                MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Integer.decode(String nm)");
             }
             
         }

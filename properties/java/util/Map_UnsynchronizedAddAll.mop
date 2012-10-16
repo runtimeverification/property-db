@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the source map is modified while Map.putAll() is running.
@@ -33,8 +35,8 @@ Map_UnsynchronizedAddAll(Map t, Map s) {
 	ere : (enter leave modify*)*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Map_UnsynchronizedAddAll was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The source map of putAll() has been modified.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The source map of putAll() has been modified.");
 	}
 }
 

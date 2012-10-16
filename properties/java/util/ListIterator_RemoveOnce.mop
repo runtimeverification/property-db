@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if ListIterator.remove() is called multiple times per
@@ -28,8 +30,8 @@ ListIterator_RemoveOnce(ListIterator i) {
 	ere : ((next | previous)+ (remove | epsilon))*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ListIterator_RemoveOnce was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "ListIterator.remove() can be called only once per call to next()/previous().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "ListIterator.remove() can be called only once per call to next()/previous().");
 	}
 }
 

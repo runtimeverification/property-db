@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if null key or value is inserted.
@@ -30,8 +32,8 @@ ProcessBuilder_NullKeyOrValue(Map map){
     ere : createMap (nullPut | nullQuery)+ 
 
 	@match{
-           javamoprt.MOPLogging.out.println(WARNING, "At line " + __LOC + " ProcessBuilder_NullKeyOrValue was violated.");
-           javamoprt.MOPLogging.out.println(WARNING, "null key or value is not permitted in the map from ProcessBuilder.environment()");
+           MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(WARNING, "null key or value is not permitted in the map from ProcessBuilder.environment()");
 	}
 }
 		

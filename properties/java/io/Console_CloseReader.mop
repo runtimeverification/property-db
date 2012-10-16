@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if close() is invoked on the object returned by Console.reader().
@@ -23,8 +25,8 @@ Console_CloseReader(Reader r) {
 	ere : getreader close+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Console_CloseReader was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "Invoking close() on the object returned by Console.reader() does not close the underlying stream.");
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "Invoking close() on the object returned by Console.reader() does not close the underlying stream.");
 	}
 }
 

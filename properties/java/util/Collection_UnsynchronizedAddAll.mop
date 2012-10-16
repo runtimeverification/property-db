@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the source collection is modified while Collection.addAll() is
@@ -35,8 +37,8 @@ Collection_UnsynchronizedAddAll(Collection t, Collection s) {
 	ere : (enter leave modify*)*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_UnsynchronizedAddAll was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The source collection of addAll() has been modified.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The source collection of addAll() has been modified.");
 	}
 }
 

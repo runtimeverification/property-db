@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Prevents access to invalidated fields of StreamTokenizer.
@@ -65,8 +67,8 @@ StreamTokenizer_AccessInvalidField(StreamTokenizer s) {
 		]
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StreamTokenizer_AccessInvalidField was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The caller attempted to read an invalidated value. " + __LOC);
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The caller attempted to read an invalidated value. " + __LOC);
 		__RESET;
 	}
 }

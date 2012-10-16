@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Suggests if the constructor of Float is used.
@@ -16,8 +18,8 @@ import java.lang.*;
 Float_StaticFactory() {
     event constructor_create after() returning(Float f): 
         call(Float+.new(float)) {
-            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Float_StaticFactory was violated.");
-            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Float(float value) might be inefficient. Use valueOf(float) if it is appropriate.");
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "Using the constructor Float(float value) might be inefficient. Use valueOf(float) if it is appropriate.");
         }
     
 }

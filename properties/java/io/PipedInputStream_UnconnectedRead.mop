@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if an unconnected PipedInputStream object performs a read operation.
@@ -45,8 +47,8 @@ PipedInputStream_UnconnectedRead(PipedInputStream i) {
 		]
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PipedInputStream_UnconnectedRead was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "An unconnected PipedInputStream performed read() operation.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "An unconnected PipedInputStream performed read() operation.");
 	}
 }
 

@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if two threads attempt to use the same StringBuilder object.
@@ -30,8 +32,8 @@ StringBuilder_ThreadSafe(StringBuilder b){
 	ere: safe_oper*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StringBuilder_ThreadSafe was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "More than two threads attempted to use a StringBuilder instance, which may lead to a race condition. Use StringBuffer instead.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "More than two threads attempted to use a StringBuilder instance, which may lead to a race condition. Use StringBuffer instead.");
 		__RESET;
 	}
 }

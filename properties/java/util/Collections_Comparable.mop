@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the argument of Collections.sort(List<T>, Comparator) is not comparable.
@@ -34,8 +36,8 @@ Collections_Comparable() {
 					comp.compare(o2, o1);
 				}
 				catch (ClassCastException e) {
-					javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_Comparable was violated.");
-					javamoprt.MOPLogging.out.println(ERROR, i + "-th element and " + j + "-th element are not comparable.");
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, i + "-th element and " + j + "-th element are not comparable.");
 				}
 			}
 		}

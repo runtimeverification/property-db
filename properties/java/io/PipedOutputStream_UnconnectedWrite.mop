@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if an unconnected PipedOutputStream object performs a write operation.
@@ -41,8 +43,8 @@ PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
 		]
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PipedOutputStream_UnconnectedWrite was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "An unconnected PipedOutputStream performed write() operation.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "An unconnected PipedOutputStream performed write() operation.");
 	}
 }
 

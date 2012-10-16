@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the list is modified while subList() is running.
@@ -34,8 +36,8 @@ List_UnsynchronizedSubList(List b, List s) {
 	ere : createsublist usesublist* modifybackinglist+ usesublist
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " List_UnsynchronizedSubList was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The backing list was modified while a sub-list is being used.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The backing list was modified while a sub-list is being used.");
 	}
 }
 

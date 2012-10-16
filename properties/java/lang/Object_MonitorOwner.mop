@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if notify(), notifyAll(), and wait(..) methods are called without holding the monitor of the object.
@@ -19,14 +21,14 @@ import java.lang.*;
 Object_MonitorOwner() {
 	event bad_notify before(Object o): 
 		(call(* Object+.notify(..)) || call(* Object+.notifyAll(..)))&& target(o) && if(!Thread.holdsLock(o)) {
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_MonitorOwner was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "notify() and notifyAll() can be called only by the owner of this object's monitor.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "notify() and notifyAll() can be called only by the owner of this object's monitor.");
 		}
         
 	event bad_wait before(Object o): 
 		call(* Object+.wait(..)) && target(o) && if(!Thread.holdsLock(o)) {
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_MonitorOwner was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "wait() can be called only by the owner of this object's monitor.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "wait() can be called only by the owner of this object's monitor.");
 		}
         
     

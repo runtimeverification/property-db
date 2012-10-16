@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Prevents invocations of mark() if the InputStream does not support.
@@ -29,7 +31,7 @@ InputStream_MarkReset() {
 			|| target(SequenceInputStream)
 		)
 		{
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_MarkReset was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
 		}
 }

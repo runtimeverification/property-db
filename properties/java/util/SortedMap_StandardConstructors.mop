@@ -3,6 +3,8 @@ package mop;
 import java.util.*;
 import java.lang.reflect.*;
 import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a subclass of SortedMap does not define the four "standard" constructors.
@@ -41,8 +43,8 @@ SortedMap_StandardConstructors() {
 				Constructor ctor4 = klass.getDeclaredConstructor(SortedMap.class);
 			}
 			catch (NoSuchMethodException e) {
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " SortedMap_StandardConstructors was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not define the 'standard' SortedMap constructors.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' SortedMap constructors.");
 			}
 		}
 	}

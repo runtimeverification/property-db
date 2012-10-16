@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if clone method is called on an Object instance.
@@ -23,8 +25,8 @@ Object_NoClone() {
 		&& !within(org.apache.batik.ext.awt.image.spi.MagicNumberRegistryEntry)
 		&& !within(org.apache.xerces.util.XMLCatalogResolver)
 		&& target(o) && condition(o.getClass().getCanonicalName().equals("java.lang.Object")){
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Object_NoClone was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "Using the clone method on an Object instance will result in throwing an exception.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "Using the clone method on an Object instance will result in throwing an exception.");
 	}
 
 }

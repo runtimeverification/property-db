@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if the map passed to Collections.newSetFromMap() is either non-empty,
@@ -28,8 +30,8 @@ Collections_NewSetFromMap(Map map) {
 	ere : bad_create | (create access)
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collections_NewSetFromMap was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
 	}
 }
 

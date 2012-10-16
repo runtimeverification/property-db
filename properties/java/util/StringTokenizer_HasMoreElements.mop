@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if nextToken()/nextElement() is invoked when
@@ -39,8 +41,8 @@ StringTokenizer_HasMoreElements(StringTokenizer i) {
 	ltl: [](next => (*) hasnexttrue)
 
 	@violation {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " StringTokenizer_HasMoreElements was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "StringTokenizer.hasMoreTokens()/hasMoreElements() did not return false before calling nextToken()/nextElement().");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "StringTokenizer.hasMoreTokens()/hasMoreElements() did not return false before calling nextToken()/nextElement().");
 	}
 }
 

@@ -3,6 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.nio.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if one tries to add a CharSequence object into a set.
@@ -22,16 +24,16 @@ CharSequence_NotInSet() {
 	
 	event set_add before() : call(* Set+.add(..)) && args(CharSequence) && !args(String) && !args(CharBuffer) && condition(!flag){
 		flag = true;
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_NotInSet was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "It might not be safe to add a CharSequence instance into a set"); 
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "It might not be safe to add a CharSequence instance into a set"); 
 	}
 
 	event set_addall before(Collection c) : call(* Set+.addAll(Collection)) && args(c) && condition(!flag){
 		for(Object o : c){
 			if(o instanceof CharSequence && !(o instanceof String) && !(o instanceof CharBuffer)){
 				flag = true;
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " CharSequence_NotInSet was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "It might not be safe to add a CharSequence instance into a set");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "It might not be safe to add a CharSequence instance into a set");
 			}
 		} 
 	}

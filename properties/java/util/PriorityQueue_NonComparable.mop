@@ -2,6 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if PriorityQueue is about to have a non-comparable object.
@@ -23,8 +25,8 @@ PriorityQueue_NonComparable() {
 			call(* Queue+.offer*(..))
 		) && target(PriorityQueue) && args(e) {
 		if (!(e instanceof Comparable)) {
-			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PriorityQueue_NonComparable was violated.");
-			javamoprt.MOPLogging.out.println(ERROR, "PriorityQueue does not permit non-comparable objects.");
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit non-comparable objects.");
 		}
 	}
 
@@ -33,8 +35,8 @@ PriorityQueue_NonComparable() {
 		target(PriorityQueue) && args(c) {
 		for (Object elem : c) {
 			if (!(elem instanceof Comparable)) {
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PriorityQueue_NonComparable was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, "PriorityQueue does not permit non-comparable objects.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit non-comparable objects.");
 			}
 		}
 	}

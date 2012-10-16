@@ -3,6 +3,8 @@ package mop;
 import java.util.*;
 import java.lang.reflect.*;
 import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if a subclass of Collection does not define the two "standard"
@@ -32,8 +34,8 @@ Collection_StandardConstructors() {
 				Constructor ctor2 = klass.getDeclaredConstructor(Collection.class);
 			}
 			catch (NoSuchMethodException e) {
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_StandardConstructors was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " does not define the 'standard' constructors.");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' constructors.");
 			}
 		}
 	}

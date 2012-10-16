@@ -3,6 +3,8 @@ package mop;
 import java.util.*;
 import java.lang.reflect.*;
 import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if equals() is overriden but hashCode() is not.
@@ -35,8 +37,8 @@ Collection_HashCode() {
 			}
 
 			if (equalsmethod != null && hashcodemethod == null)
-				javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Collection_HashCode was violated.");
-				javamoprt.MOPLogging.out.println(ERROR, klass.getName() + " overrides equals() but does not override hashCode().");
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " overrides equals() but does not override hashCode().");
 		}
 	}
 }

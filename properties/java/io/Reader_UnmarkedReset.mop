@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Prevents premature invocations of reset().
@@ -30,7 +32,7 @@ Reader_UnmarkedReset(Reader r) {
 	ere : mark (mark | reset)*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Reader_UnmarkedReset was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "BufferedReader and LineNumberReader allow reset() only after mark() has been invoked.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "BufferedReader and LineNumberReader allow reset() only after mark() has been invoked.");
 	}
 }

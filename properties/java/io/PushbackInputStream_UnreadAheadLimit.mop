@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if unread() is invoked when the internal pushback buffer is full.
@@ -107,8 +109,8 @@ PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {
 	ere : create (read | safeunread)*
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " PushbackInputStream_UnreadAheadLimit was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "unread() cannot be performed because the internal pushback buffer is full.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "unread() cannot be performed because the internal pushback buffer is full.");
 	}
 }
 

@@ -1,6 +1,8 @@
 package mop;
 
 import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if mark() is invoked after close().
@@ -18,7 +20,7 @@ InputStream_MarkAfterClose(InputStream i) {
 	ere : close+ mark+
 
 	@match {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " InputStream_MarkAfterClose was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "mark() after close() had no effect.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "mark() after close() had no effect.");
 	}
 }

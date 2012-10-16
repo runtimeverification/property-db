@@ -1,6 +1,8 @@
 package mop;
 
 import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Warns if binarySearch() is invoked on an unsorted array.
@@ -93,8 +95,8 @@ Arrays_SortBeforeBinarySearch(Object[] arr) {
 		]
 
 	@fail {
-		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Arrays_SortBeforeBinarySearch was violated.");
-		javamoprt.MOPLogging.out.println(ERROR, "The array or part of the array must be sorted prior to making binarySearch() call.");
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The array or part of the array must be sorted prior to making binarySearch() call.");
 	}
 }
 

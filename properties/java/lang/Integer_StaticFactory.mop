@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Suggests if the constructor of Integer is used.
@@ -16,8 +18,8 @@ import java.lang.*;
 Integer_StaticFactory() {
     event constructor_create after() returning(Integer i): 
         call(Integer+.new(int)) {
-            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Integer_StaticFactory was violated.");
-            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Integer(int value) might be inefficient. Use valueOf(int) if it is appropriate.");
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "Using the constructor Integer(int value) might be inefficient. Use valueOf(int) if it is appropriate.");
         }
     
 }

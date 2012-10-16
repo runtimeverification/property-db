@@ -2,6 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
 
 /**
  * Suggests if invalid code point or surrogate pair is used in charCount(..) or toCodePoint(..)
@@ -18,18 +20,17 @@ Character_ValidateChar() {
     event charCount before(int codePoint): 
         call(* Character.charCount(int)) && args(codePoint) {
             if(!Character.isValidCodePoint(codePoint)){
-                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_ValidateChar was violated.");
-                javamoprt.MOPLogging.out.println(ERROR, "The code point used in charCount(int codePoint) is not valid.");
+                MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+                MOPLogging.out.println(Level.CRITICAL, "The code point used in charCount(int codePoint) is not valid.");
             }
         }
 
     event toCodePoint before(char high, char low): 
         call(* Character.toCodePoint(char, char)) && args(high, low) {
             if(!Character.isSurrogatePair(high, low)){
-                javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Character_ValidateChar was violated.");
-                javamoprt.MOPLogging.out.println(ERROR, "The surrogate pair used in toCodePoint(char high, char low) is not valid.");
+                MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+                MOPLogging.out.println(Level.CRITICAL, "The surrogate pair used in toCodePoint(char high, char low) is not valid.");
             }
         }
-    
 }
 
