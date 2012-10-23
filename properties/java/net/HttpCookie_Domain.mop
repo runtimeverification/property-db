@@ -47,7 +47,7 @@ HttpCookie_Domain() {
 		}
 
 		for (int i = 0; i < domain.length(); ++i) {
-			ch = name.charAt(i);
+			ch = domain.charAt(i);
 
 			if (!(0 <= ch && ch <= 127)) {
 				outofrange = true;
@@ -67,7 +67,7 @@ HttpCookie_Domain() {
 
 		if (outofrange || hasctrl || hassep) {
 			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The specified domain '" + name + "' is invalid; it cannot contain '" + ch + "'.");
+			MOPLogging.out.println(Level.CRITICAL, "The specified domain '" + domain + "' is invalid; it cannot contain '" + ch + "'.");
 		}
 	}
 }

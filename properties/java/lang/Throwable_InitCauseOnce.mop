@@ -28,8 +28,8 @@ Throwable_InitCauseOnce(Throwable t){
     ere : (createWithoutThrowable initCause initCause+) | (createWithThrowable initCause+)  
 
 	@match{
-           MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
-           MOPLogging.out.println(WARNING, "initCause should not be called more than once.");
+           MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+           MOPLogging.out.println(Level.WARNING, "initCause should not be called more than once.");
 	}
 }
 		
