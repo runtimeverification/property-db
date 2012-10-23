@@ -24,7 +24,7 @@ import javamoprt.MOPLogging.Level;
  */
 
 Collections_Comparable() {
-	private void validate(Object[] arr, Comparator comp)
+	private void validate(Object[] arr, Comparator comp, String msg)
 	{
 		for (int i = 0; i < arr.length; ++i) {
 			Object o1 = arr[i];
@@ -36,7 +36,7 @@ Collections_Comparable() {
 					comp.compare(o2, o1);
 				}
 				catch (ClassCastException e) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, msg);
 					MOPLogging.out.println(Level.CRITICAL, i + "-th element and " + j + "-th element are not comparable.");
 				}
 			}
@@ -45,7 +45,7 @@ Collections_Comparable() {
 
 	event invalid_sort before(List list, Comparator comp) :
 		call(void Collections.sort(List, Comparator)) && args(list, comp) {
-		this.validate(list.toArray(), comp);
+		this.validate(list.toArray(), comp, __DEFAULT_MESSAGE);
 	}
 
 	event invalid_minmax before(Collection col, Comparator comp) :
@@ -53,7 +53,7 @@ Collections_Comparable() {
 			call(* Collections.min(Collection, Comparator)) ||
 			call(* Collections.max(Collection, Comparator))
 		) && args(col, comp) {
-		this.validate(col.toArray(), comp);
+		this.validate(col.toArray(), comp, __DEFAULT_MESSAGE);
 	}
 }
 

@@ -25,13 +25,13 @@ import javamoprt.MOPLogging.Level;
  */
 
 Collections_ImplementComparable() {
-	private void validate(Object[] arr)
+	private void validate(Object[] arr, String msg)
 	{
 		for (int i = 0; i < arr.length; ++i) {
 			// Each element must implement the Comparable interface.
 			Object o1 = arr[i];
 			if (!(o1 instanceof Comparable)) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, msg);
 				MOPLogging.out.println(Level.CRITICAL, i + "-th element does not implement the Comparable interface.");
 			}
 			Comparable c1 = (Comparable)o1;
@@ -44,7 +44,7 @@ Collections_ImplementComparable() {
 					c2.compareTo(c1);
 				}
 				catch (ClassCastException e) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, msg);
 					MOPLogging.out.println(Level.CRITICAL, i + "-th element and " + j + "-th element are not comparable.");
 				}
 			}
@@ -53,7 +53,7 @@ Collections_ImplementComparable() {
 
 	event invalid_sort before(List list) :
 		call(void Collections.sort(List)) && args(list) {
-		this.validate(list.toArray());
+		this.validate(list.toArray(), __DEFAULT_MESSAGE);
 	}
 
 	event invalid_minmax before(Collection col) :
@@ -61,7 +61,7 @@ Collections_ImplementComparable() {
 			call(* Collections.min(Collection)) ||
 			call(* Collections.max(Collection))
 		) && args(col) {
-		this.validate(col.toArray());
+		this.validate(col.toArray(), __DEFAULT_MESSAGE);
 	}
 }
 
