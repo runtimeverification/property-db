@@ -32,8 +32,8 @@ Iterator_HasNext(Iterator i) {
 	ltl: [](next => (*) hasnexttrue)
 
 	@violation {
-		MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(WARNING, "Iterator.hasNext() was not called before calling next().");
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "Iterator.hasNext() was not called before calling next().");
 	}
 }
 

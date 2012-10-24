@@ -64,8 +64,8 @@ ListIterator_hasNextPrevious(ListIterator i) {
 		]
 
 	@fail {
-		MOPLogging.out.println(WARNING, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(WARNING, "ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
 	}
 }
 

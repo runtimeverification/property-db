@@ -20,32 +20,32 @@ import javamoprt.MOPLogging.Level;
  */
 
 TreeMap_Comparable() {
-	private void validate(Object elem) {
+	private void validate(Object elem, String msg) {
 		if (!(elem instanceof Comparable)) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, msg);
 			MOPLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a TreeMap object.");
 		}
 	}
 
-	private void validateAll(Map src) {
+	private void validateAll(Map src, String msg) {
 		for (Map.Entry entry : (Collection<Map.Entry>)src.entrySet()) {
-			validate(entry.getKey());
+			validate(entry.getKey(), msg);
 		}
 	}
 
 	event create before(Map src) :
 		call(TreeMap.new(Map)) && args(src) {
-		validateAll(src);
+		validateAll(src, __DEFAULT_MESSAGE);
 	}
 
 	event put before(Object key) :
 		call(* Map+.put(Object, Object)) && args(key, ..) && target(TreeMap){
-		validate(key);
+		validate(key, __DEFAULT_MESSAGE);
 	}
 
 	event putall before(Map src) :
 		call(* Map+.putAll(Map)) && args(src) &&target(TreeMap){
-		validateAll(src);
+		validateAll(src, __DEFAULT_MESSAGE);
 	}
 }
 
