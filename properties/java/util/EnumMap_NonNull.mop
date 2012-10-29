@@ -24,9 +24,10 @@ EnumMap_NonNull() {
 	event insertnull before(Map m) :
 		call(* EnumMap.putAll(Map)) && args(m) {
 		for (Map.Entry entry : (Set<Map.Entry>)m.entrySet()) {
-			if (entry.getKey() == null)
+			if (entry.getKey() == null) {
 				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 				MOPLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
+			}
 		}
 	}
 }

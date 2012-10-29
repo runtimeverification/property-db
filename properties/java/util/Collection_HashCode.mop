@@ -36,9 +36,10 @@ Collection_HashCode() {
 			catch (NoSuchMethodException e) {
 			}
 
-			if (equalsmethod != null && hashcodemethod == null)
+			if (equalsmethod != null && hashcodemethod == null) {
 				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " overrides equals() but does not override hashCode().");
+			}
 		}
 	}
 }

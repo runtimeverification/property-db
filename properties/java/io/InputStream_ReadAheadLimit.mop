@@ -90,8 +90,9 @@ InputStream_ReadAheadLimit(InputStream i) {
 	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 		MOPLogging.out.println(Level.CRITICAL, "The position mark has been invalidated.");
-		if (this.LOC != null)
+		if (this.LOC != null) {
 			MOPLogging.out.println(Level.CRITICAL, "read() at line " + this.LOC + " invalidated the mark.");
+		}
 	}
 }
 

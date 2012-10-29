@@ -29,12 +29,15 @@ InetAddress_IsReachable() {
 		if (ttl < 0 || timeout < 0) {
 			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 
-			if (ttl < 0 && timeout < 0)
+			if (ttl < 0 && timeout < 0) {
 				MOPLogging.out.println(Level.CRITICAL, "The ttl value and the timeout value for InetAddress.isReachable() should not be negative values.");
-			else if (ttl < 0)
+			}
+			else if (ttl < 0) {
 				MOPLogging.out.println(Level.CRITICAL, "The ttl value for InetAddress.isReachable() should not be a negative value.");
-			else
+			}
+			else {
 				MOPLogging.out.println(Level.CRITICAL, "The timeout value for InetAddress.isReachable() should not be a negative value.");
+			}
 		}
 	}
 }

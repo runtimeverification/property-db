@@ -41,15 +41,18 @@ Serializable_UID() {
 				Class fieldtype = field.getType();
 				boolean islong = fieldtype.getName() == "long";
 
-				if (!isstatic)
+				if (!isstatic) {
 					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
-				if (!isfinal)
+				}
+				if (!isfinal) {
 					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
-				if (!islong)
+				}
+				if (!islong) {
 					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
+				}
 			}
 			catch (NoSuchFieldException e) {
 				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
