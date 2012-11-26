@@ -1,0 +1,50 @@
+package mop;
+
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Warns if a StringBuffer instance is used in a single thread.
+ *
+ * If a StringBuffer instance is solely used in a single thread, it can be
+ * replaced with a StringBuilder instance, which may be faster.
+ * <blockquote>
+ *  This class is designed for use as a drop-in replacement for StringBuffer
+ *  in places where the string buffer was being used by a single thread (as is
+ *  generally the case). Where possible, it is recommended that this class be
+ *  used in preference to StringBuffer as it will be faster under most
+ *  implementations.
+ * </blockquote>
+ *
+ * @severity suggestion
+ */
+ 
+StringBuffer_SingleThreadUsage(StringBuffer s) {
+    Thread th = null;
+    boolean flag = false;
+
+    creation event init after(Thread t) returning(StringBuffer s) :
+        call(StringBuffer.new(..)) && thread(t) {
+            this.th = t;
+        }
+
+	event use before(StringBuffer s, Thread t) :
+		call(* StringBuffer.*(..)) && target(s) && thread(t) {
+			if (this.th == null){
+				this.th = t;
+			} else if (this.th != t){
+				this.flag = true;
+			}
+		}
+
+    event endprogram after() : endProgram() {}
+
+    ere : init use+ endprogram
+
+    @match {
+        if (!this.flag)
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "A StringBuffer instance is used in a single thread. You may replace it with a StringBuilder instance, which will be faster under most implementations.");
+    }
+}

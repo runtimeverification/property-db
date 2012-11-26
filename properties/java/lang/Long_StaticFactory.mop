@@ -1,0 +1,26 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Suggests if the constructor of Long is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Long.html#valueOf%28long%29
+ *
+ * @severity suggestion
+ */
+ 
+Long_StaticFactory() {
+    event constructor_create after() returning(Long l): 
+        call(Long+.new(long)) {
+            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            MOPLogging.out.println(Level.CRITICAL, "Using the constructor Long(long value) might be inefficient. Use valueOf(long) if it is appropriate.");
+        }
+    
+}
+
