@@ -1,0 +1,28 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Warns if close() is invoked multiple times.
+ *
+ * According to the AutoCloseable.close() documentation, 
+ * Unless the implementing class specifies otherwise, it is an error to
+ * call {@link #close} more than once.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Closeable.html#close%28%29
+ *
+ * @severity error
+ */
+
+AutoCloseable_MultipleClose(AutoCloseable c) {
+	event close before(AutoCloseable c) : call(* AutoCloseable+.close(..)) && target(c) {}
+
+	ere : close close+
+
+	@match {
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() was invoked multiple times.");
+	}
+}
+

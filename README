@@ -1,0 +1,10 @@
+1. Run make in property-doc
+
+2. run something like the following in one of the -api dirs
+
+../property-doc/bin/propertydocs.pl -subpackages $PACKAGES -d $OUTPATH -propertypath properties -outroot "$WEBSERVER_PATH"
+
+a possible instance is when 
+PACKAGES=java.io java.util
+OUTPATH=/var/www/annotated-api
+WEBSERVER_PATH=/annotated-api
