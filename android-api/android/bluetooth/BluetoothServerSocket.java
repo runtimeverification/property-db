@@ -17,7 +17,6 @@
 package android.bluetooth;
 
 import android.os.Handler;
-import android.os.Message;
 import android.os.ParcelUuid;
 
 import java.io.Closeable;
@@ -131,12 +130,21 @@ public final class BluetoothServerSocket implements Closeable {
         return mSocket.accept(timeout);
     }
 
-    /**
-     * Immediately close this socket, and release all associated resources.
-     * <p>Causes blocked calls on this socket in other threads to immediately
-     * throw an IOException.
-     * <p>Closing the {@link BluetoothServerSocket} will <em>not</em>
-     * close any {@link BluetoothSocket} received from {@link #accept()}.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Immediately close this socket, and release all associated resources.
+	 * <p>Causes blocked calls on this socket in other threads to immediately
+	 * throw an IOException.
+	 * <p>Closing the {@link BluetoothServerSocket} will <em>not</em>
+	 * close any {@link BluetoothSocket} received from {@link #accept()}.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      */
     public void close() throws IOException {
         synchronized (this) {

@@ -56,9 +56,16 @@ public abstract class AbstractInterruptibleChannel implements Channel, Interrupt
         return !closed;
     }
 
-    /**
-     * Closes an open channel. If the channel is already closed then this method
-     * has no effect, otherwise it closes the receiver via the
+    /** {@collect.stats}
+	 * {@description.open}
+     * Closes an open channel.
+	 * {@description.close}
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * If the channel is already closed then this method
+     * has no effect,
+	 * {@property.close}
+	 * {@description.open}
+	 * otherwise it closes the receiver via the
      * {@code implCloseChannel} method.
      * <p>
      * If an attempt is made to perform an operation on a closed channel then a
@@ -67,6 +74,7 @@ public abstract class AbstractInterruptibleChannel implements Channel, Interrupt
      * If multiple threads attempt to simultaneously close a channel, then only
      * one thread will run the closure code and the others will be blocked until
      * the first one completes.
+	 * {@description.close}
      *
      * @throws IOException
      *             if a problem occurs while closing this channel.

@@ -45,6 +45,7 @@ public class CursorWrapper implements Cursor {
         return mCursor;
     }
 
+	/** {@inheritDoc} */
     public void close() {
         mCursor.close(); 
     }

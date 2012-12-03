@@ -167,6 +167,7 @@ public class MergeCursor extends AbstractCursor
         super.deactivate();
     }
 
+	/** {@inheritDoc} */
     @Override
     public void close() {
         int length = mCursors.length;

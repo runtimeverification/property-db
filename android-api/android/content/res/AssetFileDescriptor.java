@@ -118,7 +118,7 @@ public class AssetFileDescriptor implements Parcelable {
     public long getDeclaredLength() {
         return mLength;
     }
-    
+
     /**
      * Convenience for calling <code>getParcelFileDescriptor().close()</code>.
      */

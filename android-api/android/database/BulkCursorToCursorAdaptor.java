@@ -112,7 +112,8 @@ public final class BulkCursorToCursorAdaptor extends AbstractWindowedCursor {
             }
         }
     }
-    
+
+	/** {@inheritDoc} */
     @Override
     public void close() {
         super.close();

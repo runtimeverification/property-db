@@ -97,10 +97,15 @@ public class BufferedReader extends Reader {
         buf = new char[size];
     }
 
-    /**
-     * Closes this reader. This implementation closes the buffered source reader
-     * and releases the buffer. Nothing is done if this reader has already been
-     * closed.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this reader. This implementation closes the buffered source reader
+	 * and releases the buffer.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * Nothing is done if this reader has already been closed.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this reader.

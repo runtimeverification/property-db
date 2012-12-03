@@ -196,13 +196,24 @@ public interface TagTechnology extends Closeable {
      */
     public void reconnect() throws IOException;
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Disable I/O operations to the tag from this {@link TagTechnology} object, and release resources.
      * <p>Also causes all blocked I/O operations on other thread to be canceled and
      * return with {@link IOException}.
+	 * {@description.close}
      *
+	 * {@property.open}
      * <p class="note">Requires the {@link android.Manifest.permission#NFC} permission.
-     *
+	 * {@property.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
+	 *
      * @see #connect()
      */
     public void close() throws IOException;

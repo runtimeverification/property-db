@@ -527,8 +527,17 @@ public final class JsonReader implements Closeable {
         return result;
     }
 
-    /**
-     * Closes this JSON reader and the underlying {@link Reader}.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this JSON reader and the underlying {@link Reader}.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      */
     public void close() throws IOException {
         value = null;

@@ -228,6 +228,7 @@ public class PlainSocketImpl extends SocketImpl {
             return socketImpl.available();
         }
 
+		/** {@inheritDoc} */
         @Override public void close() throws IOException {
             socketImpl.close();
         }

@@ -190,15 +190,29 @@ public final class SQLiteConnectionPool implements Closeable {
         mCloseGuard.open("close");
     }
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Closes the connection pool.
+	 * {@description.close}
      * <p>
+	 * {@property.open}
      * When the connection pool is closed, it will refuse all further requests
-     * to acquire connections.  All connections that are currently available in
+     * to acquire connections.
+	 * {@property.close}
+	 * {@description.open}
+	 * All connections that are currently available in
      * the pool are closed immediately.  Any connections that are still in use
      * will be closed as soon as they are returned to the pool.
      * </p>
-     *
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
+	 *
      * @throws IllegalStateException if the pool has been closed.
      */
     public void close() {

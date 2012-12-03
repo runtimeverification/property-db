@@ -110,7 +110,8 @@ public class FileInputStream extends InputStream implements Closeable {
         return IoBridge.available(fd);
     }
 
-    @Override
+	/** {@inheritDoc} */
+	@Override
     public void close() throws IOException {
         guard.close();
         synchronized (this) {

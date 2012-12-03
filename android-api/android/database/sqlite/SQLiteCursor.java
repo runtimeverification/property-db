@@ -17,7 +17,6 @@
 package android.database.sqlite;
 
 import android.database.AbstractWindowedCursor;
-import android.database.CursorWindow;
 import android.database.DatabaseUtils;
 import android.os.StrictMode;
 import android.util.Log;
@@ -192,6 +191,7 @@ public class SQLiteCursor extends AbstractWindowedCursor {
         mDriver.cursorDeactivated();
     }
 
+	/** {@inheritDoc} */
     @Override
     public void close() {
         super.close();

@@ -128,7 +128,8 @@ public class FileOutputStream extends OutputStream implements Closeable {
         this(new File(path), append);
     }
 
-    @Override
+	/** {@inheritDoc}  */
+	@Override
     public void close() throws IOException {
         guard.close();
         synchronized (this) {

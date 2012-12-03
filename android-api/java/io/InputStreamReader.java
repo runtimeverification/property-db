@@ -23,8 +23,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
 import java.nio.charset.CodingErrorAction;
-import java.nio.charset.MalformedInputException;
-import java.nio.charset.UnmappableCharacterException;
 import java.util.Arrays;
 
 /**
@@ -127,9 +125,18 @@ public class InputStreamReader extends Reader {
         bytes.limit(0);
     }
 
-    /**
-     * Closes this reader. This implementation closes the source InputStream and
-     * releases all local storage.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this reader. This implementation closes the source InputStream and
+	 * releases all local storage.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs attempting to close this reader.

@@ -300,9 +300,18 @@ public class ParcelFileDescriptor implements Parcelable, Closeable {
         return fd;
     }
 
-    /**
-     * Close the ParcelFileDescriptor. This implementation closes the underlying
-     * OS resources allocated to represent this stream.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Close the ParcelFileDescriptor. This implementation closes the underlying
+	 * OS resources allocated to represent this stream.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             If an error occurs attempting to close this ParcelFileDescriptor.
@@ -334,6 +343,7 @@ public class ParcelFileDescriptor implements Parcelable, Closeable {
             mFd = fd;
         }
 
+		/** {@inheritDoc}  */
         @Override
         public void close() throws IOException {
             try {
@@ -357,6 +367,7 @@ public class ParcelFileDescriptor implements Parcelable, Closeable {
             mFd = fd;
         }
 
+		/** {@inheritDoc} */
         @Override
         public void close() throws IOException {
             try {

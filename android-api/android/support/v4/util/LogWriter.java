@@ -40,6 +40,7 @@ public class LogWriter extends Writer {
         mTag = tag;
     }
 
+	/** {@inheritDoc} */
     @Override public void close() {
         flushBuilder();
     }

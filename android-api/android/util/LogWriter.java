@@ -53,6 +53,7 @@ public class LogWriter extends Writer {
         mBuffer = buffer;
     }
 
+	/** {@inheritDoc} */
     @Override public void close() {
         flushBuilder();
     }

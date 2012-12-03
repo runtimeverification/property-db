@@ -37,18 +37,31 @@ public interface Channel extends Closeable {
      */
     public boolean isOpen();
 
-    /**
-     * Closes an open channel. If the channel is already closed then this method
-     * has no effect. If there is a problem with closing the channel then the
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes an open channel.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * If the channel is already closed then this method
+	 * has no effect.
+	 * {@property.close}
+	 * {@description.open}
+	 * If there is a problem with closing the channel then the
      * method throws an IOException and the exception contains reasons for the
      * failure.
+	 * {@description.close}
      * <p>
+	 * {@property.open}
      * If an attempt is made to perform an operation on a closed channel then a
      * {@link ClosedChannelException} will be thrown on that attempt.
+	 * {@property.close}
      * <p>
+	 * {@description.open}
      * If multiple threads attempt to simultaneously close a channel, then only
      * one thread will run the closure code, and others will be blocked until
      * the first returns.
+	 * {@description.close}
      *
      * @throws IOException
      *             if a problem occurs closing the channel.

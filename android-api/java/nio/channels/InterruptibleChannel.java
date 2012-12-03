@@ -37,12 +37,21 @@ import java.io.IOException;
  */
 public interface InterruptibleChannel extends Channel {
 
-    /**
-     * Closes the channel.
-     * <p>
-     * Any threads that are blocked on I/O operations on this channel will be
-     * interrupted with an {@link AsynchronousCloseException}. Otherwise, this
-     * method behaves the same as defined in the {@code Channel} interface.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes the channel.
+	 * <p>
+	 * Any threads that are blocked on I/O operations on this channel will be
+	 * interrupted with an {@link AsynchronousCloseException}. Otherwise, this
+	 * method behaves the same as defined in the {@code Channel} interface.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an I/O error occurs while closing the channel.

@@ -16,10 +16,8 @@
 
 package android.media;
 
-import android.util.Log;
-
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -101,6 +99,18 @@ public final class AmrInputStream extends InputStream
         return length;
     }
 
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes the object and release any system resources it holds.
+     * {@description.close}
+     *
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+     * <p>Although only the first call has any effect, it is safe to call close
+     * multiple times on the same object. This is more lenient than the
+     * overridden {@code AutoCloseable.close()}, which may be called at most
+     * once.
+     * {@property.close}
+     */
     @Override
     public void close() throws IOException {
         try {

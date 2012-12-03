@@ -1731,7 +1731,8 @@ public class KXmlParser implements XmlPullParser, Closeable {
         }
     }
 
-    public void close() throws IOException {
+	/** {@inheritDoc}  */
+	public void close() throws IOException {
         if (reader != null) {
             reader.close();
         }

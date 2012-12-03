@@ -193,7 +193,8 @@ public class ProcFileReader implements Closeable {
         return (int) value;
     }
 
-    public void close() throws IOException {
+	/** {@inheritDoc}  */
+	public void close() throws IOException {
         mStream.close();
     }
 }

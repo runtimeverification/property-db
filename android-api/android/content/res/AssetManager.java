@@ -554,6 +554,18 @@ public final class AssetManager {
             long len = getAssetRemainingLength(mAsset);
             return len > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int)len;
         }
+		/** {@collect.stats}
+		 * {@description.open}
+		 * Closes the object and release any system resources it holds.
+		 * {@description.close}
+		 *
+		 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+		 * <p>Although only the first call has any effect, it is safe to call close
+		 * multiple times on the same object. This is more lenient than the
+		 * overridden {@code AutoCloseable.close()}, which may be called at most
+		 * once.
+		 * {@property.close}
+		 */
         public final void close() throws IOException {
             synchronized (AssetManager.this) {
                 if (mAsset != 0) {

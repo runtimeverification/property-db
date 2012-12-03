@@ -144,9 +144,18 @@ public class PipedInputStream extends InputStream {
         return in <= out ? buffer.length - out + in : in - out;
     }
 
-    /**
-     * Closes this stream. This implementation releases the buffer used for the
-     * pipe and notifies all threads waiting to read or write.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this stream. This implementation releases the buffer used for the
+	 * pipe and notifies all threads waiting to read or write.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this stream.

@@ -93,11 +93,20 @@ public abstract class SQLiteClosable implements Closeable {
         }
     }
 
-    /**
-     * Releases a reference to the object, closing the object if the last reference
-     * was released.
-     *
-     * Calling this method is equivalent to calling {@link #releaseReference}.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Releases a reference to the object, closing the object if the last reference
+	 * was released.
+	 *
+	 * Calling this method is equivalent to calling {@link #releaseReference}.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @see #releaseReference()
      * @see #onAllReferencesReleased()

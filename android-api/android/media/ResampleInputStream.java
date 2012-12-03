@@ -16,10 +16,8 @@
 
 package android.media;
 
-import android.util.Log;
-
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -126,6 +124,7 @@ public final class ResampleInputStream extends InputStream
     }
 */
 
+	/** {@inheritDoc} */
     @Override
     public void close() throws IOException {
         try {

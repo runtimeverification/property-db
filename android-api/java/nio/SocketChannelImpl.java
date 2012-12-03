@@ -537,8 +537,20 @@ class SocketChannelImpl extends SocketChannel implements FileDescriptorChannel {
             super.bind(localAddr);
             channel.initLocalAddressAndPort();
             channel.isBound = true;
-        }
+		}
 
+		/** {@collect.stats}
+		 * {@description.open}
+		 * Closes the object and release any system resources it holds.
+		 * {@description.close}
+		 *
+		 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+		 * <p>Although only the first call has any effect, it is safe to call close
+		 * multiple times on the same object. This is more lenient than the
+		 * overridden {@code AutoCloseable.close()}, which may be called at most
+		 * once.
+		 * {@property.close}
+		 */
         @Override
         public void close() throws IOException {
             synchronized (channel) {
@@ -596,8 +608,17 @@ class SocketChannelImpl extends SocketChannel implements FileDescriptorChannel {
             this.channel = channel;
         }
 
-        /*
-         * Closes this stream and channel.
+		/** {@collect.stats}
+		 * {@description.open}
+		 * Closes this stream and channel.
+		 * {@description.close}
+		 *
+		 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+		 * <p>Although only the first call has any effect, it is safe to call close
+		 * multiple times on the same object. This is more lenient than the
+		 * overridden {@code AutoCloseable.close()}, which may be called at most
+		 * once.
+		 * {@property.close}
          *
          * @exception IOException thrown if an error occurs during the close
          */
@@ -639,8 +660,17 @@ class SocketChannelImpl extends SocketChannel implements FileDescriptorChannel {
             this.channel = channel;
         }
 
-        /*
-         * Closes this stream and channel.
+		/** {@collect.stats}
+		 * {@description.open}
+		 * Closes this stream and channel.
+		 * {@description.close}
+		 *
+		 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+		 * <p>Although only the first call has any effect, it is safe to call close
+		 * multiple times on the same object. This is more lenient than the
+		 * overridden {@code AutoCloseable.close()}, which may be called at most
+		 * once.
+		 * {@property.close}
          */
         @Override
         public void close() throws IOException {

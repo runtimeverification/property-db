@@ -17,7 +17,6 @@
 package com.android.volley.toolbox;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 /**
  * A variation of {@link java.io.ByteArrayOutputStream} that uses a pool of byte[] buffers instead
@@ -53,6 +52,7 @@ public class PoolingByteArrayOutputStream extends ByteArrayOutputStream {
         buf = mPool.getBuf(Math.max(size, DEFAULT_SIZE));
     }
 
+	/** {@inheritDoc} */
     @Override
     public void close() throws IOException {
         mPool.returnBuf(buf);

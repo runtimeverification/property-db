@@ -143,11 +143,18 @@ public class BufferedInputStream extends FilterInputStream {
         throw new IOException("BufferedInputStream is closed");
     }
 
-    /** {@collect.stats}
+	/** {@collect.stats}
      * {@description.open}
      * Closes this stream. The source stream is closed and any resources
      * associated with it are released.
      * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this stream.

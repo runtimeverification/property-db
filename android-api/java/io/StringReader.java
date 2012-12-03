@@ -47,10 +47,16 @@ public class StringReader extends Reader {
         this.count = str.length();
     }
 
-    /**
-     * Closes this reader. Once it is closed, read operations on this reader
-     * will throw an {@code IOException}. Only the first invocation of this
-     * method has any effect.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this reader. Once it is closed, read operations on this reader
+	 * will throw an {@code IOException}.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * Only the first invocation of this
+	 * method has any effect.
+	 * {@property.close}
      */
     @Override
     public void close() {

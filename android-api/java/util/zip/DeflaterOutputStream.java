@@ -142,10 +142,19 @@ public class DeflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
-     * Writes any unwritten compressed data to the underlying stream, the closes
-     * all underlying streams. This stream can no longer be used after close()
-     * has been called.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Writes any unwritten compressed data to the underlying stream, the closes
+	 * all underlying streams. This stream can no longer be used after close()
+	 * has been called.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             If an error occurs while closing the data compression

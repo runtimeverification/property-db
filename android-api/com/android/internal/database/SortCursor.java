@@ -262,6 +262,7 @@ public class SortCursor extends AbstractCursor
         }
     }
 
+	/** {@inheritDoc} */
     @Override
     public void close() {
         int length = mCursors.length;

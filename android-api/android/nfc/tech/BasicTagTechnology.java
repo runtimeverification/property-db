@@ -113,6 +113,7 @@ abstract class BasicTagTechnology implements TagTechnology {
         }
     }
 
+	/** {@inheritDoc} */
     @Override
     public void close() throws IOException {
         try {

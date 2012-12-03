@@ -101,6 +101,7 @@ public class Base64OutputStream extends FilterOutputStream {
         internalWrite(b, off, len, false);
     }
 
+	/** {@inheritDoc} */
     public void close() throws IOException {
         IOException thrown = null;
         try {

@@ -86,8 +86,17 @@ public class SequenceInputStream extends InputStream {
         return 0;
     }
 
-    /**
-     * Closes all streams in this sequence of input stream.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes all streams in this sequence of input stream.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing any of the input streams.

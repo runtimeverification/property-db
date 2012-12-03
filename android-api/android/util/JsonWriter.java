@@ -242,10 +242,19 @@ public final class JsonWriter implements Closeable {
         return this;
     }
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Closes the current scope by appending any necessary whitespace and the
      * given bracket.
-     */
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
+	 */
     private JsonWriter close(JsonScope empty, JsonScope nonempty, String closeBracket)
             throws IOException {
         JsonScope context = peek();

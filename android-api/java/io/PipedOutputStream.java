@@ -53,9 +53,18 @@ public class PipedOutputStream extends OutputStream {
         connect(target);
     }
 
-    /**
-     * Closes this stream. If this stream is connected to an input stream, the
-     * input stream is closed and the pipe is disconnected.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this stream. If this stream is connected to an input stream, the
+	 * input stream is closed and the pipe is disconnected.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this stream.

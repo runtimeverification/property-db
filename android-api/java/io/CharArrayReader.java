@@ -92,10 +92,16 @@ public class CharArrayReader extends Reader {
         this.count = offset + length < bufferLength ? length : bufferLength;
     }
 
-    /**
-     * This method closes this CharArrayReader. Once it is closed, you can no
-     * longer read from it. Only the first invocation of this method has any
-     * effect.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * This method closes this CharArrayReader. Once it is closed, you can no
+	 * longer read from it.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * Only the first invocation of this method has any
+	 * effect.
+	 * {@property.close}
      */
     @Override
     public void close() {

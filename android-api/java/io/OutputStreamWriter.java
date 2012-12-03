@@ -121,13 +121,17 @@ public class OutputStreamWriter extends Writer {
         encoder = charsetEncoder;
     }
 
-    /**
-     * Closes this writer. This implementation flushes the buffer as well as the
-     * target stream. The target stream is then closed and the resources for the
-     * buffer and converter are released.
-     *
-     * <p>Only the first invocation of this method has any effect. Subsequent calls
-     * do nothing.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this writer. This implementation flushes the buffer as well as the
+	 * target stream. The target stream is then closed and the resources for the
+	 * buffer and converter are released.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Only the first invocation of this method has any effect. Subsequent calls
+	 * do nothing.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this writer.

@@ -143,6 +143,7 @@ public class BufferedOutputStream extends FilterOutputStream {
         count += length;
     }
 
+	/** {@inheritDoc} */
     @Override public synchronized void close() throws IOException {
         if (buf == null) {
             return;

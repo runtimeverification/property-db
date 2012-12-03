@@ -109,12 +109,21 @@ public class CipherOutputStream extends FilterOutputStream {
         out.flush();
     }
 
-    /**
-     * Close this cipher output stream.
-     * <p>
-     * On the underlying cipher {@code doFinal} will be invoked, and any
-     * buffered bytes from the cipher are also written out, and the cipher is
-     * reset to its initial state. The underlying output stream is also closed.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Close this cipher output stream.
+	 * <p>
+	 * On the underlying cipher {@code doFinal} will be invoked, and any
+	 * buffered bytes from the cipher are also written out, and the cipher is
+	 * reset to its initial state. The underlying output stream is also closed.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs.

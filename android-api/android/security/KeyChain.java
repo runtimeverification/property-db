@@ -379,6 +379,18 @@ public final class KeyChain {
             this.serviceConnection = serviceConnection;
             this.service = service;
         }
+		/** {@collect.stats}
+		 * {@description.open}
+		 * Closes the object and release any system resources it holds.
+		 * {@description.close}
+		 *
+		 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+		 * <p>Although only the first call has any effect, it is safe to call close
+		 * multiple times on the same object. This is more lenient than the
+		 * overridden {@code AutoCloseable.close()}, which may be called at most
+		 * once.
+		 * {@property.close}
+		 */
         @Override public void close() {
             context.unbindService(serviceConnection);
         }

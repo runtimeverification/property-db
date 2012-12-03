@@ -17,9 +17,9 @@
 
 package org.apache.harmony.xnet.provider.jsse;
 
+import javax.net.ssl.SSLException;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.net.ssl.SSLException;
 
 /**
  * This class provides input data stream functionality
@@ -81,8 +81,17 @@ public final class SSLSocketInputStream extends InputStream {
         return end - pos;
     }
 
-    /**
-     * Closes the stream
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes the stream
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      * @throws  IOException
      */
     @Override

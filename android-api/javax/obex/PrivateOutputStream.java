@@ -150,9 +150,14 @@ public final class PrivateOutputStream extends OutputStream {
         }
     }
 
-    /**
-     * Closes the output stream. If the input stream is already closed, do
-     * nothing.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes the output stream.
+	 * {@description.close}
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * If the input stream is already closed, do
+	 * nothing.
+	 * {@property.close}
      * @throws IOException this will never happen
      */
     @Override

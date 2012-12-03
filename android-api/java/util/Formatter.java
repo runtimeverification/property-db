@@ -953,15 +953,21 @@ public final class Formatter implements Closeable, Flushable {
         }
     }
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Closes the {@code Formatter}. If the output destination is {@link Closeable},
      * then the method {@code close()} will be called on that destination.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * If the {@code Formatter} has been closed, then calling the this method will have no
+	 * effect.
+	 * {@property.close}
      *
-     * If the {@code Formatter} has been closed, then calling the this method will have no
-     * effect.
-     *
+	 * {@description.open}
      * Any method but the {@link #ioException()} that is called after the
      * {@code Formatter} has been closed will raise a {@code FormatterClosedException}.
+	 * {@description.close}
      */
     public void close() {
         if (!closed) {

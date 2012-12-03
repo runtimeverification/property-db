@@ -364,11 +364,22 @@ public interface Cursor extends Closeable {
     @Deprecated
     boolean requery();
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Closes the Cursor, releasing all of its resources and making it completely invalid.
+	 * {@description.close}
+	 * {@property.open}
      * Unlike {@link #deactivate()} a call to {@link #requery()} will not make the Cursor valid
      * again.
-     */
+	 * {@property.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
+	 */
     void close();
 
     /**

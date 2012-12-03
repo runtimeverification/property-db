@@ -324,9 +324,18 @@ public class ObjectOutputStream extends OutputStream implements ObjectOutput, Ob
         }
     }
 
-    /**
-     * Closes this stream. Any buffered data is flushed. This implementation
-     * closes the target stream.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this stream. Any buffered data is flushed. This implementation
+	 * closes the target stream.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this stream.

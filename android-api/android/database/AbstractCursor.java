@@ -142,6 +142,7 @@ public abstract class AbstractCursor implements CrossProcessCursor {
         return mClosed;
     }
 
+	/** {@inheritDoc} */
     public void close() {
         mClosed = true;
         mContentObservable.unregisterAll();

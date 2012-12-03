@@ -66,8 +66,17 @@ public class ByteArrayOutputStream extends OutputStream {
         }
     }
 
-    /**
-     * Closes this stream. This releases system resources used for this stream.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this stream. This releases system resources used for this stream.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while attempting to close this stream.

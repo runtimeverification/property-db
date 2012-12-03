@@ -227,11 +227,20 @@ public class PrintStream extends FilterOutputStream implements Appendable, Close
         ioError = false;
     }
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
      * Closes this print stream. Flushes this stream and then closes the target
      * stream. If an I/O error occurs, this stream's error state is set to
      * {@code true}.
-     */
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
+	 */
     @Override
     public synchronized void close() {
         flush();

@@ -71,10 +71,16 @@ public class BufferedWriter extends Writer {
         this.buf = new char[size];
     }
 
-    /**
-     * Closes this writer. The contents of the buffer are flushed, the target
-     * writer is closed, and the buffer is released. Only the first invocation
-     * of close has any effect.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this writer. The contents of the buffer are flushed, the target
+	 * writer is closed, and the buffer is released.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * Only the first invocation
+	 * of close has any effect.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this writer.

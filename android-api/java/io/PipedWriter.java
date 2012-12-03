@@ -17,8 +17,6 @@
 
 package java.io;
 
-import java.util.Arrays;
-
 /**
  * Places information on a communications pipe. When two threads want to pass
  * data back and forth, one creates a piped writer and the other creates a piped
@@ -55,10 +53,19 @@ public class PipedWriter extends Writer {
         connect(destination);
     }
 
-    /**
-     * Closes this writer. If a {@link PipedReader} is connected to this writer,
-     * it is closed as well and the pipe is disconnected. Any data buffered in
-     * the reader can still be read.
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Closes this writer. If a {@link PipedReader} is connected to this writer,
+	 * it is closed as well and the pipe is disconnected. Any data buffered in
+	 * the reader can still be read.
+	 * {@description.close}
+	 *
+	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * <p>Although only the first call has any effect, it is safe to call close
+	 * multiple times on the same object. This is more lenient than the
+	 * overridden {@code AutoCloseable.close()}, which may be called at most
+	 * once.
+	 * {@property.close}
      *
      * @throws IOException
      *             if an error occurs while closing this writer.

@@ -84,6 +84,7 @@ public class Base64InputStream extends FilterInputStream {
         throw new UnsupportedOperationException();
     }
 
+	/** {@inheritDoc} */
     public void close() throws IOException {
         in.close();
         inputBuffer = null;
