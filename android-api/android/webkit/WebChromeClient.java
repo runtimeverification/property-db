@@ -252,7 +252,7 @@ public class WebChromeClient {
     * Tell the client that the quota has been exceeded for the Web SQL Database
     * API for a particular origin and request a new quota.
 	* {@description.close}
-	* {@property.open}
+	* {@property.open runtime formal:android.webkit.WebChromeClient_ExceededQuotaUpdate}
 	* The client must
     * respond by invoking the
     * {@link WebStorage.QuotaUpdater#updateQuota(long) updateQuota(long)}
@@ -289,7 +289,7 @@ public class WebChromeClient {
     * Notify the host application that the Application Cache has reached the
     * maximum size.
 	* {@description.close}
-	* {@property.open}
+	* {@property.open runtime formal:android.webkit.WebChromeClient_MaxAppCacheSizeUpdate}
 	* The client must respond by invoking the
     * {@link WebStorage.QuotaUpdater#updateQuota(long) updateQuota(long)}
     * method of the supplied {@link WebStorage.QuotaUpdater} instance. The

@@ -1,7 +1,8 @@
 package mop;
 
 import android.webkit.*;
-import java.lang.*
+import android.webkit.WebStorage.QuotaUpdater;
+import java.lang.*;
 import javamoprt.MOPLogging;
 import javamoprt.MOPLogging.Level;
 
@@ -11,8 +12,8 @@ import javamoprt.MOPLogging.Level;
  * http://developer.android.com/reference/android/webkit/WebChromeClient.html#onExceededDatabaseQuota(java.lang.String, java.lang.String, long, long, long, android.webkit.WebStorage.QuotaUpdater)
  *
  * When the quota has been exceeded for the Web SQL Database API for a
- * particular origin. The client must respond by invoking the updateQuota(long)
- * method of the supplied WebStorage.QuotaUpdater instance. 
+ * particular origin, the client must respond by invoking the
+ * updateQuota(long) method of the supplied WebStorage.QuotaUpdater instance.
  * The minimum value that can be set for the new quota is the current quota.
  *
  * This specification raises an error when the client attempts to update
@@ -22,22 +23,26 @@ import javamoprt.MOPLogging.Level;
  * @severity error
  */
 
-WebChromeClient_ExceededQuotaUpdate(WebChromeClient c, WebStorage.QuotaUpdater u) {
+WebChromeClient_ExceededQuotaUpdate(WebChromeClient c, QuotaUpdater u) {
 	int quota = 0;
-        int badQuota = 0;
+    int badQuota = 0;
 	String LOC_client = null;
 	String LOC_update = null;
 
 	creation event onExceededDatabaseQuota before(WebChromeClient c, Webstorage.QuotaUpdater u, int quota) : 
-		execution(* WebChromeClient+.onExceededDatabaseQuota(String, String, long, long, long, WebStorage.QuotaUpdater)) && this(c) && args(String, String, quota, long, long, u)  {
-		this.quota = quota;
-                this.LOC_client = __LOC;
+		execution(* WebChromeClient+.onExceededDatabaseQuota(String, String, long, long, long, QuotaUpdater)) && this(c)
+		&& args(String, String, quota, long, long, u)  {
+		    this.quota = quota;
+            this.LOC_client = __LOC;
 	}
 
-	event badupdateQuota before(WebStorage.QuotaUpdater u, long quota) :
-		call(* WebStorage.QuotaUpdater+.updateQuota(long)) && target(u)  && condition(quota < this.quota) {
-                  this.badQuota = quota;
-	          this.LOC_update = __LOC;
+	event goodUpdateQuota before(QuotaUpdater u, long quota) :
+		call(* QuotaUpdater+.updateQuota(long)) && target(u)  && condition(quota >= this.quota) { }
+
+	event badUpdateQuota before(QuotaUpdater u, long quota) :
+		call(* QuotaUpdater+.updateQuota(long)) && target(u)  && condition(quota < this.quota) {
+            this.badQuota = quota;
+	        this.LOC_update = __LOC;
 	}
 
 	event endProg before() : endProgram() 
@@ -48,11 +53,14 @@ WebChromeClient_ExceededQuotaUpdate(WebChromeClient c, WebStorage.QuotaUpdater u
 
 	@fail {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "onExceededDatabaseQuotaupdateQuota was called with quota " + this.quota + " at line " + this.LOC_client);
+		MOPLogging.out.println(Level.CRITICAL, "onExceededDatabaseQuotaupdateQuota was called with quota " + this.quota
+		    + " at line " + this.LOC_client);
 		if (this.LOC != null) {
-		  MOPLogging.out.println(Level.CRITICAL, "However, the callback updateQuota was called with a lower quota, " + this.badQuota + ", at line " +this.LOC_update);
-                } else {
-		  MOPLogging.out.println(Level.CRITICAL, "However, the callback updateQuota was not called before the program end.");
+		    MOPLogging.out.println(Level.CRITICAL, "However, the callback updateQuota was called with a lower quota, "
+		        + this.badQuota + ", at line " +this.LOC_update);
+        } else {
+		    MOPLogging.out.println(Level.CRITICAL,
+		        "However, the callback updateQuota was not called before the program end.");
 		}
 	}
 }
