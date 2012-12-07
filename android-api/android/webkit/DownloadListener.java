@@ -18,8 +18,10 @@ package android.webkit;
 
 public interface DownloadListener {
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a file should be downloaded
+	 * {@description.close}
      * @param url The full url to the content that should be downloaded
      * @param userAgent the user agent to be used for the download.
      * @param contentDisposition Content-disposition http header, if 

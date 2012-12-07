@@ -24,30 +24,38 @@ import android.view.View;
 
 public class WebChromeClient {
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the host application the current progress of loading a page.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param newProgress Current page loading progress, represented by
      *                    an integer between 0 and 100.
      */
     public void onProgressChanged(WebView view, int newProgress) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application of a change in the document title.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param title A String containing the new title of the document.
      */
     public void onReceivedTitle(WebView view, String title) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application of a new favicon for the current page.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param icon A Bitmap containing the favicon for the current page.
      */
     public void onReceivedIcon(WebView view, Bitmap icon) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application of the url for an apple-touch-icon.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param url The icon url.
      * @param precomposed True if the url is for a precomposed touch icon.
@@ -55,30 +63,38 @@ public class WebChromeClient {
     public void onReceivedTouchIconUrl(WebView view, String url,
             boolean precomposed) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * A callback interface used by the host application to notify
      * the current page that its custom view has been dismissed.
+	 * {@description.close}
      */
     public interface CustomViewCallback {
-        /**
+        /** {@collect.stats}
+		 * {@description.open}
          * Invoked when the host application dismisses the
          * custom view.
+		 * {@description.close}
          */
         public void onCustomViewHidden();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that the current page would
      * like to show a custom View.
+	 * {@description.close}
      * @param view is the View object to be shown.
      * @param callback is the callback to be invoked if and when the view
      * is dismissed.
      */
     public void onShowCustomView(View view, CustomViewCallback callback) {};
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that the current page would
      * like to show a custom View in a particular orientation.
+	 * {@description.close}
      * @param view is the View object to be shown.
      * @param requestedOrientation An orientation constant as used in
      * {@link ActivityInfo#screenOrientation ActivityInfo.screenOrientation}.
@@ -88,13 +104,16 @@ public class WebChromeClient {
     public void onShowCustomView(View view, int requestedOrientation,
             CustomViewCallback callback) {};
     
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that the current page would
      * like to hide its custom view.
+	 * {@description.close}
      */
     public void onHideCustomView() {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Request the host application to create a new window. If the host
      * application chooses to honor this request, it should return true from
      * this method, create a new WebView to host the window, insert it into the
@@ -102,6 +121,7 @@ public class WebChromeClient {
      * the new WebView as an argument. If the host application chooses not to
      * honor the request, it should return false from this method. The default
      * implementation of this method does nothing and hence returns false.
+	 * {@description.close}
      * @param view The WebView from which the request for a new window
      *             originated.
      * @param isDialog True if the new window should be a dialog, rather than
@@ -125,27 +145,33 @@ public class WebChromeClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Request display and focus for this WebView. This may happen due to
      * another WebView opening a link in this WebView and requesting that this
      * WebView be displayed.
+	 * {@description.close}
      * @param view The WebView that needs to be focused.
      */
     public void onRequestFocus(WebView view) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application to close the given WebView and remove it
      * from the view system if necessary. At this point, WebCore has stopped
      * any loading in this window and has removed any cross-scripting ability
      * in javascript.
+	 * {@description.close}
      * @param window The WebView that needs to be closed.
      */
     public void onCloseWindow(WebView window) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client to display a javascript alert dialog.  If the client
      * returns true, WebView will assume that the client will handle the
      * dialog.  If the client returns false, it will continue execution.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param url The url of the page requesting the dialog.
      * @param message Message to be displayed in the window.
@@ -157,12 +183,14 @@ public class WebChromeClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client to display a confirm dialog to the user. If the client
      * returns true, WebView will assume that the client will handle the
      * confirm dialog and call the appropriate JsResult method. If the
      * client returns false, a default value of false will be returned to
      * javascript. The default behavior is to return false.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param url The url of the page requesting the dialog.
      * @param message Message to be displayed in the window.
@@ -175,12 +203,14 @@ public class WebChromeClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client to display a prompt dialog to the user. If the client
      * returns true, WebView will assume that the client will handle the
      * prompt dialog and call the appropriate JsPromptResult method. If the
      * client returns false, a default value of false will be returned to to
      * javascript. The default behavior is to return false.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param url The url of the page requesting the dialog.
      * @param message Message to be displayed in the window.
@@ -194,7 +224,8 @@ public class WebChromeClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client to display a dialog to confirm navigation away from the
      * current page. This is the result of the onbeforeunload javascript event.
      * If the client returns true, WebView will assume that the client will
@@ -203,6 +234,7 @@ public class WebChromeClient {
      * javascript to accept navigation away from the current page. The default
      * behavior is to return false. Setting the JsResult to true will navigate
      * away from the current page, false will cancel the navigation.
+	 * {@description.close}
      * @param view The WebView that initiated the callback.
      * @param url The url of the page requesting the dialog.
      * @param message Message to be displayed in the window.
@@ -215,15 +247,25 @@ public class WebChromeClient {
         return false;
     }
 
-   /**
+   /** {@collect.stats}
+	* {@description.open}
     * Tell the client that the quota has been exceeded for the Web SQL Database
-    * API for a particular origin and request a new quota. The client must
+    * API for a particular origin and request a new quota.
+	* {@description.close}
+	* {@property.open}
+	* The client must
     * respond by invoking the
     * {@link WebStorage.QuotaUpdater#updateQuota(long) updateQuota(long)}
     * method of the supplied {@link WebStorage.QuotaUpdater} instance. The
-    * minimum value that can be set for the new quota is the current quota. The
+    * minimum value that can be set for the new quota is the current quota.
+	* Note that the callback must always be executed at some point to ensure
+	* that the sleeping WebCore thread is woken up.
+	* {@property.close}
+	* {@description.open}
+	* The
     * default implementation responds with the current quota, so the quota will
     * not be increased.
+	* {@description.close}
     * @param url The URL of the page that triggered the notification
     * @param databaseIdentifier The identifier of the database where the quota
     *                           was exceeded.
@@ -234,8 +276,6 @@ public class WebChromeClient {
     * @param quotaUpdater An instance of {@link WebStorage.QuotaUpdater} which
     *                     must be used to inform the WebView of the new quota.
     */
-    // Note that the callback must always be executed at some point to ensure
-    // that the sleeping WebCore thread is woken up.
     public void onExceededDatabaseQuota(String url, String databaseIdentifier,
             long quota, long estimatedDatabaseSize, long totalQuota,
             WebStorage.QuotaUpdater quotaUpdater) {
@@ -244,14 +284,24 @@ public class WebChromeClient {
         quotaUpdater.updateQuota(quota);
     }
 
-   /**
+   /** {@collect.stats}
+	* {@description.open}
     * Notify the host application that the Application Cache has reached the
-    * maximum size. The client must respond by invoking the
+    * maximum size.
+	* {@description.close}
+	* {@property.open}
+	* The client must respond by invoking the
     * {@link WebStorage.QuotaUpdater#updateQuota(long) updateQuota(long)}
     * method of the supplied {@link WebStorage.QuotaUpdater} instance. The
-    * minimum value that can be set for the new quota is the current quota. The
+    * minimum value that can be set for the new quota is the current quota.
+	* Note that the callback must always be executed at some point to ensure
+	* that the sleeping WebCore thread is woken up.
+	* {@property.close}
+	* {@description.open}
+	* The
     * default implementation responds with the current quota, so the quota will
     * not be increased.
+	* {@description.close}
     * @param requiredStorage The amount of storage required by the Application
     *                        Cache operation that triggered this notification,
     *                        in bytes.
@@ -259,19 +309,22 @@ public class WebChromeClient {
     * @param quotaUpdater An instance of {@link WebStorage.QuotaUpdater} which
     *                     must be used to inform the WebView of the new quota.
     */
-    // Note that the callback must always be executed at some point to ensure
-    // that the sleeping WebCore thread is woken up.
     public void onReachedMaxAppCacheSize(long requiredStorage, long quota,
             WebStorage.QuotaUpdater quotaUpdater) {
         quotaUpdater.updateQuota(quota);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that web content from the specified origin
      * is attempting to use the Geolocation API, but no permission state is
-     * currently set for that origin. The host application should invoke the
+     * currently set for that origin.
+	 * {@description.close}
+	 * {@property.open}
+	 * The host application should invoke the
      * specified callback with the desired permission state. See
      * {@link GeolocationPermissions} for details.
+	 * {@property.close}
      * @param origin The origin of the web content attempting to use the
      *               Geolocation API.
      * @param callback The callback to use to set the permission state for the
@@ -280,15 +333,21 @@ public class WebChromeClient {
     public void onGeolocationPermissionsShowPrompt(String origin,
             GeolocationPermissions.Callback callback) {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a request for Geolocation permissions,
      * made with a previous call to
      * {@link #onGeolocationPermissionsShowPrompt(String,GeolocationPermissions.Callback) onGeolocationPermissionsShowPrompt()}
-     * has been canceled. Any related UI should therefore be hidden.
+     * has been canceled.
+	 * {@description.close}
+	 * {@property.open}
+	 * Any related UI should therefore be hidden.
+	 * {@property.close}
      */
     public void onGeolocationPermissionsHidePrompt() {}
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client that a JavaScript execution timeout has occured. And the
      * client may decide whether or not to interrupt the execution. If the
      * client returns true, the JavaScript will be interrupted. If the client
@@ -296,6 +355,7 @@ public class WebChromeClient {
      * continuing execution, the timeout counter will be reset, and the callback
      * will continue to occur if the script does not finish at the next check
      * point.
+	 * {@description.close}
      * @return boolean Whether the JavaScript execution should be interrupted.
      * @deprecated This method is no longer supported and will not be invoked.
      */
@@ -307,9 +367,11 @@ public class WebChromeClient {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Report a JavaScript error message to the host application. The ChromeClient
      * should override this to process the log message as they see fit.
+	 * {@description.close}
      * @param message The error message to report.
      * @param lineNumber The line number of the error.
      * @param sourceID The name of the source file that caused the error.
@@ -319,9 +381,11 @@ public class WebChromeClient {
     @Deprecated
     public void onConsoleMessage(String message, int lineNumber, String sourceID) { }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Report a JavaScript console message to the host application. The ChromeClient
      * should override this to process the log message as they see fit.
+	 * {@description.close}
      * @param consoleMessage Object containing details of the console message.
      * @return true if the message is handled by the client.
      */
@@ -332,11 +396,13 @@ public class WebChromeClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * When not playing, video elements are represented by a 'poster' image. The
      * image to use can be specified by the poster attribute of the video tag in
      * HTML. If the attribute is absent, then a default poster will be used. This
      * method allows the ChromeClient to provide that default image.
+	 * {@description.close}
      *
      * @return Bitmap The image to use as a default poster, or null if no such image is
      * available.
@@ -345,11 +411,13 @@ public class WebChromeClient {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * When the user starts to playback a video element, it may take time for enough
      * data to be buffered before the first frames can be rendered. While this buffering
      * is taking place, the ChromeClient can use this function to provide a View to be
      * displayed. For example, the ChromeClient could show a spinner animation.
+	 * {@description.close}
      *
      * @return View The View to be displayed whilst the video is loading.
      */
@@ -357,13 +425,18 @@ public class WebChromeClient {
         return null;
     }
 
-    /** Obtains a list of all visited history items, used for link coloring
+    /** {@collect.stats}
+	 * {@description.open}
+	 * Obtains a list of all visited history items, used for link coloring
+	 * {@description.close}
      */
     public void getVisitedHistory(ValueCallback<String[]> callback) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client to open a file chooser.
+	 * {@description.close}
      * @param uploadFile A ValueCallback to set the URI of the file to upload.
      *      onReceiveValue must be called to wake up the thread.a
      * @param acceptType The value of the 'accept' attribute of the input tag
@@ -376,9 +449,11 @@ public class WebChromeClient {
         uploadFile.onReceiveValue(null);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tell the client that the page being viewed has an autofillable
      * form and the user would like to set a profile up.
+	 * {@description.close}
      * @param msg A Message to send once the user has successfully
      *      set up a profile and to inform the WebTextView it should
      *      now autofill using that new profile.

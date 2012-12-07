@@ -16,15 +16,19 @@
 
 package android.webkit;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * An abstract download listener that allows passing extra information as
  * part of onDownloadStart callback.
+ * {@description.close}
  * @hide
  */
 public abstract class BrowserDownloadListener implements DownloadListener {
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a file should be downloaded
+	 * {@description.close}
      * @param url The full url to the content that should be downloaded
      * @param userAgent the user agent to be used for the download.
      * @param contentDisposition Content-disposition http header, if
@@ -38,7 +42,10 @@ public abstract class BrowserDownloadListener implements DownloadListener {
             long contentLength);
 
 
-    /**
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Notify the host application that a file should be downloaded
+	 * {@description.close}
      * Notify the host application that a file should be downloaded
      * @param url The full url to the content that should be downloaded
      * @param userAgent the user agent to be used for the download.

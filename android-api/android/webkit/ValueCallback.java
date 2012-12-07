@@ -16,12 +16,16 @@
 
 package android.webkit;
 
-/**
+/** {@collect.stats}
+ * {@property.open}
  * A callback interface used to provide values asynchronously.
+ * {@property.close}
  */
 public interface ValueCallback<T> {
-    /**
+    /** {@collect.stats}
+	 * {@property.open}
      * Invoked when the value is available.
+	 * {@property.close}
      * @param value The value.
      */
     public void onReceiveValue(T value);
