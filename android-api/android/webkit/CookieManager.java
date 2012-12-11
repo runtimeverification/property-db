@@ -18,12 +18,14 @@ package android.webkit;
 
 import android.net.WebAddress;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Manages the cookies used by an application's {@link WebView} instances.
  * Cookies are manipulated according to RFC2109.
+ * {@description.close}
  */
 public class CookieManager {
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations
      */
     protected CookieManager() {
@@ -34,11 +36,16 @@ public class CookieManager {
         throw new CloneNotSupportedException("doesn't implement Cloneable");
     }
 
-    /**
-     * Gets the singleton CookieManager instance. If this method is used
+    /** {@collect.stats}
+	 * {@description.open}
+     * Gets the singleton CookieManager instance.
+	 * {@description.close}
+	 * {@property.open runtime formal:android.webkit.CookieManager_GetInstance}
+	 * If this method is used
      * before the application instantiates a {@link WebView} instance,
      * {@link CookieSyncManager#createInstance CookieSyncManager.createInstance(Context)}
      * must be called first.
+	 * {@property.close}
      *
      * @return the singleton CookieManager instance
      */
@@ -46,9 +53,11 @@ public class CookieManager {
         return WebViewFactory.getProvider().getCookieManager();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the application's {@link WebView} instances should send and
      * accept cookies.
+	 * {@description.close}
      *
      * @param accept whether {@link WebView} instances should send and accept
      *               cookies
@@ -57,9 +66,11 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the application's {@link WebView} instances send and accept
      * cookies.
+	 * {@description.close}
      *
      * @return true if {@link WebView} instances send and accept cookies
      */
@@ -67,11 +78,16 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-     /**
-     * Sets a cookie for the given URL. Any existing cookie with the same host,
-     * path and name will be replaced with the new cookie. The cookie being set
+	/** {@collect.stats}
+	 * {@description.open}
+	 * Sets a cookie for the given URL. Any existing cookie with the same host,
+	 * path and name will be replaced with the new cookie.
+	 * {@description.close}
+	 * {@property.open}
+	 * The cookie being set
      * must not have expired and must not be a session cookie, otherwise it
      * will be ignored.
+	 * {@property.close}
      *
      * @param url the URL for which the cookie is set
      * @param value the cookie as a string, using the format of the 'Set-Cookie'
@@ -81,8 +97,10 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the cookies for the given URL.
+	 * {@description.close}
      *
      * @param url the URL for which the cookies are requested
      * @return value the cookies as a string, using the format of the 'Cookie'
@@ -92,8 +110,10 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * See {@link #getCookie(String)}.
+	 * {@description.close}
      *
      * @param url the URL for which the cookies are requested
      * @param privateBrowsing whether to use the private browsing cookie jar
@@ -105,9 +125,11 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets cookie(s) for a given uri so that it can be set to "cookie:" in http
      * request header.
+	 * {@description.close}
      *
      * @param uri the WebAddress for which the cookies are requested
      * @return value the cookies as a string, using the format of the 'Cookie'
@@ -118,23 +140,29 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Removes all session cookies, which are cookies without an expiration
      * date.
+	 * {@description.close}
      */
     public void removeSessionCookie() {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Removes all cookies.
+	 * {@description.close}
      */
     public void removeAllCookie() {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether there are stored cookies.
+	 * {@description.close}
      *
      * @return true if there are stored cookies
      */
@@ -142,8 +170,10 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * See {@link #hasCookies()}.
+	 * {@description.close}
      *
      * @param privateBrowsing whether to use the private browsing cookie jar
      * @hide Used by Browser, no intention to publish.
@@ -152,15 +182,19 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Removes all expired cookies.
+	 * {@description.close}
      */
     public void removeExpiredCookie() {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Flushes all cookies managed by the Chrome HTTP stack to flash.
+	 * {@description.close}
      *
      * @hide Package level api, called from CookieSyncManager
      */
@@ -168,9 +202,11 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the application's {@link WebView} instances send and accept
      * cookies for file scheme URLs.
+	 * {@description.close}
      *
      * @return true if {@link WebView} instances send and accept cookies for
      *         file scheme URLs
@@ -180,8 +216,10 @@ public class CookieManager {
         return getInstance().allowFileSchemeCookiesImpl();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Implements {@link #allowFileSchemeCookies()}.
+	 * {@description.close}
      *
      * @hide Only for use by WebViewProvider implementations
      */
@@ -189,23 +227,29 @@ public class CookieManager {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the application's {@link WebView} instances should send and
      * accept cookies for file scheme URLs.
+	 * {@description.close}
+	 * {@property.open}
      * Use of cookies with file scheme URLs is potentially insecure. Do not use
      * this feature unless you can be sure that no unintentional sharing of
      * cookie data can take place.
      * <p>
      * Note that calls to this method will have no effect if made after a
      * {@link WebView} or CookieManager instance has been created.
+	 * {@property.close}
      */
     // Static for backward compatibility.
     public static void setAcceptFileSchemeCookies(boolean accept) {
         getInstance().setAcceptFileSchemeCookiesImpl(accept);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Implements {@link #setAcceptFileSchemeCookies(boolean)}.
+	 * {@description.close}
      *
      * @hide Only for use by WebViewProvider implementations
      */
