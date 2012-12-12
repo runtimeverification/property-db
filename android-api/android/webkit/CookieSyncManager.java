@@ -20,12 +20,15 @@ import android.content.Context;
 import android.util.Log;
 
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * The CookieSyncManager is used to synchronize the browser cookie store
  * between RAM and permanent storage. To get the best performance, browser cookies are
  * saved in RAM. A separate thread saves the cookies between, driven by a timer.
+ * {@description.close}
  * <p>
  *
+ * {@property.open}
  * To use the CookieSyncManager, the host application has to call the following
  * when the application starts:
  * <p>
@@ -43,17 +46,26 @@ import android.util.Log;
  * </pre><p>
  *
  * in Activity.onPause().<p>
+ * {@property.close}
  *
+ * {@description.open}
  * To get instant sync instead of waiting for the timer to trigger, the host can
  * call
  * <p>
  * <pre class="prettyprint">CookieSyncManager.getInstance().sync()</pre><p>
+ * {@description.close}
  *
+ * {@description.open}
  * The sync interval is 5 minutes, so you will want to force syncs
  * manually anyway, for instance in {@link
- * WebViewClient#onPageFinished}. Note that even sync() happens
+ * WebViewClient#onPageFinished}.
+ * {@description.close}
+ *
+ * {@property.open}
+ * Note that even sync() happens
  * asynchronously, so don't do it just as your activity is shutting
  * down.
+ * {@property.close}
  */
 public final class CookieSyncManager extends WebSyncManager {
 
@@ -63,11 +75,17 @@ public final class CookieSyncManager extends WebSyncManager {
         super(context, "CookieSyncManager");
     }
 
-    /**
-     * Singleton access to a {@link CookieSyncManager}. An
+    /** {@collect.stats}
+	 * {@description.open}
+     * Singleton access to a {@link CookieSyncManager}.
+	 * {@description.close}
+	 *
+	 * {@property.open}
+	 * An
      * IllegalStateException will be thrown if
      * {@link CookieSyncManager#createInstance(Context)} is not called before.
-     * 
+	 * {@property.close}
+     *
      * @return CookieSyncManager
      */
     public static synchronized CookieSyncManager getInstance() {
@@ -75,8 +93,10 @@ public final class CookieSyncManager extends WebSyncManager {
         return sRef;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Create a singleton CookieSyncManager within a context
+	 * {@description.close}
      * @param context
      * @return CookieSyncManager
      */

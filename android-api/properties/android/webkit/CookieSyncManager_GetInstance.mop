@@ -1,0 +1,42 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ *
+ *
+ * An IllegalStateException will be thrown if
+ * {@link CookieSyncManager#createInstance(Context)} is not called before.
+ *
+ * This monitor detects this situation and gives an advice to call CookieSyncManager.createInstance(Context)
+ * if not already called by the application.
+ *
+ * @severity error
+ */
+
+CookieSyncManager_GetInstance {
+	String LOC = null;
+
+	event createCookieSyncManagerInstance after() :
+		execution(* CookieSyncManager+.createInstance(..)) { }
+
+	event getCookieSyncManagerInstance before() :
+		execution(* CookieSyncManager.getInstance(Context))  {
+	        this.LOC = __LOC;
+	}
+
+	ltl : getCookieSyncManagerInstance => <*> createCookieSyncManagerInstance
+
+	@fail {
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.getInstance() was called at line " + this.LOC);
+		MOPLogging.out.println(Level.CRITICAL, "However, CookieSyncManager.createInstance(..) has not been called previously");
+        MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.createInstance(..) should be called to correct the problem.");
+        // CookieSyncManager.createInstance(..);
+	}
+}
+
+

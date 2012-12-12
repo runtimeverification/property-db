@@ -16,12 +16,14 @@
 
 package android.webkit;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Public class representing a JavaScript console message from WebCore. This could be a issued
  * by a call to one of the <code>console</code> logging functions (e.g.
  * <code>console.log('...')</code>) or a JavaScript error on the  page. To receive notifications
  * of these messages, override the
  * {@link WebChromeClient#onConsoleMessage(ConsoleMessage)} function.
+ * {@description.close}
  */
 public class ConsoleMessage {
 

@@ -11,8 +11,9 @@ import javamoprt.MOPLogging.Level;
  * then CookieSyncManager.createInstance(Context)
  * must be called first.
  *
- * This monitor detects this situation and calls CookieSyncManager.createInstance(Context)
- * if needed, but not called by the application.
+ * This monitor detects this situation and advices on calling
+ * CookieSyncManager.createInstance(Context) if not already
+ * called by the application.
  *
  * @severity error
  */
@@ -35,12 +36,10 @@ CookieManager_GetInstance {
 
 	@fail {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "CookieManager.getInstance() was called at line " + this.LOC
-		    + " at line " + this.LOC);
-		MOPLogging.out.println(Level.CRITICAL, "However, no WebView instance was created, nor CookieSyncManager.createInstance has been called");
-        MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.createInstance should be created to correct the problem.");
-        // Uncomment next two lines to correct the issue.
-        // CookieSyncManager.createInstance();
+		MOPLogging.out.println(Level.CRITICAL, "CookieManager.getInstance() was called at line " + this.LOC);
+		MOPLogging.out.println(Level.CRITICAL, "However, no WebView instance was created, nor CookieSyncManager.createInstance(..) has been called");
+        MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.createInstance(..) should be call to correct the problem.");
+        // CookieSyncManager.createInstance(..);
 	}
 }
 

@@ -1,0 +1,60 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+
+/**
+ * To use the CookieSyncManager, the host application has to call the following
+ * when the application starts:
+ * <p>
+ *
+ * <pre class="prettyprint">CookieSyncManager.createInstance(context)</pre><p>
+ *
+ * To set up for sync, the host application has to call<p>
+ * <pre class="prettyprint">CookieSyncManager.getInstance().startSync()</pre><p>
+ *
+ * in Activity.onResume(), and call
+ * <p>
+ *
+ * <pre class="prettyprint">
+ * CookieSyncManager.getInstance().stopSync()
+ * </pre><p>
+ *
+ * in Activity.onPause().
+ * ( http://developer.android.com/reference/android/webkit/CookieSyncManager.html )
+ *
+ * This monitor attempts to enforce this precise contract and reports if it is violated.
+ *
+ * @severity error
+ */
+
+CookieSyncManager_GetInstance(CookieSyncManager csm) {
+	String LOC = null;
+
+	creation event createCookieSyncManagerInstance after() returning (CookieSyncManager csm) :
+		execution(* CookieSyncManager+.createInstance(..)) { }
+
+	event startSync before() :
+		execution(* CookieSyncManager.startSync()) && this(csm) && cflow(call(*  Activity.onResume())) { }
+
+	event badstartSync before() :
+		execution(* CookieSyncManager.startSync()) && this(csm) && !cflow(call(*  Activity.onResume())) { }
+
+	event stopSync before() :
+		execution(* CookieSyncManager.stopSync()) && this(csm) && !cflow(call(*  Activity.onPause())) { }
+
+	event badstopSync before() :
+		execution(* CookieSyncManager.stopSync()) && this(csm) && !cflow(call(*  Activity.onPause())) { }
+
+	ere : createCookieSyncManagerInstance (startSync stopSync)*
+
+	@fail {
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager contract violated");
+	}
+}
+
+
