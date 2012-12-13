@@ -35,16 +35,10 @@ import java.util.Set;
  * This class stores Geolocation permissions. An origin's permission state can
  * be either allowed or denied. This class uses Strings to represent
  * an origin.
- * {@description.close}
- *
- * {@property.open}
  * When an origin attempts to use the Geolocation API, but no permission state
  * is currently set for that origin,
  * {@link WebChromeClient#onGeolocationPermissionsShowPrompt(String,GeolocationPermissions.Callback) WebChromeClient.onGeolocationPermissionsShowPrompt()}
  * is called. This allows the permission state to be set for that origin.
- * {@property.close}
- *
- * {@description.open}
  * The methods of this class can be used to modify and interrogate the stored
  * Geolocation permissions at any time.
  * {@description.close}

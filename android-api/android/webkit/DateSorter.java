@@ -25,20 +25,22 @@ import java.util.Locale;
 
 import libcore.icu.LocaleData;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Sorts dates into the following groups:
  *   Today
  *   Yesterday
  *   seven days ago
  *   one month ago
  *   older than a month ago
+ * {@description.close}
  */
 
 public class DateSorter {
 
     private static final String LOGTAG = "webkit";
 
-    /** must be >= 3 */
+    /** {@collect.stats} must be >= 3 */
     public static final int DAY_COUNT = 5;
 
     private long [] mBins = new long[DAY_COUNT-1];
@@ -46,7 +48,7 @@ public class DateSorter {
     
     private static final int NUM_DAYS_AGO = 7;
 
-    /**
+    /** {@collect.stats}
      * @param context Application context
      */
     public DateSorter(Context context) {
@@ -82,7 +84,7 @@ public class DateSorter {
         mLabels[4] = context.getString(com.android.internal.R.string.older);
     }
 
-    /**
+    /** {@collect.stats}
      * @param time time since the Epoch in milliseconds, such as that
      * returned by Calendar.getTimeInMillis()
      * @return an index from 0 to (DAY_COUNT - 1) that identifies which
@@ -96,7 +98,7 @@ public class DateSorter {
         return lastDay;
     }
 
-    /**
+    /** {@collect.stats}
      * @param index date bin index as returned by getIndex()
      * @return string label suitable for display to user
      */
@@ -106,7 +108,7 @@ public class DateSorter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * @param index date bin index as returned by getIndex()
      * @return date boundary at given index
      */
@@ -120,8 +122,10 @@ public class DateSorter {
         return mBins[index];
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Calcuate 12:00am by zeroing out hour, minute, second, millisecond
+	 * {@description.close}
      */
     private void beginningOfDay(Calendar c) {
         c.set(Calendar.HOUR_OF_DAY, 0);
