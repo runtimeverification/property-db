@@ -17,33 +17,40 @@
 package android.webkit;
 
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Public class for handling JavaScript prompt requests. The WebChromeClient will receive a
  * {@link WebChromeClient#onJsPrompt(WebView, String, String, String, JsPromptResult)} call with a
  * JsPromptResult instance as a parameter. This parameter is used to return the result of this user
- * dialog prompt back to the WebView instance. The client can call cancel() to cancel the dialog or
+ * dialog prompt back to the WebView instance.
+ * {@description.close}
+ * {@property.open}
+ * The client can call cancel() to cancel the dialog or
  * confirm() with the user's input to confirm the dialog.
+ * {@property.close}
  */
 public class JsPromptResult extends JsResult {
     // String result of the prompt
     private String mStringResult;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Handle a confirmation response from the user.
+	 * {@description.close}
      */
     public void confirm(String result) {
         mStringResult = result;
         confirm();
     }
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations
      */
     public JsPromptResult(ResultReceiver receiver) {
         super(receiver);
     }
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations
      */
     public String getStringResult() {

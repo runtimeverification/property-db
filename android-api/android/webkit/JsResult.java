@@ -16,15 +16,19 @@
 
 package android.webkit;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * An instance of this class is passed as a parameter in various {@link WebChromeClient} action
  * notifications. The object is used as a handle onto the underlying JavaScript-originated request,
  * and provides a means for the client to indicate whether this action should proceed.
+ * {@description.close}
  */
 public class JsResult {
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Callback interface, implemented by the WebViewProvider implementation to receive
      * notifications when the JavaScript result represented by a JsResult instance has
+	 * {@description.close}
      * @hide Only for use by WebViewProvider implementations
      */
     public interface ResultReceiver {
@@ -35,30 +39,34 @@ public class JsResult {
     // This is a basic result of a confirm or prompt dialog.
     private boolean mResult;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Handle the result if the user cancelled the dialog.
+	 * {@description.close}
      */
     public final void cancel() {
         mResult = false;
         wakeUp();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Handle a confirmation response from the user.
+	 * {@description.close}
      */
     public final void confirm() {
         mResult = true;
         wakeUp();
     }
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations
      */
     public JsResult(ResultReceiver receiver) {
         mReceiver = receiver;
     }
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations
      */
     public final boolean getResult() {

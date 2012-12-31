@@ -28,7 +28,7 @@ import android.util.Log;
  * {@description.close}
  * <p>
  *
- * {@property.open}
+ * {@property.open runtime formal:android.webkit.CookieSyncManager_Workflow}
  * To use the CookieSyncManager, the host application has to call the following
  * when the application starts:
  * <p>
@@ -53,9 +53,7 @@ import android.util.Log;
  * call
  * <p>
  * <pre class="prettyprint">CookieSyncManager.getInstance().sync()</pre><p>
- * {@description.close}
  *
- * {@description.open}
  * The sync interval is 5 minutes, so you will want to force syncs
  * manually anyway, for instance in {@link
  * WebViewClient#onPageFinished}.

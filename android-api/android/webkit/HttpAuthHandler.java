@@ -18,26 +18,33 @@ package android.webkit;
 
 import android.os.Handler;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Represents a request for HTTP authentication. Instances of this class are
  * created by the WebView and passed to
- * {@link WebViewClient#onReceivedHttpAuthRequest}. The host application must
+ * {@link WebViewClient#onReceivedHttpAuthRequest}.
+ * {@description.close}
+ * {@property.open runtime android.webkit.HttpAuthHandler_Response}
+ * The host application must
  * call either {@link #proceed} or {@link #cancel} to set the WebView's
  * response to the request.
+ * {@property.close}
  */
 public class HttpAuthHandler extends Handler {
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations.
      */
     public HttpAuthHandler() {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the credentials stored for the current host (i.e. the host
      * for which {@link WebViewClient#onReceivedHttpAuthRequest} was called)
      * are suitable for use. Credentials are not suitable if they have
      * previously been rejected by the server for the current request.
+	 * {@description.close}
      *
      * @return whether the credentials are suitable for use
      * @see Webview#getHttpAuthUsernamePassword
@@ -46,22 +53,28 @@ public class HttpAuthHandler extends Handler {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Instructs the WebView to cancel the authentication request.
+	 * {@description.close}
      */
     public void cancel() {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Instructs the WebView to proceed with the authentication with the given
      * credentials. Credentials for use with this method can be retrieved from
      * the WebView's store using {@link WebView#getHttpAuthUsernamePassword}.
+	 * {@description.close}
      */
     public void proceed(String username, String password) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the prompt dialog should be suppressed.
+	 * {@description.close}
      *
      * @return whether the prompt dialog should be suppressed
      * @hide
