@@ -24,7 +24,7 @@ package android.webkit;
  * JsPromptResult instance as a parameter. This parameter is used to return the result of this user
  * dialog prompt back to the WebView instance.
  * {@description.close}
- * {@property.open}
+ * {@property.open runtime android.webkit.JsPromptResult_Response}
  * The client can call cancel() to cancel the dialog or
  * confirm() with the user's input to confirm the dialog.
  * {@property.close}

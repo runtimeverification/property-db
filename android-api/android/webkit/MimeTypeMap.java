@@ -20,12 +20,14 @@ import android.text.TextUtils;
 import java.util.regex.Pattern;
 import libcore.net.MimeUtils;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Two-way map that maps MIME-types to file extensions and vice versa.
  *
  * <p>See also {@link java.net.URLConnection#guessContentTypeFromName}
  * and {@link java.net.URLConnection#guessContentTypeFromStream}. This
  * class and {@code URLConnection} share the same MIME-type database.
+ * {@description.close}
  */
 public class MimeTypeMap {
     private static final MimeTypeMap sMimeTypeMap = new MimeTypeMap();
@@ -33,10 +35,12 @@ public class MimeTypeMap {
     private MimeTypeMap() {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Returns the file extension or an empty string iff there is no
      * extension. This method is a convenience method for obtaining the
      * extension of a url and has undefined results for other Strings.
+	 * {@description.close}
      * @param url
      * @return The file extension of the given url.
      */
@@ -70,8 +74,10 @@ public class MimeTypeMap {
         return "";
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Return true if the given MIME type has an entry in the map.
+	 * {@description.close}
      * @param mimeType A MIME type (i.e. text/plain)
      * @return True iff there is a mimeType entry in the map.
      */
@@ -79,8 +85,10 @@ public class MimeTypeMap {
         return MimeUtils.hasMimeType(mimeType);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Return the MIME type for the given extension.
+	 * {@description.close}
      * @param extension A file extension without the leading '.'
      * @return The MIME type for the given extension or null iff there is none.
      */
@@ -93,8 +101,10 @@ public class MimeTypeMap {
         return MimeUtils.guessMimeTypeFromExtension(extension);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Return true if the given extension has a registered MIME type.
+	 * {@description.close}
      * @param extension A file extension without the leading '.'
      * @return True iff there is an extension entry in the map.
      */
@@ -102,10 +112,12 @@ public class MimeTypeMap {
         return MimeUtils.hasExtension(extension);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Return the registered extension for the given MIME type. Note that some
      * MIME types map to multiple extensions. This call will return the most
      * common extension for the given MIME type.
+	 * {@description.close}
      * @param mimeType A MIME type (i.e. text/plain)
      * @return The extension for the given MIME type or null iff there is none.
      */
@@ -113,10 +125,12 @@ public class MimeTypeMap {
         return MimeUtils.guessExtensionFromMimeType(mimeType);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * If the given MIME type is null, or one of the "generic" types (text/plain
      * or application/octet-stream) map it to a type that Android can deal with.
      * If the given type is not generic, return it unchanged.
+	 * {@description.close}
      *
      * @param mimeType MIME type provided by the server.
      * @param url URL of the data being loaded.
@@ -157,8 +171,10 @@ public class MimeTypeMap {
         return mimeType;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Get the singleton instance of MimeTypeMap.
+	 * {@description.close}
      * @return The singleton instance of the MIME-type map.
      */
     public static MimeTypeMap getSingleton() {

@@ -16,14 +16,14 @@
 
 package android.webkit;
 
-import android.net.http.Headers;
-
 import java.io.InputStream;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Encapsulates a resource response. Applications can return an instance of this
  * class from {@link WebViewClient#shouldInterceptRequest} to provide a custom
  * response when the WebView requests a particular resource.
+ * {@description.close}
  */
 public class WebResourceResponse {
     // Accessed by jni, do not rename without modifying the jni code.
@@ -31,11 +31,16 @@ public class WebResourceResponse {
     private String mEncoding;
     private InputStream mInputStream;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Constructs a resource response with the given MIME type, encoding, and
-     * input stream. Callers must implement
+     * input stream.
+	 * {@description.close}
+	 * {@property.open static}
+	 * Callers must implement
      * {@link InputStream#read(byte[]) InputStream.read(byte[])} for the input
      * stream.
+	 * {@property.close}
      *
      * @param mimeType the resource response's MIME type, for example text/html
      * @param encoding the resource response's encoding
@@ -48,8 +53,10 @@ public class WebResourceResponse {
         mInputStream = data;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the resource response's MIME type, for example text/html.
+	 * {@description.close}
      *
      * @param mimeType the resource response's MIME type
      */
@@ -57,8 +64,10 @@ public class WebResourceResponse {
         mMimeType = mimeType;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the resource response's MIME type.
+	 * {@description.close}
      *
      * @return the resource response's MIME type
      */
@@ -66,9 +75,11 @@ public class WebResourceResponse {
         return mMimeType;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the resource response's encoding, for example UTF-8. This is used
      * to decode the data from the input stream.
+	 * {@description.close}
      *
      * @param encoding the resource response's encoding
      */
@@ -76,8 +87,10 @@ public class WebResourceResponse {
         mEncoding = encoding;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the resource response's encoding.
+	 * {@description.close}
      *
      * @return the resource response's encoding
      */
@@ -85,9 +98,14 @@ public class WebResourceResponse {
         return mEncoding;
     }
 
-    /**
-     * Sets the input stream that provides the resource respone's data. Callers
+    /** {@collect.stats}
+	 * {@description.open}
+     * Sets the input stream that provides the resource response's data.
+	 * {@description.close}
+	 * {@property.open static}
+	 * Callers
      * must implement {@link InputStream#read(byte[]) InputStream.read(byte[])}.
+	 * {@property.close}
      *
      * @param data the input stream that provides the resource response's data
      */
@@ -95,8 +113,10 @@ public class WebResourceResponse {
         mInputStream = data;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the input stream that provides the resource respone's data.
+	 * {@description.close}
      *
      * @return the input stream that provides the resource response's data
      */

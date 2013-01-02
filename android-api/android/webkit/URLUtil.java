@@ -16,14 +16,14 @@
 
 package android.webkit;
 
+import android.net.ParseException;
+import android.net.Uri;
+import android.net.WebAddress;
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import android.net.Uri;
-import android.net.ParseException;
-import android.net.WebAddress;
-import android.util.Log;
 
 public final class URLUtil {
 
@@ -40,8 +40,10 @@ public final class URLUtil {
     static final String PROXY_BASE = "file:///cookieless_proxy/";
     static final String CONTENT_BASE = "content:";
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Cleans up (if possible) user-entered web addresses
+	 * {@description.close}
      */
     public static String guessUrl(String inUrl) {
 
@@ -133,7 +135,7 @@ public final class URLUtil {
         return retData;
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is correctly URL encoded
      */
     static boolean verifyURLEncoding(String url) {
@@ -167,14 +169,14 @@ public final class URLUtil {
         throw new IllegalArgumentException("Invalid hex char '" + b + "'");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is an asset file.
      */
     public static boolean isAssetUrl(String url) {
         return (null != url) && url.startsWith(ASSET_BASE);
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a resource file.
      * @hide
      */
@@ -182,7 +184,7 @@ public final class URLUtil {
         return (null != url) && url.startsWith(RESOURCE_BASE);
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a proxy url to allow cookieless network
      * requests from a file url.
      * @deprecated Cookieless proxy is no longer supported.
@@ -192,7 +194,7 @@ public final class URLUtil {
         return (null != url) && url.startsWith(PROXY_BASE);
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a local file.
      */
     public static boolean isFileUrl(String url) {
@@ -201,28 +203,28 @@ public final class URLUtil {
                                  !url.startsWith(PROXY_BASE));
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is an about: url.
      */
     public static boolean isAboutUrl(String url) {
         return (null != url) && url.startsWith("about:");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a data: url.
      */
     public static boolean isDataUrl(String url) {
         return (null != url) && url.startsWith("data:");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a javascript: url.
      */
     public static boolean isJavaScriptUrl(String url) {
         return (null != url) && url.startsWith("javascript:");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is an http: url.
      */
     public static boolean isHttpUrl(String url) {
@@ -231,7 +233,7 @@ public final class URLUtil {
                url.substring(0, 7).equalsIgnoreCase("http://");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is an https: url.
      */
     public static boolean isHttpsUrl(String url) {
@@ -240,7 +242,7 @@ public final class URLUtil {
                url.substring(0, 8).equalsIgnoreCase("https://");
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a network url.
      */
     public static boolean isNetworkUrl(String url) {
@@ -250,14 +252,14 @@ public final class URLUtil {
         return isHttpUrl(url) || isHttpsUrl(url);
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is a content: url.
      */
     public static boolean isContentUrl(String url) {
         return (null != url) && url.startsWith(CONTENT_BASE);
     }
 
-    /**
+    /** {@collect.stats}
      * @return True iff the url is valid.
      */
     public static boolean isValidUrl(String url) {
@@ -275,8 +277,10 @@ public final class URLUtil {
                 isContentUrl(url));
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Strips the url of the anchor.
+	 * {@description.close}
      */
     public static String stripAnchor(String url) {
         int anchorIndex = url.indexOf('#');
@@ -286,10 +290,12 @@ public final class URLUtil {
         return url;
     }
     
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Guesses canonical filename that a download would have, using
      * the URL and contentDisposition. File extension, if not defined,
      * is added based on the mimetype
+	 * {@description.close}
      * @param url Url to the content
      * @param contentDisposition Content-Disposition HTTP header or null
      * @param mimeType Mime-type of the content or null
@@ -381,7 +387,11 @@ public final class URLUtil {
         return filename + extension;
     }
 
-    /** Regex used to parse content-disposition headers */
+    /** {@collect.stats}
+	 * {@description.open}
+	 * Regex used to parse content-disposition headers
+	 * {@description.close}
+	 */
     private static final Pattern CONTENT_DISPOSITION_PATTERN =
             Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$",
             Pattern.CASE_INSENSITIVE);

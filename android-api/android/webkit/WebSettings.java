@@ -18,19 +18,25 @@ package android.webkit;
 
 import android.content.Context;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Manages settings state for a WebView. When a WebView is first created, it
  * obtains a set of default settings. These default settings will be returned
- * from any getter call. A WebSettings object obtained from
+ * from any getter call.
+ * {@description.close}
+ * {@property.open}
+ * A WebSettings object obtained from
  * WebView.getSettings() is tied to the life of the WebView. If a WebView has
  * been destroyed, any method call on WebSettings will throw an
  * IllegalStateException.
+ * {@property.close}
  */
 // This is an abstract base class: concrete WebViewProviders must
 // create a class derived from this, and return an instance of it in the
 // WebViewProvider.getWebSettingsProvider() method implementation.
 public abstract class WebSettings {
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enum for controlling the layout of html.
      * <ul>
      *   <li>NORMAL means no rendering changes.</li>
@@ -38,11 +44,12 @@ public abstract class WebSettings {
      *       view.</li>
      *   <li>NARROW_COLUMNS makes all columns no wider than the screen if possible.</li>
      * </ul>
+	 * {@description.close}
      */
     // XXX: These must match LayoutAlgorithm in Settings.h in WebCore.
     public enum LayoutAlgorithm {
         NORMAL,
-        /**
+        /** {@collect.stats}
          * @deprecated This algorithm is now obsolete.
          */
         @Deprecated
@@ -50,7 +57,8 @@ public abstract class WebSettings {
         NARROW_COLUMNS
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enum for specifying the text size.
      * <ul>
      *   <li>SMALLEST is 50%</li>
@@ -59,6 +67,7 @@ public abstract class WebSettings {
      *   <li>LARGER is 150%</li>
      *   <li>LARGEST is 200%</li>
      * </ul>
+	 * {@description.close}
      *
      * @deprecated Use {@link WebSettings#setTextZoom(int)} and {@link WebSettings#getTextZoom()} instead.
      */
@@ -74,13 +83,15 @@ public abstract class WebSettings {
         int value;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enum for specifying the WebView's desired density.
      * <ul>
      *   <li>FAR makes 100% looking like in 240dpi</li>
      *   <li>MEDIUM makes 100% looking like in 160dpi</li>
      *   <li>CLOSE makes 100% looking like in 120dpi</li>
      * </ul>
+	 * {@description.close}
      */
     public enum ZoomDensity {
         FAR(150),      // 240dpi
@@ -92,16 +103,20 @@ public abstract class WebSettings {
         int value;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Default cache usage mode. If the navigation type doesn't impose any
      * specific behavior, use cached resources when they are available
      * and not expired, otherwise load resources from the network.
      * Use with {@link #setCacheMode}.
+	 * {@description.close}
      */
     public static final int LOAD_DEFAULT = -1;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Normal cache usage mode. Use with {@link #setCacheMode}.
+	 * {@description.close}
      *
      * @deprecated This value is obsolete, as from API level
      * {@link android.os.Build.VERSION_CODES#HONEYCOMB} and onwards it has the
@@ -110,22 +125,28 @@ public abstract class WebSettings {
     @Deprecated
     public static final int LOAD_NORMAL = 0;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Use cached resources when they are available, even if they have expired.
      * Otherwise load resources from the network.
      * Use with {@link #setCacheMode}.
+	 * {@description.close}
      */
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Don't use the cache, load from the network.
      * Use with {@link #setCacheMode}.
+	 * {@description.close}
      */
     public static final int LOAD_NO_CACHE = 2;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Don't use the network, load from the cache.
      * Use with {@link #setCacheMode}.
+	 * {@description.close}
      */
     public static final int LOAD_CACHE_ONLY = 3;
 
@@ -135,7 +156,8 @@ public abstract class WebSettings {
         LOW
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * The plugin state effects how plugins are treated on a page. ON means
      * that any object will be loaded even if a plugin does not exist to handle
      * the content. ON_DEMAND means that if there is a plugin installed that
@@ -143,6 +165,7 @@ public abstract class WebSettings {
      * the placeholder. Once clicked, the plugin will be enabled on the page.
      * OFF means that all plugins will be turned off and any fallback content
      * will be used.
+	 * {@description.close}
      */
     public enum PluginState {
         ON,
@@ -150,7 +173,7 @@ public abstract class WebSettings {
         OFF
     }
 
-    /**
+    /** {@collect.stats}
      * Hidden constructor to prevent clients from creating a new settings
      * instance or deriving the class.
      *
@@ -159,9 +182,11 @@ public abstract class WebSettings {
     protected WebSettings() {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enables dumping the pages navigation cache to a text file. The default
      * is false.
+	 * {@description.close}
      *
      * @deprecated This method is now obsolete.
      * @hide Since API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN_MR1}
@@ -171,8 +196,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether dumping the navigation cache is enabled.
+	 * {@description.close}
      *
      * @return whether dumping the navigation cache is enabled
      * @see #setNavDump
@@ -184,12 +211,14 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should support zooming using its on-screen zoom
      * controls and gestures. The particular zoom mechanisms that should be used
      * can be set with {@link #setBuiltInZoomControls}. This setting does not
      * affect zooming performed using the {@link WebView#zoomIn()} and
      * {@link WebView#zoomOut()} methods. The default is true.
+	 * {@description.close}
      *
      * @param support whether the WebView should support zoom
      */
@@ -197,8 +226,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView supports zoom.
+	 * {@description.close}
      *
      * @return true if the WebView supports zoom
      * @see #setSupportZoom
@@ -207,9 +238,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView requires a user gesture to play media.
      * The default is true.
+	 * {@description.close}
      *
      * @param require whether the WebView requires a user gesture to play media
      */
@@ -217,8 +250,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView requires a user gesture to play media.
+	 * {@description.close}
      *
      * @return true if the WebView requires a user gesture to play media
      * @see #setMediaPlaybackRequiresUserGesture
@@ -227,7 +262,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should use its built-in zoom mechanisms. The
      * built-in zoom mechanisms comprise on-screen zoom controls, which are
      * displayed over the WebView's content, and the use of a pinch gesture to
@@ -236,6 +272,7 @@ public abstract class WebSettings {
      * <p>
      * The built-in mechanisms are the only currently supported zoom
      * mechanisms, so it is recommended that this setting is always enabled.
+	 * {@description.close}
      *
      * @param enabled whether the WebView should use its built-in zoom mechanisms
      */
@@ -246,8 +283,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the zoom mechanisms built into WebView are being used.
+	 * {@description.close}
      *
      * @return true if the zoom mechanisms built into WebView are being used
      * @see #setBuiltInZoomControls
@@ -256,10 +295,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should display on-screen zoom controls when
      * using the built-in zoom mechanisms. See {@link #setBuiltInZoomControls}.
      * The default is true.
+	 * {@description.close}
      *
      * @param enabled whether the WebView should display on-screen zoom controls
      */
@@ -267,9 +308,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView displays on-screen zoom controls when using
      * the built-in zoom mechanisms.
+	 * {@description.close}
      *
      * @return true if the WebView displays on-screen zoom controls when using
      *         the built-in zoom mechanisms
@@ -279,18 +322,25 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enables or disables file access within WebView. File access is enabled by
-     * default.  Note that this enables or disables file system access only.
+     * default.
+	 * {@description.close}
+	 * {@property.open}
+	 * Note that this enables or disables file system access only.
      * Assets and resources are still accessible using file:///android_asset and
      * file:///android_res.
+	 * {@property.open}
      */
     public void setAllowFileAccess(boolean allow) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether this WebView supports file access.
+	 * {@description.close}
      *
      * @see #setAllowFileAccess
      */
@@ -298,17 +348,21 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enables or disables content URL access within WebView.  Content URL
      * access allows WebView to load content from a content provider installed
      * in the system. The default is enabled.
+	 * {@description.close}
      */
     public void setAllowContentAccess(boolean allow) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether this WebView supports content URL access.
+	 * {@description.close}
      *
      * @see #setAllowContentAccess
      */
@@ -316,16 +370,20 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView loads pages in overview mode. The default is
      * false.
+	 * {@description.close}
      */
     public void setLoadWithOverviewMode(boolean overview) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether this WebView loads pages in overview mode.
+	 * {@description.close}
      *
      * @return whether this WebView loads pages in overview mode
      * @see #setLoadWithOverviewMode
@@ -334,12 +392,14 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView will enable smooth transition while panning or
      * zooming or while the window hosting the WebView does not have focus.
      * If it is true, WebView will choose a solution to maximize the performance.
      * e.g. the WebView's content may not be updated during the transition.
      * If it is false, WebView will keep its fidelity. The default value is false.
+	 * {@description.close}
      *
      * @deprecated This method is now obsolete, and will become a no-op in future.
      */
@@ -348,9 +408,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView enables smooth transition while panning or
      * zooming.
+	 * {@description.close}
      *
      * @see #setEnableSmoothTransition
      *
@@ -361,10 +423,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView uses its background for over scroll background.
      * If true, it will use the WebView's background. If false, it will use an
      * internal pattern. Default is true.
+	 * {@description.close}
      *
      * @deprecated This method is now obsolete.
      * @hide Since API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN_MR1}
@@ -374,9 +438,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether this WebView uses WebView's background instead of
      * internal pattern for over scroll background.
+	 * {@description.close}
      *
      * @see #setUseWebViewBackgroundForOverscrollBackground
      * @deprecated This method is now obsolete.
@@ -387,17 +453,21 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should save form data. The default is true,
      * unless in private browsing mode, when the value is always false.
+	 * {@description.close}
      */
     public void setSaveFormData(boolean save) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView saves form data. Always false in private
      * browsing mode.
+	 * {@description.close}
      *
      * @return whether the WebView saves form data
      * @see #setSaveFormData
@@ -406,15 +476,19 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should save passwords. The default is true.
+	 * {@description.close}
      */
     public void setSavePassword(boolean save) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView saves passwords.
+	 * {@description.close}
      *
      * @return whether the WebView saves passwords
      * @see #setSavePassword
@@ -423,8 +497,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the text zoom of the page in percent. The default is 100.
+	 * {@description.close}
      *
      * @param textZoom the text zoom in percent
      */
@@ -432,8 +508,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the text zoom of the page in percent.
+	 * {@description.close}
      *
      * @return the text zoom of the page in percent
      * @see #setTextZoom
@@ -442,8 +520,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the text size of the page. The default is {@link TextSize#NORMAL}.
+	 * {@description.close}
      *
      * @param t the text size as a {@link TextSize} value
      * @deprecated Use {@link #setTextZoom} instead.
@@ -452,10 +532,12 @@ public abstract class WebSettings {
         setTextZoom(t.value);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the text size of the page. If the text size was previously specified
      * in percent using {@link #setTextZoom}, this will return the closest
      * matching {@link TextSize}.
+	 * {@description.close}
      *
      * @return the text size as a {@link TextSize} value
      * @see #setTextSize
@@ -478,9 +560,11 @@ public abstract class WebSettings {
         return closestSize != null ? closestSize : TextSize.NORMAL;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the default zoom density of the page. This must be called from the UI
      * thread. The default is {@link ZoomDensity#MEDIUM}.
+	 * {@description.close}
      *
      * @param zoom the zoom density
      */
@@ -488,9 +572,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the default zoom density of the page. This should be called from
      * the UI thread.
+	 * {@description.close}
      *
      * @return the zoom density
      * @see #setDefaultZoom
@@ -499,16 +585,20 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Enables using light touches to make a selection and activate mouseovers.
      * The default is false.
+	 * {@description.close}
      */
     public void setLightTouchEnabled(boolean enabled) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether light touches are enabled.
+	 * {@description.close}
      *
      * @return whether light touches are enabled
      * @see #setLightTouchEnabled
@@ -517,9 +607,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Controlled a rendering optimization that is no longer present. Setting
      * it now has no effect.
+	 * {@description.close}
      *
      * @deprecated This setting now has no effect.
      * @hide Since API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN_MR1}
@@ -529,9 +621,11 @@ public abstract class WebSettings {
         // Specified to do nothing, so no need for derived classes to override.
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Controlled a rendering optimization that is no longer present. Setting
      * it now has no effect.
+	 * {@description.close}
      *
      * @deprecated This setting now has no effect.
      * @hide Since API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN_MR1}
@@ -542,7 +636,8 @@ public abstract class WebSettings {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the user-agent string using an integer code.
      * <ul>
      *   <li>0 means the WebView should use an Android user-agent string</li>
@@ -550,6 +645,7 @@ public abstract class WebSettings {
      * </ul>
      * Other values are ignored. The default is an Android user-agent string,
      * i.e. code value 0.
+	 * {@description.close}
      *
      * @param ua the integer code for the user-agent string
      * @deprecated Please use {@link #setUserAgentString} instead.
@@ -560,7 +656,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the user-agent as an integer code.
      * <ul>
      *   <li>-1 means the WebView is using a custom user-agent string set with
@@ -568,6 +665,7 @@ public abstract class WebSettings {
      *   <li>0 means the WebView should use an Android user-agent string</li>
      *   <li>1 means the WebView should use a desktop user-agent string</li>
      * </ul>
+	 * {@description.close}
      *
      * @return the integer code for the user-agent string
      * @see #setUserAgent
@@ -579,8 +677,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tells the WebView to use a wide viewport. The default is false.
+	 * {@description.close}
      *
      * @param use whether to use a wide viewport
      */
@@ -588,8 +688,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView is using a wide viewport.
+	 * {@description.close}
      *
      * @return true if the WebView is using a wide viewport
      * @see #setUseWideViewPort
@@ -598,10 +700,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView whether supports multiple windows. If set to
      * true, {@link WebChromeClient#onCreateWindow} must be implemented by the
      * host application. The default is false.
+	 * {@description.close}
      *
      * @param support whether to suport multiple windows
      */
@@ -609,8 +713,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView supports multiple windows.
+	 * {@description.close}
      *
      * @return true if the WebView supports multiple windows
      * @see #setSupportMultipleWindows
@@ -619,9 +725,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the underlying layout algorithm. This will cause a relayout of the
      * WebView. The default is {@link LayoutAlgorithm#NARROW_COLUMNS}.
+	 * {@description.close}
      *
      * @param l the layout algorithm to use, as a {@link LayoutAlgorithm} value
      */
@@ -629,8 +737,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the current layout algorithm.
+	 * {@description.close}
      *
      * @return the layout algorithm in use, as a {@link LayoutAlgorithm} value
      * @see #setLayoutAlgorithm
@@ -639,8 +749,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the standard font family name. The default is "sans-serif".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -648,8 +760,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the standard font family name.
+	 * {@description.close}
      *
      * @return the standard font family name as a string
      * @see #setStandardFontFamily
@@ -658,8 +772,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the fixed font family name. The default is "monospace".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -667,8 +783,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the fixed font family name.
+	 * {@description.close}
      *
      * @return the fixed font family name as a string
      * @see #setFixedFontFamily
@@ -677,8 +795,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the sans-serif font family name. The default is "sans-serif".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -686,8 +806,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the sans-serif font family name.
+	 * {@description.close}
      *
      * @return the sans-serif font family name as a string
      * @see #setSansSerifFontFamily
@@ -696,8 +818,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the serif font family name. The default is "sans-serif".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -705,8 +829,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the serif font family name. The default is "serif".
+	 * {@description.close}
      *
      * @return the serif font family name as a string
      * @see #setSerifFontFamily
@@ -715,8 +841,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the cursive font family name. The default is "cursive".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -724,8 +852,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the cursive font family name.
+	 * {@description.close}
      *
      * @return the cursive font family name as a string
      * @see #setCursiveFontFamily
@@ -734,8 +864,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the fantasy font family name. The default is "fantasy".
+	 * {@description.close}
      *
      * @param font a font family name
      */
@@ -743,8 +875,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the fantasy font family name.
+	 * {@description.close}
      *
      * @return the fantasy font family name as a string
      * @see #setFantasyFontFamily
@@ -753,8 +887,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the minimum font size. The default is 8.
+	 * {@description.close}
      *
      * @param size a non-negative integer between 1 and 72. Any number outside
      *             the specified range will be pinned.
@@ -763,8 +899,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the minimum font size.
+	 * {@description.close}
      *
      * @return a non-negative integer between 1 and 72
      * @see #setMinimumFontSize
@@ -773,8 +911,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the minimum logical font size. The default is 8.
+	 * {@description.close}
      *
      * @param size a non-negative integer between 1 and 72. Any number outside
      *             the specified range will be pinned.
@@ -783,8 +923,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the minimum logical font size.
+	 * {@description.close}
      *
      * @return a non-negative integer between 1 and 72
      * @see #setMinimumLogicalFontSize
@@ -793,8 +935,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the default font size. The default is 16.
+	 * {@description.close}
      *
      * @param size a non-negative integer between 1 and 72. Any number outside
      *             the specified range will be pinned.
@@ -803,8 +947,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the default font size.
+	 * {@description.close}
      *
      * @return a non-negative integer between 1 and 72
      * @see #setDefaultFontSize
@@ -813,8 +959,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the default fixed font size. The default is 16.
+	 * {@description.close}
      *
      * @param size a non-negative integer between 1 and 72. Any number outside
      *             the specified range will be pinned.
@@ -823,8 +971,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the default fixed font size.
+	 * {@description.close}
      *
      * @return a non-negative integer between 1 and 72
      * @see #setDefaultFixedFontSize
@@ -833,7 +983,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should load image resources. Note that this method
      * controls loading of all images, including those embedded using the data
      * URI scheme. Use {@link #setBlockNetworkImage} to control loading only
@@ -841,6 +992,7 @@ public abstract class WebSettings {
      * setting is changed from false to true, all images resources referenced
      * by content currently displayed by the WebView are loaded automatically.
      * The default is true.
+	 * {@description.close}
      *
      * @param flag whether the WebView should load image resources
      */
@@ -848,9 +1000,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView loads image resources. This includes
      * images embedded using the data URI scheme.
+	 * {@description.close}
      *
      * @return true if the WebView loads image resources
      * @see #setLoadsImagesAutomatically
@@ -859,7 +1013,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should not load image resources from the
      * network (resources accessed via http and https URI schemes).  Note
      * that this method has no effect unless
@@ -869,6 +1024,7 @@ public abstract class WebSettings {
      * to false. When the value of this setting is changed from true to false,
      * network images resources referenced by content currently displayed by
      * the WebView are fetched automatically. The default is false.
+	 * {@description.close}
      *
      * @param flag whether the WebView should not load image resources from the
      *             network
@@ -878,8 +1034,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView does not load image resources from the network.
+	 * {@description.close}
      *
      * @return true if the WebView does not load image resources from the network
      * @see #setBlockNetworkImage
@@ -888,19 +1046,26 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should not load resources from the network.
      * Use {@link #setBlockNetworkImage} to only avoid loading
      * image resources. Note that if the value of this setting is
      * changed from true to false, network resources referenced by content
      * currently displayed by the WebView are not fetched until
      * {@link android.webkit.WebView#reload} is called.
+	 * {@description.close}
+	 * {@property.open}
      * If the application does not have the
      * {@link android.Manifest.permission#INTERNET} permission, attempts to set
      * a value of false will cause a {@link java.lang.SecurityException}
-     * to be thrown. The default value is false if the application has the
+     * to be thrown.
+	 * {@property.close}
+	 * {@description.open}
+	 * The default value is false if the application has the
      * {@link android.Manifest.permission#INTERNET} permission, otherwise it is
      * true.
+	 * {@description.close}
      *
      * @param flag whether the WebView should not load any resources from the
      *             network
@@ -910,8 +1075,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the WebView does not load any resources from the network.
+	 * {@description.close}
      *
      * @return true if the WebView does not load any resources from the network
      * @see #setBlockNetworkLoads
@@ -920,9 +1087,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tells the WebView to enable JavaScript execution.
      * <b>The default is false.</b>
+	 * {@description.close}
      *
      * @param flag true if the WebView should execute JavaScript
      */
@@ -930,7 +1099,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether JavaScript running in the context of a file scheme URL
      * should be allowed to access content from any origin. This includes
      * access to content from other file scheme URLs. See
@@ -941,13 +1111,15 @@ public abstract class WebSettings {
      * {@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH_MR1} and below,
      * and false for API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN}
      * and above.
+	 * {@description.close}
      *
      * @param flag whether JavaScript running in the context of a file scheme
      *             URL should be allowed to access content from any origin
      */
     public abstract void setAllowUniversalAccessFromFileURLs(boolean flag);
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether JavaScript running in the context of a file scheme URL
      * should be allowed to access content from other file scheme URLs. To
      * enable the most restrictive, and therefore secure policy, this setting
@@ -958,6 +1130,7 @@ public abstract class WebSettings {
      * {@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH_MR1} and below,
      * and false for API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN}
      * and above.
+	 * {@description.close}
      *
      * @param flag whether JavaScript running in the context of a file scheme
      *             URL should be allowed to access content from other file
@@ -965,8 +1138,10 @@ public abstract class WebSettings {
      */
     public abstract void setAllowFileAccessFromFileURLs(boolean flag);
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the WebView should enable plugins. The default is false.
+	 * {@description.close}
      *
      * @param flag true if plugins should be enabled
      * @deprecated This method has been deprecated in favor of
@@ -977,12 +1152,14 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tells the WebView to enable, disable, or have plugins on demand. On
      * demand mode means that if a plugin exists that can handle the embedded
      * content, a placeholder icon will be shown instead of the plugin. When
      * the placeholder is clicked, the plugin will be enabled. The default is
      * {@link PluginState#OFF}.
+	 * {@description.close}
      *
      * @param state a PluginState value
      */
@@ -990,9 +1167,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets a custom path to plugins used by the WebView. This method is
      * obsolete since each plugin is now loaded from its own package.
+	 * {@description.close}
      *
      * @param pluginsPath a String path to the directory containing plugins
      * @deprecated This method is no longer used as plugins are loaded from
@@ -1003,11 +1182,13 @@ public abstract class WebSettings {
         // Specified to do nothing, so no need for derived classes to override.
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the path to where database storage API databases should be saved.
      * In order for the database storage API to function correctly, this method
      * must be called with a path to which the application can write. This
      * method should only be called once: repeated calls are ignored.
+	 * {@description.close}
      *
      * @param databasePath a path to the directory where databases should be
      *                     saved.
@@ -1019,10 +1200,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the path where the Geolocation databases should be saved. In order
      * for Geolocation permissions and cached positions to be persisted, this
      * method must be called with a path to which the application can write.
+	 * {@description.close}
      *
      * @param databasePath a path to the directory where databases should be
      *                     saved.
@@ -1032,11 +1215,13 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the Application Caches API should be enabled. The default
      * is false. Note that in order for the Application Caches API to be
      * enabled, a valid database path must also be supplied to
      * {@link #setAppCachePath}.
+	 * {@description.close}
      *
      * @param flag true if the WebView should enable Application Caches
      */
@@ -1044,11 +1229,13 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the path to the Application Caches files. In order for the
      * Application Caches API to be enabled, this method must be called with a
      * path to which the application can write. This method should only be
      * called once: repeated calls are ignored.
+	 * {@description.close}
      *
      * @param appCachePath a String path to the directory containing
      *                     Application Caches files.
@@ -1058,12 +1245,14 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the maximum size for the Application Cache content. The passed size
      * will be rounded to the nearest value that the database can support, so
      * this should be viewed as a guide, not a hard limit. Setting the
      * size to a value less than current database size does not cause the
      * database to be trimmed. The default size is {@link Long#MAX_VALUE}.
+	 * {@description.close}
      *
      * @param appCacheMaxSize the maximum size in bytes
      */
@@ -1071,10 +1260,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the database storage API is enabled. The default value is
      * false. See also {@link #setDatabasePath} for how to correctly set up the
      * database storage API.
+	 * {@description.close}
      *
      * @param flag true if the WebView should use the database storage API
      */
@@ -1082,8 +1273,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether the DOM storage API is enabled. The default value is false.
+	 * {@description.close}
      *
      * @param flag true if the WebView should use the DOM storage API
      */
@@ -1091,8 +1284,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the DOM Storage APIs are enabled.
+	 * {@description.close}
      *
      * @return true if the DOM Storage APIs are enabled
      * @see #setDomStorageEnabled
@@ -1100,8 +1295,10 @@ public abstract class WebSettings {
     public synchronized boolean getDomStorageEnabled() {
         throw new MustOverrideException();
     }
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the path to where database storage API databases are saved.
+	 * {@description.close}
      *
      * @return the String path to the database storage API databases
      * @see #setDatabasePath
@@ -1110,8 +1307,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether the database storage API is enabled.
+	 * {@description.close}
      *
      * @return true if the database storage API is enabled
      * @see #setDatabaseEnabled
@@ -1120,10 +1319,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets whether Geolocation is enabled. The default is true. See also
      * {@link #setGeolocationDatabasePath} for how to correctly set up
      * Geolocation.
+	 * {@description.close}
      *
      * @param flag whether Geolocation should be enabled
      */
@@ -1131,8 +1332,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether JavaScript is enabled.
+	 * {@description.close}
      *
      * @return true if JavaScript is enabled
      * @see #setJavaScriptEnabled
@@ -1141,10 +1344,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether JavaScript running in the context of a file scheme URL can
      * access content from any origin. This includes access to content from
      * other file scheme URLs.
+	 * {@description.close}
      *
      * @return whether JavaScript running in the context of a file scheme URL
      *         can access content from any origin
@@ -1152,9 +1357,11 @@ public abstract class WebSettings {
      */
     public abstract boolean getAllowUniversalAccessFromFileURLs();
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether JavaScript running in the context of a file scheme URL can
      * access content from other file scheme URLs.
+	 * {@description.close}
      *
      * @return whether JavaScript running in the context of a file scheme URL
      *         can access content from other file scheme URLs
@@ -1162,8 +1369,10 @@ public abstract class WebSettings {
      */
     public abstract boolean getAllowFileAccessFromFileURLs();
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether plugins are enabled.
+	 * {@description.close}
      *
      * @return true if plugins are enabled
      * @see #setPluginsEnabled
@@ -1174,8 +1383,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the current state regarding whether plugins are enabled.
+	 * {@description.close}
      *
      * @return the plugin state as a {@link PluginState} value
      * @see #setPluginState
@@ -1184,9 +1395,11 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the directory that contains the plugin libraries. This method is
      * obsolete since each plugin is now loaded from its own package.
+	 * {@description.close}
      *
      * @return an empty string
      * @deprecated This method is no longer used as plugins are loaded from
@@ -1198,9 +1411,11 @@ public abstract class WebSettings {
         return "";
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tells JavaScript to open windows automatically. This applies to the
      * JavaScript function window.open(). The default is false.
+	 * {@description.close}
      *
      * @param flag true if JavaScript can open windows automatically
      */
@@ -1208,8 +1423,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether JavaScript can open windows automatically.
+	 * {@description.close}
      *
      * @return true if JavaScript can open windows automatically during
      *         window.open()
@@ -1218,9 +1435,11 @@ public abstract class WebSettings {
     public synchronized boolean getJavaScriptCanOpenWindowsAutomatically() {
         throw new MustOverrideException();
     }
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the default text encoding name to use when decoding html pages.
      * The default is "Latin-1".
+	 * {@description.close}
      *
      * @param encoding the text encoding name
      */
@@ -1228,8 +1447,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the default text encoding name.
+	 * {@description.close}
      *
      * @return the default text encoding name as a string
      * @see #setDefaultTextEncodingName
@@ -1238,16 +1459,20 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the WebView's user-agent string. If the string is null or empty,
      * the system default value will be used.
+	 * {@description.close}
      */
     public synchronized void setUserAgentString(String ua) {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the WebView's user-agent string.
+	 * {@description.close}
      *
      * @return the WebView's user-agent string
      * @see #setUserAgentString
@@ -1256,10 +1481,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Returns the default User-Agent used by a WebView.
      * An instance of WebView could use a different User-Agent if a call
      * is made to {@link WebSettings#setUserAgentString(String)}.
+	 * {@description.close}
      *
      * @param context a Context object used to access application assets
      */
@@ -1267,10 +1494,12 @@ public abstract class WebSettings {
         return WebViewFactory.getProvider().getStatics().getDefaultUserAgent(context);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Tells the WebView whether it needs to set a node to have focus when
      * {@link WebView#requestFocus(int, android.graphics.Rect)} is called. The
      * default value is true.
+	 * {@description.close}
      *
      * @param flag whether the WebView needs to set a node
      */
@@ -1278,10 +1507,12 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Sets the priority of the Render thread. Unlike the other settings, this
      * one only needs to be called once per process. The default value is
      * {@link RenderPriority#NORMAL}.
+	 * {@description.close}
      *
      * @param priority the priority
      */
@@ -1289,7 +1520,8 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Overrides the way the cache is used. The way the cache is used is based
      * on the navigation type. For a normal page load, the cache is checked
      * and content is re-validated as needed. When navigating back, content is
@@ -1298,6 +1530,7 @@ public abstract class WebSettings {
      * one of {@link #LOAD_DEFAULT}, {@link #LOAD_NORMAL},
      * {@link #LOAD_CACHE_ELSE_NETWORK}, {@link #LOAD_NO_CACHE} or
      * {@link #LOAD_CACHE_ONLY}. The default value is {@link #LOAD_DEFAULT}.
+	 * {@description.close}
      *
      * @param mode the mode to use
      */
@@ -1305,8 +1538,10 @@ public abstract class WebSettings {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the current setting for overriding the cache mode.
+	 * {@description.close}
      *
      * @return the current setting for overriding the cache mode
      * @see #setCacheMode
