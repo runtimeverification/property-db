@@ -1,0 +1,40 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+
+/**
+ * When notified that an SSL error occurred while loading a resource,
+ * the host application must call either handler.cancel() or
+ * handler.proceed().
+ * http://developer.android.com/reference/android/webkit/WebViewClient.html#onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError)
+ *
+ * @severity error
+ */
+
+WebViewClient_OnReceivedSslError(SslErrorHandler handler) {
+
+	creation event receivedSslError before() :
+		execution(* WebViewClient+.onReceivedSslError(*, SslErrorHandler handler, *)) { }
+
+	creation event receivedSslErrorEnd after() :
+		execution(boolean WebViewClient+.onReceivedSslError(*, SslErrorHandler handler, *)) { }
+
+	event proceed before() :
+		execution(* SslErrorHandler+.proceed()) && this(handler) && cflow(call(* WebViewClient+.onReceivedSslError(*, SslErrorHandler handler, *))) { }
+
+	event cancel before() :
+		execution(* SslErrorHandler+.cancel()) && this(handler) && cflow(call(* WebViewClient+.onReceivedSslError(*, SslErrorHandler handler, *))) { }
+
+	ere : receivedSslErrorStart (proceed | cancel) receivedSslErrorEnd
+
+	@fail {
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "WebViewClient.OnReceivedSslError contract violated");
+	}
+}
+
+

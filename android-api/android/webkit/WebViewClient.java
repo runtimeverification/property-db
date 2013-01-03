@@ -24,13 +24,15 @@ import android.view.ViewRootImpl;
 
 public class WebViewClient {
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Give the host application a chance to take over the control when a new
      * url is about to be loaded in the current WebView. If WebViewClient is not
      * provided, by default WebView will ask Activity Manager to choose the
      * proper handler for the url. If WebViewClient is provided, return true
      * means the host application handles the url, while return false means the
      * current WebView handles the url.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param url The url to be loaded.
@@ -41,12 +43,14 @@ public class WebViewClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a page has started loading. This method
      * is called once for each main frame load so a page with iframes or
      * framesets will call onPageStarted one time for the main frame. This also
      * means that onPageStarted will not be called when the contents of an
      * embedded frame changes, i.e. clicking a link whose target is an iframe.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param url The url to be loaded.
@@ -56,11 +60,13 @@ public class WebViewClient {
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a page has finished loading. This method
      * is called only for main frame. When onPageFinished() is called, the
      * rendering picture may not be updated yet. To get the notification for the
      * new Picture, use {@link WebView.PictureListener#onNewPicture}.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param url The url of the page.
@@ -68,9 +74,11 @@ public class WebViewClient {
     public void onPageFinished(WebView view, String url) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that the WebView will load the resource
      * specified by the given url.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param url The url of the resource the WebView will load.
@@ -78,13 +86,18 @@ public class WebViewClient {
     public void onLoadResource(WebView view, String url) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application of a resource request and allow the
      * application to return the data.  If the return value is null, the WebView
      * will continue to load the resource as usual.  Otherwise, the return
-     * response and data will be used.  NOTE: This method is called by the
+     * response and data will be used.
+	 * {@description.close}
+	 * {@property.open}
+	 * NOTE: This method is called by the
      * network thread so clients should exercise caution when accessing private
      * data.
+	 * {@property.close}
      *
      * @param view The {@link android.webkit.WebView} that is requesting the
      *             resource.
@@ -98,11 +111,13 @@ public class WebViewClient {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that there have been an excessive number of
      * HTTP redirects. As the host application if it would like to continue
      * trying to load the resource. The default behavior is to send the cancel
      * message.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param cancelMsg The message to send if the host wants to cancel
@@ -117,41 +132,43 @@ public class WebViewClient {
     }
 
     // These ints must match up to the hidden values in EventHandler.
-    /** Generic error */
+    /** {@collect.stats} Generic error */
     public static final int ERROR_UNKNOWN = -1;
-    /** Server or proxy hostname lookup failed */
+    /** {@collect.stats} Server or proxy hostname lookup failed */
     public static final int ERROR_HOST_LOOKUP = -2;
-    /** Unsupported authentication scheme (not basic or digest) */
+    /** {@collect.stats} Unsupported authentication scheme (not basic or digest) */
     public static final int ERROR_UNSUPPORTED_AUTH_SCHEME = -3;
-    /** User authentication failed on server */
+    /** {@collect.stats} User authentication failed on server */
     public static final int ERROR_AUTHENTICATION = -4;
-    /** User authentication failed on proxy */
+    /** {@collect.stats} User authentication failed on proxy */
     public static final int ERROR_PROXY_AUTHENTICATION = -5;
-    /** Failed to connect to the server */
+    /** {@collect.stats} Failed to connect to the server */
     public static final int ERROR_CONNECT = -6;
-    /** Failed to read or write to the server */
+    /** {@collect.stats} Failed to read or write to the server */
     public static final int ERROR_IO = -7;
-    /** Connection timed out */
+    /** {@collect.stats} Connection timed out */
     public static final int ERROR_TIMEOUT = -8;
-    /** Too many redirects */
+    /** {@collect.stats} Too many redirects */
     public static final int ERROR_REDIRECT_LOOP = -9;
-    /** Unsupported URI scheme */
+    /** {@collect.stats} Unsupported URI scheme */
     public static final int ERROR_UNSUPPORTED_SCHEME = -10;
-    /** Failed to perform SSL handshake */
+    /** {@collect.stats} Failed to perform SSL handshake */
     public static final int ERROR_FAILED_SSL_HANDSHAKE = -11;
-    /** Malformed URL */
+    /** {@collect.stats} Malformed URL */
     public static final int ERROR_BAD_URL = -12;
-    /** Generic file error */
+    /** {@collect.stats} Generic file error */
     public static final int ERROR_FILE = -13;
-    /** File not found */
+    /** {@collect.stats} File not found */
     public static final int ERROR_FILE_NOT_FOUND = -14;
-    /** Too many requests during this load */
+    /** {@collect.stats} Too many requests during this load */
     public static final int ERROR_TOO_MANY_REQUESTS = -15;
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Report an error to the host application. These errors are unrecoverable
      * (i.e. the main resource is unavailable). The errorCode parameter
      * corresponds to one of the ERROR_* constants.
+	 * {@description.close}
      * @param view The WebView that is initiating the callback.
      * @param errorCode The error code corresponding to an ERROR_* value.
      * @param description A String describing the error.
@@ -161,10 +178,12 @@ public class WebViewClient {
             String description, String failingUrl) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * As the host application if the browser should resend data as the
      * requested page was a result of a POST. The default is to not resend the
      * data.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param dontResend The message to send if the browser should not resend
@@ -175,8 +194,10 @@ public class WebViewClient {
         dontResend.sendToTarget();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application to update its visited links database.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param url The url being visited.
@@ -186,12 +207,20 @@ public class WebViewClient {
             boolean isReload) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that an SSL error occurred while loading a
-     * resource. The host application must call either handler.cancel() or
-     * handler.proceed(). Note that the decision may be retained for use in
+     * resource.
+	 * {@description.close}
+	 * {@property.open}
+	 * The host application must call either handler.cancel() or
+     * handler.proceed().
+	 * {@poperty.close}
+	 * {@description.open}
+	 * Note that the decision may be retained for use in
      * response to future SSL errors. The default behavior is to cancel the
      * load.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param handler An SslErrorHandler object that will handle the user's
@@ -203,11 +232,13 @@ public class WebViewClient {
         handler.cancel();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notifies the host application that the WebView received an HTTP
      * authentication request. The host application can use the supplied
      * {@link HttpAuthHandler} to set the WebView's response to the request.
      * The default behavior is to cancel the request.
+	 * {@description.close}
      *
      * @param view the WebView that is initiating the callback
      * @param handler the HttpAuthHandler used to set the WebView's response
@@ -220,12 +251,14 @@ public class WebViewClient {
         handler.cancel();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Give the host application a chance to handle the key event synchronously.
      * e.g. menu shortcut key events need to be filtered this way. If return
      * true, WebView will not handle the key event. If return false, WebView
      * will always handle the key event, so none of the super in the view chain
      * will see the key event. The default behavior returns false.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param event The key event.
@@ -236,12 +269,14 @@ public class WebViewClient {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a key was not handled by the WebView.
      * Except system keys, WebView always consumes the keys in the normal flow
      * or if shouldOverrideKeyEvent returns true. This is called asynchronously
      * from where the key is dispatched. It gives the host application a chance
      * to handle the unhandled key events.
+	 * {@description.close}
      *
      * @param view The WebView that is initiating the callback.
      * @param event The key event.
@@ -253,9 +288,11 @@ public class WebViewClient {
         }
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that the scale applied to the WebView has
      * changed.
+	 * {@description.close}
      *
      * @param view he WebView that is initiating the callback.
      * @param oldScale The old scale factor
@@ -264,9 +301,11 @@ public class WebViewClient {
     public void onScaleChanged(WebView view, float oldScale, float newScale) {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Notify the host application that a request to automatically log in the
      * user has been processed.
+	 * {@description.close}
      * @param view The WebView requesting the login.
      * @param realm The account realm used to look up accounts.
      * @param account An optional account. If not null, the account should be
