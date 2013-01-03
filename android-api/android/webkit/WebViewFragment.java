@@ -23,10 +23,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * A fragment that displays a WebView.
  * <p>
  * The WebView is automically paused or resumed when the Fragment is paused or resumed.
+ * {@description.close}
  */
 public class WebViewFragment extends Fragment {
     private WebView mWebView;
@@ -35,8 +37,10 @@ public class WebViewFragment extends Fragment {
     public WebViewFragment() {
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Called to instantiate the view. Creates and returns the WebView.
+	 * {@description.close}
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,8 +53,10 @@ public class WebViewFragment extends Fragment {
         return mWebView;
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Called when the fragment is visible to the user and actively running. Resumes the WebView.
+	 * {@description.close}
      */
     @Override
     public void onPause() {
@@ -58,8 +64,10 @@ public class WebViewFragment extends Fragment {
         mWebView.onPause();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Called when the fragment is no longer resumed. Pauses the WebView.
+	 * {@description.close}
      */
     @Override
     public void onResume() {
@@ -67,9 +75,11 @@ public class WebViewFragment extends Fragment {
         super.onResume();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Called when the WebView has been detached from the fragment.
      * The WebView is no longer available after this time.
+	 * {@description.close}
      */
     @Override
     public void onDestroyView() {
@@ -77,8 +87,10 @@ public class WebViewFragment extends Fragment {
         super.onDestroyView();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Called when the fragment is no longer in use. Destroys the internal state of the WebView.
+	 * {@description.close}
      */
     @Override
     public void onDestroy() {
@@ -89,8 +101,10 @@ public class WebViewFragment extends Fragment {
         super.onDestroy();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets the WebView.
+	 * {@description.close}
      */
     public WebView getWebView() {
         return mIsWebViewAvailable ? mWebView : null;

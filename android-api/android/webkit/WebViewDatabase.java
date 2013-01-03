@@ -18,7 +18,8 @@ package android.webkit;
 
 import android.content.Context;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * This class allows developers to determine whether any WebView used in the
  * application has stored any of the following types of browsing data and
  * to clear any such stored data for all WebViews in the application.
@@ -27,14 +28,15 @@ import android.content.Context;
  *  <li>HTTP authentication username/password pairs</li>
  *  <li>Data entered into text fields (e.g. for autocomplete suggestions)</li>
  * </ul>
+ * {@description.close}
  */
 public class WebViewDatabase {
-    /**
+    /** {@collect.stats}
      * @hide Since API level {@link android.os.Build.VERSION_CODES#JELLY_BEAN_MR1}
      */
     protected static final String LOGTAG = "webviewdatabase";
 
-    /**
+    /** {@collect.stats}
      * @hide Only for use by WebViewProvider implementations.
      */
     protected WebViewDatabase() {
@@ -44,9 +46,11 @@ public class WebViewDatabase {
         return WebViewFactory.getProvider().getWebViewDatabase(context);
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether there are any saved username/password pairs for web forms.
      * Note that these are unrelated to HTTP authentication credentials.
+	 * {@description.close}
      *
      * @return true if there are any saved username/password pairs
      * @see WebView#savePassword
@@ -56,9 +60,11 @@ public class WebViewDatabase {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Clears any saved username/password pairs for web forms.
      * Note that these are unrelated to HTTP authentication credentials.
+	 * {@description.close}
      *
      * @see WebView#savePassword
      * @see hasUsernamePassword
@@ -67,8 +73,10 @@ public class WebViewDatabase {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether there are any saved credentials for HTTP authentication.
+	 * {@description.close}
      *
      * @return whether there are any saved credentials
      * @see Webview#getHttpAuthUsernamePassword
@@ -79,8 +87,10 @@ public class WebViewDatabase {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Clears any saved credentials for HTTP authentication.
+	 * {@description.close}
      *
      * @see Webview#getHttpAuthUsernamePassword
      * @see Webview#setHttpAuthUsernamePassword
@@ -90,8 +100,10 @@ public class WebViewDatabase {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Gets whether there is any saved data for web forms.
+	 * {@description.close}
      *
      * @return whether there is any saved data for web forms
      * @see clearFormData
@@ -100,8 +112,10 @@ public class WebViewDatabase {
         throw new MustOverrideException();
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Clears any saved data for web forms.
+	 * {@description.close}
      *
      * @see hasFormData
      */
