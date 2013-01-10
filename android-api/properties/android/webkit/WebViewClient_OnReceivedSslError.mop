@@ -10,7 +10,7 @@ import javamoprt.MOPLogging.Level;
  * When notified that an SSL error occurred while loading a resource,
  * the host application must call either handler.cancel() or
  * handler.proceed().
- * http://developer.android.com/reference/android/webkit/WebViewClient.html#onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError)
+ * ( http://developer.android.com/reference/android/webkit/WebViewClient.html#onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError) )
  *
  * @severity error
  */

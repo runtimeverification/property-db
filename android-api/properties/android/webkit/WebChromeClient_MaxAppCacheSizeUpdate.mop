@@ -9,12 +9,12 @@ import javamoprt.MOPLogging.Level;
 /**
  * Raises an error if the QuotaUpdater callback is called with a lower quota 
  * after a call to onReachedMaxAppCacheSizeUpdate
- * http://developer.android.com/reference/android/webkit/WebChromeClient.html#onReachedMaxAppCacheSize(long, long, android.webkit.WebStorage.QuotaUpdater)
  *
  * When the Application Cache has reached the maximum size,
  * the client must respond by invoking the updateQuota(long)
  * method of the supplied WebStorage.QuotaUpdater instance. 
  * The minimum value that can be set for the new quota is the current quota.
+ * ( http://developer.android.com/reference/android/webkit/WebChromeClient.html#onReachedMaxAppCacheSize(long, long, android.webkit.WebStorage.QuotaUpdater) )
  *
  * This specification raises an error when the client attempts to update
  * the quota with a lower value than the existing one, or when the client 

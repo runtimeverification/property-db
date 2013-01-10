@@ -8,8 +8,10 @@ import javamoprt.MOPLogging.Level;
 /**
  *
  *
- * An IllegalStateException will be thrown if
+ * Upon calling CookieSyncManager.getInstance(), 
+ * an IllegalStateException will be thrown if
  * {@link CookieSyncManager#createInstance(Context)} is not called before.
+ * ( http://developer.android.com/reference/android/webkit/CookieSyncManager.html#getInstance() )
  *
  * This monitor detects this situation and gives an advice to call CookieSyncManager.createInstance(Context)
  * if not already called by the application.

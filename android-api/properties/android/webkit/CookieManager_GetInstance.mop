@@ -10,6 +10,7 @@ import javamoprt.MOPLogging.Level;
  * before the application instantiates a WebView instance,
  * then CookieSyncManager.createInstance(Context)
  * must be called first.
+ * ( http://developer.android.com/reference/android/webkit/CookieManager.html#getInstance() )
  *
  * This monitor detects this situation and advices on calling
  * CookieSyncManager.createInstance(Context) if not already

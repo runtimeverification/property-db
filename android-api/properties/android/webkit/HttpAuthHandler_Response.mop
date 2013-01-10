@@ -7,9 +7,11 @@ import javamoprt.MOPLogging.Level;
 
 
 /**
- * The host application must
+ * When an HTTP authentication request is received 
+ * ({@link WebViewClient#onReceivedHttpAuthRequest}), the host application must
  * call either {@link #proceed} or {@link #cancel} to set the WebView's
  * response to the request.
+ * ( http://developer.android.com/reference/android/webkit/HttpAuthHandler.html )
  *
  * @severity error
  */

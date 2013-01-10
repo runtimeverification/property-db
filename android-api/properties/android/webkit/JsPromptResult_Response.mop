@@ -7,8 +7,11 @@ import javamoprt.MOPLogging.Level;
 
 
 /**
+ * When a JavaScript prompt request is received ({@link WebChromeClient#onJsPrompt(WebView, String, String, String, JsPromptResult)})
  * The client can call cancel() to cancel the dialog or
  * confirm() with the user's input to confirm the dialog.
+ * 
+ * ( http://developer.android.com/reference/android/webkit/JsPromptResult.html )
  *
  * @severity warning
  */
