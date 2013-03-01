@@ -121,7 +121,7 @@ $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.Description
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
 
-$docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
+$docscmd = "java -Xmx1024m -cp $srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
 
 $dflag = 0;
 $pflag = 0;
@@ -183,6 +183,7 @@ foreach(@ARGV){
 #sicne we can't give command line args to taglets we 
 #send this info via environment variables... ugly hack
 $ENV{__ANNOTATED_DOC_PROPERTY_PATH__} = $property_path;
+
 
 $propertypagecmd = "java -cp $srcpath $upackage.FinishUp ".$dir;
 

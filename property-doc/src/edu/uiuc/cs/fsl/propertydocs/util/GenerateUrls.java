@@ -35,23 +35,31 @@ public class GenerateUrls {
     }
   }
  
-  private static ClassDoc getTopLevelClassDoc(ClassDoc classDoc) {
+  private static ClassDoc getTopLevelClassDoc(ClassDoc classDoc, int depth) {
     if (classDoc.containingClass() == null) {
       return classDoc;
-    } else {
-      return getTopLevelClassDoc(classDoc);
+    } 
+    if (classDoc.containingClass().equals(classDoc)) {
+      return classDoc;
+    }
+    if (depth < 30){ //something is wonky here, not sure why I am getting infinite recursion
+                     //my guess is .equals is not properly implemented
+      return getTopLevelClassDoc(classDoc, depth + 1);
+    }
+    else {
+      return classDoc;
     }
   }
 
-  private static ClassDoc getTopLevelClassDoc(Tag tag) {
+  private static ClassDoc getTopLevelClassDoc(Tag tag, int depth) {
     Doc holder = tag.holder();
     if (holder instanceof PackageDoc) {
       return null;
     } else if (holder instanceof ClassDoc) {
-      return getTopLevelClassDoc((ClassDoc) holder);
+      return getTopLevelClassDoc((ClassDoc) holder, depth);
     } else if (holder instanceof ProgramElementDoc) {
       return getTopLevelClassDoc(((ProgramElementDoc) holder)
-        .containingClass());
+        .containingClass(), depth);
     } else {
       throw new RuntimeException("Unrecognized holder: " + holder);
     }
@@ -79,7 +87,7 @@ public class GenerateUrls {
  
   public static String buildRelativeUrl(Tag tag){
     PackageDoc packageDoc = getPackageDoc(tag);
-    ClassDoc topLevelClassDoc = getTopLevelClassDoc(tag);
+    ClassDoc topLevelClassDoc = getTopLevelClassDoc(tag,0);
     StringBuilder href = new StringBuilder();
     //here we are attempting to find the root directory of the
     //generated documents so that we can add the proper number of ".."

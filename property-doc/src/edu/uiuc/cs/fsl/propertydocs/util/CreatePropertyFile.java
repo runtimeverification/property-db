@@ -25,11 +25,11 @@ public class CreatePropertyFile {
   public static final String PROPDIR = "__ANNOTATED_DOC_PROPERTY_PATH__";
 
   static {
-    File propertyDir = new File(dir + File.separator + "__properties");
+    File propertyDir = new File(dir + "/" + "__properties");
     if(!propertyDir.exists()) propertyDir.mkdir();
-    File htmlDir = new File(dir + File.separator + "__properties" + File.separator + "html");
+    File htmlDir = new File(dir + "/" + "__properties" + "/" + "html");
     if(!htmlDir.exists()) htmlDir.mkdir();
-    File mopDir = new File(dir + File.separator + "__properties" + File.separator + "mop");
+    File mopDir = new File(dir + "/" + "__properties" + "/" + "mop");
     if(!mopDir.exists()) mopDir.mkdir();
   }
 
@@ -42,23 +42,23 @@ public class CreatePropertyFile {
   public static void createOrModifyPropertyFile(String name, PositionWrapper p, Tag tag, int depth){
       if(seenPositions.contains(p.toString() + name)) return;
       seenPositions.add(p.toString() + name);
-      String pathifiedName =  name.replaceAll("[.]","/");
+      String pathifiedName =  name.replaceAll("[.]",("/".equals("/"))?"/":"\\");
       StringBuilder relativeUrlPrefix = new StringBuilder();
       for(int i = 0; i < depth; ++i){
         relativeUrlPrefix.append("../");
       }
       String linkBack =  relativeUrlPrefix.append(GenerateUrls.getUrl(tag)).toString();
       String nameBack = tag.holder().toString().replaceAll("<","&lt;").replaceAll(">","&gt;");
-      String htmlOutName = dir + File.separator + "__properties" + File.separator 
-            + "html" +  File.separator + pathifiedName + ".html";
+      String htmlOutName = dir + "/" + "__properties" + "/" 
+            + "html" +  "/" + pathifiedName + ".html";
       try {
         //copy specified mop file
-        File in = new File(System.getenv().get(PROPDIR) + File.separator + pathifiedName + ".mop");
+        File in = new File(System.getenv().get(PROPDIR) + "/" + pathifiedName + ".mop");
         File htmlOut = new File(htmlOutName);
         //create the HTML file that will link to the given mop file
         populate(htmlOutName);
-        String outName = dir + "__properties" + File.separator 
-            + "mop" +  File.separator + pathifiedName + ".mop";
+        String outName = dir + "__properties" + "/" 
+            + "mop" +  "/" + pathifiedName + ".mop";
         populate(outName);
         File out = new File(outName);
         if(!seenNames.contains(name)){
@@ -131,18 +131,18 @@ public class CreatePropertyFile {
   //Why the hell doesn't the standard library do this if you try to create
   //a long path with non-existent intervening directories already?
   public static void populate(String path){
-    String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
+    String[] dirs = path.split("[/]"); 
     String currPath = dirs[0];
     for(int i = 1; i < dirs.length; ++i) {
       File f = new File(currPath);
       if(!f.exists()) f.mkdir();  
-      if(!dirs[i].equals("")) currPath += File.separator + dirs[i];
+      if(!dirs[i].equals("")) currPath += "/" + dirs[i];
     }
   }
 
   //perhaps put this in GenerateUrls?  Lazy
   public static String buildRelativeUrlFromName(String path){
-    String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
+    String[] dirs = path.split("[/]"); 
     String ret = "..";
     for(int i = 0; i < dirs.length - 1; ++i) {
       ret += "/..";
