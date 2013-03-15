@@ -1,1159 +1,1528 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1999, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang;
+import java.util.Random;
+import sun.misc.FpUtils;
 
-/**
- * Class StrictMath provides basic math constants and operations such as
- * trigonometric functions, hyperbolic functions, exponential, logarithms, etc.
- * <p>
- * In contrast to class {@link Math}, the methods in this class return exactly
- * the same results on all platforms. Algorithms based on these methods thus
- * behave the same (e.g. regarding numerical convergence) on all platforms,
- * complying with the slogan "write once, run everywhere". On the other side,
- * the implementation of class StrictMath may be less efficient than that of
- * class Math, as class StrictMath cannot utilize platform specific features
- * such as an extended precision math co-processors.
- * <p>
- * The methods in this class are specified using the "Freely Distributable Math
- * Library" (fdlibm), version 5.3.
- * <p>
- * <a href="http://www.netlib.org/fdlibm/">http://www.netlib.org/fdlibm/</a>
+/** {@collect.stats} 
+ * {@description.open}
+ * The class {@code StrictMath} contains methods for performing basic
+ * numeric operations such as the elementary exponential, logarithm,
+ * square root, and trigonometric functions.
+ *
+ * <p>To help ensure portability of Java programs, the definitions of
+ * some of the numeric functions in this package require that they
+ * produce the same results as certain published algorithms. These
+ * algorithms are available from the well-known network library
+ * {@code netlib} as the package "Freely Distributable Math
+ * Library," <a
+ * href="ftp://ftp.netlib.org/fdlibm.tar">{@code fdlibm}</a>. These
+ * algorithms, which are written in the C programming language, are
+ * then to be understood as executed with all floating-point
+ * operations following the rules of Java floating-point arithmetic.
+ *
+ * <p>The Java math library is defined with respect to
+ * {@code fdlibm} version 5.3. Where {@code fdlibm} provides
+ * more than one definition for a function (such as
+ * {@code acos}), use the "IEEE 754 core function" version
+ * (residing in a file whose name begins with the letter
+ * {@code e}).  The methods which require {@code fdlibm}
+ * semantics are {@code sin}, {@code cos}, {@code tan},
+ * {@code asin}, {@code acos}, {@code atan},
+ * {@code exp}, {@code log}, {@code log10},
+ * {@code cbrt}, {@code atan2}, {@code pow},
+ * {@code sinh}, {@code cosh}, {@code tanh},
+ * {@code hypot}, {@code expm1}, and {@code log1p}.
+ * {@description.close}
+ *
+ * @author  unascribed
+ * @author  Joseph D. Darcy
+ * @since   1.3
  */
+
 public final class StrictMath {
-    /**
-     * The double value closest to e, the base of the natural logarithm.
-     */
-    public static final double E = Math.E;
 
-    /**
-     * The double value closest to pi, the ratio of a circle's circumference to
-     * its diameter.
+    /** {@collect.stats}
+     * {@description.open} 
+     * Don't let anyone instantiate this class.
+     * {@description.close}
      */
-    public static final double PI = Math.PI;
+    private StrictMath() {}
 
-    /**
-     * Prevents this class from being instantiated.
+    /** {@collect.stats} 
+     * {@description.open}
+     * The {@code double} value that is closer than any other to
+     * <i>e</i>, the base of the natural logarithms.
+     * {@description.close}
      */
-    private StrictMath() {
-    }
+    public static final double E = 2.7182818284590452354;
 
-    /**
-     * Returns the absolute value of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code abs(-0.0) = +0.0}</li>
-     * <li>{@code abs(+infinity) = +infinity}</li>
-     * <li>{@code abs(-infinity) = +infinity}</li>
-     * <li>{@code abs(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * The {@code double} value that is closer than any other to
+     * <i>pi</i>, the ratio of the circumference of a circle to its
+     * diameter.
+     * {@description.close}
      */
-    public static double abs(double d) {
-        return Math.abs(d);
-    }
+    public static final double PI = 3.14159265358979323846;
 
-    /**
-     * Returns the absolute value of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code abs(-0.0) = +0.0}</li>
-     * <li>{@code abs(+infinity) = +infinity}</li>
-     * <li>{@code abs(-infinity) = +infinity}</li>
-     * <li>{@code abs(NaN) = NaN}</li>
-     * </ul>
-     */
-    public static float abs(float f) {
-        return Math.abs(f);
-    }
-
-    /**
-     * Returns the absolute value of the argument.
-     * <p>
-     * If the argument is {@code Integer.MIN_VALUE}, {@code Integer.MIN_VALUE}
-     * is returned.
-     */
-    public static int abs(int i) {
-        return Math.abs(i);
-    }
-
-    /**
-     * Returns the absolute value of the argument.
-     * <p>
-     * If the argument is {@code Long.MIN_VALUE}, {@code Long.MIN_VALUE} is
-     * returned.
-     */
-    public static long abs(long l) {
-        return Math.abs(l);
-    }
-
-    /**
-     * Returns the closest double approximation of the arc cosine of the
-     * argument within the range {@code [0..pi]}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code acos((anything > 1) = NaN}</li>
-     * <li>{@code acos((anything < -1) = NaN}</li>
-     * <li>{@code acos(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the trigonometric sine of an angle. Special cases:
+     * <ul><li>If the argument is NaN or an infinity, then the
+     * result is NaN.
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.</ul>
+     * {@description.close}
      *
-     * @param d
-     *            the value to compute arc cosine of.
-     * @return the arc cosine of the argument.
+     * @param   a   an angle, in radians.
+     * @return  the sine of the argument.
      */
-    public static native double acos(double d);
+    public static native double sin(double a);
 
-    /**
-     * Returns the closest double approximation of the arc sine of the argument
-     * within the range {@code [-pi/2..pi/2]}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code asin((anything > 1)) = NaN}</li>
-     * <li>{@code asin((anything < -1)) = NaN}</li>
-     * <li>{@code asin(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the trigonometric cosine of an angle. Special cases:
+     * <ul><li>If the argument is NaN or an infinity, then the
+     * result is NaN.</ul>
+     * {@description.close}
      *
-     * @param d
-     *            the value whose arc sine has to be computed.
-     * @return the arc sine of the argument.
+     * @param   a   an angle, in radians.
+     * @return  the cosine of the argument.
      */
-    public static native double asin(double d);
+    public static native double cos(double a);
 
-    /**
-     * Returns the closest double approximation of the arc tangent of the
-     * argument within the range {@code [-pi/2..pi/2]}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code atan(+0.0) = +0.0}</li>
-     * <li>{@code atan(-0.0) = -0.0}</li>
-     * <li>{@code atan(+infinity) = +pi/2}</li>
-     * <li>{@code atan(-infinity) = -pi/2}</li>
-     * <li>{@code atan(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the trigonometric tangent of an angle. Special cases:
+     * <ul><li>If the argument is NaN or an infinity, then the result
+     * is NaN.
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.</ul>
+     * {@description.close}
      *
-     * @param d
-     *            the value whose arc tangent has to be computed.
-     * @return the arc tangent of the argument.
+     * @param   a   an angle, in radians.
+     * @return  the tangent of the argument.
      */
-    public static native double atan(double d);
+    public static native double tan(double a);
 
-    /**
-     * Returns the closest double approximation of the arc tangent of
-     * {@code y/x} within the range {@code [-pi..pi]}. This is the angle of the
-     * polar representation of the rectangular coordinates (x,y).
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code atan2((anything), NaN ) = NaN;}</li>
-     * <li>{@code atan2(NaN , (anything) ) = NaN;}</li>
-     * <li>{@code atan2(+0.0, +(anything but NaN)) = +0.0}</li>
-     * <li>{@code atan2(-0.0, +(anything but NaN)) = -0.0}</li>
-     * <li>{@code atan2(+0.0, -(anything but NaN)) = +pi}</li>
-     * <li>{@code atan2(-0.0, -(anything but NaN)) = -pi}</li>
-     * <li>{@code atan2(+(anything but 0 and NaN), 0) = +pi/2}</li>
-     * <li>{@code atan2(-(anything but 0 and NaN), 0) = -pi/2}</li>
-     * <li>{@code atan2(+(anything but infinity and NaN), +infinity)} {@code =}
-     * {@code +0.0}</li>
-     * <li>{@code atan2(-(anything but infinity and NaN), +infinity)} {@code =}
-     * {@code -0.0}</li>
-     * <li>{@code atan2(+(anything but infinity and NaN), -infinity) = +pi}</li>
-     * <li>{@code atan2(-(anything but infinity and NaN), -infinity) = -pi}</li>
-     * <li>{@code atan2(+infinity, +infinity ) = +pi/4}</li>
-     * <li>{@code atan2(-infinity, +infinity ) = -pi/4}</li>
-     * <li>{@code atan2(+infinity, -infinity ) = +3pi/4}</li>
-     * <li>{@code atan2(-infinity, -infinity ) = -3pi/4}</li>
-     * <li>{@code atan2(+infinity, (anything but,0, NaN, and infinity))}
-     * {@code =} {@code +pi/2}</li>
-     * <li>{@code atan2(-infinity, (anything but,0, NaN, and infinity))}
-     * {@code =} {@code -pi/2}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the arc sine of a value; the returned angle is in the
+     * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
+     * <ul><li>If the argument is NaN or its absolute value is greater
+     * than 1, then the result is NaN.
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.</ul>
+     * {@description.close}
      *
-     * @param y
-     *            the numerator of the value whose atan has to be computed.
-     * @param x
-     *            the denominator of the value whose atan has to be computed.
-     * @return the arc tangent of {@code y/x}.
+     * @param   a   the value whose arc sine is to be returned.
+     * @return  the arc sine of the argument.
+     */
+    public static native double asin(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the arc cosine of a value; the returned angle is in the
+     * range 0.0 through <i>pi</i>.  Special case:
+     * <ul><li>If the argument is NaN or its absolute value is greater
+     * than 1, then the result is NaN.</ul>
+     * {@description.close}
+     *
+     * @param   a   the value whose arc cosine is to be returned.
+     * @return  the arc cosine of the argument.
+     */
+    public static native double acos(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the arc tangent of a value; the returned angle is in the
+     * range -<i>pi</i>/2 through <i>pi</i>/2.  Special cases:
+     * <ul><li>If the argument is NaN, then the result is NaN.
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.</ul>
+     * {@description.close}
+     *
+     * @param   a   the value whose arc tangent is to be returned.
+     * @return  the arc tangent of the argument.
+     */
+    public static native double atan(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Converts an angle measured in degrees to an approximately
+     * equivalent angle measured in radians.  The conversion from
+     * degrees to radians is generally inexact.
+     * {@description.close}
+     *
+     * @param   angdeg   an angle, in degrees
+     * @return  the measurement of the angle {@code angdeg}
+     *          in radians.
+     */
+    public static strictfp double toRadians(double angdeg) {
+        return angdeg / 180.0 * PI;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Converts an angle measured in radians to an approximately
+     * equivalent angle measured in degrees.  The conversion from
+     * radians to degrees is generally inexact; users should
+     * <i>not</i> expect {@code cos(toRadians(90.0))} to exactly
+     * equal {@code 0.0}.
+     * {@description.close}
+     *
+     * @param   angrad   an angle, in radians
+     * @return  the measurement of the angle {@code angrad}
+     *          in degrees.
+     */
+    public static strictfp double toDegrees(double angrad) {
+        return angrad * 180.0 / PI;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns Euler's number <i>e</i> raised to the power of a
+     * {@code double} value. Special cases:
+     * <ul><li>If the argument is NaN, the result is NaN.
+     * <li>If the argument is positive infinity, then the result is
+     * positive infinity.
+     * <li>If the argument is negative infinity, then the result is
+     * positive zero.</ul>
+     * {@description.close}
+     *
+     * @param   a   the exponent to raise <i>e</i> to.
+     * @return  the value <i>e</i><sup>{@code a}</sup>,
+     *          where <i>e</i> is the base of the natural logarithms.
+     */
+    public static native double exp(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the natural logarithm (base <i>e</i>) of a {@code double}
+     * value. Special cases:
+     * <ul><li>If the argument is NaN or less than zero, then the result
+     * is NaN.
+     * <li>If the argument is positive infinity, then the result is
+     * positive infinity.
+     * <li>If the argument is positive zero or negative zero, then the
+     * result is negative infinity.</ul>
+     * {@description.close}
+     *
+     * @param   a   a value
+     * @return  the value ln&nbsp;{@code a}, the natural logarithm of
+     *          {@code a}.
+     */
+    public static native double log(double a);
+
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the base 10 logarithm of a {@code double} value.
+     * Special cases:
+     *
+     * <ul><li>If the argument is NaN or less than zero, then the result
+     * is NaN.
+     * <li>If the argument is positive infinity, then the result is
+     * positive infinity.
+     * <li>If the argument is positive zero or negative zero, then the
+     * result is negative infinity.
+     * <li> If the argument is equal to 10<sup><i>n</i></sup> for
+     * integer <i>n</i>, then the result is <i>n</i>.
+     * </ul>
+     * {@description.close}
+     *
+     * @param   a   a value
+     * @return  the base 10 logarithm of  {@code a}.
+     * @since 1.5
+     */
+    public static native double log10(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the correctly rounded positive square root of a
+     * {@code double} value.
+     * Special cases:
+     * <ul><li>If the argument is NaN or less than zero, then the result
+     * is NaN.
+     * <li>If the argument is positive infinity, then the result is positive
+     * infinity.
+     * <li>If the argument is positive zero or negative zero, then the
+     * result is the same as the argument.</ul>
+     * Otherwise, the result is the {@code double} value closest to
+     * the true mathematical square root of the argument value.
+     * {@description.close}
+     *
+     * @param   a   a value.
+     * @return  the positive square root of {@code a}.
+     */
+    public static native double sqrt(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the cube root of a {@code double} value.  For
+     * positive finite {@code x}, {@code cbrt(-x) ==
+     * -cbrt(x)}; that is, the cube root of a negative value is
+     * the negative of the cube root of that value's magnitude.
+     * Special cases:
+     *
+     * <ul>
+     *
+     * <li>If the argument is NaN, then the result is NaN.
+     *
+     * <li>If the argument is infinite, then the result is an infinity
+     * with the same sign as the argument.
+     *
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param   a   a value.
+     * @return  the cube root of {@code a}.
+     * @since 1.5
+     */
+    public static native double cbrt(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Computes the remainder operation on two arguments as prescribed
+     * by the IEEE 754 standard.
+     * The remainder value is mathematically equal to
+     * <code>f1&nbsp;-&nbsp;f2</code>&nbsp;&times;&nbsp;<i>n</i>,
+     * where <i>n</i> is the mathematical integer closest to the exact
+     * mathematical value of the quotient {@code f1/f2}, and if two
+     * mathematical integers are equally close to {@code f1/f2},
+     * then <i>n</i> is the integer that is even. If the remainder is
+     * zero, its sign is the same as the sign of the first argument.
+     * Special cases:
+     * <ul><li>If either argument is NaN, or the first argument is infinite,
+     * or the second argument is positive zero or negative zero, then the
+     * result is NaN.
+     * <li>If the first argument is finite and the second argument is
+     * infinite, then the result is the same as the first argument.</ul>
+     * {@description.close}
+     *
+     * @param   f1   the dividend.
+     * @param   f2   the divisor.
+     * @return  the remainder when {@code f1} is divided by
+     *          {@code f2}.
+     */
+    public static native double IEEEremainder(double f1, double f2);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the smallest (closest to negative infinity)
+     * {@code double} value that is greater than or equal to the
+     * argument and is equal to a mathematical integer. Special cases:
+     * <ul><li>If the argument value is already equal to a
+     * mathematical integer, then the result is the same as the
+     * argument.  <li>If the argument is NaN or an infinity or
+     * positive zero or negative zero, then the result is the same as
+     * the argument.  <li>If the argument value is less than zero but
+     * greater than -1.0, then the result is negative zero.</ul> Note
+     * that the value of {@code StrictMath.ceil(x)} is exactly the
+     * value of {@code -StrictMath.floor(-x)}.
+     * {@description.close}
+     *
+     * @param   a   a value.
+     * @return  the smallest (closest to negative infinity)
+     *          floating-point value that is greater than or equal to
+     *          the argument and is equal to a mathematical integer.
+     */
+    public static native double ceil(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the largest (closest to positive infinity)
+     * {@code double} value that is less than or equal to the
+     * argument and is equal to a mathematical integer. Special cases:
+     * <ul><li>If the argument value is already equal to a
+     * mathematical integer, then the result is the same as the
+     * argument.  <li>If the argument is NaN or an infinity or
+     * positive zero or negative zero, then the result is the same as
+     * the argument.</ul>
+     * {@description.close}
+     *
+     * @param   a   a value.
+     * @return  the largest (closest to positive infinity)
+     *          floating-point value that less than or equal to the argument
+     *          and is equal to a mathematical integer.
+     */
+    public static native double floor(double a);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the {@code double} value that is closest in value
+     * to the argument and is equal to a mathematical integer. If two
+     * {@code double} values that are mathematical integers are
+     * equally close to the value of the argument, the result is the
+     * integer value that is even. Special cases:
+     * <ul><li>If the argument value is already equal to a mathematical
+     * integer, then the result is the same as the argument.
+     * <li>If the argument is NaN or an infinity or positive zero or negative
+     * zero, then the result is the same as the argument.</ul>
+     * {@description.close}
+     *
+     * @param   a   a value.
+     * @return  the closest floating-point value to {@code a} that is
+     *          equal to a mathematical integer.
+     * @author Joseph D. Darcy
+     */
+    public static double rint(double a) {
+        /*
+         * If the absolute value of a is not less than 2^52, it
+         * is either a finite integer (the double format does not have
+         * enough significand bits for a number that large to have any
+         * fractional portion), an infinity, or a NaN.  In any of
+         * these cases, rint of the argument is the argument.
+         *
+         * Otherwise, the sum (twoToThe52 + a ) will properly round
+         * away any fractional portion of a since ulp(twoToThe52) ==
+         * 1.0; subtracting out twoToThe52 from this sum will then be
+         * exact and leave the rounded integer portion of a.
+         *
+         * This method does *not* need to be declared strictfp to get
+         * fully reproducible results.  Whether or not a method is
+         * declared strictfp can only make a difference in the
+         * returned result if some operation would overflow or
+         * underflow with strictfp semantics.  The operation
+         * (twoToThe52 + a ) cannot overflow since large values of a
+         * are screened out; the add cannot underflow since twoToThe52
+         * is too large.  The subtraction ((twoToThe52 + a ) -
+         * twoToThe52) will be exact as discussed above and thus
+         * cannot overflow or meaningfully underflow.  Finally, the
+         * last multiply in the return statement is by plus or minus
+         * 1.0, which is exact too.
+         */
+        double twoToThe52 = (double)(1L << 52); // 2^52
+        double sign = FpUtils.rawCopySign(1.0, a); // preserve sign info
+        a = Math.abs(a);
+
+        if (a < twoToThe52) { // E_min <= ilogb(a) <= 51
+            a = ((twoToThe52 + a ) - twoToThe52);
+        }
+
+        return sign * a; // restore original sign
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the angle <i>theta</i> from the conversion of rectangular
+     * coordinates ({@code x},&nbsp;{@code y}) to polar
+     * coordinates (r,&nbsp;<i>theta</i>).
+     * This method computes the phase <i>theta</i> by computing an arc tangent
+     * of {@code y/x} in the range of -<i>pi</i> to <i>pi</i>. Special
+     * cases:
+     * <ul><li>If either argument is NaN, then the result is NaN.
+     * <li>If the first argument is positive zero and the second argument
+     * is positive, or the first argument is positive and finite and the
+     * second argument is positive infinity, then the result is positive
+     * zero.
+     * <li>If the first argument is negative zero and the second argument
+     * is positive, or the first argument is negative and finite and the
+     * second argument is positive infinity, then the result is negative zero.
+     * <li>If the first argument is positive zero and the second argument
+     * is negative, or the first argument is positive and finite and the
+     * second argument is negative infinity, then the result is the
+     * {@code double} value closest to <i>pi</i>.
+     * <li>If the first argument is negative zero and the second argument
+     * is negative, or the first argument is negative and finite and the
+     * second argument is negative infinity, then the result is the
+     * {@code double} value closest to -<i>pi</i>.
+     * <li>If the first argument is positive and the second argument is
+     * positive zero or negative zero, or the first argument is positive
+     * infinity and the second argument is finite, then the result is the
+     * {@code double} value closest to <i>pi</i>/2.
+     * <li>If the first argument is negative and the second argument is
+     * positive zero or negative zero, or the first argument is negative
+     * infinity and the second argument is finite, then the result is the
+     * {@code double} value closest to -<i>pi</i>/2.
+     * <li>If both arguments are positive infinity, then the result is the
+     * {@code double} value closest to <i>pi</i>/4.
+     * <li>If the first argument is positive infinity and the second argument
+     * is negative infinity, then the result is the {@code double}
+     * value closest to 3*<i>pi</i>/4.
+     * <li>If the first argument is negative infinity and the second argument
+     * is positive infinity, then the result is the {@code double} value
+     * closest to -<i>pi</i>/4.
+     * <li>If both arguments are negative infinity, then the result is the
+     * {@code double} value closest to -3*<i>pi</i>/4.</ul>
+     * {@description.close}
+     *
+     * @param   y   the ordinate coordinate
+     * @param   x   the abscissa coordinate
+     * @return  the <i>theta</i> component of the point
+     *          (<i>r</i>,&nbsp;<i>theta</i>)
+     *          in polar coordinates that corresponds to the point
+     *          (<i>x</i>,&nbsp;<i>y</i>) in Cartesian coordinates.
      */
     public static native double atan2(double y, double x);
 
-    /**
-     * Returns the closest double approximation of the cube root of the
-     * argument.
-     * <p>
-     * Special cases:
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of the first argument raised to the power of the
+     * second argument. Special cases:
+     *
+     * <ul><li>If the second argument is positive or negative zero, then the
+     * result is 1.0.
+     * <li>If the second argument is 1.0, then the result is the same as the
+     * first argument.
+     * <li>If the second argument is NaN, then the result is NaN.
+     * <li>If the first argument is NaN and the second argument is nonzero,
+     * then the result is NaN.
+     *
+     * <li>If
      * <ul>
-     * <li>{@code cbrt(+0.0) = +0.0}</li>
-     * <li>{@code cbrt(-0.0) = -0.0}</li>
-     * <li>{@code cbrt(+infinity) = +infinity}</li>
-     * <li>{@code cbrt(-infinity) = -infinity}</li>
-     * <li>{@code cbrt(NaN) = NaN}</li>
+     * <li>the absolute value of the first argument is greater than 1
+     * and the second argument is positive infinity, or
+     * <li>the absolute value of the first argument is less than 1 and
+     * the second argument is negative infinity,
+     * </ul>
+     * then the result is positive infinity.
+     *
+     * <li>If
+     * <ul>
+     * <li>the absolute value of the first argument is greater than 1 and
+     * the second argument is negative infinity, or
+     * <li>the absolute value of the
+     * first argument is less than 1 and the second argument is positive
+     * infinity,
+     * </ul>
+     * then the result is positive zero.
+     *
+     * <li>If the absolute value of the first argument equals 1 and the
+     * second argument is infinite, then the result is NaN.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is positive zero and the second argument
+     * is greater than zero, or
+     * <li>the first argument is positive infinity and the second
+     * argument is less than zero,
+     * </ul>
+     * then the result is positive zero.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is positive zero and the second argument
+     * is less than zero, or
+     * <li>the first argument is positive infinity and the second
+     * argument is greater than zero,
+     * </ul>
+     * then the result is positive infinity.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is negative zero and the second argument
+     * is greater than zero but not a finite odd integer, or
+     * <li>the first argument is negative infinity and the second
+     * argument is less than zero but not a finite odd integer,
+     * </ul>
+     * then the result is positive zero.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is negative zero and the second argument
+     * is a positive finite odd integer, or
+     * <li>the first argument is negative infinity and the second
+     * argument is a negative finite odd integer,
+     * </ul>
+     * then the result is negative zero.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is negative zero and the second argument
+     * is less than zero but not a finite odd integer, or
+     * <li>the first argument is negative infinity and the second
+     * argument is greater than zero but not a finite odd integer,
+     * </ul>
+     * then the result is positive infinity.
+     *
+     * <li>If
+     * <ul>
+     * <li>the first argument is negative zero and the second argument
+     * is a negative finite odd integer, or
+     * <li>the first argument is negative infinity and the second
+     * argument is a positive finite odd integer,
+     * </ul>
+     * then the result is negative infinity.
+     *
+     * <li>If the first argument is finite and less than zero
+     * <ul>
+     * <li> if the second argument is a finite even integer, the
+     * result is equal to the result of raising the absolute value of
+     * the first argument to the power of the second argument
+     *
+     * <li>if the second argument is a finite odd integer, the result
+     * is equal to the negative of the result of raising the absolute
+     * value of the first argument to the power of the second
+     * argument
+     *
+     * <li>if the second argument is finite and not an integer, then
+     * the result is NaN.
      * </ul>
      *
-     * @param d
-     *            the value whose cube root has to be computed.
-     * @return the cube root of the argument.
+     * <li>If both arguments are integers, then the result is exactly equal
+     * to the mathematical result of raising the first argument to the power
+     * of the second argument if that result can in fact be represented
+     * exactly as a {@code double} value.</ul>
+     *
+     * <p>(In the foregoing descriptions, a floating-point value is
+     * considered to be an integer if and only if it is finite and a
+     * fixed point of the method {@link #ceil ceil} or,
+     * equivalently, a fixed point of the method {@link #floor
+     * floor}. A value is a fixed point of a one-argument
+     * method if and only if the result of applying the method to the
+     * value is equal to the value.)
+     * {@description.close}
+     *
+     * @param   a   base.
+     * @param   b   the exponent.
+     * @return  the value {@code a}<sup>{@code b}</sup>.
      */
-    public static native double cbrt(double d);
+    public static native double pow(double a, double b);
 
-    /**
-     * Returns the double conversion of the most negative (closest to negative
-     * infinity) integer value which is greater than the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code ceil(+0.0) = +0.0}</li>
-     * <li>{@code ceil(-0.0) = -0.0}</li>
-     * <li>{@code ceil((anything in range (-1,0)) = -0.0}</li>
-     * <li>{@code ceil(+infinity) = +infinity}</li>
-     * <li>{@code ceil(-infinity) = -infinity}</li>
-     * <li>{@code ceil(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the closest {@code int} to the argument. The
+     * result is rounded to an integer by adding 1/2, taking the
+     * floor of the result, and casting the result to type {@code int}.
+     * In other words, the result is equal to the value of the expression:
+     * <p>{@code (int)Math.floor(a + 0.5f)}
      *
-     * @param d
-     *            the value whose closest integer value has to be computed.
-     * @return the ceiling of the argument.
+     * <p>Special cases:
+     * <ul><li>If the argument is NaN, the result is 0.
+     * <li>If the argument is negative infinity or any value less than or
+     * equal to the value of {@code Integer.MIN_VALUE}, the result is
+     * equal to the value of {@code Integer.MIN_VALUE}.
+     * <li>If the argument is positive infinity or any value greater than or
+     * equal to the value of {@code Integer.MAX_VALUE}, the result is
+     * equal to the value of {@code Integer.MAX_VALUE}.</ul>
+     * {@description.close}
+     *
+     * @param   a   a floating-point value to be rounded to an integer.
+     * @return  the value of the argument rounded to the nearest
+     *          {@code int} value.
+     * @see     java.lang.Integer#MAX_VALUE
+     * @see     java.lang.Integer#MIN_VALUE
      */
-    public static native double ceil(double d);
+    public static int round(float a) {
+        return (int)floor(a + 0.5f);
+    }
 
-
-    /**
-     * Returns the closest double approximation of the hyperbolic cosine of the
-     * argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code cosh(+infinity) = +infinity}</li>
-     * <li>{@code cosh(-infinity) = +infinity}</li>
-     * <li>{@code cosh(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the closest {@code long} to the argument. The result
+     * is rounded to an integer by adding 1/2, taking the floor of the
+     * result, and casting the result to type {@code long}. In other
+     * words, the result is equal to the value of the expression:
+     * <p>{@code (long)Math.floor(a + 0.5d)}
      *
-     * @param d
-     *            the value whose hyperbolic cosine has to be computed.
-     * @return the hyperbolic cosine of the argument.
+     * <p>Special cases:
+     * <ul><li>If the argument is NaN, the result is 0.
+     * <li>If the argument is negative infinity or any value less than or
+     * equal to the value of {@code Long.MIN_VALUE}, the result is
+     * equal to the value of {@code Long.MIN_VALUE}.
+     * <li>If the argument is positive infinity or any value greater than or
+     * equal to the value of {@code Long.MAX_VALUE}, the result is
+     * equal to the value of {@code Long.MAX_VALUE}.</ul>
+     * {@description.close}
+     *
+     * @param   a  a floating-point value to be rounded to a
+     *          {@code long}.
+     * @return  the value of the argument rounded to the nearest
+     *          {@code long} value.
+     * @see     java.lang.Long#MAX_VALUE
+     * @see     java.lang.Long#MIN_VALUE
      */
-    public static native double cosh(double d);
+    public static long round(double a) {
+        return (long)floor(a + 0.5d);
+    }
 
-    /**
-     * Returns the closest double approximation of the cosine of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code cos(+infinity) = NaN}</li>
-     * <li>{@code cos(-infinity) = NaN}</li>
-     * <li>{@code cos(NaN) = NaN}</li>
-     * </ul>
+    private static Random randomNumberGenerator;
+
+    private static synchronized void initRNG() {
+        if (randomNumberGenerator == null)
+            randomNumberGenerator = new Random();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a {@code double} value with a positive sign, greater
+     * than or equal to {@code 0.0} and less than {@code 1.0}.
+     * Returned values are chosen pseudorandomly with (approximately)
+     * uniform distribution from that range.
      *
-     * @param d
-     *            the angle whose cosine has to be computed, in radians.
-     * @return the cosine of the argument.
+     * <p>When this method is first called, it creates a single new
+     * pseudorandom-number generator, exactly as if by the expression
+     * <blockquote>{@code new java.util.Random}</blockquote> This
+     * new pseudorandom-number generator is used thereafter for all
+     * calls to this method and is used nowhere else.
+     * {@description.close}
+     *
+     * {@property.open runtime performance formal:java.lang.StrictMath_ContendedRandom}
+     * <p>This method is properly synchronized to allow correct use by
+     * more than one thread. However, if many threads need to generate
+     * pseudorandom numbers at a great rate, it may reduce contention
+     * for each thread to have its own pseudorandom number generator.
+     * {@property.close}
+     *
+     * @return  a pseudorandom {@code double} greater than or equal
+     * to {@code 0.0} and less than {@code 1.0}.
+     * @see     java.util.Random#nextDouble()
      */
-    public static native double cos(double d);
+    public static double random() {
+        if (randomNumberGenerator == null) initRNG();
+        return randomNumberGenerator.nextDouble();
+    }
 
-    /**
-     * Returns the closest double approximation of the raising "e" to the power
-     * of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code exp(+infinity) = +infinity}</li>
-     * <li>{@code exp(-infinity) = +0.0}</li>
-     * <li>{@code exp(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats}
+     * {@description.open} 
+     * Returns the absolute value of an {@code int} value..
+     * If the argument is not negative, the argument is returned.
+     * If the argument is negative, the negation of the argument is returned.
      *
-     * @param d
-     *            the value whose exponential has to be computed.
-     * @return the exponential of the argument.
+     * <p>Note that if the argument is equal to the value of
+     * {@link Integer#MIN_VALUE}, the most negative representable
+     * {@code int} value, the result is that same value, which is
+     * negative.
+     * {@description.close}
+     *
+     * @param   a   the  argument whose absolute value is to be determined.
+     * @return  the absolute value of the argument.
      */
-    public static native double exp(double d);
+    public static int abs(int a) {
+        return (a < 0) ? -a : a;
+    }
 
-    /**
-     * Returns the closest double approximation of <i>{@code e}</i><sup>
-     * {@code d}</sup>{@code - 1}. If the argument is very close to 0, it is
-     * much more accurate to use {@code expm1(d)+1} than {@code exp(d)} (due to
-     * cancellation of significant digits).
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code expm1(+0.0) = +0.0}</li>
-     * <li>{@code expm1(-0.0) = -0.0}</li>
-     * <li>{@code expm1(+infinity) = +infinity}</li>
-     * <li>{@code expm1(-infinity) = -1.0}</li>
-     * <li>{@code expm1(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the absolute value of a {@code long} value.
+     * If the argument is not negative, the argument is returned.
+     * If the argument is negative, the negation of the argument is returned.
      *
-     * @param d
-     *            the value to compute the <i>{@code e}</i><sup>{@code d}</sup>
-     *            {@code - 1} of.
-     * @return the <i>{@code e}</i><sup>{@code d}</sup>{@code - 1} value
-     *         of the argument.
+     * <p>Note that if the argument is equal to the value of
+     * {@link Long#MIN_VALUE}, the most negative representable
+     * {@code long} value, the result is that same value, which
+     * is negative.
+     * {@description.close}
+     *
+     * @param   a   the  argument whose absolute value is to be determined.
+     * @return  the absolute value of the argument.
      */
-    public static native double expm1(double d);
+    public static long abs(long a) {
+        return (a < 0) ? -a : a;
+    }
 
-    /**
-     * Returns the double conversion of the most positive (closest to
-     * positive infinity) integer value which is less than the argument.
-     * <p>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the absolute value of a {@code float} value.
+     * If the argument is not negative, the argument is returned.
+     * If the argument is negative, the negation of the argument is returned.
      * Special cases:
-     * <ul>
-     * <li>{@code floor(+0.0) = +0.0}</li>
-     * <li>{@code floor(-0.0) = -0.0}</li>
-     * <li>{@code floor(+infinity) = +infinity}</li>
-     * <li>{@code floor(-infinity) = -infinity}</li>
-     * <li>{@code floor(NaN) = NaN}</li>
-     * </ul>
+     * <ul><li>If the argument is positive zero or negative zero, the
+     * result is positive zero.
+     * <li>If the argument is infinite, the result is positive infinity.
+     * <li>If the argument is NaN, the result is NaN.</ul>
+     * In other words, the result is the same as the value of the expression:
+     * <p>{@code Float.intBitsToFloat(0x7fffffff & Float.floatToIntBits(a))}
+     * {@description.close}
      *
-     * @param d the value whose closest integer value has to be computed.
-     * @return the floor of the argument.
+     * @param   a   the argument whose absolute value is to be determined
+     * @return  the absolute value of the argument.
      */
-    public static native double floor(double d);
+    public static float abs(float a) {
+        return (a <= 0.0F) ? 0.0F - a : a;
+    }
 
-    /**
-     * Returns {@code sqrt(}<i>{@code x}</i><sup>{@code 2}</sup>{@code +}
-     * <i> {@code y}</i><sup>{@code 2}</sup>{@code )}. The final result is
-     * without medium underflow or overflow.
-     * <p>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the absolute value of a {@code double} value.
+     * If the argument is not negative, the argument is returned.
+     * If the argument is negative, the negation of the argument is returned.
      * Special cases:
-     * <ul>
-     * <li>{@code hypot(+infinity, (anything including NaN)) = +infinity}</li>
-     * <li>{@code hypot(-infinity, (anything including NaN)) = +infinity}</li>
-     * <li>{@code hypot((anything including NaN), +infinity) = +infinity}</li>
-     * <li>{@code hypot((anything including NaN), -infinity) = +infinity}</li>
-     * <li>{@code hypot(NaN, NaN) = NaN}</li>
-     * </ul>
+     * <ul><li>If the argument is positive zero or negative zero, the result
+     * is positive zero.
+     * <li>If the argument is infinite, the result is positive infinity.
+     * <li>If the argument is NaN, the result is NaN.</ul>
+     * In other words, the result is the same as the value of the expression:
+     * <p>{@code Double.longBitsToDouble((Double.doubleToLongBits(a)<<1)>>>1)}
+     * {@description.close}
      *
-     * @param x
-     *            a double number.
-     * @param y
-     *            a double number.
-     * @return the {@code sqrt(}<i>{@code x}</i><sup>{@code 2}</sup>{@code +}
-     *         <i> {@code y}</i><sup>{@code 2}</sup>{@code )} value of the
-     *         arguments.
+     * @param   a   the argument whose absolute value is to be determined
+     * @return  the absolute value of the argument.
+     */
+    public static double abs(double a) {
+        return (a <= 0.0D) ? 0.0D - a : a;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the greater of two {@code int} values. That is, the
+     * result is the argument closer to the value of
+     * {@link Integer#MAX_VALUE}. If the arguments have the same value,
+     * the result is that same value.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the larger of {@code a} and {@code b}.
+     */
+    public static int max(int a, int b) {
+        return (a >= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the greater of two {@code long} values. That is, the
+     * result is the argument closer to the value of
+     * {@link Long#MAX_VALUE}. If the arguments have the same value,
+     * the result is that same value.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the larger of {@code a} and {@code b}.
+        */
+    public static long max(long a, long b) {
+        return (a >= b) ? a : b;
+    }
+
+    private static long negativeZeroFloatBits = Float.floatToIntBits(-0.0f);
+    private static long negativeZeroDoubleBits = Double.doubleToLongBits(-0.0d);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the greater of two {@code float} values.  That is,
+     * the result is the argument closer to positive infinity. If the
+     * arguments have the same value, the result is that same
+     * value. If either value is NaN, then the result is NaN.  Unlike
+     * the numerical comparison operators, this method considers
+     * negative zero to be strictly smaller than positive zero. If one
+     * argument is positive zero and the other negative zero, the
+     * result is positive zero.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the larger of {@code a} and {@code b}.
+     */
+    public static float max(float a, float b) {
+        if (a != a) return a;   // a is NaN
+        if ((a == 0.0f) && (b == 0.0f)
+            && (Float.floatToIntBits(a) == negativeZeroFloatBits)) {
+            return b;
+        }
+        return (a >= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the greater of two {@code double} values.  That
+     * is, the result is the argument closer to positive infinity. If
+     * the arguments have the same value, the result is that same
+     * value. If either value is NaN, then the result is NaN.  Unlike
+     * the numerical comparison operators, this method considers
+     * negative zero to be strictly smaller than positive zero. If one
+     * argument is positive zero and the other negative zero, the
+     * result is positive zero.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the larger of {@code a} and {@code b}.
+     */
+    public static double max(double a, double b) {
+        if (a != a) return a;   // a is NaN
+        if ((a == 0.0d) && (b == 0.0d)
+            && (Double.doubleToLongBits(a) == negativeZeroDoubleBits)) {
+            return b;
+        }
+        return (a >= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the smaller of two {@code int} values. That is,
+     * the result the argument closer to the value of
+     * {@link Integer#MIN_VALUE}.  If the arguments have the same
+     * value, the result is that same value.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the smaller of {@code a} and {@code b}.
+     */
+    public static int min(int a, int b) {
+        return (a <= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the smaller of two {@code long} values. That is,
+     * the result is the argument closer to the value of
+     * {@link Long#MIN_VALUE}. If the arguments have the same
+     * value, the result is that same value.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the smaller of {@code a} and {@code b}.
+     */
+    public static long min(long a, long b) {
+        return (a <= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the smaller of two {@code float} values.  That is,
+     * the result is the value closer to negative infinity. If the
+     * arguments have the same value, the result is that same
+     * value. If either value is NaN, then the result is NaN.  Unlike
+     * the numerical comparison operators, this method considers
+     * negative zero to be strictly smaller than positive zero.  If
+     * one argument is positive zero and the other is negative zero,
+     * the result is negative zero.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the smaller of {@code a} and {@code b.}
+     */
+    public static float min(float a, float b) {
+        if (a != a) return a;   // a is NaN
+        if ((a == 0.0f) && (b == 0.0f)
+            && (Float.floatToIntBits(b) == negativeZeroFloatBits)) {
+            return b;
+        }
+        return (a <= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the smaller of two {@code double} values.  That
+     * is, the result is the value closer to negative infinity. If the
+     * arguments have the same value, the result is that same
+     * value. If either value is NaN, then the result is NaN.  Unlike
+     * the numerical comparison operators, this method considers
+     * negative zero to be strictly smaller than positive zero. If one
+     * argument is positive zero and the other is negative zero, the
+     * result is negative zero.
+     * {@description.close}
+     *
+     * @param   a   an argument.
+     * @param   b   another argument.
+     * @return  the smaller of {@code a} and {@code b}.
+     */
+    public static double min(double a, double b) {
+        if (a != a) return a;   // a is NaN
+        if ((a == 0.0d) && (b == 0.0d)
+            && (Double.doubleToLongBits(b) == negativeZeroDoubleBits)) {
+            return b;
+        }
+        return (a <= b) ? a : b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the size of an ulp of the argument.  An ulp of a
+     * {@code double} value is the positive distance between this
+     * floating-point value and the {@code double} value next
+     * larger in magnitude.  Note that for non-NaN <i>x</i>,
+     * <code>ulp(-<i>x</i>) == ulp(<i>x</i>)</code>.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, then the result is NaN.
+     * <li> If the argument is positive or negative infinity, then the
+     * result is positive infinity.
+     * <li> If the argument is positive or negative zero, then the result is
+     * {@code Double.MIN_VALUE}.
+     * <li> If the argument is &plusmn;{@code Double.MAX_VALUE}, then
+     * the result is equal to 2<sup>971</sup>.
+     * </ul>
+     * {@description.close}
+     *
+     * @param d the floating-point value whose ulp is to be returned
+     * @return the size of an ulp of the argument
+     * @author Joseph D. Darcy
+     * @since 1.5
+     */
+    public static double ulp(double d) {
+        return sun.misc.FpUtils.ulp(d);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the size of an ulp of the argument.  An ulp of a
+     * {@code float} value is the positive distance between this
+     * floating-point value and the {@code float} value next
+     * larger in magnitude.  Note that for non-NaN <i>x</i>,
+     * <code>ulp(-<i>x</i>) == ulp(<i>x</i>)</code>.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, then the result is NaN.
+     * <li> If the argument is positive or negative infinity, then the
+     * result is positive infinity.
+     * <li> If the argument is positive or negative zero, then the result is
+     * {@code Float.MIN_VALUE}.
+     * <li> If the argument is &plusmn;{@code Float.MAX_VALUE}, then
+     * the result is equal to 2<sup>104</sup>.
+     * </ul>
+     * {@description.close}
+     *
+     * @param f the floating-point value whose ulp is to be returned
+     * @return the size of an ulp of the argument
+     * @author Joseph D. Darcy
+     * @since 1.5
+     */
+    public static float ulp(float f) {
+        return sun.misc.FpUtils.ulp(f);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the signum function of the argument; zero if the argument
+     * is zero, 1.0 if the argument is greater than zero, -1.0 if the
+     * argument is less than zero.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, then the result is NaN.
+     * <li> If the argument is positive zero or negative zero, then the
+     *      result is the same as the argument.
+     * </ul>
+     * {@description.close}
+     *
+     * @param d the floating-point value whose signum is to be returned
+     * @return the signum function of the argument
+     * @author Joseph D. Darcy
+     * @since 1.5
+     */
+    public static double signum(double d) {
+        return sun.misc.FpUtils.signum(d);
+    }
+
+    /** {@collect.stats}
+     * {@description.open} 
+     * Returns the signum function of the argument; zero if the argument
+     * is zero, 1.0f if the argument is greater than zero, -1.0f if the
+     * argument is less than zero.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, then the result is NaN.
+     * <li> If the argument is positive zero or negative zero, then the
+     *      result is the same as the argument.
+     * </ul>
+     * {@description.close}
+     *
+     * @param f the floating-point value whose signum is to be returned
+     * @return the signum function of the argument
+     * @author Joseph D. Darcy
+     * @since 1.5
+     */
+    public static float signum(float f) {
+        return sun.misc.FpUtils.signum(f);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the hyperbolic sine of a {@code double} value.
+     * The hyperbolic sine of <i>x</i> is defined to be
+     * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/2
+     * where <i>e</i> is {@linkplain Math#E Euler's number}.
+     *
+     * <p>Special cases:
+     * <ul>
+     *
+     * <li>If the argument is NaN, then the result is NaN.
+     *
+     * <li>If the argument is infinite, then the result is an infinity
+     * with the same sign as the argument.
+     *
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param   x The number whose hyperbolic sine is to be returned.
+     * @return  The hyperbolic sine of {@code x}.
+     * @since 1.5
+     */
+    public static native double sinh(double x);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the hyperbolic cosine of a {@code double} value.
+     * The hyperbolic cosine of <i>x</i> is defined to be
+     * (<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>)/2
+     * where <i>e</i> is {@linkplain Math#E Euler's number}.
+     *
+     * <p>Special cases:
+     * <ul>
+     *
+     * <li>If the argument is NaN, then the result is NaN.
+     *
+     * <li>If the argument is infinite, then the result is positive
+     * infinity.
+     *
+     * <li>If the argument is zero, then the result is {@code 1.0}.
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param   x The number whose hyperbolic cosine is to be returned.
+     * @return  The hyperbolic cosine of {@code x}.
+     * @since 1.5
+     */
+    public static native double cosh(double x);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the hyperbolic tangent of a {@code double} value.
+     * The hyperbolic tangent of <i>x</i> is defined to be
+     * (<i>e<sup>x</sup>&nbsp;-&nbsp;e<sup>-x</sup></i>)/(<i>e<sup>x</sup>&nbsp;+&nbsp;e<sup>-x</sup></i>),
+     * in other words, {@linkplain Math#sinh
+     * sinh(<i>x</i>)}/{@linkplain Math#cosh cosh(<i>x</i>)}.  Note
+     * that the absolute value of the exact tanh is always less than
+     * 1.
+     *
+     * <p>Special cases:
+     * <ul>
+     *
+     * <li>If the argument is NaN, then the result is NaN.
+     *
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
+     *
+     * <li>If the argument is positive infinity, then the result is
+     * {@code +1.0}.
+     *
+     * <li>If the argument is negative infinity, then the result is
+     * {@code -1.0}.
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param   x The number whose hyperbolic tangent is to be returned.
+     * @return  The hyperbolic tangent of {@code x}.
+     * @since 1.5
+     */
+    public static native double tanh(double x);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
+     * without intermediate overflow or underflow.
+     *
+     * <p>Special cases:
+     * <ul>
+     *
+     * <li> If either argument is infinite, then the result
+     * is positive infinity.
+     *
+     * <li> If either argument is NaN and neither argument is infinite,
+     * then the result is NaN.
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param x a value
+     * @param y a value
+     * @return sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
+     * without intermediate overflow or underflow
+     * @since 1.5
      */
     public static native double hypot(double x, double y);
 
-    /**
-     * Returns the remainder of dividing {@code x} by {@code y} using the IEEE
-     * 754 rules. The result is {@code x-round(x/p)*p} where {@code round(x/p)}
-     * is the nearest integer (rounded to even), but without numerical
-     * cancellation problems.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code IEEEremainder((anything), 0) = NaN}</li>
-     * <li>{@code IEEEremainder(+infinity, (anything)) = NaN}</li>
-     * <li>{@code IEEEremainder(-infinity, (anything)) = NaN}</li>
-     * <li>{@code IEEEremainder(NaN, (anything)) = NaN}</li>
-     * <li>{@code IEEEremainder((anything), NaN) = NaN}</li>
-     * <li>{@code IEEEremainder(x, +infinity) = x } where x is anything but
-     * +/-infinity</li>
-     * <li>{@code IEEEremainder(x, -infinity) = x } where x is anything but
-     * +/-infinity</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns <i>e</i><sup>x</sup>&nbsp;-1.  Note that for values of
+     * <i>x</i> near 0, the exact sum of
+     * {@code expm1(x)}&nbsp;+&nbsp;1 is much closer to the true
+     * result of <i>e</i><sup>x</sup> than {@code exp(x)}.
      *
-     * @param x
-     *            the numerator of the operation.
-     * @param y
-     *            the denominator of the operation.
-     * @return the IEEE754 floating point reminder of of {@code x/y}.
-     */
-    public static native double IEEEremainder(double x, double y);
-
-    /**
-     * Returns the closest double approximation of the natural logarithm of the
-     * argument.
-     * <p>
-     * Special cases:
+     * <p>Special cases:
      * <ul>
-     * <li>{@code log(+0.0) = -infinity}</li>
-     * <li>{@code log(-0.0) = -infinity}</li>
-     * <li>{@code log((anything < 0) = NaN}</li>
-     * <li>{@code log(+infinity) = +infinity}</li>
-     * <li>{@code log(-infinity) = NaN}</li>
-     * <li>{@code log(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is NaN, the result is NaN.
      *
-     * @param d
-     *            the value whose log has to be computed.
-     * @return the natural logarithm of the argument.
-     */
-    public static native double log(double d);
-
-    /**
-     * Returns the closest double approximation of the base 10 logarithm of the
-     * argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code log10(+0.0) = -infinity}</li>
-     * <li>{@code log10(-0.0) = -infinity}</li>
-     * <li>{@code log10((anything < 0) = NaN}</li>
-     * <li>{@code log10(+infinity) = +infinity}</li>
-     * <li>{@code log10(-infinity) = NaN}</li>
-     * <li>{@code log10(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is positive infinity, then the result is
+     * positive infinity.
      *
-     * @param d
-     *            the value whose base 10 log has to be computed.
-     * @return the natural logarithm of the argument.
-     */
-    public static native double log10(double d);
-
-    /**
-     * Returns the closest double approximation of the natural logarithm of the
-     * sum of the argument and 1. If the argument is very close to 0, it is much
-     * more accurate to use {@code log1p(d)} than {@code log(1.0+d)} (due to
-     * numerical cancellation).
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code log1p(+0.0) = +0.0}</li>
-     * <li>{@code log1p(-0.0) = -0.0}</li>
-     * <li>{@code log1p((anything < 1)) = NaN}</li>
-     * <li>{@code log1p(-1.0) = -infinity}</li>
-     * <li>{@code log1p(+infinity) = +infinity}</li>
-     * <li>{@code log1p(-infinity) = NaN}</li>
-     * <li>{@code log1p(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is negative infinity, then the result is
+     * -1.0.
      *
-     * @param d
-     *            the value to compute the {@code ln(1+d)} of.
-     * @return the natural logarithm of the sum of the argument and 1.
-     */
-    public static native double log1p(double d);
-
-    /**
-     * Returns the most positive (closest to positive infinity) of the two
-     * arguments.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code max(NaN, (anything)) = NaN}</li>
-     * <li>{@code max((anything), NaN) = NaN}</li>
-     * <li>{@code max(+0.0, -0.0) = +0.0}</li>
-     * <li>{@code max(-0.0, +0.0) = +0.0}</li>
-     * </ul>
-     */
-    public static double max(double d1, double d2) {
-        if (d1 > d2)
-            return d1;
-        if (d1 < d2)
-            return d2;
-        /* if either arg is NaN, return NaN */
-        if (d1 != d2)
-            return Double.NaN;
-        /* max( +0.0,-0.0) == +0.0 */
-        if (d1 == 0.0
-                && ((Double.doubleToLongBits(d1) & Double.doubleToLongBits(d2)) & 0x8000000000000000L) == 0)
-            return 0.0;
-        return d1;
-    }
-
-    /**
-     * Returns the most positive (closest to positive infinity) of the two
-     * arguments.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code max(NaN, (anything)) = NaN}</li>
-     * <li>{@code max((anything), NaN) = NaN}</li>
-     * <li>{@code max(+0.0, -0.0) = +0.0}</li>
-     * <li>{@code max(-0.0, +0.0) = +0.0}</li>
-     * </ul>
-     */
-    public static float max(float f1, float f2) {
-        if (f1 > f2)
-            return f1;
-        if (f1 < f2)
-            return f2;
-        /* if either arg is NaN, return NaN */
-        if (f1 != f2)
-            return Float.NaN;
-        /* max( +0.0,-0.0) == +0.0 */
-        if (f1 == 0.0f
-                && ((Float.floatToIntBits(f1) & Float.floatToIntBits(f2)) & 0x80000000) == 0)
-            return 0.0f;
-        return f1;
-    }
-
-    /**
-     * Returns the most positive (closest to positive infinity) of the two
-     * arguments.
-     */
-    public static int max(int i1, int i2) {
-        return Math.max(i1, i2);
-    }
-
-    /**
-     * Returns the most positive (closest to positive infinity) of the two
-     * arguments.
-     */
-    public static long max(long l1, long l2) {
-        return l1 > l2 ? l1 : l2;
-    }
-
-    /**
-     * Returns the most negative (closest to negative infinity) of the two
-     * arguments.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code min(NaN, (anything)) = NaN}</li>
-     * <li>{@code min((anything), NaN) = NaN}</li>
-     * <li>{@code min(+0.0, -0.0) = -0.0}</li>
-     * <li>{@code min(-0.0, +0.0) = -0.0}</li>
-     * </ul>
-     */
-    public static double min(double d1, double d2) {
-        if (d1 > d2)
-            return d2;
-        if (d1 < d2)
-            return d1;
-        /* if either arg is NaN, return NaN */
-        if (d1 != d2)
-            return Double.NaN;
-        /* min( +0.0,-0.0) == -0.0 */
-        if (d1 == 0.0
-                && ((Double.doubleToLongBits(d1) | Double.doubleToLongBits(d2)) & 0x8000000000000000l) != 0)
-            return 0.0 * (-1.0);
-        return d1;
-    }
-
-    /**
-     * Returns the most negative (closest to negative infinity) of the two
-     * arguments.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code min(NaN, (anything)) = NaN}</li>
-     * <li>{@code min((anything), NaN) = NaN}</li>
-     * <li>{@code min(+0.0, -0.0) = -0.0}</li>
-     * <li>{@code min(-0.0, +0.0) = -0.0}</li>
-     * </ul>
-     */
-    public static float min(float f1, float f2) {
-        if (f1 > f2)
-            return f2;
-        if (f1 < f2)
-            return f1;
-        /* if either arg is NaN, return NaN */
-        if (f1 != f2)
-            return Float.NaN;
-        /* min( +0.0,-0.0) == -0.0 */
-        if (f1 == 0.0f
-                && ((Float.floatToIntBits(f1) | Float.floatToIntBits(f2)) & 0x80000000) != 0)
-            return 0.0f * (-1.0f);
-        return f1;
-    }
-
-    /**
-     * Returns the most negative (closest to negative infinity) of the two
-     * arguments.
-     */
-    public static int min(int i1, int i2) {
-        return Math.min(i1, i2);
-    }
-
-    /**
-     * Returns the most negative (closest to negative infinity) of the two
-     * arguments.
-     */
-    public static long min(long l1, long l2) {
-        return l1 < l2 ? l1 : l2;
-    }
-
-    /**
-     * Returns the closest double approximation of the result of raising
-     * {@code x} to the power of {@code y}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code pow((anything), +0.0) = 1.0}</li>
-     * <li>{@code pow((anything), -0.0) = 1.0}</li>
-     * <li>{@code pow(x, 1.0) = x}</li>
-     * <li>{@code pow((anything), NaN) = NaN}</li>
-     * <li>{@code pow(NaN, (anything except 0)) = NaN}</li>
-     * <li>{@code pow(+/-(|x| > 1), +infinity) = +infinity}</li>
-     * <li>{@code pow(+/-(|x| > 1), -infinity) = +0.0}</li>
-     * <li>{@code pow(+/-(|x| < 1), +infinity) = +0.0}</li>
-     * <li>{@code pow(+/-(|x| < 1), -infinity) = +infinity}</li>
-     * <li>{@code pow(+/-1.0 , +infinity) = NaN}</li>
-     * <li>{@code pow(+/-1.0 , -infinity) = NaN}</li>
-     * <li>{@code pow(+0.0, (+anything except 0, NaN)) = +0.0}</li>
-     * <li>{@code pow(-0.0, (+anything except 0, NaN, odd integer)) = +0.0}</li>
-     * <li>{@code pow(+0.0, (-anything except 0, NaN)) = +infinity}</li>
-     * <li>{@code pow(-0.0, (-anything except 0, NAN, odd integer))} {@code =}
-     * {@code +infinity}</li>
-     * <li>{@code pow(-0.0, (odd integer)) = -pow( +0 , (odd integer) )}</li>
-     * <li>{@code pow(+infinity, (+anything except 0, NaN)) = +infinity}</li>
-     * <li>{@code pow(+infinity, (-anything except 0, NaN)) = +0.0}</li>
-     * <li>{@code pow(-infinity, (anything)) = -pow(0, (-anything))}</li>
-     * <li>{@code pow((-anything), (integer))} {@code =}
-     * {@code pow(-1,(integer))*pow(+anything,integer)}</li>
-     * <li>{@code pow((-anything except 0 and infinity), (non-integer))}
-     * {@code =} {@code NAN}</li>
-     * </ul>
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
      *
-     * @param x
-     *            the base of the operation.
-     * @param y
-     *            the exponent of the operation.
-     * @return {@code x} to the power of {@code y}.
-     */
-    public static native double pow(double x, double y);
-
-    /**
-     * Returns a pseudo-random number between 0.0 (inclusive) and 1.0
-     * (exclusive).
-     *
-     * @return a pseudo-random number.
-     */
-    public static double random() {
-        return Math.random();
-    }
-
-    /**
-     * Returns the double conversion of the result of rounding the argument to
-     * an integer. Tie breaks are rounded towards even.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code rint(+0.0) = +0.0}</li>
-     * <li>{@code rint(-0.0) = -0.0}</li>
-     * <li>{@code rint(+infinity) = +infinity}</li>
-     * <li>{@code rint(-infinity) = -infinity}</li>
-     * <li>{@code rint(NaN) = NaN}</li>
      * </ul>
+     * {@description.close}
      *
-     * @param d
-     *            the value to be rounded.
-     * @return the closest integer to the argument (as a double).
+     * @param   x   the exponent to raise <i>e</i> to in the computation of
+     *              <i>e</i><sup>{@code x}</sup>&nbsp;-1.
+     * @return  the value <i>e</i><sup>{@code x}</sup>&nbsp;-&nbsp;1.
+     * @since 1.5
      */
-    public static native double rint(double d);
+    public static native double expm1(double x);
 
-    /**
-     * Returns the result of rounding the argument to an integer. The result is
-     * equivalent to {@code (long) Math.floor(d+0.5)}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code round(+0.0) = +0.0}</li>
-     * <li>{@code round(-0.0) = +0.0}</li>
-     * <li>{@code round((anything > Long.MAX_VALUE) = Long.MAX_VALUE}</li>
-     * <li>{@code round((anything < Long.MIN_VALUE) = Long.MIN_VALUE}</li>
-     * <li>{@code round(+infinity) = Long.MAX_VALUE}</li>
-     * <li>{@code round(-infinity) = Long.MIN_VALUE}</li>
-     * <li>{@code round(NaN) = +0.0}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the natural logarithm of the sum of the argument and 1.
+     * Note that for small values {@code x}, the result of
+     * {@code log1p(x)} is much closer to the true result of ln(1
+     * + {@code x}) than the floating-point evaluation of
+     * {@code log(1.0+x)}.
      *
-     * @param d
-     *            the value to be rounded.
-     * @return the closest integer to the argument.
-     */
-    public static long round(double d) {
-        return Math.round(d);
-    }
-
-    /**
-     * Returns the result of rounding the argument to an integer. The result is
-     * equivalent to {@code (int) Math.floor(f+0.5)}.
-     * <p>
-     * Special cases:
+     * <p>Special cases:
      * <ul>
-     * <li>{@code round(+0.0) = +0.0}</li>
-     * <li>{@code round(-0.0) = +0.0}</li>
-     * <li>{@code round((anything > Integer.MAX_VALUE) = Integer.MAX_VALUE}</li>
-     * <li>{@code round((anything < Integer.MIN_VALUE) = Integer.MIN_VALUE}</li>
-     * <li>{@code round(+infinity) = Integer.MAX_VALUE}</li>
-     * <li>{@code round(-infinity) = Integer.MIN_VALUE}</li>
-     * <li>{@code round(NaN) = +0.0}</li>
-     * </ul>
      *
-     * @param f
-     *            the value to be rounded.
-     * @return the closest integer to the argument.
-     */
-    public static int round(float f) {
-        return Math.round(f);
-    }
-
-    /**
-     * Returns the signum function of the argument. If the argument is less than
-     * zero, it returns -1.0. If the argument is greater than zero, 1.0 is
-     * returned. If the argument is either positive or negative zero, the
-     * argument is returned as result.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code signum(+0.0) = +0.0}</li>
-     * <li>{@code signum(-0.0) = -0.0}</li>
-     * <li>{@code signum(+infinity) = +1.0}</li>
-     * <li>{@code signum(-infinity) = -1.0}</li>
-     * <li>{@code signum(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is NaN or less than -1, then the result is
+     * NaN.
      *
-     * @param d
-     *            the value whose signum has to be computed.
-     * @return the value of the signum function.
-     */
-    public static double signum(double d){
-        return Math.signum(d);
-    }
-
-    /**
-     * Returns the signum function of the argument. If the argument is less than
-     * zero, it returns -1.0. If the argument is greater than zero, 1.0 is
-     * returned. If the argument is either positive or negative zero, the
-     * argument is returned as result.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code signum(+0.0) = +0.0}</li>
-     * <li>{@code signum(-0.0) = -0.0}</li>
-     * <li>{@code signum(+infinity) = +1.0}</li>
-     * <li>{@code signum(-infinity) = -1.0}</li>
-     * <li>{@code signum(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is positive infinity, then the result is
+     * positive infinity.
      *
-     * @param f
-     *            the value whose signum has to be computed.
-     * @return the value of the signum function.
-     */
-    public static float signum(float f){
-        return Math.signum(f);
-    }
-
-    /**
-     * Returns the closest double approximation of the hyperbolic sine of the
-     * argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code sinh(+0.0) = +0.0}</li>
-     * <li>{@code sinh(-0.0) = -0.0}</li>
-     * <li>{@code sinh(+infinity) = +infinity}</li>
-     * <li>{@code sinh(-infinity) = -infinity}</li>
-     * <li>{@code sinh(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is negative one, then the result is
+     * negative infinity.
      *
-     * @param d
-     *            the value whose hyperbolic sine has to be computed.
-     * @return the hyperbolic sine of the argument.
-     */
-    public static native double sinh(double d);
-
-    /**
-     * Returns the closest double approximation of the sine of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code sin(+0.0) = +0.0}</li>
-     * <li>{@code sin(-0.0) = -0.0}</li>
-     * <li>{@code sin(+infinity) = NaN}</li>
-     * <li>{@code sin(-infinity) = NaN}</li>
-     * <li>{@code sin(NaN) = NaN}</li>
-     * </ul>
+     * <li>If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
      *
-     * @param d
-     *            the angle whose sin has to be computed, in radians.
-     * @return the sine of the argument.
-     */
-    public static native double sin(double d);
-
-    /**
-     * Returns the closest double approximation of the square root of the
-     * argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code sqrt(+0.0) = +0.0}</li>
-     * <li>{@code sqrt(-0.0) = -0.0}</li>
-     * <li>{@code sqrt( (anything < 0) ) = NaN}</li>
-     * <li>{@code sqrt(+infinity) = +infinity}</li>
-     * <li>{@code sqrt(NaN) = NaN}</li>
      * </ul>
-     */
-    public static native double sqrt(double d);
-
-    /**
-     * Returns the closest double approximation of the tangent of the argument.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code tan(+0.0) = +0.0}</li>
-     * <li>{@code tan(-0.0) = -0.0}</li>
-     * <li>{@code tan(+infinity) = NaN}</li>
-     * <li>{@code tan(-infinity) = NaN}</li>
-     * <li>{@code tan(NaN) = NaN}</li>
-     * </ul>
+     * {@description.close}
      *
-     * @param d
-     *            the angle whose tangent has to be computed, in radians.
-     * @return the tangent of the argument.
+     * @param   x   a value
+     * @return the value ln({@code x}&nbsp;+&nbsp;1), the natural
+     * log of {@code x}&nbsp;+&nbsp;1
+     * @since 1.5
      */
-    public static native double tan(double d);
+    public static native double log1p(double x);
 
-    /**
-     * Returns the closest double approximation of the hyperbolic tangent of the
-     * argument. The absolute value is always less than 1.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code tanh(+0.0) = +0.0}</li>
-     * <li>{@code tanh(-0.0) = -0.0}</li>
-     * <li>{@code tanh(+infinity) = +1.0}</li>
-     * <li>{@code tanh(-infinity) = -1.0}</li>
-     * <li>{@code tanh(NaN) = NaN}</li>
-     * </ul>
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the first floating-point argument with the sign of the
+     * second floating-point argument.  For this method, a NaN
+     * {@code sign} argument is always treated as if it were
+     * positive.
+     * {@description.close}
      *
-     * @param d
-     *            the value whose hyperbolic tangent has to be computed.
-     * @return the hyperbolic tangent of the argument
-     */
-    public static native double tanh(double d);
-
-    /**
-     * Returns the measure in degrees of the supplied radian angle. The result
-     * is {@code angrad * 180 / pi}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code toDegrees(+0.0) = +0.0}</li>
-     * <li>{@code toDegrees(-0.0) = -0.0}</li>
-     * <li>{@code toDegrees(+infinity) = +infinity}</li>
-     * <li>{@code toDegrees(-infinity) = -infinity}</li>
-     * <li>{@code toDegrees(NaN) = NaN}</li>
-     * </ul>
-     *
-     * @param angrad
-     *            an angle in radians.
-     * @return the degree measure of the angle.
-     */
-    public static double toDegrees(double angrad) {
-        return Math.toDegrees(angrad);
-    }
-
-    /**
-     * Returns the measure in radians of the supplied degree angle. The result
-     * is {@code angdeg / 180 * pi}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code toRadians(+0.0) = +0.0}</li>
-     * <li>{@code toRadians(-0.0) = -0.0}</li>
-     * <li>{@code toRadians(+infinity) = +infinity}</li>
-     * <li>{@code toRadians(-infinity) = -infinity}</li>
-     * <li>{@code toRadians(NaN) = NaN}</li>
-     * </ul>
-     *
-     * @param angdeg
-     *            an angle in degrees.
-     * @return the radian measure of the angle.
-     */
-    public static double toRadians(double angdeg) {
-        return Math.toRadians(angdeg);
-    }
-
-    /**
-     * Returns the argument's ulp (unit in the last place). The size of a ulp of
-     * a double value is the positive distance between this value and the double
-     * value next larger in magnitude. For non-NaN {@code x},
-     * {@code ulp(-x) == ulp(x)}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code ulp(+0.0) = Double.MIN_VALUE}</li>
-     * <li>{@code ulp(-0.0) = Double.MIN_VALUE}</li>
-     * <li>{@code ulp(+infinity) = infinity}</li>
-     * <li>{@code ulp(-infinity) = infinity}</li>
-     * <li>{@code ulp(NaN) = NaN}</li>
-     * </ul>
-     *
-     * @param d
-     *            the floating-point value to compute ulp of.
-     * @return the size of a ulp of the argument.
-     */
-    public static double ulp(double d) {
-        // special cases
-        if (Double.isInfinite(d)) {
-            return Double.POSITIVE_INFINITY;
-        } else if (d == Double.MAX_VALUE || d == -Double.MAX_VALUE) {
-            return pow(2, 971);
-        }
-        d = Math.abs(d);
-        return nextafter(d, Double.MAX_VALUE) - d;
-    }
-
-    /**
-     * Returns the argument's ulp (unit in the last place). The size of a ulp of
-     * a float value is the positive distance between this value and the float
-     * value next larger in magnitude. For non-NaN {@code x},
-     * {@code ulp(-x) == ulp(x)}.
-     * <p>
-     * Special cases:
-     * <ul>
-     * <li>{@code ulp(+0.0) = Float.MIN_VALUE}</li>
-     * <li>{@code ulp(-0.0) = Float.MIN_VALUE}</li>
-     * <li>{@code ulp(+infinity) = infinity}</li>
-     * <li>{@code ulp(-infinity) = infinity}</li>
-     * <li>{@code ulp(NaN) = NaN}</li>
-     * </ul>
-     *
-     * @param f
-     *            the floating-point value to compute ulp of.
-     * @return the size of a ulp of the argument.
-     */
-    public static float ulp(float f) {
-        return Math.ulp(f);
-    }
-
-    private static native double nextafter(double x, double y);
-
-    /**
-     * Returns a double with the given magnitude and the sign of {@code sign}.
-     * If {@code sign} is NaN, the sign of the result is positive.
+     * @param magnitude  the parameter providing the magnitude of the result
+     * @param sign   the parameter providing the sign of the result
+     * @return a value with the magnitude of {@code magnitude}
+     * and the sign of {@code sign}.
      * @since 1.6
      */
     public static double copySign(double magnitude, double sign) {
-        // We manually inline Double.isNaN here because the JIT can't do it yet.
-        // With Double.isNaN: 236.3ns
-        // With manual inline: 141.2ns
-        // With no check (i.e. Math's behavior): 110.0ns
-        // (Tested on a Nexus One.)
-        long magnitudeBits = Double.doubleToRawLongBits(magnitude);
-        long signBits = Double.doubleToRawLongBits((sign != sign) ? 1.0 : sign);
-        magnitudeBits = (magnitudeBits & ~Double.SIGN_MASK) | (signBits & Double.SIGN_MASK);
-        return Double.longBitsToDouble(magnitudeBits);
+        return sun.misc.FpUtils.copySign(magnitude, sign);
     }
 
-    /**
-     * Returns a float with the given magnitude and the sign of {@code sign}.
-     * If {@code sign} is NaN, the sign of the result is positive.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the first floating-point argument with the sign of the
+     * second floating-point argument.  For this method, a NaN
+     * {@code sign} argument is always treated as if it were
+     * positive.
+     * {@description.close}
+     *
+     * @param magnitude  the parameter providing the magnitude of the result
+     * @param sign   the parameter providing the sign of the result
+     * @return a value with the magnitude of {@code magnitude}
+     * and the sign of {@code sign}.
      * @since 1.6
      */
     public static float copySign(float magnitude, float sign) {
-        // We manually inline Float.isNaN here because the JIT can't do it yet.
-        // With Float.isNaN: 214.7ns
-        // With manual inline: 112.3ns
-        // With no check (i.e. Math's behavior): 93.1ns
-        // (Tested on a Nexus One.)
-        int magnitudeBits = Float.floatToRawIntBits(magnitude);
-        int signBits = Float.floatToRawIntBits((sign != sign) ? 1.0f : sign);
-        magnitudeBits = (magnitudeBits & ~Float.SIGN_MASK) | (signBits & Float.SIGN_MASK);
-        return Float.intBitsToFloat(magnitudeBits);
+        return sun.misc.FpUtils.copySign(magnitude, sign);
     }
-
-    /**
-     * Returns the exponent of float {@code f}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the unbiased exponent used in the representation of a
+     * {@code float}.  Special cases:
+     *
+     * <ul>
+     * <li>If the argument is NaN or infinite, then the result is
+     * {@link Float#MAX_EXPONENT} + 1.
+     * <li>If the argument is zero or subnormal, then the result is
+     * {@link Float#MIN_EXPONENT} -1.
+     * </ul>
+     * {@description.close}
+     * 
+     * @param f a {@code float} value
      * @since 1.6
      */
     public static int getExponent(float f) {
-        return Math.getExponent(f);
+        return sun.misc.FpUtils.getExponent(f);
     }
 
-    /**
-     * Returns the exponent of double {@code d}.
+    /** {@collect.stats}
+     * {@description.open} 
+     * Returns the unbiased exponent used in the representation of a
+     * {@code double}.  Special cases:
+     *
+     * <ul>
+     * <li>If the argument is NaN or infinite, then the result is
+     * {@link Double#MAX_EXPONENT} + 1.
+     * <li>If the argument is zero or subnormal, then the result is
+     * {@link Double#MIN_EXPONENT} -1.
+     * </ul>
+     * {@description.close}
+     * 
+     * @param d a {@code double} value
      * @since 1.6
      */
-    public static int getExponent(double d){
-        return Math.getExponent(d);
+    public static int getExponent(double d) {
+        return sun.misc.FpUtils.getExponent(d);
     }
 
-    /**
-     * Returns the next double after {@code start} in the given {@code direction}.
+    /** {@collect.stats}
+     * {@description.open} 
+     * Returns the floating-point number adjacent to the first
+     * argument in the direction of the second argument.  If both
+     * arguments compare as equal the second argument is returned.
+     *
+     * <p>Special cases:
+     * <ul>
+     * <li> If either argument is a NaN, then NaN is returned.
+     *
+     * <li> If both arguments are signed zeros, {@code direction}
+     * is returned unchanged (as implied by the requirement of
+     * returning the second argument if the arguments compare as
+     * equal).
+     *
+     * <li> If {@code start} is
+     * &plusmn;{@link Double#MIN_VALUE} and {@code direction}
+     * has a value such that the result should have a smaller
+     * magnitude, then a zero with the same sign as {@code start}
+     * is returned.
+     *
+     * <li> If {@code start} is infinite and
+     * {@code direction} has a value such that the result should
+     * have a smaller magnitude, {@link Double#MAX_VALUE} with the
+     * same sign as {@code start} is returned.
+     *
+     * <li> If {@code start} is equal to &plusmn;
+     * {@link Double#MAX_VALUE} and {@code direction} has a
+     * value such that the result should have a larger magnitude, an
+     * infinity with same sign as {@code start} is returned.
+     * </ul>
+     * {@description.close}
+     *
+     * @param start  starting floating-point value
+     * @param direction value indicating which of
+     * {@code start}'s neighbors or {@code start} should
+     * be returned
+     * @return The floating-point number adjacent to {@code start} in the
+     * direction of {@code direction}.
      * @since 1.6
      */
     public static double nextAfter(double start, double direction) {
-        if (start == 0 && direction == 0) {
-            return direction;
-        }
-        return nextafter(start, direction);
+        return sun.misc.FpUtils.nextAfter(start, direction);
     }
 
-    /**
-     * Returns the next float after {@code start} in the given {@code direction}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the floating-point number adjacent to the first
+     * argument in the direction of the second argument.  If both
+     * arguments compare as equal a value equivalent to the second argument
+     * is returned.
+     *
+     * <p>Special cases:
+     * <ul>
+     * <li> If either argument is a NaN, then NaN is returned.
+     *
+     * <li> If both arguments are signed zeros, a value equivalent
+     * to {@code direction} is returned.
+     *
+     * <li> If {@code start} is
+     * &plusmn;{@link Float#MIN_VALUE} and {@code direction}
+     * has a value such that the result should have a smaller
+     * magnitude, then a zero with the same sign as {@code start}
+     * is returned.
+     *
+     * <li> If {@code start} is infinite and
+     * {@code direction} has a value such that the result should
+     * have a smaller magnitude, {@link Float#MAX_VALUE} with the
+     * same sign as {@code start} is returned.
+     *
+     * <li> If {@code start} is equal to &plusmn;
+     * {@link Float#MAX_VALUE} and {@code direction} has a
+     * value such that the result should have a larger magnitude, an
+     * infinity with same sign as {@code start} is returned.
+     * </ul>
+     * {@description.close}
+     *
+     * @param start  starting floating-point value
+     * @param direction value indicating which of
+     * {@code start}'s neighbors or {@code start} should
+     * be returned
+     * @return The floating-point number adjacent to {@code start} in the
+     * direction of {@code direction}.
      * @since 1.6
      */
     public static float nextAfter(float start, double direction) {
-        return Math.nextAfter(start, direction);
+        return sun.misc.FpUtils.nextAfter(start, direction);
     }
 
-    /**
-     * Returns the next double larger than {@code d}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the floating-point value adjacent to {@code d} in
+     * the direction of positive infinity.  This method is
+     * semantically equivalent to {@code nextAfter(d,
+     * Double.POSITIVE_INFINITY)}; however, a {@code nextUp}
+     * implementation may run faster than its equivalent
+     * {@code nextAfter} call.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, the result is NaN.
+     *
+     * <li> If the argument is positive infinity, the result is
+     * positive infinity.
+     *
+     * <li> If the argument is zero, the result is
+     * {@link Double#MIN_VALUE}
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param d starting floating-point value
+     * @return The adjacent floating-point value closer to positive
+     * infinity.
      * @since 1.6
      */
     public static double nextUp(double d) {
-        return Math.nextUp(d);
+        return sun.misc.FpUtils.nextUp(d);
     }
 
-    /**
-     * Returns the next float larger than {@code f}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the floating-point value adjacent to {@code f} in
+     * the direction of positive infinity.  This method is
+     * semantically equivalent to {@code nextAfter(f,
+     * Float.POSITIVE_INFINITY)}; however, a {@code nextUp}
+     * implementation may run faster than its equivalent
+     * {@code nextAfter} call.
+     *
+     * <p>Special Cases:
+     * <ul>
+     * <li> If the argument is NaN, the result is NaN.
+     *
+     * <li> If the argument is positive infinity, the result is
+     * positive infinity.
+     *
+     * <li> If the argument is zero, the result is
+     * {@link Float#MIN_VALUE}
+     *
+     * </ul>
+     * {@description.close}
+     *
+     * @param f starting floating-point value
+     * @return The adjacent floating-point value closer to positive
+     * infinity.
      * @since 1.6
      */
     public static float nextUp(float f) {
-        return Math.nextUp(f);
+        return sun.misc.FpUtils.nextUp(f);
     }
 
-    /**
-     * Returns {@code d} * 2^{@code scaleFactor}. The result may be rounded.
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Return {@code d} &times;
+     * 2<sup>{@code scaleFactor}</sup> rounded as if performed
+     * by a single correctly rounded floating-point multiply to a
+     * member of the double value set.  See the Java
+     * Language Specification for a discussion of floating-point
+     * value sets.  If the exponent of the result is between {@link
+     * Double#MIN_EXPONENT} and {@link Double#MAX_EXPONENT}, the
+     * answer is calculated exactly.  If the exponent of the result
+     * would be larger than {@code Double.MAX_EXPONENT}, an
+     * infinity is returned.  Note that if the result is subnormal,
+     * precision may be lost; that is, when {@code scalb(x, n)}
+     * is subnormal, {@code scalb(scalb(x, n), -n)} may not equal
+     * <i>x</i>.  When the result is non-NaN, the result has the same
+     * sign as {@code d}.
+     *
+     * <p>Special cases:
+     * <ul>
+     * <li> If the first argument is NaN, NaN is returned.
+     * <li> If the first argument is infinite, then an infinity of the
+     * same sign is returned.
+     * <li> If the first argument is zero, then a zero of the same
+     * sign is returned.
+     * </ul>
+     * {@description.close}
+     *
+     * @param d number to be scaled by a power of two.
+     * @param scaleFactor power of 2 used to scale {@code d}
+     * @return {@code d} &times; 2<sup>{@code scaleFactor}</sup>
      * @since 1.6
      */
     public static double scalb(double d, int scaleFactor) {
-        if (Double.isNaN(d) || Double.isInfinite(d) || d == 0) {
-            return d;
-        }
-        // change double to long for calculation
-        long bits = Double.doubleToLongBits(d);
-        // the sign of the results must be the same of given d
-        long sign = bits & Double.SIGN_MASK;
-        // calculates the factor of the result
-        long factor = (int) ((bits & Double.EXPONENT_MASK) >> Double.MANTISSA_BITS)
-                - Double.EXPONENT_BIAS + scaleFactor;
-
-        // calculates the factor of sub-normal values
-        int subNormalFactor = Long.numberOfLeadingZeros(bits & ~Double.SIGN_MASK)
-                - Double.EXPONENT_BITS;
-        if (subNormalFactor < 0) {
-            // not sub-normal values
-            subNormalFactor = 0;
-        }
-        if (Math.abs(d) < Double.MIN_NORMAL) {
-            factor = factor - subNormalFactor;
-        }
-        if (factor > Double.MAX_EXPONENT) {
-            return (d > 0 ? Double.POSITIVE_INFINITY : Double.NEGATIVE_INFINITY);
-        }
-
-        long result;
-        // if result is a sub-normal
-        if (factor < -Double.EXPONENT_BIAS) {
-            // the number of digits that shifts
-            long digits = factor + Double.EXPONENT_BIAS + subNormalFactor;
-            if (Math.abs(d) < Double.MIN_NORMAL) {
-                // origin d is already sub-normal
-                result = shiftLongBits(bits & Double.MANTISSA_MASK, digits);
-            } else {
-                // origin d is not sub-normal, change mantissa to sub-normal
-                result = shiftLongBits(bits & Double.MANTISSA_MASK | 0x0010000000000000L, digits - 1);
-            }
-        } else {
-            if (Math.abs(d) >= Double.MIN_NORMAL) {
-                // common situation
-                result = ((factor + Double.EXPONENT_BIAS) << Double.MANTISSA_BITS)
-                        | (bits & Double.MANTISSA_MASK);
-            } else {
-                // origin d is sub-normal, change mantissa to normal style
-                result = ((factor + Double.EXPONENT_BIAS) << Double.MANTISSA_BITS)
-                        | ((bits << (subNormalFactor + 1)) & Double.MANTISSA_MASK);
-            }
-        }
-        return Double.longBitsToDouble(result | sign);
+        return sun.misc.FpUtils.scalb(d, scaleFactor);
     }
 
-    /**
-     * Returns {@code d} * 2^{@code scaleFactor}. The result may be rounded.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Return {@code f} &times;
+     * 2<sup>{@code scaleFactor}</sup> rounded as if performed
+     * by a single correctly rounded floating-point multiply to a
+     * member of the float value set.  See the Java
+     * Language Specification for a discussion of floating-point
+     * value sets.  If the exponent of the result is between {@link
+     * Float#MIN_EXPONENT} and {@link Float#MAX_EXPONENT}, the
+     * answer is calculated exactly.  If the exponent of the result
+     * would be larger than {@code Float.MAX_EXPONENT}, an
+     * infinity is returned.  Note that if the result is subnormal,
+     * precision may be lost; that is, when {@code scalb(x, n)}
+     * is subnormal, {@code scalb(scalb(x, n), -n)} may not equal
+     * <i>x</i>.  When the result is non-NaN, the result has the same
+     * sign as {@code f}.
+     *
+     * <p>Special cases:
+     * <ul>
+     * <li> If the first argument is NaN, NaN is returned.
+     * <li> If the first argument is infinite, then an infinity of the
+     * same sign is returned.
+     * <li> If the first argument is zero, then a zero of the same
+     * sign is returned.
+     * </ul>
+     * {@description.close}
+     *
+     * @param f number to be scaled by a power of two.
+     * @param scaleFactor power of 2 used to scale {@code f}
+     * @return {@code f} &times; 2<sup>{@code scaleFactor}</sup>
      * @since 1.6
      */
-    public static float scalb(float d, int scaleFactor) {
-        if (Float.isNaN(d) || Float.isInfinite(d) || d == 0) {
-            return d;
-        }
-        int bits = Float.floatToIntBits(d);
-        int sign = bits & Float.SIGN_MASK;
-        int factor = ((bits & Float.EXPONENT_MASK) >> Float.MANTISSA_BITS)
-                - Float.EXPONENT_BIAS + scaleFactor;
-        // calculates the factor of sub-normal values
-        int subNormalFactor = Integer.numberOfLeadingZeros(bits & ~Float.SIGN_MASK)
-                - Float.EXPONENT_BITS;
-        if (subNormalFactor < 0) {
-            // not sub-normal values
-            subNormalFactor = 0;
-        }
-        if (Math.abs(d) < Float.MIN_NORMAL) {
-            factor = factor - subNormalFactor;
-        }
-        if (factor > Float.MAX_EXPONENT) {
-            return (d > 0 ? Float.POSITIVE_INFINITY : Float.NEGATIVE_INFINITY);
-        }
-
-        int result;
-        // if result is a sub-normal
-        if (factor < -Float.EXPONENT_BIAS) {
-            // the number of digits that shifts
-            int digits = factor + Float.EXPONENT_BIAS + subNormalFactor;
-            if (Math.abs(d) < Float.MIN_NORMAL) {
-                // origin d is already sub-normal
-                result = shiftIntBits(bits & Float.MANTISSA_MASK, digits);
-            } else {
-                // origin d is not sub-normal, change mantissa to sub-normal
-                result = shiftIntBits(bits & Float.MANTISSA_MASK | 0x00800000, digits - 1);
-            }
-        } else {
-            if (Math.abs(d) >= Float.MIN_NORMAL) {
-                // common situation
-                result = ((factor + Float.EXPONENT_BIAS) << Float.MANTISSA_BITS)
-                        | (bits & Float.MANTISSA_MASK);
-            } else {
-                // origin d is sub-normal, change mantissa to normal style
-                result = ((factor + Float.EXPONENT_BIAS) << Float.MANTISSA_BITS)
-                        | ((bits << (subNormalFactor + 1)) & Float.MANTISSA_MASK);
-            }
-        }
-        return Float.intBitsToFloat(result | sign);
-    }
-
-    // Shifts integer bits as float, if the digits is positive, left-shift; if
-    // not, shift to right and calculate its carry.
-    private static int shiftIntBits(int bits, int digits) {
-        if (digits > 0) {
-            return bits << digits;
-        }
-        // change it to positive
-        int absDigits = -digits;
-        if (Integer.numberOfLeadingZeros(bits & ~Float.SIGN_MASK) <= (32 - absDigits)) {
-            // some bits will remain after shifting, calculates its carry
-            if ((((bits >> (absDigits - 1)) & 0x1) == 0)
-                    || Integer.numberOfTrailingZeros(bits) == (absDigits - 1)) {
-                return bits >> absDigits;
-            }
-            return ((bits >> absDigits) + 1);
-        }
-        return 0;
-    }
-
-    // Shifts long bits as double, if the digits is positive, left-shift; if
-    // not, shift to right and calculate its carry.
-    private static long shiftLongBits(long bits, long digits) {
-        if (digits > 0) {
-            return bits << digits;
-        }
-        // change it to positive
-        long absDigits = -digits;
-        if (Long.numberOfLeadingZeros(bits & ~Double.SIGN_MASK) <= (64 - absDigits)) {
-            // some bits will remain after shifting, calculates its carry
-            if ((((bits >> (absDigits - 1)) & 0x1) == 0)
-                    || Long.numberOfTrailingZeros(bits) == (absDigits - 1)) {
-                return bits >> absDigits;
-            }
-            return ((bits >> absDigits) + 1);
-        }
-        return 0;
+    public static float scalb(float f, int scaleFactor) {
+        return sun.misc.FpUtils.scalb(f, scaleFactor);
     }
 }

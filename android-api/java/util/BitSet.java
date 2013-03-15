@@ -1,753 +1,1060 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1995, 2007, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
-import libcore.io.SizeOf;
 
-/**
- * The {@code BitSet} class implements a
- * <a href="http://en.wikipedia.org/wiki/Bit_array">bit array</a>.
- * Each element is either true or false. A {@code BitSet} is created with a given size and grows
- * automatically if this size is exceeded.
+/** {@collect.stats} 
+ * {@description.open}
+ * This class implements a vector of bits that grows as needed. Each
+ * component of the bit set has a {@code boolean} value. The
+ * bits of a {@code BitSet} are indexed by nonnegative integers.
+ * Individual indexed bits can be examined, set, or cleared. One
+ * {@code BitSet} may be used to modify the contents of another
+ * {@code BitSet} through logical AND, logical inclusive OR, and
+ * logical exclusive OR operations.
+ *
+ * <p>By default, all bits in the set initially have the value
+ * {@code false}.
+ *
+ * <p>Every bit set has a current size, which is the number of bits
+ * of space currently in use by the bit set. Note that the size is
+ * related to the implementation of a bit set, so it may change with
+ * implementation. The length of a bit set relates to logical length
+ * of a bit set and is defined independently of implementation.
+ *
+ * <p>Unless otherwise noted, passing a null parameter to any of the
+ * methods in a {@code BitSet} will result in a
+ * {@code NullPointerException}.
+ * {@description.close}
+ *
+ * {@property.open synchronized}
+ * <p>A {@code BitSet} is not safe for multithreaded use without
+ * external synchronization.
+ * {@property.close}
+ *
+ * @author  Arthur van Hoff
+ * @author  Michael McCloskey
+ * @author  Martin Buchholz
+ * @since   JDK1.0
  */
-public class BitSet implements Serializable, Cloneable {
+public class BitSet implements Cloneable, java.io.Serializable {
+    /*
+     * BitSets are packed into arrays of "words."  Currently a word is
+     * a long, which consists of 64 bits, requiring 6 address bits.
+     * The choice of word size is determined purely by performance concerns.
+     */
+    private final static int ADDRESS_BITS_PER_WORD = 6;
+    private final static int BITS_PER_WORD = 1 << ADDRESS_BITS_PER_WORD;
+    private final static int BIT_INDEX_MASK = BITS_PER_WORD - 1;
+
+    /* Used to shift left or right for a partial word mask */
+    private static final long WORD_MASK = 0xffffffffffffffffL;
+
+    /** {@collect.stats} 
+     * @serialField bits long[]
+     *
+     * The bits in this BitSet.  The ith bit is stored in bits[i/64] at
+     * bit position i % 64 (where bit position 0 refers to the least
+     * significant bit and 63 refers to the most significant bit).
+     */
+    private static final ObjectStreamField[] serialPersistentFields = {
+        new ObjectStreamField("bits", long[].class),
+    };
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The internal field corresponding to the serialField "bits".
+     * {@description.close}
+     */
+    private long[] words;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The number of words in the logical size of this BitSet.
+     * {@description.close}
+     */
+    private transient int wordsInUse = 0;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Whether the size of "words" is user-specified.  If so, we assume
+     * the user knows what he's doing and try harder to preserve it.
+     * {@description.close}
+     */
+    private transient boolean sizeIsSticky = false;
+
+    /* use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = 7997698588986878753L;
 
-    private static final long ALL_ONES = ~0L;
-
-    /**
-     * The bits. Access bit n thus:
-     *
-     *   boolean bit = (bits[n / 64] | (1 << n)) != 0;
-     *
-     * Note that Java's shift operators truncate their rhs to the log2 size of the lhs.
-     * That is, there's no "% 64" needed because it's implicit in the shift.
-     *
-     * TODO: would int[] be significantly more efficient for Android at the moment?
+    /** {@collect.stats} 
+     * {@description.open}
+     * Given a bit index, return word index containing it.
+     * {@description.close}
      */
-    private long[] bits;
-
-    /**
-     * The number of elements of 'bits' that are actually in use (non-zero). Amongst other
-     * things, this guarantees that isEmpty is cheap, because we never have to examine the array.
-     */
-    private transient int longCount;
-
-    /**
-     * Updates 'longCount' by inspecting 'bits'. Assumes that the new longCount is <= the current
-     * longCount, to avoid scanning large tracts of empty array. This means it's safe to call
-     * directly after a clear operation that may have cleared the highest set bit, but
-     * not safe after an xor operation that may have cleared the highest set bit or
-     * made a new highest set bit. In that case, you'd need to set 'longCount' to a conservative
-     * estimate before calling this method.
-     */
-    private void shrinkSize() {
-        int i = longCount - 1;
-        while (i >= 0 && bits[i] == 0) {
-            --i;
-        }
-        this.longCount = i + 1;
+    private static int wordIndex(int bitIndex) {
+        return bitIndex >> ADDRESS_BITS_PER_WORD;
     }
 
-    /**
-     * Creates a new {@code BitSet} with size equal to 64 bits.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Every public method must preserve these invariants.
+     * {@description.close}
+     */
+    private void checkInvariants() {
+        assert(wordsInUse == 0 || words[wordsInUse - 1] != 0);
+        assert(wordsInUse >= 0 && wordsInUse <= words.length);
+        assert(wordsInUse == words.length || words[wordsInUse] == 0);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the field wordsInUse to the logical size in words of the bit set.
+     * WARNING:This method assumes that the number of words actually in use is
+     * less than or equal to the current value of wordsInUse!
+     * {@description.close}
+     */
+    private void recalculateWordsInUse() {
+        // Traverse the bitset until a used word is found
+        int i;
+        for (i = wordsInUse-1; i >= 0; i--)
+            if (words[i] != 0)
+                break;
+
+        wordsInUse = i+1; // The new logical size
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new bit set. All bits are initially {@code false}.
+     * {@description.close}
      */
     public BitSet() {
-        this(new long[1]);
+        initWords(BITS_PER_WORD);
+        sizeIsSticky = false;
     }
 
-    /**
-     * Creates a new {@code BitSet} with size equal to {@code bitCount}, rounded up to
-     * a multiple of 64.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a bit set whose initial size is large enough to explicitly
+     * represent bits with indices in the range {@code 0} through
+     * {@code nbits-1}. All bits are initially {@code false}.
+     * {@description.close}
      *
-     * @throws NegativeArraySizeException if {@code bitCount < 0}.
+     * @param  nbits the initial size of the bit set
+     * @throws NegativeArraySizeException if the specified initial size
+     *         is negative
      */
-    public BitSet(int bitCount) {
-        if (bitCount < 0) {
-            throw new NegativeArraySizeException(Integer.toString(bitCount));
-        }
-        this.bits = arrayForBits(bitCount);
-        this.longCount = 0;
+    public BitSet(int nbits) {
+        // nbits can't be negative; size 0 is OK
+        if (nbits < 0)
+            throw new NegativeArraySizeException("nbits < 0: " + nbits);
+
+        initWords(nbits);
+        sizeIsSticky = true;
     }
 
-    private BitSet(long[] bits) {
-        this.bits = bits;
-        this.longCount = bits.length;
-        shrinkSize();
+    private void initWords(int nbits) {
+        words = new long[wordIndex(nbits-1) + 1];
     }
 
-    private static long[] arrayForBits(int bitCount) {
-        return new long[(bitCount + 63)/ 64];
-    }
-
-    @Override public Object clone() {
-        try {
-            BitSet clone = (BitSet) super.clone();
-            clone.bits = bits.clone();
-            clone.shrinkSize();
-            return clone;
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
-        }
-    }
-
-    @Override public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof BitSet)) {
-            return false;
-        }
-        BitSet lhs = (BitSet) o;
-        if (this.longCount != lhs.longCount) {
-            return false;
-        }
-        for (int i = 0; i < longCount; ++i) {
-            if (bits[i] != lhs.bits[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Ensures that our long[] can hold at least 64 * desiredLongCount bits.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a bit set using words as the internal representation.
+     * The last word (if there is one) must be non-zero.
+     * {@description.close}
      */
-    private void ensureCapacity(int desiredLongCount) {
-        if (desiredLongCount <= bits.length) {
+    private BitSet(long[] words) {
+        this.words = words;
+        this.wordsInUse = words.length;
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Ensures that the BitSet can hold enough words.
+     * {@description.close}
+     * @param wordsRequired the minimum acceptable number of words.
+     */
+    private void ensureCapacity(int wordsRequired) {
+        if (words.length < wordsRequired) {
+            // Allocate larger of doubled size or required size
+            int request = Math.max(2 * words.length, wordsRequired);
+            words = Arrays.copyOf(words, request);
+            sizeIsSticky = false;
+        }
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Ensures that the BitSet can accommodate a given wordIndex,
+     * temporarily violating the invariants.
+     * {@description.close}
+     * {@property.open internal}
+     * The caller must
+     * restore the invariants before returning to the user,
+     * possibly using recalculateWordsInUse().
+     * {@property.close}
+     * @param wordIndex the index to be accommodated.
+     */
+    private void expandTo(int wordIndex) {
+        int wordsRequired = wordIndex+1;
+        if (wordsInUse < wordsRequired) {
+            ensureCapacity(wordsRequired);
+            wordsInUse = wordsRequired;
+        }
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Checks that fromIndex ... toIndex is a valid range of bit indices.
+     * {@description.close}
+     */
+    private static void checkRange(int fromIndex, int toIndex) {
+        if (fromIndex < 0)
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + fromIndex);
+        if (toIndex < 0)
+            throw new IndexOutOfBoundsException("toIndex < 0: " + toIndex);
+        if (fromIndex > toIndex)
+            throw new IndexOutOfBoundsException("fromIndex: " + fromIndex +
+                                                " > toIndex: " + toIndex);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bit at the specified index to the complement of its
+     * current value.
+     * {@description.close}
+     *
+     * @param  bitIndex the index of the bit to flip
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  1.4
+     */
+    public void flip(int bitIndex) {
+        if (bitIndex < 0)
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + bitIndex);
+
+        int wordIndex = wordIndex(bitIndex);
+        expandTo(wordIndex);
+
+        words[wordIndex] ^= (1L << bitIndex);
+
+        recalculateWordsInUse();
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets each bit from the specified {@code fromIndex} (inclusive) to the
+     * specified {@code toIndex} (exclusive) to the complement of its current
+     * value.
+     * {@description.close}
+     *
+     * @param  fromIndex index of the first bit to flip
+     * @param  toIndex index after the last bit to flip
+     * @throws IndexOutOfBoundsException if {@code fromIndex} is negative,
+     *         or {@code toIndex} is negative, or {@code fromIndex} is
+     *         larger than {@code toIndex}
+     * @since  1.4
+     */
+    public void flip(int fromIndex, int toIndex) {
+        checkRange(fromIndex, toIndex);
+
+        if (fromIndex == toIndex)
             return;
+
+        int startWordIndex = wordIndex(fromIndex);
+        int endWordIndex   = wordIndex(toIndex - 1);
+        expandTo(endWordIndex);
+
+        long firstWordMask = WORD_MASK << fromIndex;
+        long lastWordMask  = WORD_MASK >>> -toIndex;
+        if (startWordIndex == endWordIndex) {
+            // Case 1: One word
+            words[startWordIndex] ^= (firstWordMask & lastWordMask);
+        } else {
+            // Case 2: Multiple words
+            // Handle first word
+            words[startWordIndex] ^= firstWordMask;
+
+            // Handle intermediate words, if any
+            for (int i = startWordIndex+1; i < endWordIndex; i++)
+                words[i] ^= WORD_MASK;
+
+            // Handle last word
+            words[endWordIndex] ^= lastWordMask;
         }
-        int newLength = Math.max(desiredLongCount, bits.length * 2);
-        long[] newBits = new long[newLength];
-        System.arraycopy(bits, 0, newBits, 0, longCount);
-        this.bits = newBits;
-        // 'longCount' is unchanged by this operation: the long[] is larger,
-        // but you're not yet using any more of it.
+
+        recalculateWordsInUse();
+        checkInvariants();
     }
 
-    @Override public int hashCode() {
-        // The RI doesn't use Arrays.hashCode, and explicitly specifies this algorithm.
-        long x = 1234;
-        for (int i = 0; i < longCount; ++i) {
-            x ^= bits[i] * (i + 1);
-        }
-        return (int) ((x >> 32) ^ x);
-    }
-
-    /**
-     * Returns the bit at index {@code index}. Indexes greater than the current length return false.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bit at the specified index to {@code true}.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
+     * @param  bitIndex a bit index
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  JDK1.0
      */
-    public boolean get(int index) {
-        if (index < 0) { // TODO: until we have an inlining JIT.
-            checkIndex(index);
-        }
-        int arrayIndex = index / 64;
-        if (arrayIndex >= longCount) {
-            return false;
-        }
-        return (bits[arrayIndex] & (1L << index)) != 0;
+    public void set(int bitIndex) {
+        if (bitIndex < 0)
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + bitIndex);
+
+        int wordIndex = wordIndex(bitIndex);
+        expandTo(wordIndex);
+
+        words[wordIndex] |= (1L << bitIndex); // Restores invariants
+
+        checkInvariants();
     }
 
-    /**
-     * Sets the bit at index {@code index} to true.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bit at the specified index to the specified value.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
+     * @param  bitIndex a bit index
+     * @param  value a boolean value to set
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  1.4
      */
-    public void set(int index) {
-        if (index < 0) { // TODO: until we have an inlining JIT.
-            checkIndex(index);
-        }
-        int arrayIndex = index / 64;
-        if (arrayIndex >= bits.length) {
-            ensureCapacity(arrayIndex + 1);
-        }
-        bits[arrayIndex] |= (1L << index);
-        longCount = Math.max(longCount, arrayIndex + 1);
+    public void set(int bitIndex, boolean value) {
+        if (value)
+            set(bitIndex);
+        else
+            clear(bitIndex);
     }
 
-    /**
-     * Clears the bit at index {@code index}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bits from the specified {@code fromIndex} (inclusive) to the
+     * specified {@code toIndex} (exclusive) to {@code true}.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
+     * @param  fromIndex index of the first bit to be set
+     * @param  toIndex index after the last bit to be set
+     * @throws IndexOutOfBoundsException if {@code fromIndex} is negative,
+     *         or {@code toIndex} is negative, or {@code fromIndex} is
+     *         larger than {@code toIndex}
+     * @since  1.4
      */
-    public void clear(int index) {
-        if (index < 0) { // TODO: until we have an inlining JIT.
-            checkIndex(index);
-        }
-        int arrayIndex = index / 64;
-        if (arrayIndex >= longCount) {
+    public void set(int fromIndex, int toIndex) {
+        checkRange(fromIndex, toIndex);
+
+        if (fromIndex == toIndex)
             return;
+
+        // Increase capacity if necessary
+        int startWordIndex = wordIndex(fromIndex);
+        int endWordIndex   = wordIndex(toIndex - 1);
+        expandTo(endWordIndex);
+
+        long firstWordMask = WORD_MASK << fromIndex;
+        long lastWordMask  = WORD_MASK >>> -toIndex;
+        if (startWordIndex == endWordIndex) {
+            // Case 1: One word
+            words[startWordIndex] |= (firstWordMask & lastWordMask);
+        } else {
+            // Case 2: Multiple words
+            // Handle first word
+            words[startWordIndex] |= firstWordMask;
+
+            // Handle intermediate words, if any
+            for (int i = startWordIndex+1; i < endWordIndex; i++)
+                words[i] = WORD_MASK;
+
+            // Handle last word (restores invariants)
+            words[endWordIndex] |= lastWordMask;
         }
-        bits[arrayIndex] &= ~(1L << index);
-        shrinkSize();
+
+        checkInvariants();
     }
 
-    /**
-     * Flips the bit at index {@code index}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bits from the specified {@code fromIndex} (inclusive) to the
+     * specified {@code toIndex} (exclusive) to the specified value.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
+     * @param  fromIndex index of the first bit to be set
+     * @param  toIndex index after the last bit to be set
+     * @param  value value to set the selected bits to
+     * @throws IndexOutOfBoundsException if {@code fromIndex} is negative,
+     *         or {@code toIndex} is negative, or {@code fromIndex} is
+     *         larger than {@code toIndex}
+     * @since  1.4
      */
-    public void flip(int index) {
-        if (index < 0) { // TODO: until we have an inlining JIT.
-            checkIndex(index);
-        }
-        int arrayIndex = index / 64;
-        if (arrayIndex >= bits.length) {
-            ensureCapacity(arrayIndex + 1);
-        }
-        bits[arrayIndex] ^= (1L << index);
-        longCount = Math.max(longCount, arrayIndex + 1);
-        shrinkSize();
+    public void set(int fromIndex, int toIndex, boolean value) {
+        if (value)
+            set(fromIndex, toIndex);
+        else
+            clear(fromIndex, toIndex);
     }
 
-    private void checkIndex(int index) {
-        if (index < 0) {
-            throw new IndexOutOfBoundsException("index < 0: " + index);
-        }
-    }
-
-    private void checkRange(int fromIndex, int toIndex) {
-        if ((fromIndex | toIndex) < 0 || toIndex < fromIndex) {
-            throw new IndexOutOfBoundsException("fromIndex=" + fromIndex + " toIndex=" + toIndex);
-        }
-    }
-
-    /**
-     * Returns a new {@code BitSet} containing the
-     * range of bits {@code [fromIndex, toIndex)}, shifted down so that the bit
-     * at {@code fromIndex} is at bit 0 in the new {@code BitSet}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bit specified by the index to {@code false}.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException
-     *             if {@code fromIndex} or {@code toIndex} is negative, or if
-     *             {@code toIndex} is smaller than {@code fromIndex}.
+     * @param  bitIndex the index of the bit to be cleared
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  JDK1.0
+     */
+    public void clear(int bitIndex) {
+        if (bitIndex < 0)
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + bitIndex);
+
+        int wordIndex = wordIndex(bitIndex);
+        if (wordIndex >= wordsInUse)
+            return;
+
+        words[wordIndex] &= ~(1L << bitIndex);
+
+        recalculateWordsInUse();
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the bits from the specified {@code fromIndex} (inclusive) to the
+     * specified {@code toIndex} (exclusive) to {@code false}.
+     * {@description.close}
+     *
+     * @param  fromIndex index of the first bit to be cleared
+     * @param  toIndex index after the last bit to be cleared
+     * @throws IndexOutOfBoundsException if {@code fromIndex} is negative,
+     *         or {@code toIndex} is negative, or {@code fromIndex} is
+     *         larger than {@code toIndex}
+     * @since  1.4
+     */
+    public void clear(int fromIndex, int toIndex) {
+        checkRange(fromIndex, toIndex);
+
+        if (fromIndex == toIndex)
+            return;
+
+        int startWordIndex = wordIndex(fromIndex);
+        if (startWordIndex >= wordsInUse)
+            return;
+
+        int endWordIndex = wordIndex(toIndex - 1);
+        if (endWordIndex >= wordsInUse) {
+            toIndex = length();
+            endWordIndex = wordsInUse - 1;
+        }
+
+        long firstWordMask = WORD_MASK << fromIndex;
+        long lastWordMask  = WORD_MASK >>> -toIndex;
+        if (startWordIndex == endWordIndex) {
+            // Case 1: One word
+            words[startWordIndex] &= ~(firstWordMask & lastWordMask);
+        } else {
+            // Case 2: Multiple words
+            // Handle first word
+            words[startWordIndex] &= ~firstWordMask;
+
+            // Handle intermediate words, if any
+            for (int i = startWordIndex+1; i < endWordIndex; i++)
+                words[i] = 0;
+
+            // Handle last word
+            words[endWordIndex] &= ~lastWordMask;
+        }
+
+        recalculateWordsInUse();
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets all of the bits in this BitSet to {@code false}.
+     * {@description.close}
+     *
+     * @since 1.4
+     */
+    public void clear() {
+        while (wordsInUse > 0)
+            words[--wordsInUse] = 0;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of the bit with the specified index. The value
+     * is {@code true} if the bit with the index {@code bitIndex}
+     * is currently set in this {@code BitSet}; otherwise, the result
+     * is {@code false}.
+     * {@description.close}
+     *
+     * @param  bitIndex   the bit index
+     * @return the value of the bit with the specified index
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     */
+    public boolean get(int bitIndex) {
+        if (bitIndex < 0)
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + bitIndex);
+
+        checkInvariants();
+
+        int wordIndex = wordIndex(bitIndex);
+        return (wordIndex < wordsInUse)
+            && ((words[wordIndex] & (1L << bitIndex)) != 0);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a new {@code BitSet} composed of bits from this {@code BitSet}
+     * from {@code fromIndex} (inclusive) to {@code toIndex} (exclusive).
+     * {@description.close}
+     *
+     * @param  fromIndex index of the first bit to include
+     * @param  toIndex index after the last bit to include
+     * @return a new {@code BitSet} from a range of this {@code BitSet}
+     * @throws IndexOutOfBoundsException if {@code fromIndex} is negative,
+     *         or {@code toIndex} is negative, or {@code fromIndex} is
+     *         larger than {@code toIndex}
+     * @since  1.4
      */
     public BitSet get(int fromIndex, int toIndex) {
         checkRange(fromIndex, toIndex);
 
-        int last = 64 * longCount;
-        if (fromIndex >= last || fromIndex == toIndex) {
+        checkInvariants();
+
+        int len = length();
+
+        // If no set bits in range return empty bitset
+        if (len <= fromIndex || fromIndex == toIndex)
             return new BitSet(0);
-        }
-        if (toIndex > last) {
-            toIndex = last;
-        }
 
-        int firstArrayIndex = fromIndex / 64;
-        int lastArrayIndex = (toIndex - 1) / 64;
-        long lowMask = ALL_ONES << fromIndex;
-        long highMask = ALL_ONES >>> -toIndex;
+        // An optimization
+        if (toIndex > len)
+            toIndex = len;
 
-        if (firstArrayIndex == lastArrayIndex) {
-            long result = (bits[firstArrayIndex] & (lowMask & highMask)) >>> fromIndex;
-            if (result == 0) {
-                return new BitSet(0);
-            }
-            return new BitSet(new long[] { result });
-        }
+        BitSet result = new BitSet(toIndex - fromIndex);
+        int targetWords = wordIndex(toIndex - fromIndex - 1) + 1;
+        int sourceIndex = wordIndex(fromIndex);
+        boolean wordAligned = ((fromIndex & BIT_INDEX_MASK) == 0);
 
-        long[] newBits = new long[lastArrayIndex - firstArrayIndex + 1];
+        // Process all words but the last word
+        for (int i = 0; i < targetWords - 1; i++, sourceIndex++)
+            result.words[i] = wordAligned ? words[sourceIndex] :
+                (words[sourceIndex] >>> fromIndex) |
+                (words[sourceIndex+1] << -fromIndex);
 
-        // first fill in the first and last indexes in the new BitSet
-        newBits[0] = bits[firstArrayIndex] & lowMask;
-        newBits[newBits.length - 1] = bits[lastArrayIndex] & highMask;
+        // Process the last word
+        long lastWordMask = WORD_MASK >>> -toIndex;
+        result.words[targetWords - 1] =
+            ((toIndex-1) & BIT_INDEX_MASK) < (fromIndex & BIT_INDEX_MASK)
+            ? /* straddles source words */
+            ((words[sourceIndex] >>> fromIndex) |
+             (words[sourceIndex+1] & lastWordMask) << -fromIndex)
+            :
+            ((words[sourceIndex] & lastWordMask) >>> fromIndex);
 
-        // fill in the in between elements of the new BitSet
-        for (int i = 1; i < lastArrayIndex - firstArrayIndex; i++) {
-            newBits[i] = bits[firstArrayIndex + i];
-        }
+        // Set wordsInUse correctly
+        result.wordsInUse = targetWords;
+        result.recalculateWordsInUse();
+        result.checkInvariants();
 
-        // shift all the elements in the new BitSet to the right
-        int numBitsToShift = fromIndex % 64;
-        int actualLen = newBits.length;
-        if (numBitsToShift != 0) {
-            for (int i = 0; i < newBits.length; i++) {
-                // shift the current element to the right regardless of
-                // sign
-                newBits[i] = newBits[i] >>> (numBitsToShift);
-
-                // apply the last x bits of newBits[i+1] to the current
-                // element
-                if (i != newBits.length - 1) {
-                    newBits[i] |= newBits[i + 1] << -numBitsToShift;
-                }
-                if (newBits[i] != 0) {
-                    actualLen = i + 1;
-                }
-            }
-        }
-        return new BitSet(newBits);
+        return result;
     }
 
-    /**
-     * Sets the bit at index {@code index} to {@code state}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the index of the first bit that is set to {@code true}
+     * that occurs on or after the specified starting index. If no such
+     * bit exists then {@code -1} is returned.
      *
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
-     */
-    public void set(int index, boolean state) {
-        if (state) {
-            set(index);
-        } else {
-            clear(index);
-        }
-    }
-
-    /**
-     * Sets the range of bits {@code [fromIndex, toIndex)} to {@code state}.
+     * <p>To iterate over the {@code true} bits in a {@code BitSet},
+     * use the following loop:
      *
-     * @throws IndexOutOfBoundsException
-     *             if {@code fromIndex} or {@code toIndex} is negative, or if
-     *             {@code toIndex} is smaller than {@code fromIndex}.
-     */
-    public void set(int fromIndex, int toIndex, boolean state) {
-        if (state) {
-            set(fromIndex, toIndex);
-        } else {
-            clear(fromIndex, toIndex);
-        }
-    }
-
-    /**
-     * Clears all the bits in this {@code BitSet}. This method does not change the capacity.
-     * Use {@code clear} if you want to reuse this {@code BitSet} with the same capacity, but
-     * create a new {@code BitSet} if you're trying to potentially reclaim memory.
-     */
-    public void clear() {
-        Arrays.fill(bits, 0, longCount, 0L);
-        longCount = 0;
-    }
-
-    /**
-     * Sets the range of bits {@code [fromIndex, toIndex)}.
+     *  <pre> {@code
+     * for (int i = bs.nextSetBit(0); i >= 0; i = bs.nextSetBit(i+1)) {
+     *     // operate on index i here
+     * }}</pre>
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException
-     *             if {@code fromIndex} or {@code toIndex} is negative, or if
-     *             {@code toIndex} is smaller than {@code fromIndex}.
+     * @param  fromIndex the index to start checking from (inclusive)
+     * @return the index of the next set bit, or {@code -1} if there
+     *         is no such bit
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  1.4
      */
-    public void set(int fromIndex, int toIndex) {
-        checkRange(fromIndex, toIndex);
-        if (fromIndex == toIndex) {
-            return;
-        }
-        int firstArrayIndex = fromIndex / 64;
-        int lastArrayIndex = (toIndex - 1) / 64;
-        if (lastArrayIndex >= bits.length) {
-            ensureCapacity(lastArrayIndex + 1);
-        }
+    public int nextSetBit(int fromIndex) {
+        if (fromIndex < 0)
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + fromIndex);
 
-        long lowMask = ALL_ONES << fromIndex;
-        long highMask = ALL_ONES >>> -toIndex;
-        if (firstArrayIndex == lastArrayIndex) {
-            bits[firstArrayIndex] |= (lowMask & highMask);
-        } else {
-            int i = firstArrayIndex;
-            bits[i++] |= lowMask;
-            while (i < lastArrayIndex) {
-                bits[i++] |= ALL_ONES;
-            }
-            bits[i++] |= highMask;
+        checkInvariants();
+
+        int u = wordIndex(fromIndex);
+        if (u >= wordsInUse)
+            return -1;
+
+        long word = words[u] & (WORD_MASK << fromIndex);
+
+        while (true) {
+            if (word != 0)
+                return (u * BITS_PER_WORD) + Long.numberOfTrailingZeros(word);
+            if (++u == wordsInUse)
+                return -1;
+            word = words[u];
         }
-        longCount = Math.max(longCount, lastArrayIndex + 1);
     }
 
-    /**
-     * Clears the range of bits {@code [fromIndex, toIndex)}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the index of the first bit that is set to {@code false}
+     * that occurs on or after the specified starting index.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException
-     *             if {@code fromIndex} or {@code toIndex} is negative, or if
-     *             {@code toIndex} is smaller than {@code fromIndex}.
+     * @param  fromIndex the index to start checking from (inclusive)
+     * @return the index of the next clear bit
+     * @throws IndexOutOfBoundsException if the specified index is negative
+     * @since  1.4
      */
-    public void clear(int fromIndex, int toIndex) {
-        checkRange(fromIndex, toIndex);
-        if (fromIndex == toIndex || longCount == 0) {
-            return;
-        }
-        int last = 64 * longCount;
-        if (fromIndex >= last) {
-            return;
-        }
-        if (toIndex > last) {
-            toIndex = last;
-        }
-        int firstArrayIndex = fromIndex / 64;
-        int lastArrayIndex = (toIndex - 1) / 64;
+    public int nextClearBit(int fromIndex) {
+        // Neither spec nor implementation handle bitsets of maximal length.
+        // See 4816253.
+        if (fromIndex < 0)
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + fromIndex);
 
-        long lowMask = ALL_ONES << fromIndex;
-        long highMask = ALL_ONES >>> -toIndex;
-        if (firstArrayIndex == lastArrayIndex) {
-            bits[firstArrayIndex] &= ~(lowMask & highMask);
-        } else {
-            int i = firstArrayIndex;
-            bits[i++] &= ~lowMask;
-            while (i < lastArrayIndex) {
-                bits[i++] = 0L;
-            }
-            bits[i++] &= ~highMask;
+        checkInvariants();
+
+        int u = wordIndex(fromIndex);
+        if (u >= wordsInUse)
+            return fromIndex;
+
+        long word = ~words[u] & (WORD_MASK << fromIndex);
+
+        while (true) {
+            if (word != 0)
+                return (u * BITS_PER_WORD) + Long.numberOfTrailingZeros(word);
+            if (++u == wordsInUse)
+                return wordsInUse * BITS_PER_WORD;
+            word = ~words[u];
         }
-        shrinkSize();
     }
 
-    /**
-     * Flips the range of bits {@code [fromIndex, toIndex)}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the "logical size" of this {@code BitSet}: the index of
+     * the highest set bit in the {@code BitSet} plus one. Returns zero
+     * if the {@code BitSet} contains no set bits.
+     * {@description.close}
      *
-     * @throws IndexOutOfBoundsException
-     *             if {@code fromIndex} or {@code toIndex} is negative, or if
-     *             {@code toIndex} is smaller than {@code fromIndex}.
+     * @return the logical size of this {@code BitSet}
+     * @since  1.2
      */
-    public void flip(int fromIndex, int toIndex) {
-        checkRange(fromIndex, toIndex);
-        if (fromIndex == toIndex) {
-            return;
-        }
-        int firstArrayIndex = fromIndex / 64;
-        int lastArrayIndex = (toIndex - 1) / 64;
-        if (lastArrayIndex >= bits.length) {
-            ensureCapacity(lastArrayIndex + 1);
-        }
+    public int length() {
+        if (wordsInUse == 0)
+            return 0;
 
-        long lowMask = ALL_ONES << fromIndex;
-        long highMask = ALL_ONES >>> -toIndex;
-        if (firstArrayIndex == lastArrayIndex) {
-            bits[firstArrayIndex] ^= (lowMask & highMask);
-        } else {
-            int i = firstArrayIndex;
-            bits[i++] ^= lowMask;
-            while (i < lastArrayIndex) {
-                bits[i++] ^= ALL_ONES;
-            }
-            bits[i++] ^= highMask;
-        }
-        longCount = Math.max(longCount, lastArrayIndex + 1);
-        shrinkSize();
+        return BITS_PER_WORD * (wordsInUse - 1) +
+            (BITS_PER_WORD - Long.numberOfLeadingZeros(words[wordsInUse - 1]));
     }
 
-    /**
-     * Returns true if {@code this.and(bs)} is non-empty, but may be faster than computing that.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns true if this {@code BitSet} contains no bits that are set
+     * to {@code true}.
+     * {@description.close}
+     *
+     * @return boolean indicating whether this {@code BitSet} is empty
+     * @since  1.4
      */
-    public boolean intersects(BitSet bs) {
-        long[] bsBits = bs.bits;
-        int length = Math.min(this.longCount, bs.longCount);
-        for (int i = 0; i < length; ++i) {
-            if ((bits[i] & bsBits[i]) != 0L) {
+    public boolean isEmpty() {
+        return wordsInUse == 0;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns true if the specified {@code BitSet} has any bits set to
+     * {@code true} that are also set to {@code true} in this {@code BitSet}.
+     * {@description.close}
+     *
+     * @param  set {@code BitSet} to intersect with
+     * @return boolean indicating whether this {@code BitSet} intersects
+     *         the specified {@code BitSet}
+     * @since  1.4
+     */
+    public boolean intersects(BitSet set) {
+        for (int i = Math.min(wordsInUse, set.wordsInUse) - 1; i >= 0; i--)
+            if ((words[i] & set.words[i]) != 0)
                 return true;
-            }
-        }
         return false;
     }
 
-    /**
-     * Logically ands the bits of this {@code BitSet} with {@code bs}.
-     */
-    public void and(BitSet bs) {
-        int minSize = Math.min(this.longCount, bs.longCount);
-        for (int i = 0; i < minSize; ++i) {
-            bits[i] &= bs.bits[i];
-        }
-        Arrays.fill(bits, minSize, longCount, 0L);
-        shrinkSize();
-    }
-
-    /**
-     * Clears all bits in this {@code BitSet} which are also set in {@code bs}.
-     */
-    public void andNot(BitSet bs) {
-        int minSize = Math.min(this.longCount, bs.longCount);
-        for (int i = 0; i < minSize; ++i) {
-            bits[i] &= ~bs.bits[i];
-        }
-        shrinkSize();
-    }
-
-    /**
-     * Logically ors the bits of this {@code BitSet} with {@code bs}.
-     */
-    public void or(BitSet bs) {
-        int minSize = Math.min(this.longCount, bs.longCount);
-        int maxSize = Math.max(this.longCount, bs.longCount);
-        ensureCapacity(maxSize);
-        for (int i = 0; i < minSize; ++i) {
-            bits[i] |= bs.bits[i];
-        }
-        if (bs.longCount > minSize) {
-            System.arraycopy(bs.bits, minSize, bits, minSize, maxSize - minSize);
-        }
-        longCount = maxSize;
-    }
-
-    /**
-     * Logically xors the bits of this {@code BitSet} with {@code bs}.
-     */
-    public void xor(BitSet bs) {
-        int minSize = Math.min(this.longCount, bs.longCount);
-        int maxSize = Math.max(this.longCount, bs.longCount);
-        ensureCapacity(maxSize);
-        for (int i = 0; i < minSize; ++i) {
-            bits[i] ^= bs.bits[i];
-        }
-        if (bs.longCount > minSize) {
-            System.arraycopy(bs.bits, minSize, bits, minSize, maxSize - minSize);
-        }
-        longCount = maxSize;
-        shrinkSize();
-    }
-
-    /**
-     * Returns the capacity in bits of the array implementing this {@code BitSet}. This is
-     * unrelated to the length of the {@code BitSet}, and not generally useful.
-     * Use {@link #nextSetBit} to iterate, or {@link #length} to find the highest set bit.
-     */
-    public int size() {
-        return bits.length * 64;
-    }
-
-    /**
-     * Returns the number of bits up to and including the highest bit set. This is unrelated to
-     * the {@link #size} of the {@code BitSet}.
-     */
-    public int length() {
-        if (longCount == 0) {
-            return 0;
-        }
-        return 64 * (longCount - 1) + (64 - Long.numberOfLeadingZeros(bits[longCount - 1]));
-    }
-
-    /**
-     * Returns a string containing a concise, human-readable description of the
-     * receiver: a comma-delimited list of the indexes of all set bits.
-     * For example: {@code "{0,1,8}"}.
-     */
-    @Override public String toString() {
-        //System.err.println("BitSet[longCount=" + longCount + ",bits=" + Arrays.toString(bits) + "]");
-        StringBuilder sb = new StringBuilder(longCount / 2);
-        sb.append('{');
-        boolean comma = false;
-        for (int i = 0; i < longCount; ++i) {
-            if (bits[i] != 0) {
-                for (int j = 0; j < 64; ++j) {
-                    if ((bits[i] & 1L << j) != 0) {
-                        if (comma) {
-                            sb.append(", ");
-                        } else {
-                            comma = true;
-                        }
-                        sb.append(64 * i + j);
-                    }
-                }
-            }
-        }
-        sb.append('}');
-        return sb.toString();
-    }
-
-    /**
-     * Returns the index of the first bit that is set on or after {@code index}, or -1
-     * if no higher bits are set.
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
-     */
-    public int nextSetBit(int index) {
-        checkIndex(index);
-        int arrayIndex = index / 64;
-        if (arrayIndex >= longCount) {
-            return -1;
-        }
-        long mask = ALL_ONES << index;
-        if ((bits[arrayIndex] & mask) != 0) {
-            return 64 * arrayIndex + Long.numberOfTrailingZeros(bits[arrayIndex] & mask);
-        }
-        while (++arrayIndex < longCount && bits[arrayIndex] == 0) {
-        }
-        if (arrayIndex == longCount) {
-            return -1;
-        }
-        return 64 * arrayIndex + Long.numberOfTrailingZeros(bits[arrayIndex]);
-    }
-
-    /**
-     * Returns the index of the first bit that is clear on or after {@code index}.
-     * Since all bits past the end are implicitly clear, this never returns -1.
-     * @throws IndexOutOfBoundsException if {@code index < 0}.
-     */
-    public int nextClearBit(int index) {
-        checkIndex(index);
-        int arrayIndex = index / 64;
-        if (arrayIndex >= longCount) {
-            return index;
-        }
-        long mask = ALL_ONES << index;
-        if ((~bits[arrayIndex] & mask) != 0) {
-            return 64 * arrayIndex + Long.numberOfTrailingZeros(~bits[arrayIndex] & mask);
-        }
-        while (++arrayIndex < longCount && bits[arrayIndex] == ALL_ONES) {
-        }
-        if (arrayIndex == longCount) {
-            return 64 * longCount;
-        }
-        return 64 * arrayIndex + Long.numberOfTrailingZeros(~bits[arrayIndex]);
-    }
-
-    /**
-     * Returns the index of the first bit that is set on or before {@code index}, or -1 if
-     * no lower bits are set or {@code index == -1}.
-     * @throws IndexOutOfBoundsException if {@code index < -1}.
-     * @hide 1.7
-     */
-    public int previousSetBit(int index) {
-        if (index == -1) {
-            return -1;
-        }
-        checkIndex(index);
-        // TODO: optimize this.
-        for (int i = index; i >= 0; --i) {
-            if (get(i)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * Returns the index of the first bit that is clear on or before {@code index}, or -1 if
-     * no lower bits are clear or {@code index == -1}.
-     * @throws IndexOutOfBoundsException if {@code index < -1}.
-     * @hide 1.7
-     */
-    public int previousClearBit(int index) {
-        if (index == -1) {
-            return -1;
-        }
-        checkIndex(index);
-        // TODO: optimize this.
-        for (int i = index; i >= 0; --i) {
-            if (!get(i)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * Returns true if all the bits in this {@code BitSet} are set to false, false otherwise.
-     */
-    public boolean isEmpty() {
-        return (longCount == 0);
-    }
-
-    /**
-     * Returns the number of bits that are {@code true} in this {@code BitSet}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the number of bits set to {@code true} in this {@code BitSet}.
+     * {@description.close}
+     *
+     * @return the number of bits set to {@code true} in this {@code BitSet}
+     * @since  1.4
      */
     public int cardinality() {
-        int result = 0;
-        for (int i = 0; i < longCount; ++i) {
-            result += Long.bitCount(bits[i]);
+        int sum = 0;
+        for (int i = 0; i < wordsInUse; i++)
+            sum += Long.bitCount(words[i]);
+        return sum;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a logical <b>AND</b> of this target bit set with the
+     * argument bit set. This bit set is modified so that each bit in it
+     * has the value {@code true} if and only if it both initially
+     * had the value {@code true} and the corresponding bit in the
+     * bit set argument also had the value {@code true}.
+     * {@description.close}
+     *
+     * @param set a bit set
+     */
+    public void and(BitSet set) {
+        if (this == set)
+            return;
+
+        while (wordsInUse > set.wordsInUse)
+            words[--wordsInUse] = 0;
+
+        // Perform logical AND on words in common
+        for (int i = 0; i < wordsInUse; i++)
+            words[i] &= set.words[i];
+
+        recalculateWordsInUse();
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a logical <b>OR</b> of this bit set with the bit set
+     * argument. This bit set is modified so that a bit in it has the
+     * value {@code true} if and only if it either already had the
+     * value {@code true} or the corresponding bit in the bit set
+     * argument has the value {@code true}.
+     * {@description.close}
+     *
+     * @param set a bit set
+     */
+    public void or(BitSet set) {
+        if (this == set)
+            return;
+
+        int wordsInCommon = Math.min(wordsInUse, set.wordsInUse);
+
+        if (wordsInUse < set.wordsInUse) {
+            ensureCapacity(set.wordsInUse);
+            wordsInUse = set.wordsInUse;
         }
-        return result;
+
+        // Perform logical OR on words in common
+        for (int i = 0; i < wordsInCommon; i++)
+            words[i] |= set.words[i];
+
+        // Copy any remaining words
+        if (wordsInCommon < set.wordsInUse)
+            System.arraycopy(set.words, wordsInCommon,
+                             words, wordsInCommon,
+                             wordsInUse - wordsInCommon);
+
+        // recalculateWordsInUse() is unnecessary
+        checkInvariants();
     }
 
-    /**
-     * Equivalent to {@code BitSet.valueOf(LongBuffer.wrap(longs))}, but likely to be faster.
-     * This is likely to be the fastest way to create a {@code BitSet} because it's closest
-     * to the internal representation.
-     * @hide 1.7
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a logical <b>XOR</b> of this bit set with the bit set
+     * argument. This bit set is modified so that a bit in it has the
+     * value {@code true} if and only if one of the following
+     * statements holds:
+     * <ul>
+     * <li>The bit initially has the value {@code true}, and the
+     *     corresponding bit in the argument has the value {@code false}.
+     * <li>The bit initially has the value {@code false}, and the
+     *     corresponding bit in the argument has the value {@code true}.
+     * </ul>
+     * {@description.close}
+     *
+     * @param  set a bit set
      */
-    public static BitSet valueOf(long[] longs) {
-        return new BitSet(longs.clone());
-    }
+    public void xor(BitSet set) {
+        int wordsInCommon = Math.min(wordsInUse, set.wordsInUse);
 
-    /**
-     * Returns a {@code BitSet} corresponding to {@code longBuffer}, interpreted as a little-endian
-     * sequence of bits. This method does not alter the {@code LongBuffer}.
-     * @hide 1.7
-     */
-    public static BitSet valueOf(LongBuffer longBuffer) {
-        // The bulk get would mutate LongBuffer (even if we reset position later), and it's not
-        // clear that's allowed. My assumption is that it's the long[] variant that's the common
-        // case anyway, so copy the buffer into a long[].
-        long[] longs = new long[longBuffer.remaining()];
-        for (int i = 0; i < longs.length; ++i) {
-            longs[i] = longBuffer.get(longBuffer.position() + i);
+        if (wordsInUse < set.wordsInUse) {
+            ensureCapacity(set.wordsInUse);
+            wordsInUse = set.wordsInUse;
         }
-        return BitSet.valueOf(longs);
+
+        // Perform logical XOR on words in common
+        for (int i = 0; i < wordsInCommon; i++)
+            words[i] ^= set.words[i];
+
+        // Copy any remaining words
+        if (wordsInCommon < set.wordsInUse)
+            System.arraycopy(set.words, wordsInCommon,
+                             words, wordsInCommon,
+                             set.wordsInUse - wordsInCommon);
+
+        recalculateWordsInUse();
+        checkInvariants();
     }
 
-    /**
-     * Equivalent to {@code BitSet.valueOf(ByteBuffer.wrap(bytes))}.
-     * @hide 1.7
+    /** {@collect.stats} 
+     * {@description.open}
+     * Clears all of the bits in this {@code BitSet} whose corresponding
+     * bit is set in the specified {@code BitSet}.
+     * {@description.close}
+     *
+     * @param  set the {@code BitSet} with which to mask this
+     *         {@code BitSet}
+     * @since  1.2
      */
-    public static BitSet valueOf(byte[] bytes) {
-        return BitSet.valueOf(ByteBuffer.wrap(bytes));
+    public void andNot(BitSet set) {
+        // Perform logical (a & !b) on words in common
+        for (int i = Math.min(wordsInUse, set.wordsInUse) - 1; i >= 0; i--)
+            words[i] &= ~set.words[i];
+
+        recalculateWordsInUse();
+        checkInvariants();
     }
 
-    /**
-     * Returns a {@code BitSet} corresponding to {@code byteBuffer}, interpreted as a little-endian
-     * sequence of bits. This method does not alter the {@code ByteBuffer}.
-     * @hide 1.7
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a hash code value for this bit set. The hash code
+     * depends only on which bits have been set within this
+     * <code>BitSet</code>. The algorithm used to compute it may
+     * be described as follows.<p>
+     * Suppose the bits in the <code>BitSet</code> were to be stored
+     * in an array of <code>long</code> integers called, say,
+     * <code>words</code>, in such a manner that bit <code>k</code> is
+     * set in the <code>BitSet</code> (for nonnegative values of
+     * <code>k</code>) if and only if the expression
+     * <pre>((k&gt;&gt;6) &lt; words.length) && ((words[k&gt;&gt;6] & (1L &lt;&lt; (bit & 0x3F))) != 0)</pre>
+     * is true. Then the following definition of the <code>hashCode</code>
+     * method would be a correct implementation of the actual algorithm:
+     * <pre>
+     * public int hashCode() {
+     *      long h = 1234;
+     *      for (int i = words.length; --i &gt;= 0; ) {
+     *           h ^= words[i] * (i + 1);
+     *      }
+     *      return (int)((h &gt;&gt; 32) ^ h);
+     * }</pre>
+     * Note that the hash code values change if the set of bits is altered.
+     * <p>Overrides the <code>hashCode</code> method of <code>Object</code>.
+     * {@description.close}
+     *
+     * @return  a hash code value for this bit set.
      */
-    public static BitSet valueOf(ByteBuffer byteBuffer) {
-        byteBuffer = byteBuffer.slice().order(ByteOrder.LITTLE_ENDIAN);
-        long[] longs = arrayForBits(byteBuffer.remaining() * 8);
-        int i = 0;
-        while (byteBuffer.remaining() >= SizeOf.LONG) {
-            longs[i++] = byteBuffer.getLong();
+    public int hashCode() {
+        long h = 1234;
+        for (int i = wordsInUse; --i >= 0; )
+            h ^= words[i] * (i + 1);
+
+        return (int)((h >> 32) ^ h);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the number of bits of space actually in use by this
+     * {@code BitSet} to represent bit values.
+     * The maximum element in the set is the size - 1st element.
+     * {@description.close}
+     *
+     * @return the number of bits currently in this bit set
+     */
+    public int size() {
+        return words.length * BITS_PER_WORD;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Compares this object against the specified object.
+     * The result is {@code true} if and only if the argument is
+     * not {@code null} and is a {@code Bitset} object that has
+     * exactly the same set of bits set to {@code true} as this bit
+     * set. That is, for every nonnegative {@code int} index {@code k},
+     * <pre>((BitSet)obj).get(k) == this.get(k)</pre>
+     * must be true. The current sizes of the two bit sets are not compared.
+     * {@description.close}
+     *
+     * @param  obj the object to compare with
+     * @return {@code true} if the objects are the same;
+     *         {@code false} otherwise
+     * @see    #size()
+     */
+    public boolean equals(Object obj) {
+        if (!(obj instanceof BitSet))
+            return false;
+        if (this == obj)
+            return true;
+
+        BitSet set = (BitSet) obj;
+
+        checkInvariants();
+        set.checkInvariants();
+
+        if (wordsInUse != set.wordsInUse)
+            return false;
+
+        // Check words in use by both BitSets
+        for (int i = 0; i < wordsInUse; i++)
+            if (words[i] != set.words[i])
+                return false;
+
+        return true;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Cloning this {@code BitSet} produces a new {@code BitSet}
+     * that is equal to it.
+     * The clone of the bit set is another bit set that has exactly the
+     * same bits set to {@code true} as this bit set.
+     * {@description.close}
+     *
+     * @return a clone of this bit set
+     * @see    #size()
+     */
+    public Object clone() {
+        if (! sizeIsSticky)
+            trimToSize();
+
+        try {
+            BitSet result = (BitSet) super.clone();
+            result.words = words.clone();
+            result.checkInvariants();
+            return result;
+        } catch (CloneNotSupportedException e) {
+            throw new InternalError();
         }
-        for (int j = 0; byteBuffer.hasRemaining(); ++j) {
-            longs[i] |= ((((long) byteBuffer.get()) & 0xff) << (8*j));
-        }
-        return BitSet.valueOf(longs);
     }
 
-    /**
-     * Returns a new {@code long[]} containing a little-endian representation of the bits of
-     * this {@code BitSet}, suitable for passing to {@code valueOf} to reconstruct
-     * this {@code BitSet}.
-     * @hide 1.7
+    /** {@collect.stats} 
+     * {@description.open}
+     * Attempts to reduce internal storage used for the bits in this bit set.
+     * Calling this method may, but is not required to, affect the value
+     * returned by a subsequent call to the {@link #size()} method.
+     * {@description.close}
      */
-    public long[] toLongArray() {
-        return Arrays.copyOf(bits, longCount);
-    }
-
-    /**
-     * Returns a new {@code byte[]} containing a little-endian representation the bits of
-     * this {@code BitSet}, suitable for passing to {@code valueOf} to reconstruct
-     * this {@code BitSet}.
-     * @hide 1.7
-     */
-    public byte[] toByteArray() {
-        int bitCount = length();
-        byte[] result = new byte[(bitCount + 7)/ 8];
-        for (int i = 0; i < result.length; ++i) {
-            int lowBit = 8 * i;
-            int arrayIndex = lowBit / 64;
-            result[i] = (byte) (bits[arrayIndex] >>> lowBit);
+    private void trimToSize() {
+        if (wordsInUse != words.length) {
+            words = Arrays.copyOf(words, wordsInUse);
+            checkInvariants();
         }
-        return result;
     }
 
-    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        ois.defaultReadObject();
-        // The serialized form doesn't include a 'longCount' field, so we'll have to scan the array.
-        this.longCount = this.bits.length;
-        shrinkSize();
+    /** {@collect.stats} 
+     * {@description.open}
+     * Save the state of the {@code BitSet} instance to a stream (i.e.,
+     * serialize it).
+     * {@description.close}
+     */
+    private void writeObject(ObjectOutputStream s)
+        throws IOException {
+
+        checkInvariants();
+
+        if (! sizeIsSticky)
+            trimToSize();
+
+        ObjectOutputStream.PutField fields = s.putFields();
+        fields.put("bits", words);
+        s.writeFields();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Reconstitute the {@code BitSet} instance from a stream (i.e.,
+     * deserialize it).
+     * {@description.close}
+     */
+    private void readObject(ObjectInputStream s)
+        throws IOException, ClassNotFoundException {
+
+        ObjectInputStream.GetField fields = s.readFields();
+        words = (long[]) fields.get("bits", null);
+
+        // Assume maximum length then find real length
+        // because recalculateWordsInUse assumes maintenance
+        // or reduction in logical size
+        wordsInUse = words.length;
+        recalculateWordsInUse();
+        sizeIsSticky = (words.length > 0 && words[words.length-1] == 0L); // heuristic
+        checkInvariants();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a string representation of this bit set. For every index
+     * for which this {@code BitSet} contains a bit in the set
+     * state, the decimal representation of that index is included in
+     * the result. Such indices are listed in order from lowest to
+     * highest, separated by ",&nbsp;" (a comma and a space) and
+     * surrounded by braces, resulting in the usual mathematical
+     * notation for a set of integers.
+     *
+     * <p>Example:
+     * <pre>
+     * BitSet drPepper = new BitSet();</pre>
+     * Now {@code drPepper.toString()} returns "{@code {}}".<p>
+     * <pre>
+     * drPepper.set(2);</pre>
+     * Now {@code drPepper.toString()} returns "{@code {2}}".<p>
+     * <pre>
+     * drPepper.set(4);
+     * drPepper.set(10);</pre>
+     * Now {@code drPepper.toString()} returns "{@code {2, 4, 10}}".
+     * {@description.close}
+     *
+     * @return a string representation of this bit set
+     */
+    public String toString() {
+        checkInvariants();
+
+        int numBits = (wordsInUse > 128) ?
+            cardinality() : wordsInUse * BITS_PER_WORD;
+        StringBuilder b = new StringBuilder(6*numBits + 2);
+        b.append('{');
+
+        int i = nextSetBit(0);
+        if (i != -1) {
+            b.append(i);
+            for (i = nextSetBit(i+1); i >= 0; i = nextSetBit(i+1)) {
+                int endOfRun = nextClearBit(i);
+                do { b.append(", ").append(i); }
+                while (++i < endOfRun);
+            }
+        }
+
+        b.append('}');
+        return b.toString();
     }
 }

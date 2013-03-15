@@ -1,23 +1,44 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.AbstractQueue;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.locks.*;
+import java.util.*;
 
-// BEGIN android-note
-// removed link to collections framework docs
-// END android-note
-
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A bounded {@linkplain BlockingQueue blocking queue} backed by an
  * array.  This queue orders elements FIFO (first-in-first-out).  The
  * <em>head</em> of the queue is that element that has been on the
@@ -29,20 +50,25 @@ import java.lang.ref.WeakReference;
  * <p>This is a classic &quot;bounded buffer&quot;, in which a
  * fixed-sized array holds elements inserted by producers and
  * extracted by consumers.  Once created, the capacity cannot be
- * changed.  Attempts to {@code put} an element into a full queue
- * will result in the operation blocking; attempts to {@code take} an
+ * increased.  Attempts to <tt>put</tt> an element into a full queue
+ * will result in the operation blocking; attempts to <tt>take</tt> an
  * element from an empty queue will similarly block.
  *
- * <p>This class supports an optional fairness policy for ordering
+ * <p> This class supports an optional fairness policy for ordering
  * waiting producer and consumer threads.  By default, this ordering
  * is not guaranteed. However, a queue constructed with fairness set
- * to {@code true} grants threads access in FIFO order. Fairness
+ * to <tt>true</tt> grants threads access in FIFO order. Fairness
  * generally decreases throughput but reduces variability and avoids
  * starvation.
  *
  * <p>This class and its iterator implement all of the
  * <em>optional</em> methods of the {@link Collection} and {@link
  * Iterator} interfaces.
+ *
+ * <p>This class is a member of the
+ * <a href="{@docRoot}/../technotes/guides/collections/index.html">
+ * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -51,229 +77,213 @@ import java.lang.ref.WeakReference;
 public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         implements BlockingQueue<E>, java.io.Serializable {
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Serialization ID. This class relies on default serialization
      * even for the items array, which is default-serialized, even if
      * it is empty. Otherwise it could not be declared final, which is
      * necessary here.
+     * {@description.close}
      */
     private static final long serialVersionUID = -817911632652898426L;
 
-    /** The queued items */
-    final Object[] items;
-
-    /** items index for next take, poll, peek or remove */
-    int takeIndex;
-
-    /** items index for next put, offer, or add */
-    int putIndex;
-
-    /** Number of elements in the queue */
-    int count;
+    /** {@collect.stats}
+     * {@description.open}
+     * The queued items
+     * {@description.close}
+     */
+    private final E[] items;
+    /** {@collect.stats}
+     * {@description.open}
+     * items index for next take, poll or remove
+     * {@description.close}
+     */
+    private int takeIndex;
+    /** {@collect.stats}
+     * {@description.open}
+     * items index for next put, offer, or add.
+     * {@description.close}
+     */
+    private int putIndex;
+    /** {@collect.stats}
+     * {@description.open}
+     * Number of items in the queue
+     * {@description.close}
+     */
+    private int count;
 
     /*
      * Concurrency control uses the classic two-condition algorithm
      * found in any textbook.
      */
 
-    /** Main lock guarding all access */
-    final ReentrantLock lock;
-
-    /** Condition for waiting takes */
-    private final Condition notEmpty;
-
-    /** Condition for waiting puts */
-    private final Condition notFull;
-
-    /**
-     * Shared state for currently active iterators, or null if there
-     * are known not to be any.  Allows queue operations to update
-     * iterator state.
+    /** {@collect.stats}
+     * {@description.open}
+     * Main lock guarding all access
+     * {@description.close}
      */
-    transient Itrs itrs = null;
+    private final ReentrantLock lock;
+    /** {@collect.stats}
+     * {@description.open}
+     * Condition for waiting takes
+     * {@description.close}
+     */
+    private final Condition notEmpty;
+    /** {@collect.stats}
+     * {@description.open}
+     * Condition for waiting puts
+     * {@description.close}
+     */
+    private final Condition notFull;
 
     // Internal helper methods
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Circularly increment i.
+     * {@description.close}
      */
     final int inc(int i) {
-        return (++i == items.length) ? 0 : i;
+        return (++i == items.length)? 0 : i;
     }
 
-    /**
-     * Circularly decrement i.
-     */
-    final int dec(int i) {
-        return ((i == 0) ? items.length : i) - 1;
-    }
-
-    /**
-     * Returns item at index i.
-     */
-    final E itemAt(int i) {
-        @SuppressWarnings("unchecked") E x = (E) items[i];
-        return x;
-    }
-
-    /**
-     * Throws NullPointerException if argument is null.
-     *
-     * @param v the element
-     */
-    private static void checkNotNull(Object v) {
-        if (v == null)
-            throw new NullPointerException();
-    }
-
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Inserts element at current put position, advances, and signals.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
-    private void enqueue(E x) {
-        // assert lock.getHoldCount() == 1;
-        // assert items[putIndex] == null;
+    private void insert(E x) {
         items[putIndex] = x;
         putIndex = inc(putIndex);
-        count++;
+        ++count;
         notEmpty.signal();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Extracts element at current take position, advances, and signals.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
-    private E dequeue() {
-        // assert lock.getHoldCount() == 1;
-        // assert items[takeIndex] != null;
-        final Object[] items = this.items;
-        @SuppressWarnings("unchecked") E x = (E) items[takeIndex];
+    private E extract() {
+        final E[] items = this.items;
+        E x = items[takeIndex];
         items[takeIndex] = null;
         takeIndex = inc(takeIndex);
-        count--;
-        if (itrs != null)
-            itrs.elementDequeued();
+        --count;
         notFull.signal();
         return x;
     }
 
-    /**
-     * Deletes item at array index removeIndex.
-     * Utility for remove(Object) and iterator.remove.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Utility for remove and iterator.remove: Delete item at position i.
+     * {@description.close}
+     * {@property.open internal}
      * Call only when holding lock.
+     * {@property.close}
      */
-    void removeAt(final int removeIndex) {
-        // assert lock.getHoldCount() == 1;
-        // assert items[removeIndex] != null;
-        // assert removeIndex >= 0 && removeIndex < items.length;
-        final Object[] items = this.items;
-        if (removeIndex == takeIndex) {
-            // removing front item; just advance
+    void removeAt(int i) {
+        final E[] items = this.items;
+        // if removing front item, just advance
+        if (i == takeIndex) {
             items[takeIndex] = null;
             takeIndex = inc(takeIndex);
-            count--;
-            if (itrs != null)
-                itrs.elementDequeued();
         } else {
-            // an "interior" remove
-
             // slide over all others up through putIndex.
-            final int putIndex = this.putIndex;
-            for (int i = removeIndex;;) {
-                int next = inc(i);
-                if (next != putIndex) {
-                    items[i] = items[next];
-                    i = next;
+            for (;;) {
+                int nexti = inc(i);
+                if (nexti != putIndex) {
+                    items[i] = items[nexti];
+                    i = nexti;
                 } else {
                     items[i] = null;
-                    this.putIndex = i;
+                    putIndex = i;
                     break;
                 }
             }
-            count--;
-            if (itrs != null)
-                itrs.removedAt(removeIndex);
         }
+        --count;
         notFull.signal();
     }
 
-    /**
-     * Creates an {@code ArrayBlockingQueue} with the given (fixed)
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and default access policy.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
-     * @throws IllegalArgumentException if {@code capacity < 1}
+     * @throws IllegalArgumentException if <tt>capacity</tt> is less than 1
      */
     public ArrayBlockingQueue(int capacity) {
         this(capacity, false);
     }
 
-    /**
-     * Creates an {@code ArrayBlockingQueue} with the given (fixed)
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and the specified access policy.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
-     * @param fair if {@code true} then queue accesses for threads blocked
+     * @param fair if <tt>true</tt> then queue accesses for threads blocked
      *        on insertion or removal, are processed in FIFO order;
-     *        if {@code false} the access order is unspecified.
-     * @throws IllegalArgumentException if {@code capacity < 1}
+     *        if <tt>false</tt> the access order is unspecified.
+     * @throws IllegalArgumentException if <tt>capacity</tt> is less than 1
      */
     public ArrayBlockingQueue(int capacity, boolean fair) {
         if (capacity <= 0)
             throw new IllegalArgumentException();
-        this.items = new Object[capacity];
+        this.items = (E[]) new Object[capacity];
         lock = new ReentrantLock(fair);
         notEmpty = lock.newCondition();
         notFull =  lock.newCondition();
     }
 
-    /**
-     * Creates an {@code ArrayBlockingQueue} with the given (fixed)
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity, the specified access policy and initially containing the
      * elements of the given collection,
      * added in traversal order of the collection's iterator.
+     * {@description.close}
      *
      * @param capacity the capacity of this queue
-     * @param fair if {@code true} then queue accesses for threads blocked
+     * @param fair if <tt>true</tt> then queue accesses for threads blocked
      *        on insertion or removal, are processed in FIFO order;
-     *        if {@code false} the access order is unspecified.
+     *        if <tt>false</tt> the access order is unspecified.
      * @param c the collection of elements to initially contain
-     * @throws IllegalArgumentException if {@code capacity} is less than
-     *         {@code c.size()}, or less than 1.
+     * @throws IllegalArgumentException if <tt>capacity</tt> is less than
+     *         <tt>c.size()</tt>, or less than 1.
      * @throws NullPointerException if the specified collection or any
      *         of its elements are null
      */
     public ArrayBlockingQueue(int capacity, boolean fair,
                               Collection<? extends E> c) {
         this(capacity, fair);
+        if (capacity < c.size())
+            throw new IllegalArgumentException();
 
-        final ReentrantLock lock = this.lock;
-        lock.lock(); // Lock only for visibility, not mutual exclusion
-        try {
-            int i = 0;
-            try {
-                for (E e : c) {
-                    checkNotNull(e);
-                    items[i++] = e;
-                }
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                throw new IllegalArgumentException();
-            }
-            count = i;
-            putIndex = (i == capacity) ? 0 : i;
-        } finally {
-            lock.unlock();
-        }
+        for (Iterator<? extends E> it = c.iterator(); it.hasNext();)
+            add(it.next());
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
-     * returning {@code true} upon success and throwing an
-     * {@code IllegalStateException} if this queue is full.
+     * returning <tt>true</tt> upon success and throwing an
+     * <tt>IllegalStateException</tt> if this queue is full.
+     * {@description.close}
      *
      * @param e the element to add
-     * @return {@code true} (as specified by {@link Collection#add})
+     * @return <tt>true</tt> (as specified by {@link Collection#add})
      * @throws IllegalStateException if this queue is full
      * @throws NullPointerException if the specified element is null
      */
@@ -281,24 +291,26 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         return super.add(e);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
-     * returning {@code true} upon success and {@code false} if this queue
+     * returning <tt>true</tt> upon success and <tt>false</tt> if this queue
      * is full.  This method is generally preferable to method {@link #add},
      * which can fail to insert an element only by throwing an exception.
+     * {@description.close}
      *
      * @throws NullPointerException if the specified element is null
      */
     public boolean offer(E e) {
-        checkNotNull(e);
+        if (e == null) throw new NullPointerException();
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
             if (count == items.length)
                 return false;
             else {
-                enqueue(e);
+                insert(e);
                 return true;
             }
         } finally {
@@ -306,30 +318,40 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue, waiting
      * for space to become available if the queue is full.
+     * {@description.close}
      *
      * @throws InterruptedException {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
     public void put(E e) throws InterruptedException {
-        checkNotNull(e);
+        if (e == null) throw new NullPointerException();
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
         try {
-            while (count == items.length)
-                notFull.await();
-            enqueue(e);
+            try {
+                while (count == items.length)
+                    notFull.await();
+            } catch (InterruptedException ie) {
+                notFull.signal(); // propagate to non-interrupted thread
+                throw ie;
+            }
+            insert(e);
         } finally {
             lock.unlock();
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Inserts the specified element at the tail of this queue, waiting
      * up to the specified wait time for space to become available if
      * the queue is full.
+     * {@description.close}
      *
      * @throws InterruptedException {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -337,18 +359,25 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     public boolean offer(E e, long timeout, TimeUnit unit)
         throws InterruptedException {
 
-        checkNotNull(e);
+        if (e == null) throw new NullPointerException();
         long nanos = unit.toNanos(timeout);
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
         try {
-            while (count == items.length) {
+            for (;;) {
+                if (count != items.length) {
+                    insert(e);
+                    return true;
+                }
                 if (nanos <= 0)
                     return false;
-                nanos = notFull.awaitNanos(nanos);
+                try {
+                    nanos = notFull.awaitNanos(nanos);
+                } catch (InterruptedException ie) {
+                    notFull.signal(); // propagate to non-interrupted thread
+                    throw ie;
+                }
             }
-            enqueue(e);
-            return true;
         } finally {
             lock.unlock();
         }
@@ -358,7 +387,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            return (count == 0) ? null : dequeue();
+            if (count == 0)
+                return null;
+            E x = extract();
+            return x;
         } finally {
             lock.unlock();
         }
@@ -368,9 +400,15 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
         try {
-            while (count == 0)
-                notEmpty.await();
-            return dequeue();
+            try {
+                while (count == 0)
+                    notEmpty.await();
+            } catch (InterruptedException ie) {
+                notEmpty.signal(); // propagate to non-interrupted thread
+                throw ie;
+            }
+            E x = extract();
+            return x;
         } finally {
             lock.unlock();
         }
@@ -381,12 +419,21 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
         try {
-            while (count == 0) {
+            for (;;) {
+                if (count != 0) {
+                    E x = extract();
+                    return x;
+                }
                 if (nanos <= 0)
                     return null;
-                nanos = notEmpty.awaitNanos(nanos);
+                try {
+                    nanos = notEmpty.awaitNanos(nanos);
+                } catch (InterruptedException ie) {
+                    notEmpty.signal(); // propagate to non-interrupted thread
+                    throw ie;
+                }
+
             }
-            return dequeue();
         } finally {
             lock.unlock();
         }
@@ -396,7 +443,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            return (count == 0) ? null : itemAt(takeIndex);
+            return (count == 0) ? null : items[takeIndex];
         } finally {
             lock.unlock();
         }
@@ -404,8 +451,10 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is overridden to remove the reference to collections
     // greater in size than Integer.MAX_VALUE
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this queue.
+     * {@description.close}
      *
      * @return the number of elements in this queue
      */
@@ -421,16 +470,18 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is a modified copy of the inherited doc comment,
     // without the reference to unlimited queues.
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking. This is always equal to the initial capacity of this queue
-     * less the current {@code size} of this queue.
+     * less the current <tt>size</tt> of this queue.
      *
      * <p>Note that you <em>cannot</em> always tell if an attempt to insert
-     * an element will succeed by inspecting {@code remainingCapacity}
+     * an element will succeed by inspecting <tt>remainingCapacity</tt>
      * because it may be the case that another thread is about to
      * insert or remove an element.
+     * {@description.close}
      */
     public int remainingCapacity() {
         final ReentrantLock lock = this.lock;
@@ -442,66 +493,64 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Removes a single instance of the specified element from this queue,
-     * if it is present.  More formally, removes an element {@code e} such
-     * that {@code o.equals(e)}, if this queue contains one or more such
+     * if it is present.  More formally, removes an element <tt>e</tt> such
+     * that <tt>o.equals(e)</tt>, if this queue contains one or more such
      * elements.
-     * Returns {@code true} if this queue contained the specified element
+     * Returns <tt>true</tt> if this queue contained the specified element
      * (or equivalently, if this queue changed as a result of the call).
-     *
-     * <p>Removal of interior elements in circular array based queues
-     * is an intrinsically slow and disruptive operation, so should
-     * be undertaken only in exceptional circumstances, ideally
-     * only when the queue is known not to be accessible by other
-     * threads.
+     * {@description.close}
      *
      * @param o element to be removed from this queue, if present
-     * @return {@code true} if this queue changed as a result of the call
+     * @return <tt>true</tt> if this queue changed as a result of the call
      */
     public boolean remove(Object o) {
         if (o == null) return false;
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            if (count > 0) {
-                final int putIndex = this.putIndex;
-                int i = takeIndex;
-                do {
-                    if (o.equals(items[i])) {
-                        removeAt(i);
-                        return true;
-                    }
-                } while ((i = inc(i)) != putIndex);
+            int i = takeIndex;
+            int k = 0;
+            for (;;) {
+                if (k++ >= count)
+                    return false;
+                if (o.equals(items[i])) {
+                    removeAt(i);
+                    return true;
+                }
+                i = inc(i);
             }
-            return false;
+
         } finally {
             lock.unlock();
         }
     }
 
-    /**
-     * Returns {@code true} if this queue contains the specified element.
-     * More formally, returns {@code true} if and only if this queue contains
-     * at least one element {@code e} such that {@code o.equals(e)}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns <tt>true</tt> if this queue contains the specified element.
+     * More formally, returns <tt>true</tt> if and only if this queue contains
+     * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
+     * {@description.close}
      *
      * @param o object to be checked for containment in this queue
-     * @return {@code true} if this queue contains the specified element
+     * @return <tt>true</tt> if this queue contains the specified element
      */
     public boolean contains(Object o) {
         if (o == null) return false;
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            if (count > 0) {
-                final int putIndex = this.putIndex;
-                int i = takeIndex;
-                do {
-                    if (o.equals(items[i]))
-                        return true;
-                } while ((i = inc(i)) != putIndex);
+            int i = takeIndex;
+            int k = 0;
+            while (k++ < count) {
+                if (o.equals(items[i]))
+                    return true;
+                i = inc(i);
             }
             return false;
         } finally {
@@ -509,7 +558,8 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence.
      *
@@ -519,25 +569,30 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all of the elements in this queue
      */
     public Object[] toArray() {
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            final int count = this.count;
             Object[] a = new Object[count];
-            for (int i = takeIndex, k = 0; k < count; i = inc(i), k++)
-                a[k] = items[i];
+            int k = 0;
+            int i = takeIndex;
+            while (k < count) {
+                a[k++] = items[i];
+                i = inc(i);
+            }
             return a;
         } finally {
             lock.unlock();
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the queue fits in the specified array, it
@@ -547,21 +602,23 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * <p>If this queue fits in the specified array with room to spare
      * (i.e., the array has more elements than this queue), the element in
      * the array immediately following the end of the queue is set to
-     * {@code null}.
+     * <tt>null</tt>.
      *
      * <p>Like the {@link #toArray()} method, this method acts as bridge between
      * array-based and collection-based APIs.  Further, this method allows
      * precise control over the runtime type of the output array, and may,
      * under certain circumstances, be used to save allocation costs.
      *
-     * <p>Suppose {@code x} is a queue known to contain only strings.
+     * <p>Suppose <tt>x</tt> is a queue known to contain only strings.
      * The following code can be used to dump the queue into a newly
-     * allocated array of {@code String}:
+     * allocated array of <tt>String</tt>:
      *
-     *  <pre> {@code String[] y = x.toArray(new String[0]);}</pre>
+     * <pre>
+     *     String[] y = x.toArray(new String[0]);</pre>
      *
-     * Note that {@code toArray(new Object[0])} is identical in function to
-     * {@code toArray()}.
+     * Note that <tt>toArray(new Object[0])</tt> is identical in function to
+     * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of the queue are to
      *          be stored, if it is big enough; otherwise, a new array of the
@@ -572,20 +629,24 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      *         this queue
      * @throws NullPointerException if the specified array is null
      */
-    @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            final int count = this.count;
-            final int len = a.length;
-            if (len < count)
+            if (a.length < count)
                 a = (T[])java.lang.reflect.Array.newInstance(
-                    a.getClass().getComponentType(), count);
-            for (int i = takeIndex, k = 0; k < count; i = inc(i), k++)
-                a[k] = (T) items[i];
-            if (len > count)
+                    a.getClass().getComponentType(),
+                    count
+                    );
+
+            int k = 0;
+            int i = takeIndex;
+            while (k < count) {
+                a[k++] = (T)items[i];
+                i = inc(i);
+            }
+            if (a.length > count)
                 a[count] = null;
             return a;
         } finally {
@@ -597,749 +658,238 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            int k = count;
-            if (k == 0)
-                return "[]";
-
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            for (int i = takeIndex; ; i = inc(i)) {
-                Object e = items[i];
-                sb.append(e == this ? "(this Collection)" : e);
-                if (--k == 0)
-                    return sb.append(']').toString();
-                sb.append(',').append(' ');
-            }
+            return super.toString();
         } finally {
             lock.unlock();
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically removes all of the elements from this queue.
      * The queue will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
+            int i = takeIndex;
             int k = count;
-            if (k > 0) {
-                final int putIndex = this.putIndex;
-                int i = takeIndex;
-                do {
-                    items[i] = null;
-                } while ((i = inc(i)) != putIndex);
-                takeIndex = putIndex;
-                count = 0;
-                if (itrs != null)
-                    itrs.queueIsEmpty();
-                for (; k > 0 && lock.hasWaiters(notFull); k--)
-                    notFull.signal();
+            while (k-- > 0) {
+                items[i] = null;
+                i = inc(i);
             }
+            count = 0;
+            putIndex = 0;
+            takeIndex = 0;
+            notFull.signalAll();
         } finally {
             lock.unlock();
         }
     }
 
-    /**
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
      * @throws IllegalArgumentException      {@inheritDoc}
      */
     public int drainTo(Collection<? super E> c) {
-        return drainTo(c, Integer.MAX_VALUE);
+        if (c == null)
+            throw new NullPointerException();
+        if (c == this)
+            throw new IllegalArgumentException();
+        final E[] items = this.items;
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            int i = takeIndex;
+            int n = 0;
+            int max = count;
+            while (n < max) {
+                c.add(items[i]);
+                items[i] = null;
+                i = inc(i);
+                ++n;
+            }
+            if (n > 0) {
+                count = 0;
+                putIndex = 0;
+                takeIndex = 0;
+                notFull.signalAll();
+            }
+            return n;
+        } finally {
+            lock.unlock();
+        }
     }
 
-    /**
+    /** {@collect.stats} 
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
      * @throws IllegalArgumentException      {@inheritDoc}
      */
     public int drainTo(Collection<? super E> c, int maxElements) {
-        checkNotNull(c);
+        if (c == null)
+            throw new NullPointerException();
         if (c == this)
             throw new IllegalArgumentException();
         if (maxElements <= 0)
             return 0;
-        final Object[] items = this.items;
+        final E[] items = this.items;
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            int n = Math.min(maxElements, count);
-            int take = takeIndex;
-            int i = 0;
-            try {
-                while (i < n) {
-                    @SuppressWarnings("unchecked") E x = (E) items[take];
-                    c.add(x);
-                    items[take] = null;
-                    take = inc(take);
-                    i++;
-                }
-                return n;
-            } finally {
-                // Restore invariants even if c.add() threw
-                if (i > 0) {
-                    count -= i;
-                    takeIndex = take;
-                    if (itrs != null) {
-                        if (count == 0)
-                            itrs.queueIsEmpty();
-                        else if (i > take)
-                            itrs.takeIndexWrapped();
-                    }
-                    for (; i > 0 && lock.hasWaiters(notFull); i--)
-                        notFull.signal();
-                }
+            int i = takeIndex;
+            int n = 0;
+            int sz = count;
+            int max = (maxElements < count)? maxElements : count;
+            while (n < max) {
+                c.add(items[i]);
+                items[i] = null;
+                i = inc(i);
+                ++n;
             }
+            if (n > 0) {
+                count -= n;
+                takeIndex = i;
+                notFull.signalAll();
+            }
+            return n;
         } finally {
             lock.unlock();
         }
     }
 
-    /**
+
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements in this queue in proper sequence.
-     * The elements will be returned in order from first (head) to last (tail).
-     *
-     * <p>The returned iterator is a "weakly consistent" iterator that
-     * will never throw {@link java.util.ConcurrentModificationException
-     * ConcurrentModificationException}, and guarantees to traverse
-     * elements as they existed upon construction of the iterator, and
-     * may (but is not guaranteed to) reflect any modifications
-     * subsequent to construction.
+     * {@description.close}
+     * {@property.open synchronized}
+     * The returned <tt>Iterator</tt> is a "weakly consistent" iterator that
+     * will never throw {@link ConcurrentModificationException},
+     * and guarantees to traverse elements as they existed upon
+     * construction of the iterator, and may (but is not guaranteed to)
+     * reflect any modifications subsequent to construction.
+     * {@property.close}
      *
      * @return an iterator over the elements in this queue in proper sequence
      */
     public Iterator<E> iterator() {
-        return new Itr();
-    }
-
-    /**
-     * Shared data between iterators and their queue, allowing queue
-     * modifications to update iterators when elements are removed.
-     *
-     * This adds a lot of complexity for the sake of correctly
-     * handling some uncommon operations, but the combination of
-     * circular-arrays and supporting interior removes (i.e., those
-     * not at head) would cause iterators to sometimes lose their
-     * places and/or (re)report elements they shouldn't.  To avoid
-     * this, when a queue has one or more iterators, it keeps iterator
-     * state consistent by:
-     *
-     * (1) keeping track of the number of "cycles", that is, the
-     *     number of times takeIndex has wrapped around to 0.
-     * (2) notifying all iterators via the callback removedAt whenever
-     *     an interior element is removed (and thus other elements may
-     *     be shifted).
-     *
-     * These suffice to eliminate iterator inconsistencies, but
-     * unfortunately add the secondary responsibility of maintaining
-     * the list of iterators.  We track all active iterators in a
-     * simple linked list (accessed only when the queue's lock is
-     * held) of weak references to Itr.  The list is cleaned up using
-     * 3 different mechanisms:
-     *
-     * (1) Whenever a new iterator is created, do some O(1) checking for
-     *     stale list elements.
-     *
-     * (2) Whenever takeIndex wraps around to 0, check for iterators
-     *     that have been unused for more than one wrap-around cycle.
-     *
-     * (3) Whenever the queue becomes empty, all iterators are notified
-     *     and this entire data structure is discarded.
-     *
-     * So in addition to the removedAt callback that is necessary for
-     * correctness, iterators have the shutdown and takeIndexWrapped
-     * callbacks that help remove stale iterators from the list.
-     *
-     * Whenever a list element is examined, it is expunged if either
-     * the GC has determined that the iterator is discarded, or if the
-     * iterator reports that it is "detached" (does not need any
-     * further state updates).  Overhead is maximal when takeIndex
-     * never advances, iterators are discarded before they are
-     * exhausted, and all removals are interior removes, in which case
-     * all stale iterators are discovered by the GC.  But even in this
-     * case we don't increase the amortized complexity.
-     *
-     * Care must be taken to keep list sweeping methods from
-     * reentrantly invoking another such method, causing subtle
-     * corruption bugs.
-     */
-    class Itrs {
-
-        /**
-         * Node in a linked list of weak iterator references.
-         */
-        private class Node extends WeakReference<Itr> {
-            Node next;
-
-            Node(Itr iterator, Node next) {
-                super(iterator);
-                this.next = next;
-            }
-        }
-
-        /** Incremented whenever takeIndex wraps around to 0 */
-        int cycles = 0;
-
-        /** Linked list of weak iterator references */
-        private Node head;
-
-        /** Used to expunge stale iterators */
-        private Node sweeper = null;
-
-        private static final int SHORT_SWEEP_PROBES = 4;
-        private static final int LONG_SWEEP_PROBES = 16;
-
-        Itrs(Itr initial) {
-            register(initial);
-        }
-
-        /**
-         * Sweeps itrs, looking for and expunging stale iterators.
-         * If at least one was found, tries harder to find more.
-         * Called only from iterating thread.
-         *
-         * @param tryHarder whether to start in try-harder mode, because
-         * there is known to be at least one iterator to collect
-         */
-        void doSomeSweeping(boolean tryHarder) {
-            // assert lock.getHoldCount() == 1;
-            // assert head != null;
-            int probes = tryHarder ? LONG_SWEEP_PROBES : SHORT_SWEEP_PROBES;
-            Node o, p;
-            final Node sweeper = this.sweeper;
-            boolean passedGo;   // to limit search to one full sweep
-
-            if (sweeper == null) {
-                o = null;
-                p = head;
-                passedGo = true;
-            } else {
-                o = sweeper;
-                p = o.next;
-                passedGo = false;
-            }
-
-            for (; probes > 0; probes--) {
-                if (p == null) {
-                    if (passedGo)
-                        break;
-                    o = null;
-                    p = head;
-                    passedGo = true;
-                }
-                final Itr it = p.get();
-                final Node next = p.next;
-                if (it == null || it.isDetached()) {
-                    // found a discarded/exhausted iterator
-                    probes = LONG_SWEEP_PROBES; // "try harder"
-                    // unlink p
-                    p.clear();
-                    p.next = null;
-                    if (o == null) {
-                        head = next;
-                        if (next == null) {
-                            // We've run out of iterators to track; retire
-                            itrs = null;
-                            return;
-                        }
-                    }
-                    else
-                        o.next = next;
-                } else {
-                    o = p;
-                }
-                p = next;
-            }
-
-            this.sweeper = (p == null) ? null : o;
-        }
-
-        /**
-         * Adds a new iterator to the linked list of tracked iterators.
-         */
-        void register(Itr itr) {
-            // assert lock.getHoldCount() == 1;
-            head = new Node(itr, head);
-        }
-
-        /**
-         * Called whenever takeIndex wraps around to 0.
-         *
-         * Notifies all iterators, and expunges any that are now stale.
-         */
-        void takeIndexWrapped() {
-            // assert lock.getHoldCount() == 1;
-            cycles++;
-            for (Node o = null, p = head; p != null;) {
-                final Itr it = p.get();
-                final Node next = p.next;
-                if (it == null || it.takeIndexWrapped()) {
-                    // unlink p
-                    // assert it == null || it.isDetached();
-                    p.clear();
-                    p.next = null;
-                    if (o == null)
-                        head = next;
-                    else
-                        o.next = next;
-                } else {
-                    o = p;
-                }
-                p = next;
-            }
-            if (head == null)   // no more iterators to track
-                itrs = null;
-        }
-
-        /**
-         * Called whenever an interior remove (not at takeIndex) occured.
-         *
-         * Notifies all iterators, and expunges any that are now stale.
-         */
-        void removedAt(int removedIndex) {
-            for (Node o = null, p = head; p != null;) {
-                final Itr it = p.get();
-                final Node next = p.next;
-                if (it == null || it.removedAt(removedIndex)) {
-                    // unlink p
-                    // assert it == null || it.isDetached();
-                    p.clear();
-                    p.next = null;
-                    if (o == null)
-                        head = next;
-                    else
-                        o.next = next;
-                } else {
-                    o = p;
-                }
-                p = next;
-            }
-            if (head == null)   // no more iterators to track
-                itrs = null;
-        }
-
-        /**
-         * Called whenever the queue becomes empty.
-         *
-         * Notifies all active iterators that the queue is empty,
-         * clears all weak refs, and unlinks the itrs datastructure.
-         */
-        void queueIsEmpty() {
-            // assert lock.getHoldCount() == 1;
-            for (Node p = head; p != null; p = p.next) {
-                Itr it = p.get();
-                if (it != null) {
-                    p.clear();
-                    it.shutdown();
-                }
-            }
-            head = null;
-            itrs = null;
-        }
-
-        /**
-         * Called whenever an element has been dequeued (at takeIndex).
-         */
-        void elementDequeued() {
-            // assert lock.getHoldCount() == 1;
-            if (count == 0)
-                queueIsEmpty();
-            else if (takeIndex == 0)
-                takeIndexWrapped();
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return new Itr();
+        } finally {
+            lock.unlock();
         }
     }
 
-    /**
-     * Iterator for ArrayBlockingQueue.
-     *
-     * To maintain weak consistency with respect to puts and takes, we
-     * read ahead one slot, so as to not report hasNext true but then
-     * not have an element to return.
-     *
-     * We switch into "detached" mode (allowing prompt unlinking from
-     * itrs without help from the GC) when all indices are negative, or
-     * when hasNext returns false for the first time.  This allows the
-     * iterator to track concurrent updates completely accurately,
-     * except for the corner case of the user calling Iterator.remove()
-     * after hasNext() returned false.  Even in this case, we ensure
-     * that we don't remove the wrong element by keeping track of the
-     * expected element to remove, in lastItem.  Yes, we may fail to
-     * remove lastItem from the queue if it moved due to an interleaved
-     * interior remove while in detached mode.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Iterator for ArrayBlockingQueue
+     * {@description.close}
      */
     private class Itr implements Iterator<E> {
-        /** Index to look for new nextItem; NONE at end */
-        private int cursor;
-
-        /** Element to be returned by next call to next(); null if none */
-        private E nextItem;
-
-        /** Index of nextItem; NONE if none, REMOVED if removed elsewhere */
+        /** {@collect.stats} 
+         * {@description.open}
+         * Index of element to be returned by next,
+         * or a negative number if no such.
+         * {@description.close}
+         */
         private int nextIndex;
 
-        /** Last element returned; null if none or not detached. */
-        private E lastItem;
+        /** {@collect.stats} 
+         * {@description.open}
+         * nextItem holds on to item fields because once we claim
+         * that an element exists in hasNext(), we must return it in
+         * the following next() call even if it was in the process of
+         * being removed when hasNext() was called.
+         * {@description.close}
+         */
+        private E nextItem;
 
-        /** Index of lastItem, NONE if none, REMOVED if removed elsewhere */
+        /** {@collect.stats} 
+         * {@description.open}
+         * Index of element returned by most recent call to next.
+         * Reset to -1 if this element is deleted by a call to remove.
+         * {@description.close}
+         */
         private int lastRet;
 
-        /** Previous value of takeIndex, or DETACHED when detached */
-        private int prevTakeIndex;
-
-        /** Previous value of iters.cycles */
-        private int prevCycles;
-
-        /** Special index value indicating "not available" or "undefined" */
-        private static final int NONE = -1;
-
-        /**
-         * Special index value indicating "removed elsewhere", that is,
-         * removed by some operation other than a call to this.remove().
-         */
-        private static final int REMOVED = -2;
-
-        /** Special value for prevTakeIndex indicating "detached mode" */
-        private static final int DETACHED = -3;
-
         Itr() {
-            // assert lock.getHoldCount() == 0;
-            lastRet = NONE;
-            final ReentrantLock lock = ArrayBlockingQueue.this.lock;
-            lock.lock();
-            try {
-                if (count == 0) {
-                    // assert itrs == null;
-                    cursor = NONE;
-                    nextIndex = NONE;
-                    prevTakeIndex = DETACHED;
-                } else {
-                    final int takeIndex = ArrayBlockingQueue.this.takeIndex;
-                    prevTakeIndex = takeIndex;
-                    nextItem = itemAt(nextIndex = takeIndex);
-                    cursor = incCursor(takeIndex);
-                    if (itrs == null) {
-                        itrs = new Itrs(this);
-                    } else {
-                        itrs.register(this); // in this order
-                        itrs.doSomeSweeping(false);
-                    }
-                    prevCycles = itrs.cycles;
-                    // assert takeIndex >= 0;
-                    // assert prevTakeIndex == takeIndex;
-                    // assert nextIndex >= 0;
-                    // assert nextItem != null;
-                }
-            } finally {
-                lock.unlock();
+            lastRet = -1;
+            if (count == 0)
+                nextIndex = -1;
+            else {
+                nextIndex = takeIndex;
+                nextItem = items[takeIndex];
             }
         }
 
-        boolean isDetached() {
-            // assert lock.getHoldCount() == 1;
-            return prevTakeIndex < 0;
-        }
-
-        private int incCursor(int index) {
-            // assert lock.getHoldCount() == 1;
-            index = inc(index);
-            if (index == putIndex)
-                index = NONE;
-            return index;
-        }
-
-        /**
-         * Returns true if index is invalidated by the given number of
-         * dequeues, starting from prevTakeIndex.
-         */
-        private boolean invalidated(int index, int prevTakeIndex,
-                                    long dequeues, int length) {
-            if (index < 0)
-                return false;
-            int distance = index - prevTakeIndex;
-            if (distance < 0)
-                distance += length;
-            return dequeues > distance;
-        }
-
-        /**
-         * Adjusts indices to incorporate all dequeues since the last
-         * operation on this iterator.  Call only from iterating thread.
-         */
-        private void incorporateDequeues() {
-            // assert lock.getHoldCount() == 1;
-            // assert itrs != null;
-            // assert !isDetached();
-            // assert count > 0;
-
-            final int cycles = itrs.cycles;
-            final int takeIndex = ArrayBlockingQueue.this.takeIndex;
-            final int prevCycles = this.prevCycles;
-            final int prevTakeIndex = this.prevTakeIndex;
-
-            if (cycles != prevCycles || takeIndex != prevTakeIndex) {
-                final int len = items.length;
-                // how far takeIndex has advanced since the previous
-                // operation of this iterator
-                long dequeues = (cycles - prevCycles) * len
-                    + (takeIndex - prevTakeIndex);
-
-                // Check indices for invalidation
-                if (invalidated(lastRet, prevTakeIndex, dequeues, len))
-                    lastRet = REMOVED;
-                if (invalidated(nextIndex, prevTakeIndex, dequeues, len))
-                    nextIndex = REMOVED;
-                if (invalidated(cursor, prevTakeIndex, dequeues, len))
-                    cursor = takeIndex;
-
-                if (cursor < 0 && nextIndex < 0 && lastRet < 0)
-                    detach();
-                else {
-                    this.prevCycles = cycles;
-                    this.prevTakeIndex = takeIndex;
-                }
-            }
-        }
-
-        /**
-         * Called when itrs should stop tracking this iterator, either
-         * because there are no more indices to update (cursor < 0 &&
-         * nextIndex < 0 && lastRet < 0) or as a special exception, when
-         * lastRet >= 0, because hasNext() is about to return false for the
-         * first time.  Call only from iterating thread.
-         */
-        private void detach() {
-            // Switch to detached mode
-            // assert lock.getHoldCount() == 1;
-            // assert cursor == NONE;
-            // assert nextIndex < 0;
-            // assert lastRet < 0 || nextItem == null;
-            // assert lastRet < 0 ^ lastItem != null;
-            if (prevTakeIndex >= 0) {
-                // assert itrs != null;
-                prevTakeIndex = DETACHED;
-                // try to unlink from itrs (but not too hard)
-                itrs.doSomeSweeping(true);
-            }
-        }
-
-        /**
-         * For performance reasons, we would like not to acquire a lock in
-         * hasNext in the common case.  To allow for this, we only access
-         * fields (i.e. nextItem) that are not modified by update operations
-         * triggered by queue modifications.
-         */
         public boolean hasNext() {
-            // assert lock.getHoldCount() == 0;
-            if (nextItem != null)
-                return true;
-            noNext();
-            return false;
+            /*
+             * No sync. We can return true by mistake here
+             * only if this iterator passed across threads,
+             * which we don't support anyway.
+             */
+            return nextIndex >= 0;
         }
 
-        private void noNext() {
-            final ReentrantLock lock = ArrayBlockingQueue.this.lock;
-            lock.lock();
-            try {
-                // assert cursor == NONE;
-                // assert nextIndex == NONE;
-                if (!isDetached()) {
-                    // assert lastRet >= 0;
-                    incorporateDequeues(); // might update lastRet
-                    if (lastRet >= 0) {
-                        lastItem = itemAt(lastRet);
-                        // assert lastItem != null;
-                        detach();
-                    }
-                }
-                // assert isDetached();
-                // assert lastRet < 0 ^ lastItem != null;
-            } finally {
-                lock.unlock();
+        /** {@collect.stats} 
+         * {@description.open}
+         * Checks whether nextIndex is valid; if so setting nextItem.
+         * Stops iterator when either hits putIndex or sees null item.
+         * {@description.close}
+         */
+        private void checkNext() {
+            if (nextIndex == putIndex) {
+                nextIndex = -1;
+                nextItem = null;
+            } else {
+                nextItem = items[nextIndex];
+                if (nextItem == null)
+                    nextIndex = -1;
             }
         }
 
         public E next() {
-            // assert lock.getHoldCount() == 0;
-            final E x = nextItem;
-            if (x == null)
-                throw new NoSuchElementException();
             final ReentrantLock lock = ArrayBlockingQueue.this.lock;
             lock.lock();
             try {
-                if (!isDetached())
-                    incorporateDequeues();
-                // assert nextIndex != NONE;
-                // assert lastItem == null;
+                if (nextIndex < 0)
+                    throw new NoSuchElementException();
                 lastRet = nextIndex;
-                final int cursor = this.cursor;
-                if (cursor >= 0) {
-                    nextItem = itemAt(nextIndex = cursor);
-                    // assert nextItem != null;
-                    this.cursor = incCursor(cursor);
-                } else {
-                    nextIndex = NONE;
-                    nextItem = null;
-                }
+                E x = nextItem;
+                nextIndex = inc(nextIndex);
+                checkNext();
+                return x;
             } finally {
                 lock.unlock();
             }
-            return x;
         }
 
         public void remove() {
-            // assert lock.getHoldCount() == 0;
             final ReentrantLock lock = ArrayBlockingQueue.this.lock;
             lock.lock();
             try {
-                if (!isDetached())
-                    incorporateDequeues(); // might update lastRet or detach
-                final int lastRet = this.lastRet;
-                this.lastRet = NONE;
-                if (lastRet >= 0) {
-                    if (!isDetached())
-                        removeAt(lastRet);
-                    else {
-                        final E lastItem = this.lastItem;
-                        // assert lastItem != null;
-                        this.lastItem = null;
-                        if (itemAt(lastRet) == lastItem)
-                            removeAt(lastRet);
-                    }
-                } else if (lastRet == NONE)
+                int i = lastRet;
+                if (i == -1)
                     throw new IllegalStateException();
-                // else lastRet == REMOVED and the last returned element was
-                // previously asynchronously removed via an operation other
-                // than this.remove(), so nothing to do.
+                lastRet = -1;
 
-                if (cursor < 0 && nextIndex < 0)
-                    detach();
+                int ti = takeIndex;
+                removeAt(i);
+                // back up cursor (reset to front if was first element)
+                nextIndex = (i == ti) ? takeIndex : i;
+                checkNext();
             } finally {
                 lock.unlock();
-                // assert lastRet == NONE;
-                // assert lastItem == null;
             }
         }
-
-        /**
-         * Called to notify the iterator that the queue is empty, or that it
-         * has fallen hopelessly behind, so that it should abandon any
-         * further iteration, except possibly to return one more element
-         * from next(), as promised by returning true from hasNext().
-         */
-        void shutdown() {
-            // assert lock.getHoldCount() == 1;
-            cursor = NONE;
-            if (nextIndex >= 0)
-                nextIndex = REMOVED;
-            if (lastRet >= 0) {
-                lastRet = REMOVED;
-                lastItem = null;
-            }
-            prevTakeIndex = DETACHED;
-            // Don't set nextItem to null because we must continue to be
-            // able to return it on next().
-            //
-            // Caller will unlink from itrs when convenient.
-        }
-
-        private int distance(int index, int prevTakeIndex, int length) {
-            int distance = index - prevTakeIndex;
-            if (distance < 0)
-                distance += length;
-            return distance;
-        }
-
-        /**
-         * Called whenever an interior remove (not at takeIndex) occured.
-         *
-         * @return true if this iterator should be unlinked from itrs
-         */
-        boolean removedAt(int removedIndex) {
-            // assert lock.getHoldCount() == 1;
-            if (isDetached())
-                return true;
-
-            final int cycles = itrs.cycles;
-            final int takeIndex = ArrayBlockingQueue.this.takeIndex;
-            final int prevCycles = this.prevCycles;
-            final int prevTakeIndex = this.prevTakeIndex;
-            final int len = items.length;
-            int cycleDiff = cycles - prevCycles;
-            if (removedIndex < takeIndex)
-                cycleDiff++;
-            final int removedDistance =
-                (cycleDiff * len) + (removedIndex - prevTakeIndex);
-            // assert removedDistance >= 0;
-            int cursor = this.cursor;
-            if (cursor >= 0) {
-                int x = distance(cursor, prevTakeIndex, len);
-                if (x == removedDistance) {
-                    if (cursor == putIndex)
-                        this.cursor = cursor = NONE;
-                }
-                else if (x > removedDistance) {
-                    // assert cursor != prevTakeIndex;
-                    this.cursor = cursor = dec(cursor);
-                }
-            }
-            int lastRet = this.lastRet;
-            if (lastRet >= 0) {
-                int x = distance(lastRet, prevTakeIndex, len);
-                if (x == removedDistance)
-                    this.lastRet = lastRet = REMOVED;
-                else if (x > removedDistance)
-                    this.lastRet = lastRet = dec(lastRet);
-            }
-            int nextIndex = this.nextIndex;
-            if (nextIndex >= 0) {
-                int x = distance(nextIndex, prevTakeIndex, len);
-                if (x == removedDistance)
-                    this.nextIndex = nextIndex = REMOVED;
-                else if (x > removedDistance)
-                    this.nextIndex = nextIndex = dec(nextIndex);
-            }
-            else if (cursor < 0 && nextIndex < 0 && lastRet < 0) {
-                this.prevTakeIndex = DETACHED;
-                return true;
-            }
-            return false;
-        }
-
-        /**
-         * Called whenever takeIndex wraps around to zero.
-         *
-         * @return true if this iterator should be unlinked from itrs
-         */
-        boolean takeIndexWrapped() {
-            // assert lock.getHoldCount() == 1;
-            if (isDetached())
-                return true;
-            if (itrs.cycles - prevCycles > 1) {
-                // All the elements that existed at the time of the last
-                // operation are gone, so abandon further iteration.
-                shutdown();
-                return true;
-            }
-            return false;
-        }
-
-//         /** Uncomment for debugging. */
-//         public String toString() {
-//             return ("cursor=" + cursor + " " +
-//                     "nextIndex=" + nextIndex + " " +
-//                     "lastRet=" + lastRet + " " +
-//                     "nextItem=" + nextItem + " " +
-//                     "lastItem=" + lastItem + " " +
-//                     "prevCycles=" + prevCycles + " " +
-//                     "prevTakeIndex=" + prevTakeIndex + " " +
-//                     "size()=" + size() + " " +
-//                     "remainingCapacity()=" + remainingCapacity());
-//         }
     }
 }

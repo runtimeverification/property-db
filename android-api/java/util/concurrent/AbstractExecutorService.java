@@ -1,13 +1,43 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
 import java.util.*;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * Provides default implementations of {@link ExecutorService}
  * execution methods. This class implements the <tt>submit</tt>,
  * <tt>invokeAny</tt> and <tt>invokeAll</tt> methods using a
@@ -22,28 +52,31 @@ import java.util.*;
  * <p> <b>Extension example</b>. Here is a sketch of a class
  * that customizes {@link ThreadPoolExecutor} to use
  * a <tt>CustomTask</tt> class instead of the default <tt>FutureTask</tt>:
- *  <pre> {@code
+ * <pre>
  * public class CustomThreadPoolExecutor extends ThreadPoolExecutor {
  *
- *   static class CustomTask<V> implements RunnableFuture<V> {...}
+ *   static class CustomTask&lt;V&gt; implements RunnableFuture&lt;V&gt; {...}
  *
- *   protected <V> RunnableFuture<V> newTaskFor(Callable<V> c) {
- *       return new CustomTask<V>(c);
+ *   protected &lt;V&gt; RunnableFuture&lt;V&gt; newTaskFor(Callable&lt;V&gt; c) {
+ *       return new CustomTask&lt;V&gt;(c);
  *   }
- *   protected <V> RunnableFuture<V> newTaskFor(Runnable r, V v) {
- *       return new CustomTask<V>(r, v);
+ *   protected &lt;V&gt; RunnableFuture&lt;V&gt; newTaskFor(Runnable r, V v) {
+ *       return new CustomTask&lt;V&gt;(r, v);
  *   }
  *   // ... add constructors, etc.
- * }}</pre>
- *
+ * }
+ * </pre>
+ * {@description.close}
  * @since 1.5
  * @author Doug Lea
  */
 public abstract class AbstractExecutorService implements ExecutorService {
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns a <tt>RunnableFuture</tt> for the given runnable and default
      * value.
+     * {@description.close}
      *
      * @param runnable the runnable task being wrapped
      * @param value the default value for the returned future
@@ -57,8 +90,10 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return new FutureTask<T>(runnable, value);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns a <tt>RunnableFuture</tt> for the given callable task.
+     * {@description.close}
      *
      * @param callable the callable task being wrapped
      * @return a <tt>RunnableFuture</tt> which when run will call the
@@ -71,21 +106,13 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return new FutureTask<T>(callable);
     }
 
-    /**
-     * @throws RejectedExecutionException {@inheritDoc}
-     * @throws NullPointerException       {@inheritDoc}
-     */
     public Future<?> submit(Runnable task) {
         if (task == null) throw new NullPointerException();
-        RunnableFuture<Void> ftask = newTaskFor(task, null);
+        RunnableFuture<Object> ftask = newTaskFor(task, null);
         execute(ftask);
         return ftask;
     }
 
-    /**
-     * @throws RejectedExecutionException {@inheritDoc}
-     * @throws NullPointerException       {@inheritDoc}
-     */
     public <T> Future<T> submit(Runnable task, T result) {
         if (task == null) throw new NullPointerException();
         RunnableFuture<T> ftask = newTaskFor(task, result);
@@ -93,10 +120,6 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return ftask;
     }
 
-    /**
-     * @throws RejectedExecutionException {@inheritDoc}
-     * @throws NullPointerException       {@inheritDoc}
-     */
     public <T> Future<T> submit(Callable<T> task) {
         if (task == null) throw new NullPointerException();
         RunnableFuture<T> ftask = newTaskFor(task);
@@ -104,8 +127,10 @@ public abstract class AbstractExecutorService implements ExecutorService {
         return ftask;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * the main mechanics of invokeAny.
+     * {@description.close}
      */
     private <T> T doInvokeAny(Collection<? extends Callable<T>> tasks,
                             boolean timed, long nanos)
@@ -129,7 +154,7 @@ public abstract class AbstractExecutorService implements ExecutorService {
             // Record exceptions so that if we fail to obtain any
             // result, we can throw the last exception we got.
             ExecutionException ee = null;
-            long lastTime = timed ? System.nanoTime() : 0;
+            long lastTime = (timed)? System.nanoTime() : 0;
             Iterator<? extends Callable<T>> it = tasks.iterator();
 
             // Start one task for sure; the rest incrementally
@@ -162,6 +187,8 @@ public abstract class AbstractExecutorService implements ExecutorService {
                     --active;
                     try {
                         return f.get();
+                    } catch (InterruptedException ie) {
+                        throw ie;
                     } catch (ExecutionException eex) {
                         ee = eex;
                     } catch (RuntimeException rex) {

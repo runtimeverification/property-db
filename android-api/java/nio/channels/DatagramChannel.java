@@ -1,18 +1,26 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 2000, 2001, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.nio.channels;
@@ -21,406 +29,410 @@ import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.spi.AbstractSelectableChannel;
-import java.nio.channels.spi.SelectorProvider;
+import java.nio.channels.spi.*;
 
-/**
- * A {@code DatagramChannel} is a selectable channel that represents a partial
- * abstraction of a datagram socket. The {@code socket} method of this class can
- * return the related {@code DatagramSocket} instance, which can handle the
- * socket.
- * <p>
- * A datagram channel is open but not connected when created with the
- * {@code open()} method. After it is connected, it will keep the connected
- * status until it is disconnected or closed. The benefit of a connected channel
- * is the reduced effort of security checks during send and receive. When
- * invoking {@code read} or {@code write}, a connected channel is required.
- * <p>
- * Datagram channels are thread-safe; only one thread can read or write at the
- * same time.
+
+/** {@collect.stats} 
+ * A selectable channel for datagram-oriented sockets.
+ *
+ *
+ * <p> Datagram channels are not a complete abstraction of network datagram
+ * sockets.  Binding and the manipulation of socket options must be done
+ * through an associated {@link java.net.DatagramSocket} object obtained by
+ * invoking the {@link #socket() socket} method.  It is not possible to create
+ * a channel for an arbitrary, pre-existing datagram socket, nor is it possible
+ * to specify the {@link java.net.DatagramSocketImpl} object to be used by a
+ * datagram socket associated with a datagram channel.
+ *
+ * <p> A datagram channel is created by invoking the {@link #open open} method
+ * of this class.  A newly-created datagram channel is open but not connected.
+ * A datagram channel need not be connected in order for the {@link #send send}
+ * and {@link #receive receive} methods to be used.  A datagram channel may be
+ * connected, by invoking its {@link #connect connect} method, in order to
+ * avoid the overhead of the security checks are otherwise performed as part of
+ * every send and receive operation.  A datagram channel must be connected in
+ * order to use the {@link #read(java.nio.ByteBuffer) read} and {@link
+ * #write(java.nio.ByteBuffer) write} methods, since those methods do not
+ * accept or return socket addresses.
+ *
+ * <p> Once connected, a datagram channel remains connected until it is
+ * disconnected or closed.  Whether or not a datagram channel is connected may
+ * be determined by invoking its {@link #isConnected isConnected} method.
+ *
+ * <p> Datagram channels are safe for use by multiple concurrent threads.  They
+ * support concurrent reading and writing, though at most one thread may be
+ * reading and at most one thread may be writing at any given time.  </p>
+ *
+ *
+ * @author Mark Reinhold
+ * @author JSR-51 Expert Group
+ * @since 1.4
  */
-public abstract class DatagramChannel extends AbstractSelectableChannel
-        implements ByteChannel, ScatteringByteChannel, GatheringByteChannel {
 
-    /**
-     * Constructs a new {@code DatagramChannel}.
-     *
-     * @param selectorProvider
-     *            an instance of SelectorProvider.
+public abstract class DatagramChannel
+    extends AbstractSelectableChannel
+    implements ByteChannel, ScatteringByteChannel, GatheringByteChannel
+{
+
+    /** {@collect.stats} 
+     * Initializes a new instance of this class.
      */
-    protected DatagramChannel(SelectorProvider selectorProvider) {
-        super(selectorProvider);
+    protected DatagramChannel(SelectorProvider provider) {
+        super(provider);
     }
 
-    /**
-     * Creates an opened and not-connected datagram channel.
-     * <p>
-     * This channel is created by calling the <code>openDatagramChannel</code>
-     * method of the default {@link SelectorProvider} instance.
+    /** {@collect.stats} 
+     * Opens a datagram channel.
      *
-     * @return the new channel which is open but not connected.
-     * @throws IOException
-     *             if some I/O error occurs.
+     * <p> The new channel is created by invoking the {@link
+     * java.nio.channels.spi.SelectorProvider#openDatagramChannel()
+     * openDatagramChannel} method of the system-wide default {@link
+     * java.nio.channels.spi.SelectorProvider} object.  The channel will not be
+     * connected.  </p>
+     *
+     * @return  A new datagram channel
+     *
+     * @throws  IOException
+     *          If an I/O error occurs
      */
     public static DatagramChannel open() throws IOException {
         return SelectorProvider.provider().openDatagramChannel();
     }
 
-    /**
-     * Gets the valid operations of this channel. Datagram channels support read
-     * and write operations, so this method returns (
-     * <code>SelectionKey.OP_READ</code> | <code>SelectionKey.OP_WRITE</code> ).
+    /** {@collect.stats} 
+     * Returns an operation set identifying this channel's supported
+     * operations.
      *
-     * @see java.nio.channels.SelectableChannel#validOps()
-     * @return valid operations in bit-set.
+     * <p> Datagram channels support reading and writing, so this method
+     * returns <tt>(</tt>{@link SelectionKey#OP_READ} <tt>|</tt>&nbsp;{@link
+     * SelectionKey#OP_WRITE}<tt>)</tt>.  </p>
+     *
+     * @return  The valid-operation set
      */
-    @Override
     public final int validOps() {
-        return (SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+        return (SelectionKey.OP_READ
+                | SelectionKey.OP_WRITE);
     }
 
-    /**
-     * Returns the related datagram socket of this channel, which does not
-     * define additional public methods to those defined by
-     * {@link DatagramSocket}.
+
+    // -- Socket-specific operations --
+
+    /** {@collect.stats} 
+     * Retrieves a datagram socket associated with this channel.
      *
-     * @return the related DatagramSocket instance.
+     * <p> The returned object will not declare any public methods that are not
+     * declared in the {@link java.net.DatagramSocket} class.  </p>
+     *
+     * @return  A datagram socket associated with this channel
      */
     public abstract DatagramSocket socket();
 
-    /**
-     * Returns whether this channel's socket is connected or not.
+    /** {@collect.stats} 
+     * Tells whether or not this channel's socket is connected.  </p>
      *
-     * @return <code>true</code> if this channel's socket is connected;
-     *         <code>false</code> otherwise.
+     * @return  <tt>true</tt> if, and only if, this channel's socket
+     *          is connected
      */
     public abstract boolean isConnected();
 
-    /**
-     * Connects the socket of this channel to a remote address, which is the
-     * only communication peer for getting and sending datagrams after being
-     * connected.
-     * <p>
-     * This method can be called at any time without affecting the read and
-     * write operations being processed at the time the method is called. The
-     * connection status does not change until the channel is disconnected or
-     * closed.
-     * <p>
-     * This method executes the same security checks as the connect method of
-     * the {@link DatagramSocket} class.
+    /** {@collect.stats} 
+     * Connects this channel's socket.
      *
-     * @param address
-     *            the address to be connected to.
-     * @return this channel.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             if some other I/O error occurs.
+     * <p> The channel's socket is configured so that it only receives
+     * datagrams from, and sends datagrams to, the given remote <i>peer</i>
+     * address.  Once connected, datagrams may not be received from or sent to
+     * any other address.  A datagram socket remains connected until it is
+     * explicitly disconnected or until it is closed.
+     *
+     * <p> This method performs exactly the same security checks as the {@link
+     * java.net.DatagramSocket#connect connect} method of the {@link
+     * java.net.DatagramSocket} class.  That is, if a security manager has been
+     * installed then this method verifies that its {@link
+     * java.lang.SecurityManager#checkAccept checkAccept} and {@link
+     * java.lang.SecurityManager#checkConnect checkConnect} methods permit
+     * datagrams to be received from and sent to, respectively, the given
+     * remote address.
+     *
+     * <p> This method may be invoked at any time.  It will not have any effect
+     * on read or write operations that are already in progress at the moment
+     * that it is invoked.  </p>
+     *
+     * @param  remote
+     *         The remote address to which this channel is to be connected
+     *
+     * @return  This datagram channel
+     *
+     * @throws  ClosedChannelException
+     *          If this channel is closed
+     *
+     * @throws  AsynchronousCloseException
+     *          If another thread closes this channel
+     *          while the connect operation is in progress
+     *
+     * @throws  ClosedByInterruptException
+     *          If another thread interrupts the current thread
+     *          while the connect operation is in progress, thereby
+     *          closing the channel and setting the current thread's
+     *          interrupt status
+     *
+     * @throws  SecurityException
+     *          If a security manager has been installed
+     *          and it does not permit access to the given remote address
+     *
+     * @throws  IOException
+     *          If some other I/O error occurs
      */
-    public abstract DatagramChannel connect(SocketAddress address)
-            throws IOException;
+    public abstract DatagramChannel connect(SocketAddress remote)
+        throws IOException;
 
-    /**
-     * Disconnects the socket of this channel, which has been connected before
-     * in order to send and receive datagrams.
-     * <p>
-     * This method can be called at any time without affecting the read and
-     * write operations being underway. It does not have any effect if the
-     * socket is not connected or the channel is closed.
+    /** {@collect.stats} 
+     * Disconnects this channel's socket.
      *
-     * @return this channel.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> The channel's socket is configured so that it can receive datagrams
+     * from, and sends datagrams to, any remote address so long as the security
+     * manager, if installed, permits it.
+     *
+     * <p> This method may be invoked at any time.  It will not have any effect
+     * on read or write operations that are already in progress at the moment
+     * that it is invoked.
+     *
+     * <p> If this channel's socket is not connected, or if the channel is
+     * closed, then invoking this method has no effect.  </p>
+     *
+     * @return  This datagram channel
+     *
+     * @throws  IOException
+     *          If some other I/O error occurs
      */
     public abstract DatagramChannel disconnect() throws IOException;
 
-    /**
-     * Gets a datagram from this channel.
-     * <p>
-     * This method transfers a datagram from the channel into the target byte
-     * buffer. If this channel is in blocking mode, it waits for the datagram
-     * and returns its address when it is available. If this channel is in
-     * non-blocking mode and no datagram is available, it returns {@code null}
-     * immediately. The transfer starts at the current position of the buffer,
-     * and if there is not enough space remaining in the buffer to store the
-     * datagram then the part of the datagram that does not fit is discarded.
-     * <p>
-     * This method can be called at any time and it will block if there is
-     * another thread that has started a read operation on the channel.
-     * <p>
-     * This method executes the same security checks as the receive method of
-     * the {@link DatagramSocket} class.
+    /** {@collect.stats} 
+     * Receives a datagram via this channel.
      *
-     * @param target
-     *            the byte buffer to store the received datagram.
-     * @return the address of the datagram if the transfer is performed, or null
-     *         if the channel is in non-blocking mode and no datagram is
-     *         available.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> If a datagram is immediately available, or if this channel is in
+     * blocking mode and one eventually becomes available, then the datagram is
+     * copied into the given byte buffer and its source address is returned.
+     * If this channel is in non-blocking mode and a datagram is not
+     * immediately available then this method immediately returns
+     * <tt>null</tt>.
+     *
+     * <p> The datagram is transferred into the given byte buffer starting at
+     * its current position, as if by a regular {@link
+     * ReadableByteChannel#read(java.nio.ByteBuffer) read} operation.  If there
+     * are fewer bytes remaining in the buffer than are required to hold the
+     * datagram then the remainder of the datagram is silently discarded.
+     *
+     * <p> This method performs exactly the same security checks as the {@link
+     * java.net.DatagramSocket#receive receive} method of the {@link
+     * java.net.DatagramSocket} class.  That is, if the socket is not connected
+     * to a specific remote address and a security manager has been installed
+     * then for each datagram received this method verifies that the source's
+     * address and port number are permitted by the security manager's {@link
+     * java.lang.SecurityManager#checkAccept checkAccept} method.  The overhead
+     * of this security check can be avoided by first connecting the socket via
+     * the {@link #connect connect} method.
+     *
+     * <p> This method may be invoked at any time.  If another thread has
+     * already initiated a read operation upon this channel, however, then an
+     * invocation of this method will block until the first operation is
+     * complete. </p>
+     *
+     * @param  dst
+     *         The buffer into which the datagram is to be transferred
+     *
+     * @return  The datagram's source address,
+     *          or <tt>null</tt> if this channel is in non-blocking mode
+     *          and no datagram was immediately available
+     *
+     * @throws  ClosedChannelException
+     *          If this channel is closed
+     *
+     * @throws  AsynchronousCloseException
+     *          If another thread closes this channel
+     *          while the read operation is in progress
+     *
+     * @throws  ClosedByInterruptException
+     *          If another thread interrupts the current thread
+     *          while the read operation is in progress, thereby
+     *          closing the channel and setting the current thread's
+     *          interrupt status
+     *
+     * @throws  SecurityException
+     *          If a security manager has been installed
+     *          and it does not permit datagrams to be accepted
+     *          from the datagram's sender
+     *
+     * @throws  IOException
+     *          If some other I/O error occurs
      */
-    public abstract SocketAddress receive(ByteBuffer target) throws IOException;
+    public abstract SocketAddress receive(ByteBuffer dst) throws IOException;
 
-    /**
-     * Sends a datagram through this channel. The datagram consists of the
-     * remaining bytes in {@code source}.
-     * <p>
-     * If this channel is in blocking mode then the datagram is sent as soon as
-     * there is enough space in the underlying output buffer. If this channel is
-     * in non-blocking mode then the datagram is only sent if there is enough
-     * space in the underlying output buffer at that moment. The transfer action
-     * is just like a regular write operation.
-     * <p>
-     * This method can be called at any time and it will block if another thread
-     * has started a send operation on this channel.
-     * <p>
-     * This method executes the same security checks as the send method of the
-     * {@link DatagramSocket} class.
+    /** {@collect.stats} 
+     * Sends a datagram via this channel.
      *
-     * @param source
-     *            the byte buffer with the datagram to be sent.
-     * @param address
-     *            the destination address for the datagram.
-     * @return the number of bytes sent. This is the number of bytes remaining
-     *         in {@code source} or zero if the channel is in non-blocking mode
-     *         and there is not enough space for the datagram in the underlying
-     *         output buffer.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> If this channel is in non-blocking mode and there is sufficient room
+     * in the underlying output buffer, or if this channel is in blocking mode
+     * and sufficient room becomes available, then the remaining bytes in the
+     * given buffer are transmitted as a single datagram to the given target
+     * address.
+     *
+     * <p> The datagram is transferred from the byte buffer as if by a regular
+     * {@link WritableByteChannel#write(java.nio.ByteBuffer) write} operation.
+     *
+     * <p> This method performs exactly the same security checks as the {@link
+     * java.net.DatagramSocket#send send} method of the {@link
+     * java.net.DatagramSocket} class.  That is, if the socket is not connected
+     * to a specific remote address and a security manager has been installed
+     * then for each datagram sent this method verifies that the target address
+     * and port number are permitted by the security manager's {@link
+     * java.lang.SecurityManager#checkConnect checkConnect} method.  The
+     * overhead of this security check can be avoided by first connecting the
+     * socket via the {@link #connect connect} method.
+     *
+     * <p> This method may be invoked at any time.  If another thread has
+     * already initiated a write operation upon this channel, however, then an
+     * invocation of this method will block until the first operation is
+     * complete. </p>
+     *
+     * @param  src
+     *         The buffer containing the datagram to be sent
+     *
+     * @param  target
+     *         The address to which the datagram is to be sent
+     *
+     * @return   The number of bytes sent, which will be either the number
+     *           of bytes that were remaining in the source buffer when this
+     *           method was invoked or, if this channel is non-blocking, may be
+     *           zero if there was insufficient room for the datagram in the
+     *           underlying output buffer
+     *
+     * @throws  ClosedChannelException
+     *          If this channel is closed
+     *
+     * @throws  AsynchronousCloseException
+     *          If another thread closes this channel
+     *          while the read operation is in progress
+     *
+     * @throws  ClosedByInterruptException
+     *          If another thread interrupts the current thread
+     *          while the read operation is in progress, thereby
+     *          closing the channel and setting the current thread's
+     *          interrupt status
+     *
+     * @throws  SecurityException
+     *          If a security manager has been installed
+     *          and it does not permit datagrams to be sent
+     *          to the given address
+     *
+     * @throws  IOException
+     *          If some other I/O error occurs
      */
-    public abstract int send(ByteBuffer source, SocketAddress address) throws IOException;
+    public abstract int send(ByteBuffer src, SocketAddress target)
+        throws IOException;
 
-    /**
-     * Reads a datagram from this channel into the byte buffer.
-     * <p>
-     * The precondition for calling this method is that the channel is connected
-     * and the incoming datagram is from the connected address. If the buffer is
-     * not big enough to store the datagram, the part of the datagram that does
-     * not fit in the buffer is discarded. Otherwise, this method has the same
-     * behavior as the {@code read} method in the {@link ReadableByteChannel}
-     * interface.
-     *
-     * @see java.nio.channels.ReadableByteChannel#read(java.nio.ByteBuffer)
-     * @param target
-     *            the byte buffer to store the received datagram.
-     * @return a non-negative number as the number of bytes read, or -1 as the
-     *         read operation reaches the end of stream.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
-     */
-    public abstract int read(ByteBuffer target) throws IOException;
 
-    /**
-     * Reads a datagram from this channel into an array of byte buffers.
-     * <p>
-     * The precondition for calling this method is that the channel is connected
-     * and the incoming datagram is from the connected address. If the buffers
-     * do not have enough remaining space to store the datagram, the part of the
-     * datagram that does not fit in the buffers is discarded. Otherwise, this
-     * method has the same behavior as the {@code read} method in the
-     * {@link ScatteringByteChannel} interface.
-     *
-     * @see java.nio.channels.ScatteringByteChannel#read(java.nio.ByteBuffer[],
-     *      int, int)
-     * @param targets
-     *            the byte buffers to store the received datagram.
-     * @param offset
-     *            a non-negative offset in the array of buffers, pointing to the
-     *            starting buffer to store the bytes transferred, must not be
-     *            bigger than {@code targets.length}.
-     * @param length
-     *            a non-negative length to indicate the maximum number of
-     *            buffers to be filled, must not be bigger than
-     *            {@code targets.length - offset}.
-     * @return a non-negative number as the number of bytes read, or -1 if the
-     *         read operation reaches the end of stream.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
-     */
-    public abstract long read(ByteBuffer[] targets, int offset, int length)
-            throws IOException;
+    // -- ByteChannel operations --
 
-    /**
-     * Reads a datagram from this channel into an array of byte buffers.
-     * <p>
-     * The precondition for calling this method is that the channel is connected
-     * and the incoming datagram is from the connected address. If the buffers
-     * do not have enough remaining space to store the datagram, the part of the
-     * datagram that does not fit in the buffers is discarded. Otherwise, this
-     * method has the same behavior as the {@code read} method in the
-     * {@link ScatteringByteChannel} interface.
+    /** {@collect.stats} 
+     * Reads a datagram from this channel.
      *
-     * @see java.nio.channels.ScatteringByteChannel#read(java.nio.ByteBuffer[])
-     * @param targets
-     *            the byte buffers to store the received datagram.
-     * @return a non-negative number as the number of bytes read, or -1 if the
-     *         read operation reaches the end of stream.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, and it only accepts datagrams from the socket's peer.  If
+     * there are more bytes in the datagram than remain in the given buffer
+     * then the remainder of the datagram is silently discarded.  Otherwise
+     * this method behaves exactly as specified in the {@link
+     * ReadableByteChannel} interface.  </p>
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
      */
-    public synchronized final long read(ByteBuffer[] targets)
-            throws IOException {
-        return read(targets, 0, targets.length);
+    public abstract int read(ByteBuffer dst) throws IOException;
+
+    /** {@collect.stats} 
+     * Reads a datagram from this channel.
+     *
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, and it only accepts datagrams from the socket's peer.  If
+     * there are more bytes in the datagram than remain in the given buffers
+     * then the remainder of the datagram is silently discarded.  Otherwise
+     * this method behaves exactly as specified in the {@link
+     * ScatteringByteChannel} interface.  </p>
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
+     */
+    public abstract long read(ByteBuffer[] dsts, int offset, int length)
+        throws IOException;
+
+    /** {@collect.stats} 
+     * Reads a datagram from this channel.
+     *
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, and it only accepts datagrams from the socket's peer.  If
+     * there are more bytes in the datagram than remain in the given buffers
+     * then the remainder of the datagram is silently discarded.  Otherwise
+     * this method behaves exactly as specified in the {@link
+     * ScatteringByteChannel} interface.  </p>
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
+     */
+    public final long read(ByteBuffer[] dsts) throws IOException {
+        return read(dsts, 0, dsts.length);
     }
 
-    /**
-     * Writes a datagram from the byte buffer to this channel.
-     * <p>
-     * The precondition of calling this method is that the channel is connected
-     * and the datagram is sent to the connected address. Otherwise, this method
-     * has the same behavior as the {@code write} method in the
-     * {@link WritableByteChannel} interface.
+    /** {@collect.stats} 
+     * Writes a datagram to this channel.
      *
-     * @see java.nio.channels.WritableByteChannel#write(java.nio.ByteBuffer)
-     * @param source
-     *            the byte buffer as the source of the datagram.
-     * @return a non-negative number of bytes written.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, in which case it sends datagrams directly to the socket's
+     * peer.  Otherwise it behaves exactly as specified in the {@link
+     * WritableByteChannel} interface.  </p>
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
      */
-    public abstract int write(ByteBuffer source) throws IOException;
+    public abstract int write(ByteBuffer src) throws IOException;
 
-    /**
-     * Writes a datagram from the byte buffers to this channel.
-     * <p>
-     * The precondition of calling this method is that the channel is connected
-     * and the datagram is sent to the connected address. Otherwise, this method
-     * has the same behavior as the {@code write} method in the
-     * {@link GatheringByteChannel} interface.
+    /** {@collect.stats} 
+     * Writes a datagram to this channel.
      *
-     * @see java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[],
-     *      int, int)
-     * @param sources
-     *            the byte buffers as the source of the datagram.
-     * @param offset
-     *            a non-negative offset in the array of buffers, pointing to the
-     *            starting buffer to be retrieved, must be no larger than
-     *            {@code sources.length}.
-     * @param length
-     *            a non-negative length to indicate the maximum number of
-     *            buffers to be submitted, must be no bigger than
-     *            {@code sources.length - offset}.
-     * @return the number of bytes written. If this method is called, it returns
-     *         the number of bytes that where remaining in the byte buffers. If
-     *         the channel is in non-blocking mode and there was not enough
-     *         space for the datagram in the buffer, it may return zero.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, in which case it sends datagrams directly to the socket's
+     * peer.  Otherwise it behaves exactly as specified in the {@link
+     * GatheringByteChannel} interface.  </p>
+     *
+     * @return   The number of bytes sent, which will be either the number
+     *           of bytes that were remaining in the source buffer when this
+     *           method was invoked or, if this channel is non-blocking, may be
+     *           zero if there was insufficient room for the datagram in the
+     *           underlying output buffer
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
      */
-    public abstract long write(ByteBuffer[] sources, int offset, int length)
-            throws IOException;
+    public abstract long write(ByteBuffer[] srcs, int offset, int length)
+        throws IOException;
 
-    /**
-     * Writes a datagram from the byte buffers to this channel.
-     * <p>
-     * The precondition of calling this method is that the channel is connected
-     * and the datagram is sent to the connected address. Otherwise, this method
-     * has the same behavior as the write method in the
-     * {@link GatheringByteChannel} interface.
+    /** {@collect.stats} 
+     * Writes a datagram to this channel.
      *
-     * @see java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[])
-     * @param sources
-     *            the byte buffers as the source of the datagram.
-     * @return the number of bytes written. If this method is called, it returns
-     *         the number of bytes that where remaining in the byte buffer. If
-     *         the channel is in non-blocking mode and there was not enough
-     *         space for the datagram in the buffer, it may return zero.
-     * @throws NotYetConnectedException
-     *             if the channel is not connected yet.
-     * @throws ClosedChannelException
-     *             if the channel is already closed.
-     * @throws AsynchronousCloseException
-     *             if the channel is closed by another thread while this method
-     *             is in operation.
-     * @throws ClosedByInterruptException
-     *             if another thread interrupts the calling thread while the
-     *             operation is in progress. The calling thread will have the
-     *             interrupt state set and the channel will be closed.
-     * @throws IOException
-     *             some other I/O error occurs.
+     * <p> This method may only be invoked if this channel's socket is
+     * connected, in which case it sends datagrams directly to the socket's
+     * peer.  Otherwise it behaves exactly as specified in the {@link
+     * GatheringByteChannel} interface.  </p>
+     *
+     * @return   The number of bytes sent, which will be either the number
+     *           of bytes that were remaining in the source buffer when this
+     *           method was invoked or, if this channel is non-blocking, may be
+     *           zero if there was insufficient room for the datagram in the
+     *           underlying output buffer
+     *
+     * @throws  NotYetConnectedException
+     *          If this channel's socket is not connected
      */
-    public synchronized final long write(ByteBuffer[] sources)
-            throws IOException {
-        return write(sources, 0, sources.length);
+    public final long write(ByteBuffer[] srcs) throws IOException {
+        return write(srcs, 0, srcs.length);
     }
+
 }

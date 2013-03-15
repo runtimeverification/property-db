@@ -1,386 +1,336 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.io;
 
-import java.util.Arrays;
 
-/**
- * Wraps an existing {@link Reader} and adds functionality to "push back"
- * characters that have been read, so that they can be read again. Parsers may
- * find this useful. The number of characters which may be pushed back can be
- * specified during construction. If the buffer of pushed back bytes is empty,
- * characters are read from the underlying reader.
+/** {@collect.stats}
+ * {@description.open}
+ * A character-stream reader that allows characters to be pushed back into the
+ * stream.
+ * {@description.close}
+ *
+ * @author      Mark Reinhold
+ * @since       JDK1.1
  */
+
 public class PushbackReader extends FilterReader {
-    /**
-     * The {@code char} array containing the chars to read.
-     */
-    char[] buf;
 
-    /**
-     * The current position within the char array {@code buf}. A value
-     * equal to buf.length indicates no chars available. A value of 0 indicates
-     * the buffer is full.
+    /** {@collect.stats}
+     * {@description.open}
+     * Pushback buffer
+     * {@description.close}
      */
-    int pos;
+    private char[] buf;
 
-    /**
-     * Constructs a new {@code PushbackReader} with the specified reader as
-     * source. The size of the pushback buffer is set to the default value of 1
-     * character.
+    /** {@collect.stats}
+     * {@description.open}
+     * Current position in buffer
+     * {@description.close}
+     */
+    private int pos;
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a new pushback reader with a pushback buffer of the given size.
+     * {@description.close}
      *
-     * @param in
-     *            the source reader.
-     */
-    public PushbackReader(Reader in) {
-        super(in);
-        buf = new char[1];
-        pos = 1;
-    }
-
-    /**
-     * Constructs a new {@code PushbackReader} with {@code in} as source reader.
-     * The size of the pushback buffer is set to {@code size}.
-     *
-     * @param in
-     *            the source reader.
-     * @param size
-     *            the size of the pushback buffer.
-     * @throws IllegalArgumentException
-     *             if {@code size} is negative.
+     * @param   in   The reader from which characters will be read
+     * @param   size The size of the pushback buffer
+     * @exception IllegalArgumentException if size is <= 0
      */
     public PushbackReader(Reader in, int size) {
         super(in);
         if (size <= 0) {
             throw new IllegalArgumentException("size <= 0");
         }
-        buf = new char[size];
-        pos = size;
+        this.buf = new char[size];
+        this.pos = size;
     }
 
-	/** {@collect.stats}
-	 * {@description.open}
-	 * Closes this reader. This implementation closes the source reader
-	 * and releases the pushback buffer.
-	 * {@description.close}
-	 *
-	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
-	 * <p>Although only the first call has any effect, it is safe to call close
-	 * multiple times on the same object. This is more lenient than the
-	 * overridden {@code AutoCloseable.close()}, which may be called at most
-	 * once.
-	 * {@property.close}
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a new pushback reader with a one-character pushback buffer.
+     * {@description.close}
      *
-     * @throws IOException
-     *             if an error occurs while closing this reader.
+     * @param   in  The reader from which characters will be read
      */
-    @Override
-    public void close() throws IOException {
+    public PushbackReader(Reader in) {
+        this(in, 1);
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Checks to make sure that the stream has not been closed.
+     * {@description.close}
+     */
+    private void ensureOpen() throws IOException {
+        if (buf == null)
+            throw new IOException("Stream closed");
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads a single character.
+     * {@description.close}
+     *
+     * @return     The character read, or -1 if the end of the stream has been
+     *             reached
+     *
+     * @exception  IOException  If an I/O error occurs
+     */
+    public int read() throws IOException {
         synchronized (lock) {
-            buf = null;
-            in.close();
+            ensureOpen();
+            if (pos < buf.length)
+                return buf[pos++];
+            else
+                return super.read();
         }
     }
 
-    /**
-     * Marks the current position in this stream. Setting a mark is not
-     * supported in this class; this implementation always throws an
-     * {@code IOException}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads characters into a portion of an array.
+     * {@description.close}
      *
-     * @param readAheadLimit
-     *            the number of character that can be read from this reader
-     *            before the mark is invalidated; this parameter is ignored.
-     * @throws IOException
-     *             if this method is called.
+     * @param      cbuf  Destination buffer
+     * @param      off   Offset at which to start writing characters
+     * @param      len   Maximum number of characters to read
+     *
+     * @return     The number of characters read, or -1 if the end of the
+     *             stream has been reached
+     *
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
+    public int read(char cbuf[], int off, int len) throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+            try {
+                if (len <= 0) {
+                    if (len < 0) {
+                        throw new IndexOutOfBoundsException();
+                    } else if ((off < 0) || (off > cbuf.length)) {
+                        throw new IndexOutOfBoundsException();
+                    }
+                    return 0;
+                }
+                int avail = buf.length - pos;
+                if (avail > 0) {
+                    if (len < avail)
+                        avail = len;
+                    System.arraycopy(buf, pos, cbuf, off, avail);
+                    pos += avail;
+                    off += avail;
+                    len -= avail;
+                }
+                if (len > 0) {
+                    len = super.read(cbuf, off, len);
+                    if (len == -1) {
+                        return (avail == 0) ? -1 : avail;
+                    }
+                    return avail + len;
+                }
+                return avail;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Pushes back a single character by copying it to the front of the
+     * pushback buffer.
+     * After this method returns, the next character to be read
+     * will have the value <code>(char)c</code>.
+     * {@description.close}
+     *
+     * @param  c  The int value representing a character to be pushed back
+     *
+     * @exception  IOException  If the pushback buffer is full,
+     *                          or if some other I/O error occurs
+     */
+    public void unread(int c) throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+            if (pos == 0)
+                throw new IOException("Pushback buffer overflow");
+            buf[--pos] = (char) c;
+        }
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Pushes back a portion of an array of characters by copying it to the
+     * front of the pushback buffer. After this method returns, the next
+     * character to be read will have the value <code>cbuf[off]</code>, the
+     * character after that will have the value <code>cbuf[off+1]</code>, and
+     * so forth.
+     * {@description.close}
+     *
+     * @param  cbuf  Character array
+     * @param  off   Offset of first character to push back
+     * @param  len   Number of characters to push back
+     *
+     * @exception  IOException  If there is insufficient room in the pushback
+     *                          buffer, or if some other I/O error occurs
+     */
+    public void unread(char cbuf[], int off, int len) throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+            if (len > pos)
+                throw new IOException("Pushback buffer overflow");
+            pos -= len;
+            System.arraycopy(cbuf, off, buf, pos, len);
+        }
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Pushes back an array of characters by copying it to the front of the
+     * pushback buffer. After this method returns, the next character to be
+     * read will have the value <code>cbuf[0]</code>, the character after that
+     * will have the value <code>cbuf[1]</code>, and so forth.
+     * {@description.close}
+     *
+     * @param  cbuf  Character array to push back
+     *
+     * @exception  IOException  If there is insufficient room in the pushback
+     *                          buffer, or if some other I/O error occurs
+     */
+    public void unread(char cbuf[]) throws IOException {
+        unread(cbuf, 0, cbuf.length);
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Tells whether this stream is ready to be read.
+     * {@description.close}
+     *
+     * @exception  IOException  If an I/O error occurs
+     */
+    public boolean ready() throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+            return (pos < buf.length) || super.ready();
+        }
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Marks the present position in the stream.
+     * {@description.close}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     * The <code>mark</code>
+     * for class <code>PushbackReader</code> always throws an exception.
+     * {@property.close}
+     *
+     * @exception  IOException  Always, since mark is not supported
+     */
     public void mark(int readAheadLimit) throws IOException {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
-     * Indicates whether this reader supports the {@code mark(int)} and
-     * {@code reset()} methods. {@code PushbackReader} does not support them, so
-     * it returns {@code false}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Resets the stream.
+     * {@description.close}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     * The <code>reset</code> method of
+     * <code>PushbackReader</code> always throws an exception.
+     * {@property.close}
      *
-     * @return always {@code false}.
-     * @see #mark(int)
-     * @see #reset()
+     * @exception  IOException  Always, since reset is not supported
      */
-    @Override
-    public boolean markSupported() {
-        return false;
-    }
-
-    /**
-     * Reads a single character from this reader and returns it as an integer
-     * with the two higher-order bytes set to 0. Returns -1 if the end of the
-     * reader has been reached. If the pushback buffer does not contain any
-     * available characters then a character from the source reader is returned.
-     * Blocks until one character has been read, the end of the source reader is
-     * detected or an exception is thrown.
-     *
-     * @return the character read or -1 if the end of the source reader has been
-     *         reached.
-     * @throws IOException
-     *             if this reader is closed or an I/O error occurs while reading
-     *             from this reader.
-     */
-    @Override
-    public int read() throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            /* Is there a pushback character available? */
-            if (pos < buf.length) {
-                return buf[pos++];
-            }
-            /**
-             * Assume read() in the InputStream will return 2 lowest-order bytes
-             * or -1 if end of stream.
-             */
-            return in.read();
-        }
-    }
-
-    private void checkNotClosed() throws IOException {
-        if (buf == null) {
-            throw new IOException("PushbackReader is closed");
-        }
-    }
-
-    /**
-     * Reads at most {@code length} bytes from this reader and stores them in
-     * byte array {@code buffer} starting at {@code offset}. Characters are
-     * read from the pushback buffer first, then from the source reader if more
-     * bytes are required. Blocks until {@code count} characters have been read,
-     * the end of the source reader is detected or an exception is thrown.
-     *
-     * @param buffer
-     *            the array in which to store the characters read from this
-     *            reader.
-     * @param offset
-     *            the initial position in {@code buffer} to store the characters
-     *            read from this reader.
-     * @param count
-     *            the maximum number of bytes to store in {@code buffer}.
-     * @return the number of bytes read or -1 if the end of the source reader
-     *         has been reached.
-     * @throws IndexOutOfBoundsException
-     *             if {@code offset < 0} or {@code count < 0}, or if
-     *             {@code offset + count} is greater than the length of
-     *             {@code buffer}.
-     * @throws IOException
-     *             if this reader is closed or another I/O error occurs while
-     *             reading from this reader.
-     */
-    @Override
-    public int read(char[] buffer, int offset, int count) throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            Arrays.checkOffsetAndCount(buffer.length, offset, count);
-
-            int copiedChars = 0;
-            int copyLength = 0;
-            int newOffset = offset;
-            /* Are there pushback chars available? */
-            if (pos < buf.length) {
-                copyLength = (buf.length - pos >= count) ? count : buf.length
-                        - pos;
-                System.arraycopy(buf, pos, buffer, newOffset, copyLength);
-                newOffset += copyLength;
-                copiedChars += copyLength;
-                /* Use up the chars in the local buffer */
-                pos += copyLength;
-            }
-            /* Have we copied enough? */
-            if (copyLength == count) {
-                return count;
-            }
-            int inCopied = in.read(buffer, newOffset, count - copiedChars);
-            if (inCopied > 0) {
-                return inCopied + copiedChars;
-            }
-            if (copiedChars == 0) {
-                return inCopied;
-            }
-            return copiedChars;
-        }
-    }
-
-    /**
-     * Indicates whether this reader is ready to be read without blocking.
-     * Returns {@code true} if this reader will not block when {@code read} is
-     * called, {@code false} if unknown or blocking will occur.
-     *
-     * @return {@code true} if the receiver will not block when
-     *         {@code read()} is called, {@code false} if unknown
-     *         or blocking will occur.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
-     * @see #read()
-     * @see #read(char[], int, int)
-     */
-    @Override
-    public boolean ready() throws IOException {
-        synchronized (lock) {
-            if (buf == null) {
-                throw new IOException("Reader is closed");
-            }
-            return (buf.length - pos > 0 || in.ready());
-        }
-    }
-
-    /**
-     * Resets this reader to the last marked position. Resetting the reader is
-     * not supported in this class; this implementation always throws an
-     * {@code IOException}.
-     *
-     * @throws IOException
-     *             if this method is called.
-     */
-    @Override
     public void reset() throws IOException {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
-     * Pushes all the characters in {@code buffer} back to this reader. The
-     * characters are pushed back in such a way that the next character read
-     * from this reader is buffer[0], then buffer[1] and so on.
-     * <p>
-     * If this reader's internal pushback buffer cannot store the entire
-     * contents of {@code buffer}, an {@code IOException} is thrown. Parts of
-     * {@code buffer} may have already been copied to the pushback buffer when
-     * the exception is thrown.
-     *
-     * @param buffer
-     *            the buffer containing the characters to push back to this
-     *            reader.
-     * @throws IOException
-     *             if this reader is closed or the free space in the internal
-     *             pushback buffer is not sufficient to store the contents of
-     *             {@code buffer}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Tells whether this stream supports the mark() operation, which it does
+     * not.
+     * {@description.close}
      */
-    public void unread(char[] buffer) throws IOException {
-        unread(buffer, 0, buffer.length);
+    public boolean markSupported() {
+        return false;
     }
 
-    /**
-     * Pushes a subset of the characters in {@code buffer} back to this reader.
-     * The subset is defined by the start position {@code offset} within
-     * {@code buffer} and the number of characters specified by {@code length}.
-     * The bytes are pushed back in such a way that the next byte read from this
-     * stream is {@code buffer[offset]}, then {@code buffer[1]} and so on.
-     * <p>
-     * If this stream's internal pushback buffer cannot store the selected
-     * subset of {@code buffer}, an {@code IOException} is thrown. Parts of
-     * {@code buffer} may have already been copied to the pushback buffer when
-     * the exception is thrown.
+    /** {@collect.stats}
+     * {@description.open}
+     * Closes the stream and releases any system resources associated with
+     * it.
+     * {@description.close}
+     * {@property.open runtime formal:java.io.Reader_ManipulateAfterClose}
+     * Once the stream has been closed, further read(),
+     * unread(), ready(), or skip() invocations will throw an IOException.
+     * {@property.close}
+     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+     * Closing a previously closed stream has no effect.
+     * {@property.close}
      *
-     * @param buffer
-     *            the buffer containing the characters to push back to this
-     *            reader.
-     * @param offset
-     *            the index of the first byte in {@code buffer} to push back.
-     * @param length
-     *            the number of bytes to push back.
-     * @throws IndexOutOfBoundsException
-     *             if {@code offset < 0} or {@code count < 0}, or if
-     *             {@code offset + count} is greater than the length of
-     *             {@code buffer}.
-     * @throws IOException
-     *             if this reader is closed or the free space in the internal
-     *             pushback buffer is not sufficient to store the selected
-     *             contents of {@code buffer}.
-     * @throws NullPointerException
-     *             if {@code buffer} is {@code null}.
+     * @exception  IOException  If an I/O error occurs
      */
-    public void unread(char[] buffer, int offset, int length) throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            if (length > pos) {
-                throw new IOException("Pushback buffer full");
-            }
-            Arrays.checkOffsetAndCount(buffer.length, offset, length);
-            for (int i = offset + length - 1; i >= offset; i--) {
-                unread(buffer[i]);
-            }
-        }
+    public void close() throws IOException {
+        super.close();
+        buf = null;
     }
 
-    /**
-     * Pushes the specified character {@code oneChar} back to this reader. This
-     * is done in such a way that the next character read from this reader is
-     * {@code (char) oneChar}.
-     * <p>
-     * If this reader's internal pushback buffer cannot store the character, an
-     * {@code IOException} is thrown.
+    /** {@collect.stats}
+     * {@description.open}
+     * Skips characters.
+     * {@description.close}
+     * {@description.open blocking}
+     * This method will block until some characters are
+     * available, an I/O error occurs, or the end of the stream is reached.
+     * {@description.close}
      *
-     * @param oneChar
-     *            the character to push back to this stream.
-     * @throws IOException
-     *             if this reader is closed or the internal pushback buffer is
-     *             full.
-     */
-    public void unread(int oneChar) throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            if (pos == 0) {
-                throw new IOException("Pushback buffer full");
-            }
-            buf[--pos] = (char) oneChar;
-        }
-    }
-
-    /**
-     * Skips {@code charCount} characters in this reader. This implementation skips
-     * characters in the pushback buffer first and then in the source reader if
-     * necessary.
+     * @param  n  The number of characters to skip
      *
-     * @return the number of characters actually skipped.
-     * @throws IllegalArgumentException if {@code charCount < 0}.
-     * @throws IOException
-     *             if this reader is closed or another I/O error occurs.
+     * @return    The number of characters actually skipped
+     *
+     * @exception  IllegalArgumentException  If <code>n</code> is negative.
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
-    public long skip(long charCount) throws IOException {
-        if (charCount < 0) {
-            throw new IllegalArgumentException("charCount < 0: " + charCount);
-        }
+    public long skip(long n) throws IOException {
+        if (n < 0L)
+            throw new IllegalArgumentException("skip value is negative");
         synchronized (lock) {
-            checkNotClosed();
-            if (charCount == 0) {
-                return 0;
-            }
-            long inSkipped;
-            int availableFromBuffer = buf.length - pos;
-            if (availableFromBuffer > 0) {
-                long requiredFromIn = charCount - availableFromBuffer;
-                if (requiredFromIn <= 0) {
-                    pos += charCount;
-                    return charCount;
+            ensureOpen();
+            int avail = buf.length - pos;
+            if (avail > 0) {
+                if (n <= avail) {
+                    pos += n;
+                    return n;
+                } else {
+                    pos = buf.length;
+                    n -= avail;
                 }
-                pos += availableFromBuffer;
-                inSkipped = in.skip(requiredFromIn);
-            } else {
-                inSkipped = in.skip(charCount);
             }
-            return inSkipped + availableFromBuffer;
+            return avail + super.skip(n);
         }
     }
 }

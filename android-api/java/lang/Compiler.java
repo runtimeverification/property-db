@@ -1,86 +1,148 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1995, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang;
 
-/**
- * Does nothing on Android.
+/** {@collect.stats}
+ * {@description.open}
+ * The {@code Compiler} class is provided to support Java-to-native-code
+ * compilers and related services. By design, the {@code Compiler} class does
+ * nothing; it serves as a placeholder for a JIT compiler implementation.
+ *
+ * <p> When the Java Virtual Machine first starts, it determines if the system
+ * property {@code java.compiler} exists. (System properties are accessible
+ * through {@link System#getProperty(String)} and {@link
+ * System#getProperty(String, String)}.  If so, it is assumed to be the name of
+ * a library (with a platform-dependent exact location and type); {@link
+ * System#loadLibrary} is called to load that library. If this loading
+ * succeeds, the function named {@code java_lang_Compiler_start()} in that
+ * library is called.
+ *
+ * <p> If no compiler is available, these methods do nothing.
+ * {@description.close}
+ *
+ * @author  Frank Yellin
+ * @since   JDK1.0
  */
-public final class Compiler {
-    /**
-     * Prevent this class from being instantiated.
-     */
-    private Compiler() {
-        //do nothing
+public final class Compiler  {
+    private Compiler() {}               // don't make instances
+
+    private static native void initialize();
+
+    private static native void registerNatives();
+
+    static {
+        registerNatives();
+        java.security.AccessController.doPrivileged
+            (new java.security.PrivilegedAction() {
+                public Object run() {
+                    boolean loaded = false;
+                    String jit = System.getProperty("java.compiler");
+                    if ((jit != null) && (!jit.equals("NONE")) &&
+                        (!jit.equals("")))
+                    {
+                        try {
+                            System.loadLibrary(jit);
+                            initialize();
+                            loaded = true;
+                        } catch (UnsatisfiedLinkError e) {
+                            System.err.println("Warning: JIT compiler \"" +
+                              jit + "\" not found. Will use interpreter.");
+                        }
+                    }
+                    String info = System.getProperty("java.vm.info");
+                    if (loaded) {
+                        System.setProperty("java.vm.info", info + ", " + jit);
+                    } else {
+                        System.setProperty("java.vm.info", info + ", nojit");
+                    }
+                    return null;
+                }
+            });
     }
 
-    /**
-     * Executes an operation according to the specified command object. This
-     * method is the low-level interface to the JIT compiler. It may return any
-     * object or {@code null} if no JIT compiler is available. Returns null
-     * on Android, whether or not the system has a JIT.
+    /** {@collect.stats}
+     * {@description.open}
+     * Compiles the specified class.
+     * {@description.close}
      *
-     * @param cmd
-     *            the command object for the JIT compiler.
-     * @return the result of executing command or {@code null}.
-     */
-    public static Object command(Object cmd) {
-        return null;
-    }
-
-    /**
-     * Compiles the specified class using the JIT compiler and indicates if
-     * compilation has been successful. Does nothing and returns false on
-     * Android.
+     * @param  clazz
+     *         A class
      *
-     * @param classToCompile
-     *            java.lang.Class the class to JIT compile
-     * @return {@code true} if the compilation has been successful;
-     *         {@code false} if it has failed or if there is no JIT compiler
-     *         available.
-     */
-    public static boolean compileClass(Class<?> classToCompile) {
-        return false;
-    }
-
-    /**
-     * Compiles all classes whose name matches the specified name using the JIT
-     * compiler and indicates if compilation has been successful. Does nothing
-     * and returns false on Android.
+     * @return  {@code true} if the compilation succeeded; {@code false} if the
+     *          compilation failed or no compiler is available
      *
-     * @param nameRoot
-     *            the string to match class names with.
-     * @return {@code true} if the compilation has been successful;
-     *         {@code false} if it has failed or if there is no JIT compiler
-     *         available.
+     * @throws  NullPointerException
+     *          If {@code clazz} is {@code null}
      */
-    public static boolean compileClasses(String nameRoot) {
-        return false;
-    }
+    public static native boolean compileClass(Class<?> clazz);
 
-    /**
-     * Disables the JIT compiler. Does nothing on Android.
+    /** {@collect.stats}
+     * {@description.open}
+     * Compiles all classes whose name matches the specified string.
+     * {@description.close}
+     *
+     * @param  string
+     *         The name of the classes to compile
+     *
+     * @return  {@code true} if the compilation succeeded; {@code false} if the
+     *          compilation failed or no compiler is available
+     *
+     * @throws  NullPointerException
+     *          If {@code string} is {@code null}
      */
-    public static void disable() {
-    }
+    public static native boolean compileClasses(String string);
 
-    /**
-     * Enables the JIT compiler. Does nothing on Android.
+    /** {@collect.stats}
+     * {@description.open}
+     * Examines the argument type and its fields and perform some documented
+     * operation.  No specific operations are required.
+     * {@description.close}
+     *
+     * @param  any
+     *         An argument
+     *
+     * @return  A compiler-specific value, or {@code null} if no compiler is
+     *          available
+     *
+     * @throws  NullPointerException
+     *          If {@code any} is {@code null}
      */
-    public static void enable() {
-    }
+    public static native Object command(Object any);
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Cause the Compiler to resume operation.
+     * {@description.close}
+     */
+    public static native void enable();
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Cause the Compiler to cease operation.
+     * {@description.close}
+     */
+    public static native void disable();
 }

@@ -1,362 +1,473 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.jar;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.FilterInputStream;
+import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Field;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.charset.CharsetEncoder;
-import java.nio.charset.Charsets;
-import java.nio.charset.CoderResult;
+import java.io.IOException;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import libcore.io.Streams;
 
-/**
- * The {@code Manifest} class is used to obtain attribute information for a
- * {@code JarFile} and its entries.
+/** {@collect.stats} 
+ * {@description.open}
+ * The Manifest class is used to maintain Manifest entry names and their
+ * associated Attributes. There are main Manifest Attributes as well as
+ * per-entry Attributes. For information on the Manifest format, please
+ * see the
+ * <a href="../../../../technotes/guides/jar/jar.html">
+ * Manifest format specification</a>.
+ * {@description.close}
+ *
+ * @author  David Connelly
+ * @see     Attributes
+ * @since   1.2
  */
 public class Manifest implements Cloneable {
-    static final int LINE_LENGTH_LIMIT = 72;
+    // manifest main attributes
+    private Attributes attr = new Attributes();
 
-    private static final byte[] LINE_SEPARATOR = new byte[] { '\r', '\n' };
+    // manifest entries
+    private Map entries = new HashMap();
 
-    private static final byte[] VALUE_SEPARATOR = new byte[] { ':', ' ' };
-
-    private static final Attributes.Name NAME_ATTRIBUTE = new Attributes.Name("Name");
-
-    private static final Field BAIS_BUF = getByteArrayInputStreamField("buf");
-    private static final Field BAIS_POS = getByteArrayInputStreamField("pos");
-
-    private static Field getByteArrayInputStreamField(String name) {
-        try {
-            Field f = ByteArrayInputStream.class.getDeclaredField(name);
-            f.setAccessible(true);
-            return f;
-        } catch (Exception ex) {
-            throw new AssertionError(ex);
-        }
-    }
-
-    private Attributes mainAttributes = new Attributes();
-
-    private HashMap<String, Attributes> entries = new HashMap<String, Attributes>();
-
-    static class Chunk {
-        int start;
-        int end;
-
-        Chunk(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
-
-    private HashMap<String, Chunk> chunks;
-
-    /**
-     * The end of the main attributes section in the manifest is needed in
-     * verification.
-     */
-    private int mainEnd;
-
-    /**
-     * Creates a new {@code Manifest} instance.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs a new, empty Manifest.
+     * {@description.close}
      */
     public Manifest() {
     }
 
-    /**
-     * Creates a new {@code Manifest} instance using the attributes obtained
-     * from the input stream.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs a new Manifest from the specified input stream.
+     * {@description.close}
      *
-     * @param is
-     *            {@code InputStream} to parse for attributes.
-     * @throws IOException
-     *             if an IO error occurs while creating this {@code Manifest}
+     * @param is the input stream containing manifest data
+     * @throws IOException if an I/O error has occured
      */
     public Manifest(InputStream is) throws IOException {
         read(is);
     }
 
-    /**
-     * Creates a new {@code Manifest} instance. The new instance will have the
-     * same attributes as those found in the parameter {@code Manifest}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs a new Manifest that is a copy of the specified Manifest.
+     * {@description.close}
      *
-     * @param man
-     *            {@code Manifest} instance to obtain attributes from.
+     * @param man the Manifest to copy
      */
-    @SuppressWarnings("unchecked")
     public Manifest(Manifest man) {
-        mainAttributes = (Attributes) man.mainAttributes.clone();
-        entries = (HashMap<String, Attributes>) ((HashMap<String, Attributes>) man
-                .getEntries()).clone();
+        attr.putAll(man.getMainAttributes());
+        entries.putAll(man.getEntries());
     }
 
-    Manifest(InputStream is, boolean readChunks) throws IOException {
-        if (readChunks) {
-            chunks = new HashMap<String, Chunk>();
-        }
-        read(is);
-    }
-
-    /**
-     * Resets the both the main attributes as well as the entry attributes
-     * associated with this {@code Manifest}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the main Attributes for the Manifest.
+     * {@description.close}
+     * @return the main Attributes for the Manifest
      */
-    public void clear() {
-        entries.clear();
-        mainAttributes.clear();
+    public Attributes getMainAttributes() {
+        return attr;
     }
 
-    /**
-     * Returns the {@code Attributes} associated with the parameter entry
-     * {@code name}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a Map of the entries contained in this Manifest. Each entry
+     * is represented by a String name (key) and associated Attributes (value).
+     * The Map permits the {@code null} key, but no entry with a null key is
+     * created by {@link #read}, nor is such an entry written by using {@link
+     * #write}.
+     * {@description.close}
      *
-     * @param name
-     *            the name of the entry to obtain {@code Attributes} from.
-     * @return the Attributes for the entry or {@code null} if the entry does
-     *         not exist.
+     * @return a Map of the entries contained in this Manifest
+     */
+    public Map<String,Attributes> getEntries() {
+        return entries;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the Attributes for the specified entry name.
+     * This method is defined as:
+     * <pre>
+     *      return (Attributes)getEntries().get(name)
+     * </pre>
+     * Though {@code null} is a valid {@code name}, when
+     * {@code getAttributes(null)} is invoked on a {@code Manifest}
+     * obtained from a jar file, {@code null} will be returned.  While jar
+     * files themselves do not allow {@code null}-named attributes, it is
+     * possible to invoke {@link #getEntries} on a {@code Manifest}, and
+     * on that result, invoke {@code put} with a null key and an
+     * arbitrary value.  Subsequent invocations of
+     * {@code getAttributes(null)} will return the just-{@code put}
+     * value.
+     * <p>
+     * Note that this method does not return the manifest's main attributes;
+     * see {@link #getMainAttributes}.
+     * {@description.close}
+     *
+     * @param name entry name
+     * @return the Attributes for the specified entry name
      */
     public Attributes getAttributes(String name) {
         return getEntries().get(name);
     }
 
-    /**
-     * Returns a map containing the {@code Attributes} for each entry in the
-     * {@code Manifest}.
-     *
-     * @return the map of entry attributes.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Clears the main Attributes as well as the entries in this Manifest.
+     * {@description.close}
      */
-    public Map<String, Attributes> getEntries() {
-        return entries;
+    public void clear() {
+        attr.clear();
+        entries.clear();
     }
 
-    /**
-     * Returns the main {@code Attributes} of the {@code JarFile}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Writes the Manifest to the specified OutputStream.
+     * Attributes.Name.MANIFEST_VERSION must be set in
+     * MainAttributes prior to invoking this method.
+     * {@description.close}
      *
-     * @return main {@code Attributes} associated with the source {@code
-     *         JarFile}.
+     * @param out the output stream
+     * @exception IOException if an I/O error has occurred
+     * @see #getMainAttributes
      */
-    public Attributes getMainAttributes() {
-        return mainAttributes;
+    public void write(OutputStream out) throws IOException {
+        DataOutputStream dos = new DataOutputStream(out);
+        // Write out the main attributes for the manifest
+        attr.writeMain(dos);
+        // Now write out the pre-entry attributes
+        Iterator it = entries.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            StringBuffer buffer = new StringBuffer("Name: ");
+            String value = (String)e.getKey();
+            if (value != null) {
+                byte[] vb = value.getBytes("UTF8");
+                value = new String(vb, 0, 0, vb.length);
+            }
+            buffer.append(value);
+            buffer.append("\r\n");
+            make72Safe(buffer);
+            dos.writeBytes(buffer.toString());
+            ((Attributes)e.getValue()).write(dos);
+        }
+        dos.flush();
     }
 
-    /**
-     * Creates a copy of this {@code Manifest}. The returned {@code Manifest}
-     * will equal the {@code Manifest} from which it was cloned.
-     *
-     * @return a copy of this instance.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Adds line breaks to enforce a maximum 72 bytes per line.
+     * {@description.close}
      */
-    @Override
+    static void make72Safe(StringBuffer line) {
+        int length = line.length();
+        if (length > 72) {
+            int index = 70;
+            while (index < length - 2) {
+                line.insert(index, "\r\n ");
+                index += 72;
+                length += 3;
+            }
+        }
+        return;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Reads the Manifest from the specified InputStream. The entry
+     * names and attributes read will be merged in with the current
+     * manifest entries.
+     * {@description.close}
+     *
+     * @param is the input stream
+     * @exception IOException if an I/O error has occurred
+     */
+    public void read(InputStream is) throws IOException {
+        // Buffered input stream for reading manifest data
+        FastInputStream fis = new FastInputStream(is);
+        // Line buffer
+        byte[] lbuf = new byte[512];
+        // Read the main attributes for the manifest
+        attr.read(fis, lbuf);
+        // Total number of entries, attributes read
+        int ecount = 0, acount = 0;
+        // Average size of entry attributes
+        int asize = 2;
+        // Now parse the manifest entries
+        int len;
+        String name = null;
+        boolean skipEmptyLines = true;
+        byte[] lastline = null;
+
+        while ((len = fis.readLine(lbuf)) != -1) {
+            if (lbuf[--len] != '\n') {
+                throw new IOException("manifest line too long");
+            }
+            if (len > 0 && lbuf[len-1] == '\r') {
+                --len;
+            }
+            if (len == 0 && skipEmptyLines) {
+                continue;
+            }
+            skipEmptyLines = false;
+
+            if (name == null) {
+                name = parseName(lbuf, len);
+                if (name == null) {
+                    throw new IOException("invalid manifest format");
+                }
+                if (fis.peek() == ' ') {
+                    // name is wrapped
+                    lastline = new byte[len - 6];
+                    System.arraycopy(lbuf, 6, lastline, 0, len - 6);
+                    continue;
+                }
+            } else {
+                // continuation line
+                byte[] buf = new byte[lastline.length + len - 1];
+                System.arraycopy(lastline, 0, buf, 0, lastline.length);
+                System.arraycopy(lbuf, 1, buf, lastline.length, len - 1);
+                if (fis.peek() == ' ') {
+                    // name is wrapped
+                    lastline = buf;
+                    continue;
+                }
+                name = new String(buf, 0, buf.length, "UTF8");
+                lastline = null;
+            }
+            Attributes attr = getAttributes(name);
+            if (attr == null) {
+                attr = new Attributes(asize);
+                entries.put(name, attr);
+            }
+            attr.read(fis, lbuf);
+            ecount++;
+            acount += attr.size();
+            //XXX: Fix for when the average is 0. When it is 0,
+            // you get an Attributes object with an initial
+            // capacity of 0, which tickles a bug in HashMap.
+            asize = Math.max(2, acount / ecount);
+
+            name = null;
+            skipEmptyLines = true;
+        }
+    }
+
+    private String parseName(byte[] lbuf, int len) {
+        if (toLower(lbuf[0]) == 'n' && toLower(lbuf[1]) == 'a' &&
+            toLower(lbuf[2]) == 'm' && toLower(lbuf[3]) == 'e' &&
+            lbuf[4] == ':' && lbuf[5] == ' ') {
+            try {
+                return new String(lbuf, 6, len - 6, "UTF8");
+            }
+            catch (Exception e) {
+            }
+        }
+        return null;
+    }
+
+    private int toLower(int c) {
+        return (c >= 'A' && c <= 'Z') ? 'a' + (c - 'A') : c;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns true if the specified Object is also a Manifest and has
+     * the same main Attributes and entries.
+     * {@description.close}
+     *
+     * @param o the object to be compared
+     * @return true if the specified Object is also a Manifest and has
+     * the same main Attributes and entries
+     */
+    public boolean equals(Object o) {
+        if (o instanceof Manifest) {
+            Manifest m = (Manifest)o;
+            return attr.equals(m.getMainAttributes()) &&
+                   entries.equals(m.getEntries());
+        } else {
+            return false;
+        }
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the hash code for this Manifest.
+     * {@description.close}
+     */
+    public int hashCode() {
+        return attr.hashCode() + entries.hashCode();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a shallow copy of this Manifest.  The shallow copy is
+     * implemented as follows:
+     * <pre>
+     *     public Object clone() { return new Manifest(this); }
+     * </pre>
+     * {@description.close}
+     * @return a shallow copy of this Manifest
+     */
     public Object clone() {
         return new Manifest(this);
     }
 
-    /**
-     * Writes out the attribute information of the receiver to the specified
-     * {@code OutputStream}.
-     *
-     * @param os
-     *            The {@code OutputStream} to write to.
-     * @throws IOException
-     *             If an error occurs writing the {@code Manifest}.
+    /*
+     * A fast buffered input stream for parsing manifest files.
      */
-    public void write(OutputStream os) throws IOException {
-        write(this, os);
-    }
+    static class FastInputStream extends FilterInputStream {
+        private byte buf[];
+        private int count = 0;
+        private int pos = 0;
 
-    /**
-     * Merges name/attribute pairs read from the input stream {@code is} into this manifest.
-     *
-     * @param is
-     *            The {@code InputStream} to read from.
-     * @throws IOException
-     *             If an error occurs reading the manifest.
-     */
-    public void read(InputStream is) throws IOException {
-        byte[] buf;
-        if (is instanceof ByteArrayInputStream) {
-            buf = exposeByteArrayInputStreamBytes((ByteArrayInputStream) is);
-        } else {
-            buf = Streams.readFullyNoClose(is);
+        FastInputStream(InputStream in) {
+            this(in, 8192);
         }
 
-        if (buf.length == 0) {
-            return;
+        FastInputStream(InputStream in, int size) {
+            super(in);
+            buf = new byte[size];
         }
 
-        // a workaround for HARMONY-5662
-        // replace EOF and NUL with another new line
-        // which does not trigger an error
-        byte b = buf[buf.length - 1];
-        if (b == 0 || b == 26) {
-            buf[buf.length - 1] = '\n';
-        }
-
-        // Attributes.Name.MANIFEST_VERSION is not used for
-        // the second parameter for RI compatibility
-        InitManifest im = new InitManifest(buf, mainAttributes, null);
-        mainEnd = im.getPos();
-        im.initEntries(entries, chunks);
-    }
-
-    /**
-     * Returns a byte[] containing all the bytes from a ByteArrayInputStream.
-     * Where possible, this returns the actual array rather than a copy.
-     */
-    private static byte[] exposeByteArrayInputStreamBytes(ByteArrayInputStream bais) {
-        byte[] buffer;
-        synchronized (bais) {
-            byte[] buf;
-            int pos;
-            try {
-                buf = (byte[]) BAIS_BUF.get(bais);
-                pos = BAIS_POS.getInt(bais);
-            } catch (IllegalAccessException iae) {
-                throw new AssertionError(iae);
-            }
-            int available = bais.available();
-            if (pos == 0 && buf.length == available) {
-                buffer = buf;
-            } else {
-                buffer = new byte[available];
-                System.arraycopy(buf, pos, buffer, 0, available);
-            }
-            bais.skip(available);
-        }
-        return buffer;
-    }
-
-    /**
-     * Returns the hash code for this instance.
-     *
-     * @return this {@code Manifest}'s hashCode.
-     */
-    @Override
-    public int hashCode() {
-        return mainAttributes.hashCode() ^ getEntries().hashCode();
-    }
-
-    /**
-     * Determines if the receiver is equal to the parameter object. Two {@code
-     * Manifest}s are equal if they have identical main attributes as well as
-     * identical entry attributes.
-     *
-     * @param o
-     *            the object to compare against.
-     * @return {@code true} if the manifests are equal, {@code false} otherwise
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (o.getClass() != this.getClass()) {
-            return false;
-        }
-        if (!mainAttributes.equals(((Manifest) o).mainAttributes)) {
-            return false;
-        }
-        return getEntries().equals(((Manifest) o).getEntries());
-    }
-
-    Chunk getChunk(String name) {
-        return chunks.get(name);
-    }
-
-    void removeChunks() {
-        chunks = null;
-    }
-
-    int getMainAttributesEnd() {
-        return mainEnd;
-    }
-
-    /**
-     * Writes out the attribute information of the specified manifest to the
-     * specified {@code OutputStream}
-     *
-     * @param manifest
-     *            the manifest to write out.
-     * @param out
-     *            The {@code OutputStream} to write to.
-     * @throws IOException
-     *             If an error occurs writing the {@code Manifest}.
-     */
-    static void write(Manifest manifest, OutputStream out) throws IOException {
-        CharsetEncoder encoder = Charsets.UTF_8.newEncoder();
-        ByteBuffer buffer = ByteBuffer.allocate(LINE_LENGTH_LIMIT);
-
-        String version = manifest.mainAttributes.getValue(Attributes.Name.MANIFEST_VERSION);
-        if (version != null) {
-            writeEntry(out, Attributes.Name.MANIFEST_VERSION, version, encoder, buffer);
-            Iterator<?> entries = manifest.mainAttributes.keySet().iterator();
-            while (entries.hasNext()) {
-                Attributes.Name name = (Attributes.Name) entries.next();
-                if (!name.equals(Attributes.Name.MANIFEST_VERSION)) {
-                    writeEntry(out, name, manifest.mainAttributes.getValue(name), encoder, buffer);
+        public int read() throws IOException {
+            if (pos >= count) {
+                fill();
+                if (pos >= count) {
+                    return -1;
                 }
             }
+            return buf[pos++] & 0xff;
         }
-        out.write(LINE_SEPARATOR);
-        Iterator<String> i = manifest.getEntries().keySet().iterator();
-        while (i.hasNext()) {
-            String key = i.next();
-            writeEntry(out, NAME_ATTRIBUTE, key, encoder, buffer);
-            Attributes attrib = manifest.entries.get(key);
-            Iterator<?> entries = attrib.keySet().iterator();
-            while (entries.hasNext()) {
-                Attributes.Name name = (Attributes.Name) entries.next();
-                writeEntry(out, name, attrib.getValue(name), encoder, buffer);
+
+        public int read(byte[] b, int off, int len) throws IOException {
+            int avail = count - pos;
+            if (avail <= 0) {
+                if (len >= buf.length) {
+                    return in.read(b, off, len);
+                }
+                fill();
+                avail = count - pos;
+                if (avail <= 0) {
+                    return -1;
+                }
             }
-            out.write(LINE_SEPARATOR);
+            if (len > avail) {
+                len = avail;
+            }
+            System.arraycopy(buf, pos, b, off, len);
+            pos += len;
+            return len;
         }
-    }
 
-    private static void writeEntry(OutputStream os, Attributes.Name name,
-            String value, CharsetEncoder encoder, ByteBuffer bBuf) throws IOException {
-        String nameString = name.getName();
-        os.write(nameString.getBytes(Charsets.US_ASCII));
-        os.write(VALUE_SEPARATOR);
-
-        encoder.reset();
-        bBuf.clear().limit(LINE_LENGTH_LIMIT - nameString.length() - 2);
-
-        CharBuffer cBuf = CharBuffer.wrap(value);
-
-        while (true) {
-            CoderResult r = encoder.encode(cBuf, bBuf, true);
-            if (CoderResult.UNDERFLOW == r) {
-                r = encoder.flush(bBuf);
+        /*
+         * Reads 'len' bytes from the input stream, or until an end-of-line
+         * is reached. Returns the number of bytes read.
+         */
+        public int readLine(byte[] b, int off, int len) throws IOException {
+            byte[] tbuf = this.buf;
+            int total = 0;
+            while (total < len) {
+                int avail = count - pos;
+                if (avail <= 0) {
+                    fill();
+                    avail = count - pos;
+                    if (avail <= 0) {
+                        return -1;
+                    }
+                }
+                int n = len - total;
+                if (n > avail) {
+                    n = avail;
+                }
+                int tpos = pos;
+                int maxpos = tpos + n;
+                while (tpos < maxpos && tbuf[tpos++] != '\n') ;
+                n = tpos - pos;
+                System.arraycopy(tbuf, pos, b, off, n);
+                off += n;
+                total += n;
+                pos = tpos;
+                if (tbuf[tpos-1] == '\n') {
+                    break;
+                }
             }
-            os.write(bBuf.array(), bBuf.arrayOffset(), bBuf.position());
-            os.write(LINE_SEPARATOR);
-            if (CoderResult.UNDERFLOW == r) {
-                break;
+            return total;
+        }
+
+        public byte peek() throws IOException {
+            if (pos == count)
+                fill();
+            return buf[pos];
+        }
+
+        public int readLine(byte[] b) throws IOException {
+            return readLine(b, 0, b.length);
+        }
+
+        public long skip(long n) throws IOException {
+            if (n <= 0) {
+                return 0;
             }
-            os.write(' ');
-            bBuf.clear().limit(LINE_LENGTH_LIMIT - 1);
+            long avail = count - pos;
+            if (avail <= 0) {
+                return in.skip(n);
+            }
+            if (n > avail) {
+                n = avail;
+            }
+            pos += n;
+            return n;
+        }
+
+        public int available() throws IOException {
+            return (count - pos) + in.available();
+        }
+
+        public void close() throws IOException {
+            if (in != null) {
+                in.close();
+                in = null;
+                buf = null;
+            }
+        }
+
+        private void fill() throws IOException {
+            count = pos = 0;
+            int n = in.read(buf, 0, buf.length);
+            if (n > 0) {
+                count = n;
+            }
         }
     }
 }

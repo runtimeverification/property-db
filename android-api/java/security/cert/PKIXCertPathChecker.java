@@ -1,18 +1,26 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 2000, 2003, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.security.cert;
@@ -20,92 +28,154 @@ package java.security.cert;
 import java.util.Collection;
 import java.util.Set;
 
-/**
- * The class specifying the interface to extend the certification path
- * validation algorithm by checks to perform on an {@code X509Certificate}.
+/** {@collect.stats} 
+ * An abstract class that performs one or more checks on an
+ * <code>X509Certificate</code>.
+ *
+ * <p>A concrete implementation of the <code>PKIXCertPathChecker</code> class
+ * can be created to extend the PKIX certification path validation algorithm.
+ * For example, an implementation may check for and process a critical private
+ * extension of each certificate in a certification path.
+ *
+ * <p>Instances of <code>PKIXCertPathChecker</code> are passed as parameters
+ * using the {@link PKIXParameters#setCertPathCheckers setCertPathCheckers}
+ * or {@link PKIXParameters#addCertPathChecker addCertPathChecker} methods
+ * of the <code>PKIXParameters</code> and <code>PKIXBuilderParameters</code>
+ * class. Each of the <code>PKIXCertPathChecker</code>s {@link #check check}
+ * methods will be called, in turn, for each certificate processed by a PKIX
+ * <code>CertPathValidator</code> or <code>CertPathBuilder</code>
+ * implementation.
+ *
+ * <p>A <code>PKIXCertPathChecker</code> may be called multiple times on
+ * successive certificates in a certification path. Concrete subclasses
+ * are expected to maintain any internal state that may be necessary to
+ * check successive certificates. The {@link #init init} method is used
+ * to initialize the internal state of the checker so that the certificates
+ * of a new certification path may be checked. A stateful implementation
+ * <b>must</b> override the {@link #clone clone} method if necessary in
+ * order to allow a PKIX <code>CertPathBuilder</code> to efficiently
+ * backtrack and try other paths. In these situations, the
+ * <code>CertPathBuilder</code> is able to restore prior path validation
+ * states by restoring the cloned <code>PKIXCertPathChecker</code>s.
+ *
+ * <p>The order in which the certificates are presented to the
+ * <code>PKIXCertPathChecker</code> may be either in the forward direction
+ * (from target to most-trusted CA) or in the reverse direction (from
+ * most-trusted CA to target). A <code>PKIXCertPathChecker</code> implementation
+ * <b>must</b> support reverse checking (the ability to perform its checks when
+ * it is presented with certificates in the reverse direction) and <b>may</b>
+ * support forward checking (the ability to perform its checks when it is
+ * presented with certificates in the forward direction). The
+ * {@link #isForwardCheckingSupported isForwardCheckingSupported} method
+ * indicates whether forward checking is supported.
  * <p>
- * The checks are added to a certification path validation using the
- * {@link PKIXParameters#setCertPathCheckers(java.util.List)
- * setCertPathCheckers} or
- * {@link PKIXBuilderParameters#addCertPathChecker(PKIXCertPathChecker)
- * addCertPathChecker} of the {@code PKIXParameters} and {@code
- * PKIXBuilderParameters} class respectively. The
- * {@link #check(Certificate, Collection) check} method will be called for each
- * certificate processed by a {@code CertPathBuilder} of {@code
- * CertPathValidator}.
+ * Additional input parameters required for executing the check may be
+ * specified through constructors of concrete implementations of this class.
  * <p>
- * A {@code PKIXCertPathChecker} implementation <u>must</u> support reverse
- * checking (from trusted CA to target) and <u>may</u> support forward checking
- * (from target to trusted CA). The return value of {@code
- * isForwardCheckingSupported} indicates whether forward checking is supported.
+ * <b>Concurrent Access</b>
+ * <p>
+ * Unless otherwise specified, the methods defined in this class are not
+ * thread-safe. Multiple threads that need to access a single
+ * object concurrently should synchronize amongst themselves and
+ * provide the necessary locking. Multiple threads each manipulating
+ * separate objects need not synchronize.
+ *
+ * @see PKIXParameters
+ * @see PKIXBuilderParameters
+ *
+ * @since       1.4
+ * @author      Yassir Elley
+ * @author      Sean Mullan
  */
 public abstract class PKIXCertPathChecker implements Cloneable {
 
-    /**
-     * Creates a new {@code PKIXCertPathChecker} instance.
+    /** {@collect.stats} 
+     * Default constructor.
      */
     protected PKIXCertPathChecker() {}
 
-    /**
-     * Clones this {@code PKIXCertPathChecker} instance.
+    /** {@collect.stats} 
+     * Initializes the internal state of this <code>PKIXCertPathChecker</code>.
+     * <p>
+     * The <code>forward</code> flag specifies the order that
+     * certificates will be passed to the {@link #check check} method
+     * (forward or reverse). A <code>PKIXCertPathChecker</code> <b>must</b>
+     * support reverse checking and <b>may</b> support forward checking.
      *
-     * @return the cloned instance.
+     * @param forward the order that certificates are presented to
+     * the <code>check</code> method. If <code>true</code>, certificates
+     * are presented from target to most-trusted CA (forward); if
+     * <code>false</code>, from most-trusted CA to target (reverse).
+     * @throws CertPathValidatorException if this
+     * <code>PKIXCertPathChecker</code> is unable to check certificates in
+     * the specified order; it should never be thrown if the forward flag
+     * is false since reverse checking must be supported
+     */
+    public abstract void init(boolean forward)
+        throws CertPathValidatorException;
+
+    /** {@collect.stats} 
+     * Indicates if forward checking is supported. Forward checking refers
+     * to the ability of the <code>PKIXCertPathChecker</code> to perform
+     * its checks when certificates are presented to the <code>check</code>
+     * method in the forward direction (from target to most-trusted CA).
+     *
+     * @return <code>true</code> if forward checking is supported,
+     * <code>false</code> otherwise
+     */
+    public abstract boolean isForwardCheckingSupported();
+
+    /** {@collect.stats} 
+     * Returns an immutable <code>Set</code> of X.509 certificate extensions
+     * that this <code>PKIXCertPathChecker</code> supports (i.e. recognizes, is
+     * able to process), or <code>null</code> if no extensions are supported.
+     * <p>
+     * Each element of the set is a <code>String</code> representing the
+     * Object Identifier (OID) of the X.509 extension that is supported.
+     * The OID is represented by a set of nonnegative integers separated by
+     * periods.
+     * <p>
+     * All X.509 certificate extensions that a <code>PKIXCertPathChecker</code>
+     * might possibly be able to process should be included in the set.
+     *
+     * @return an immutable <code>Set</code> of X.509 extension OIDs (in
+     * <code>String</code> format) supported by this
+     * <code>PKIXCertPathChecker</code>, or <code>null</code> if no
+     * extensions are supported
+     */
+    public abstract Set<String> getSupportedExtensions();
+
+    /** {@collect.stats} 
+     * Performs the check(s) on the specified certificate using its internal
+     * state and removes any critical extensions that it processes from the
+     * specified collection of OID strings that represent the unresolved
+     * critical extensions. The certificates are presented in the order
+     * specified by the <code>init</code> method.
+     *
+     * @param cert the <code>Certificate</code> to be checked
+     * @param unresolvedCritExts a <code>Collection</code> of OID strings
+     * representing the current set of unresolved critical extensions
+     * @exception CertPathValidatorException if the specified certificate does
+     * not pass the check
+     */
+    public abstract void check(Certificate cert,
+            Collection<String> unresolvedCritExts)
+            throws CertPathValidatorException;
+
+    /** {@collect.stats} 
+     * Returns a clone of this object. Calls the <code>Object.clone()</code>
+     * method.
+     * All subclasses which maintain state must support and
+     * override this method, if necessary.
+     *
+     * @return a copy of this <code>PKIXCertPathChecker</code>
      */
     public Object clone() {
         try {
             return super.clone();
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
+            /* Cannot happen */
+            throw new InternalError(e.toString());
         }
     }
-
-    /**
-     * Initializes this {@code PKIXCertPathChecker} instance for specified
-     * <i>checking direction</i>.
-     *
-     * @param forward
-     *            the direction of the certification path processing, {@code
-     *            true} if the certificates are processed in forward direction
-     *            (from target to trusted CA), {@code false} if processed in
-     *            reverse direction (from trusted CA to target).
-     * @throws CertPathValidatorException
-     *             if initialization of this {@code PKIXCertPathChecker}
-     *             instance fails, or if it cannot process certificates in the
-     *             specified order.
-     */
-    public abstract void init(boolean forward)
-        throws CertPathValidatorException;
-
-    /**
-     * Returns whether this {@code PKIXCertPathChecker} instance supports
-     * <i>forward checking</i>.
-     *
-     * @return {@code true} if this {@code PKIXCertPathChecker} instance
-     *         supports forward checking, otherwise {@code false}.
-     */
-    public abstract boolean isForwardCheckingSupported();
-
-    /**
-     * Returns the list of extensions of X.509 certificates that this {@code
-     * PKIXCertPathChecker} is able to process.
-     *
-     * @return the list of extensions of X.509 certificates that this {@code
-     *         PKIXCertPathChecker} is able to process, or {@code null} if there
-     *         are none.
-     */
-    public abstract Set<String> getSupportedExtensions();
-
-    /**
-     * Checks the specified certificate and removes the processed critical
-     * extensions from the specified list of X.509 extension <i>OID</i>s.
-     *
-     * @param cert
-     *            the certificate.
-     * @param unresolvedCritExts
-     *            the list of critical X.509 extension OID strings.
-     * @throws CertPathValidatorException
-     *             if check(s) fail on the specified certificate.
-     */
-    public abstract void check(Certificate cert, Collection<String> unresolvedCritExts)
-        throws CertPathValidatorException;
 }

@@ -1,647 +1,830 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * (C) Copyright Taligent, Inc. 1996, 1997 - All Rights Reserved
+ * (C) Copyright IBM Corp. 1996 - 1998 - All Rights Reserved
+ *
+ *   The original version of this source code and documentation is copyrighted
+ * and owned by Taligent, Inc., a wholly-owned subsidiary of IBM. These
+ * materials are provided under terms of a License Agreement between Taligent
+ * and Sun. This technology is protected by multiple US and International
+ * patents. This notice and attribution to Taligent may not be removed.
+ *   Taligent is a registered trademark of Taligent, Inc.
+ *
  */
 
 package java.text;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectStreamField;
 import java.io.Serializable;
+import java.text.spi.DecimalFormatSymbolsProvider;
 import java.util.Currency;
+import java.util.Hashtable;
 import java.util.Locale;
-import libcore.icu.ICU;
-import libcore.icu.LocaleData;
+import java.util.ResourceBundle;
+import java.util.spi.LocaleServiceProvider;
+import sun.util.LocaleServiceProviderPool;
+import sun.util.resources.LocaleData;
 
-/**
- * Encapsulates the set of symbols (such as the decimal separator, the grouping
- * separator, and so on) needed by {@code DecimalFormat} to format numbers.
- * {@code DecimalFormat} internally creates an instance of
- * {@code DecimalFormatSymbols} from its locale data. If you need to change any
- * of these symbols, you can get the {@code DecimalFormatSymbols} object from
- * your {@code DecimalFormat} and modify it.
+/** {@collect.stats} 
+ * This class represents the set of symbols (such as the decimal separator,
+ * the grouping separator, and so on) needed by <code>DecimalFormat</code>
+ * to format numbers. <code>DecimalFormat</code> creates for itself an instance of
+ * <code>DecimalFormatSymbols</code> from its locale data.  If you need to change any
+ * of these symbols, you can get the <code>DecimalFormatSymbols</code> object from
+ * your <code>DecimalFormat</code> and modify it.
  *
- * @see java.util.Locale
- * @see DecimalFormat
+ * @see          java.util.Locale
+ * @see          DecimalFormat
+ * @author       Mark Davis
+ * @author       Alan Liu
  */
+
 public class DecimalFormatSymbols implements Cloneable, Serializable {
 
-    private static final long serialVersionUID = 5772796243397350300L;
-
-    private char zeroDigit;
-    private char digit;
-    private char decimalSeparator;
-    private char groupingSeparator;
-    private char patternSeparator;
-    private char percent;
-    private char perMill;
-    private char monetarySeparator;
-    private char minusSign;
-    private String infinity, NaN, currencySymbol, intlCurrencySymbol;
-
-    private transient Currency currency;
-    private transient Locale locale;
-    private transient String exponentSeparator;
-
-    /**
-     * Constructs a new {@code DecimalFormatSymbols} containing the symbols for
-     * the user's default locale.
-     * See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
-     * Best practice is to create a {@code DecimalFormat}
-     * and then to get the {@code DecimalFormatSymbols} from that object by
-     * calling {@link DecimalFormat#getDecimalFormatSymbols()}.
+    /** {@collect.stats} 
+     * Create a DecimalFormatSymbols object for the default locale.
+     * This constructor can only construct instances for the locales
+     * supported by the Java runtime environment, not for those
+     * supported by installed
+     * {@link java.text.spi.DecimalFormatSymbolsProvider DecimalFormatSymbolsProvider}
+     * implementations. For full locale coverage, use the
+     * {@link #getInstance(Locale) getInstance} method.
      */
     public DecimalFormatSymbols() {
-        this(Locale.getDefault());
+        initialize( Locale.getDefault() );
     }
 
-    /**
-     * Constructs a new DecimalFormatSymbols containing the symbols for the
-     * specified Locale.
-     * See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
-     * Best practice is to create a {@code DecimalFormat}
-     * and then to get the {@code DecimalFormatSymbols} from that object by
-     * calling {@link DecimalFormat#getDecimalFormatSymbols()}.
+    /** {@collect.stats} 
+     * Create a DecimalFormatSymbols object for the given locale.
+     * This constructor can only construct instances for the locales
+     * supported by the Java runtime environment, not for those
+     * supported by installed
+     * {@link java.text.spi.DecimalFormatSymbolsProvider DecimalFormatSymbolsProvider}
+     * implementations. For full locale coverage, use the
+     * {@link #getInstance(Locale) getInstance} method.
      *
-     * @param locale
-     *            the locale.
+     * @exception NullPointerException if <code>locale</code> is null
      */
-    public DecimalFormatSymbols(Locale locale) {
-        LocaleData localeData = LocaleData.get(locale);
-        this.zeroDigit = localeData.zeroDigit;
-        this.digit = '#';
-        this.decimalSeparator = localeData.decimalSeparator;
-        this.groupingSeparator = localeData.groupingSeparator;
-        this.patternSeparator = localeData.patternSeparator;
-        this.percent = localeData.percent;
-        this.perMill = localeData.perMill;
-        this.monetarySeparator = localeData.monetarySeparator;
-        this.minusSign = localeData.minusSign;
-        this.infinity = localeData.infinity;
-        this.NaN = localeData.NaN;
-        this.exponentSeparator = localeData.exponentSeparator;
-        this.locale = locale;
-        try {
-            currency = Currency.getInstance(locale);
-            currencySymbol = currency.getSymbol(locale);
-            intlCurrencySymbol = currency.getCurrencyCode();
-        } catch (IllegalArgumentException e) {
-            currency = Currency.getInstance("XXX");
-            currencySymbol = localeData.currencySymbol;
-            intlCurrencySymbol = localeData.internationalCurrencySymbol;
-        }
+    public DecimalFormatSymbols( Locale locale ) {
+        initialize( locale );
     }
 
-    /**
-     * Returns a new {@code DecimalFormatSymbols} instance for the user's default locale.
-     * See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
+    /** {@collect.stats} 
+     * Returns an array of all locales for which the
+     * <code>getInstance</code> methods of this class can return
+     * localized instances.
+     * The returned array represents the union of locales supported by the Java
+     * runtime and by installed
+     * {@link java.text.spi.DecimalFormatSymbolsProvider DecimalFormatSymbolsProvider}
+     * implementations.  It must contain at least a <code>Locale</code>
+     * instance equal to {@link java.util.Locale#US Locale.US}.
      *
-     * @return an instance of {@code DecimalFormatSymbols}
-     * @since 1.6
-     */
-    public static DecimalFormatSymbols getInstance() {
-        return getInstance(Locale.getDefault());
-    }
-
-    /**
-     * Returns a new {@code DecimalFormatSymbols} for the given locale.
-     *
-     * @param locale the locale
-     * @return an instance of {@code DecimalFormatSymbols}
-     * @throws NullPointerException if {@code locale == null}
-     * @since 1.6
-     */
-    public static DecimalFormatSymbols getInstance(Locale locale) {
-        if (locale == null) {
-            throw new NullPointerException("locale == null");
-        }
-        return new DecimalFormatSymbols(locale);
-    }
-
-    /**
-     * Returns an array of locales for which custom {@code DecimalFormatSymbols} instances
-     * are available.
-     * <p>Note that Android does not support user-supplied locale service providers.
+     * @return An array of locales for which localized
+     *         <code>DecimalFormatSymbols</code> instances are available.
      * @since 1.6
      */
     public static Locale[] getAvailableLocales() {
-        return ICU.getAvailableDecimalFormatSymbolsLocales();
+        LocaleServiceProviderPool pool =
+            LocaleServiceProviderPool.getPool(DecimalFormatSymbolsProvider.class);
+        return pool.getAvailableLocales();
     }
 
-    @Override
-    public Object clone() {
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
+    /** {@collect.stats} 
+     * Gets the <code>DecimalFormatSymbols</code> instance for the default
+     * locale.  This method provides access to <code>DecimalFormatSymbols</code>
+     * instances for locales supported by the Java runtime itself as well
+     * as for those supported by installed
+     * {@link java.text.spi.DecimalFormatSymbolsProvider
+     * DecimalFormatSymbolsProvider} implementations.
+     * @return a <code>DecimalFormatSymbols</code> instance.
+     * @since 1.6
+     */
+    public static final DecimalFormatSymbols getInstance() {
+        return getInstance(Locale.getDefault());
+    }
+
+    /** {@collect.stats} 
+     * Gets the <code>DecimalFormatSymbols</code> instance for the specified
+     * locale.  This method provides access to <code>DecimalFormatSymbols</code>
+     * instances for locales supported by the Java runtime itself as well
+     * as for those supported by installed
+     * {@link java.text.spi.DecimalFormatSymbolsProvider
+     * DecimalFormatSymbolsProvider} implementations.
+     * @param locale the desired locale.
+     * @return a <code>DecimalFormatSymbols</code> instance.
+     * @exception NullPointerException if <code>locale</code> is null
+     * @since 1.6
+     */
+    public static final DecimalFormatSymbols getInstance(Locale locale) {
+
+        // Check whether a provider can provide an implementation that's closer
+        // to the requested locale than what the Java runtime itself can provide.
+        LocaleServiceProviderPool pool =
+            LocaleServiceProviderPool.getPool(DecimalFormatSymbolsProvider.class);
+        if (pool.hasProviders()) {
+            DecimalFormatSymbols providersInstance = pool.getLocalizedObject(
+                                DecimalFormatSymbolsGetter.INSTANCE, locale);
+            if (providersInstance != null) {
+                return providersInstance;
+            }
         }
+
+        return new DecimalFormatSymbols(locale);
     }
 
-    /**
-     * Compares the specified object to this {@code DecimalFormatSymbols} and
-     * indicates if they are equal. In order to be equal, {@code object} must be
-     * an instance of {@code DecimalFormatSymbols} and contain the same symbols.
-     *
-     * @param object
-     *            the object to compare with this object.
-     * @return {@code true} if the specified object is equal to this
-     *         {@code DecimalFormatSymbols}; {@code false} otherwise.
-     * @see #hashCode
-     */
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (!(object instanceof DecimalFormatSymbols)) {
-            return false;
-        }
-        DecimalFormatSymbols obj = (DecimalFormatSymbols) object;
-        return currency.equals(obj.currency) &&
-                currencySymbol.equals(obj.currencySymbol) &&
-                decimalSeparator == obj.decimalSeparator &&
-                digit == obj.digit &&
-                exponentSeparator.equals(obj.exponentSeparator) &&
-                groupingSeparator == obj.groupingSeparator &&
-                infinity.equals(obj.infinity) &&
-                intlCurrencySymbol.equals(obj.intlCurrencySymbol) &&
-                minusSign == obj.minusSign &&
-                monetarySeparator == obj.monetarySeparator &&
-                NaN.equals(obj.NaN) &&
-                patternSeparator == obj.patternSeparator &&
-                perMill == obj.perMill &&
-                percent == obj.percent &&
-                zeroDigit == obj.zeroDigit;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getName() +
-                "[currency=" + currency +
-                ",currencySymbol=" + currencySymbol +
-                ",decimalSeparator=" + decimalSeparator +
-                ",digit=" + digit +
-                ",exponentSeparator=" + exponentSeparator +
-                ",groupingSeparator=" + groupingSeparator +
-                ",infinity=" + infinity +
-                ",intlCurrencySymbol=" + intlCurrencySymbol +
-                ",minusSign=" + minusSign +
-                ",monetarySeparator=" + monetarySeparator +
-                ",NaN=" + NaN +
-                ",patternSeparator=" + patternSeparator +
-                ",perMill=" + perMill +
-                ",percent=" + percent +
-                ",zeroDigit=" + zeroDigit +
-                "]";
-    }
-
-    /**
-     * Returns the currency.
-     * <p>
-     * {@code null} is returned if {@code setInternationalCurrencySymbol()} has
-     * been previously called with a value that is not a valid ISO 4217 currency
-     * code.
-     * <p>
-     *
-     * @return the currency that was set in the constructor or by calling
-     *         {@code setCurrency()} or {@code setInternationalCurrencySymbol()},
-     *         or {@code null} if an invalid currency was set.
-     * @see #setCurrency(Currency)
-     * @see #setInternationalCurrencySymbol(String)
-     */
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    /**
-     * Returns the international currency symbol.
-     *
-     * @return the international currency symbol as string.
-     */
-    public String getInternationalCurrencySymbol() {
-        return intlCurrencySymbol;
-    }
-
-    /**
-     * Returns the currency symbol.
-     *
-     * @return the currency symbol as string.
-     */
-    public String getCurrencySymbol() {
-        return currencySymbol;
-    }
-
-    /**
-     * Returns the character which represents the decimal point in a number.
-     *
-     * @return the decimal separator character.
-     */
-    public char getDecimalSeparator() {
-        return decimalSeparator;
-    }
-
-    /**
-     * Returns the character which represents a single digit in a format
-     * pattern.
-     *
-     * @return the digit pattern character.
-     */
-    public char getDigit() {
-        return digit;
-    }
-
-    /**
-     * Returns the character used as the thousands separator in a number.
-     *
-     * @return the thousands separator character.
-     */
-    public char getGroupingSeparator() {
-        return groupingSeparator;
-    }
-
-    /**
-     * Returns the string which represents infinity.
-     *
-     * @return the infinity symbol as a string.
-     */
-    public String getInfinity() {
-        return infinity;
-    }
-
-    /**
-     * Returns the minus sign character.
-     *
-     * @return the minus sign as a character.
-     */
-    public char getMinusSign() {
-        return minusSign;
-    }
-
-    /**
-     * Returns the character which represents the decimal point in a monetary
-     * value.
-     *
-     * @return the monetary decimal point as a character.
-     */
-    public char getMonetaryDecimalSeparator() {
-        return monetarySeparator;
-    }
-
-    /**
-     * Returns the string which represents NaN.
-     *
-     * @return the symbol NaN as a string.
-     */
-    public String getNaN() {
-        return NaN;
-    }
-
-    /**
-     * Returns the character which separates the positive and negative patterns
-     * in a format pattern.
-     *
-     * @return the pattern separator character.
-     */
-    public char getPatternSeparator() {
-        return patternSeparator;
-    }
-
-    /**
-     * Returns the percent character.
-     *
-     * @return the percent character.
-     */
-    public char getPercent() {
-        return percent;
-    }
-
-    /**
-     * Returns the per mill sign character.
-     *
-     * @return the per mill sign character.
-     */
-    public char getPerMill() {
-        return perMill;
-    }
-
-    /**
-     * Returns the character which represents zero.
-     *
-     * @return the zero character.
+    /** {@collect.stats} 
+     * Gets the character used for zero. Different for Arabic, etc.
      */
     public char getZeroDigit() {
         return zeroDigit;
     }
 
-    /*
-     * Returns the string used to separate mantissa and exponent. Typically "E", as in "1.2E3".
-     * @since 1.6
+    /** {@collect.stats} 
+     * Sets the character used for zero. Different for Arabic, etc.
      */
-    public String getExponentSeparator() {
-        return exponentSeparator;
+    public void setZeroDigit(char zeroDigit) {
+        this.zeroDigit = zeroDigit;
     }
 
-    @Override
-    public int hashCode() {
-        int result = 17;
-        result = 31*result + zeroDigit;
-        result = 31*result + digit;
-        result = 31*result + decimalSeparator;
-        result = 31*result + groupingSeparator;
-        result = 31*result + patternSeparator;
-        result = 31*result + percent;
-        result = 31*result + perMill;
-        result = 31*result + monetarySeparator;
-        result = 31*result + minusSign;
-        result = 31*result + exponentSeparator.hashCode();
-        result = 31*result + infinity.hashCode();
-        result = 31*result + NaN.hashCode();
-        result = 31*result + currencySymbol.hashCode();
-        result = 31*result + intlCurrencySymbol.hashCode();
-        return result;
+    /** {@collect.stats} 
+     * Gets the character used for thousands separator. Different for French, etc.
+     */
+    public char getGroupingSeparator() {
+        return groupingSeparator;
     }
 
-    /**
-     * Sets the currency.
-     * <p>
-     * The international currency symbol and the currency symbol are updated,
-     * but the min and max number of fraction digits stays the same.
-     * <p>
+    /** {@collect.stats} 
+     * Sets the character used for thousands separator. Different for French, etc.
+     */
+    public void setGroupingSeparator(char groupingSeparator) {
+        this.groupingSeparator = groupingSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used for decimal sign. Different for French, etc.
+     */
+    public char getDecimalSeparator() {
+        return decimalSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used for decimal sign. Different for French, etc.
+     */
+    public void setDecimalSeparator(char decimalSeparator) {
+        this.decimalSeparator = decimalSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used for per mille sign. Different for Arabic, etc.
+     */
+    public char getPerMill() {
+        return perMill;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used for per mille sign. Different for Arabic, etc.
+     */
+    public void setPerMill(char perMill) {
+        this.perMill = perMill;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used for percent sign. Different for Arabic, etc.
+     */
+    public char getPercent() {
+        return percent;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used for percent sign. Different for Arabic, etc.
+     */
+    public void setPercent(char percent) {
+        this.percent = percent;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used for a digit in a pattern.
+     */
+    public char getDigit() {
+        return digit;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used for a digit in a pattern.
+     */
+    public void setDigit(char digit) {
+        this.digit = digit;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used to separate positive and negative subpatterns
+     * in a pattern.
+     */
+    public char getPatternSeparator() {
+        return patternSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used to separate positive and negative subpatterns
+     * in a pattern.
+     */
+    public void setPatternSeparator(char patternSeparator) {
+        this.patternSeparator = patternSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Gets the string used to represent infinity. Almost always left
+     * unchanged.
+     */
+    public String getInfinity() {
+        return infinity;
+    }
+
+    /** {@collect.stats} 
+     * Sets the string used to represent infinity. Almost always left
+     * unchanged.
+     */
+    public void setInfinity(String infinity) {
+        this.infinity = infinity;
+    }
+
+    /** {@collect.stats} 
+     * Gets the string used to represent "not a number". Almost always left
+     * unchanged.
+     */
+    public String getNaN() {
+        return NaN;
+    }
+
+    /** {@collect.stats} 
+     * Sets the string used to represent "not a number". Almost always left
+     * unchanged.
+     */
+    public void setNaN(String NaN) {
+        this.NaN = NaN;
+    }
+
+    /** {@collect.stats} 
+     * Gets the character used to represent minus sign. If no explicit
+     * negative format is specified, one is formed by prefixing
+     * minusSign to the positive format.
+     */
+    public char getMinusSign() {
+        return minusSign;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used to represent minus sign. If no explicit
+     * negative format is specified, one is formed by prefixing
+     * minusSign to the positive format.
+     */
+    public void setMinusSign(char minusSign) {
+        this.minusSign = minusSign;
+    }
+
+    /** {@collect.stats} 
+     * Returns the currency symbol for the currency of these
+     * DecimalFormatSymbols in their locale.
+     * @since 1.2
+     */
+    public String getCurrencySymbol()
+    {
+        return currencySymbol;
+    }
+
+    /** {@collect.stats} 
+     * Sets the currency symbol for the currency of these
+     * DecimalFormatSymbols in their locale.
+     * @since 1.2
+     */
+    public void setCurrencySymbol(String currency)
+    {
+        currencySymbol = currency;
+    }
+
+    /** {@collect.stats} 
+     * Returns the ISO 4217 currency code of the currency of these
+     * DecimalFormatSymbols.
+     * @since 1.2
+     */
+    public String getInternationalCurrencySymbol()
+    {
+        return intlCurrencySymbol;
+    }
+
+    /** {@collect.stats} 
+     * Sets the ISO 4217 currency code of the currency of these
+     * DecimalFormatSymbols.
+     * If the currency code is valid (as defined by
+     * {@link java.util.Currency#getInstance(java.lang.String) Currency.getInstance}),
+     * this also sets the currency attribute to the corresponding Currency
+     * instance and the currency symbol attribute to the currency's symbol
+     * in the DecimalFormatSymbols' locale. If the currency code is not valid,
+     * then the currency attribute is set to null and the currency symbol
+     * attribute is not modified.
      *
-     * @param currency
-     *            the new currency.
-     * @throws NullPointerException
-     *             if {@code currency} is {@code null}.
+     * @see #setCurrency
+     * @see #setCurrencySymbol
+     * @since 1.2
+     */
+    public void setInternationalCurrencySymbol(String currencyCode)
+    {
+        intlCurrencySymbol = currencyCode;
+        currency = null;
+        if (currencyCode != null) {
+            try {
+                currency = Currency.getInstance(currencyCode);
+                currencySymbol = currency.getSymbol();
+            } catch (IllegalArgumentException e) {
+            }
+        }
+    }
+
+    /** {@collect.stats} 
+     * Gets the currency of these DecimalFormatSymbols. May be null if the
+     * currency symbol attribute was previously set to a value that's not
+     * a valid ISO 4217 currency code.
+     *
+     * @return the currency used, or null
+     * @since 1.4
+     */
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    /** {@collect.stats} 
+     * Sets the currency of these DecimalFormatSymbols.
+     * This also sets the currency symbol attribute to the currency's symbol
+     * in the DecimalFormatSymbols' locale, and the international currency
+     * symbol attribute to the currency's ISO 4217 currency code.
+     *
+     * @param currency the new currency to be used
+     * @exception NullPointerException if <code>currency</code> is null
+     * @since 1.4
+     * @see #setCurrencySymbol
+     * @see #setInternationalCurrencySymbol
      */
     public void setCurrency(Currency currency) {
         if (currency == null) {
-            throw new NullPointerException("currency == null");
-        }
-        if (currency == this.currency) {
-            return;
+            throw new NullPointerException();
         }
         this.currency = currency;
         intlCurrencySymbol = currency.getCurrencyCode();
         currencySymbol = currency.getSymbol(locale);
     }
 
-    /**
-     * Sets the international currency symbol.
-     * <p>
-     * The currency and currency symbol are also updated if {@code value} is a
-     * valid ISO4217 currency code.
-     * <p>
-     * The min and max number of fraction digits stay the same.
-     *
-     * @param value
-     *            the currency code.
+
+    /** {@collect.stats} 
+     * Returns the monetary decimal separator.
+     * @since 1.2
      */
-    public void setInternationalCurrencySymbol(String value) {
-        if (value == null) {
-            currency = null;
-            intlCurrencySymbol = null;
-            return;
-        }
+    public char getMonetaryDecimalSeparator()
+    {
+        return monetarySeparator;
+    }
 
-        if (value.equals(intlCurrencySymbol)) {
-            return;
-        }
+    /** {@collect.stats} 
+     * Sets the monetary decimal separator.
+     * @since 1.2
+     */
+    public void setMonetaryDecimalSeparator(char sep)
+    {
+        monetarySeparator = sep;
+    }
 
+    //------------------------------------------------------------
+    // BEGIN   Package Private methods ... to be made public later
+    //------------------------------------------------------------
+
+    /** {@collect.stats} 
+     * Returns the character used to separate the mantissa from the exponent.
+     */
+    char getExponentialSymbol()
+    {
+        return exponential;
+    }
+  /** {@collect.stats} 
+   * Returns the string used to separate the mantissa from the exponent.
+   * Examples: "x10^" for 1.23x10^4, "E" for 1.23E4.
+   *
+   * @return the exponent separator string
+   * @see #setExponentSeparator(java.lang.String)
+   * @since 1.6
+   */
+    public String getExponentSeparator()
+    {
+        return exponentialSeparator;
+    }
+
+    /** {@collect.stats} 
+     * Sets the character used to separate the mantissa from the exponent.
+     */
+    void setExponentialSymbol(char exp)
+    {
+        exponential = exp;
+    }
+
+  /** {@collect.stats} 
+   * Sets the string used to separate the mantissa from the exponent.
+   * Examples: "x10^" for 1.23x10^4, "E" for 1.23E4.
+   *
+   * @param exp the exponent separator string
+   * @exception NullPointerException if <code>exp</code> is null
+   * @see #getExponentSeparator()
+   * @since 1.6
+   */
+    public void setExponentSeparator(String exp)
+    {
+        if (exp == null) {
+            throw new NullPointerException();
+        }
+        exponentialSeparator = exp;
+     }
+
+
+    //------------------------------------------------------------
+    // END     Package Private methods ... to be made public later
+    //------------------------------------------------------------
+
+    /** {@collect.stats} 
+     * Standard override.
+     */
+    public Object clone() {
         try {
-            currency = Currency.getInstance(value);
-            currencySymbol = currency.getSymbol(locale);
-        } catch (IllegalArgumentException e) {
-            currency = null;
+            return (DecimalFormatSymbols)super.clone();
+            // other fields are bit-copied
+        } catch (CloneNotSupportedException e) {
+            throw new InternalError();
         }
-        intlCurrencySymbol = value;
     }
 
-    /**
-     * Sets the currency symbol.
-     *
-     * @param value
-     *            the currency symbol.
+    /** {@collect.stats} 
+     * Override equals.
      */
-    public void setCurrencySymbol(String value) {
-        this.currencySymbol = value;
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (getClass() != obj.getClass()) return false;
+        DecimalFormatSymbols other = (DecimalFormatSymbols) obj;
+        return (zeroDigit == other.zeroDigit &&
+        groupingSeparator == other.groupingSeparator &&
+        decimalSeparator == other.decimalSeparator &&
+        percent == other.percent &&
+        perMill == other.perMill &&
+        digit == other.digit &&
+        minusSign == other.minusSign &&
+        patternSeparator == other.patternSeparator &&
+        infinity.equals(other.infinity) &&
+        NaN.equals(other.NaN) &&
+        currencySymbol.equals(other.currencySymbol) &&
+        intlCurrencySymbol.equals(other.intlCurrencySymbol) &&
+        currency == other.currency &&
+        monetarySeparator == other.monetarySeparator &&
+        exponentialSeparator.equals(other.exponentialSeparator) &&
+        locale.equals(other.locale));
     }
 
-    /**
-     * Sets the character which represents the decimal point in a number.
-     *
-     * @param value
-     *            the decimal separator character.
+    /** {@collect.stats} 
+     * Override hashCode.
      */
-    public void setDecimalSeparator(char value) {
-        this.decimalSeparator = value;
+    public int hashCode() {
+            int result = zeroDigit;
+            result = result * 37 + groupingSeparator;
+            result = result * 37 + decimalSeparator;
+            return result;
     }
 
-    /**
-     * Sets the character which represents a single digit in a format pattern.
-     *
-     * @param value
-     *            the digit character.
+    /** {@collect.stats} 
+     * Initializes the symbols from the FormatData resource bundle.
      */
-    public void setDigit(char value) {
-        this.digit = value;
-    }
+    private void initialize( Locale locale ) {
+        this.locale = locale;
 
-    /**
-     * Sets the character used as the thousands separator in a number.
-     *
-     * @param value
-     *            the grouping separator character.
-     */
-    public void setGroupingSeparator(char value) {
-        this.groupingSeparator = value;
-    }
-
-    /**
-     * Sets the string which represents infinity.
-     *
-     * @param value
-     *            the string representing infinity.
-     */
-    public void setInfinity(String value) {
-        this.infinity = value;
-    }
-
-    /**
-     * Sets the minus sign character.
-     *
-     * @param value
-     *            the minus sign character.
-     */
-    public void setMinusSign(char value) {
-        this.minusSign = value;
-    }
-
-    /**
-     * Sets the character which represents the decimal point in a monetary
-     * value.
-     *
-     * @param value
-     *            the monetary decimal separator character.
-     */
-    public void setMonetaryDecimalSeparator(char value) {
-        this.monetarySeparator = value;
-    }
-
-    /**
-     * Sets the string which represents NaN.
-     *
-     * @param value
-     *            the string representing NaN.
-     */
-    public void setNaN(String value) {
-        this.NaN = value;
-    }
-
-    /**
-     * Sets the character which separates the positive and negative patterns in
-     * a format pattern.
-     *
-     * @param value
-     *            the pattern separator character.
-     */
-    public void setPatternSeparator(char value) {
-        this.patternSeparator = value;
-    }
-
-    /**
-     * Sets the percent character.
-     *
-     * @param value
-     *            the percent character.
-     */
-    public void setPercent(char value) {
-        this.percent = value;
-    }
-
-    /**
-     * Sets the per mill sign character.
-     *
-     * @param value
-     *            the per mill character.
-     */
-    public void setPerMill(char value) {
-        this.perMill = value;
-    }
-
-    /**
-     * Sets the character which represents zero.
-     *
-     * @param value
-     *            the zero digit character.
-     */
-    public void setZeroDigit(char value) {
-        this.zeroDigit = value;
-    }
-
-    /**
-     * Sets the string used to separate mantissa and exponent. Typically "E", as in "1.2E3".
-     * @since 1.6
-     */
-    public void setExponentSeparator(String value) {
-        if (value == null) {
-            throw new NullPointerException("value == null");
+        // get resource bundle data - try the cache first
+        boolean needCacheUpdate = false;
+        Object[] data = (Object[]) cachedLocaleData.get(locale);
+        if (data == null) {  /* cache miss */
+            data = new Object[3];
+            ResourceBundle rb = LocaleData.getNumberFormatData(locale);
+            data[0] = rb.getStringArray("NumberElements");
+            needCacheUpdate = true;
         }
-        this.exponentSeparator = value;
-    }
 
-    private static final ObjectStreamField[] serialPersistentFields = {
-        new ObjectStreamField("currencySymbol", String.class),
-        new ObjectStreamField("decimalSeparator", char.class),
-        new ObjectStreamField("digit", char.class),
-        new ObjectStreamField("exponential", char.class),
-        new ObjectStreamField("exponentialSeparator", String.class),
-        new ObjectStreamField("groupingSeparator", char.class),
-        new ObjectStreamField("infinity", String.class),
-        new ObjectStreamField("intlCurrencySymbol", String.class),
-        new ObjectStreamField("minusSign", char.class),
-        new ObjectStreamField("monetarySeparator", char.class),
-        new ObjectStreamField("NaN", String.class),
-        new ObjectStreamField("patternSeparator", char.class),
-        new ObjectStreamField("percent", char.class),
-        new ObjectStreamField("perMill", char.class),
-        new ObjectStreamField("serialVersionOnStream", int.class),
-        new ObjectStreamField("zeroDigit", char.class),
-        new ObjectStreamField("locale", Locale.class),
-    };
+        String[] numberElements = (String[]) data[0];
 
-    private void writeObject(ObjectOutputStream stream) throws IOException {
-        ObjectOutputStream.PutField fields = stream.putFields();
-        fields.put("currencySymbol", currencySymbol);
-        fields.put("decimalSeparator", getDecimalSeparator());
-        fields.put("digit", getDigit());
-        fields.put("exponential", exponentSeparator.charAt(0));
-        fields.put("exponentialSeparator", exponentSeparator);
-        fields.put("groupingSeparator", getGroupingSeparator());
-        fields.put("infinity", infinity);
-        fields.put("intlCurrencySymbol", intlCurrencySymbol);
-        fields.put("minusSign", getMinusSign());
-        fields.put("monetarySeparator", getMonetaryDecimalSeparator());
-        fields.put("NaN", NaN);
-        fields.put("patternSeparator", getPatternSeparator());
-        fields.put("percent", getPercent());
-        fields.put("perMill", getPerMill());
-        fields.put("serialVersionOnStream", 3);
-        fields.put("zeroDigit", getZeroDigit());
-        fields.put("locale", locale);
-        stream.writeFields();
-    }
+        decimalSeparator = numberElements[0].charAt(0);
+        groupingSeparator = numberElements[1].charAt(0);
+        patternSeparator = numberElements[2].charAt(0);
+        percent = numberElements[3].charAt(0);
+        zeroDigit = numberElements[4].charAt(0); //different for Arabic,etc.
+        digit = numberElements[5].charAt(0);
+        minusSign = numberElements[6].charAt(0);
+        exponential = numberElements[7].charAt(0);
+        exponentialSeparator = numberElements[7]; //string representation new since 1.6
+        perMill = numberElements[8].charAt(0);
+        infinity  = numberElements[9];
+        NaN = numberElements[10];
 
-    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
-        ObjectInputStream.GetField fields = stream.readFields();
-        final int serialVersionOnStream = fields.get("serialVersionOnStream", 0);
-        currencySymbol = (String) fields.get("currencySymbol", "");
-        setDecimalSeparator(fields.get("decimalSeparator", '.'));
-        setDigit(fields.get("digit", '#'));
-        setGroupingSeparator(fields.get("groupingSeparator", ','));
-        infinity = (String) fields.get("infinity", "");
-        intlCurrencySymbol = (String) fields.get("intlCurrencySymbol", "");
-        setMinusSign(fields.get("minusSign", '-'));
-        NaN = (String) fields.get("NaN", "");
-        setPatternSeparator(fields.get("patternSeparator", ';'));
-        setPercent(fields.get("percent", '%'));
-        setPerMill(fields.get("perMill", '\u2030'));
-        setZeroDigit(fields.get("zeroDigit", '0'));
-        locale = (Locale) fields.get("locale", null);
-        if (serialVersionOnStream == 0) {
-            setMonetaryDecimalSeparator(getDecimalSeparator());
+        // Try to obtain the currency used in the locale's country.
+        // Check for empty country string separately because it's a valid
+        // country ID for Locale (and used for the C locale), but not a valid
+        // ISO 3166 country code, and exceptions are expensive.
+        if (!"".equals(locale.getCountry())) {
+            try {
+                currency = Currency.getInstance(locale);
+            } catch (IllegalArgumentException e) {
+                // use default values below for compatibility
+            }
+        }
+        if (currency != null) {
+            intlCurrencySymbol = currency.getCurrencyCode();
+            if (data[1] != null && data[1] == intlCurrencySymbol) {
+                currencySymbol = (String) data[2];
+            } else {
+                currencySymbol = currency.getSymbol(locale);
+                data[1] = intlCurrencySymbol;
+                data[2] = currencySymbol;
+                needCacheUpdate = true;
+            }
         } else {
-            setMonetaryDecimalSeparator(fields.get("monetarySeparator", '.'));
+            // default values
+            intlCurrencySymbol = "XXX";
+            try {
+                currency = Currency.getInstance(intlCurrencySymbol);
+            } catch (IllegalArgumentException e) {
+            }
+            currencySymbol = "\u00A4";
         }
+        // Currently the monetary decimal separator is the same as the
+        // standard decimal separator for all locales that we support.
+        // If that changes, add a new entry to NumberElements.
+        monetarySeparator = decimalSeparator;
 
-        if (serialVersionOnStream == 0) {
-            // Prior to Java 1.1.6, the exponent separator wasn't configurable.
-            exponentSeparator = "E";
-        } else if (serialVersionOnStream < 3) {
-            // In Javas 1.1.6 and 1.4, there was a character field "exponential".
-            setExponentSeparator(String.valueOf(fields.get("exponential", 'E')));
-        } else {
-            // In Java 6, there's a new "exponentialSeparator" field.
-            setExponentSeparator((String) fields.get("exponentialSeparator", "E"));
+        if (needCacheUpdate) {
+            cachedLocaleData.put(locale, data);
         }
+    }
 
-        try {
-            currency = Currency.getInstance(intlCurrencySymbol);
-        } catch (IllegalArgumentException e) {
-            currency = null;
+    /** {@collect.stats} 
+     * Reads the default serializable fields, provides default values for objects
+     * in older serial versions, and initializes non-serializable fields.
+     * If <code>serialVersionOnStream</code>
+     * is less than 1, initializes <code>monetarySeparator</code> to be
+     * the same as <code>decimalSeparator</code> and <code>exponential</code>
+     * to be 'E'.
+     * If <code>serialVersionOnStream</code> is less than 2,
+     * initializes <code>locale</code>to the root locale, and initializes
+     * If <code>serialVersionOnStream</code> is less than 3, it initializes
+     * <code>exponentialSeparator</code> using <code>exponential</code>.
+     * Sets <code>serialVersionOnStream</code> back to the maximum allowed value so that
+     * default serialization will work properly if this object is streamed out again.
+     * Initializes the currency from the intlCurrencySymbol field.
+     *
+     * @since JDK 1.1.6
+     */
+    private void readObject(ObjectInputStream stream)
+            throws IOException, ClassNotFoundException {
+        stream.defaultReadObject();
+        if (serialVersionOnStream < 1) {
+            // Didn't have monetarySeparator or exponential field;
+            // use defaults.
+            monetarySeparator = decimalSeparator;
+            exponential       = 'E';
+        }
+        if (serialVersionOnStream < 2) {
+            // didn't have locale; use root locale
+            locale = Locale.ROOT;
+        }
+        if (serialVersionOnStream < 3) {
+            // didn't have exponentialSeparator. Create one using exponential
+            exponentialSeparator = Character.toString(exponential);
+        }
+        serialVersionOnStream = currentSerialVersion;
+
+        if (intlCurrencySymbol != null) {
+            try {
+                 currency = Currency.getInstance(intlCurrencySymbol);
+            } catch (IllegalArgumentException e) {
+            }
+        }
+    }
+
+    /** {@collect.stats} 
+     * Character used for zero.
+     *
+     * @serial
+     * @see #getZeroDigit
+     */
+    private  char    zeroDigit;
+
+    /** {@collect.stats} 
+     * Character used for thousands separator.
+     *
+     * @serial
+     * @see #getGroupingSeparator
+     */
+    private  char    groupingSeparator;
+
+    /** {@collect.stats} 
+     * Character used for decimal sign.
+     *
+     * @serial
+     * @see #getDecimalSeparator
+     */
+    private  char    decimalSeparator;
+
+    /** {@collect.stats} 
+     * Character used for per mille sign.
+     *
+     * @serial
+     * @see #getPerMill
+     */
+    private  char    perMill;
+
+    /** {@collect.stats} 
+     * Character used for percent sign.
+     * @serial
+     * @see #getPercent
+     */
+    private  char    percent;
+
+    /** {@collect.stats} 
+     * Character used for a digit in a pattern.
+     *
+     * @serial
+     * @see #getDigit
+     */
+    private  char    digit;
+
+    /** {@collect.stats} 
+     * Character used to separate positive and negative subpatterns
+     * in a pattern.
+     *
+     * @serial
+     * @see #getPatternSeparator
+     */
+    private  char    patternSeparator;
+
+    /** {@collect.stats} 
+     * String used to represent infinity.
+     * @serial
+     * @see #getInfinity
+     */
+    private  String  infinity;
+
+    /** {@collect.stats} 
+     * String used to represent "not a number".
+     * @serial
+     * @see #getNaN
+     */
+    private  String  NaN;
+
+    /** {@collect.stats} 
+     * Character used to represent minus sign.
+     * @serial
+     * @see #getMinusSign
+     */
+    private  char    minusSign;
+
+    /** {@collect.stats} 
+     * String denoting the local currency, e.g. "$".
+     * @serial
+     * @see #getCurrencySymbol
+     */
+    private  String  currencySymbol;
+
+    /** {@collect.stats} 
+     * ISO 4217 currency code denoting the local currency, e.g. "USD".
+     * @serial
+     * @see #getInternationalCurrencySymbol
+     */
+    private  String  intlCurrencySymbol;
+
+    /** {@collect.stats} 
+     * The decimal separator used when formatting currency values.
+     * @serial
+     * @since JDK 1.1.6
+     * @see #getMonetaryDecimalSeparator
+     */
+    private  char    monetarySeparator; // Field new in JDK 1.1.6
+
+    /** {@collect.stats} 
+     * The character used to distinguish the exponent in a number formatted
+     * in exponential notation, e.g. 'E' for a number such as "1.23E45".
+     * <p>
+     * Note that the public API provides no way to set this field,
+     * even though it is supported by the implementation and the stream format.
+     * The intent is that this will be added to the API in the future.
+     *
+     * @serial
+     * @since JDK 1.1.6
+     */
+    private  char    exponential;       // Field new in JDK 1.1.6
+
+  /** {@collect.stats} 
+   * The string used to separate the mantissa from the exponent.
+   * Examples: "x10^" for 1.23x10^4, "E" for 1.23E4.
+   * <p>
+   * If both <code>exponential</code> and <code>exponentialSeparator</code>
+   * exist, this <code>exponentialSeparator</code> has the precedence.
+   *
+   * @serial
+   * @since 1.6
+   */
+    private  String    exponentialSeparator;       // Field new in JDK 1.6
+
+    /** {@collect.stats} 
+     * The locale of these currency format symbols.
+     *
+     * @serial
+     * @since 1.4
+     */
+    private Locale locale;
+
+    // currency; only the ISO code is serialized.
+    private transient Currency currency;
+
+    // Proclaim JDK 1.1 FCS compatibility
+    static final long serialVersionUID = 5772796243397350300L;
+
+    // The internal serial version which says which version was written
+    // - 0 (default) for version up to JDK 1.1.5
+    // - 1 for version from JDK 1.1.6, which includes two new fields:
+    //     monetarySeparator and exponential.
+    // - 2 for version from J2SE 1.4, which includes locale field.
+    // - 3 for version from J2SE 1.6, which includes exponentialSeparator field.
+    private static final int currentSerialVersion = 3;
+
+    /** {@collect.stats} 
+     * Describes the version of <code>DecimalFormatSymbols</code> present on the stream.
+     * Possible values are:
+     * <ul>
+     * <li><b>0</b> (or uninitialized): versions prior to JDK 1.1.6.
+     *
+     * <li><b>1</b>: Versions written by JDK 1.1.6 or later, which include
+     *      two new fields: <code>monetarySeparator</code> and <code>exponential</code>.
+     * <li><b>2</b>: Versions written by J2SE 1.4 or later, which include a
+     *      new <code>locale</code> field.
+     * <li><b>3</b>: Versions written by J2SE 1.6 or later, which include a
+     *      new <code>exponentialSeparator</code> field.
+     * </ul>
+     * When streaming out a <code>DecimalFormatSymbols</code>, the most recent format
+     * (corresponding to the highest allowable <code>serialVersionOnStream</code>)
+     * is always written.
+     *
+     * @serial
+     * @since JDK 1.1.6
+     */
+    private int serialVersionOnStream = currentSerialVersion;
+
+    /** {@collect.stats} 
+     * cache to hold the NumberElements and the Currency
+     * of a Locale.
+     */
+    private static final Hashtable cachedLocaleData = new Hashtable(3);
+
+    /** {@collect.stats} 
+     * Obtains a DecimalFormatSymbols instance from a DecimalFormatSymbolsProvider
+     * implementation.
+     */
+    private static class DecimalFormatSymbolsGetter
+        implements LocaleServiceProviderPool.LocalizedObjectGetter<DecimalFormatSymbolsProvider,
+                                                                   DecimalFormatSymbols> {
+        private static final DecimalFormatSymbolsGetter INSTANCE =
+            new DecimalFormatSymbolsGetter();
+
+        public DecimalFormatSymbols getObject(
+                                DecimalFormatSymbolsProvider decimalFormatSymbolsProvider,
+                                Locale locale,
+                                String key,
+                                Object... params) {
+            assert params.length == 0;
+            return decimalFormatSymbolsProvider.getInstance(locale);
         }
     }
 }

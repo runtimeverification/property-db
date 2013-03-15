@@ -1,34 +1,138 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.io;
 
-import java.security.BasicPermission;
-import java.security.Permission;
+import java.security.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
 
-/**
- * Legacy security code; do not use.
+/** {@collect.stats}
+ * {@description.open}
+ * This class is for Serializable permissions. A SerializablePermission
+ * contains a name (also referred to as a "target name") but
+ * no actions list; you either have the named permission
+ * or you don't.
+ *
+ * <P>
+ * The target name is the name of the Serializable permission (see below).
+ *
+ * <P>
+ * The following table lists all the possible SerializablePermission target names,
+ * and for each provides a description of what the permission allows
+ * and a discussion of the risks of granting code the permission.
+ * <P>
+ *
+ * <table border=1 cellpadding=5 summary="Permission target name, what the permission allows, and associated risks">
+ * <tr>
+ * <th>Permission Target Name</th>
+ * <th>What the Permission Allows</th>
+ * <th>Risks of Allowing this Permission</th>
+ * </tr>
+ *
+ * <tr>
+ *   <td>enableSubclassImplementation</td>
+ *   <td>Subclass implementation of ObjectOutputStream or ObjectInputStream
+ * to override the default serialization or deserialization, respectively,
+ * of objects</td>
+ *   <td>Code can use this to serialize or
+ * deserialize classes in a purposefully malfeasant manner. For example,
+ * during serialization, malicious code can use this to
+ * purposefully store confidential private field data in a way easily accessible
+ * to attackers. Or, during deserialization it could, for example, deserialize
+ * a class with all its private fields zeroed out.</td>
+ * </tr>
+ *
+ * <tr>
+ *   <td>enableSubstitution</td>
+ *   <td>Substitution of one object for another during
+ * serialization or deserialization</td>
+ *   <td>This is dangerous because malicious code
+ * can replace the actual object with one which has incorrect or
+ * malignant data.</td>
+ * </tr>
+ *
+ * </table>
+ * {@description.close}
+ *
+ * @see java.security.BasicPermission
+ * @see java.security.Permission
+ * @see java.security.Permissions
+ * @see java.security.PermissionCollection
+ * @see java.lang.SecurityManager
+ *
+ *
+ * @author Joe Fialli
+ * @since 1.2
  */
+
+/* code was borrowed originally from java.lang.RuntimePermission. */
+
 public final class SerializablePermission extends BasicPermission {
-    public SerializablePermission(String permissionName) { super(""); }
 
-    public SerializablePermission(String name, String actions) { super("", ""); }
+    private static final long serialVersionUID = 8537212141160296410L;
 
-    @Override public String getActions() { return null; }
+    /** {@collect.stats}
+     * @serial
+     */
+    private String actions;
 
-    @Override public boolean implies(Permission permission) { return true; }
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a new SerializablePermission with the specified name.
+     * The name is the symbolic name of the SerializablePermission, such as
+     * "enableSubstitution", etc.
+     * {@description.close}
+     *
+     * @param name the name of the SerializablePermission.
+     *
+     * @throws NullPointerException if <code>name</code> is <code>null</code>.
+     * @throws IllegalArgumentException if <code>name</code> is empty.
+     */
+    public SerializablePermission(String name)
+    {
+        super(name);
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a new SerializablePermission object with the specified name.
+     * The name is the symbolic name of the SerializablePermission, and the
+     * actions String is currently unused and should be null.
+     * {@description.close}
+     *
+     * @param name the name of the SerializablePermission.
+     * @param actions currently unused and must be set to null
+     *
+     * @throws NullPointerException if <code>name</code> is <code>null</code>.
+     * @throws IllegalArgumentException if <code>name</code> is empty.
+     */
+
+    public SerializablePermission(String name, String actions)
+    {
+        super(name, actions);
+    }
 }

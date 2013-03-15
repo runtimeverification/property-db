@@ -1,221 +1,282 @@
-/* Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Copyright (c) 2003, 2007, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang;
 
 import java.io.Serializable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import libcore.util.BasicLruCache;
-import libcore.util.EmptyArray;
+import java.io.IOException;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamException;
 
-/**
- * The superclass of all enumerated types. Actual enumeration types inherit from
- * this class, but extending this class does not make a class an enumeration
- * type, since the compiler needs to generate special information for it.
+/** {@collect.stats}
+ * {@description.open}
+ * This is the common base class of all Java language enumeration types.
+ * {@description.close}
+ *
+ * @author  Josh Bloch
+ * @author  Neal Gafter
+ * @see     Class#getEnumConstants()
+ * @since   1.5
  */
-public abstract class Enum<E extends Enum<E>> implements Serializable, Comparable<E> {
-
-    private static final long serialVersionUID = -4300926546619394005L;
-
-    private static final BasicLruCache<Class<? extends Enum>, Object[]> sharedConstantsCache
-            = new BasicLruCache<Class<? extends Enum>, Object[]>(64) {
-        @Override protected Object[] create(Class<? extends Enum> enumType) {
-            if (!enumType.isEnum()) {
-                return null;
-            }
-            Method method = (Method) Class.getDeclaredConstructorOrMethod(
-                    enumType, "values", EmptyArray.CLASS);
-            try {
-                return (Object[]) method.invoke((Object[]) null);
-            } catch (IllegalAccessException impossible) {
-                throw new AssertionError();
-            } catch (InvocationTargetException impossible) {
-                throw new AssertionError();
-            }
-        }
-    };
-
+public abstract class Enum<E extends Enum<E>>
+        implements Comparable<E>, Serializable {
+    /** {@collect.stats}
+     * {@description.open}
+     * The name of this enum constant, as declared in the enum declaration.
+     * Most programmers should use the {@link #toString} method rather than
+     * accessing this field.
+     * {@description.close}
+     */
     private final String name;
 
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns the name of this enum constant, exactly as declared in its
+     * enum declaration.
+     * {@description.close}
+     *
+     * {@property.open runtime formal:java.lang.Enum_UserFriendlyName}
+     * <b>Most programmers should use the {@link #toString} method in
+     * preference to this one, as the toString method may return
+     * a more user-friendly name.</b>
+     * {@property.close}
+     * {@description.open}
+     * This method is designed primarily for
+     * use in specialized situations where correctness depends on getting the
+     * exact name, which will not vary from release to release.
+     * {@description.close}
+     *
+     * @return the name of this enum constant
+     */
+    public final String name() {
+        return name;
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * The ordinal of this enumeration constant (its position
+     * in the enum declaration, where the initial constant is assigned
+     * an ordinal of zero).
+     *
+     * Most programmers will have no use for this field.  It is designed
+     * for use by sophisticated enum-based data structures, such as
+     * {@link java.util.EnumSet} and {@link java.util.EnumMap}.
+     * {@description.close}
+     */
     private final int ordinal;
 
-    /**
-     * Constructor for constants of enum subtypes.
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns the ordinal of this enumeration constant (its position
+     * in its enum declaration, where the initial constant is assigned
+     * an ordinal of zero).
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Enum_NoOrdinal}
+     * Most programmers will have no use for this method.  It is
+     * designed for use by sophisticated enum-based data structures, such
+     * as {@link java.util.EnumSet} and {@link java.util.EnumMap}.
+     * {@property.close}
      *
-     * @param name
-     *            the enum constant's declared name.
-     * @param ordinal
-     *            the enum constant's ordinal, which corresponds to its position
-     *            in the enum declaration, starting at zero.
+     * @return the ordinal of this enumeration constant
+     */
+    public final int ordinal() {
+        return ordinal;
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Sole constructor.
+     * {@description.close}
+     * {@property.open static}
+     * Programmers cannot invoke this constructor.
+     * It is for use by code emitted by the compiler in response to
+     * enum type declarations.
+     * {@property.close}
+     *
+     * @param name - The name of this enum constant, which is the identifier
+     *               used to declare it.
+     * @param ordinal - The ordinal of this enumeration constant (its position
+     *         in the enum declaration, where the initial constant is assigned
+     *         an ordinal of zero).
      */
     protected Enum(String name, int ordinal) {
         this.name = name;
         this.ordinal = ordinal;
     }
 
-    /**
-     * Returns the name of this enum constant. The name is the field as it
-     * appears in the {@code enum} declaration.
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns the name of this enum constant, as contained in the
+     * declaration.
+     * {@description.close}
+     * {@property.open static}  
+     * This method may be overridden, though it typically
+     * isn't necessary or desirable.
+     * {@property.close}
+     * {@property.open static}
+     * An enum type should override this
+     * method when a more "programmer-friendly" string form exists.
+     * {@property.close}
      *
-     * @return the name of this enum constant.
-     * @see #toString()
+     * @return the name of this enum constant
      */
-    public final String name() {
-        return name;
-    }
-
-    /**
-     * Returns the position of the enum constant in the declaration. The first
-     * constant has an ordinal value of zero.
-     *
-     * @return the ordinal value of this enum constant.
-     */
-    public final int ordinal() {
-        return ordinal;
-    }
-
-    /**
-     * Returns a string containing a concise, human-readable description of this
-     * object. In this case, the enum constant's name is returned.
-     *
-     * @return a printable representation of this object.
-     */
-    @Override
     public String toString() {
         return name;
     }
 
-    /**
-     * Compares this object with the specified object and indicates if they are
-     * equal. In order to be equal, {@code object} must be identical to this
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns true if the specified object is equal to this
      * enum constant.
+     * {@description.close}
      *
-     * @param other
-     *            the object to compare this enum constant with.
-     * @return {@code true} if the specified object is equal to this
-     *         {@code Enum}; {@code false} otherwise.
+     * @param other the object to be compared for equality with this object.
+     * @return  true if the specified object is equal to this
+     *          enum constant.
      */
-    @Override
     public final boolean equals(Object other) {
-        return this == other;
+        return this==other;
     }
 
-    @Override
-    public final int hashCode() {
-        return ordinal + (name == null ? 0 : name.hashCode());
-    }
-
-    /**
-     * {@code Enum} objects are singletons, they may not be cloned. This method
-     * always throws a {@code CloneNotSupportedException}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns a hash code for this enum constant.
+     * {@description.close}
      *
-     * @return does not return.
-     * @throws CloneNotSupportedException
-     *             is always thrown.
+     * @return a hash code for this enum constant.
      */
-    @Override
-    protected final Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException("Enums may not be cloned");
+    public final int hashCode() {
+        return super.hashCode();
     }
 
-    /**
-     * Compares this object to the specified enum object to determine their
-     * relative order. This method compares the object's ordinal values, that
-     * is, their position in the enum declaration.
+    /** {@collect.stats}
+     * {@description.open}
+     * Throws CloneNotSupportedException.  This guarantees that enums
+     * are never cloned, which is necessary to preserve their "singleton"
+     * status.
+     * {@description.close}
      *
-     * @param o
-     *            the enum object to compare this object to.
-     * @return a negative value if the ordinal value of this enum constant is
-     *         less than the ordinal value of {@code o}; 0 if the ordinal
-     *         values of this enum constant and {@code o} are equal; a positive
-     *         value if the ordinal value of this enum constant is greater than
-     *         the ordinal value of {@code o}.
-     * @see java.lang.Comparable
+     * @return (never returns)
+     */
+    protected final Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Compares this enum with the specified object for order.  Returns a
+     * negative integer, zero, or a positive integer as this object is less
+     * than, equal to, or greater than the specified object.
+     *
+     * Enum constants are only comparable to other enum constants of the
+     * same enum type.  The natural order implemented by this
+     * method is the order in which the constants are declared.
+     * {@description.close}
      */
     public final int compareTo(E o) {
-        return ordinal - o.ordinal;
+        Enum other = (Enum)o;
+        Enum self = this;
+        if (self.getClass() != other.getClass() && // optimization
+            self.getDeclaringClass() != other.getDeclaringClass())
+            throw new ClassCastException();
+        return self.ordinal - other.ordinal;
     }
 
-    /**
-     * Returns the enum constant's declaring class.
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns the Class object corresponding to this enum constant's
+     * enum type.  Two enum constants e1 and  e2 are of the
+     * same enum type if and only if
+     *   e1.getDeclaringClass() == e2.getDeclaringClass().
+     * (The value returned by this method may differ from the one returned
+     * by the {@link Object#getClass} method for enum constants with
+     * constant-specific class bodies.)
+     * {@description.close}
      *
-     * @return the class object representing the constant's enum type.
+     * @return the Class object corresponding to this enum constant's
+     *     enum type
      */
-    @SuppressWarnings("unchecked")
     public final Class<E> getDeclaringClass() {
-        Class<?> myClass = getClass();
-        Class<?> mySuperClass = myClass.getSuperclass();
-        if (Enum.class == mySuperClass) {
-            return (Class<E>)myClass;
-        }
-        return (Class<E>)mySuperClass;
+        Class clazz = getClass();
+        Class zuper = clazz.getSuperclass();
+        return (zuper == Enum.class) ? clazz : zuper;
     }
 
-    /**
-     * Returns the constant with the specified name of the specified enum type.
+    /** {@collect.stats}
+     * {@description.open}
+     * Returns the enum constant of the specified enum type with the
+     * specified name.  The name must match exactly an identifier used
+     * to declare an enum constant in this type.
+     * {@description.close}
+     * {@property.open runtime formal:java.lang.Enum_NoExtraWhiteSpace}
+     * (Extraneous whitespace
+     * characters are not permitted.)
+     * {@property.close}
      *
-     * @param enumType
-     *            the class of the enumerated type to search for the constant
-     *            value.
-     * @param name
-     *            the name of the constant value to find.
-     * @return the enum constant.
-     * @throws NullPointerException
-     *             if either {@code enumType} or {@code name} are {@code null}.
-     * @throws IllegalArgumentException
-     *             if {@code enumType} is not an enumerated type or does not
-     *             have a constant value called {@code name}.
+     * @param enumType the {@code Class} object of the enum type from which
+     *      to return a constant
+     * @param name the name of the constant to return
+     * @return the enum constant of the specified enum type with the
+     *      specified name
+     * @throws IllegalArgumentException if the specified enum type has
+     *         no constant with the specified name, or the specified
+     *         class object does not represent an enum type
+     * @throws NullPointerException if {@code enumType} or {@code name}
+     *         is null
+     * @since 1.5
      */
-    public static <T extends Enum<T>> T valueOf(Class<T> enumType, String name) {
-        if (enumType == null) {
-            throw new NullPointerException("enumType == null");
-        } else if (name == null) {
-            throw new NullPointerException("name == null");
-        }
-        T[] values = getSharedConstants(enumType);
-        if (values == null) {
-            throw new IllegalArgumentException(enumType + " is not an enum type");
-        }
-        for (T value : values) {
-            if (name.equals(value.name())) {
-                return value;
-            }
-        }
-        throw new IllegalArgumentException(name + " is not a constant in " + enumType.getName());
+    public static <T extends Enum<T>> T valueOf(Class<T> enumType,
+                                                String name) {
+        T result = enumType.enumConstantDirectory().get(name);
+        if (result != null)
+            return result;
+        if (name == null)
+            throw new NullPointerException("Name is null");
+        throw new IllegalArgumentException(
+            "No enum const " + enumType +"." + name);
     }
 
-    /**
-     * Returns a shared, mutable array containing the constants of this enum. It
-     * is an error to modify the returned array.
-     *
-     * @hide
+    /** {@collect.stats}
+     * {@description.open}
+     * enum classes cannot have finalize methods.
+     * {@description.close}
      */
-    @SuppressWarnings("unchecked") // the cache always returns the type matching enumType
-    public static <T extends Enum<T>> T[] getSharedConstants(Class<T> enumType) {
-        return (T[]) sharedConstantsCache.get(enumType);
+    protected final void finalize() { }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * prevent default deserialization
+     * {@description.close}
+     */
+    private void readObject(ObjectInputStream in) throws IOException,
+        ClassNotFoundException {
+            throw new InvalidObjectException("can't deserialize enum");
     }
 
-    /**
-     * Enum types may not have finalizers.
-     *
-     * @since 1.6
-     */
-    @Override
-    @SuppressWarnings("FinalizeDoesntCallSuperFinalize")
-    protected final void finalize() {
+    private void readObjectNoData() throws ObjectStreamException {
+            throw new InvalidObjectException("can't deserialize enum");
     }
 }

@@ -1,160 +1,152 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang.ref;
 
-/**
- * The {@code ReferenceQueue} is the container on which reference objects are
- * enqueued when the garbage collector detects the reachability type specified
- * for the referent.
+/** {@collect.stats} 
+ * Reference queues, to which registered reference objects are appended by the
+ * garbage collector after the appropriate reachability changes are detected.
  *
- * @since 1.2
+ * @author   Mark Reinhold
+ * @since    1.2
  */
+
 public class ReferenceQueue<T> {
-    private static final int NANOS_PER_MILLI = 1000000;
 
-    private Reference<? extends T> head;
-
-    /**
-     * Constructs a new instance of this class.
+    /** {@collect.stats} 
+     * Constructs a new reference-object queue.
      */
-    public ReferenceQueue() {
+    public ReferenceQueue() { }
+
+    private static class Null extends ReferenceQueue {
+        boolean enqueue(Reference r) {
+            return false;
+        }
     }
 
-    /**
-     * Returns the next available reference from the queue, removing it in the
-     * process. Does not wait for a reference to become available.
-     *
-     * @return the next available reference, or {@code null} if no reference is
-     *         immediately available
-     */
-    @SuppressWarnings("unchecked")
-    public synchronized Reference<? extends T> poll() {
-        if (head == null) {
-            return null;
+    static ReferenceQueue NULL = new Null();
+    static ReferenceQueue ENQUEUED = new Null();
+
+    static private class Lock { };
+    private Lock lock = new Lock();
+    private Reference<? extends T> head = null;
+    private long queueLength = 0;
+
+    boolean enqueue(Reference<? extends T> r) { /* Called only by Reference class */
+        synchronized (r) {
+            if (r.queue == ENQUEUED) return false;
+            synchronized (lock) {
+                r.queue = ENQUEUED;
+                r.next = (head == null) ? r : head;
+                head = r;
+                queueLength++;
+                if (r instanceof FinalReference) {
+                    sun.misc.VM.addFinalRefCount(1);
+                }
+                lock.notifyAll();
+                return true;
+            }
         }
-
-        Reference<? extends T> ret;
-
-        ret = head;
-
-        if (head == head.queueNext) {
-            head = null;
-        } else {
-            head = head.queueNext;
-        }
-
-        ret.queueNext = null;
-
-        return ret;
     }
 
-    /**
-     * Returns the next available reference from the queue, removing it in the
-     * process. Waits indefinitely for a reference to become available.
+    private Reference<? extends T> reallyPoll() {       /* Must hold lock */
+        if (head != null) {
+            Reference<? extends T> r = head;
+            head = (r.next == r) ? null : r.next;
+            r.queue = NULL;
+            r.next = r;
+            queueLength--;
+            if (r instanceof FinalReference) {
+                sun.misc.VM.addFinalRefCount(-1);
+            }
+            return r;
+        }
+        return null;
+    }
+
+    /** {@collect.stats} 
+     * Polls this queue to see if a reference object is available.  If one is
+     * available without further delay then it is removed from the queue and
+     * returned.  Otherwise this method immediately returns <tt>null</tt>.
      *
-     * @throws InterruptedException if the blocking call was interrupted
+     * @return  A reference object, if one was immediately available,
+     *          otherwise <code>null</code>
+     */
+    public Reference<? extends T> poll() {
+        synchronized (lock) {
+            return reallyPoll();
+        }
+    }
+
+    /** {@collect.stats} 
+     * Removes the next reference object in this queue, blocking until either
+     * one becomes available or the given timeout period expires.
+     *
+     * <p> This method does not offer real-time guarantees: It schedules the
+     * timeout as if by invoking the {@link Object#wait(long)} method.
+     *
+     * @param  timeout  If positive, block for up to <code>timeout</code>
+     *                  milliseconds while waiting for a reference to be
+     *                  added to this queue.  If zero, block indefinitely.
+     *
+     * @return  A reference object, if one was available within the specified
+     *          timeout period, otherwise <code>null</code>
+     *
+     * @throws  IllegalArgumentException
+     *          If the value of the timeout argument is negative
+     *
+     * @throws  InterruptedException
+     *          If the timeout wait is interrupted
+     */
+    public Reference<? extends T> remove(long timeout)
+        throws IllegalArgumentException, InterruptedException
+    {
+        if (timeout < 0) {
+            throw new IllegalArgumentException("Negative timeout value");
+        }
+        synchronized (lock) {
+            Reference<? extends T> r = reallyPoll();
+            if (r != null) return r;
+            for (;;) {
+                lock.wait(timeout);
+                r = reallyPoll();
+                if (r != null) return r;
+                if (timeout != 0) return null;
+            }
+        }
+    }
+
+    /** {@collect.stats} 
+     * Removes the next reference object in this queue, blocking until one
+     * becomes available.
+     *
+     * @return A reference object, blocking until one becomes available
+     * @throws  InterruptedException  If the wait is interrupted
      */
     public Reference<? extends T> remove() throws InterruptedException {
-        return remove(0L);
+        return remove(0);
     }
 
-    /**
-     * Returns the next available reference from the queue, removing it in the
-     * process. Waits for a reference to become available or the given timeout
-     * period to elapse, whichever happens first.
-     *
-     * @param timeoutMillis maximum time to spend waiting for a reference object
-     *     to become available. A value of {@code 0} results in the method
-     *     waiting indefinitely.
-     * @return the next available reference, or {@code null} if no reference
-     *     becomes available within the timeout period
-     * @throws IllegalArgumentException if {@code timeoutMillis < 0}.
-     * @throws InterruptedException if the blocking call was interrupted
-     */
-    public synchronized Reference<? extends T> remove(long timeoutMillis)
-            throws InterruptedException {
-        if (timeoutMillis < 0) {
-            throw new IllegalArgumentException("timeout < 0: " + timeoutMillis);
-        }
-
-        if (head != null) {
-            return poll();
-        }
-
-        // avoid overflow: if total > 292 years, just wait forever
-        if (timeoutMillis == 0 || (timeoutMillis > Long.MAX_VALUE / NANOS_PER_MILLI)) {
-            do {
-                wait(0);
-            } while (head == null);
-            return poll();
-        }
-
-        // guaranteed to not overflow
-        long nanosToWait = timeoutMillis * NANOS_PER_MILLI;
-        int timeoutNanos = 0;
-
-        // wait until notified or the timeout has elapsed
-        long startTime = System.nanoTime();
-        while (true) {
-            wait(timeoutMillis, timeoutNanos);
-            if (head != null) {
-                break;
-            }
-            long nanosElapsed = System.nanoTime() - startTime;
-            long nanosRemaining = nanosToWait - nanosElapsed;
-            if (nanosRemaining <= 0) {
-                break;
-            }
-            timeoutMillis = nanosRemaining / NANOS_PER_MILLI;
-            timeoutNanos = (int) (nanosRemaining - timeoutMillis * NANOS_PER_MILLI);
-        }
-        return poll();
-    }
-
-    /**
-     * Enqueue the reference object on the receiver.
-     *
-     * @param reference
-     *            reference object to be enqueued.
-     */
-    synchronized void enqueue(Reference<? extends T> reference) {
-        if (head == null) {
-            reference.queueNext = reference;
-        } else {
-            reference.queueNext = head;
-        }
-        head = reference;
-        notify();
-    }
-
-    /** @hide */
-    public static Reference<?> unenqueued = null;
-
-    static void add(Reference<?> list) {
-        synchronized (ReferenceQueue.class) {
-            if (unenqueued == null) {
-                unenqueued = list;
-            } else {
-                Reference<?> next = unenqueued.pendingNext;
-                unenqueued.pendingNext = list.pendingNext;
-                list.pendingNext = next;
-            }
-            ReferenceQueue.class.notifyAll();
-        }
-    }
 }

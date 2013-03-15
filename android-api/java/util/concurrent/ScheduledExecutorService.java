@@ -1,12 +1,44 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
+import java.util.concurrent.atomic.*;
+import java.util.*;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * An {@link ExecutorService} that can schedule commands to run after a given
  * delay, or to execute periodically.
  *
@@ -41,32 +73,36 @@ package java.util.concurrent;
  * Here is a class with a method that sets up a ScheduledExecutorService
  * to beep every ten seconds for an hour:
  *
- *  <pre> {@code
+ * <pre>
  * import static java.util.concurrent.TimeUnit.*;
  * class BeeperControl {
- *   private final ScheduledExecutorService scheduler =
- *     Executors.newScheduledThreadPool(1);
+ *    private final ScheduledExecutorService scheduler =
+ *       Executors.newScheduledThreadPool(1);
  *
- *   public void beepForAnHour() {
- *     final Runnable beeper = new Runnable() {
- *       public void run() { System.out.println("beep"); }
- *     };
- *     final ScheduledFuture<?> beeperHandle =
- *       scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS);
- *     scheduler.schedule(new Runnable() {
- *       public void run() { beeperHandle.cancel(true); }
- *     }, 60 * 60, SECONDS);
- *   }
- * }}</pre>
+ *    public void beepForAnHour() {
+ *        final Runnable beeper = new Runnable() {
+ *                public void run() { System.out.println("beep"); }
+ *            };
+ *        final ScheduledFuture&lt;?&gt; beeperHandle =
+ *            scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS);
+ *        scheduler.schedule(new Runnable() {
+ *                public void run() { beeperHandle.cancel(true); }
+ *            }, 60 * 60, SECONDS);
+ *    }
+ * }
+ * </pre>
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
  */
 public interface ScheduledExecutorService extends ExecutorService {
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a one-shot action that becomes enabled
      * after the given delay.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param delay the time from now to delay execution
@@ -81,9 +117,11 @@ public interface ScheduledExecutorService extends ExecutorService {
     public ScheduledFuture<?> schedule(Runnable command,
                                        long delay, TimeUnit unit);
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a ScheduledFuture that becomes enabled after the
      * given delay.
+     * {@description.close}
      *
      * @param callable the function to execute
      * @param delay the time from now to delay execution
@@ -96,7 +134,8 @@ public interface ScheduledExecutorService extends ExecutorService {
     public <V> ScheduledFuture<V> schedule(Callable<V> callable,
                                            long delay, TimeUnit unit);
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the given
      * period; that is executions will commence after
@@ -108,6 +147,7 @@ public interface ScheduledExecutorService extends ExecutorService {
      * termination of the executor.  If any execution of this task
      * takes longer than its period, then subsequent executions
      * may start late, but will not concurrently execute.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param initialDelay the time to delay first execution
@@ -126,7 +166,8 @@ public interface ScheduledExecutorService extends ExecutorService {
                                                   long period,
                                                   TimeUnit unit);
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates and executes a periodic action that becomes enabled first
      * after the given initial delay, and subsequently with the
      * given delay between the termination of one execution and the
@@ -134,6 +175,7 @@ public interface ScheduledExecutorService extends ExecutorService {
      * encounters an exception, subsequent executions are suppressed.
      * Otherwise, the task will only terminate via cancellation or
      * termination of the executor.
+     * {@description.close}
      *
      * @param command the task to execute
      * @param initialDelay the time to delay first execution

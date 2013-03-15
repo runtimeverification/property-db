@@ -1,15 +1,45 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea, Bill Scherer, and Michael Scott with
  * assistance from members of JCP JSR-166 Expert Group and released to
  * the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
 import java.util.concurrent.atomic.*;
 import java.util.concurrent.locks.LockSupport;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A synchronization point at which threads can pair and swap elements
  * within pairs.  Each thread presents some object on entry to the
  * {@link #exchange exchange} method, matches with a partner thread,
@@ -23,7 +53,7 @@ import java.util.concurrent.locks.LockSupport;
  * to swap buffers between threads so that the thread filling the
  * buffer gets a freshly emptied one when it needs it, handing off the
  * filled one to the thread emptying the buffer.
- *  <pre> {@code
+ * <pre>{@code
  * class FillAndEmpty {
  *   Exchanger<DataBuffer> exchanger = new Exchanger<DataBuffer>();
  *   DataBuffer initialEmptyBuffer = ... a made-up type
@@ -59,7 +89,8 @@ import java.util.concurrent.locks.LockSupport;
  *     new Thread(new FillingLoop()).start();
  *     new Thread(new EmptyingLoop()).start();
  *   }
- * }}</pre>
+ * }
+ * }</pre>
  *
  * <p>Memory consistency effects: For each pair of threads that
  * successfully exchange objects via an {@code Exchanger}, actions
@@ -67,6 +98,7 @@ import java.util.concurrent.locks.LockSupport;
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
  * those subsequent to a return from the corresponding {@code exchange()}
  * in the other thread.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea and Bill Scherer and Michael Scott
@@ -134,8 +166,8 @@ public class Exchanger<V> {
      * races between two threads or thread pre-emptions occurring
      * between reading and CASing.  Also, very transient peak
      * contention can be much higher than the average sustainable
-     * levels.  An attempt to decrease the max limit is usually made
-     * when a non-slot-zero wait elapses without being fulfilled.
+     * levels.  The max limit is decreased on average 50% of the times
+     * that a non-slot-zero wait elapses without being fulfilled.
      * Threads experiencing elapsed waits move closer to zero, so
      * eventually find existing (or future) threads even if the table
      * has been shrunk due to inactivity.  The chosen mechanics and
@@ -179,10 +211,15 @@ public class Exchanger<V> {
      * workshop.  Available at: http://hdl.handle.net/1802/2104
      */
 
-    /** The number of CPUs, for sizing and spin control */
+    /** {@collect.stats}
+     * {@description.open}
+     * The number of CPUs, for sizing and spin control 
+     * {@description.close}
+     */
     private static final int NCPU = Runtime.getRuntime().availableProcessors();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * The capacity of the arena.  Set to a value that provides more
      * than enough space to handle contention.  On small machines
      * most slots won't be used, but it is still not wasted because
@@ -192,18 +229,22 @@ public class Exchanger<V> {
      * bounded by memory bandwidth, not numbers of threads/CPUs.
      * This constant cannot be changed without also modifying
      * indexing and hashing algorithms.
+     * {@description.close}
      */
     private static final int CAPACITY = 32;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * The value of "max" that will hold all threads without
      * contention.  When this value is less than CAPACITY, some
      * otherwise wasted expansion can be avoided.
+     * {@description.close}
      */
     private static final int FULL =
         Math.max(0, Math.min(CAPACITY, NCPU / 2) - 1);
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * The number of times to spin (doing nothing except polling a
      * memory location) before blocking or giving up while waiting to
      * be fulfilled.  Should be zero on uniprocessors.  On
@@ -215,49 +256,68 @@ public class Exchanger<V> {
      * context switch time on most systems.  The value here is
      * approximately the average of those across a range of tested
      * systems.
+     * {@description.close}
      */
     private static final int SPINS = (NCPU == 1) ? 0 : 2000;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * The number of times to spin before blocking in timed waits.
      * Timed waits spin more slowly because checking the time takes
      * time.  The best value relies mainly on the relative rate of
      * System.nanoTime vs memory accesses.  The value is empirically
      * derived to work well across a variety of systems.
+     * {@description.close}
      */
     private static final int TIMED_SPINS = SPINS / 20;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Sentinel item representing cancellation of a wait due to
      * interruption, timeout, or elapsed spin-waits.  This value is
      * placed in holes on cancellation, and used as a return value
      * from waiting methods to indicate failure to set or get hole.
+     * {@description.close}
      */
     private static final Object CANCEL = new Object();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Value representing null arguments/returns from public
      * methods.  This disambiguates from internal requirement that
      * holes start out as null to mean they are not yet set.
+     * {@description.close}
      */
     private static final Object NULL_ITEM = new Object();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Nodes hold partially exchanged data.  This class
      * opportunistically subclasses AtomicReference to represent the
      * hole.  So get() returns hole, and compareAndSet CAS'es value
      * into hole.  This class cannot be parameterized as "V" because
      * of the use of non-V CANCEL sentinels.
+     * {@description.close}
      */
     private static final class Node extends AtomicReference<Object> {
-        /** The element offered by the Thread creating this node. */
+        /** {@collect.stats}
+         * {@description.open}
+         * The element offered by the Thread creating this node. 
+         * {@description.close}
+         */
         public final Object item;
 
-        /** The Thread waiting to be signalled; null until waiting. */
+        /** {@collect.stats}
+         * {@description.open}
+         * The Thread waiting to be signalled; null until waiting. 
+         * {@description.close}
+         */
         public volatile Thread waiter;
 
-        /**
+        /** {@collect.stats} 
+         * {@description.open}
          * Creates node with given item and empty hole.
+         * {@description.close}
          * @param item the item
          */
         public Node(Object item) {
@@ -265,41 +325,47 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * A Slot is an AtomicReference with heuristic padding to lessen
      * cache effects of this heavily CAS'ed location.  While the
      * padding adds noticeable space, all slots are created only on
      * demand, and there will be more than one of them only when it
      * would improve throughput more than enough to outweigh using
      * extra space.
+     * {@description.close}
      */
     private static final class Slot extends AtomicReference<Object> {
-        // Improve likelihood of isolation on <= 128 byte cache lines.
-        // We used to target 64 byte cache lines, but some x86s (including
-        // i7 under some BIOSes) actually use 128 byte cache lines.
+        // Improve likelihood of isolation on <= 64 byte cache lines
         long q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, qa, qb, qc, qd, qe;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Slot array.  Elements are lazily initialized when needed.
      * Declared volatile to enable double-checked lazy construction.
+     * {@description.close}
      */
     private volatile Slot[] arena = new Slot[CAPACITY];
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * The maximum slot index being used.  The value sometimes
      * increases when a thread experiences too many CAS contentions,
      * and sometimes decreases when a spin-wait elapses.  Changes
      * are performed only via compareAndSet, to avoid stale values
      * when a thread happens to stall right before setting.
+     * {@description.close}
      */
     private final AtomicInteger max = new AtomicInteger();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Main exchange function, handling the different policy variants.
      * Uses Object, not "V" as argument and return value to simplify
      * handling of sentinel values.  Callers from public methods decode
      * and cast accordingly.
+     * {@description.close}
      *
      * @param item the (non-null) item to exchange
      * @param timed true if the wait is timed
@@ -327,9 +393,7 @@ public class Exchanger<V> {
             else if (y == null &&                 // Try to occupy
                      slot.compareAndSet(null, me)) {
                 if (index == 0)                   // Blocking wait for slot 0
-                    return timed ?
-                        awaitNanos(me, slot, nanos) :
-                        await(me, slot);
+                    return timed? awaitNanos(me, slot, nanos): await(me, slot);
                 Object v = spinWait(me, slot);    // Spin wait for non-0
                 if (v != CANCEL)
                     return v;
@@ -348,7 +412,8 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns a hash index for the current thread.  Uses a one-step
      * FNV-1a hash code (http://www.isthe.com/chongo/tech/comp/fnv/)
      * based on the current thread's Thread.getId().  These hash codes
@@ -367,6 +432,7 @@ public class Exchanger<V> {
      * 2 tries for all table sizes, and has a maximum 2% difference
      * from perfectly uniform slot probabilities when applied to all
      * possible hash codes for sizes less than 32.
+     * {@description.close}
      *
      * @return a per-thread-random index, 0 <= index < max
      */
@@ -384,11 +450,13 @@ public class Exchanger<V> {
         return index;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates a new slot at given index.  Called only when the slot
      * appears to be null.  Relies on double-check using builtin
      * locks, since they rarely contend.  This in turn relies on the
      * arena array being declared volatile.
+     * {@description.close}
      *
      * @param index the index to add slot at
      */
@@ -402,13 +470,15 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Tries to cancel a wait for the given node waiting in the given
      * slot, if so, helping clear the node from its slot to avoid
      * garbage retention.
+     * {@description.close}
      *
      * @param node the waiting node
-     * @param slot the slot it is waiting in
+     * @param the slot it is waiting in
      * @return true if successfully cancelled
      */
     private static boolean tryCancel(Node node, Slot slot) {
@@ -422,10 +492,12 @@ public class Exchanger<V> {
     // Three forms of waiting. Each just different enough not to merge
     // code with others.
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Spin-waits for hole for a non-0 slot.  Fails if spin elapses
      * before hole filled.  Does not check interrupt, relying on check
      * in public exchange method to abort if interrupted on entry.
+     * {@description.close}
      *
      * @param node the waiting node
      * @return on success, the hole; on failure, CANCEL
@@ -443,7 +515,8 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Waits for (by spinning and/or blocking) and gets the hole
      * filled in by another thread.  Fails if interrupted before
      * hole filled.
@@ -456,6 +529,7 @@ public class Exchanger<V> {
      * Thread interruption status is checked only surrounding calls to
      * park.  The caller is assumed to have checked interrupt status
      * on entry.
+     * {@description.close}
      *
      * @param node the waiting node
      * @return on success, the hole; on failure, CANCEL
@@ -478,10 +552,12 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Waits for (at index 0) and gets the hole filled in by another
      * thread.  Fails if timed out or interrupted before hole filled.
      * Same basic logic as untimed version, but a bit messier.
+     * {@description.close}
      *
      * @param node the waiting node
      * @param nanos the wait time
@@ -516,7 +592,8 @@ public class Exchanger<V> {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Sweeps through arena checking for any waiting threads.  Called
      * only upon return from timeout while waiting in slot 0.  When a
      * thread gives up on a timed wait, it is possible that a
@@ -526,6 +603,7 @@ public class Exchanger<V> {
      * are other threads present to far less than that in lock-based
      * exchangers in which earlier-arriving threads may still be
      * waiting on entry locks.
+     * {@description.close}
      *
      * @param node the waiting node
      * @return another thread's item, or CANCEL
@@ -549,13 +627,16 @@ public class Exchanger<V> {
         return CANCEL;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates a new Exchanger.
+     * {@description.close}
      */
     public Exchanger() {
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Waits for another thread to arrive at this exchange point (unless
      * the current thread is {@linkplain Thread#interrupt interrupted}),
      * and then transfers the given object to it, receiving its object
@@ -571,8 +652,8 @@ public class Exchanger<V> {
      * dormant until one of two things happens:
      * <ul>
      * <li>Some other thread enters the exchange; or
-     * <li>Some other thread {@linkplain Thread#interrupt interrupts}
-     * the current thread.
+     * <li>Some other thread {@linkplain Thread#interrupt interrupts} the current
+     * thread.
      * </ul>
      * <p>If the current thread:
      * <ul>
@@ -582,6 +663,7 @@ public class Exchanger<V> {
      * </ul>
      * then {@link InterruptedException} is thrown and the current thread's
      * interrupted status is cleared.
+     * {@description.close}
      *
      * @param x the object to exchange
      * @return the object provided by the other thread
@@ -590,7 +672,7 @@ public class Exchanger<V> {
      */
     public V exchange(V x) throws InterruptedException {
         if (!Thread.interrupted()) {
-            Object v = doExchange((x == null) ? NULL_ITEM : x, false, 0);
+            Object v = doExchange(x == null? NULL_ITEM : x, false, 0);
             if (v == NULL_ITEM)
                 return null;
             if (v != CANCEL)
@@ -600,7 +682,8 @@ public class Exchanger<V> {
         throw new InterruptedException();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Waits for another thread to arrive at this exchange point (unless
      * the current thread is {@linkplain Thread#interrupt interrupted} or
      * the specified waiting time elapses), and then transfers the given
@@ -632,6 +715,7 @@ public class Exchanger<V> {
      * <p>If the specified waiting time elapses then {@link
      * TimeoutException} is thrown.  If the time is less than or equal
      * to zero, the method will not wait at all.
+     * {@description.close}
      *
      * @param x the object to exchange
      * @param timeout the maximum time to wait
@@ -645,7 +729,7 @@ public class Exchanger<V> {
     public V exchange(V x, long timeout, TimeUnit unit)
         throws InterruptedException, TimeoutException {
         if (!Thread.interrupted()) {
-            Object v = doExchange((x == null) ? NULL_ITEM : x,
+            Object v = doExchange(x == null? NULL_ITEM : x,
                                   true, unit.toNanos(timeout));
             if (v == NULL_ITEM)
                 return null;

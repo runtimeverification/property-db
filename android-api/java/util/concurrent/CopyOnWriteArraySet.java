@@ -1,17 +1,43 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
 import java.util.*;
 
-// BEGIN android-note
-// removed link to collections framework docs
-// END android-note
-
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A {@link java.util.Set} that uses an internal {@link CopyOnWriteArrayList}
  * for all of its operations.  Thus, it shares the same basic properties:
  * <ul>
@@ -34,23 +60,29 @@ import java.util.*;
  * copy-on-write set to maintain a set of Handler objects that
  * perform some action upon state updates.
  *
- *  <pre> {@code
+ * <pre>
  * class Handler { void handle(); ... }
  *
  * class X {
- *   private final CopyOnWriteArraySet<Handler> handlers
- *     = new CopyOnWriteArraySet<Handler>();
- *   public void addHandler(Handler h) { handlers.add(h); }
+ *    private final CopyOnWriteArraySet&lt;Handler&gt; handlers
+ *       = new CopyOnWriteArraySet&lt;Handler&gt;();
+ *    public void addHandler(Handler h) { handlers.add(h); }
  *
- *   private long internalState;
- *   private synchronized void changeState() { internalState = ...; }
+ *    private long internalState;
+ *    private synchronized void changeState() { internalState = ...; }
  *
- *   public void update() {
- *     changeState();
- *     for (Handler handler : handlers)
- *        handler.handle();
- *   }
- * }}</pre>
+ *    public void update() {
+ *       changeState();
+ *       for (Handler handler : handlers)
+ *          handler.handle();
+ *    }
+ * }
+ * </pre>
+ *
+ * <p>This class is a member of the
+ * <a href="{@docRoot}/../technotes/guides/collections/index.html">
+ * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @see CopyOnWriteArrayList
  * @since 1.5
@@ -63,16 +95,20 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
 
     private final CopyOnWriteArrayList<E> al;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates an empty set.
+     * {@description.close}
      */
     public CopyOnWriteArraySet() {
         al = new CopyOnWriteArrayList<E>();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates a set containing all of the elements of the specified
      * collection.
+     * {@description.close}
      *
      * @param c the collection of elements to initially contain
      * @throws NullPointerException if the specified collection is null
@@ -82,8 +118,10 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         al.addAllAbsent(c);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the number of elements in this set.
+     * {@description.close}
      *
      * @return the number of elements in this set
      */
@@ -91,8 +129,10 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.size();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains no elements.
+     * {@description.close}
      *
      * @return <tt>true</tt> if this set contains no elements
      */
@@ -100,11 +140,13 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.isEmpty();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this set is to be tested
      * @return <tt>true</tt> if this set contains the specified element
@@ -113,7 +155,8 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.contains(o);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this set.
      * If this set makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the
@@ -126,6 +169,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
+     * {@description.close}
      *
      * @return an array containing all the elements in this set
      */
@@ -133,7 +177,8 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.toArray();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an array containing all of the elements in this set; the
      * runtime type of the returned array is that of the specified array.
      * If the set fits in the specified array, it is returned therein.
@@ -160,10 +205,12 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
      * The following code can be used to dump the set into a newly allocated
      * array of <tt>String</tt>:
      *
-     *  <pre> {@code String[] y = x.toArray(new String[0]);}</pre>
+     * <pre>
+     *     String[] y = x.toArray(new String[0]);</pre>
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
+     * {@description.close}
      *
      * @param a the array into which the elements of this set are to be
      *        stored, if it is big enough; otherwise, a new array of the same
@@ -178,15 +225,18 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.toArray(a);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Removes all of the elements from this set.
      * The set will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         al.clear();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Removes the specified element from this set if it is present.
      * More formally, removes an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -194,6 +244,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
      * this set contained the element (or equivalently, if this set
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
+     * {@description.close}
      *
      * @param o object to be removed from this set, if present
      * @return <tt>true</tt> if this set contained the specified element
@@ -202,13 +253,15 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.remove(o);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element <tt>e</tt> to this set if
      * the set contains no element <tt>e2</tt> such that
      * <tt>(e==null&nbsp;?&nbsp;e2==null&nbsp;:&nbsp;e.equals(e2))</tt>.
      * If this set already contains the element, the call leaves the set
      * unchanged and returns <tt>false</tt>.
+     * {@description.close}
      *
      * @param e element to be added to this set
      * @return <tt>true</tt> if this set did not already contain the specified
@@ -218,10 +271,12 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.addIfAbsent(e);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains all of the elements of the
      * specified collection.  If the specified collection is also a set, this
      * method returns <tt>true</tt> if it is a <i>subset</i> of this set.
+     * {@description.close}
      *
      * @param  c collection to be checked for containment in this set
      * @return <tt>true</tt> if this set contains all of the elements of the
@@ -233,13 +288,18 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.containsAll(c);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Adds all of the elements in the specified collection to this set if
      * they're not already present.  If the specified collection is also a
      * set, the <tt>addAll</tt> operation effectively modifies this set so
-     * that its value is the <i>union</i> of the two sets.  The behavior of
+     * that its value is the <i>union</i> of the two sets.
+     * {@description.close}
+     * {@property.open synchronized}
+     * The behavior of
      * this operation is undefined if the specified collection is modified
      * while the operation is in progress.
+     * {@property.close}
      *
      * @param  c collection containing elements to be added to this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -250,11 +310,13 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.addAllAbsent(c) > 0;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Removes from this set all of its elements that are contained in the
      * specified collection.  If the specified collection is also a set,
      * this operation effectively modifies this set so that its value is the
      * <i>asymmetric set difference</i> of the two sets.
+     * {@description.close}
      *
      * @param  c collection containing elements to be removed from this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -269,13 +331,15 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.removeAll(c);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Retains only the elements in this set that are contained in the
      * specified collection.  In other words, removes from this set all of
      * its elements that are not contained in the specified collection.  If
      * the specified collection is also a set, this operation effectively
      * modifies this set so that its value is the <i>intersection</i> of the
      * two sets.
+     * {@description.close}
      *
      * @param  c collection containing elements to be retained in this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -290,14 +354,19 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.retainAll(c);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns an iterator over the elements contained in this set
      * in the order in which these elements were added.
      *
      * <p>The returned iterator provides a snapshot of the state of the set
      * when the iterator was constructed. No synchronization is needed while
-     * traversing the iterator. The iterator does <em>NOT</em> support the
+     * traversing the iterator.
+     * {@description.close}
+     * {@property.open}
+     * The iterator does <em>NOT</em> support the
      * <tt>remove</tt> method.
+     * {@property.close}
      *
      * @return an iterator over the elements in this set
      */
@@ -305,7 +374,8 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return al.iterator();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Compares the specified object with this set for equality.
      * Returns {@code true} if the specified object is the same object
      * as this object, or if it is also a {@link Set} and the elements
@@ -317,6 +387,7 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
      * the iterator over the specified set, there is an element
      * {@code e2} returned by the iterator over this set such that
      * {@code (e1==null ? e2==null : e1.equals(e2))}.
+     * {@description.close}
      *
      * @param o object to be compared for equality with this set
      * @return {@code true} if the specified object is equal to this set
@@ -353,10 +424,12 @@ public class CopyOnWriteArraySet<E> extends AbstractSet<E>
         return k == len;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Test for equality, coping with nulls.
+     * {@description.close}
      */
     private static boolean eq(Object o1, Object o2) {
-        return (o1 == null) ? o2 == null : o1.equals(o2);
+        return (o1 == null ? o2 == null : o1.equals(o2));
     }
 }

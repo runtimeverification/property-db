@@ -1,44 +1,71 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 2000, 2004, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util;
 
-
-/**
- * This abstract class provides a simple wrapper for objects of type {@code EventListener}.
+/** {@collect.stats} 
+ * {@description.open}
+ * An abstract wrapper class for an EventListener class which associates a set
+ * of additional parameters with the listener. Subclasses must provide the
+ * storage and accessor methods for the additional arguments or parameters.
+ *
+ * Subclasses of EventListenerProxy may be returned by getListeners() methods
+ * as a way of associating named properties with their listeners.
+ *
+ * For example, a Bean which supports named properties would have a two
+ * argument method signature for adding a PropertyChangeListener for a
+ * property:
+ *
+ *     public void addPropertyChangeListener(String propertyName,
+ *                                  PropertyChangeListener listener);
+ *
+ * If the Bean also implemented the zero argument get listener method:
+ *
+ *     public PropertyChangeListener[] getPropertyChangeListeners();
+ *
+ * then the array may contain inner PropertyChangeListeners which are also
+ * PropertyChangeListenerProxy objects.
+ *
+ * If the calling method is interested in retrieving the named property then it
+ * would have to test the element to see if it is a proxy class.
+ * {@description.close}
+ *
+ * @since 1.4
  */
 public abstract class EventListenerProxy implements EventListener {
-
     private final EventListener listener;
 
-    /**
-     * Creates a new {@code EventListener} proxy instance.
-     *
-     * @param listener
-     *            the listener wrapped by this proxy.
+    /** {@collect.stats} 
+     * @param listener The listener object.
      */
     public EventListenerProxy(EventListener listener) {
         this.listener = listener;
     }
 
-    /**
-     * Returns the wrapped {@code EventListener}.
-     *
-     * @return the wrapped {@code EventListener}.
+    /** {@collect.stats} 
+     * @return The listener associated with this proxy.
      */
     public EventListener getListener() {
         return listener;

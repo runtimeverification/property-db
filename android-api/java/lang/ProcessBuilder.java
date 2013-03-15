@@ -1,17 +1,26 @@
-/* Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Copyright (c) 2003, 2010, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang;
@@ -19,179 +28,487 @@ package java.lang;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Creates operating system processes. See {@link Process} for documentation and
- * example usage.
+/** {@collect.stats} 
+ * {@description.open}
+ * This class is used to create operating system processes.
+ *
+ * <p>Each <code>ProcessBuilder</code> instance manages a collection
+ * of process attributes.  The {@link #start()} method creates a new
+ * {@link Process} instance with those attributes.  The {@link
+ * #start()} method can be invoked repeatedly from the same instance
+ * to create new subprocesses with identical or related attributes.
+ *
+ * <p>Each process builder manages these process attributes:
+ *
+ * <ul>
+ *
+ * <li>a <i>command</i>, a list of strings which signifies the
+ * external program file to be invoked and its arguments, if any.
+ * Which string lists represent a valid operating system command is
+ * system-dependent.  For example, it is common for each conceptual
+ * argument to be an element in this list, but there are operating
+ * systems where programs are expected to tokenize command line
+ * strings themselves - on such a system a Java implementation might
+ * require commands to contain exactly two elements.
+ *
+ * <li>an <i>environment</i>, which is a system-dependent mapping from
+ * <i>variables</i> to <i>values</i>.  The initial value is a copy of
+ * the environment of the current process (see {@link System#getenv()}).
+ *
+ * <li>a <i>working directory</i>.  The default value is the current
+ * working directory of the current process, usually the directory
+ * named by the system property <code>user.dir</code>.
+ *
+ * <li>a <i>redirectErrorStream</i> property.  Initially, this property
+ * is <code>false</code>, meaning that the standard output and error
+ * output of a subprocess are sent to two separate streams, which can
+ * be accessed using the {@link Process#getInputStream()} and {@link
+ * Process#getErrorStream()} methods.  If the value is set to
+ * <code>true</code>, the standard error is merged with the standard
+ * output.  This makes it easier to correlate error messages with the
+ * corresponding output.  In this case, the merged data can be read
+ * from the stream returned by {@link Process#getInputStream()}, while
+ * reading from the stream returned by {@link
+ * Process#getErrorStream()} will get an immediate end of file.
+ *
+ * </ul>
+ *
+ * <p>Modifying a process builder's attributes will affect processes
+ * subsequently started by that object's {@link #start()} method, but
+ * will never affect previously started processes or the Java process
+ * itself.
+ *
+ * <p>Most error checking is performed by the {@link #start()} method.
+ * It is possible to modify the state of an object so that {@link
+ * #start()} will fail.  For example, setting the command attribute to
+ * an empty list will not throw an exception unless {@link #start()}
+ * is invoked.
+ * {@description.close}
+ * 
+ * {@property.open runtime formal:java.lang.ProcessBuilder_ThreadSafe}
+ * <p><strong>Note that this class is not synchronized.</strong>
+ * If multiple threads access a <code>ProcessBuilder</code> instance
+ * concurrently, and at least one of the threads modifies one of the
+ * attributes structurally, it <i>must</i> be synchronized externally.
+ * {@property.close}
+ *
+ * {@description.open}
+ * <p>Starting a new process which uses the default working directory
+ * and environment is easy:
+ *
+ * <blockquote><pre>
+ * Process p = new ProcessBuilder("myCommand", "myArg").start();
+ * </pre></blockquote>
+ *
+ * <p>Here is an example that starts a process with a modified working
+ * directory and environment:
+ *
+ * <blockquote><pre>
+ * ProcessBuilder pb = new ProcessBuilder("myCommand", "myArg1", "myArg2");
+ * Map&lt;String, String&gt; env = pb.environment();
+ * env.put("VAR1", "myValue");
+ * env.remove("OTHERVAR");
+ * env.put("VAR2", env.get("VAR1") + "suffix");
+ * pb.directory(new File("myDir"));
+ * Process p = pb.start();
+ * </pre></blockquote>
+ *
+ * <p>To start a process with an explicit set of environment
+ * variables, first call {@link java.util.Map#clear() Map.clear()}
+ * before adding environment variables.
+ * {@description.close}
+ *
+ * @since 1.5
  */
-public final class ProcessBuilder {
 
+public final class ProcessBuilder
+{
     private List<String> command;
     private File directory;
-    private Map<String, String> environment;
+    private Map<String,String> environment;
     private boolean redirectErrorStream;
 
-    /**
-     * Constructs a new {@code ProcessBuilder} instance with the specified
-     * operating system program and its arguments.
+    /** {@collect.stats}
+     * {@description.open} 
+     * Constructs a process builder with the specified operating
+     * system program and arguments.  This constructor does <i>not</i>
+     * make a copy of the <code>command</code> list.  Subsequent
+     * updates to the list will be reflected in the state of the
+     * process builder.  It is not checked whether
+     * <code>command</code> corresponds to a valid operating system
+     * command.</p>
+     * {@description.close}
      *
-     * @param command
-     *            the requested operating system program and its arguments.
-     */
-    public ProcessBuilder(String... command) {
-        this(new ArrayList<String>(Arrays.asList(command)));
-    }
-
-    /**
-     * Constructs a new {@code ProcessBuilder} instance with the specified
-     * operating system program and its arguments. Note that the list passed to
-     * this constructor is not copied, so any subsequent updates to it are
-     * reflected in this instance's state.
+     * @param   command  The list containing the program and its arguments
      *
-     * @param command
-     *            the requested operating system program and its arguments.
-     * @throws NullPointerException
-     *             if {@code command} is {@code null}.
+     * @throws  NullPointerException
+     *          If the argument is <code>null</code>
      */
     public ProcessBuilder(List<String> command) {
-        if (command == null) {
-            throw new NullPointerException("command == null");
-        }
+        if (command == null)
+            throw new NullPointerException();
         this.command = command;
-
-        // use a hashtable to prevent nulls from sneaking in
-        this.environment = new Hashtable<String, String>(System.getenv());
     }
 
-    /**
-     * Returns this process builder's current program and arguments. Note that
-     * the returned list is not a copy and modifications to it will change the
-     * state of this instance.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs a process builder with the specified operating
+     * system program and arguments.  This is a convenience
+     * constructor that sets the process builder's command to a string
+     * list containing the same strings as the <code>command</code>
+     * array, in the same order.  It is not checked whether
+     * <code>command</code> corresponds to a valid operating system
+     * command.</p>
+     * {@description.close}
      *
-     * @return this process builder's program and arguments.
+     * @param   command  A string array containing the program and its arguments
+     */
+    public ProcessBuilder(String... command) {
+        this.command = new ArrayList<String>(command.length);
+        for (String arg : command)
+            this.command.add(arg);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets this process builder's operating system program and
+     * arguments.  This method does <i>not</i> make a copy of the
+     * <code>command</code> list.  Subsequent updates to the list will
+     * be reflected in the state of the process builder.  It is not
+     * checked whether <code>command</code> corresponds to a valid
+     * operating system command.</p>
+     * {@description.close}
+     *
+     * @param   command  The list containing the program and its arguments
+     * @return  This process builder
+     *
+     * @throws  NullPointerException
+     *          If the argument is <code>null</code>
+     */
+    public ProcessBuilder command(List<String> command) {
+        if (command == null)
+            throw new NullPointerException();
+        this.command = command;
+        return this;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets this process builder's operating system program and
+     * arguments.  This is a convenience method that sets the command
+     * to a string list containing the same strings as the
+     * <code>command</code> array, in the same order.  It is not
+     * checked whether <code>command</code> corresponds to a valid
+     * operating system command.</p>
+     * {@description.close}
+     *
+     * @param   command  A string array containing the program and its arguments
+     * @return  This process builder
+     */
+    public ProcessBuilder command(String... command) {
+        this.command = new ArrayList<String>(command.length);
+        for (String arg : command)
+            this.command.add(arg);
+        return this;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns this process builder's operating system program and
+     * arguments.  The returned list is <i>not</i> a copy.  Subsequent
+     * updates to the list will be reflected in the state of this
+     * process builder.</p>
+     * {@description.close}
+     *
+     * @return  This process builder's program and its arguments
      */
     public List<String> command() {
         return command;
     }
 
-    /**
-     * Changes the program and arguments of this process builder.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a string map view of this process builder's environment.
      *
-     * @param command
-     *            the new operating system program and its arguments.
-     * @return this process builder instance.
+     * Whenever a process builder is created, the environment is
+     * initialized to a copy of the current process environment (see
+     * {@link System#getenv()}).  Subprocesses subsequently started by
+     * this object's {@link #start()} method will use this map as
+     * their environment.
+     *
+     * <p>The returned object may be modified using ordinary {@link
+     * java.util.Map Map} operations.  These modifications will be
+     * visible to subprocesses started via the {@link #start()}
+     * method.  Two <code>ProcessBuilder</code> instances always
+     * contain independent process environments, so changes to the
+     * returned map will never be reflected in any other
+     * <code>ProcessBuilder</code> instance or the values returned by
+     * {@link System#getenv System.getenv}.
+     *
+     * <p>If the system does not support environment variables, an
+     * empty map is returned.
+     * {@description.close}
+     *
+     * {@property.open runtime formal:java.lang.ProcessBuilder_NullKeyOrValue}
+     * <p>The returned map does not permit null keys or values.
+     * Attempting to insert or query the presence of a null key or
+     * value will throw a {@link NullPointerException}.
+     * Attempting to query the presence of a key or value which is not
+     * of type {@link String} will throw a {@link ClassCastException}.
+     * {@property.close}
+     * 
+     * {@description.open}
+     * <p>The behavior of the returned map is system-dependent.  A
+     * system may not allow modifications to environment variables or
+     * may forbid certain variable names or values.  For this reason,
+     * attempts to modify the map may fail with
+     * {@link UnsupportedOperationException} or
+     * {@link IllegalArgumentException}
+     * if the modification is not permitted by the operating system.
+     *
+     * <p>Since the external format of environment variable names and
+     * values is system-dependent, there may not be a one-to-one
+     * mapping between them and Java's Unicode strings.  Nevertheless,
+     * the map is implemented in such a way that environment variables
+     * which are not modified by Java code will have an unmodified
+     * native representation in the subprocess.
+     *
+     * <p>The returned map and its collection views may not obey the
+     * general contract of the {@link Object#equals} and
+     * {@link Object#hashCode} methods.
+     *
+     * <p>The returned map is typically case-sensitive on all platforms.
+     *
+     * <p>If a security manager exists, its
+     * {@link SecurityManager#checkPermission checkPermission}
+     * method is called with a
+     * <code>{@link RuntimePermission}("getenv.*")</code>
+     * permission.  This may result in a {@link SecurityException} being
+     * thrown.
+     *
+     * <p>When passing information to a Java subprocess,
+     * <a href=System.html#EnvironmentVSSystemProperties>system properties</a>
+     * are generally preferred over environment variables.</p>
+     * {@description.close}
+     *
+     * @return  This process builder's environment
+     *
+     * @throws  SecurityException
+     *          If a security manager exists and its
+     *          {@link SecurityManager#checkPermission checkPermission}
+     *          method doesn't allow access to the process environment
+     *
+     * @see     Runtime#exec(String[],String[],java.io.File)
+     * @see     System#getenv()
      */
-    public ProcessBuilder command(String... command) {
-        return command(new ArrayList<String>(Arrays.asList(command)));
+    public Map<String,String> environment() {
+        SecurityManager security = System.getSecurityManager();
+        if (security != null)
+            security.checkPermission(new RuntimePermission("getenv.*"));
+
+        if (environment == null)
+            environment = ProcessEnvironment.environment();
+
+        assert environment != null;
+
+        return environment;
     }
 
-    /**
-     * Changes the program and arguments of this process builder. Note that the
-     * list passed to this method is not copied, so any subsequent updates to it
-     * are reflected in this instance's state.
-     *
-     * @param command
-     *            the new operating system program and its arguments.
-     * @return this process builder instance.
-     * @throws NullPointerException
-     *             if {@code command} is {@code null}.
-     */
-    public ProcessBuilder command(List<String> command) {
-        if (command == null) {
-            throw new NullPointerException("command == null");
+    // Only for use by Runtime.exec(...envp...)
+    ProcessBuilder environment(String[] envp) {
+        assert environment == null;
+        if (envp != null) {
+            environment = ProcessEnvironment.emptyEnvironment(envp.length);
+            assert environment != null;
+
+            for (String envstring : envp) {
+                // Before 1.5, we blindly passed invalid envstrings
+                // to the child process.
+                // We would like to throw an exception, but do not,
+                // for compatibility with old broken code.
+
+                // Silently discard any trailing junk.
+                if (envstring.indexOf((int) '\u0000') != -1)
+                    envstring = envstring.replaceFirst("\u0000.*", "");
+
+                int eqlsign =
+                    envstring.indexOf('=', ProcessEnvironment.MIN_NAME_LENGTH);
+                // Silently ignore envstrings lacking the required `='.
+                if (eqlsign != -1)
+                    environment.put(envstring.substring(0,eqlsign),
+                                    envstring.substring(eqlsign+1));
+            }
         }
-        this.command = command;
         return this;
     }
 
-    /**
-     * Returns the working directory of this process builder. If {@code null} is
-     * returned, then the working directory of the Java process is used when a
-     * process is started.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns this process builder's working directory.
      *
-     * @return the current working directory, may be {@code null}.
+     * Subprocesses subsequently started by this object's {@link
+     * #start()} method will use this as their working directory.
+     * The returned value may be <code>null</code> -- this means to use
+     * the working directory of the current Java process, usually the
+     * directory named by the system property <code>user.dir</code>,
+     * as the working directory of the child process.</p>
+     * {@description.close}
+     *
+     * @return  This process builder's working directory
      */
     public File directory() {
         return directory;
     }
 
-    /**
-     * Changes the working directory of this process builder. If the specified
-     * directory is {@code null}, then the working directory of the Java
-     * process is used when a process is started.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets this process builder's working directory.
      *
-     * @param directory
-     *            the new working directory for this process builder.
-     * @return this process builder instance.
+     * Subprocesses subsequently started by this object's {@link
+     * #start()} method will use this as their working directory.
+     * The argument may be <code>null</code> -- this means to use the
+     * working directory of the current Java process, usually the
+     * directory named by the system property <code>user.dir</code>,
+     * as the working directory of the child process.</p>
+     * {@description.close}
+     *
+     * @param   directory  The new working directory
+     * @return  This process builder
      */
     public ProcessBuilder directory(File directory) {
         this.directory = directory;
         return this;
     }
 
-    /**
-     * Returns this process builder's current environment. When a process
-     * builder instance is created, the environment is populated with a copy of
-     * the environment, as returned by {@link System#getenv()}. Note that the
-     * map returned by this method is not a copy and any changes made to it are
-     * reflected in this instance's state.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Tells whether this process builder merges standard error and
+     * standard output.
      *
-     * @return the map containing this process builder's environment variables.
-     */
-    public Map<String, String> environment() {
-        return environment;
-    }
-
-    /**
-     * Indicates whether the standard error should be redirected to standard
-     * output. If redirected, the {@link Process#getErrorStream()} will always
-     * return end of stream and standard error is written to
-     * {@link Process#getInputStream()}.
+     * <p>If this property is <code>true</code>, then any error output
+     * generated by subprocesses subsequently started by this object's
+     * {@link #start()} method will be merged with the standard
+     * output, so that both can be read using the
+     * {@link Process#getInputStream()} method.  This makes it easier
+     * to correlate error messages with the corresponding output.
+     * The initial value is <code>false</code>.</p>
+     * {@description.close}
      *
-     * @return {@code true} if the standard error is redirected; {@code false}
-     *         otherwise.
+     * @return  This process builder's <code>redirectErrorStream</code> property
      */
     public boolean redirectErrorStream() {
         return redirectErrorStream;
     }
 
-    /**
-     * Changes the state of whether or not standard error is redirected to
-     * standard output.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets this process builder's <code>redirectErrorStream</code> property.
      *
-     * @param redirectErrorStream
-     *            {@code true} to redirect standard error, {@code false}
-     *            otherwise.
-     * @return this process builder instance.
+     * <p>If this property is <code>true</code>, then any error output
+     * generated by subprocesses subsequently started by this object's
+     * {@link #start()} method will be merged with the standard
+     * output, so that both can be read using the
+     * {@link Process#getInputStream()} method.  This makes it easier
+     * to correlate error messages with the corresponding output.
+     * The initial value is <code>false</code>.</p>
+     * {@description.close}
+     *
+     * @param   redirectErrorStream  The new property value
+     * @return  This process builder
      */
     public ProcessBuilder redirectErrorStream(boolean redirectErrorStream) {
         this.redirectErrorStream = redirectErrorStream;
         return this;
     }
 
-    /**
-     * Starts a new process based on the current state of this process builder.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Starts a new process using the attributes of this process builder.
      *
-     * @return the new {@code Process} instance.
-     * @throws NullPointerException
-     *             if any of the elements of {@link #command()} is {@code null}.
-     * @throws IndexOutOfBoundsException
-     *             if {@link #command()} is empty.
-     * @throws IOException
-     *             if an I/O error happens.
+     * <p>The new process will
+     * invoke the command and arguments given by {@link #command()},
+     * in a working directory as given by {@link #directory()},
+     * with a process environment as given by {@link #environment()}.
+     *
+     * <p>This method checks that the command is a valid operating
+     * system command.  Which commands are valid is system-dependent,
+     * but at the very least the command must be a non-empty list of
+     * non-null strings.
+     *
+     * <p>If there is a security manager, its
+     * {@link SecurityManager#checkExec checkExec}
+     * method is called with the first component of this object's
+     * <code>command</code> array as its argument. This may result in
+     * a {@link SecurityException} being thrown.
+     *
+     * <p>Starting an operating system process is highly system-dependent.
+     * Among the many things that can go wrong are:
+     * <ul>
+     * <li>The operating system program file was not found.
+     * <li>Access to the program file was denied.
+     * <li>The working directory does not exist.
+     * </ul>
+     *
+     * <p>In such cases an exception will be thrown.  The exact nature
+     * of the exception is system-dependent, but it will always be a
+     * subclass of {@link IOException}.
+     *
+     * <p>Subsequent modifications to this process builder will not
+     * affect the returned {@link Process}.</p>
+     * {@description.close}
+     *
+     * @return  A new {@link Process} object for managing the subprocess
+     *
+     * @throws  NullPointerException
+     *          If an element of the command list is null
+     *
+     * @throws  IndexOutOfBoundsException
+     *          If the command is an empty list (has size <code>0</code>)
+     *
+     * @throws  SecurityException
+     *          If a security manager exists and its
+     *          {@link SecurityManager#checkExec checkExec}
+     *          method doesn't allow creation of the subprocess
+     *
+     * @throws  IOException
+     *          If an I/O error occurs
+     *
+     * @see     Runtime#exec(String[], String[], java.io.File)
+     * @see     SecurityManager#checkExec(String)
      */
     public Process start() throws IOException {
-        // We push responsibility for argument checking into ProcessManager.
-        String[] cmdArray = command.toArray(new String[command.size()]);
-        String[] envArray = new String[environment.size()];
-        int i = 0;
-        for (Map.Entry<String, String> entry : environment.entrySet()) {
-            envArray[i++] = entry.getKey() + "=" + entry.getValue();
+        // Must convert to array first -- a malicious user-supplied
+        // list might try to circumvent the security check.
+        String[] cmdarray = command.toArray(new String[command.size()]);
+        cmdarray = cmdarray.clone();
+        for (String arg : cmdarray)
+            if (arg == null)
+                throw new NullPointerException();
+        // Throws IndexOutOfBoundsException if command is empty
+        String prog = cmdarray[0];
+
+        SecurityManager security = System.getSecurityManager();
+        if (security != null)
+            security.checkExec(prog);
+
+        String dir = directory == null ? null : directory.toString();
+
+        try {
+            return ProcessImpl.start(cmdarray,
+                                     environment,
+                                     dir,
+                                     redirectErrorStream);
+        } catch (IOException e) {
+            // It's much easier for us to create a high-quality error
+            // message than the low-level C code which found the problem.
+            throw new IOException(
+                "Cannot run program \"" + prog + "\""
+                + (dir == null ? "" : " (in directory \"" + dir + "\")")
+                + ": " + e.getMessage(),
+                e);
         }
-        return ProcessManager.getInstance().exec(cmdArray, envArray, directory, redirectErrorStream);
     }
 }

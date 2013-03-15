@@ -1,14 +1,40 @@
 /*
- * Written by Doug Lea with assistance from members of JCP JSR-166
- * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
-// BEGIN android-note
-// omit links to ForkJoinPool, ForkJoinTask, LinkedTransferQueue, PHaser, TransferQueue
-// END android-note
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
+ * Written by Doug Lea with assistance from members of JCP JSR-166
+ * Expert Group and released to the public domain, as explained at
+ * http://creativecommons.org/licenses/publicdomain
+ */
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * Utility classes commonly useful in concurrent programming.  This
  * package includes a few small standardized extensible frameworks, as
  * well as some classes that provide useful functionality and are
@@ -112,23 +138,14 @@
  * <h2>Synchronizers</h2>
  *
  * Four classes aid common special-purpose synchronization idioms.
- * <ul>
- *
- * <li>{@link java.util.concurrent.Semaphore} is a classic concurrency tool.
- *
- * <li>{@link java.util.concurrent.CountDownLatch} is a very simple yet
- * very common utility for blocking until a given number of signals,
- * events, or conditions hold.
- *
- * <li>A {@link java.util.concurrent.CyclicBarrier} is a resettable
- * multiway synchronization point useful in some styles of parallel
- * programming.
- *
- * <li>An {@link java.util.concurrent.Exchanger} allows two threads to
- * exchange objects at a rendezvous point, and is useful in several
- * pipeline designs.
- *
- * </ul>
+ * {@link java.util.concurrent.Semaphore} is a classic concurrency tool.
+ * {@link java.util.concurrent.CountDownLatch} is a very simple yet very
+ * common utility for blocking until a given number of signals, events,
+ * or conditions hold.  A {@link java.util.concurrent.CyclicBarrier} is a
+ * resettable multiway synchronization point useful in some styles of
+ * parallel programming.  An {@link java.util.concurrent.Exchanger} allows
+ * two threads to exchange objects at a rendezvous point, and is useful
+ * in several pipeline designs.
  *
  * <h2>Concurrent Collections</h2>
  *
@@ -146,7 +163,7 @@
  * A {@code CopyOnWriteArrayList} is preferable to a synchronized
  * {@code ArrayList} when the expected number of reads and traversals
  * greatly outnumber the number of updates to a list.
- *
+
  * <p>The "Concurrent" prefix used with some classes in this package
  * is a shorthand indicating several differences from similar
  * "synchronized" classes.  For example {@code java.util.Hashtable} and
@@ -243,14 +260,14 @@
  *   in each thread <i>happen-before</i> those subsequent to the
  *   corresponding {@code exchange()} in another thread.
  *
- *   <li>Actions prior to calling {@code CyclicBarrier.await} and
- *   {@code Phaser.awaitAdvance} (as well as its variants)
+ *   <li>Actions prior to calling {@code CyclicBarrier.await}
  *   <i>happen-before</i> actions performed by the barrier action, and
  *   actions performed by the barrier action <i>happen-before</i> actions
  *   subsequent to a successful return from the corresponding {@code await}
  *   in other threads.
  *
  * </ul>
+ * {@description.close}
  *
  * @since 1.5
  */

@@ -215,7 +215,7 @@ public class WebViewClient {
 	 * {@property.open}
 	 * The host application must call either handler.cancel() or
      * handler.proceed().
-	 * {@poperty.close}
+	 * {@property.close}
 	 * {@description.open}
 	 * Note that the decision may be retained for use in
      * response to future SSL errors. The default behavior is to cancel the

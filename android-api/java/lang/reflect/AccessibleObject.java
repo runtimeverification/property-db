@@ -1,320 +1,202 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*
- * Copyright (C) 2008 The Android Open Source Project
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang.reflect;
 
+import java.security.AccessController;
+import sun.reflect.ReflectionFactory;
 import java.lang.annotation.Annotation;
-import java.util.Hashtable;
-import org.apache.harmony.kernel.vm.StringUtils;
 
-/**
- * {@code AccessibleObject} is the superclass of all member reflection classes
- * (Field, Constructor, Method). AccessibleObject provides the ability to toggle
- * a flag controlling access checks for these objects. By default, accessing a
- * member (for example, setting a field or invoking a method) checks the
- * validity of the access (for example, invoking a private method from outside
- * the defining class is prohibited) and throws IllegalAccessException if the
- * operation is not permitted. If the accessible flag is set to true, these
- * checks are omitted. This allows privileged code, such as Java object
- * serialization, object inspectors, and debuggers to have complete access to
- * objects.
+/** {@collect.stats} 
+ * The AccessibleObject class is the base class for Field, Method and
+ * Constructor objects.  It provides the ability to flag a reflected
+ * object as suppressing default Java language access control checks
+ * when it is used.  The access checks--for public, default (package)
+ * access, protected, and private members--are performed when Fields,
+ * Methods or Constructors are used to set or get fields, to invoke
+ * methods, or to create and initialize new instances of classes,
+ * respectively.
+ *
+ * <p>Setting the {@code accessible} flag in a reflected object
+ * permits sophisticated applications with sufficient privilege, such
+ * as Java Object Serialization or other persistence mechanisms, to
+ * manipulate objects in a manner that would normally be prohibited.
  *
  * @see Field
- * @see Constructor
  * @see Method
+ * @see Constructor
+ * @see ReflectPermission
+ *
+ * @since 1.2
  */
 public class AccessibleObject implements AnnotatedElement {
 
-    // If true, object is accessible, bypassing normal access checks
-    boolean flag = false;
-
-    // Holds a mapping from Java type names to native type codes.
-    static Hashtable<String, String> trans;
-
-    static {
-        trans = new Hashtable<String, String>(9);
-        trans.put("byte", "B");
-        trans.put("char", "C");
-        trans.put("short", "S");
-        trans.put("int", "I");
-        trans.put("long", "J");
-        trans.put("float", "F");
-        trans.put("double", "D");
-        trans.put("void", "V");
-        trans.put("boolean", "Z");
-    }
-
-    /**
-     * Attempts to set the value of the accessible flag for all the objects in
-     * the array provided. Setting this
-     * flag to {@code false} will enable access checks, setting to {@code true}
-     * will disable them.
-     *
-     * @param objects
-     *            the accessible objects
-     * @param flag
-     *            the new value for the accessible flag
-     *
-     * @see #setAccessible(boolean)
+    /** {@collect.stats} 
+     * The Permission object that is used to check whether a client
+     * has sufficient privilege to defeat Java language access
+     * control checks.
      */
-    public static void setAccessible(AccessibleObject[] objects, boolean flag) {
-        synchronized(AccessibleObject.class) {
-            for (AccessibleObject object : objects) {
-                object.flag = flag;
-            }
+    static final private java.security.Permission ACCESS_PERMISSION =
+        new ReflectPermission("suppressAccessChecks");
+
+    /** {@collect.stats} 
+     * Convenience method to set the {@code accessible} flag for an
+     * array of objects with a single security check (for efficiency).
+     *
+     * <p>First, if there is a security manager, its
+     * {@code checkPermission} method is called with a
+     * {@code ReflectPermission("suppressAccessChecks")} permission.
+     *
+     * <p>A {@code SecurityException} is raised if {@code flag} is
+     * {@code true} but accessibility of any of the elements of the input
+     * {@code array} may not be changed (for example, if the element
+     * object is a {@link Constructor} object for the class {@link
+     * java.lang.Class}).  In the event of such a SecurityException, the
+     * accessibility of objects is set to {@code flag} for array elements
+     * upto (and excluding) the element for which the exception occurred; the
+     * accessibility of elements beyond (and including) the element for which
+     * the exception occurred is unchanged.
+     *
+     * @param array the array of AccessibleObjects
+     * @param flag  the new value for the {@code accessible} flag
+     *              in each object
+     * @throws SecurityException if the request is denied.
+     * @see SecurityManager#checkPermission
+     * @see java.lang.RuntimePermission
+     */
+    public static void setAccessible(AccessibleObject[] array, boolean flag)
+        throws SecurityException {
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) sm.checkPermission(ACCESS_PERMISSION);
+        for (int i = 0; i < array.length; i++) {
+            setAccessible0(array[i], flag);
         }
     }
 
-    /**
-     * Constructs a new {@code AccessibleObject} instance. {@code
-     * AccessibleObject} instances can only be constructed by the virtual
-     * machine.
+    /** {@collect.stats} 
+     * Set the {@code accessible} flag for this object to
+     * the indicated boolean value.  A value of {@code true} indicates that
+     * the reflected object should suppress Java language access
+     * checking when it is used.  A value of {@code false} indicates
+     * that the reflected object should enforce Java language access checks.
+     *
+     * <p>First, if there is a security manager, its
+     * {@code checkPermission} method is called with a
+     * {@code ReflectPermission("suppressAccessChecks")} permission.
+     *
+     * <p>A {@code SecurityException} is raised if {@code flag} is
+     * {@code true} but accessibility of this object may not be changed
+     * (for example, if this element object is a {@link Constructor} object for
+     * the class {@link java.lang.Class}).
+     *
+     * <p>A {@code SecurityException} is raised if this object is a {@link
+     * java.lang.reflect.Constructor} object for the class
+     * {@code java.lang.Class}, and {@code flag} is true.
+     *
+     * @param flag the new value for the {@code accessible} flag
+     * @throws SecurityException if the request is denied.
+     * @see SecurityManager#checkPermission
+     * @see java.lang.RuntimePermission
      */
-    protected AccessibleObject() {
+    public void setAccessible(boolean flag) throws SecurityException {
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) sm.checkPermission(ACCESS_PERMISSION);
+        setAccessible0(this, flag);
     }
 
-    /**
-     * Indicates whether this object is accessible without access checks being
-     * performed. Returns the accessible flag.
+    /* Check that you aren't exposing java.lang.Class.<init>. */
+    private static void setAccessible0(AccessibleObject obj, boolean flag)
+        throws SecurityException
+    {
+        if (obj instanceof Constructor && flag == true) {
+            Constructor c = (Constructor)obj;
+            if (c.getDeclaringClass() == Class.class) {
+                throw new SecurityException("Can not make a java.lang.Class" +
+                                            " constructor accessible");
+            }
+        }
+        obj.override = flag;
+    }
+
+    /** {@collect.stats} 
+     * Get the value of the {@code accessible} flag for this object.
      *
-     * @return {@code true} if this object is accessible without access
-     *         checks, {@code false} otherwise
+     * @return the value of the object's {@code accessible} flag
      */
     public boolean isAccessible() {
-        return flag;
+        return override;
     }
 
-    /**
-     * Attempts to set the value of the accessible flag. Setting this flag to
-     * {@code false} will enable access checks, setting to {@code true} will
-     * disable them.
-     *
-     * @param flag
-     *            the new value for the accessible flag
+    /** {@collect.stats} 
+     * Constructor: only used by the Java Virtual Machine.
      */
-    public void setAccessible(boolean flag) {
-        this.flag = flag;
+    protected AccessibleObject() {}
+
+    // Indicates whether language-level access checks are overridden
+    // by this object. Initializes to "false". This field is used by
+    // Field, Method, and Constructor.
+    //
+    // NOTE: for security purposes, this field must not be visible
+    // outside this package.
+    boolean override;
+
+    // Reflection factory used by subclasses for creating field,
+    // method, and constructor accessors. Note that this is called
+    // very early in the bootstrapping process.
+    static final ReflectionFactory reflectionFactory = (ReflectionFactory)
+        AccessController.doPrivileged
+            (new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());
+
+    /** {@collect.stats} 
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.5
+     */
+    public <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
+        throw new AssertionError("All subclasses should override this method");
     }
 
-    public boolean isAnnotationPresent(Class<? extends Annotation> annotationType) {
-        throw new UnsupportedOperationException();
+    /** {@collect.stats} 
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.5
+     */
+    public boolean isAnnotationPresent(
+        Class<? extends Annotation> annotationClass) {
+        return getAnnotation(annotationClass) != null;
     }
 
-    public Annotation[] getDeclaredAnnotations() {
-        throw new UnsupportedOperationException();
-    }
-
+    /** {@collect.stats} 
+     * @since 1.5
+     */
     public Annotation[] getAnnotations() {
-        // for all but Class, getAnnotations == getDeclaredAnnotations
         return getDeclaredAnnotations();
     }
 
-    public <T extends Annotation> T getAnnotation(Class<T> annotationType) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Returns the signature for a class. This is the kind of signature used
-     * internally by the JVM, with one-character codes representing the basic
-     * types. It is not suitable for printing.
-     *
-     * @param clazz
-     *            the class for which a signature is required
-     *
-     * @return The signature as a string
+    /** {@collect.stats} 
+     * @since 1.5
      */
-    String getSignature(Class<?> clazz) {
-        String result = "";
-        String nextType = clazz.getName();
-
-        if(trans.containsKey(nextType)) {
-            result = trans.get(nextType);
-        } else {
-            if(clazz.isArray()) {
-                result = "[" + getSignature(clazz.getComponentType());
-            } else {
-                result = "L" + nextType + ";";
-            }
-        }
-        return result;
-    }
-
-    /**
-     * Returns a printable String consisting of the canonical names of the
-     * classes contained in an array. The form is that used in parameter and
-     * exception lists, that is, the class or type names are separated by
-     * commas.
-     *
-     * @param types
-     *            the array of classes
-     *
-     * @return The String of names
-     */
-    String toString(Class<?>[] types) {
-        StringBuilder result = new StringBuilder();
-
-        if (types.length != 0) {
-            appendTypeName(result, types[0]);
-            for (int i = 1; i < types.length; i++) {
-                result.append(',');
-                appendTypeName(result, types[i]);
-            }
-        }
-
-        return result.toString();
-    }
-
-    /**
-     * Gets the Signature attribute for this instance. Returns {@code null}
-     * if not found.
-     */
-    /*package*/ String getSignatureAttribute() {
-        /*
-         * Note: This method would have been declared abstract, but the
-         * standard API lists this class as concrete.
-         */
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Retrieve the signature attribute from an arbitrary class.  This is
-     * the same as Class.getSignatureAttribute(), but it can be used from
-     * the java.lang.reflect package.
-     */
-    /*package*/ static String getClassSignatureAttribute(Class clazz) {
-        Object[] annotation = getClassSignatureAnnotation(clazz);
-
-        if (annotation == null) {
-            return null;
-        }
-
-        return StringUtils.combineStrings(annotation);
-    }
-
-    /**
-     * Retrieve the signature annotation from an arbitrary class.  This is
-     * the same as Class.getSignatureAttribute(), but it can be used from
-     * the java.lang.reflect package.
-     */
-    private static native Object[] getClassSignatureAnnotation(Class clazz);
-
-    /**
-     * Appends the best {@link #toString} name for {@code c} to {@code out}.
-     * This works around the fact that {@link Class#getName} is lousy for
-     * primitive arrays (it writes "[C" instead of "char[]") and {@link
-     * Class#getCanonicalName()} is lousy for nested classes (it uses a "."
-     * separator rather than a "$" separator).
-     */
-    void appendTypeName(StringBuilder out, Class<?> c) {
-        int dimensions = 0;
-        while (c.isArray()) {
-            c = c.getComponentType();
-            dimensions++;
-        }
-        out.append(c.getName());
-        for (int d = 0; d < dimensions; d++) {
-            out.append("[]");
-        }
-    }
-
-    /**
-     * Appends names of the specified array classes to the buffer. The array
-     * elements may represent a simple type, a reference type or an array type.
-     * Output format: java.lang.Object[], java.io.File, void
-     *
-     * @param types array of classes to print the names
-     * @throws NullPointerException if any of the arguments is null
-     */
-    void appendArrayGenericType(StringBuilder sb, Type[] types) {
-        if (types.length > 0) {
-            appendGenericType(sb, types[0]);
-            for (int i = 1; i < types.length; i++) {
-                sb.append(',');
-                appendGenericType(sb, types[i]);
-            }
-        }
-    }
-
-    /**
-     * Appends the generic type representation to the buffer.
-     *
-     * @param sb buffer
-     * @param obj the generic type which representation should be appended to the buffer
-     *
-     * @throws NullPointerException if any of the arguments is null
-     */
-    void appendGenericType(StringBuilder sb, Type obj) {
-        if (obj instanceof TypeVariable) {
-            sb.append(((TypeVariable)obj).getName());
-        } else if (obj instanceof ParameterizedType) {
-            sb.append(obj.toString());
-        } else if (obj instanceof GenericArrayType) { //XXX: is it a working branch?
-            Type simplified = ((GenericArrayType)obj).getGenericComponentType();
-            appendGenericType(sb, simplified);
-            sb.append("[]");
-        } else if (obj instanceof Class) {
-            Class c = ((Class<?>)obj);
-            if (c.isArray()){
-                String as[] = c.getName().split("\\[");
-                int len = as.length-1;
-                if (as[len].length() > 1){
-                    sb.append(as[len].substring(1, as[len].length()-1));
-                } else {
-                    char ch = as[len].charAt(0);
-                    if (ch == 'I')
-                        sb.append("int");
-                    else if (ch == 'B')
-                        sb.append("byte");
-                    else if (ch == 'J')
-                        sb.append("long");
-                    else if (ch == 'F')
-                        sb.append("float");
-                    else if (ch == 'D')
-                        sb.append("double");
-                    else if (ch == 'S')
-                        sb.append("short");
-                    else if (ch == 'C')
-                        sb.append("char");
-                    else if (ch == 'Z')
-                        sb.append("boolean");
-                    else if (ch == 'V') //XXX: is it a working branch?
-                        sb.append("void");
-                }
-                for (int i = 0; i < len; i++){
-                    sb.append("[]");
-                }
-            } else {
-                sb.append(c.getName());
-            }
-        }
+    public Annotation[] getDeclaredAnnotations()  {
+        throw new AssertionError("All subclasses should override this method");
     }
 }

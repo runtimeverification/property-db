@@ -1,13 +1,43 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * {@code Lock} implementations provide more extensive locking
  * operations than can be obtained using {@code synchronized} methods
  * and statements.  They allow more flexible structuring, may have
@@ -20,14 +50,18 @@ import java.util.concurrent.TimeUnit;
  * all access to the shared resource requires that the lock be
  * acquired first. However, some locks may allow concurrent access to
  * a shared resource, such as the read lock of a {@link ReadWriteLock}.
+ * {@description.close}
  *
+ * {@property.open}
  * <p>The use of {@code synchronized} methods or statements provides
  * access to the implicit monitor lock associated with every object, but
  * forces all lock acquisition and release to occur in a block-structured way:
  * when multiple locks are acquired they must be released in the opposite
  * order, and all locks must be released in the same lexical scope in which
  * they were acquired.
+ * {@property.close}
  *
+ * {@description.open}
  * <p>While the scoping mechanism for {@code synchronized} methods
  * and statements makes it much easier to program with monitor locks,
  * and helps avoid many common programming errors involving locks,
@@ -48,14 +82,14 @@ import java.util.concurrent.TimeUnit;
  * methods and statements. In most cases, the following idiom
  * should be used:
  *
- *  <pre> {@code
- * Lock l = ...;
- * l.lock();
- * try {
- *   // access the resource protected by this lock
- * } finally {
- *   l.unlock();
- * }}</pre>
+ * <pre><tt>     Lock l = ...;
+ *     l.lock();
+ *     try {
+ *         // access the resource protected by this lock
+ *     } finally {
+ *         l.unlock();
+ *     }
+ * </tt></pre>
  *
  * When locking and unlocking occur in different scopes, care must be
  * taken to ensure that all code that is executed while the lock is
@@ -126,6 +160,7 @@ import java.util.concurrent.TimeUnit;
  * to an interrupt over normal method return. This is true even if it can be
  * shown that the interrupt occurred after another action may have unblocked
  * the thread. An implementation should document this behavior.
+ * {@description.close}
  *
  * @see ReentrantLock
  * @see Condition
@@ -136,7 +171,8 @@ import java.util.concurrent.TimeUnit;
  */
 public interface Lock {
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Acquires the lock.
      *
      * <p>If the lock is not available then the current thread becomes
@@ -150,10 +186,12 @@ public interface Lock {
      * may throw an (unchecked) exception in such circumstances.  The
      * circumstances and the exception type must be documented by that
      * {@code Lock} implementation.
+     * {@description.close}
      */
     void lock();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Acquires the lock unless the current thread is
      * {@linkplain Thread#interrupt interrupted}.
      *
@@ -194,6 +232,7 @@ public interface Lock {
      * cause deadlock, and may throw an (unchecked) exception in such
      * circumstances.  The circumstances and the exception type must
      * be documented by that {@code Lock} implementation.
+     * {@description.close}
      *
      * @throws InterruptedException if the current thread is
      *         interrupted while acquiring the lock (and interruption
@@ -201,7 +240,8 @@ public interface Lock {
      */
     void lockInterruptibly() throws InterruptedException;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Acquires the lock only if it is free at the time of invocation.
      *
      * <p>Acquires the lock if it is available and returns immediately
@@ -210,27 +250,29 @@ public interface Lock {
      * immediately with the value {@code false}.
      *
      * <p>A typical usage idiom for this method would be:
-     *  <pre> {@code
-     * Lock lock = ...;
-     * if (lock.tryLock()) {
-     *   try {
-     *     // manipulate protected state
-     *   } finally {
-     *     lock.unlock();
-     *   }
-     * } else {
-     *   // perform alternative actions
-     * }}</pre>
-     *
+     * <pre>
+     *      Lock lock = ...;
+     *      if (lock.tryLock()) {
+     *          try {
+     *              // manipulate protected state
+     *          } finally {
+     *              lock.unlock();
+     *          }
+     *      } else {
+     *          // perform alternative actions
+     *      }
+     * </pre>
      * This usage ensures that the lock is unlocked if it was acquired, and
      * doesn't try to unlock if the lock was not acquired.
+     * {@description.close}
      *
      * @return {@code true} if the lock was acquired and
      *         {@code false} otherwise
      */
     boolean tryLock();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Acquires the lock if it is free within the given waiting time and the
      * current thread has not been {@linkplain Thread#interrupt interrupted}.
      *
@@ -278,6 +320,7 @@ public interface Lock {
      * deadlock, and may throw an (unchecked) exception in such circumstances.
      * The circumstances and the exception type must be documented by that
      * {@code Lock} implementation.
+     * {@description.close}
      *
      * @param time the maximum time to wait for the lock
      * @param unit the time unit of the {@code time} argument
@@ -290,7 +333,8 @@ public interface Lock {
      */
     boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Releases the lock.
      *
      * <p><b>Implementation Considerations</b>
@@ -301,10 +345,12 @@ public interface Lock {
      * an (unchecked) exception if the restriction is violated.
      * Any restrictions and the exception
      * type must be documented by that {@code Lock} implementation.
+     * {@description.close}
      */
     void unlock();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns a new {@link Condition} instance that is bound to this
      * {@code Lock} instance.
      *
@@ -318,6 +364,7 @@ public interface Lock {
      * <p>The exact operation of the {@link Condition} instance depends on
      * the {@code Lock} implementation and must be documented by that
      * implementation.
+     * {@description.close}
      *
      * @return A new {@link Condition} instance for this {@code Lock} instance
      * @throws UnsupportedOperationException if this {@code Lock}

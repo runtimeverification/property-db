@@ -1,463 +1,562 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1995, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.zip;
 
-import dalvik.system.CloseGuard;
-import java.io.BufferedInputStream;
-import java.io.EOFException;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.nio.ByteOrder;
+import java.io.IOException;
+import java.io.EOFException;
+import java.io.File;
+import java.util.Vector;
 import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import libcore.io.BufferIterator;
-import libcore.io.HeapBufferIterator;
-import libcore.io.Streams;
+import java.util.NoSuchElementException;
 
-/**
- * This class provides random read access to a <i>ZIP-archive</i> file.
- * <p>
- * While {@code ZipInputStream} provides stream based read access to a
- * <i>ZIP-archive</i>, this class implements more efficient (file based) access
- * and makes use of the <i>central directory</i> within a <i>ZIP-archive</i>.
- * <p>
- * Use {@code ZipOutputStream} if you want to create an archive.
- * <p>
- * A temporary ZIP file can be marked for automatic deletion upon closing it.
+/** {@collect.stats} 
+ * {@description.open}
+ * This class is used to read entries from a zip file.
  *
- * @see ZipEntry
- * @see ZipOutputStream
+ * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
+ * or method in this class will cause a {@link NullPointerException} to be
+ * thrown.
+ * {@description.close}
+ *
+ * @author      David Connelly
  */
-public class ZipFile implements ZipConstants {
-    /**
-     * General Purpose Bit Flags, Bit 3.
-     * If this bit is set, the fields crc-32, compressed
-     * size and uncompressed size are set to zero in the
-     * local header.  The correct values are put in the
-     * data descriptor immediately following the compressed
-     * data.  (Note: PKZIP version 2.04g for DOS only
-     * recognizes this bit for method 8 compression, newer
-     * versions of PKZIP recognize this bit for any
-     * compression method.)
+public
+class ZipFile implements ZipConstants {
+    private long jzfile;  // address of jzfile data
+    private String name;  // zip file name
+    private int total;    // total number of entries
+    private boolean closeRequested;
+
+    private static final int STORED = ZipEntry.STORED;
+    private static final int DEFLATED = ZipEntry.DEFLATED;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Mode flag to open a zip file for reading.
+     * {@description.close}
      */
-    static final int GPBF_DATA_DESCRIPTOR_FLAG = 1 << 3;
+    public static final int OPEN_READ = 0x1;
 
-    /**
-     * General Purpose Bit Flags, Bit 11.
-     * Language encoding flag (EFS).  If this bit is set,
-     * the filename and comment fields for this file
-     * must be encoded using UTF-8.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Mode flag to open a zip file and mark it for deletion.  The file will be
+     * deleted some time between the moment that it is opened and the moment
+     * that it is closed, but its contents will remain accessible via the
+     * <tt>ZipFile</tt> object until either the close method is invoked or the
+     * virtual machine exits.
+     * {@description.close}
      */
-    static final int GPBF_UTF8_FLAG = 1 << 11;
+    public static final int OPEN_DELETE = 0x4;
 
-    /**
-     * Open ZIP file for read.
-     */
-    public static final int OPEN_READ = 1;
-
-    /**
-     * Delete ZIP file when closed.
-     */
-    public static final int OPEN_DELETE = 4;
-
-    private final String fileName;
-
-    private File fileToDeleteOnClose;
-
-    private RandomAccessFile mRaf;
-
-    private final LinkedHashMap<String, ZipEntry> mEntries = new LinkedHashMap<String, ZipEntry>();
-
-    private final CloseGuard guard = CloseGuard.get();
-
-    /**
-     * Constructs a new {@code ZipFile} with the specified file.
-     *
-     * @param file
-     *            the file to read from.
-     * @throws ZipException
-     *             if a ZIP error occurs.
-     * @throws IOException
-     *             if an {@code IOException} occurs.
-     */
-    public ZipFile(File file) throws ZipException, IOException {
-        this(file, OPEN_READ);
+    static {
+        /* Zip library is loaded from System.initializeSystemClass */
+        initIDs();
     }
 
-    /**
-     * Opens a file as <i>ZIP-archive</i>. "mode" must be {@code OPEN_READ} or
-     * {@code OPEN_DELETE} . The latter sets the "delete on exit" flag through a
-     * file.
+    private static native void initIDs();
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Opens a zip file for reading.
      *
-     * @param file
-     *            the ZIP file to read.
-     * @param mode
-     *            the mode of the file open operation.
-     * @throws IOException
-     *             if an {@code IOException} occurs.
-     */
-    public ZipFile(File file, int mode) throws IOException {
-        fileName = file.getPath();
-        if (mode != OPEN_READ && mode != (OPEN_READ | OPEN_DELETE)) {
-            throw new IllegalArgumentException();
-        }
-
-        if ((mode & OPEN_DELETE) != 0) {
-            fileToDeleteOnClose = file; // file.deleteOnExit();
-        } else {
-            fileToDeleteOnClose = null;
-        }
-
-        mRaf = new RandomAccessFile(fileName, "r");
-
-        readCentralDir();
-        guard.open("close");
-    }
-
-    /**
-     * Opens a ZIP archived file.
+     * <p>First, if there is a security
+     * manager, its <code>checkRead</code> method
+     * is called with the <code>name</code> argument
+     * as its argument to ensure the read is allowed.
+     * {@description.close}
      *
-     * @param name
-     *            the name of the ZIP file.
-     * @throws IOException
-     *             if an IOException occurs.
+     * @param name the name of the zip file
+     * @throws ZipException if a ZIP format error has occurred
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if a security manager exists and its
+     *         <code>checkRead</code> method doesn't allow read access to the file.
+     * @see SecurityManager#checkRead(java.lang.String)
      */
     public ZipFile(String name) throws IOException {
         this(new File(name), OPEN_READ);
     }
 
-    @Override protected void finalize() throws IOException {
-        try {
-            if (guard != null) {
-                guard.warnIfOpen();
-            }
-        } finally {
-            try {
-                super.finalize();
-            } catch (Throwable t) {
-                throw new AssertionError(t);
-            }
-        }
-    }
-
-	/** {@collect.stats}
-	 * {@description.open}
-	 * Closes this ZIP file. This method is idempotent.
-	 * {@description.close}
-	 *
-	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
-	 * <p>Although only the first call has any effect, it is safe to call close
-	 * multiple times on the same object. This is more lenient than the
-	 * overridden {@code AutoCloseable.close()}, which may be called at most
-	 * once.
-	 * {@property.close}
+    /** {@collect.stats} 
+     * {@description.open}
+     * Opens a new <code>ZipFile</code> to read from the specified
+     * <code>File</code> object in the specified mode.  The mode argument
+     * must be either <tt>OPEN_READ</tt> or <tt>OPEN_READ | OPEN_DELETE</tt>.
      *
-     * @throws IOException
-     *             if an IOException occurs.
+     * <p>First, if there is a security manager, its <code>checkRead</code>
+     * method is called with the <code>name</code> argument as its argument to
+     * ensure the read is allowed.
+     * {@description.close}
+     *
+     * @param file the ZIP file to be opened for reading
+     * @param mode the mode in which the file is to be opened
+     * @throws ZipException if a ZIP format error has occurred
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if a security manager exists and
+     *         its <code>checkRead</code> method
+     *         doesn't allow read access to the file,
+     *         or its <code>checkDelete</code> method doesn't allow deleting
+     *         the file when the <tt>OPEN_DELETE</tt> flag is set.
+     * @throws IllegalArgumentException if the <tt>mode</tt> argument is invalid
+     * @see SecurityManager#checkRead(java.lang.String)
+     * @since 1.3
      */
-    public void close() throws IOException {
-        guard.close();
-        RandomAccessFile raf = mRaf;
-
-        if (raf != null) { // Only close initialized instances
-            synchronized(raf) {
-                mRaf = null;
-                raf.close();
-            }
-            if (fileToDeleteOnClose != null) {
-                fileToDeleteOnClose.delete();
-                fileToDeleteOnClose = null;
+    public ZipFile(File file, int mode) throws IOException {
+        if (((mode & OPEN_READ) == 0) ||
+            ((mode & ~(OPEN_READ | OPEN_DELETE)) != 0)) {
+            throw new IllegalArgumentException("Illegal mode: 0x"+
+                                               Integer.toHexString(mode));
+        }
+        String name = file.getPath();
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) {
+            sm.checkRead(name);
+            if ((mode & OPEN_DELETE) != 0) {
+                sm.checkDelete(name);
             }
         }
+        jzfile = open(name, mode, file.lastModified());
+
+        this.name = name;
+        this.total = getTotal(jzfile);
     }
 
-    private void checkNotClosed() {
-        if (mRaf == null) {
-            throw new IllegalStateException("Zip file closed");
-        }
-    }
+    private static native long open(String name, int mode, long lastModified);
+    private static native int getTotal(long jzfile);
 
-    /**
-     * Returns an enumeration of the entries. The entries are listed in the
-     * order in which they appear in the ZIP archive.
-     *
-     * @return the enumeration of the entries.
-     * @throws IllegalStateException if this ZIP file has been closed.
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Opens a ZIP file for reading given the specified File object.
+     * {@description.close}
+     * @param file the ZIP file to be opened for reading
+     * @throws ZipException if a ZIP error has occurred
+     * @throws IOException if an I/O error has occurred
      */
-    public Enumeration<? extends ZipEntry> entries() {
-        checkNotClosed();
-        final Iterator<ZipEntry> iterator = mEntries.values().iterator();
-
-        return new Enumeration<ZipEntry>() {
-            public boolean hasMoreElements() {
-                checkNotClosed();
-                return iterator.hasNext();
-            }
-
-            public ZipEntry nextElement() {
-                checkNotClosed();
-                return iterator.next();
-            }
-        };
+    public ZipFile(File file) throws ZipException, IOException {
+        this(file, OPEN_READ);
     }
 
-    /**
-     * Gets the ZIP entry with the specified name from this {@code ZipFile}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the zip file entry for the specified name, or null
+     * if not found.
+     * {@description.close}
      *
-     * @param entryName
-     *            the name of the entry in the ZIP file.
-     * @return a {@code ZipEntry} or {@code null} if the entry name does not
-     *         exist in the ZIP file.
-     * @throws IllegalStateException if this ZIP file has been closed.
+     * @param name the name of the entry
+     * @return the zip file entry, or null if not found
+     * @throws IllegalStateException if the zip file has been closed
      */
-    public ZipEntry getEntry(String entryName) {
-        checkNotClosed();
-        if (entryName == null) {
-            throw new NullPointerException("entryName == null");
+    public ZipEntry getEntry(String name) {
+        if (name == null) {
+            throw new NullPointerException("name");
         }
-
-        ZipEntry ze = mEntries.get(entryName);
-        if (ze == null) {
-            ze = mEntries.get(entryName + "/");
+        long jzentry = 0;
+        synchronized (this) {
+            ensureOpen();
+            jzentry = getEntry(jzfile, name, true);
+            if (jzentry != 0) {
+                ZipEntry ze = new ZipEntry(name, jzentry);
+                freeEntry(jzfile, jzentry);
+                return ze;
+            }
         }
-        return ze;
+        return null;
     }
 
-    /**
-     * Returns an input stream on the data of the specified {@code ZipEntry}.
+    private static native long getEntry(long jzfile, String name,
+                                        boolean addSlash);
+
+    // freeEntry releases the C jzentry struct.
+    private static native void freeEntry(long jzfile, long jzentry);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an input stream for reading the contents of the specified
+     * zip file entry.
+     * {@description.close}
      *
-     * @param entry
-     *            the ZipEntry.
-     * @return an input stream of the data contained in the {@code ZipEntry}.
-     * @throws IOException
-     *             if an {@code IOException} occurs.
-     * @throws IllegalStateException if this ZIP file has been closed.
+     * {@property.open}
+     * <p> Closing this ZIP file will, in turn, close all input
+     * streams that have been returned by invocations of this method.
+     * {@property.close}
+     *
+     * @param entry the zip file entry
+     * @return the input stream for reading the contents of the specified
+     * zip file entry.
+     * @throws ZipException if a ZIP format error has occurred
+     * @throws IOException if an I/O error has occurred
+     * @throws IllegalStateException if the zip file has been closed
      */
     public InputStream getInputStream(ZipEntry entry) throws IOException {
-        // Make sure this ZipEntry is in this Zip file.  We run it through the name lookup.
-        entry = getEntry(entry.getName());
-        if (entry == null) {
-            return null;
+        return getInputStream(entry.name);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an input stream for reading the contents of the specified
+     * entry, or null if the entry was not found.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open}
+     * <p> Closing this ZIP file will, in turn, close all input
+     * streams that have been returned by invocations of this method.
+     * {@new.close}
+     * {@property.close}
+     */
+    private InputStream getInputStream(String name) throws IOException {
+        if (name == null) {
+            throw new NullPointerException("name");
         }
+        long jzentry = 0;
+        ZipFileInputStream in = null;
+        synchronized (this) {
+            ensureOpen();
+            jzentry = getEntry(jzfile, name, false);
+            if (jzentry == 0) {
+                return null;
+            }
 
-        // Create an InputStream at the right part of the file.
-        RandomAccessFile raf = mRaf;
-        synchronized (raf) {
-            // We don't know the entry data's start position. All we have is the
-            // position of the entry's local header. At position 28 we find the
-            // length of the extra data. In some cases this length differs from
-            // the one coming in the central header.
-            RAFStream rafstrm = new RAFStream(raf, entry.mLocalHeaderRelOffset + 28);
-            DataInputStream is = new DataInputStream(rafstrm);
-            int localExtraLenOrWhatever = Short.reverseBytes(is.readShort());
-            is.close();
+            in = new ZipFileInputStream(jzentry);
 
-            // Skip the name and this "extra" data or whatever it is:
-            rafstrm.skip(entry.nameLength + localExtraLenOrWhatever);
-            rafstrm.mLength = rafstrm.mOffset + entry.compressedSize;
-            if (entry.compressionMethod == ZipEntry.DEFLATED) {
-                int bufSize = Math.max(1024, (int)Math.min(entry.getSize(), 65535L));
-                return new ZipInflaterInputStream(rafstrm, new Inflater(true), bufSize, entry);
+        }
+        final ZipFileInputStream zfin = in;
+        switch (getMethod(jzentry)) {
+        case STORED:
+            return zfin;
+        case DEFLATED:
+            // MORE: Compute good size for inflater stream:
+            long size = getSize(jzentry) + 2; // Inflater likes a bit of slack
+            if (size > 65536) size = 8192;
+            if (size <= 0) size = 4096;
+            return new InflaterInputStream(zfin, getInflater(), (int)size) {
+                private boolean isClosed = false;
+
+                public void close() throws IOException {
+                    if (!isClosed) {
+                         releaseInflater(inf);
+                        this.in.close();
+                        isClosed = true;
+                    }
+                }
+                // Override fill() method to provide an extra "dummy" byte
+                // at the end of the input stream. This is required when
+                // using the "nowrap" Inflater option.
+                protected void fill() throws IOException {
+                    if (eof) {
+                        throw new EOFException(
+                            "Unexpected end of ZLIB input stream");
+                    }
+                    len = this.in.read(buf, 0, buf.length);
+                    if (len == -1) {
+                        buf[0] = 0;
+                        len = 1;
+                        eof = true;
+                    }
+                    inf.setInput(buf, 0, len);
+                }
+                private boolean eof;
+
+                public int available() throws IOException {
+                    if (isClosed)
+                        return 0;
+                    long avail = zfin.size() - inf.getBytesWritten();
+                    return avail > (long) Integer.MAX_VALUE ?
+                        Integer.MAX_VALUE : (int) avail;
+                }
+            };
+        default:
+            throw new ZipException("invalid compression method");
+        }
+    }
+
+    private static native int getMethod(long jzentry);
+
+    /*
+     * Gets an inflater from the list of available inflaters or allocates
+     * a new one.
+     */
+    private Inflater getInflater() {
+        synchronized (inflaters) {
+            int size = inflaters.size();
+            if (size > 0) {
+                Inflater inf = (Inflater)inflaters.remove(size - 1);
+                inf.reset();
+                return inf;
             } else {
-                return rafstrm;
+                return new Inflater(true);
             }
         }
     }
 
-    /**
-     * Gets the file name of this {@code ZipFile}.
-     *
-     * @return the file name of this {@code ZipFile}.
+    /*
+     * Releases the specified inflater to the list of available inflaters.
+     */
+    private void releaseInflater(Inflater inf) {
+        synchronized (inflaters) {
+            inflaters.add(inf);
+        }
+    }
+
+    // List of available Inflater objects for decompression
+    private Vector inflaters = new Vector();
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the path name of the ZIP file.
+     * {@description.close}
+     * @return the path name of the ZIP file
      */
     public String getName() {
-        return fileName;
+        return name;
     }
 
-    /**
-     * Returns the number of {@code ZipEntries} in this {@code ZipFile}.
-     *
-     * @return the number of entries in this file.
-     * @throws IllegalStateException if this ZIP file has been closed.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an enumeration of the ZIP file entries.
+     * {@description.close}
+     * @return an enumeration of the ZIP file entries
+     * @throws IllegalStateException if the zip file has been closed
+     */
+    public Enumeration<? extends ZipEntry> entries() {
+        ensureOpen();
+        return new Enumeration<ZipEntry>() {
+                private int i = 0;
+                public boolean hasMoreElements() {
+                    synchronized (ZipFile.this) {
+                        ensureOpen();
+                        return i < total;
+                    }
+                }
+                public ZipEntry nextElement() throws NoSuchElementException {
+                    synchronized (ZipFile.this) {
+                        ensureOpen();
+                        if (i >= total) {
+                            throw new NoSuchElementException();
+                        }
+                        long jzentry = getNextEntry(jzfile, i++);
+                        if (jzentry == 0) {
+                            String message;
+                            if (closeRequested) {
+                                message = "ZipFile concurrently closed";
+                            } else {
+                                message = getZipMessage(ZipFile.this.jzfile);
+                            }
+                            throw new ZipError("jzentry == 0" +
+                                               ",\n jzfile = " + ZipFile.this.jzfile +
+                                               ",\n total = " + ZipFile.this.total +
+                                               ",\n name = " + ZipFile.this.name +
+                                               ",\n i = " + i +
+                                               ",\n message = " + message
+                                );
+                        }
+                        ZipEntry ze = new ZipEntry(jzentry);
+                        freeEntry(jzfile, jzentry);
+                        return ze;
+                    }
+                }
+            };
+    }
+
+    private static native long getNextEntry(long jzfile, int i);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the number of entries in the ZIP file.
+     * {@description.close}
+     * @return the number of entries in the ZIP file
+     * @throws IllegalStateException if the zip file has been closed
      */
     public int size() {
-        checkNotClosed();
-        return mEntries.size();
+        ensureOpen();
+        return total;
     }
 
-    /**
-     * Find the central directory and read the contents.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Closes the ZIP file.
+     * <p> Closing this ZIP file will close all of the input streams
+     * previously returned by invocations of the {@link #getInputStream
+     * getInputStream} method.
+     * {@description.close}
      *
-     * <p>The central directory can be followed by a variable-length comment
-     * field, so we have to scan through it backwards.  The comment is at
-     * most 64K, plus we have 18 bytes for the end-of-central-dir stuff
-     * itself, plus apparently sometimes people throw random junk on the end
-     * just for the fun of it.
-     *
-     * <p>This is all a little wobbly.  If the wrong value ends up in the EOCD
-     * area, we're hosed. This appears to be the way that everybody handles
-     * it though, so we're in good company if this fails.
+     * @throws IOException if an I/O error has occurred
      */
-    private void readCentralDir() throws IOException {
-        /*
-         * Scan back, looking for the End Of Central Directory field.  If
-         * the archive doesn't have a comment, we'll hit it on the first
-         * try.
-         *
-         * No need to synchronize mRaf here -- we only do this when we
-         * first open the Zip file.
-         */
-        long scanOffset = mRaf.length() - ENDHDR;
-        if (scanOffset < 0) {
-            throw new ZipException("File too short to be a zip file: " + mRaf.length());
-        }
+    public void close() throws IOException {
+        synchronized (this) {
+            closeRequested = true;
 
-        long stopOffset = scanOffset - 65536;
-        if (stopOffset < 0) {
-            stopOffset = 0;
-        }
+            if (jzfile != 0) {
+                // Close the zip file
+                long zf = this.jzfile;
+                jzfile = 0;
 
-        final int ENDHEADERMAGIC = 0x06054b50;
-        while (true) {
-            mRaf.seek(scanOffset);
-            if (Integer.reverseBytes(mRaf.readInt()) == ENDHEADERMAGIC) {
-                break;
-            }
+                close(zf);
 
-            scanOffset--;
-            if (scanOffset < stopOffset) {
-                throw new ZipException("EOCD not found; not a Zip archive?");
-            }
-        }
-
-        // Read the End Of Central Directory. We could use ENDHDR instead of the magic number 18,
-        // but we don't actually need all the header.
-        byte[] eocd = new byte[18];
-        mRaf.readFully(eocd);
-
-        // Pull out the information we need.
-        BufferIterator it = HeapBufferIterator.iterator(eocd, 0, eocd.length, ByteOrder.LITTLE_ENDIAN);
-        int diskNumber = it.readShort() & 0xffff;
-        int diskWithCentralDir = it.readShort() & 0xffff;
-        int numEntries = it.readShort() & 0xffff;
-        int totalNumEntries = it.readShort() & 0xffff;
-        it.skip(4); // Ignore centralDirSize.
-        int centralDirOffset = it.readInt();
-
-        if (numEntries != totalNumEntries || diskNumber != 0 || diskWithCentralDir != 0) {
-            throw new ZipException("spanned archives not supported");
-        }
-
-        // Seek to the first CDE and read all entries.
-        RAFStream rafs = new RAFStream(mRaf, centralDirOffset);
-        BufferedInputStream bin = new BufferedInputStream(rafs, 4096);
-        byte[] hdrBuf = new byte[CENHDR]; // Reuse the same buffer for each entry.
-        for (int i = 0; i < numEntries; ++i) {
-            ZipEntry newEntry = new ZipEntry(hdrBuf, bin);
-            mEntries.put(newEntry.getName(), newEntry);
-        }
-    }
-
-    /**
-     * Wrap a stream around a RandomAccessFile.  The RandomAccessFile is shared
-     * among all streams returned by getInputStream(), so we have to synchronize
-     * access to it.  (We can optimize this by adding buffering here to reduce
-     * collisions.)
-     *
-     * <p>We could support mark/reset, but we don't currently need them.
-     */
-    static class RAFStream extends InputStream {
-
-        RandomAccessFile mSharedRaf;
-        long mOffset;
-        long mLength;
-
-        public RAFStream(RandomAccessFile raf, long pos) throws IOException {
-            mSharedRaf = raf;
-            mOffset = pos;
-            mLength = raf.length();
-        }
-
-        @Override public int available() throws IOException {
-            return (mOffset < mLength ? 1 : 0);
-        }
-
-        @Override public int read() throws IOException {
-            return Streams.readSingleByte(this);
-        }
-
-        @Override public int read(byte[] b, int off, int len) throws IOException {
-            synchronized (mSharedRaf) {
-                mSharedRaf.seek(mOffset);
-                if (len > mLength - mOffset) {
-                    len = (int) (mLength - mOffset);
-                }
-                int count = mSharedRaf.read(b, off, len);
-                if (count > 0) {
-                    mOffset += count;
-                    return count;
-                } else {
-                    return -1;
+                // Release inflaters
+                synchronized (inflaters) {
+                    int size = inflaters.size();
+                    for (int i = 0; i < size; i++) {
+                        Inflater inf = (Inflater)inflaters.get(i);
+                        inf.end();
+                    }
                 }
             }
         }
+    }
 
-        @Override
-        public long skip(long byteCount) throws IOException {
-            if (byteCount > mLength - mOffset) {
-                byteCount = mLength - mOffset;
-            }
-            mOffset += byteCount;
-            return byteCount;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Ensures that the <code>close</code> method of this ZIP file is
+     * called when there are no more references to it.
+     *
+     * <p>
+     * Since the time when GC would invoke this method is undetermined,
+     * it is strongly recommended that applications invoke the <code>close</code>
+     * method as soon they have finished accessing this <code>ZipFile</code>.
+     * This will prevent holding up system resources for an undetermined
+     * length of time.
+     * {@description.close}
+     *
+     * @throws IOException if an I/O error has occurred
+     * @see    java.util.zip.ZipFile#close()
+     */
+    protected void finalize() throws IOException {
+        close();
+    }
+
+    private static native void close(long jzfile);
+
+    private void ensureOpen() {
+        if (closeRequested) {
+            throw new IllegalStateException("zip file closed");
+        }
+
+        if (jzfile == 0) {
+            throw new IllegalStateException("The object is not initialized.");
         }
     }
 
-    static class ZipInflaterInputStream extends InflaterInputStream {
+    private void ensureOpenOrZipException() throws IOException {
+        if (closeRequested) {
+            throw new ZipException("ZipFile closed");
+        }
+    }
 
-        ZipEntry entry;
-        long bytesRead = 0;
+    /*
+     * Inner class implementing the input stream used to read a
+     * (possibly compressed) zip file entry.
+     */
+   private class ZipFileInputStream extends InputStream {
+        protected long jzentry; // address of jzentry data
+        private   long pos;     // current position within entry data
+        protected long rem;     // number of remaining bytes within entry
+        protected long size;    // uncompressed size of this entry
 
-        public ZipInflaterInputStream(InputStream is, Inflater inf, int bsize, ZipEntry entry) {
-            super(is, inf, bsize);
-            this.entry = entry;
+        ZipFileInputStream(long jzentry) {
+            pos = 0;
+            rem = getCSize(jzentry);
+            size = getSize(jzentry);
+            this.jzentry = jzentry;
         }
 
-        @Override
-        public int read(byte[] buffer, int off, int nbytes) throws IOException {
-            int i = super.read(buffer, off, nbytes);
-            if (i != -1) {
-                bytesRead += i;
+        public int read(byte b[], int off, int len) throws IOException {
+            if (rem == 0) {
+                return -1;
             }
-            return i;
-        }
-
-        @Override
-        public int available() throws IOException {
-            if (closed) {
-                // Our superclass will throw an exception, but there's a jtreg test that
-                // explicitly checks that the InputStream returned from ZipFile.getInputStream
-                // returns 0 even when closed.
+            if (len <= 0) {
                 return 0;
             }
-            return super.available() == 0 ? 0 : (int) (entry.getSize() - bytesRead);
+            if (len > rem) {
+                len = (int) rem;
+            }
+            synchronized (ZipFile.this) {
+                ensureOpenOrZipException();
+
+                len = ZipFile.read(ZipFile.this.jzfile, jzentry, pos, b,
+                                   off, len);
+            }
+            if (len > 0) {
+                pos += len;
+                rem -= len;
+            }
+            if (rem == 0) {
+                close();
+            }
+            return len;
         }
+
+        public int read() throws IOException {
+            byte[] b = new byte[1];
+            if (read(b, 0, 1) == 1) {
+                return b[0] & 0xff;
+            } else {
+                return -1;
+            }
+        }
+
+        public long skip(long n) {
+            if (n > rem)
+                n = rem;
+            pos += n;
+            rem -= n;
+            if (rem == 0) {
+                close();
+            }
+            return n;
+        }
+
+        public int available() {
+            return rem > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) rem;
+        }
+
+        public long size() {
+            return size;
+        }
+
+        public void close() {
+            rem = 0;
+            synchronized (ZipFile.this) {
+                if (jzentry != 0 && ZipFile.this.jzfile != 0) {
+                    freeEntry(ZipFile.this.jzfile, jzentry);
+                    jzentry = 0;
+                }
+            }
+        }
+
     }
+
+    private static native int read(long jzfile, long jzentry,
+                                   long pos, byte[] b, int off, int len);
+
+    private static native long getCSize(long jzentry);
+
+    private static native long getSize(long jzentry);
+
+    // Temporary add on for bug troubleshooting
+    private static native String getZipMessage(long jzfile);
 }

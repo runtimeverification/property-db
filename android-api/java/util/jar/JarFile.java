@@ -1,465 +1,570 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.jar;
 
-import java.io.File;
-import java.io.FilterInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import libcore.io.Streams;
+import java.io.*;
+import java.lang.ref.SoftReference;
+import java.util.*;
+import java.util.zip.*;
+import java.security.CodeSigner;
+import java.security.cert.Certificate;
+import java.security.AccessController;
+import sun.security.action.GetPropertyAction;
+import sun.security.util.ManifestEntryVerifier;
+import sun.misc.SharedSecrets;
 
-/**
- * {@code JarFile} is used to read jar entries and their associated data from
- * jar files.
+/** {@collect.stats} 
+ * {@description.open}
+ * The <code>JarFile</code> class is used to read the contents of a jar file
+ * from any file that can be opened with <code>java.io.RandomAccessFile</code>.
+ * It extends the class <code>java.util.zip.ZipFile</code> with support
+ * for reading an optional <code>Manifest</code> entry. The
+ * <code>Manifest</code> can be used to specify meta-information about the
+ * jar file and its entries.
  *
- * @see JarInputStream
- * @see JarEntry
+ * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
+ * or method in this class will cause a {@link NullPointerException} to be
+ * thrown.
+ * {@description.close}
+ *
+ * @author  David Connelly
+ * @see     Manifest
+ * @see     java.util.zip.ZipFile
+ * @see     java.util.jar.JarEntry
+ * @since   1.2
  */
-public class JarFile extends ZipFile {
+public
+class JarFile extends ZipFile {
+    private SoftReference<Manifest> manRef;
+    private JarEntry manEntry;
+    private JarVerifier jv;
+    private boolean jvInitialized;
+    private boolean verify;
+    private boolean computedHasClassPathAttribute;
+    private boolean hasClassPathAttribute;
 
-    /**
-     * The MANIFEST file name.
+    // Set up JavaUtilJarAccess in SharedSecrets
+    static {
+        SharedSecrets.setJavaUtilJarAccess(new JavaUtilJarAccessImpl());
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The JAR manifest file name.
+     * {@description.close}
      */
     public static final String MANIFEST_NAME = "META-INF/MANIFEST.MF";
 
-    // The directory containing the manifest.
-    static final String META_DIR = "META-INF/";
-
-    // The manifest after it has been read from the JAR.
-    private Manifest manifest;
-
-    // The entry for the MANIFEST.MF file before it is read.
-    private ZipEntry manifestEntry;
-
-    JarVerifier verifier;
-
-    private boolean closed = false;
-
-    static final class JarFileInputStream extends FilterInputStream {
-        private long count;
-
-        private ZipEntry zipEntry;
-
-        private JarVerifier.VerifierEntry entry;
-
-        private boolean done = false;
-
-        JarFileInputStream(InputStream is, ZipEntry ze,
-                JarVerifier.VerifierEntry e) {
-            super(is);
-            zipEntry = ze;
-            count = zipEntry.getSize();
-            entry = e;
-        }
-
-        @Override
-        public int read() throws IOException {
-            if (done) {
-                return -1;
-            }
-            if (count > 0) {
-                int r = super.read();
-                if (r != -1) {
-                    entry.write(r);
-                    count--;
-                } else {
-                    count = 0;
-                }
-                if (count == 0) {
-                    done = true;
-                    entry.verify();
-                }
-                return r;
-            } else {
-                done = true;
-                entry.verify();
-                return -1;
-            }
-        }
-
-        @Override
-        public int read(byte[] buf, int off, int nbytes) throws IOException {
-            if (done) {
-                return -1;
-            }
-            if (count > 0) {
-                int r = super.read(buf, off, nbytes);
-                if (r != -1) {
-                    int size = r;
-                    if (count < size) {
-                        size = (int) count;
-                    }
-                    entry.write(buf, off, size);
-                    count -= size;
-                } else {
-                    count = 0;
-                }
-                if (count == 0) {
-                    done = true;
-                    entry.verify();
-                }
-                return r;
-            } else {
-                done = true;
-                entry.verify();
-                return -1;
-            }
-        }
-
-        @Override
-        public int available() throws IOException {
-            if (done) {
-                return 0;
-            }
-            return super.available();
-        }
-
-        @Override
-        public long skip(long byteCount) throws IOException {
-            return Streams.skipByReading(this, byteCount);
-        }
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarFile</code> to read from the specified
+     * file <code>name</code>. The <code>JarFile</code> will be verified if
+     * it is signed.
+     * {@description.close}
+     * @param name the name of the jar file to be opened for reading
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if access to the file is denied
+     *         by the SecurityManager
+     */
+    public JarFile(String name) throws IOException {
+        this(new File(name), true, ZipFile.OPEN_READ);
     }
 
-    /**
-     * Create a new {@code JarFile} using the contents of the specified file.
-     *
-     * @param file
-     *            the JAR file as {@link File}.
-     * @throws IOException
-     *             If the file cannot be read.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarFile</code> to read from the specified
+     * file <code>name</code>.
+     * {@description.close}
+     * @param name the name of the jar file to be opened for reading
+     * @param verify whether or not to verify the jar file if
+     * it is signed.
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if access to the file is denied
+     *         by the SecurityManager
+     */
+    public JarFile(String name, boolean verify) throws IOException {
+        this(new File(name), verify, ZipFile.OPEN_READ);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarFile</code> to read from the specified
+     * <code>File</code> object. The <code>JarFile</code> will be verified if
+     * it is signed.
+     * {@description.close}
+     * @param file the jar file to be opened for reading
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if access to the file is denied
+     *         by the SecurityManager
      */
     public JarFile(File file) throws IOException {
-        this(file, true);
+        this(file, true, ZipFile.OPEN_READ);
     }
 
-    /**
-     * Create a new {@code JarFile} using the contents of the specified file.
-     *
-     * @param file
-     *            the JAR file as {@link File}.
-     * @param verify
-     *            if this JAR file is signed whether it must be verified.
-     * @throws IOException
-     *             If the file cannot be read.
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarFile</code> to read from the specified
+     * <code>File</code> object.
+     * {@description.close}
+     * @param file the jar file to be opened for reading
+     * @param verify whether or not to verify the jar file if
+     * it is signed.
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if access to the file is denied
+     *         by the SecurityManager.
      */
     public JarFile(File file, boolean verify) throws IOException {
-        super(file);
-        if (verify) {
-            verifier = new JarVerifier(file.getPath());
-        }
-        readMetaEntries();
+        this(file, verify, ZipFile.OPEN_READ);
     }
 
-    /**
-     * Create a new {@code JarFile} using the contents of file.
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarFile</code> to read from the specified
+     * <code>File</code> object in the specified mode.  The mode argument
+     * must be either <tt>OPEN_READ</tt> or <tt>OPEN_READ | OPEN_DELETE</tt>.
+     * {@description.close}
      *
-     * @param file
-     *            the JAR file as {@link File}.
-     * @param verify
-     *            if this JAR filed is signed whether it must be verified.
-     * @param mode
-     *            the mode to use, either {@link ZipFile#OPEN_READ OPEN_READ} or
-     *            {@link ZipFile#OPEN_DELETE OPEN_DELETE}.
-     * @throws IOException
-     *             If the file cannot be read.
+     * @param file the jar file to be opened for reading
+     * @param verify whether or not to verify the jar file if
+     * it is signed.
+     * @param mode the mode in which the file is to be opened
+     * @throws IOException if an I/O error has occurred
+     * @throws IllegalArgumentException
+     *         if the <tt>mode</tt> argument is invalid
+     * @throws SecurityException if access to the file is denied
+     *         by the SecurityManager
+     * @since 1.3
      */
     public JarFile(File file, boolean verify, int mode) throws IOException {
         super(file, mode);
-        if (verify) {
-            verifier = new JarVerifier(file.getPath());
-        }
-        readMetaEntries();
+        this.verify = verify;
     }
 
-    /**
-     * Create a new {@code JarFile} from the contents of the file specified by
-     * filename.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the jar file manifest, or <code>null</code> if none.
+     * {@description.close}
      *
-     * @param filename
-     *            the file name referring to the JAR file.
-     * @throws IOException
-     *             if file name cannot be opened for reading.
-     */
-    public JarFile(String filename) throws IOException {
-        this(filename, true);
-    }
-
-    /**
-     * Create a new {@code JarFile} from the contents of the file specified by
-     * {@code filename}.
+     * @return the jar file manifest, or <code>null</code> if none
      *
-     * @param filename
-     *            the file name referring to the JAR file.
-     * @param verify
-     *            if this JAR filed is signed whether it must be verified.
-     * @throws IOException
-     *             If file cannot be opened or read.
-     */
-    public JarFile(String filename, boolean verify) throws IOException {
-        super(filename);
-        if (verify) {
-            verifier = new JarVerifier(filename);
-        }
-        readMetaEntries();
-    }
-
-    /**
-     * Return an enumeration containing the {@code JarEntrys} contained in this
-     * {@code JarFile}.
-     *
-     * @return the {@code Enumeration} containing the JAR entries.
      * @throws IllegalStateException
-     *             if this {@code JarFile} is closed.
-     */
-    @Override
-    public Enumeration<JarEntry> entries() {
-        class JarFileEnumerator implements Enumeration<JarEntry> {
-            Enumeration<? extends ZipEntry> ze;
-
-            JarFile jf;
-
-            JarFileEnumerator(Enumeration<? extends ZipEntry> zenum, JarFile jf) {
-                ze = zenum;
-                this.jf = jf;
-            }
-
-            public boolean hasMoreElements() {
-                return ze.hasMoreElements();
-            }
-
-            public JarEntry nextElement() {
-                JarEntry je = new JarEntry(ze.nextElement());
-                je.parentJar = jf;
-                return je;
-            }
-        }
-        return new JarFileEnumerator(super.entries(), this);
-    }
-
-    /**
-     * Return the {@code JarEntry} specified by its name or {@code null} if no
-     * such entry exists.
-     *
-     * @param name
-     *            the name of the entry in the JAR file.
-     * @return the JAR entry defined by the name.
-     */
-    public JarEntry getJarEntry(String name) {
-        return (JarEntry) getEntry(name);
-    }
-
-    /**
-     * Returns the {@code Manifest} object associated with this {@code JarFile}
-     * or {@code null} if no MANIFEST entry exists.
-     *
-     * @return the MANIFEST.
-     * @throws IOException
-     *             if an error occurs reading the MANIFEST file.
-     * @throws IllegalStateException
-     *             if the jar file is closed.
-     * @see Manifest
+     *         may be thrown if the jar file has been closed
      */
     public Manifest getManifest() throws IOException {
-        if (closed) {
-            throw new IllegalStateException("JarFile has been closed");
-        }
-        if (manifest != null) {
-            return manifest;
-        }
-        try {
-            InputStream is = super.getInputStream(manifestEntry);
-            if (verifier != null) {
-                verifier.addMetaEntry(manifestEntry.getName(), Streams.readFully(is));
-                is = super.getInputStream(manifestEntry);
-            }
-            try {
-                manifest = new Manifest(is, verifier != null);
-            } finally {
-                is.close();
-            }
-            manifestEntry = null;  // Can discard the entry now.
-        } catch (NullPointerException e) {
-            manifestEntry = null;
-        }
-        return manifest;
+        return getManifestFromReference();
     }
 
-    /**
-     * Called by the JarFile constructors, this method reads the contents of the
-     * file's META-INF/ directory and picks out the MANIFEST.MF file and
-     * verifier signature files if they exist. Any signature files found are
-     * registered with the verifier.
+    private Manifest getManifestFromReference() throws IOException {
+        Manifest man = manRef != null ? manRef.get() : null;
+
+        if (man == null) {
+
+            JarEntry manEntry = getManEntry();
+
+            // If found then load the manifest
+            if (manEntry != null) {
+                if (verify) {
+                    byte[] b = getBytes(manEntry);
+                    man = new Manifest(new ByteArrayInputStream(b));
+                    if (!jvInitialized) {
+                        jv = new JarVerifier(b);
+                    }
+                } else {
+                    man = new Manifest(super.getInputStream(manEntry));
+                }
+                manRef = new SoftReference(man);
+            }
+        }
+        return man;
+    }
+
+    private native String[] getMetaInfEntryNames();
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the <code>JarEntry</code> for the given entry name or
+     * <code>null</code> if not found.
+     * {@description.close}
      *
-     * @throws IOException
-     *             if there is a problem reading the jar file entries.
+     * @param name the jar file entry name
+     * @return the <code>JarEntry</code> for the given entry name or
+     *         <code>null</code> if not found.
+     *
+     * @throws IllegalStateException
+     *         may be thrown if the jar file has been closed
+     *
+     * @see java.util.jar.JarEntry
      */
-    private void readMetaEntries() throws IOException {
-        // Get all meta directory entries
-        ZipEntry[] metaEntries = getMetaEntriesImpl();
-        if (metaEntries == null) {
-            verifier = null;
+    public JarEntry getJarEntry(String name) {
+        return (JarEntry)getEntry(name);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the <code>ZipEntry</code> for the given entry name or
+     * <code>null</code> if not found.
+     * {@description.close}
+     *
+     * @param name the jar file entry name
+     * @return the <code>ZipEntry</code> for the given entry name or
+     *         <code>null</code> if not found
+     *
+     * @throws IllegalStateException
+     *         may be thrown if the jar file has been closed
+     *
+     * @see java.util.zip.ZipEntry
+     */
+    public ZipEntry getEntry(String name) {
+        ZipEntry ze = super.getEntry(name);
+        if (ze != null) {
+            return new JarFileEntry(ze);
+        }
+        return null;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an enumeration of the zip file entries.
+     * {@description.close}
+     */
+    public Enumeration<JarEntry> entries() {
+        final Enumeration enum_ = super.entries();
+        return new Enumeration<JarEntry>() {
+            public boolean hasMoreElements() {
+                return enum_.hasMoreElements();
+            }
+            public JarFileEntry nextElement() {
+                ZipEntry ze = (ZipEntry)enum_.nextElement();
+                return new JarFileEntry(ze);
+            }
+        };
+    }
+
+    private class JarFileEntry extends JarEntry {
+        JarFileEntry(ZipEntry ze) {
+            super(ze);
+        }
+        public Attributes getAttributes() throws IOException {
+            Manifest man = JarFile.this.getManifest();
+            if (man != null) {
+                return man.getAttributes(getName());
+            } else {
+                return null;
+            }
+        }
+        public Certificate[] getCertificates() {
+            try {
+                maybeInstantiateVerifier();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            if (certs == null && jv != null) {
+                certs = jv.getCerts(getName());
+            }
+            return certs == null ? null : certs.clone();
+        }
+        public CodeSigner[] getCodeSigners() {
+            try {
+                maybeInstantiateVerifier();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            if (signers == null && jv != null) {
+                signers = jv.getCodeSigners(getName());
+            }
+            return signers == null ? null : signers.clone();
+        }
+    }
+
+    /*
+     * Ensures that the JarVerifier has been created if one is
+     * necessary (i.e., the jar appears to be signed.) This is done as
+     * a quick check to avoid processing of the manifest for unsigned
+     * jars.
+     */
+    private void maybeInstantiateVerifier() throws IOException {
+        if (jv != null) {
             return;
         }
 
-        boolean signed = false;
+        if (verify) {
+            String[] names = getMetaInfEntryNames();
+            if (names != null) {
+                for (int i = 0; i < names.length; i++) {
+                    String name = names[i].toUpperCase(Locale.ENGLISH);
+                    if (name.endsWith(".DSA") ||
+                        name.endsWith(".RSA") ||
+                        name.endsWith(".SF")) {
+                        // Assume since we found a signature-related file
+                        // that the jar is signed and that we therefore
+                        // need a JarVerifier and Manifest
+                        getManifest();
+                        return;
+                    }
+                }
+            }
+            // No signature-related files; don't instantiate a
+            // verifier
+            verify = false;
+        }
+    }
 
-        for (ZipEntry entry : metaEntries) {
-            String entryName = entry.getName();
-            // Is this the entry for META-INF/MANIFEST.MF ?
-            if (manifestEntry == null && entryName.equalsIgnoreCase(MANIFEST_NAME)) {
-                manifestEntry = entry;
-                // If there is no verifier then we don't need to look any further.
-                if (verifier == null) {
+
+    /*
+     * Initializes the verifier object by reading all the manifest
+     * entries and passing them to the verifier.
+     */
+    private void initializeVerifier() {
+        ManifestEntryVerifier mev = null;
+
+        // Verify "META-INF/" entries...
+        try {
+            String[] names = getMetaInfEntryNames();
+            if (names != null) {
+                for (int i = 0; i < names.length; i++) {
+                    JarEntry e = getJarEntry(names[i]);
+                    if (!e.isDirectory()) {
+                        if (mev == null) {
+                            mev = new ManifestEntryVerifier
+                                (getManifestFromReference());
+                        }
+                        byte[] b = getBytes(e);
+                        if (b != null && b.length > 0) {
+                            jv.beginEntry(e, mev);
+                            jv.update(b.length, b, 0, b.length, mev);
+                            jv.update(-1, null, 0, 0, mev);
+                        }
+                    }
+                }
+            }
+        } catch (IOException ex) {
+            // if we had an error parsing any blocks, just
+            // treat the jar file as being unsigned
+            jv = null;
+            verify = false;
+        }
+
+        // if after initializing the verifier we have nothing
+        // signed, we null it out.
+
+        if (jv != null) {
+
+            jv.doneWithMeta();
+            if (JarVerifier.debug != null) {
+                JarVerifier.debug.println("done with meta!");
+            }
+
+            if (jv.nothingToVerify()) {
+                if (JarVerifier.debug != null) {
+                    JarVerifier.debug.println("nothing to verify!");
+                }
+                jv = null;
+                verify = false;
+            }
+        }
+    }
+
+    /*
+     * Reads all the bytes for a given entry. Used to process the
+     * META-INF files.
+     */
+    private byte[] getBytes(ZipEntry ze) throws IOException {
+        byte[] b = new byte[(int)ze.getSize()];
+        DataInputStream is = new DataInputStream(super.getInputStream(ze));
+        is.readFully(b, 0, b.length);
+        is.close();
+        return b;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an input stream for reading the contents of the specified
+     * zip file entry.
+     * {@description.close}
+     * @param ze the zip file entry
+     * @return an input stream for reading the contents of the specified
+     *         zip file entry
+     * @throws ZipException if a zip file format error has occurred
+     * @throws IOException if an I/O error has occurred
+     * @throws SecurityException if any of the jar file entries
+     *         are incorrectly signed.
+     * @throws IllegalStateException
+     *         may be thrown if the jar file has been closed
+     */
+    public synchronized InputStream getInputStream(ZipEntry ze)
+        throws IOException
+    {
+        maybeInstantiateVerifier();
+        if (jv == null) {
+            return super.getInputStream(ze);
+        }
+        if (!jvInitialized) {
+            initializeVerifier();
+            jvInitialized = true;
+            // could be set to null after a call to
+            // initializeVerifier if we have nothing to
+            // verify
+            if (jv == null)
+                return super.getInputStream(ze);
+        }
+
+        // wrap a verifier stream around the real stream
+        return new JarVerifier.VerifierStream(
+            getManifestFromReference(),
+            ze instanceof JarFileEntry ?
+            (JarEntry) ze : getJarEntry(ze.getName()),
+            super.getInputStream(ze),
+            jv);
+    }
+
+    // Statics for hand-coded Boyer-Moore search in hasClassPathAttribute()
+    // The bad character shift for "class-path"
+    private static int[] lastOcc;
+    // The good suffix shift for "class-path"
+    private static int[] optoSft;
+    // Initialize the shift arrays to search for "class-path"
+    private static char[] src = {'c','l','a','s','s','-','p','a','t','h'};
+    static {
+        lastOcc = new int[128];
+        optoSft = new int[10];
+        lastOcc[(int)'c']=1;
+        lastOcc[(int)'l']=2;
+        lastOcc[(int)'s']=5;
+        lastOcc[(int)'-']=6;
+        lastOcc[(int)'p']=7;
+        lastOcc[(int)'a']=8;
+        lastOcc[(int)'t']=9;
+        lastOcc[(int)'h']=10;
+        for (int i=0; i<9; i++)
+            optoSft[i]=10;
+        optoSft[9]=1;
+    }
+
+    private JarEntry getManEntry() {
+        if (manEntry == null) {
+            // First look up manifest entry using standard name
+            manEntry = getJarEntry(MANIFEST_NAME);
+            if (manEntry == null) {
+                // If not found, then iterate through all the "META-INF/"
+                // entries to find a match.
+                String[] names = getMetaInfEntryNames();
+                if (names != null) {
+                    for (int i = 0; i < names.length; i++) {
+                        if (MANIFEST_NAME.equals(
+                                                 names[i].toUpperCase(Locale.ENGLISH))) {
+                            manEntry = getJarEntry(names[i]);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return manEntry;
+    }
+
+    // Returns true iff this jar file has a manifest with a class path
+    // attribute. Returns false if there is no manifest or the manifest
+    // does not contain a "Class-Path" attribute. Currently exported to
+    // core libraries via sun.misc.SharedSecrets.
+    boolean hasClassPathAttribute() throws IOException {
+        if (computedHasClassPathAttribute) {
+            return hasClassPathAttribute;
+        }
+
+        hasClassPathAttribute = false;
+        if (!isKnownToNotHaveClassPathAttribute()) {
+            JarEntry manEntry = getManEntry();
+            if (manEntry != null) {
+                byte[] b = new byte[(int)manEntry.getSize()];
+                DataInputStream dis = new DataInputStream(
+                                                          super.getInputStream(manEntry));
+                dis.readFully(b, 0, b.length);
+                dis.close();
+
+                int last = b.length - src.length;
+                int i = 0;
+                next:
+                while (i<=last) {
+                    for (int j=9; j>=0; j--) {
+                        char c = (char) b[i+j];
+                        c = (((c-'A')|('Z'-c)) >= 0) ? (char)(c + 32) : c;
+                        if (c != src[j]) {
+                            i += Math.max(j + 1 - lastOcc[c&0x7F], optoSft[j]);
+                            continue next;
+                        }
+                    }
+                    hasClassPathAttribute = true;
                     break;
                 }
-            } else {
-                // Is this an entry that the verifier needs?
-                if (verifier != null
-                        && (endsWithIgnoreCase(entryName, ".SF")
-                                || endsWithIgnoreCase(entryName, ".DSA")
-                                || endsWithIgnoreCase(entryName, ".RSA"))) {
-                    signed = true;
-                    InputStream is = super.getInputStream(entry);
-                    verifier.addMetaEntry(entryName, Streams.readFully(is));
+            }
+        }
+        computedHasClassPathAttribute = true;
+        return hasClassPathAttribute;
+    }
+
+    private static String javaHome;
+    private static String[] jarNames;
+    private boolean isKnownToNotHaveClassPathAttribute() {
+        // Optimize away even scanning of manifest for jar files we
+        // deliver which don't have a class-path attribute. If one of
+        // these jars is changed to include such an attribute this code
+        // must be changed.
+        if (javaHome == null) {
+            javaHome = AccessController.doPrivileged(
+                new GetPropertyAction("java.home"));
+        }
+        if (jarNames == null) {
+            String[] names = new String[10];
+            String fileSep = File.separator;
+            int i = 0;
+            names[i++] = fileSep + "rt.jar";
+            names[i++] = fileSep + "sunrsasign.jar";
+            names[i++] = fileSep + "jsse.jar";
+            names[i++] = fileSep + "jce.jar";
+            names[i++] = fileSep + "charsets.jar";
+            names[i++] = fileSep + "dnsns.jar";
+            names[i++] = fileSep + "ldapsec.jar";
+            names[i++] = fileSep + "localedata.jar";
+            names[i++] = fileSep + "sunjce_provider.jar";
+            names[i++] = fileSep + "sunpkcs11.jar";
+            jarNames = names;
+        }
+
+        String name = getName();
+        String localJavaHome = javaHome;
+        if (name.startsWith(localJavaHome)) {
+            String[] names = jarNames;
+            for (int i = 0; i < names.length; i++) {
+                if (name.endsWith(names[i])) {
+                    return true;
                 }
             }
         }
-
-        // If there were no signature files, then no verifier work to do.
-        if (!signed) {
-            verifier = null;
-        }
-    }
-
-    private static boolean endsWithIgnoreCase(String s, String suffix) {
-        return s.regionMatches(true, s.length() - suffix.length(), suffix, 0, suffix.length());
-    }
-
-    /**
-     * Return an {@code InputStream} for reading the decompressed contents of
-     * ZIP entry.
-     *
-     * @param ze
-     *            the ZIP entry to be read.
-     * @return the input stream to read from.
-     * @throws IOException
-     *             if an error occurred while creating the input stream.
-     */
-    @Override
-    public InputStream getInputStream(ZipEntry ze) throws IOException {
-        if (manifestEntry != null) {
-            getManifest();
-        }
-        if (verifier != null) {
-            verifier.setManifest(getManifest());
-            if (manifest != null) {
-                verifier.mainAttributesEnd = manifest.getMainAttributesEnd();
-            }
-            if (verifier.readCertificates()) {
-                verifier.removeMetaEntries();
-                if (manifest != null) {
-                    manifest.removeChunks();
-                }
-                if (!verifier.isSignedJar()) {
-                    verifier = null;
-                }
-            }
-        }
-        InputStream in = super.getInputStream(ze);
-        if (in == null) {
-            return null;
-        }
-        if (verifier == null || ze.getSize() == -1) {
-            return in;
-        }
-        JarVerifier.VerifierEntry entry = verifier.initEntry(ze.getName());
-        if (entry == null) {
-            return in;
-        }
-        return new JarFileInputStream(in, ze, entry);
-    }
-
-    /**
-     * Return the {@code JarEntry} specified by name or {@code null} if no such
-     * entry exists.
-     *
-     * @param name
-     *            the name of the entry in the JAR file.
-     * @return the ZIP entry extracted.
-     */
-    @Override
-    public ZipEntry getEntry(String name) {
-        ZipEntry ze = super.getEntry(name);
-        if (ze == null) {
-            return ze;
-        }
-        JarEntry je = new JarEntry(ze);
-        je.parentJar = this;
-        return je;
-    }
-
-    /**
-     * Returns all the ZipEntry's that relate to files in the
-     * JAR's META-INF directory.
-     *
-     * @return the list of ZipEntry's or {@code null} if there are none.
-     */
-    private ZipEntry[] getMetaEntriesImpl() {
-        List<ZipEntry> list = new ArrayList<ZipEntry>(8);
-        Enumeration<? extends ZipEntry> allEntries = entries();
-        while (allEntries.hasMoreElements()) {
-            ZipEntry ze = allEntries.nextElement();
-            if (ze.getName().startsWith(META_DIR)
-                    && ze.getName().length() > META_DIR.length()) {
-                list.add(ze);
-            }
-        }
-        if (list.size() == 0) {
-            return null;
-        }
-        ZipEntry[] result = new ZipEntry[list.size()];
-        list.toArray(result);
-        return result;
-    }
-
-	/** {@collect.stats}
-	 * {@description.open}
-	 * Closes this {@code JarFile}.
-	 * {@description.close}
-	 *
-	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
-	 * <p>Although only the first call has any effect, it is safe to call close
-	 * multiple times on the same object. This is more lenient than the
-	 * overridden {@code AutoCloseable.close()}, which may be called at most
-	 * once.
-	 * {@property.close}
-     *
-     * @throws IOException
-     *             if an error occurs.
-     */
-    @Override
-    public void close() throws IOException {
-        super.close();
-        closed = true;
+        return false;
     }
 }

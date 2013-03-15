@@ -1,357 +1,414 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 2000, 2004, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.logging;
-
-import dalvik.system.VMStack;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import libcore.util.Objects;
 
-/**
- * {@code Level} objects are used to indicate the level of logging. There are a
- * set of predefined logging levels, each associated with an integer value.
- * Enabling a certain logging level also enables all logging levels with larger
- * values.
+/** {@collect.stats} 
+ * {@description.open}
+ * The Level class defines a set of standard logging levels that
+ * can be used to control logging output.  The logging Level objects
+ * are ordered and are specified by ordered integers.  Enabling logging
+ * at a given level also enables logging at all higher levels.
  * <p>
- * The predefined levels in ascending order are FINEST, FINER, FINE, CONFIG,
- * INFO, WARNING, SEVERE. There are two additional predefined levels, which are
- * ALL and OFF. ALL indicates logging all messages, and OFF indicates logging no
- * messages.
+ * Clients should normally use the predefined Level constants such
+ * as Level.SEVERE.
+ * <p>
+ * The levels in descending order are:
+ * <ul>
+ * <li>SEVERE (highest value)
+ * <li>WARNING
+ * <li>INFO
+ * <li>CONFIG
+ * <li>FINE
+ * <li>FINER
+ * <li>FINEST  (lowest value)
+ * </ul>
+ * In addition there is a level OFF that can be used to turn
+ * off logging, and a level ALL that can be used to enable
+ * logging of all messages.
+ * <p>
+ * It is possible for third parties to define additional logging
+ * levels by subclassing Level.  In such cases subclasses should
+ * take care to chose unique integer level values and to ensure that
+ * they maintain the Object uniqueness property across serialization
+ * by defining a suitable readResolve method.
+ * {@description.close}
+ *
+ * @since 1.4
  */
-public class Level implements Serializable {
 
-    private static final long serialVersionUID = -8176160795706313070L;
+public class Level implements java.io.Serializable {
+    private static java.util.ArrayList<Level> known = new java.util.ArrayList<Level>();
+    private static String defaultBundle = "sun.util.logging.resources.logging";
 
-    private static final List<Level> levels = new ArrayList<Level>(9);
-
-    /**
-     * The OFF level provides no logging messages.
-     */
-    public static final Level OFF = new Level("OFF", Integer.MAX_VALUE);
-
-    /**
-     * The SEVERE level provides severe failure messages.
-     */
-    public static final Level SEVERE = new Level("SEVERE", 1000);
-
-    /**
-     * The WARNING level provides warnings.
-     */
-    public static final Level WARNING = new Level("WARNING", 900);
-
-    /**
-     * The INFO level provides informative messages.
-     */
-    public static final Level INFO = new Level("INFO", 800);
-
-    /**
-     * The CONFIG level provides static configuration messages.
-     */
-    public static final Level CONFIG = new Level("CONFIG", 700);
-
-    /**
-     * The FINE level provides tracing messages.
-     */
-    public static final Level FINE = new Level("FINE", 500);
-
-    /**
-     * The FINER level provides more detailed tracing messages.
-     */
-    public static final Level FINER = new Level("FINER", 400);
-
-    /**
-     * The FINEST level provides highly detailed tracing messages.
-     */
-    public static final Level FINEST = new Level("FINEST", 300);
-
-    /**
-     * The ALL level provides all logging messages.
-     */
-    public static final Level ALL = new Level("ALL", Integer.MIN_VALUE);
-
-    /**
-     * Parses a level name into a {@code Level} object.
-     *
-     * @param name
-     *            the name of the desired {@code level}, which cannot be
-     *            {@code null}.
-     * @return the level with the specified name.
-     * @throws NullPointerException
-     *             if {@code name} is {@code null}.
-     * @throws IllegalArgumentException
-     *             if {@code name} is not valid.
-     */
-    public static Level parse(String name) throws IllegalArgumentException {
-        if (name == null) {
-            throw new NullPointerException("name == null");
-        }
-
-        boolean isNameAnInt;
-        int nameAsInt;
-        try {
-            nameAsInt = Integer.parseInt(name);
-            isNameAnInt = true;
-        } catch (NumberFormatException e) {
-            nameAsInt = 0;
-            isNameAnInt = false;
-        }
-
-        synchronized (levels) {
-            for (Level level : levels) {
-                if (name.equals(level.getName())) {
-                    return level;
-                }
-            }
-
-            if (isNameAnInt) {
-                /*
-                 * Loop through levels a second time, so that the returned
-                 * instance will be passed on the order of construction.
-                 */
-                for (Level level : levels) {
-                    if (nameAsInt == level.intValue()) {
-                        return level;
-                    }
-                }
-            }
-        }
-
-        if (!isNameAnInt) {
-            throw new IllegalArgumentException("Cannot parse name '" + name + "'");
-        }
-
-        return new Level(name, nameAsInt);
-    }
-
-    /**
-     * The name of this Level.
-     *
-     * @serial
+    /** {@collect.stats} 
+     * @serial  The non-localized name of the level.
      */
     private final String name;
 
-    /**
-     * The integer value indicating the level.
-     *
-     * @serial
+    /** {@collect.stats} 
+     * @serial  The integer value of the level.
      */
     private final int value;
 
-    /**
-     * The name of the resource bundle used to localize the level name.
-     *
-     * @serial
+    /** {@collect.stats} 
+     * @serial The resource bundle name to be used in localizing the level name.
      */
     private final String resourceBundleName;
 
-    /**
-     * The resource bundle associated with this level, used to localize the
-     * level name.
+    /** {@collect.stats} 
+     * {@description.open}
+     * OFF is a special level that can be used to turn off logging.
+     * This level is initialized to <CODE>Integer.MAX_VALUE</CODE>.
+     * {@description.close}
      */
-    private transient ResourceBundle rb;
+    public static final Level OFF = new Level("OFF",Integer.MAX_VALUE, defaultBundle);
 
-    /**
-     * Constructs an instance of {@code Level} taking the supplied name and
-     * level value.
-     *
-     * @param name
-     *            the name of the level.
-     * @param level
-     *            an integer value indicating the level.
-     * @throws NullPointerException
-     *             if {@code name} is {@code null}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * SEVERE is a message level indicating a serious failure.
+     * <p>
+     * In general SEVERE messages should describe events that are
+     * of considerable importance and which will prevent normal
+     * program execution.   They should be reasonably intelligible
+     * to end users and to system administrators.
+     * This level is initialized to <CODE>1000</CODE>.
+     * {@description.close}
      */
-    protected Level(String name, int level) {
-        this(name, level, null);
+    public static final Level SEVERE = new Level("SEVERE",1000, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * WARNING is a message level indicating a potential problem.
+     * <p>
+     * In general WARNING messages should describe events that will
+     * be of interest to end users or system managers, or which
+     * indicate potential problems.
+     * This level is initialized to <CODE>900</CODE>.
+     * {@description.close}
+     */
+    public static final Level WARNING = new Level("WARNING", 900, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * INFO is a message level for informational messages.
+     * <p>
+     * Typically INFO messages will be written to the console
+     * or its equivalent.  So the INFO level should only be
+     * used for reasonably significant messages that will
+     * make sense to end users and system admins.
+     * This level is initialized to <CODE>800</CODE>.
+     * {@description.close}
+     */
+    public static final Level INFO = new Level("INFO", 800, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * CONFIG is a message level for static configuration messages.
+     * <p>
+     * CONFIG messages are intended to provide a variety of static
+     * configuration information, to assist in debugging problems
+     * that may be associated with particular configurations.
+     * For example, CONFIG message might include the CPU type,
+     * the graphics depth, the GUI look-and-feel, etc.
+     * This level is initialized to <CODE>700</CODE>.
+     * {@description.close}
+     */
+    public static final Level CONFIG = new Level("CONFIG", 700, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * FINE is a message level providing tracing information.
+     * <p>
+     * All of FINE, FINER, and FINEST are intended for relatively
+     * detailed tracing.  The exact meaning of the three levels will
+     * vary between subsystems, but in general, FINEST should be used
+     * for the most voluminous detailed output, FINER for somewhat
+     * less detailed output, and FINE for the  lowest volume (and
+     * most important) messages.
+     * <p>
+     * In general the FINE level should be used for information
+     * that will be broadly interesting to developers who do not have
+     * a specialized interest in the specific subsystem.
+     * <p>
+     * FINE messages might include things like minor (recoverable)
+     * failures.  Issues indicating potential performance problems
+     * are also worth logging as FINE.
+     * This level is initialized to <CODE>500</CODE>.
+     * {@description.close}
+     */
+    public static final Level FINE = new Level("FINE", 500, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * FINER indicates a fairly detailed tracing message.
+     * By default logging calls for entering, returning, or throwing
+     * an exception are traced at this level.
+     * This level is initialized to <CODE>400</CODE>.
+     * {@description.close}
+     */
+    public static final Level FINER = new Level("FINER", 400, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * FINEST indicates a highly detailed tracing message.
+     * This level is initialized to <CODE>300</CODE>.
+     * {@description.close}
+     */
+    public static final Level FINEST = new Level("FINEST", 300, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * ALL indicates that all messages should be logged.
+     * This level is initialized to <CODE>Integer.MIN_VALUE</CODE>.
+     * {@description.close}
+     */
+    public static final Level ALL = new Level("ALL", Integer.MIN_VALUE, defaultBundle);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Create a named Level with a given integer value.
+     * <p>
+     * Note that this constructor is "protected" to allow subclassing.
+     * In general clients of logging should use one of the constant Level
+     * objects such as SEVERE or FINEST.  However, if clients need to
+     * add new logging levels, they may subclass Level and define new
+     * constants.
+     * {@description.close}
+     * @param name  the name of the Level, for example "SEVERE".
+     * @param value an integer value for the level.
+     * @throws NullPointerException if the name is null
+     */
+    protected Level(String name, int value) {
+        this(name, value, null);
     }
 
-    /**
-     * Constructs an instance of {@code Level} taking the supplied name, level
-     * value and resource bundle name.
-     *
-     * @param name
-     *            the name of the level.
-     * @param level
-     *            an integer value indicating the level.
-     * @param resourceBundleName
-     *            the name of the resource bundle to use.
-     * @throws NullPointerException
-     *             if {@code name} is {@code null}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Create a named Level with a given integer value and a
+     * given localization resource name.
+     * <p>
+     * {@description.close}
+     * @param name  the name of the Level, for example "SEVERE".
+     * @param value an integer value for the level.
+     * @param resourceBundleName name of a resource bundle to use in
+     *    localizing the given name. If the resourceBundleName is null
+     *    or an empty string, it is ignored.
+     * @throws NullPointerException if the name is null
      */
-    protected Level(String name, int level, String resourceBundleName) {
+    protected Level(String name, int value, String resourceBundleName) {
         if (name == null) {
-            throw new NullPointerException("name == null");
+            throw new NullPointerException();
         }
         this.name = name;
-        this.value = level;
+        this.value = value;
         this.resourceBundleName = resourceBundleName;
-        if (resourceBundleName != null) {
-            try {
-                rb = ResourceBundle.getBundle(resourceBundleName,
-                        Locale.getDefault(), VMStack.getCallingClassLoader());
-            } catch (MissingResourceException e) {
-                rb = null;
-            }
-        }
-        synchronized (levels) {
-            levels.add(this);
+        synchronized (Level.class) {
+            known.add(this);
         }
     }
 
-    /**
-     * Gets the name of this level.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Return the level's localization resource bundle name, or
+     * null if no localization bundle is defined.
+     * {@description.close}
      *
-     * @return this level's name.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Gets the name of the resource bundle associated with this level.
-     *
-     * @return the name of this level's resource bundle.
+     * @return localization resource bundle name
      */
     public String getResourceBundleName() {
-        return this.resourceBundleName;
+        return resourceBundleName;
     }
 
-    /**
-     * Gets the integer value indicating this level.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Return the non-localized string name of the Level.
+     * {@description.close}
      *
-     * @return this level's integer value.
+     * @return non-localized name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Return the localized string name of the Level, for
+     * the current default locale.
+     * <p>
+     * If no localization information is available, the
+     * non-localized name is returned.
+     * {@description.close}
+     *
+     * @return localized name
+     */
+    public String getLocalizedName() {
+        try {
+            ResourceBundle rb = ResourceBundle.getBundle(resourceBundleName);
+            return rb.getString(name);
+        } catch (Exception ex) {
+            return name;
+        }
+    }
+
+    /** {@collect.stats} 
+     * @return the non-localized name of the Level, for example "INFO".
+     */
+    public final String toString() {
+        return name;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Get the integer value for this level.  This integer value
+     * can be used for efficient ordering comparisons between
+     * Level objects.
+     * {@description.close}
+     * @return the integer value for this level.
      */
     public final int intValue() {
-        return this.value;
+        return value;
     }
 
-    /**
-     * Serialization helper method to maintain singletons and add any new
-     * levels.
-     *
-     * @return the resolved instance.
-     */
+    private static final long serialVersionUID = -8176160795706313070L;
+
+    // Serialization magic to prevent "doppelgangers".
+    // This is a performance optimization.
     private Object readResolve() {
-        synchronized (levels) {
-            for (Level level : levels) {
-                if (value != level.value) {
-                    continue;
-                }
-                if (!name.equals(level.name)) {
-                    continue;
-                }
-                if (Objects.equal(resourceBundleName, level.resourceBundleName)) {
-                    return level;
+        synchronized (Level.class) {
+            for (int i = 0; i < known.size(); i++) {
+                Level other = known.get(i);
+                if (this.name.equals(other.name) && this.value == other.value
+                        && (this.resourceBundleName == other.resourceBundleName ||
+                            (this.resourceBundleName != null &&
+                            this.resourceBundleName.equals(other.resourceBundleName)))) {
+                    return other;
                 }
             }
-            // This is a new value, so add it.
-            levels.add(this);
+            // Woops.  Whoever sent us this object knows
+            // about a new log level.  Add it to our list.
+            known.add(this);
             return this;
         }
     }
 
-    /**
-     * Serialization helper to setup transient resource bundle instance.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Parse a level name string into a Level.
+     * <p>
+     * The argument string may consist of either a level name
+     * or an integer value.
+     * <p>
+     * For example:
+     * <ul>
+     * <li>     "SEVERE"
+     * <li>     "1000"
+     * </ul>
+     * {@description.close}
+     * @param  name   string to be parsed
+     * @throws NullPointerException if the name is null
+     * @throws IllegalArgumentException if the value is not valid.
+     * Valid values are integers between <CODE>Integer.MIN_VALUE</CODE>
+     * and <CODE>Integer.MAX_VALUE</CODE>, and all known level names.
+     * Known names are the levels defined by this class (i.e. <CODE>FINE</CODE>,
+     * <CODE>FINER</CODE>, <CODE>FINEST</CODE>), or created by this class with
+     * appropriate package access, or new levels defined or created
+     * by subclasses.
      *
-     * @param in
-     *            the input stream to read the instance data from.
-     * @throws IOException
-     *             if an IO error occurs.
-     * @throws ClassNotFoundException
-     *             if a class is not found.
+     * @return The parsed value. Passing an integer that corresponds to a known name
+     * (eg 700) will return the associated name (eg <CODE>CONFIG</CODE>).
+     * Passing an integer that does not (eg 1) will return a new level name
+     * initialized to that value.
      */
-    private void readObject(ObjectInputStream in) throws IOException,
-            ClassNotFoundException {
-        in.defaultReadObject();
-        if (resourceBundleName != null) {
-            try {
-                rb = ResourceBundle.getBundle(resourceBundleName);
-            } catch (MissingResourceException e) {
-                rb = null;
+    public static synchronized Level parse(String name) throws IllegalArgumentException {
+        // Check that name is not null.
+        name.length();
+
+        // Look for a known Level with the given non-localized name.
+        for (int i = 0; i < known.size(); i++) {
+            Level l = known.get(i);
+            if (name.equals(l.name)) {
+                return l;
             }
         }
-    }
 
-    /**
-     * Gets the localized name of this level. The default locale is used. If no
-     * resource bundle is associated with this level then the original level
-     * name is returned.
-     *
-     * @return the localized name of this level.
-     */
-    public String getLocalizedName() {
-        if (rb == null) {
-            return name;
-        }
-
+        // Now, check if the given name is an integer.  If so,
+        // first look for a Level with the given value and then
+        // if necessary create one.
         try {
-            return rb.getString(name);
-        } catch (MissingResourceException e) {
-            return name;
+            int x = Integer.parseInt(name);
+            for (int i = 0; i < known.size(); i++) {
+                Level l = known.get(i);
+                if (l.value == x) {
+                    return l;
+                }
+            }
+            // Create a new Level.
+            return new Level(name, x);
+        } catch (NumberFormatException ex) {
+            // Not an integer.
+            // Drop through.
         }
+
+        // Finally, look for a known level with the given localized name,
+        // in the current default locale.
+        // This is relatively expensive, but not excessively so.
+        for (int i = 0; i < known.size(); i++) {
+            Level l =  known.get(i);
+            if (name.equals(l.getLocalizedName())) {
+                return l;
+            }
+        }
+
+        // OK, we've tried everything and failed
+        throw new IllegalArgumentException("Bad level \"" + name + "\"");
     }
 
-    /**
-     * Compares two {@code Level} objects for equality. They are considered to
-     * be equal if they have the same level value.
-     *
-     * @param o
-     *            the other object to compare this level to.
-     * @return {@code true} if this object equals to the supplied object,
-     *         {@code false} otherwise.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Compare two objects for value equality.
+     * {@description.close}
+     * @return true if and only if the two objects have the same level value.
      */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (!(o instanceof Level)) {
+    public boolean equals(Object ox) {
+        try {
+            Level lx = (Level)ox;
+            return (lx.value == this.value);
+        } catch (Exception ex) {
             return false;
         }
-
-        return ((Level) o).intValue() == this.value;
     }
 
-    /**
-     * Returns the hash code of this {@code Level} object.
-     *
-     * @return this level's hash code.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Generate a hashcode.
+     * {@description.close}
+     * @return a hashcode based on the level value
      */
-    @Override
     public int hashCode() {
         return this.value;
-    }
-
-    /**
-     * Returns the string representation of this {@code Level} object. In
-     * this case, it is the level's name.
-     *
-     * @return the string representation of this level.
-     */
-    @Override
-    public final String toString() {
-        return this.name;
     }
 }

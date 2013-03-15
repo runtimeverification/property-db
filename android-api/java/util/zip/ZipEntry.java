@@ -1,397 +1,392 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1995, 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.zip;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteOrder;
-import java.nio.charset.Charsets;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import libcore.io.Streams;
-import libcore.io.BufferIterator;
-import libcore.io.HeapBufferIterator;
 
-/**
- * An instance of {@code ZipEntry} represents an entry within a <i>ZIP-archive</i>.
- * An entry has attributes such as name (= path) or the size of its data. While
- * an entry identifies data stored in an archive, it does not hold the data
- * itself. For example when reading a <i>ZIP-file</i> you will first retrieve
- * all its entries in a collection and then read the data for a specific entry
- * through an input stream.
+/** {@collect.stats} 
+ * {@description.open}
+ * This class is used to represent a ZIP file entry.
+ * {@description.close}
  *
- * @see ZipFile
- * @see ZipOutputStream
+ * @author      David Connelly
  */
-public class ZipEntry implements ZipConstants, Cloneable {
-    String name, comment;
+public
+class ZipEntry implements ZipConstants, Cloneable {
+    String name;        // entry name
+    long time = -1;     // modification time (in DOS time)
+    long crc = -1;      // crc-32 of entry data
+    long size = -1;     // uncompressed size of entry data
+    long csize = -1;    // compressed size of entry data
+    int method = -1;    // compression method
+    byte[] extra;       // optional extra field data for entry
+    String comment;     // optional comment string for entry
 
-    long compressedSize = -1, crc = -1, size = -1;
-
-    int compressionMethod = -1, time = -1, modDate = -1;
-
-    byte[] extra;
-
-    int nameLength = -1;
-    long mLocalHeaderRelOffset = -1;
-
-    /**
-     * Zip entry state: Deflated.
-     */
-    public static final int DEFLATED = 8;
-
-    /**
-     * Zip entry state: Stored.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Compression method for uncompressed entries.
+     * {@description.close}
      */
     public static final int STORED = 0;
 
-    /**
-     * Constructs a new {@code ZipEntry} with the specified name.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Compression method for compressed (deflated) entries.
+     * {@description.close}
+     */
+    public static final int DEFLATED = 8;
+
+    static {
+        /* Zip library is loaded from System.initializeSystemClass */
+        initIDs();
+    }
+
+    private static native void initIDs();
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new zip entry with the specified name.
+     * {@description.close}
      *
-     * @param name
-     *            the name of the ZIP entry.
-     * @throws IllegalArgumentException
-     *             if the name length is outside the range (> 0xFFFF).
+     * @param name the entry name
+     * @exception NullPointerException if the entry name is null
+     * @exception IllegalArgumentException if the entry name is longer than
+     *            0xFFFF bytes
      */
     public ZipEntry(String name) {
         if (name == null) {
-            throw new NullPointerException("name == null");
+            throw new NullPointerException();
         }
         if (name.length() > 0xFFFF) {
-            throw new IllegalArgumentException("Name too long: " + name.length());
+            throw new IllegalArgumentException("entry name too long");
         }
         this.name = name;
     }
 
-    /**
-     * Gets the comment for this {@code ZipEntry}.
-     *
-     * @return the comment for this {@code ZipEntry}, or {@code null} if there
-     *         is no comment. If we're reading an archive with
-     *         {@code ZipInputStream} the comment is not available.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new zip entry with fields taken from the specified
+     * zip entry.
+     * {@description.close}
+     * @param e a zip Entry object
      */
-    public String getComment() {
-        return comment;
+    public ZipEntry(ZipEntry e) {
+        name = e.name;
+        time = e.time;
+        crc = e.crc;
+        size = e.size;
+        csize = e.csize;
+        method = e.method;
+        extra = e.extra;
+        comment = e.comment;
     }
 
-    /**
-     * Gets the compressed size of this {@code ZipEntry}.
-     *
-     * @return the compressed size, or -1 if the compressed size has not been
-     *         set.
+    /*
+     * Creates a new zip entry for the given name with fields initialized
+     * from the specified jzentry data.
      */
-    public long getCompressedSize() {
-        return compressedSize;
+    ZipEntry(String name, long jzentry) {
+        this.name = name;
+        initFields(jzentry);
     }
 
-    /**
-     * Gets the checksum for this {@code ZipEntry}.
-     *
-     * @return the checksum, or -1 if the checksum has not been set.
+    private native void initFields(long jzentry);
+
+    /*
+     * Creates a new zip entry with fields initialized from the specified
+     * jzentry data.
      */
-    public long getCrc() {
-        return crc;
+    ZipEntry(long jzentry) {
+        initFields(jzentry);
     }
 
-    /**
-     * Gets the extra information for this {@code ZipEntry}.
-     *
-     * @return a byte array containing the extra information, or {@code null} if
-     *         there is none.
-     */
-    public byte[] getExtra() {
-        return extra;
-    }
-
-    /**
-     * Gets the compression method for this {@code ZipEntry}.
-     *
-     * @return the compression method, either {@code DEFLATED}, {@code STORED}
-     *         or -1 if the compression method has not been set.
-     */
-    public int getMethod() {
-        return compressionMethod;
-    }
-
-    /**
-     * Gets the name of this {@code ZipEntry}.
-     *
-     * @return the entry name.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the name of the entry.
+     * {@description.close}
+     * @return the name of the entry
      */
     public String getName() {
         return name;
     }
 
-    /**
-     * Gets the uncompressed size of this {@code ZipEntry}.
-     *
-     * @return the uncompressed size, or {@code -1} if the size has not been
-     *         set.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the modification time of the entry.
+     * {@description.close}
+     * @param time the entry modification time in number of milliseconds
+     *             since the epoch
+     * @see #getTime()
+     */
+    public void setTime(long time) {
+        this.time = javaToDosTime(time);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the modification time of the entry, or -1 if not specified.
+     * {@description.close}
+     * @return the modification time of the entry, or -1 if not specified
+     * @see #setTime(long)
+     */
+    public long getTime() {
+        return time != -1 ? dosToJavaTime(time) : -1;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the uncompressed size of the entry data.
+     * {@description.close}
+     * @param size the uncompressed size in bytes
+     * @exception IllegalArgumentException if the specified size is less
+     *            than 0 or greater than 0xFFFFFFFF bytes
+     * @see #getSize()
+     */
+    public void setSize(long size) {
+        if (size < 0 || size > 0xFFFFFFFFL) {
+            throw new IllegalArgumentException("invalid entry size");
+        }
+        this.size = size;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the uncompressed size of the entry data, or -1 if not known.
+     * {@description.close}
+     * @return the uncompressed size of the entry data, or -1 if not known
+     * @see #setSize(long)
      */
     public long getSize() {
         return size;
     }
 
-    /**
-     * Gets the last modification time of this {@code ZipEntry}.
-     *
-     * @return the last modification time as the number of milliseconds since
-     *         Jan. 1, 1970.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the size of the compressed entry data, or -1 if not known.
+     * In the case of a stored entry, the compressed size will be the same
+     * as the uncompressed size of the entry.
+     * {@description.close}
+     * @return the size of the compressed entry data, or -1 if not known
+     * @see #setCompressedSize(long)
      */
-    public long getTime() {
-        if (time != -1) {
-            GregorianCalendar cal = new GregorianCalendar();
-            cal.set(Calendar.MILLISECOND, 0);
-            cal.set(1980 + ((modDate >> 9) & 0x7f), ((modDate >> 5) & 0xf) - 1,
-                    modDate & 0x1f, (time >> 11) & 0x1f, (time >> 5) & 0x3f,
-                    (time & 0x1f) << 1);
-            return cal.getTime().getTime();
+    public long getCompressedSize() {
+        return csize;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the size of the compressed entry data.
+     * {@description.close}
+     * @param csize the compressed size to set to
+     * @see #getCompressedSize()
+     */
+    public void setCompressedSize(long csize) {
+        this.csize = csize;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the CRC-32 checksum of the uncompressed entry data.
+     * {@description.close}
+     * @param crc the CRC-32 value
+     * @exception IllegalArgumentException if the specified CRC-32 value is
+     *            less than 0 or greater than 0xFFFFFFFF
+     * @see #getCrc()
+     */
+    public void setCrc(long crc) {
+        if (crc < 0 || crc > 0xFFFFFFFFL) {
+            throw new IllegalArgumentException("invalid entry crc-32");
         }
-        return -1;
+        this.crc = crc;
     }
 
-    /**
-     * Determine whether or not this {@code ZipEntry} is a directory.
-     *
-     * @return {@code true} when this {@code ZipEntry} is a directory, {@code
-     *         false} otherwise.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the CRC-32 checksum of the uncompressed entry data, or -1 if
+     * not known.
+     * {@description.close}
+     * @return the CRC-32 checksum of the uncompressed entry data, or -1 if
+     * not known
+     * @see #setCrc(long)
      */
-    public boolean isDirectory() {
-        return name.charAt(name.length() - 1) == '/';
+    public long getCrc() {
+        return crc;
     }
 
-    /**
-     * Sets the comment for this {@code ZipEntry}.
-     *
-     * @param comment
-     *            the comment for this entry.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the compression method for the entry.
+     * {@description.close}
+     * @param method the compression method, either STORED or DEFLATED
+     * @exception IllegalArgumentException if the specified compression
+     *            method is invalid
+     * @see #getMethod()
+     */
+    public void setMethod(int method) {
+        if (method != STORED && method != DEFLATED) {
+            throw new IllegalArgumentException("invalid compression method");
+        }
+        this.method = method;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the compression method of the entry, or -1 if not specified.
+     * {@description.close}
+     * @return the compression method of the entry, or -1 if not specified
+     * @see #setMethod(int)
+     */
+    public int getMethod() {
+        return method;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the optional extra field data for the entry.
+     * {@description.close}
+     * @param extra the extra field data bytes
+     * @exception IllegalArgumentException if the length of the specified
+     *            extra field data is greater than 0xFFFF bytes
+     * @see #getExtra()
+     */
+    public void setExtra(byte[] extra) {
+        if (extra != null && extra.length > 0xFFFF) {
+            throw new IllegalArgumentException("invalid extra field length");
+        }
+        this.extra = extra;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the extra field data for the entry, or null if none.
+     * {@description.close}
+     * @return the extra field data for the entry, or null if none
+     * @see #setExtra(byte[])
+     */
+    public byte[] getExtra() {
+        return extra;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the optional comment string for the entry.
+     * {@description.close}
+     * @param comment the comment string
+     * @exception IllegalArgumentException if the length of the specified
+     *            comment string is greater than 0xFFFF bytes
+     * @see #getComment()
      */
     public void setComment(String comment) {
-        if (comment == null || comment.length() <= 0xFFFF) {
-            this.comment = comment;
-        } else {
-            throw new IllegalArgumentException();
+        if (comment != null && comment.length() > 0xffff/3
+                    && ZipOutputStream.getUTF8Length(comment) > 0xffff) {
+            throw new IllegalArgumentException("invalid entry comment length");
         }
+        this.comment = comment;
     }
 
-    /**
-     * Sets the compressed size for this {@code ZipEntry}.
-     *
-     * @param value
-     *            the compressed size (in bytes).
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the comment string for the entry, or null if none.
+     * {@description.close}
+     * @return the comment string for the entry, or null if none
+     * @see #setComment(String)
      */
-    public void setCompressedSize(long value) {
-        compressedSize = value;
+    public String getComment() {
+        return comment;
     }
 
-    /**
-     * Sets the checksum for this {@code ZipEntry}.
-     *
-     * @param value
-     *            the checksum for this entry.
-     * @throws IllegalArgumentException
-     *             if {@code value} is < 0 or > 0xFFFFFFFFL.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns true if this is a directory entry. A directory entry is
+     * defined to be one whose name ends with a '/'.
+     * {@description.close}
+     * @return true if this is a directory entry
      */
-    public void setCrc(long value) {
-        if (value >= 0 && value <= 0xFFFFFFFFL) {
-            crc = value;
-        } else {
-            throw new IllegalArgumentException("Bad CRC32: " + value);
-        }
+    public boolean isDirectory() {
+        return name.endsWith("/");
     }
 
-    /**
-     * Sets the extra information for this {@code ZipEntry}.
-     *
-     * @param data
-     *            a byte array containing the extra information.
-     * @throws IllegalArgumentException
-     *             when the length of data is greater than 0xFFFF bytes.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a string representation of the ZIP entry.
+     * {@description.close}
      */
-    public void setExtra(byte[] data) {
-        if (data == null || data.length <= 0xFFFF) {
-            extra = data;
-        } else {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    /**
-     * Sets the compression method for this {@code ZipEntry}.
-     *
-     * @param value
-     *            the compression method, either {@code DEFLATED} or {@code
-     *            STORED}.
-     * @throws IllegalArgumentException
-     *             when value is not {@code DEFLATED} or {@code STORED}.
-     */
-    public void setMethod(int value) {
-        if (value != STORED && value != DEFLATED) {
-            throw new IllegalArgumentException("Bad method: " + value);
-        }
-        compressionMethod = value;
-    }
-
-    /**
-     * Sets the uncompressed size of this {@code ZipEntry}.
-     *
-     * @param value
-     *            the uncompressed size for this entry.
-     * @throws IllegalArgumentException
-     *             if {@code value} < 0 or {@code value} > 0xFFFFFFFFL.
-     */
-    public void setSize(long value) {
-        if (value >= 0 && value <= 0xFFFFFFFFL) {
-            size = value;
-        } else {
-            throw new IllegalArgumentException("Bad size: " + value);
-        }
-    }
-
-    /**
-     * Sets the modification time of this {@code ZipEntry}.
-     *
-     * @param value
-     *            the modification time as the number of milliseconds since Jan.
-     *            1, 1970.
-     */
-    public void setTime(long value) {
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(new Date(value));
-        int year = cal.get(Calendar.YEAR);
-        if (year < 1980) {
-            modDate = 0x21;
-            time = 0;
-        } else {
-            modDate = cal.get(Calendar.DATE);
-            modDate = (cal.get(Calendar.MONTH) + 1 << 5) | modDate;
-            modDate = ((cal.get(Calendar.YEAR) - 1980) << 9) | modDate;
-            time = cal.get(Calendar.SECOND) >> 1;
-            time = (cal.get(Calendar.MINUTE) << 5) | time;
-            time = (cal.get(Calendar.HOUR_OF_DAY) << 11) | time;
-        }
-    }
-
-    /**
-     * Returns the string representation of this {@code ZipEntry}.
-     *
-     * @return the string representation of this {@code ZipEntry}.
-     */
-    @Override
     public String toString() {
-        return name;
+        return getName();
     }
 
-    /**
-     * Constructs a new {@code ZipEntry} using the values obtained from {@code
-     * ze}.
-     *
-     * @param ze
-     *            the {@code ZipEntry} from which to obtain values.
+    /*
+     * Converts DOS time to Java time (number of milliseconds since epoch).
      */
-    public ZipEntry(ZipEntry ze) {
-        name = ze.name;
-        comment = ze.comment;
-        time = ze.time;
-        size = ze.size;
-        compressedSize = ze.compressedSize;
-        crc = ze.crc;
-        compressionMethod = ze.compressionMethod;
-        modDate = ze.modDate;
-        extra = ze.extra;
-        nameLength = ze.nameLength;
-        mLocalHeaderRelOffset = ze.mLocalHeaderRelOffset;
+    private static long dosToJavaTime(long dtime) {
+        Date d = new Date((int)(((dtime >> 25) & 0x7f) + 80),
+                          (int)(((dtime >> 21) & 0x0f) - 1),
+                          (int)((dtime >> 16) & 0x1f),
+                          (int)((dtime >> 11) & 0x1f),
+                          (int)((dtime >> 5) & 0x3f),
+                          (int)((dtime << 1) & 0x3e));
+        return d.getTime();
     }
 
-    /**
-     * Returns a deep copy of this zip entry.
+    /*
+     * Converts Java time to DOS time.
      */
-    @Override public Object clone() {
-        try {
-            ZipEntry result = (ZipEntry) super.clone();
-            result.extra = extra != null ? extra.clone() : null;
-            return result;
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
+    private static long javaToDosTime(long time) {
+        Date d = new Date(time);
+        int year = d.getYear() + 1900;
+        if (year < 1980) {
+            return (1 << 21) | (1 << 16);
         }
+        return (year - 1980) << 25 | (d.getMonth() + 1) << 21 |
+               d.getDate() << 16 | d.getHours() << 11 | d.getMinutes() << 5 |
+               d.getSeconds() >> 1;
     }
 
-    /**
-     * Returns the hash code for this {@code ZipEntry}.
-     *
-     * @return the hash code of the entry.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the hash code value for this entry.
+     * {@description.close}
      */
-    @Override
     public int hashCode() {
         return name.hashCode();
     }
 
-    /*
-     * Internal constructor.  Creates a new ZipEntry by reading the
-     * Central Directory Entry from "in", which must be positioned at
-     * the CDE signature.
-     *
-     * On exit, "in" will be positioned at the start of the next entry.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a copy of this entry.
+     * {@description.close}
      */
-    ZipEntry(byte[] hdrBuf, InputStream in) throws IOException {
-        Streams.readFully(in, hdrBuf, 0, hdrBuf.length);
-
-        BufferIterator it = HeapBufferIterator.iterator(hdrBuf, 0, hdrBuf.length, ByteOrder.LITTLE_ENDIAN);
-
-        int sig = it.readInt();
-        if (sig != CENSIG) {
-             throw new ZipException("Central Directory Entry not found");
-        }
-
-        it.seek(10);
-        compressionMethod = it.readShort();
-        time = it.readShort();
-        modDate = it.readShort();
-
-        // These are 32-bit values in the file, but 64-bit fields in this object.
-        crc = ((long) it.readInt()) & 0xffffffffL;
-        compressedSize = ((long) it.readInt()) & 0xffffffffL;
-        size = ((long) it.readInt()) & 0xffffffffL;
-
-        nameLength = it.readShort();
-        int extraLength = it.readShort();
-        int commentLength = it.readShort();
-
-        // This is a 32-bit value in the file, but a 64-bit field in this object.
-        it.seek(42);
-        mLocalHeaderRelOffset = ((long) it.readInt()) & 0xffffffffL;
-
-        byte[] nameBytes = new byte[nameLength];
-        Streams.readFully(in, nameBytes, 0, nameBytes.length);
-        name = new String(nameBytes, 0, nameBytes.length, Charsets.UTF_8);
-
-        // The RI has always assumed UTF-8. (If GPBF_UTF8_FLAG isn't set, the encoding is
-        // actually IBM-437.)
-        if (commentLength > 0) {
-            byte[] commentBytes = new byte[commentLength];
-            Streams.readFully(in, commentBytes, 0, commentLength);
-            comment = new String(commentBytes, 0, commentBytes.length, Charsets.UTF_8);
-        }
-
-        if (extraLength > 0) {
-            extra = new byte[extraLength];
-            Streams.readFully(in, extra, 0, extraLength);
+    public Object clone() {
+        try {
+            ZipEntry e = (ZipEntry)super.clone();
+            e.extra = (extra == null) ? null : extra.clone();
+            return e;
+        } catch (CloneNotSupportedException e) {
+            // This should never happen, since we are Cloneable
+            throw new InternalError();
         }
     }
 }

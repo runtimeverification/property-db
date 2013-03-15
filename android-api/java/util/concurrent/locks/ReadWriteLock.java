@@ -1,12 +1,42 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent.locks;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A <tt>ReadWriteLock</tt> maintains a pair of associated {@link
  * Lock locks}, one for read-only operations and one for writing.
  * The {@link #readLock read lock} may be held simultaneously by
@@ -79,6 +109,7 @@ package java.util.concurrent.locks;
  * </ul>
  * You should consider all of these things when evaluating the suitability
  * of a given implementation for your application.
+ * {@description.close}
  *
  * @see ReentrantReadWriteLock
  * @see Lock
@@ -88,15 +119,19 @@ package java.util.concurrent.locks;
  * @author Doug Lea
  */
 public interface ReadWriteLock {
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the lock used for reading.
+     * {@description.close}
      *
      * @return the lock used for reading.
      */
     Lock readLock();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the lock used for writing.
+     * {@description.close}
      *
      * @return the lock used for writing.
      */

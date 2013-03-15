@@ -1,13 +1,43 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A {@code long} value that may be updated atomically.  See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
@@ -16,6 +46,7 @@ import sun.misc.Unsafe;
  * for a {@link java.lang.Long}. However, this class does extend
  * {@code Number} to allow uniform access by tools and utilities that
  * deal with numerically-based classes.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -27,31 +58,37 @@ public class AtomicLong extends Number implements java.io.Serializable {
     private static final Unsafe unsafe = Unsafe.getUnsafe();
     private static final long valueOffset;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Records whether the underlying JVM supports lockless
      * compareAndSwap for longs. While the Unsafe.compareAndSwapLong
      * method works in either case, some constructions should be
      * handled at Java level to avoid locking user-visible locks.
+     * {@description.close}
      */
     static final boolean VM_SUPPORTS_LONG_CAS = VMSupportsCS8();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns whether underlying JVM supports lockless CompareAndSet
      * for longs. Called only once and cached in VM_SUPPORTS_LONG_CAS.
+     * {@description.close}
      */
     private static native boolean VMSupportsCS8();
 
     static {
-        try {
-            valueOffset = unsafe.objectFieldOffset
-                (AtomicLong.class.getDeclaredField("value"));
-        } catch (Exception ex) { throw new Error(ex); }
+      try {
+        valueOffset = unsafe.objectFieldOffset
+            (AtomicLong.class.getDeclaredField("value"));
+      } catch (Exception ex) { throw new Error(ex); }
     }
 
     private volatile long value;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicLong with the given initial value.
+     * {@description.close}
      *
      * @param initialValue the initial value
      */
@@ -59,14 +96,18 @@ public class AtomicLong extends Number implements java.io.Serializable {
         value = initialValue;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Creates a new AtomicLong with initial value {@code 0}.
+     * {@description.close}
      */
     public AtomicLong() {
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Gets the current value.
+     * {@description.close}
      *
      * @return the current value
      */
@@ -74,8 +115,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Sets to the given value.
+     * {@description.close}
      *
      * @param newValue the new value
      */
@@ -83,8 +126,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         value = newValue;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Eventually sets to the given value.
+     * {@description.close}
      *
      * @param newValue the new value
      * @since 1.6
@@ -93,8 +138,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         unsafe.putOrderedLong(this, valueOffset, newValue);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets to the given value and returns the old value.
+     * {@description.close}
      *
      * @param newValue the new value
      * @return the previous value
@@ -107,9 +154,11 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
+     * {@description.close}
      *
      * @param expect the expected value
      * @param update the new value
@@ -120,13 +169,15 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapLong(this, valueOffset, expect, update);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
      * <p>May <a href="package-summary.html#Spurious">fail spuriously</a>
      * and does not provide ordering guarantees, so is only rarely an
      * appropriate alternative to {@code compareAndSet}.
+     * {@description.close}
      *
      * @param expect the expected value
      * @param update the new value
@@ -136,8 +187,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapLong(this, valueOffset, expect, update);
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value.
+     * {@description.close}
      *
      * @return the previous value
      */
@@ -150,8 +203,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value.
+     * {@description.close}
      *
      * @return the previous value
      */
@@ -164,8 +219,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value.
+     * {@description.close}
      *
      * @param delta the value to add
      * @return the previous value
@@ -179,8 +236,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically increments by one the current value.
+     * {@description.close}
      *
      * @return the updated value
      */
@@ -193,8 +252,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically decrements by one the current value.
+     * {@description.close}
      *
      * @return the updated value
      */
@@ -207,8 +268,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Atomically adds the given value to the current value.
+     * {@description.close}
      *
      * @param delta the value to add
      * @return the updated value
@@ -222,8 +285,10 @@ public class AtomicLong extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the String representation of the current value.
+     * {@description.close}
      * @return the String representation of the current value.
      */
     public String toString() {
@@ -231,33 +296,18 @@ public class AtomicLong extends Number implements java.io.Serializable {
     }
 
 
-    /**
-     * Returns the value of this {@code AtomicLong} as an {@code int}
-     * after a narrowing primitive conversion.
-     */
     public int intValue() {
         return (int)get();
     }
 
-    /**
-     * Returns the value of this {@code AtomicLong} as a {@code long}.
-     */
     public long longValue() {
         return get();
     }
 
-    /**
-     * Returns the value of this {@code AtomicLong} as a {@code float}
-     * after a widening primitive conversion.
-     */
     public float floatValue() {
         return (float)get();
     }
 
-    /**
-     * Returns the value of this {@code AtomicLong} as a {@code double}
-     * after a widening primitive conversion.
-     */
     public double doubleValue() {
         return (double)get();
     }

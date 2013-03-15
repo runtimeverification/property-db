@@ -1,48 +1,60 @@
-/* Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Copyright (c) 2000, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.prefs;
 
-import java.util.EventListener;
-
-/**
- * This interface is used to handle preference node change events. The
- * implementation of this interface can be installed by the {@code Preferences}
- * instance.
+/** {@collect.stats} 
+ * {@description.open}
+ * A listener for receiving preference node change events.
+ * {@description.close}
  *
- * @see Preferences
- * @see NodeChangeEvent
- *
- * @since 1.4
+ * @author  Josh Bloch
+ * @see     Preferences
+ * @see     NodeChangeEvent
+ * @see     PreferenceChangeListener
+ * @since   1.4
  */
-public interface NodeChangeListener extends EventListener {
-    /**
-     * This method gets called whenever a child node is added to another node.
-     *
-     * @param e
-     *            the node change event.
-     */
-    public void childAdded (NodeChangeEvent e);
 
-    /**
-     * This method gets called whenever a child node is removed from another
-     * node.
+public interface NodeChangeListener extends java.util.EventListener {
+    /** {@collect.stats} 
+     * {@description.open}
+     * This method gets called when a child node is added.
+     * {@description.close}
      *
-     * @param e
-     *            the node change event.
+     * @param evt A node change event object describing the parent
+     *            and child node.
      */
-    public void childRemoved (NodeChangeEvent e);
+    void childAdded(NodeChangeEvent evt);
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * This method gets called when a child node is removed.
+     * {@description.close}
+     *
+     * @param evt A node change event object describing the parent
+     *            and child node.
+     */
+    void childRemoved(NodeChangeEvent evt);
 }

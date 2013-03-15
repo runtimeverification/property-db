@@ -1,222 +1,769 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * (C) Copyright Taligent, Inc. 1996, 1997 - All Rights Reserved
+ * (C) Copyright IBM Corp. 1996-1998 - All Rights Reserved
+ *
+ *   The original version of this source code and documentation is copyrighted
+ * and owned by Taligent, Inc., a wholly-owned subsidiary of IBM. These
+ * materials are provided under terms of a License Agreement between Taligent
+ * and Sun. This technology is protected by multiple US and International
+ * patents. This notice and attribution to Taligent may not be removed.
+ *   Taligent is a registered trademark of Taligent, Inc.
+ *
  */
 
 package java.text;
 
-import libcore.icu.CollationElementIteratorICU;
+import java.lang.Character;
+import java.util.Vector;
+import sun.text.CollatorUtilities;
+import sun.text.normalizer.NormalizerBase;
 
-/**
- * Created by a {@code RuleBasedCollator} to iterate through a string. The
- * result of each iteration is a 32-bit collation element that defines the
- * ordering priority of the next character or sequence of characters in the
- * source string.
+/** {@collect.stats} 
+ * The <code>CollationElementIterator</code> class is used as an iterator
+ * to walk through each character of an international string. Use the iterator
+ * to return the ordering priority of the positioned character. The ordering
+ * priority of a character, which we refer to as a key, defines how a character
+ * is collated in the given collation object.
+ *
  * <p>
- * For illustration, consider the following in Spanish:
+ * For example, consider the following in Spanish:
+ * <blockquote>
+ * <pre>
+ * "ca" -> the first key is key('c') and second key is key('a').
+ * "cha" -> the first key is key('ch') and second key is key('a').
+ * </pre>
+ * </blockquote>
+ * And in German,
+ * <blockquote>
+ * <pre>
+ * "\u00e4b"-> the first key is key('a'), the second key is key('e'), and
+ * the third key is key('b').
+ * </pre>
+ * </blockquote>
+ * The key of a character is an integer composed of primary order(short),
+ * secondary order(byte), and tertiary order(byte). Java strictly defines
+ * the size and signedness of its primitive data types. Therefore, the static
+ * functions <code>primaryOrder</code>, <code>secondaryOrder</code>, and
+ * <code>tertiaryOrder</code> return <code>int</code>, <code>short</code>,
+ * and <code>short</code> respectively to ensure the correctness of the key
+ * value.
+ *
  * <p>
- * "ca": the first collation element is collation_element('c') and second
- * collation element is collation_element('a').
+ * Example of the iterator usage,
+ * <blockquote>
+ * <pre>
+ *
+ *  String testString = "This is a test";
+ *  RuleBasedCollator ruleBasedCollator = (RuleBasedCollator)Collator.getInstance();
+ *  CollationElementIterator collationElementIterator = ruleBasedCollator.getCollationElementIterator(testString);
+ *  int primaryOrder = CollationElementIterator.primaryOrder(collationElementIterator.next());
+ * </pre>
+ * </blockquote>
+ *
  * <p>
- * Since "ch" in Spanish sorts as one entity, the example below returns one
- * collation element for the two characters 'c' and 'h':
- * <p>
- * "cha": the first collation element is collation_element('ch') and the second
- * one is collation_element('a').
- * <p>
- * In German, since the character '&#92;u0086' is a composed character of 'a'
- * and 'e', the iterator returns two collation elements for the single character
- * '&#92;u0086':
- * <p>
- * "&#92;u0086b": the first collation element is collation_element('a'), the
- * second one is collation_element('e'), and the third collation element is
- * collation_element('b').
+ * <code>CollationElementIterator.next</code> returns the collation order
+ * of the next character. A collation order consists of primary order,
+ * secondary order and tertiary order. The data type of the collation
+ * order is <strong>int</strong>. The first 16 bits of a collation order
+ * is its primary order; the next 8 bits is the secondary order and the
+ * last 8 bits is the tertiary order.
+ *
+ * @see                Collator
+ * @see                RuleBasedCollator
+ * @author             Helena Shih, Laura Werner, Richard Gillam
  */
-public final class CollationElementIterator {
-
-    /**
-     * This constant is returned by the iterator in the methods
-     * {@code next()} and {@code previous()} when the end or the
-     * beginning of the source string has been reached, and there are no more
-     * valid collation elements to return.
+public final class CollationElementIterator
+{
+    /** {@collect.stats} 
+     * Null order which indicates the end of string is reached by the
+     * cursor.
      */
-    public static final int NULLORDER = -1;
+    public final static int NULLORDER = 0xffffffff;
 
-    private CollationElementIteratorICU icuIterator;
-
-    CollationElementIterator(CollationElementIteratorICU iterator) {
-        this.icuIterator = iterator;
+    /** {@collect.stats} 
+     * CollationElementIterator constructor.  This takes the source string and
+     * the collation object.  The cursor will walk thru the source string based
+     * on the predefined collation rules.  If the source string is empty,
+     * NULLORDER will be returned on the calls to next().
+     * @param sourceText the source string.
+     * @param order the collation object.
+     */
+    CollationElementIterator(String sourceText, RuleBasedCollator owner) {
+        this.owner = owner;
+        ordering = owner.getTables();
+        if ( sourceText.length() != 0 ) {
+            NormalizerBase.Mode mode =
+                CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+            text = new NormalizerBase(sourceText, mode);
+        }
     }
 
-    /**
-     * Obtains the maximum length of any expansion sequence that ends with the
-     * specified collation element. Returns {@code 1} if there is no expansion
-     * with this collation element as the last element.
+    /** {@collect.stats} 
+     * CollationElementIterator constructor.  This takes the source string and
+     * the collation object.  The cursor will walk thru the source string based
+     * on the predefined collation rules.  If the source string is empty,
+     * NULLORDER will be returned on the calls to next().
+     * @param sourceText the source string.
+     * @param order the collation object.
+     */
+    CollationElementIterator(CharacterIterator sourceText, RuleBasedCollator owner) {
+        this.owner = owner;
+        ordering = owner.getTables();
+        NormalizerBase.Mode mode =
+            CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+        text = new NormalizerBase(sourceText, mode);
+    }
+
+    /** {@collect.stats} 
+     * Resets the cursor to the beginning of the string.  The next call
+     * to next() will return the first collation element in the string.
+     */
+    public void reset()
+    {
+        if (text != null) {
+            text.reset();
+            NormalizerBase.Mode mode =
+                CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+            text.setMode(mode);
+        }
+        buffer = null;
+        expIndex = 0;
+        swapOrder = 0;
+    }
+
+    /** {@collect.stats} 
+     * Get the next collation element in the string.  <p>This iterator iterates
+     * over a sequence of collation elements that were built from the string.
+     * Because there isn't necessarily a one-to-one mapping from characters to
+     * collation elements, this doesn't mean the same thing as "return the
+     * collation element [or ordering priority] of the next character in the
+     * string".</p>
+     * <p>This function returns the collation element that the iterator is currently
+     * pointing to and then updates the internal pointer to point to the next element.
+     * previous() updates the pointer first and then returns the element.  This
+     * means that when you change direction while iterating (i.e., call next() and
+     * then call previous(), or call previous() and then call next()), you'll get
+     * back the same element twice.</p>
+     */
+    public int next()
+    {
+        if (text == null) {
+            return NULLORDER;
+        }
+        NormalizerBase.Mode textMode = text.getMode();
+        // convert the owner's mode to something the Normalizer understands
+        NormalizerBase.Mode ownerMode =
+            CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+        if (textMode != ownerMode) {
+            text.setMode(ownerMode);
+        }
+
+        // if buffer contains any decomposed char values
+        // return their strength orders before continuing in
+        // the Normalizer's CharacterIterator.
+        if (buffer != null) {
+            if (expIndex < buffer.length) {
+                return strengthOrder(buffer[expIndex++]);
+            } else {
+                buffer = null;
+                expIndex = 0;
+            }
+        } else if (swapOrder != 0) {
+            if (Character.isSupplementaryCodePoint(swapOrder)) {
+                char[] chars = Character.toChars(swapOrder);
+                swapOrder = chars[1];
+                return chars[0] << 16;
+            }
+            int order = swapOrder << 16;
+            swapOrder = 0;
+            return order;
+        }
+        int ch  = text.next();
+
+        // are we at the end of Normalizer's text?
+        if (ch == NormalizerBase.DONE) {
+            return NULLORDER;
+        }
+
+        int value = ordering.getUnicodeOrder(ch);
+        if (value == RuleBasedCollator.UNMAPPED) {
+            swapOrder = ch;
+            return UNMAPPEDCHARVALUE;
+        }
+        else if (value >= RuleBasedCollator.CONTRACTCHARINDEX) {
+            value = nextContractChar(ch);
+        }
+        if (value >= RuleBasedCollator.EXPANDCHARINDEX) {
+            buffer = ordering.getExpandValueList(value);
+            expIndex = 0;
+            value = buffer[expIndex++];
+        }
+
+        if (ordering.isSEAsianSwapping()) {
+            int consonant;
+            if (isThaiPreVowel(ch)) {
+                consonant = text.next();
+                if (isThaiBaseConsonant(consonant)) {
+                    buffer = makeReorderedBuffer(consonant, value, buffer, true);
+                    value = buffer[0];
+                    expIndex = 1;
+                } else {
+                    text.previous();
+                }
+            }
+            if (isLaoPreVowel(ch)) {
+                consonant = text.next();
+                if (isLaoBaseConsonant(consonant)) {
+                    buffer = makeReorderedBuffer(consonant, value, buffer, true);
+                    value = buffer[0];
+                    expIndex = 1;
+                } else {
+                    text.previous();
+                }
+            }
+        }
+
+        return strengthOrder(value);
+    }
+
+    /** {@collect.stats} 
+     * Get the previous collation element in the string.  <p>This iterator iterates
+     * over a sequence of collation elements that were built from the string.
+     * Because there isn't necessarily a one-to-one mapping from characters to
+     * collation elements, this doesn't mean the same thing as "return the
+     * collation element [or ordering priority] of the previous character in the
+     * string".</p>
+     * <p>This function updates the iterator's internal pointer to point to the
+     * collation element preceding the one it's currently pointing to and then
+     * returns that element, while next() returns the current element and then
+     * updates the pointer.  This means that when you change direction while
+     * iterating (i.e., call next() and then call previous(), or call previous()
+     * and then call next()), you'll get back the same element twice.</p>
+     * @since 1.2
+     */
+    public int previous()
+    {
+        if (text == null) {
+            return NULLORDER;
+        }
+        NormalizerBase.Mode textMode = text.getMode();
+        // convert the owner's mode to something the Normalizer understands
+        NormalizerBase.Mode ownerMode =
+            CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+        if (textMode != ownerMode) {
+            text.setMode(ownerMode);
+        }
+        if (buffer != null) {
+            if (expIndex > 0) {
+                return strengthOrder(buffer[--expIndex]);
+            } else {
+                buffer = null;
+                expIndex = 0;
+            }
+        } else if (swapOrder != 0) {
+            if (Character.isSupplementaryCodePoint(swapOrder)) {
+                char[] chars = Character.toChars(swapOrder);
+                swapOrder = chars[1];
+                return chars[0] << 16;
+            }
+            int order = swapOrder << 16;
+            swapOrder = 0;
+            return order;
+        }
+        int ch = text.previous();
+        if (ch == NormalizerBase.DONE) {
+            return NULLORDER;
+        }
+
+        int value = ordering.getUnicodeOrder(ch);
+
+        if (value == RuleBasedCollator.UNMAPPED) {
+            swapOrder = UNMAPPEDCHARVALUE;
+            return ch;
+        } else if (value >= RuleBasedCollator.CONTRACTCHARINDEX) {
+            value = prevContractChar(ch);
+        }
+        if (value >= RuleBasedCollator.EXPANDCHARINDEX) {
+            buffer = ordering.getExpandValueList(value);
+            expIndex = buffer.length;
+            value = buffer[--expIndex];
+        }
+
+        if (ordering.isSEAsianSwapping()) {
+            int vowel;
+            if (isThaiBaseConsonant(ch)) {
+                vowel = text.previous();
+                if (isThaiPreVowel(vowel)) {
+                    buffer = makeReorderedBuffer(vowel, value, buffer, false);
+                    expIndex = buffer.length - 1;
+                    value = buffer[expIndex];
+                } else {
+                    text.next();
+                }
+            }
+            if (isLaoBaseConsonant(ch)) {
+                vowel = text.previous();
+                if (isLaoPreVowel(vowel)) {
+                    buffer = makeReorderedBuffer(vowel, value, buffer, false);
+                    expIndex = buffer.length - 1;
+                    value = buffer[expIndex];
+                } else {
+                    text.next();
+                }
+            }
+        }
+
+        return strengthOrder(value);
+    }
+
+    /** {@collect.stats} 
+     * Return the primary component of a collation element.
+     * @param order the collation element
+     * @return the element's primary component
+     */
+    public final static int primaryOrder(int order)
+    {
+        order &= RBCollationTables.PRIMARYORDERMASK;
+        return (order >>> RBCollationTables.PRIMARYORDERSHIFT);
+    }
+    /** {@collect.stats} 
+     * Return the secondary component of a collation element.
+     * @param order the collation element
+     * @return the element's secondary component
+     */
+    public final static short secondaryOrder(int order)
+    {
+        order = order & RBCollationTables.SECONDARYORDERMASK;
+        return ((short)(order >> RBCollationTables.SECONDARYORDERSHIFT));
+    }
+    /** {@collect.stats} 
+     * Return the tertiary component of a collation element.
+     * @param order the collation element
+     * @return the element's tertiary component
+     */
+    public final static short tertiaryOrder(int order)
+    {
+        return ((short)(order &= RBCollationTables.TERTIARYORDERMASK));
+    }
+
+    /** {@collect.stats} 
+     *  Get the comparison order in the desired strength.  Ignore the other
+     *  differences.
+     *  @param order The order value
+     */
+    final int strengthOrder(int order)
+    {
+        int s = owner.getStrength();
+        if (s == Collator.PRIMARY)
+        {
+            order &= RBCollationTables.PRIMARYDIFFERENCEONLY;
+        } else if (s == Collator.SECONDARY)
+        {
+            order &= RBCollationTables.SECONDARYDIFFERENCEONLY;
+        }
+        return order;
+    }
+
+    /** {@collect.stats} 
+     * Sets the iterator to point to the collation element corresponding to
+     * the specified character (the parameter is a CHARACTER offset in the
+     * original string, not an offset into its corresponding sequence of
+     * collation elements).  The value returned by the next call to next()
+     * will be the collation element corresponding to the specified position
+     * in the text.  If that position is in the middle of a contracting
+     * character sequence, the result of the next call to next() is the
+     * collation element for that sequence.  This means that getOffset()
+     * is not guaranteed to return the same value as was passed to a preceding
+     * call to setOffset().
      *
-     * @param order
-     *            a collation element that has been previously obtained from a
-     *            call to either the {@link #next()} or {@link #previous()}
-     *            method.
-     * @return the maximum length of any expansion sequence ending with the
-     *         specified collation element.
+     * @param newOffset The new character offset into the original text.
+     * @since 1.2
      */
-    public int getMaxExpansion(int order) {
-        return this.icuIterator.getMaxExpansion(order);
+    public void setOffset(int newOffset)
+    {
+        if (text != null) {
+            if (newOffset < text.getBeginIndex()
+                || newOffset >= text.getEndIndex()) {
+                    text.setIndexOnly(newOffset);
+            } else {
+                int c = text.setIndex(newOffset);
+
+                // if the desired character isn't used in a contracting character
+                // sequence, bypass all the backing-up logic-- we're sitting on
+                // the right character already
+                if (ordering.usedInContractSeq(c)) {
+                    // walk backwards through the string until we see a character
+                    // that DOESN'T participate in a contracting character sequence
+                    while (ordering.usedInContractSeq(c)) {
+                        c = text.previous();
+                    }
+                    // now walk forward using this object's next() method until
+                    // we pass the starting point and set our current position
+                    // to the beginning of the last "character" before or at
+                    // our starting position
+                    int last = text.getIndex();
+                    while (text.getIndex() <= newOffset) {
+                        last = text.getIndex();
+                        next();
+                    }
+                    text.setIndexOnly(last);
+                    // we don't need this, since last is the last index
+                    // that is the starting of the contraction which encompass
+                    // newOffset
+                    // text.previous();
+                }
+            }
+        }
+        buffer = null;
+        expIndex = 0;
+        swapOrder = 0;
     }
 
-    /**
-     * Obtains the character offset in the source string corresponding to the
-     * next collation element. This value could be any of:
-     * <ul>
-     * <li>The index of the first character in the source string that matches
-     * the value of the next collation element. This means that if
-     * {@code setOffset(offset)} sets the index in the middle of a contraction,
-     * {@code getOffset()} returns the index of the first character in the
-     * contraction, which may not be equal to the original offset that was set.
-     * Hence calling {@code getOffset()} immediately after
-     * {@code setOffset(offset)} does not guarantee that the original offset set
-     * will be returned.</li>
-     * <li>If normalization is on, the index of the immediate subsequent
-     * character, or composite character with the first character, having a
-     * combining class of 0.</li>
-     * <li>The length of the source string, if iteration has reached the end.
-     * </li>
-     * </ul>
+    /** {@collect.stats} 
+     * Returns the character offset in the original text corresponding to the next
+     * collation element.  (That is, getOffset() returns the position in the text
+     * corresponding to the collation element that will be returned by the next
+     * call to next().)  This value will always be the index of the FIRST character
+     * corresponding to the collation element (a contracting character sequence is
+     * when two or more characters all correspond to the same collation element).
+     * This means if you do setOffset(x) followed immediately by getOffset(), getOffset()
+     * won't necessarily return x.
      *
-     * @return The position of the collation element in the source string that
-     *         will be returned by the next invocation of the {@link #next()}
-     *         method.
+     * @return The character offset in the original text corresponding to the collation
+     * element that will be returned by the next call to next().
+     * @since 1.2
      */
-    public int getOffset() {
-        return this.icuIterator.getOffset();
+    public int getOffset()
+    {
+        return (text != null) ? text.getIndex() : 0;
     }
 
-    /**
-     * Obtains the next collation element in the source string.
+
+    /** {@collect.stats} 
+     * Return the maximum length of any expansion sequences that end
+     * with the specified comparison order.
+     * @param order a collation order returned by previous or next.
+     * @return the maximum length of any expansion sequences ending
+     *         with the specified order.
+     * @since 1.2
+     */
+    public int getMaxExpansion(int order)
+    {
+        return ordering.getMaxExpansion(order);
+    }
+
+    /** {@collect.stats} 
+     * Set a new string over which to iterate.
      *
-     * @return the next collation element or {@code NULLORDER} if the end
-     *         of the iteration has been reached.
+     * @param source  the new source text
+     * @since 1.2
      */
-    public int next() {
-        return this.icuIterator.next();
+    public void setText(String source)
+    {
+        buffer = null;
+        swapOrder = 0;
+        expIndex = 0;
+        NormalizerBase.Mode mode =
+            CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+        if (text == null) {
+            text = new NormalizerBase(source, mode);
+        } else {
+            text.setMode(mode);
+            text.setText(source);
+        }
     }
 
-    /**
-     * Obtains the previous collation element in the source string.
+    /** {@collect.stats} 
+     * Set a new string over which to iterate.
      *
-     * @return the previous collation element, or {@code NULLORDER} when
-     *         the start of the iteration has been reached.
+     * @param source  the new source text.
+     * @since 1.2
      */
-    public int previous() {
-        return this.icuIterator.previous();
+    public void setText(CharacterIterator source)
+    {
+        buffer = null;
+        swapOrder = 0;
+        expIndex = 0;
+        NormalizerBase.Mode mode =
+            CollatorUtilities.toNormalizerMode(owner.getDecomposition());
+        if (text == null) {
+            text = new NormalizerBase(source, mode);
+        } else {
+            text.setMode(mode);
+            text.setText(source);
+        }
     }
 
-    /**
-     * Obtains the primary order of the specified collation element, i.e. the
-     * first 16 bits. This value is unsigned.
-     *
-     * @param order
-     *            the element of the collation.
-     * @return the element's 16 bit primary order.
+    //============================================================
+    // privates
+    //============================================================
+
+    /** {@collect.stats} 
+     * Determine if a character is a Thai vowel (which sorts after
+     * its base consonant).
      */
-    public static final int primaryOrder(int order) {
-        return CollationElementIteratorICU.primaryOrder(order);
+    private final static boolean isThaiPreVowel(int ch) {
+        return (ch >= 0x0e40) && (ch <= 0x0e44);
     }
 
-    /**
-     * Repositions the cursor to point at the first element of the current
-     * string. The next call to {@link #next()} or {@link #previous()} will
-     * return the first and last collation element in the string, respectively.
-     * <p>
-     * If the {@code RuleBasedCollator} used by this iterator has had its
-     * attributes changed, calling {@code reset()} reinitializes the iterator to
-     * use the new attributes.
+    /** {@collect.stats} 
+     * Determine if a character is a Thai base consonant
      */
-    public void reset() {
-        this.icuIterator.reset();
+    private final static boolean isThaiBaseConsonant(int ch) {
+        return (ch >= 0x0e01) && (ch <= 0x0e2e);
     }
 
-    /**
-     * Obtains the secondary order of the specified collation element, i.e. the
-     * 16th to 23th bits, inclusive. This value is unsigned.
-     *
-     * @param order
-     *            the element of the collator.
-     * @return the 8 bit secondary order of the element.
+    /** {@collect.stats} 
+     * Determine if a character is a Lao vowel (which sorts after
+     * its base consonant).
      */
-    public static final short secondaryOrder(int order) {
-        return (short) CollationElementIteratorICU.secondaryOrder(order);
+    private final static boolean isLaoPreVowel(int ch) {
+        return (ch >= 0x0ec0) && (ch <= 0x0ec4);
     }
 
-    /**
-     * Points the iterator at the collation element associated with the
-     * character in the source string which is found at the supplied offset.
-     * After this call completes, an invocation of the {@link #next()} method
-     * will return this collation element.
-     * <p>
-     * If {@code newOffset} corresponds to a character which is part of a
-     * sequence that maps to a single collation element then the iterator is
-     * adjusted to the start of that sequence. As a result of this, any
-     * subsequent call made to {@code getOffset()} may not return the same value
-     * set by this method.
-     * <p>
-     * If the decomposition mode is on, and offset is in the middle of a
-     * decomposable range of source text, the iterator may not return a correct
-     * result for the next forwards or backwards iteration. The user must ensure
-     * that the offset is not in the middle of a decomposable range.
-     *
-     * @param newOffset
-     *            the character offset into the original source string to set.
-     *            Note that this is not an offset into the corresponding
-     *            sequence of collation elements.
+    /** {@collect.stats} 
+     * Determine if a character is a Lao base consonant
      */
-    public void setOffset(int newOffset) {
-        this.icuIterator.setOffset(newOffset);
+    private final static boolean isLaoBaseConsonant(int ch) {
+        return (ch >= 0x0e81) && (ch <= 0x0eae);
     }
 
-    /**
-     * Sets a new source string iterator for iteration, and resets the offset to
-     * the beginning of the text.
-     *
-     * @param source
-     *            the new source string iterator for iteration.
+    /** {@collect.stats} 
+     * This method produces a buffer which contains the collation
+     * elements for the two characters, with colFirst's values preceding
+     * another character's.  Presumably, the other character precedes colFirst
+     * in logical order (otherwise you wouldn't need this method would you?).
+     * The assumption is that the other char's value(s) have already been
+     * computed.  If this char has a single element it is passed to this
+     * method as lastValue, and lastExpansion is null.  If it has an
+     * expansion it is passed in lastExpansion, and colLastValue is ignored.
      */
-    public void setText(CharacterIterator source) {
-        this.icuIterator.setText(source);
+    private int[] makeReorderedBuffer(int colFirst,
+                                      int lastValue,
+                                      int[] lastExpansion,
+                                      boolean forward) {
+
+        int[] result;
+
+        int firstValue = ordering.getUnicodeOrder(colFirst);
+        if (firstValue >= RuleBasedCollator.CONTRACTCHARINDEX) {
+            firstValue = forward? nextContractChar(colFirst) : prevContractChar(colFirst);
+        }
+
+        int[] firstExpansion = null;
+        if (firstValue >= RuleBasedCollator.EXPANDCHARINDEX) {
+            firstExpansion = ordering.getExpandValueList(firstValue);
+        }
+
+        if (!forward) {
+            int temp1 = firstValue;
+            firstValue = lastValue;
+            lastValue = temp1;
+            int[] temp2 = firstExpansion;
+            firstExpansion = lastExpansion;
+            lastExpansion = temp2;
+        }
+
+        if (firstExpansion == null && lastExpansion == null) {
+            result = new int [2];
+            result[0] = firstValue;
+            result[1] = lastValue;
+        }
+        else {
+            int firstLength = firstExpansion==null? 1 : firstExpansion.length;
+            int lastLength = lastExpansion==null? 1 : lastExpansion.length;
+            result = new int[firstLength + lastLength];
+
+            if (firstExpansion == null) {
+                result[0] = firstValue;
+            }
+            else {
+                System.arraycopy(firstExpansion, 0, result, 0, firstLength);
+            }
+
+            if (lastExpansion == null) {
+                result[firstLength] = lastValue;
+            }
+            else {
+                System.arraycopy(lastExpansion, 0, result, firstLength, lastLength);
+            }
+        }
+
+        return result;
     }
 
-    /**
-     * Sets a new source string for iteration, and resets the offset to the
-     * beginning of the text.
-     *
-     * @param source
-     *            the new source string for iteration.
+    /** {@collect.stats} 
+     *  Check if a comparison order is ignorable.
+     *  @return true if a character is ignorable, false otherwise.
      */
-    public void setText(String source) {
-        this.icuIterator.setText(source);
+    final static boolean isIgnorable(int order)
+    {
+        return ((primaryOrder(order) == 0) ? true : false);
     }
 
-    /**
-     * Obtains the tertiary order of the specified collation element, i.e. the
-     * last 8 bits. This value is unsigned.
-     *
-     * @param order
-     *            the element of the collation.
-     * @return the 8 bit tertiary order of the element.
+    /** {@collect.stats} 
+     * Get the ordering priority of the next contracting character in the
+     * string.
+     * @param ch the starting character of a contracting character token
+     * @return the next contracting character's ordering.  Returns NULLORDER
+     * if the end of string is reached.
      */
-    public static final short tertiaryOrder(int order) {
-        return (short) CollationElementIteratorICU.tertiaryOrder(order);
+    private int nextContractChar(int ch)
+    {
+        // First get the ordering of this single character,
+        // which is always the first element in the list
+        Vector list = ordering.getContractValues(ch);
+        EntryPair pair = (EntryPair)list.firstElement();
+        int order = pair.value;
+
+        // find out the length of the longest contracting character sequence in the list.
+        // There's logic in the builder code to make sure the longest sequence is always
+        // the last.
+        pair = (EntryPair)list.lastElement();
+        int maxLength = pair.entryName.length();
+
+        // (the Normalizer is cloned here so that the seeking we do in the next loop
+        // won't affect our real position in the text)
+        NormalizerBase tempText = (NormalizerBase)text.clone();
+
+        // extract the next maxLength characters in the string (we have to do this using the
+        // Normalizer to ensure that our offsets correspond to those the rest of the
+        // iterator is using) and store it in "fragment".
+        tempText.previous();
+        key.setLength(0);
+        int c = tempText.next();
+        while (maxLength > 0 && c != NormalizerBase.DONE) {
+            if (Character.isSupplementaryCodePoint(c)) {
+                key.append(Character.toChars(c));
+                maxLength -= 2;
+            } else {
+                key.append((char)c);
+                --maxLength;
+            }
+            c = tempText.next();
+        }
+        String fragment = key.toString();
+        // now that we have that fragment, iterate through this list looking for the
+        // longest sequence that matches the characters in the actual text.  (maxLength
+        // is used here to keep track of the length of the longest sequence)
+        // Upon exit from this loop, maxLength will contain the length of the matching
+        // sequence and order will contain the collation-element value corresponding
+        // to this sequence
+        maxLength = 1;
+        for (int i = list.size() - 1; i > 0; i--) {
+            pair = (EntryPair)list.elementAt(i);
+            if (!pair.fwd)
+                continue;
+
+            if (fragment.startsWith(pair.entryName) && pair.entryName.length()
+                    > maxLength) {
+                maxLength = pair.entryName.length();
+                order = pair.value;
+            }
+        }
+
+        // seek our current iteration position to the end of the matching sequence
+        // and return the appropriate collation-element value (if there was no matching
+        // sequence, we're already seeked to the right position and order already contains
+        // the correct collation-element value for the single character)
+        while (maxLength > 1) {
+            c = text.next();
+            maxLength -= Character.charCount(c);
+        }
+        return order;
     }
+
+    /** {@collect.stats} 
+     * Get the ordering priority of the previous contracting character in the
+     * string.
+     * @param ch the starting character of a contracting character token
+     * @return the next contracting character's ordering.  Returns NULLORDER
+     * if the end of string is reached.
+     */
+    private int prevContractChar(int ch)
+    {
+        // This function is identical to nextContractChar(), except that we've
+        // switched things so that the next() and previous() calls on the Normalizer
+        // are switched and so that we skip entry pairs with the fwd flag turned on
+        // rather than off.  Notice that we still use append() and startsWith() when
+        // working on the fragment.  This is because the entry pairs that are used
+        // in reverse iteration have their names reversed already.
+        Vector list = ordering.getContractValues(ch);
+        EntryPair pair = (EntryPair)list.firstElement();
+        int order = pair.value;
+
+        pair = (EntryPair)list.lastElement();
+        int maxLength = pair.entryName.length();
+
+        NormalizerBase tempText = (NormalizerBase)text.clone();
+
+        tempText.next();
+        key.setLength(0);
+        int c = tempText.previous();
+        while (maxLength > 0 && c != NormalizerBase.DONE) {
+            if (Character.isSupplementaryCodePoint(c)) {
+                key.append(Character.toChars(c));
+                maxLength -= 2;
+            } else {
+                key.append((char)c);
+                --maxLength;
+            }
+            c = tempText.previous();
+        }
+        String fragment = key.toString();
+
+        maxLength = 1;
+        for (int i = list.size() - 1; i > 0; i--) {
+            pair = (EntryPair)list.elementAt(i);
+            if (pair.fwd)
+                continue;
+
+            if (fragment.startsWith(pair.entryName) && pair.entryName.length()
+                    > maxLength) {
+                maxLength = pair.entryName.length();
+                order = pair.value;
+            }
+        }
+
+        while (maxLength > 1) {
+            c = text.previous();
+            maxLength -= Character.charCount(c);
+        }
+        return order;
+    }
+
+    final static int UNMAPPEDCHARVALUE = 0x7FFF0000;
+
+    private NormalizerBase text = null;
+    private int[] buffer = null;
+    private int expIndex = 0;
+    private StringBuffer key = new StringBuffer(5);
+    private int swapOrder = 0;
+    private RBCollationTables ordering;
+    private RuleBasedCollator owner;
 }

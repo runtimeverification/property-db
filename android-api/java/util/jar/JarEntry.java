@@ -1,218 +1,152 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.jar;
 
 import java.io.IOException;
-import java.security.CodeSigner;
-import java.security.cert.CertPath;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.zip.ZipEntry;
-import javax.security.auth.x500.X500Principal;
+import java.security.CodeSigner;
+import java.security.cert.Certificate;
 
-/**
- * Represents a single file in a JAR archive together with the manifest
- * attributes and digital signatures associated with it.
- *
- * @see JarFile
- * @see JarInputStream
+/** {@collect.stats} 
+ * {@description.open}
+ * This class is used to represent a JAR file entry.
+ * {@description.close}
  */
-public class JarEntry extends ZipEntry {
-    private Attributes attributes;
+public
+class JarEntry extends ZipEntry {
+    Attributes attr;
+    Certificate[] certs;
+    CodeSigner[] signers;
 
-    JarFile parentJar;
-
-    CodeSigner signers[];
-
-    // Cached factory used to build CertPath-s in <code>getCodeSigners()</code>.
-    private CertificateFactory factory;
-
-    private boolean isFactoryChecked = false;
-
-    /**
-     * Creates a new {@code JarEntry} named name.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarEntry</code> for the specified JAR file
+     * entry name.
+     * {@description.close}
      *
-     * @param name
-     *            The name of the new {@code JarEntry}.
+     * @param name the JAR file entry name
+     * @exception NullPointerException if the entry name is <code>null</code>
+     * @exception IllegalArgumentException if the entry name is longer than
+     *            0xFFFF bytes.
      */
     public JarEntry(String name) {
         super(name);
     }
 
-    /**
-     * Creates a new {@code JarEntry} using the values obtained from entry.
-     *
-     * @param entry
-     *            The ZipEntry to obtain values from.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarEntry</code> with fields taken from the
+     * specified <code>ZipEntry</code> object.
+     * {@description.close}
+     * @param ze the <code>ZipEntry</code> object to create the
+     *           <code>JarEntry</code> from
      */
-    public JarEntry(ZipEntry entry) {
-        super(entry);
+    public JarEntry(ZipEntry ze) {
+        super(ze);
     }
 
-    /**
-     * Returns the {@code Attributes} object associated with this entry or
-     * {@code null} if none exists.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates a new <code>JarEntry</code> with fields taken from the
+     * specified <code>JarEntry</code> object.
+     * {@description.close}
      *
-     * @return the {@code Attributes} for this entry.
-     * @exception IOException
-     *                If an error occurs obtaining the {@code Attributes}.
-     * @see Attributes
-     */
-    public Attributes getAttributes() throws IOException {
-        if (attributes != null || parentJar == null) {
-            return attributes;
-        }
-        Manifest manifest = parentJar.getManifest();
-        if (manifest == null) {
-            return null;
-        }
-        return attributes = manifest.getAttributes(getName());
-    }
-
-    /**
-     * Returns an array of {@code Certificate} Objects associated with this
-     * entry or {@code null} if none exists. Make sure that the everything is
-     * read from the input stream before calling this method, or else the method
-     * returns {@code null}.
-     *
-     * @return the certificate for this entry.
-     * @see java.security.cert.Certificate
-     */
-    public Certificate[] getCertificates() {
-        if (parentJar == null) {
-            return null;
-        }
-        JarVerifier jarVerifier = parentJar.verifier;
-        if (jarVerifier == null) {
-            return null;
-        }
-        return jarVerifier.getCertificates(getName());
-    }
-
-    void setAttributes(Attributes attrib) {
-        attributes = attrib;
-    }
-
-    /**
-     * Create a new {@code JarEntry} using the values obtained from the
-     * argument.
-     *
-     * @param je
-     *            The {@code JarEntry} to obtain values from.
+     * @param je the <code>JarEntry</code> to copy
      */
     public JarEntry(JarEntry je) {
-        super(je);
-        parentJar = je.parentJar;
-        attributes = je.attributes;
-        signers = je.signers;
+        this((ZipEntry)je);
+        this.attr = je.attr;
+        this.certs = je.certs;
+        this.signers = je.signers;
     }
 
-    /**
-     * Returns the code signers for the digital signatures associated with the
-     * JAR file. If there is no such code signer, it returns {@code null}. Make
-     * sure that the everything is read from the input stream before calling
-     * this method, or else the method returns {@code null}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the <code>Manifest</code> <code>Attributes</code> for this
+     * entry, or <code>null</code> if none.
+     * {@description.close}
      *
-     * @return the code signers for the JAR entry.
-     * @see CodeSigner
+     * @return the <code>Manifest</code> <code>Attributes</code> for this
+     * entry, or <code>null</code> if none
+     */
+    public Attributes getAttributes() throws IOException {
+        return attr;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the <code>Certificate</code> objects for this entry, or
+     * <code>null</code> if none.
+     * {@description.close}
+     * {@property.open formal:java.util.jar.JarEntry_GetCertificatesOnce}
+     * This method can only be called once
+     * the <code>JarEntry</code> has been completely verified by reading
+     * from the entry input stream until the end of the stream has been
+     * reached. Otherwise, this method will return <code>null</code>.
+     * {@property.close}
+     *
+     * {@description.open}
+     * <p>The returned certificate array comprises all the signer certificates
+     * that were used to verify this entry. Each signer certificate is
+     * followed by its supporting certificate chain (which may be empty).
+     * Each signer certificate and its supporting certificate chain are ordered
+     * bottom-to-top (i.e., with the signer certificate first and the (root)
+     * certificate authority last).
+     * {@description.close}
+     *
+     * @return the <code>Certificate</code> objects for this entry, or
+     * <code>null</code> if none.
+     */
+    public Certificate[] getCertificates() {
+        return certs == null ? null : certs.clone();
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the <code>CodeSigner</code> objects for this entry, or
+     * <code>null</code> if none.
+     * {@description.close}
+     * {@property.open formal:java.util.jar.JarEntry_GetCodeSignersOnce}
+     * This method can only be called once
+     * the <code>JarEntry</code> has been completely verified by reading
+     * from the entry input stream until the end of the stream has been
+     * reached. Otherwise, this method will return <code>null</code>.
+     * {@property.close}
+     *
+     * {@description.open}
+     * <p>The returned array comprises all the code signers that have signed
+     * this entry.
+     * {@description.close}
+     *
+     * @return the <code>CodeSigner</code> objects for this entry, or
+     * <code>null</code> if none.
+     *
+     * @since 1.5
      */
     public CodeSigner[] getCodeSigners() {
-        if (signers == null) {
-            signers = getCodeSigners(getCertificates());
-        }
-        if (signers == null) {
-            return null;
-        }
-
-        CodeSigner[] tmp = new CodeSigner[signers.length];
-        System.arraycopy(signers, 0, tmp, 0, tmp.length);
-        return tmp;
-    }
-
-    private CodeSigner[] getCodeSigners(Certificate[] certs) {
-        if (certs == null) {
-            return null;
-        }
-
-        X500Principal prevIssuer = null;
-        ArrayList<Certificate> list = new ArrayList<Certificate>(certs.length);
-        ArrayList<CodeSigner> asigners = new ArrayList<CodeSigner>();
-
-        for (Certificate element : certs) {
-            if (!(element instanceof X509Certificate)) {
-                // Only X509Certificate-s are taken into account - see API spec.
-                continue;
-            }
-            X509Certificate x509 = (X509Certificate) element;
-            if (prevIssuer != null) {
-                X500Principal subj = x509.getSubjectX500Principal();
-                if (!prevIssuer.equals(subj)) {
-                    // Ok, this ends the previous chain,
-                    // so transform this one into CertPath ...
-                    addCodeSigner(asigners, list);
-                    // ... and start a new one
-                    list.clear();
-                }// else { it's still the same chain }
-
-            }
-            prevIssuer = x509.getIssuerX500Principal();
-            list.add(x509);
-        }
-        if (!list.isEmpty()) {
-            addCodeSigner(asigners, list);
-        }
-        if (asigners.isEmpty()) {
-            // 'signers' is 'null' already
-            return null;
-        }
-
-        CodeSigner[] tmp = new CodeSigner[asigners.size()];
-        asigners.toArray(tmp);
-        return tmp;
-
-    }
-
-    private void addCodeSigner(ArrayList<CodeSigner> asigners,
-            List<Certificate> list) {
-        CertPath certPath = null;
-        if (!isFactoryChecked) {
-            try {
-                factory = CertificateFactory.getInstance("X.509");
-            } catch (CertificateException ex) {
-                // do nothing
-            } finally {
-                isFactoryChecked = true;
-            }
-        }
-        if (factory == null) {
-            return;
-        }
-        try {
-            certPath = factory.generateCertPath(list);
-        } catch (CertificateException ex) {
-            // do nothing
-        }
-        if (certPath != null) {
-            asigners.add(new CodeSigner(certPath, null));
-        }
+        return signers == null ? null : signers.clone();
     }
 }

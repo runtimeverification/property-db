@@ -1,12 +1,42 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*
+ * This file is available under and governed by the GNU General Public
+ * License version 2 only, as published by the Free Software Foundation.
+ * However, the following notice accompanied the original version of this
+ * file:
+ *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
+ * http://creativecommons.org/licenses/publicdomain
  */
 
 package java.util.concurrent;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A <tt>TimeUnit</tt> represents time durations at a given unit of
  * granularity and provides utility methods to convert across units,
  * and to perform timing and delay operations in these units.  A
@@ -23,18 +53,19 @@ package java.util.concurrent;
  * the following code will timeout in 50 milliseconds if the {@link
  * java.util.concurrent.locks.Lock lock} is not available:
  *
- *  <pre> {@code
- * Lock lock = ...;
- * if (lock.tryLock(50L, TimeUnit.MILLISECONDS)) ...}</pre>
- *
+ * <pre>  Lock lock = ...;
+ *  if ( lock.tryLock(50L, TimeUnit.MILLISECONDS) ) ...
+ * </pre>
  * while this code will timeout in 50 seconds:
- *  <pre> {@code
- * Lock lock = ...;
- * if (lock.tryLock(50L, TimeUnit.SECONDS)) ...}</pre>
+ * <pre>
+ *  Lock lock = ...;
+ *  if ( lock.tryLock(50L, TimeUnit.SECONDS) ) ...
+ * </pre>
  *
  * Note however, that there is no guarantee that a particular timeout
  * implementation will be able to notice the passage of time at the
  * same granularity as the given <tt>TimeUnit</tt>.
+ * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
@@ -129,9 +160,11 @@ public enum TimeUnit {
 
     static final long MAX = Long.MAX_VALUE;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Scale d by m, checking for overflow.
      * This has a short name to make above code more readable.
+     * {@description.close}
      */
     static long x(long d, long m, long over) {
         if (d >  over) return Long.MAX_VALUE;
@@ -144,7 +177,8 @@ public enum TimeUnit {
     // enum classes should not be listed as abstract), method convert
     // etc. are not declared abstract but otherwise act as abstract methods.
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Convert the given time duration in the given unit to this
      * unit.  Conversions from finer to coarser granularities
      * truncate, so lose precision. For example converting
@@ -156,6 +190,7 @@ public enum TimeUnit {
      *
      * <p>For example, to convert 10 minutes to milliseconds, use:
      * <tt>TimeUnit.MILLISECONDS.convert(10L, TimeUnit.MINUTES)</tt>
+     * {@description.close}
      *
      * @param sourceDuration the time duration in the given <tt>sourceUnit</tt>
      * @param sourceUnit the unit of the <tt>sourceDuration</tt> argument
@@ -167,8 +202,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>NANOSECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -179,8 +216,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MICROSECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -191,8 +230,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MILLISECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -203,8 +244,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>SECONDS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -215,8 +258,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>MINUTES.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -228,8 +273,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>HOURS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration,
      * or <tt>Long.MIN_VALUE</tt> if conversion would negatively
@@ -241,8 +288,10 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Equivalent to <tt>DAYS.convert(duration, this)</tt>.
+     * {@description.close}
      * @param duration the duration
      * @return the converted duration
      * @see #convert
@@ -252,18 +301,20 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Utility to compute the excess-nanosecond argument to wait,
      * sleep, join.
+     * {@description.close}
      * @param d the duration
      * @param m the number of milliseconds
      * @return the number of nanoseconds
      */
     abstract int excessNanos(long d, long m);
 
-    /**
-     * Performs a timed {@link Object#wait(long, int) Object.wait}
-     * using this time unit.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a timed <tt>Object.wait</tt> using this time unit.
      * This is a convenience method that converts timeout arguments
      * into the form required by the <tt>Object.wait</tt> method.
      *
@@ -271,22 +322,22 @@ public enum TimeUnit {
      * method (see {@link BlockingQueue#poll BlockingQueue.poll})
      * using:
      *
-     *  <pre> {@code
-     * public synchronized Object poll(long timeout, TimeUnit unit)
-     *     throws InterruptedException {
-     *   while (empty) {
-     *     unit.timedWait(this, timeout);
-     *     ...
-     *   }
-     * }}</pre>
+     * <pre>  public synchronized Object poll(long timeout, TimeUnit unit) throws InterruptedException {
+     *    while (empty) {
+     *      unit.timedWait(this, timeout);
+     *      ...
+     *    }
+     *  }</pre>
+     * {@description.close}
      *
      * @param obj the object to wait on
      * @param timeout the maximum time to wait. If less than
      * or equal to zero, do not wait at all.
-     * @throws InterruptedException if interrupted while waiting
+     * @throws InterruptedException if interrupted while waiting.
+     * @see Object#wait(long, int)
      */
     public void timedWait(Object obj, long timeout)
-            throws InterruptedException {
+    throws InterruptedException {
         if (timeout > 0) {
             long ms = toMillis(timeout);
             int ns = excessNanos(timeout, ms);
@@ -294,19 +345,20 @@ public enum TimeUnit {
         }
     }
 
-    /**
-     * Performs a timed {@link Thread#join(long, int) Thread.join}
-     * using this time unit.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a timed <tt>Thread.join</tt> using this time unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.join</tt> method.
-     *
+     * {@description.close}
      * @param thread the thread to wait for
      * @param timeout the maximum time to wait. If less than
      * or equal to zero, do not wait at all.
-     * @throws InterruptedException if interrupted while waiting
+     * @throws InterruptedException if interrupted while waiting.
+     * @see Thread#join(long, int)
      */
     public void timedJoin(Thread thread, long timeout)
-            throws InterruptedException {
+    throws InterruptedException {
         if (timeout > 0) {
             long ms = toMillis(timeout);
             int ns = excessNanos(timeout, ms);
@@ -314,15 +366,16 @@ public enum TimeUnit {
         }
     }
 
-    /**
-     * Performs a {@link Thread#sleep(long, int) Thread.sleep} using
-     * this time unit.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Performs a <tt>Thread.sleep</tt> using this unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.sleep</tt> method.
-     *
+     * {@description.close}
      * @param timeout the minimum time to sleep. If less than
      * or equal to zero, do not sleep at all.
-     * @throws InterruptedException if interrupted while sleeping
+     * @throws InterruptedException if interrupted while sleeping.
+     * @see Thread#sleep
      */
     public void sleep(long timeout) throws InterruptedException {
         if (timeout > 0) {

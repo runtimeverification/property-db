@@ -1,521 +1,563 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.io;
 
-import java.util.Arrays;
 
-/**
- * Wraps an existing {@link Reader} and <em>buffers</em> the input. Expensive
- * interaction with the underlying reader is minimized, since most (smaller)
- * requests can be satisfied by accessing the buffer alone. The drawback is that
- * some extra space is required to hold the buffer and that copying takes place
- * when filling that buffer, but this is usually outweighed by the performance
- * benefits.
+/** {@collect.stats}
+ * {@description.open}
+ * Reads text from a character-input stream, buffering characters so as to
+ * provide for the efficient reading of characters, arrays, and lines.
  *
- * <p/>A typical application pattern for the class looks like this:<p/>
+ * <p> The buffer size may be specified, or the default size may be used.  The
+ * default is large enough for most purposes.
+ *
+ * <p> In general, each read request made of a Reader causes a corresponding
+ * read request to be made of the underlying character or byte stream.  It is
+ * therefore advisable to wrap a BufferedReader around any Reader whose read()
+ * operations may be costly, such as FileReaders and InputStreamReaders.  For
+ * example,
  *
  * <pre>
- * BufferedReader buf = new BufferedReader(new FileReader(&quot;file.java&quot;));
+ * BufferedReader in
+ *   = new BufferedReader(new FileReader("foo.in"));
  * </pre>
  *
- * @see BufferedWriter
- * @since 1.1
+ * will buffer the input from the specified file.  Without buffering, each
+ * invocation of read() or readLine() could cause bytes to be read from the
+ * file, converted into characters, and then returned, which can be very
+ * inefficient.
+ *
+ * <p> Programs that use DataInputStreams for textual input can be localized by
+ * replacing each DataInputStream with an appropriate BufferedReader.
+ * {@description.close}
+ *
+ * @see FileReader
+ * @see InputStreamReader
+ *
+ * @author      Mark Reinhold
+ * @since       JDK1.1
  */
+
 public class BufferedReader extends Reader {
 
     private Reader in;
 
-    /**
-     * The characters that can be read and refilled in bulk. We maintain three
-     * indices into this buffer:<pre>
-     *     { X X X X X X X X X X X X - - }
-     *           ^     ^             ^
-     *           |     |             |
-     *         mark   pos           end</pre>
-     * Pos points to the next readable character. End is one greater than the
-     * last readable character. When {@code pos == end}, the buffer is empty and
-     * must be {@link #fillBuf() filled} before characters can be read.
-     *
-     * <p>Mark is the value pos will be set to on calls to {@link #reset}. Its
-     * value is in the range {@code [0...pos]}. If the mark is {@code -1}, the
-     * buffer cannot be reset.
-     *
-     * <p>MarkLimit limits the distance between the mark and the pos. When this
-     * limit is exceeded, {@link #reset} is permitted (but not required) to
-     * throw an exception. For shorter distances, {@link #reset} shall not throw
-     * (unless the reader is closed).
+    private char cb[];
+    private int nChars, nextChar;
+
+    private static final int INVALIDATED = -2;
+    private static final int UNMARKED = -1;
+    private int markedChar = UNMARKED;
+    private int readAheadLimit = 0; /* Valid only when markedChar > 0 */
+
+    /** {@collect.stats}
+     * {@description.open}
+     * If the next character is a line feed, skip it
+     * {@description.close}
      */
-    private char[] buf;
+    private boolean skipLF = false;
 
-    private int pos;
+    /** {@collect.stats} 
+     * {@description.open}
+     * The skipLF flag when the mark was set
+     * {@description.close}
+     */
+    private boolean markedSkipLF = false;
 
-    private int end;
+    private static int defaultCharBufferSize = 8192;
+    private static int defaultExpectedLineLength = 80;
 
-    private int mark = -1;
-
-    private int markLimit = -1;
-
-    /**
-     * Constructs a new {@code BufferedReader}, providing {@code in} with a buffer
-     * of 8192 characters.
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a buffering character-input stream that uses an input buffer of
+     * the specified size.
+     * {@description.close}
      *
-     * @param in the {@code Reader} the buffer reads from.
+     * @param  in   A Reader
+     * @param  sz   Input-buffer size
+     *
+     * @exception  IllegalArgumentException  If sz is <= 0
+     */
+    public BufferedReader(Reader in, int sz) {
+        super(in);
+        if (sz <= 0)
+            throw new IllegalArgumentException("Buffer size <= 0");
+        this.in = in;
+        cb = new char[sz];
+        nextChar = nChars = 0;
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Creates a buffering character-input stream that uses a default-sized
+     * input buffer.
+     * {@description.close}
+     *
+     * @param  in   A Reader
      */
     public BufferedReader(Reader in) {
-        this(in, 8192);
+        this(in, defaultCharBufferSize);
     }
 
-    /**
-     * Constructs a new {@code BufferedReader}, providing {@code in} with {@code size} characters
-     * of buffer.
-     *
-     * @param in the {@code InputStream} the buffer reads from.
-     * @param size the size of buffer in characters.
-     * @throws IllegalArgumentException if {@code size <= 0}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Checks to make sure that the stream has not been closed
+     * {@description.close}
      */
-    public BufferedReader(Reader in, int size) {
-        super(in);
-        if (size <= 0) {
-            throw new IllegalArgumentException("size <= 0");
+    private void ensureOpen() throws IOException {
+        if (in == null)
+            throw new IOException("Stream closed");
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Fills the input buffer, taking the mark into account if it is valid.
+     * {@description.close}
+     */
+    private void fill() throws IOException {
+        int dst;
+        if (markedChar <= UNMARKED) {
+            /* No mark */
+            dst = 0;
+        } else {
+            /* Marked */
+            int delta = nextChar - markedChar;
+            if (delta >= readAheadLimit) {
+                /* Gone past read-ahead limit: Invalidate mark */
+                markedChar = INVALIDATED;
+                readAheadLimit = 0;
+                dst = 0;
+            } else {
+                if (readAheadLimit <= cb.length) {
+                    /* Shuffle in the current buffer */
+                    System.arraycopy(cb, markedChar, cb, 0, delta);
+                    markedChar = 0;
+                    dst = delta;
+                } else {
+                    /* Reallocate buffer to accommodate read-ahead limit */
+                    char ncb[] = new char[readAheadLimit];
+                    System.arraycopy(cb, markedChar, ncb, 0, delta);
+                    cb = ncb;
+                    markedChar = 0;
+                    dst = delta;
+                }
+                nextChar = nChars = delta;
+            }
         }
-        this.in = in;
-        buf = new char[size];
+
+        int n;
+        do {
+            n = in.read(cb, dst, cb.length - dst);
+        } while (n == 0);
+        if (n > 0) {
+            nChars = dst + n;
+            nextChar = dst;
+        }
     }
 
-	/** {@collect.stats}
-	 * {@description.open}
-	 * Closes this reader. This implementation closes the buffered source reader
-	 * and releases the buffer.
-	 * {@description.close}
-	 *
-	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
-	 * Nothing is done if this reader has already been closed.
-	 * {@property.close}
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads a single character.
+     * {@description.close}
      *
-     * @throws IOException
-     *             if an error occurs while closing this reader.
+     * @return The character read, as an integer in the range
+     *         0 to 65535 (<tt>0x00-0xffff</tt>), or -1 if the
+     *         end of the stream has been reached
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
-    public void close() throws IOException {
+    public int read() throws IOException {
         synchronized (lock) {
-            if (!isClosed()) {
-                in.close();
-                buf = null;
+            ensureOpen();
+            for (;;) {
+                if (nextChar >= nChars) {
+                    fill();
+                    if (nextChar >= nChars)
+                        return -1;
+                }
+                if (skipLF) {
+                    skipLF = false;
+                    if (cb[nextChar] == '\n') {
+                        nextChar++;
+                        continue;
+                    }
+                }
+                return cb[nextChar++];
             }
         }
     }
 
-    /**
-     * Populates the buffer with data. It is an error to call this method when
-     * the buffer still contains data; ie. if {@code pos < end}.
-     *
-     * @return the number of bytes read into the buffer, or -1 if the end of the
-     *      source stream has been reached.
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads characters into a portion of an array, reading from the underlying
+     * stream if necessary.
+     * {@description.close}
      */
-    private int fillBuf() throws IOException {
-        // assert(pos == end);
-
-        if (mark == -1 || (pos - mark >= markLimit)) {
-            /* mark isn't set or has exceeded its limit. use the whole buffer */
-            int result = in.read(buf, 0, buf.length);
-            if (result > 0) {
-                mark = -1;
-                pos = 0;
-                end = result;
+    private int read1(char[] cbuf, int off, int len) throws IOException {
+        if (nextChar >= nChars) {
+            /* If the requested length is at least as large as the buffer, and
+               if there is no mark/reset activity, and if line feeds are not
+               being skipped, do not bother to copy the characters into the
+               local buffer.  In this way buffered streams will cascade
+               harmlessly. */
+            if (len >= cb.length && markedChar <= UNMARKED && !skipLF) {
+                return in.read(cbuf, off, len);
             }
-            return result;
+            fill();
         }
-
-        if (mark == 0 && markLimit > buf.length) {
-            /* the only way to make room when mark=0 is by growing the buffer */
-            int newLength = buf.length * 2;
-            if (newLength > markLimit) {
-                newLength = markLimit;
+        if (nextChar >= nChars) return -1;
+        if (skipLF) {
+            skipLF = false;
+            if (cb[nextChar] == '\n') {
+                nextChar++;
+                if (nextChar >= nChars)
+                    fill();
+                if (nextChar >= nChars)
+                    return -1;
             }
-            char[] newbuf = new char[newLength];
-            System.arraycopy(buf, 0, newbuf, 0, buf.length);
-            buf = newbuf;
-        } else if (mark > 0) {
-            /* make room by shifting the buffered data to left mark positions */
-            System.arraycopy(buf, mark, buf, 0, buf.length - mark);
-            pos -= mark;
-            end -= mark;
-            mark = 0;
         }
-
-        /* Set the new position and mark position */
-        int count = in.read(buf, pos, buf.length - pos);
-        if (count != -1) {
-            end += count;
-        }
-        return count;
+        int n = Math.min(len, nChars - nextChar);
+        System.arraycopy(cb, nextChar, cbuf, off, n);
+        nextChar += n;
+        return n;
     }
 
-    /**
-     * Indicates whether or not this reader is closed.
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads characters into a portion of an array.
      *
-     * @return {@code true} if this reader is closed, {@code false}
-     *         otherwise.
+     * <p> This method implements the general contract of the corresponding
+     * <code>{@link Reader#read(char[], int, int) read}</code> method of the
+     * <code>{@link Reader}</code> class.  As an additional convenience, it
+     * attempts to read as many characters as possible by repeatedly invoking
+     * the <code>read</code> method of the underlying stream.  This iterated
+     * <code>read</code> continues until one of the following conditions becomes
+     * true: <ul>
+     *
+     *   <li> The specified number of characters have been read,
+     *
+     *   <li> The <code>read</code> method of the underlying stream returns
+     *   <code>-1</code>, indicating end-of-file, or
+     *
+     *   <li> The <code>ready</code> method of the underlying stream
+     *   returns <code>false</code>, indicating that further input requests
+     *   would block.
+     *
+     * </ul> If the first <code>read</code> on the underlying stream returns
+     * <code>-1</code> to indicate end-of-file then this method returns
+     * <code>-1</code>.  Otherwise this method returns the number of characters
+     * actually read.
+     *
+     * <p> Subclasses of this class are encouraged, but not required, to
+     * attempt to read as many characters as possible in the same fashion.
+     *
+     * <p> Ordinarily this method takes characters from this stream's character
+     * buffer, filling it from the underlying stream as necessary.  If,
+     * however, the buffer is empty, the mark is not valid, and the requested
+     * length is at least as large as the buffer, then this method will read
+     * characters directly from the underlying stream into the given array.
+     * Thus redundant <code>BufferedReader</code>s will not copy data
+     * unnecessarily.
+     * {@description.close}
+     *
+     * @param      cbuf  Destination buffer
+     * @param      off   Offset at which to start storing characters
+     * @param      len   Maximum number of characters to read
+     *
+     * @return     The number of characters read, or -1 if the end of the
+     *             stream has been reached
+     *
+     * @exception  IOException  If an I/O error occurs
      */
-    private boolean isClosed() {
-        return buf == null;
+    public int read(char cbuf[], int off, int len) throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+            if ((off < 0) || (off > cbuf.length) || (len < 0) ||
+                ((off + len) > cbuf.length) || ((off + len) < 0)) {
+                throw new IndexOutOfBoundsException();
+            } else if (len == 0) {
+                return 0;
+            }
+
+            int n = read1(cbuf, off, len);
+            if (n <= 0) return n;
+            while ((n < len) && in.ready()) {
+                int n1 = read1(cbuf, off + n, len - n);
+                if (n1 <= 0) break;
+                n += n1;
+            }
+            return n;
+        }
     }
 
-    /**
-     * Sets a mark position in this reader. The parameter {@code markLimit}
-     * indicates how many characters can be read before the mark is invalidated.
-     * Calling {@code reset()} will reposition the reader back to the marked
-     * position if {@code markLimit} has not been surpassed.
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads a line of text.  A line is considered to be terminated by any one
+     * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
+     * followed immediately by a linefeed.
+     * {@description.close}
      *
-     * @param markLimit
-     *            the number of characters that can be read before the mark is
-     *            invalidated.
-     * @throws IllegalArgumentException
-     *             if {@code markLimit < 0}.
-     * @throws IOException
-     *             if an error occurs while setting a mark in this reader.
-     * @see #markSupported()
-     * @see #reset()
+     * @param      ignoreLF  If true, the next '\n' will be skipped
+     *
+     * @return     A String containing the contents of the line, not including
+     *             any line-termination characters, or null if the end of the
+     *             stream has been reached
+     *
+     * @see        java.io.LineNumberReader#readLine()
+     *
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
-    public void mark(int markLimit) throws IOException {
-        if (markLimit < 0) {
-            throw new IllegalArgumentException();
+    String readLine(boolean ignoreLF) throws IOException {
+        StringBuffer s = null;
+        int startChar;
+
+        synchronized (lock) {
+            ensureOpen();
+            boolean omitLF = ignoreLF || skipLF;
+
+        bufferLoop:
+            for (;;) {
+
+                if (nextChar >= nChars)
+                    fill();
+                if (nextChar >= nChars) { /* EOF */
+                    if (s != null && s.length() > 0)
+                        return s.toString();
+                    else
+                        return null;
+                }
+                boolean eol = false;
+                char c = 0;
+                int i;
+
+                /* Skip a leftover '\n', if necessary */
+                if (omitLF && (cb[nextChar] == '\n'))
+                    nextChar++;
+                skipLF = false;
+                omitLF = false;
+
+            charLoop:
+                for (i = nextChar; i < nChars; i++) {
+                    c = cb[i];
+                    if ((c == '\n') || (c == '\r')) {
+                        eol = true;
+                        break charLoop;
+                    }
+                }
+
+                startChar = nextChar;
+                nextChar = i;
+
+                if (eol) {
+                    String str;
+                    if (s == null) {
+                        str = new String(cb, startChar, i - startChar);
+                    } else {
+                        s.append(cb, startChar, i - startChar);
+                        str = s.toString();
+                    }
+                    nextChar++;
+                    if (c == '\r') {
+                        skipLF = true;
+                    }
+                    return str;
+                }
+
+                if (s == null)
+                    s = new StringBuffer(defaultExpectedLineLength);
+                s.append(cb, startChar, i - startChar);
+            }
+        }
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Reads a line of text.  A line is considered to be terminated by any one
+     * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
+     * followed immediately by a linefeed.
+     * {@description.close}
+     *
+     * @return     A String containing the contents of the line, not including
+     *             any line-termination characters, or null if the end of the
+     *             stream has been reached
+     *
+     * @exception  IOException  If an I/O error occurs
+     */
+    public String readLine() throws IOException {
+        return readLine(false);
+    }
+
+    /** {@collect.stats}
+     * {@description.open}
+     * Skips characters.
+     * {@description.close}
+     *
+     * @param  n  The number of characters to skip
+     *
+     * @return    The number of characters actually skipped
+     *
+     * @exception  IllegalArgumentException  If <code>n</code> is negative.
+     * @exception  IOException  If an I/O error occurs
+     */
+    public long skip(long n) throws IOException {
+        if (n < 0L) {
+            throw new IllegalArgumentException("skip value is negative");
         }
         synchronized (lock) {
-            checkNotClosed();
-            this.markLimit = markLimit;
-            mark = pos;
+            ensureOpen();
+            long r = n;
+            while (r > 0) {
+                if (nextChar >= nChars)
+                    fill();
+                if (nextChar >= nChars) /* EOF */
+                    break;
+                if (skipLF) {
+                    skipLF = false;
+                    if (cb[nextChar] == '\n') {
+                        nextChar++;
+                    }
+                }
+                long d = nChars - nextChar;
+                if (r <= d) {
+                    nextChar += r;
+                    r = 0;
+                    break;
+                }
+                else {
+                    r -= d;
+                    nextChar = nChars;
+                }
+            }
+            return n - r;
         }
     }
 
-    private void checkNotClosed() throws IOException {
-        if (isClosed()) {
-            throw new IOException("BufferedReader is closed");
-        }
-    }
-
-    /**
-     * Indicates whether this reader supports the {@code mark()} and
-     * {@code reset()} methods. This implementation returns {@code true}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Tells whether this stream is ready to be read.  A buffered character
+     * stream is ready if the buffer is not empty, or if the underlying
+     * character stream is ready.
+     * {@description.close}
      *
-     * @return {@code true} for {@code BufferedReader}.
-     * @see #mark(int)
-     * @see #reset()
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
+    public boolean ready() throws IOException {
+        synchronized (lock) {
+            ensureOpen();
+
+            /*
+             * If newline needs to be skipped and the next char to be read
+             * is a newline character, then just skip it right away.
+             */
+            if (skipLF) {
+                /* Note that in.ready() will return true if and only if the next
+                 * read on the stream will not block.
+                 */
+                if (nextChar >= nChars && in.ready()) {
+                    fill();
+                }
+                if (nextChar < nChars) {
+                    if (cb[nextChar] == '\n')
+                        nextChar++;
+                    skipLF = false;
+                }
+            }
+            return (nextChar < nChars) || in.ready();
+        }
+    }
+
+    /** {@collect.stats}
+     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     * Tells whether this stream supports the mark() operation, which it does.
+     * {@property.close}
+     */
     public boolean markSupported() {
         return true;
     }
 
-    /**
-     * Reads a single character from this reader and returns it with the two
-     * higher-order bytes set to 0. If possible, BufferedReader returns a
-     * character from the buffer. If there are no characters available in the
-     * buffer, it fills the buffer and then returns a character. It returns -1
-     * if there are no more characters in the source reader.
+    /** {@collect.stats}
+     * {@description.open}
+     * Marks the present position in the stream.  Subsequent calls to reset()
+     * will attempt to reposition the stream to this point.
+     * {@description.close}
+     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.close}
      *
-     * @return the character read or -1 if the end of the source reader has been
-     *         reached.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
+     * @param readAheadLimit   Limit on the number of characters that may be
+     *                         read while still preserving the mark. An attempt
+     *                         to reset the stream after reading characters
+     *                         up to this limit or beyond may fail.
+     *                         A limit value larger than the size of the input
+     *                         buffer will cause a new buffer to be allocated
+     *                         whose size is no smaller than limit.
+     *                         Therefore large values should be used with care.
+     *
+     * @exception  IllegalArgumentException  If readAheadLimit is < 0
+     * @exception  IOException  If an I/O error occurs
      */
-    @Override
-    public int read() throws IOException {
+    public void mark(int readAheadLimit) throws IOException {
+        if (readAheadLimit < 0) {
+            throw new IllegalArgumentException("Read-ahead limit < 0");
+        }
         synchronized (lock) {
-            checkNotClosed();
-            /* Are there buffered characters available? */
-            if (pos < end || fillBuf() != -1) {
-                return buf[pos++];
-            }
-            return -1;
+            ensureOpen();
+            this.readAheadLimit = readAheadLimit;
+            markedChar = nextChar;
+            markedSkipLF = skipLF;
         }
     }
 
-    /**
-     * Reads at most {@code length} characters from this reader and stores them
-     * at {@code offset} in the character array {@code buffer}. Returns the
-     * number of characters actually read or -1 if the end of the source reader
-     * has been reached. If all the buffered characters have been used, a mark
-     * has not been set and the requested number of characters is larger than
-     * this readers buffer size, BufferedReader bypasses the buffer and simply
-     * places the results directly into {@code buffer}.
+    /** {@collect.stats}
+     * {@description.open}
+     * Resets the stream to the most recent mark.
+     * {@description.close}
+     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.close}
      *
-     * @param buffer
-     *            the character array to store the characters read.
-     * @param offset
-     *            the initial position in {@code buffer} to store the bytes read
-     *            from this reader.
-     * @param length
-     *            the maximum number of characters to read, must be
-     *            non-negative.
-     * @return number of characters read or -1 if the end of the source reader
-     *         has been reached.
-     * @throws IndexOutOfBoundsException
-     *             if {@code offset < 0} or {@code length < 0}, or if
-     *             {@code offset + length} is greater than the size of
-     *             {@code buffer}.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
+     * @exception  IOException  If the stream has never been marked,
+     *                          or if the mark has been invalidated
      */
-    @Override
-    public int read(char[] buffer, int offset, int length) throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            Arrays.checkOffsetAndCount(buffer.length, offset, length);
-            int outstanding = length;
-            while (outstanding > 0) {
-
-                /*
-                 * If there are bytes in the buffer, grab those first.
-                 */
-                int available = end - pos;
-                if (available > 0) {
-                    int count = available >= outstanding ? outstanding : available;
-                    System.arraycopy(buf, pos, buffer, offset, count);
-                    pos += count;
-                    offset += count;
-                    outstanding -= count;
-                }
-
-                /*
-                 * Before attempting to read from the underlying stream, make
-                 * sure we really, really want to. We won't bother if we're
-                 * done, or if we've already got some bytes and reading from the
-                 * underlying stream would block.
-                 */
-                if (outstanding == 0 || (outstanding < length && !in.ready())) {
-                    break;
-                }
-
-                // assert(pos == end);
-
-                /*
-                 * If we're unmarked and the requested size is greater than our
-                 * buffer, read the bytes directly into the caller's buffer. We
-                 * don't read into smaller buffers because that could result in
-                 * a many reads.
-                 */
-                if ((mark == -1 || (pos - mark >= markLimit)) && outstanding >= buf.length) {
-                    int count = in.read(buffer, offset, outstanding);
-                    if (count > 0) {
-                        outstanding -= count;
-                        mark = -1;
-                    }
-                    break; // assume the source stream gave us all that it could
-                }
-
-                if (fillBuf() == -1) {
-                    break; // source is exhausted
-                }
-            }
-
-            int count = length - outstanding;
-            return (count > 0 || count == length) ? count : -1;
-        }
-    }
-
-    /**
-     * Peeks at the next input character, refilling the buffer if necessary. If
-     * this character is a newline character ("\n"), it is discarded.
-     */
-    final void chompNewline() throws IOException {
-        if ((pos != end || fillBuf() != -1)
-                && buf[pos] == '\n') {
-            pos++;
-        }
-    }
-
-    /**
-     * Returns the next line of text available from this reader. A line is
-     * represented by zero or more characters followed by {@code '\n'},
-     * {@code '\r'}, {@code "\r\n"} or the end of the reader. The string does
-     * not include the newline sequence.
-     *
-     * @return the contents of the line or {@code null} if no characters were
-     *         read before the end of the reader has been reached.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
-     */
-    public String readLine() throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            /* has the underlying stream been exhausted? */
-            if (pos == end && fillBuf() == -1) {
-                return null;
-            }
-            for (int charPos = pos; charPos < end; charPos++) {
-                char ch = buf[charPos];
-                if (ch > '\r') {
-                    continue;
-                }
-                if (ch == '\n') {
-                    String res = new String(buf, pos, charPos - pos);
-                    pos = charPos + 1;
-                    return res;
-                } else if (ch == '\r') {
-                    String res = new String(buf, pos, charPos - pos);
-                    pos = charPos + 1;
-                    if (((pos < end) || (fillBuf() != -1))
-                            && (buf[pos] == '\n')) {
-                        pos++;
-                    }
-                    return res;
-                }
-            }
-
-            char eol = '\0';
-            StringBuilder result = new StringBuilder(80);
-            /* Typical Line Length */
-
-            result.append(buf, pos, end - pos);
-            while (true) {
-                pos = end;
-
-                /* Are there buffered characters available? */
-                if (eol == '\n') {
-                    return result.toString();
-                }
-                // attempt to fill buffer
-                if (fillBuf() == -1) {
-                    // characters or null.
-                    return result.length() > 0 || eol != '\0'
-                            ? result.toString()
-                            : null;
-                }
-                for (int charPos = pos; charPos < end; charPos++) {
-                    char c = buf[charPos];
-                    if (eol == '\0') {
-                        if ((c == '\n' || c == '\r')) {
-                            eol = c;
-                        }
-                    } else if (eol == '\r' && c == '\n') {
-                        if (charPos > pos) {
-                            result.append(buf, pos, charPos - pos - 1);
-                        }
-                        pos = charPos + 1;
-                        return result.toString();
-                    } else {
-                        if (charPos > pos) {
-                            result.append(buf, pos, charPos - pos - 1);
-                        }
-                        pos = charPos;
-                        return result.toString();
-                    }
-                }
-                if (eol == '\0') {
-                    result.append(buf, pos, end - pos);
-                } else {
-                    result.append(buf, pos, end - pos - 1);
-                }
-            }
-        }
-
-    }
-
-    /**
-     * Indicates whether this reader is ready to be read without blocking.
-     *
-     * @return {@code true} if this reader will not block when {@code read} is
-     *         called, {@code false} if unknown or blocking will occur.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
-     * @see #read()
-     * @see #read(char[], int, int)
-     * @see #readLine()
-     */
-    @Override
-    public boolean ready() throws IOException {
-        synchronized (lock) {
-            checkNotClosed();
-            return ((end - pos) > 0) || in.ready();
-        }
-    }
-
-    /**
-     * Resets this reader's position to the last {@code mark()} location.
-     * Invocations of {@code read()} and {@code skip()} will occur from this new
-     * location.
-     *
-     * @throws IOException
-     *             if this reader is closed or no mark has been set.
-     * @see #mark(int)
-     * @see #markSupported()
-     */
-    @Override
     public void reset() throws IOException {
         synchronized (lock) {
-            checkNotClosed();
-            if (mark == -1) {
-                throw new IOException("Invalid mark");
-            }
-            pos = mark;
+            ensureOpen();
+            if (markedChar < 0)
+                throw new IOException((markedChar == INVALIDATED)
+                                      ? "Mark invalid"
+                                      : "Stream not marked");
+            nextChar = markedChar;
+            skipLF = markedSkipLF;
         }
     }
 
-    /**
-     * Skips {@code byteCount} bytes in this stream. Subsequent calls to
-     * {@code read} will not return these bytes unless {@code reset} is
-     * used.
-     * Skipping characters may invalidate a mark if {@code markLimit}
-     * is surpassed.
-     *
-     * @param byteCount
-     *            the maximum number of characters to skip.
-     * @return the number of characters actually skipped.
-     * @throws IllegalArgumentException
-     *             if {@code byteCount < 0}.
-     * @throws IOException
-     *             if this reader is closed or some other I/O error occurs.
-     * @see #mark(int)
-     * @see #markSupported()
-     * @see #reset()
-     */
-    @Override
-    public long skip(long byteCount) throws IOException {
-        if (byteCount < 0) {
-            throw new IllegalArgumentException("byteCount < 0: " + byteCount);
-        }
+    public void close() throws IOException {
         synchronized (lock) {
-            checkNotClosed();
-            if (byteCount < 1) {
-                return 0;
-            }
-            if (end - pos >= byteCount) {
-                pos += byteCount;
-                return byteCount;
-            }
-
-            long read = end - pos;
-            pos = end;
-            while (read < byteCount) {
-                if (fillBuf() == -1) {
-                    return read;
-                }
-                if (end - pos >= byteCount - read) {
-                    pos += byteCount - read;
-                    return byteCount;
-                }
-                // Couldn't get all the characters, skip what we read
-                read += (end - pos);
-                pos = end;
-            }
-            return byteCount;
+            if (in == null)
+                return;
+            in.close();
+            in = null;
+            cb = null;
         }
     }
 }

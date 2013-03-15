@@ -1,297 +1,413 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1995, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.net;
 
-import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.FileDescriptor;
 
-/**
- * This class is the base of all streaming socket implementation classes.
- * Streaming sockets are wrapped by two classes, {@code ServerSocket} and
- * {@code Socket} at the server and client end of a connection. At the server,
- * there are two types of sockets engaged in communication, the {@code
- * ServerSocket} on a well known port (referred to as listener) used to
- * establish a connection and the resulting {@code Socket} (referred to as
- * host).
+/** {@collect.stats} 
+ * {@description.open}
+ * The abstract class <code>SocketImpl</code> is a common superclass
+ * of all classes that actually implement sockets. It is used to
+ * create both client and server sockets.
+ * <p>
+ * A "plain" socket implements these methods exactly as
+ * described, without attempting to go through a firewall or proxy.
+ * {@description.close}
+ *
+ * @author  unascribed
+ * @since   JDK1.0
  */
 public abstract class SocketImpl implements SocketOptions {
-
-    /**
-     * The remote address this socket is connected to.
+    /** {@collect.stats} 
+     * {@description.open}
+     * The actual Socket object.
+     * {@description.close}
      */
-    protected InetAddress address;
+    Socket socket = null;
+    ServerSocket serverSocket = null;
 
-    /**
-     * The remote port this socket is connected to.
-     */
-    protected int port;
-
-    /**
-     * The file descriptor of this socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * The file descriptor object for this socket.
+     * {@description.close}
      */
     protected FileDescriptor fd;
 
-    /**
-     * The local port this socket is connected to.
+    /** {@collect.stats} 
+     * {@description.open}
+     * The IP address of the remote end of this socket.
+     * {@description.close}
+     */
+    protected InetAddress address;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The port number on the remote host to which this socket is connected.
+     * {@description.close}
+     */
+    protected int port;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The local port number to which this socket is connected.
+     * {@description.close}
      */
     protected int localport;
 
-    /**
-     * Waits for an incoming request and blocks until the connection is opened
-     * on the given socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Creates either a stream or a datagram socket.
+     * {@description.close}
      *
-     * @param newSocket
-     *            the socket to accept connections on.
-     * @throws IOException
-     *             if an error occurs while accepting a new connection.
+     * @param      stream   if <code>true</code>, create a stream socket;
+     *                      otherwise, create a datagram socket.
+     * @exception  IOException  if an I/O error occurs while creating the
+     *               socket.
      */
-    protected abstract void accept(SocketImpl newSocket) throws IOException;
+    protected abstract void create(boolean stream) throws IOException;
 
-    /**
-     * Returns the available number of bytes which are readable from this socket
-     * without blocking.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Connects this socket to the specified port on the named host.
+     * {@description.close}
      *
-     * @return the number of bytes that may be read without blocking.
-     * @throws IOException
-     *             if an error occurs while reading the number of bytes.
-     */
-    protected abstract int available() throws IOException;
-
-    /**
-     * Binds this socket to the specified local host address and port number.
-     *
-     * @param address
-     *            the local machine address to bind this socket to.
-     * @param port
-     *            the port on the local machine to bind this socket to.
-     * @throws IOException
-     *             if an error occurs while binding this socket.
-     */
-    protected abstract void bind(InetAddress address, int port) throws IOException;
-
-    /**
-     * Closes this socket. This makes later access invalid.
-     *
-     * @throws IOException
-     *             if an error occurs while closing this socket.
-     */
-    protected abstract void close() throws IOException;
-
-    /**
-     * Connects this socket to the specified remote host and port number.
-     *
-     * @param host
-     *            the remote host this socket has to be connected to.
-     * @param port
-     *            the remote port on which this socket has to be connected.
-     * @throws IOException
-     *             if an error occurs while connecting to the remote host.
+     * @param      host   the name of the remote host.
+     * @param      port   the port number.
+     * @exception  IOException  if an I/O error occurs when connecting to the
+     *               remote host.
      */
     protected abstract void connect(String host, int port) throws IOException;
 
-    /**
-     * Connects this socket to the specified remote host address and port
-     * number.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Connects this socket to the specified port number on the specified host.
+     * {@description.close}
      *
-     * @param address
-     *            the remote host address this socket has to be connected to.
-     * @param port
-     *            the remote port on which this socket has to be connected.
-     * @throws IOException
-     *             if an error occurs while connecting to the remote host.
+     * @param      address   the IP address of the remote host.
+     * @param      port      the port number.
+     * @exception  IOException  if an I/O error occurs when attempting a
+     *               connection.
      */
-    protected abstract void connect(InetAddress address, int port)
-            throws IOException;
+    protected abstract void connect(InetAddress address, int port) throws IOException;
 
-    /**
-     * Creates a new unconnected socket. The argument {@code isStreaming}
-     * defines whether the new socket is a streaming or a datagram socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Connects this socket to the specified port number on the specified host.
+     * A timeout of zero is interpreted as an infinite timeout. The connection
+     * will then block until established or an error occurs.
+     * {@description.close}
      *
-     * @param isStreaming
-     *            defines whether the type of the new socket is streaming or
-     *            datagram.
-     * @throws IOException
-     *             if an error occurs while creating the socket.
+     * @param      address   the Socket address of the remote host.
+     * @param     timeout  the timeout value, in milliseconds, or zero for no timeout.
+     * @exception  IOException  if an I/O error occurs when attempting a
+     *               connection.
+     * @since 1.4
      */
-    protected abstract void create(boolean isStreaming) throws IOException;
+    protected abstract void connect(SocketAddress address, int timeout) throws IOException;
 
-    /**
-     * Gets the file descriptor of this socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Binds this socket to the specified local IP address and port number.
+     * {@description.close}
      *
-     * @return the file descriptor of this socket.
+     * @param      host   an IP address that belongs to a local interface.
+     * @param      port   the port number.
+     * @exception  IOException  if an I/O error occurs when binding this socket.
+     */
+    protected abstract void bind(InetAddress host, int port) throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets the maximum queue length for incoming connection indications
+     * (a request to connect) to the <code>count</code> argument. If a
+     * connection indication arrives when the queue is full, the
+     * connection is refused.
+     * {@description.close}
+     *
+     * @param      backlog   the maximum length of the queue.
+     * @exception  IOException  if an I/O error occurs when creating the queue.
+     */
+    protected abstract void listen(int backlog) throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Accepts a connection.
+     * {@description.close}
+     *
+     * @param      s   the accepted connection.
+     * @exception  IOException  if an I/O error occurs when accepting the
+     *               connection.
+     */
+    protected abstract void accept(SocketImpl s) throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an input stream for this socket.
+     * {@description.close}
+     *
+     * @return     a stream for reading from this socket.
+     * @exception  IOException  if an I/O error occurs when creating the
+     *               input stream.
+    */
+    protected abstract InputStream getInputStream() throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns an output stream for this socket.
+     * {@description.close}
+     *
+     * @return     an output stream for writing to this socket.
+     * @exception  IOException  if an I/O error occurs when creating the
+     *               output stream.
+     */
+    protected abstract OutputStream getOutputStream() throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the number of bytes that can be read from this socket
+     * without blocking.
+     * {@description.close}
+     *
+     * @return     the number of bytes that can be read from this socket
+     *             without blocking.
+     * @exception  IOException  if an I/O error occurs when determining the
+     *               number of bytes available.
+     */
+    protected abstract int available() throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Closes this socket.
+     * {@description.close}
+     *
+     * @exception  IOException  if an I/O error occurs when closing this socket.
+     */
+    protected abstract void close() throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Places the input stream for this socket at "end of stream".
+     * Any data sent to this socket is acknowledged and then
+     * silently discarded.
+     *
+     * If you read from a socket input stream after invoking
+     * shutdownInput() on the socket, the stream will return EOF.
+     * {@description.close}
+     *
+     * @exception IOException if an I/O error occurs when shutting down this
+     * socket.
+     * @see java.net.Socket#shutdownOutput()
+     * @see java.net.Socket#close()
+     * @see java.net.Socket#setSoLinger(boolean, int)
+     * @since 1.3
+     */
+    protected void shutdownInput() throws IOException {
+      throw new IOException("Method not implemented!");
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Disables the output stream for this socket.
+     * For a TCP socket, any previously written data will be sent
+     * followed by TCP's normal connection termination sequence.
+     * {@description.close}
+     *
+     * {@property.open runtime formal:java.net.SocketImpl_CloseOutput}
+     * If you write to a socket output stream after invoking
+     * shutdownOutput() on the socket, the stream will throw
+     * an IOException.
+     * {@property.close}
+     *
+     * @exception IOException if an I/O error occurs when shutting down this
+     * socket.
+     * @see java.net.Socket#shutdownInput()
+     * @see java.net.Socket#close()
+     * @see java.net.Socket#setSoLinger(boolean, int)
+     * @since 1.3
+     */
+    protected void shutdownOutput() throws IOException {
+      throw new IOException("Method not implemented!");
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of this socket's <code>fd</code> field.
+     * {@description.close}
+     *
+     * @return  the value of this socket's <code>fd</code> field.
+     * @see     java.net.SocketImpl#fd
      */
     protected FileDescriptor getFileDescriptor() {
         return fd;
     }
 
-    /**
-     * @hide used by java.nio
-     */
-    public FileDescriptor getFD$() {
-        return fd;
-    }
-
-    /**
-     * Gets the remote address this socket is connected to.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of this socket's <code>address</code> field.
+     * {@description.close}
      *
-     * @return the remote address of this socket.
+     * @return  the value of this socket's <code>address</code> field.
+     * @see     java.net.SocketImpl#address
      */
     protected InetAddress getInetAddress() {
         return address;
     }
 
-    /**
-     * Gets the input stream of this socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of this socket's <code>port</code> field.
+     * {@description.close}
      *
-     * @return the input stream of this socket.
-     * @throws IOException
-     *             if an error occurs while accessing the input stream.
-     */
-    protected abstract InputStream getInputStream() throws IOException;
-
-    /**
-     * Gets the local port number of this socket. The field is initialized to
-     * {@code -1} and upon demand will go to the IP stack to get the bound
-     * value. See the class comment for the context of the local port.
-     *
-     * @return the local port number this socket is bound to.
-     */
-    protected int getLocalPort() {
-        return localport;
-    }
-
-    /**
-     * Gets the output stream of this socket.
-     *
-     * @return the output stream of this socket.
-     * @throws IOException
-     *             if an error occurs while accessing the output stream.
-     */
-    protected abstract OutputStream getOutputStream() throws IOException;
-
-    /**
-     * Gets the remote port number of this socket. This value is not meaningful
-     * when this instance is wrapped by a {@code ServerSocket}.
-     *
-     * @return the remote port this socket is connected to.
+     * @return  the value of this socket's <code>port</code> field.
+     * @see     java.net.SocketImpl#port
      */
     protected int getPort() {
         return port;
     }
 
-    /**
-     * Listens for connection requests on this streaming socket. Incoming
-     * connection requests are queued up to the limit specified by {@code
-     * backlog}. Additional requests are rejected. This method
-     * may only be invoked on stream sockets.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns whether or not this SocketImpl supports sending
+     * urgent data. By default, false is returned
+     * unless the method is overridden in a sub-class
+     * {@description.close}
      *
-     * @param backlog
-     *            the maximum number of outstanding connection requests.
-     * @throws IOException
-     *             if an error occurs while listening.
+     * @return  true if urgent data supported
+     * @see     java.net.SocketImpl#address
+     * @since 1.4
      */
-    protected abstract void listen(int backlog) throws IOException;
+    protected boolean supportsUrgentData () {
+        return false; // must be overridden in sub-class
+    }
 
-    /**
-     * Returns a string containing a concise, human-readable description of the
-     * socket.
-     *
-     * @return the textual representation of this socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Send one byte of urgent data on the socket.
+     * The byte to be sent is the low eight bits of the parameter
+     * {@description.close}
+     * @param data The byte of data to send
+     * @exception IOException if there is an error
+     *  sending the data.
+     * @since 1.4
      */
-    @Override
+    protected abstract void sendUrgentData (int data) throws IOException;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the value of this socket's <code>localport</code> field.
+     * {@description.close}
+     *
+     * @return  the value of this socket's <code>localport</code> field.
+     * @see     java.net.SocketImpl#localport
+     */
+    protected int getLocalPort() {
+        return localport;
+    }
+
+    void setSocket(Socket soc) {
+        this.socket = soc;
+    }
+
+    Socket getSocket() {
+        return socket;
+    }
+
+    void setServerSocket(ServerSocket soc) {
+        this.serverSocket = soc;
+    }
+
+    ServerSocket getServerSocket() {
+        return serverSocket;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the address and port of this socket as a <code>String</code>.
+     * {@description.close}
+     *
+     * @return  a string representation of this socket.
+     */
     public String toString() {
-        return "Socket[address=" + getInetAddress() +
-                ",port=" + port + ",localPort=" + getLocalPort() + "]";
+        return "Socket[addr=" + getInetAddress() +
+            ",port=" + getPort() + ",localport=" + getLocalPort()  + "]";
     }
 
-    /**
-     * Closes the input channel of this socket.
-     *
-     * <p>This default implementation always throws an {@link IOException} to
-     * indicate that the subclass should have overridden this method.
-     *
-     * @throws IOException
-     *             always because this method should be overridden.
-     */
-    protected void shutdownInput() throws IOException {
-        throw new IOException("Method has not been implemented");
+    void reset() throws IOException {
+        address = null;
+        port = 0;
+        localport = 0;
     }
 
-    /**
-     * Closes the output channel of this socket.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sets performance preferences for this socket.
      *
-     * <p>This default implementation always throws an {@link IOException} to
-     * indicate that the subclass should have overridden this method.
+     * <p> Sockets use the TCP/IP protocol by default.  Some implementations
+     * may offer alternative protocols which have different performance
+     * characteristics than TCP/IP.  This method allows the application to
+     * express its own preferences as to how these tradeoffs should be made
+     * when the implementation chooses from the available protocols.
      *
-     * @throws IOException
-     *             always because this method should be overridden.
+     * <p> Performance preferences are described by three integers
+     * whose values indicate the relative importance of short connection time,
+     * low latency, and high bandwidth.  The absolute values of the integers
+     * are irrelevant; in order to choose a protocol the values are simply
+     * compared, with larger values indicating stronger preferences. Negative
+     * values represent a lower priority than positive values. If the
+     * application prefers short connection time over both low latency and high
+     * bandwidth, for example, then it could invoke this method with the values
+     * <tt>(1, 0, 0)</tt>.  If the application prefers high bandwidth above low
+     * latency, and low latency above short connection time, then it could
+     * invoke this method with the values <tt>(0, 1, 2)</tt>.
+     *
+     * By default, this method does nothing, unless it is overridden in a
+     * a sub-class.
+     * {@description.close}
+     *
+     * @param  connectionTime
+     *         An <tt>int</tt> expressing the relative importance of a short
+     *         connection time
+     *
+     * @param  latency
+     *         An <tt>int</tt> expressing the relative importance of low
+     *         latency
+     *
+     * @param  bandwidth
+     *         An <tt>int</tt> expressing the relative importance of high
+     *         bandwidth
+     *
+     * @since 1.5
      */
-    protected void shutdownOutput() throws IOException {
-        throw new IOException("Method has not been implemented");
-    }
-
-    /**
-     * Connects this socket to the remote host address and port number specified
-     * by the {@code SocketAddress} object with the given timeout. This method
-     * will block indefinitely if the timeout is set to zero.
-     *
-     * @param remoteAddr
-     *            the remote host address and port number to connect to.
-     * @param timeout
-     *            the timeout value in milliseconds.
-     * @throws IOException
-     *             if an error occurs while connecting.
-     */
-    protected abstract void connect(SocketAddress remoteAddr, int timeout) throws IOException;
-
-    /**
-     * Returns whether the socket supports urgent data or not. Subclasses should
-     * override this method.
-     *
-     * @return {@code false} because subclasses must override this method.
-     */
-    protected boolean supportsUrgentData() {
-        return false;
-    }
-
-    /**
-     * Sends the single byte of urgent data on the socket.
-     *
-     * @param value
-     *            the byte of urgent data.
-     * @throws IOException
-     *             if an error occurs sending urgent data.
-     */
-    protected abstract void sendUrgentData(int value) throws IOException;
-
-    /**
-     * Sets performance preference for connection time, latency and bandwidth.
-     * Does nothing by default.
-     *
-     * @param connectionTime
-     *            the importance of connect time.
-     * @param latency
-     *            the importance of latency.
-     * @param bandwidth
-     *            the importance of bandwidth.
-     */
-    protected void setPerformancePreferences(int connectionTime, int latency, int bandwidth) {
+    protected void setPerformancePreferences(int connectionTime,
+                                          int latency,
+                                          int bandwidth)
+    {
+        /* Not implemented yet */
     }
 }

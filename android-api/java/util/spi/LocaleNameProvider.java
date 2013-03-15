@@ -1,75 +1,121 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util.spi;
 
 import java.util.Locale;
 
-/**
- * This abstract class should be extended by service providers that provide
- * localized locale names.
- * <p>Note that Android does not support user-supplied locale service providers.
- * @since 1.6
- * @hide
+/** {@collect.stats} 
+ * {@description.open}
+ * An abstract class for service providers that
+ * provide localized names for the
+ * {@link java.util.Locale Locale} class.
+ * {@description.close}
+ *
+ * @since        1.6
  */
 public abstract class LocaleNameProvider extends LocaleServiceProvider {
-    /**
-     * Default constructor, for use by subclasses.
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Sole constructor.  (For invocation by subclass constructors, typically
+     * implicit.)
+     * {@description.close}
      */
     protected LocaleNameProvider() {
-        // do nothing
     }
 
-    /**
-     * Returns the localized name for the given ISO 639 language code.
-     *
-     * @param languageCode an ISO 639 language code
-     * @param locale a locale
-     * @return the name or null if unavailable
-     * @throws NullPointerException
-     *             if {@code code == null || locale == null}
-     * @throws IllegalArgumentException
-     *             if code or locale is not in a legal format or not available
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a localized name for the given ISO 639 language code and the
+     * given locale that is appropriate for display to the user.
+     * For example, if <code>languageCode</code> is "fr" and <code>locale</code>
+     * is en_US, getDisplayLanguage() will return "French"; if <code>languageCode</code>
+     * is "en" and <code>locale</code> is fr_FR, getDisplayLanguage() will return "anglais".
+     * If the name returned cannot be localized according to <code>locale</code>,
+     * (say, the provider does not have a Japanese name for Croatian),
+     * this method returns null.
+     * {@description.close}
+     * @param languageCode the ISO 639 language code string in the form of two
+     *     lower-case letters between 'a' (U+0061) and 'z' (U+007A)
+     * @param locale the desired locale
+     * @return the name of the given language code for the specified locale, or null if it's not
+     *     available.
+     * @exception NullPointerException if <code>languageCode</code> or <code>locale</code> is null
+     * @exception IllegalArgumentException if <code>languageCode</code> is not in the form of
+     *     two lower-case letters, or <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @see java.util.Locale#getDisplayLanguage(java.util.Locale)
      */
     public abstract String getDisplayLanguage(String languageCode, Locale locale);
 
-    /**
-     * Returns the localized name for the given ISO 3166 country code.
-     *
-     * @param countryCode an ISO 3166 language code
-     * @param locale a locale
-     * @return the name or null if unavailable
-     * @throws NullPointerException
-     *             if {@code code == null || locale == null}
-     * @throws IllegalArgumentException
-     *             if code or locale is not in a legal format or not available
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a localized name for the given ISO 3166 country code and the
+     * given locale that is appropriate for display to the user.
+     * For example, if <code>countryCode</code> is "FR" and <code>locale</code>
+     * is en_US, getDisplayCountry() will return "France"; if <code>countryCode</code>
+     * is "US" and <code>locale</code> is fr_FR, getDisplayCountry() will return "Etats-Unis".
+     * If the name returned cannot be localized according to <code>locale</code>,
+     * (say, the provider does not have a Japanese name for Croatia),
+     * this method returns null.
+     * {@description.close}
+     * @param countryCode the ISO 3166 country code string in the form of two
+     *     upper-case letters between 'A' (U+0041) and 'Z' (U+005A)
+     * @param locale the desired locale
+     * @return the name of the given country code for the specified locale, or null if it's not
+     *     available.
+     * @exception NullPointerException if <code>countryCode</code> or <code>locale</code> is null
+     * @exception IllegalArgumentException if <code>countryCode</code> is not in the form of
+     *     two upper-case letters, or <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @see java.util.Locale#getDisplayCountry(java.util.Locale)
      */
     public abstract String getDisplayCountry(String countryCode, Locale locale);
 
-    /**
-     * Returns the localized name for the given variant code.
-     *
-     * @param variantCode a variant code
-     * @param locale a locale
-     * @return the name or null if unavailable
-     * @throws NullPointerException
-     *             if {@code code == null || locale == null}
-     * @throws IllegalArgumentException
-     *             if code or locale is not in a legal format or not available
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns a localized name for the given variant code and the given locale that
+     * is appropriate for display to the user.
+     * If the name returned cannot be localized according to <code>locale</code>,
+     * this method returns null.
+     * {@description.close}
+     * @param variant the variant string
+     * @param locale the desired locale
+     * @return the name of the given variant string for the specified locale, or null if it's not
+     *     available.
+     * @exception NullPointerException if <code>variant</code> or <code>locale</code> is null
+     * @exception IllegalArgumentException if <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @see java.util.Locale#getDisplayVariant(java.util.Locale)
      */
-    public abstract String getDisplayVariant(String variantCode, Locale locale);
+    public abstract String getDisplayVariant(String variant, Locale locale);
 }

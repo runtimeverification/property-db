@@ -1,583 +1,782 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*
- * Copyright (C) 2008 The Android Open Source Project
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang.reflect;
 
+import sun.reflect.MethodAccessor;
+import sun.reflect.Reflection;
+import sun.reflect.generics.repository.MethodRepository;
+import sun.reflect.generics.factory.CoreReflectionFactory;
+import sun.reflect.generics.factory.GenericsFactory;
+import sun.reflect.generics.scope.MethodScope;
+import sun.reflect.annotation.AnnotationType;
+import sun.reflect.annotation.AnnotationParser;
 import java.lang.annotation.Annotation;
-import java.util.Comparator;
-import libcore.util.EmptyArray;
-import org.apache.harmony.kernel.vm.StringUtils;
-import org.apache.harmony.luni.lang.reflect.GenericSignatureParser;
-import org.apache.harmony.luni.lang.reflect.ListOfTypes;
-import org.apache.harmony.luni.lang.reflect.Types;
+import java.lang.annotation.AnnotationFormatError;
+import java.nio.ByteBuffer;
+import java.util.Map;
 
-/**
- * This class represents a method. Information about the method can be accessed,
- * and the method can be invoked dynamically.
+/** {@collect.stats} 
+ * A {@code Method} provides information about, and access to, a single method
+ * on a class or interface.  The reflected method may be a class method
+ * or an instance method (including an abstract method).
+ *
+ * <p>A {@code Method} permits widening conversions to occur when matching the
+ * actual parameters to invoke with the underlying method's formal
+ * parameters, but it throws an {@code IllegalArgumentException} if a
+ * narrowing conversion would occur.
+ *
+ * @see Member
+ * @see java.lang.Class
+ * @see java.lang.Class#getMethods()
+ * @see java.lang.Class#getMethod(String, Class[])
+ * @see java.lang.Class#getDeclaredMethods()
+ * @see java.lang.Class#getDeclaredMethod(String, Class[])
+ *
+ * @author Kenneth Russell
+ * @author Nakul Saraiya
  */
-public final class Method extends AccessibleObject implements GenericDeclaration, Member {
+public final
+    class Method extends AccessibleObject implements GenericDeclaration,
+                                                     Member {
+    private Class               clazz;
+    private int                 slot;
+    // This is guaranteed to be interned by the VM in the 1.4
+    // reflection implementation
+    private String              name;
+    private Class               returnType;
+    private Class[]             parameterTypes;
+    private Class[]             exceptionTypes;
+    private int                 modifiers;
+    // Generics and annotations support
+    private transient String              signature;
+    // generic info repository; lazily initialized
+    private transient MethodRepository genericInfo;
+    private byte[]              annotations;
+    private byte[]              parameterAnnotations;
+    private byte[]              annotationDefault;
+    private volatile MethodAccessor methodAccessor;
+    // For sharing of MethodAccessors. This branching structure is
+    // currently only two levels deep (i.e., one root Method and
+    // potentially many Method objects pointing to it.)
+    private Method              root;
 
-    /**
-     * Orders methods by their name, parameters and return type.
-     *
-     * @hide
-     */
-    public static final Comparator<Method> ORDER_BY_SIGNATURE = new Comparator<Method>() {
-        public int compare(Method a, Method b) {
-            int comparison = a.name.compareTo(b.name);
-            if (comparison != 0) {
-                return comparison;
-            }
+    // More complicated security check cache needed here than for
+    // Class.newInstance() and Constructor.newInstance()
+    private Class securityCheckCache;
+    private Class securityCheckTargetClassCache;
 
-            Class<?>[] aParameters = a.parameterTypes;
-            Class<?>[] bParameters = b.parameterTypes;
-            int length = Math.min(aParameters.length, bParameters.length);
-            for (int i = 0; i < length; i++) {
-                comparison = aParameters[i].getName().compareTo(bParameters[i].getName());
-                if (comparison != 0) {
-                    return comparison;
-                }
-            }
+    // Modifiers that can be applied to a method in source code
+    private static final int LANGUAGE_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE |
+        Modifier.ABSTRACT       | Modifier.STATIC       | Modifier.FINAL   |
+        Modifier.SYNCHRONIZED   | Modifier.NATIVE;
 
-            if (aParameters.length != bParameters.length) {
-                return aParameters.length - bParameters.length;
-            }
+   // Generics infrastructure
 
-            // this is necessary for methods that have covariant return types.
-            return a.getReturnType().getName().compareTo(b.getReturnType().getName());
-        }
-    };
+    private String getGenericSignature() {return signature;}
 
-    private int slot;
-
-    private Class<?> declaringClass;
-
-    private String name;
-
-    private Class<?>[] parameterTypes;
-
-    private Class<?>[] exceptionTypes;
-
-    private Class<?> returnType;
-
-    private ListOfTypes genericExceptionTypes;
-    private ListOfTypes genericParameterTypes;
-    private Type genericReturnType;
-    private TypeVariable<Method>[] formalTypeParameters;
-    private volatile boolean genericTypesAreInitialized = false;
-
-    private synchronized void initGenericTypes() {
-        if (!genericTypesAreInitialized) {
-            String signatureAttribute = getSignatureAttribute();
-            GenericSignatureParser parser = new GenericSignatureParser(
-                    declaringClass.getClassLoader());
-            parser.parseForMethod(this, signatureAttribute, exceptionTypes);
-            formalTypeParameters = parser.formalTypeParameters;
-            genericParameterTypes = parser.parameterTypes;
-            genericExceptionTypes = parser.exceptionTypes;
-            genericReturnType = parser.returnType;
-            genericTypesAreInitialized = true;
-        }
+    // Accessor for factory
+    private GenericsFactory getFactory() {
+        // create scope and factory
+        return CoreReflectionFactory.make(this, MethodScope.make(this));
     }
 
-    /**
-     * Construct a clone of the given instance.
-     *
-     * @param orig non-null; the original instance to clone
-     */
-    /*package*/ Method(Method orig) {
-        this(orig.declaringClass, orig.parameterTypes, orig.exceptionTypes,
-                orig.returnType, orig.name, orig.slot);
-
-        // Copy the accessible flag.
-        if (orig.flag) {
-            this.flag = true;
+    // Accessor for generic info repository
+    private MethodRepository getGenericInfo() {
+        // lazily initialize repository if necessary
+        if (genericInfo == null) {
+            // create and cache generic info repository
+            genericInfo = MethodRepository.make(getGenericSignature(),
+                                                getFactory());
         }
+        return genericInfo; //return cached repository
     }
 
-    private Method(Class<?> declaring, Class<?>[] paramTypes, Class<?>[] exceptTypes, Class<?> returnType, String name, int slot)
+    /** {@collect.stats} 
+     * Package-private constructor used by ReflectAccess to enable
+     * instantiation of these objects in Java code from the java.lang
+     * package via sun.reflect.LangReflectAccess.
+     */
+    Method(Class declaringClass,
+           String name,
+           Class[] parameterTypes,
+           Class returnType,
+           Class[] checkedExceptions,
+           int modifiers,
+           int slot,
+           String signature,
+           byte[] annotations,
+           byte[] parameterAnnotations,
+           byte[] annotationDefault)
     {
-        this.declaringClass = declaring;
+        this.clazz = declaringClass;
         this.name = name;
-        this.slot = slot;
-        this.parameterTypes = paramTypes;
-        this.exceptionTypes = exceptTypes;      // may be null
+        this.parameterTypes = parameterTypes;
         this.returnType = returnType;
+        this.exceptionTypes = checkedExceptions;
+        this.modifiers = modifiers;
+        this.slot = slot;
+        this.signature = signature;
+        this.annotations = annotations;
+        this.parameterAnnotations = parameterAnnotations;
+        this.annotationDefault = annotationDefault;
     }
 
-    public TypeVariable<Method>[] getTypeParameters() {
-        initGenericTypes();
-        return formalTypeParameters.clone();
-    }
-
-    /** {@inheritDoc} */
-    @Override /*package*/ String getSignatureAttribute() {
-        Object[] annotation = getSignatureAnnotation(declaringClass, slot);
-
-        if (annotation == null) {
-            return null;
-        }
-
-        return StringUtils.combineStrings(annotation);
-    }
-
-    /**
-     * Returns the Signature annotation for this method. Returns {@code null} if
-     * not found.
+    /** {@collect.stats} 
+     * Package-private routine (exposed to java.lang.Class via
+     * ReflectAccess) which returns a copy of this Method. The copy's
+     * "root" field points to this Method.
      */
-    static native Object[] getSignatureAnnotation(Class declaringClass, int slot);
-
-    /**
-     * Returns the string representation of the method's declaration, including
-     * the type parameters.
-     *
-     * @return the string representation of this method
-     */
-    public String toGenericString() {
-        StringBuilder sb = new StringBuilder(80);
-
-        initGenericTypes();
-
-        // append modifiers if any
-        int modifier = getModifiers();
-        if (modifier != 0) {
-            sb.append(Modifier.toString(modifier & ~(Modifier.BRIDGE +
-                    Modifier.VARARGS))).append(' ');
-        }
-        // append type parameters
-        if (formalTypeParameters != null && formalTypeParameters.length > 0) {
-            sb.append('<');
-            for (int i = 0; i < formalTypeParameters.length; i++) {
-                appendGenericType(sb, formalTypeParameters[i]);
-                if (i < formalTypeParameters.length - 1) {
-                    sb.append(",");
-                }
-            }
-            sb.append("> ");
-        }
-        // append return type
-        appendGenericType(sb, Types.getType(genericReturnType));
-        sb.append(' ');
-        // append method name
-        appendTypeName(sb, getDeclaringClass());
-        sb.append(".").append(getName());
-        // append parameters
-        sb.append('(');
-        appendArrayGenericType(sb,
-                Types.getClonedTypeArray(genericParameterTypes));
-        sb.append(')');
-        // append exceptions if any
-        Type[] genericExceptionTypeArray = Types.getClonedTypeArray(
-                genericExceptionTypes);
-        if (genericExceptionTypeArray.length > 0) {
-            sb.append(" throws ");
-            appendArrayGenericType(sb, genericExceptionTypeArray);
-        }
-        return sb.toString();
+    Method copy() {
+        // This routine enables sharing of MethodAccessor objects
+        // among Method objects which refer to the same underlying
+        // method in the VM. (All of this contortion is only necessary
+        // because of the "accessibility" bit in AccessibleObject,
+        // which implicitly requires that new java.lang.reflect
+        // objects be fabricated for each reflective call on Class
+        // objects.)
+        Method res = new Method(clazz, name, parameterTypes, returnType,
+                                exceptionTypes, modifiers, slot, signature,
+                                annotations, parameterAnnotations, annotationDefault);
+        res.root = this;
+        // Might as well eagerly propagate this if already present
+        res.methodAccessor = methodAccessor;
+        return res;
     }
 
-    /**
-     * Returns the parameter types as an array of {@code Type} instances, in
-     * declaration order. If this method has no parameters, an empty array is
-     * returned.
-     *
-     * @return the parameter types
-     *
-     * @throws GenericSignatureFormatError
-     *             if the generic method signature is invalid
-     * @throws TypeNotPresentException
-     *             if any parameter type points to a missing type
-     * @throws MalformedParameterizedTypeException
-     *             if any parameter type points to a type that cannot be
-     *             instantiated for some reason
-     */
-    public Type[] getGenericParameterTypes() {
-        initGenericTypes();
-        return Types.getClonedTypeArray(genericParameterTypes);
-    }
-
-    /**
-     * Returns the exception types as an array of {@code Type} instances. If
-     * this method has no declared exceptions, an empty array will be returned.
-     *
-     * @return an array of generic exception types
-     *
-     * @throws GenericSignatureFormatError
-     *             if the generic method signature is invalid
-     * @throws TypeNotPresentException
-     *             if any exception type points to a missing type
-     * @throws MalformedParameterizedTypeException
-     *             if any exception type points to a type that cannot be
-     *             instantiated for some reason
-     */
-    public Type[] getGenericExceptionTypes() {
-        initGenericTypes();
-        return Types.getClonedTypeArray(genericExceptionTypes);
-    }
-
-    /**
-     * Returns the return type of this method as a {@code Type} instance.
-     *
-     * @return the return type of this method
-     *
-     * @throws GenericSignatureFormatError
-     *             if the generic method signature is invalid
-     * @throws TypeNotPresentException
-     *             if the return type points to a missing type
-     * @throws MalformedParameterizedTypeException
-     *             if the return type points to a type that cannot be
-     *             instantiated for some reason
-     */
-    public Type getGenericReturnType() {
-        initGenericTypes();
-        return Types.getType(genericReturnType);
-    }
-
-    @Override
-    public Annotation[] getDeclaredAnnotations() {
-        return getDeclaredAnnotations(declaringClass, slot);
-    }
-    static native Annotation[] getDeclaredAnnotations(Class<?> declaringClass, int slot);
-
-    @Override public <A extends Annotation> A getAnnotation(Class<A> annotationType) {
-        if (annotationType == null) {
-            throw new NullPointerException("annotationType == null");
-        }
-        return getAnnotation(declaringClass, slot, annotationType);
-    }
-    static native <A extends Annotation> A getAnnotation(
-            Class<?> declaringClass, int slot, Class<A> annotationType);
-
-    @Override public boolean isAnnotationPresent(Class<? extends Annotation> annotationType) {
-        if (annotationType == null) {
-            throw new NullPointerException("annotationType == null");
-        }
-        return isAnnotationPresent(declaringClass, slot, annotationType);
-    }
-    static native boolean isAnnotationPresent(
-            Class<?> declaringClass, int slot, Class<? extends Annotation> annotationType);
-
-    private static final Annotation[] NO_ANNOTATIONS = new Annotation[0];
-
-    /**
-     * Creates an array of empty Annotation arrays.
-     */
-    /*package*/ static Annotation[][] noAnnotations(int size) {
-        Annotation[][] annotations = new Annotation[size][];
-        for (int i = 0; i < size; i++) {
-            annotations[i] = NO_ANNOTATIONS;
-        }
-        return annotations;
-    }
-
-    /**
-     * Returns an array of arrays that represent the annotations of the formal
-     * parameters of this method. If there are no parameters on this method,
-     * then an empty array is returned. If there are no annotations set, then
-     * and array of empty arrays is returned.
-     *
-     * @return an array of arrays of {@code Annotation} instances
-     */
-    public Annotation[][] getParameterAnnotations() {
-        Annotation[][] parameterAnnotations
-                = getParameterAnnotations(declaringClass, slot);
-        if (parameterAnnotations.length == 0) {
-            return noAnnotations(parameterTypes.length);
-        }
-        return parameterAnnotations;
-    }
-
-    static native Annotation[][] getParameterAnnotations(Class declaringClass, int slot);
-
-    /**
-     * Indicates whether or not this method takes a variable number argument.
-     *
-     * @return {@code true} if a vararg is declared, {@code false} otherwise
-     */
-    public boolean isVarArgs() {
-        int modifiers = getMethodModifiers(declaringClass, slot);
-        return (modifiers & Modifier.VARARGS) != 0;
-    }
-
-    /**
-     * Indicates whether or not this method is a bridge.
-     *
-     * @return {@code true} if this method is a bridge, {@code false} otherwise
-     */
-    public boolean isBridge() {
-        int modifiers = getMethodModifiers(declaringClass, slot);
-        return (modifiers & Modifier.BRIDGE) != 0;
-    }
-
-    /**
-     * Indicates whether or not this method is synthetic.
-     *
-     * @return {@code true} if this method is synthetic, {@code false} otherwise
-     */
-    public boolean isSynthetic() {
-        int modifiers = getMethodModifiers(declaringClass, slot);
-        return (modifiers & Modifier.SYNTHETIC) != 0;
-    }
-
-    /**
-     * Returns the default value for the annotation member represented by this
-     * method.
-     *
-     * @return the default value, or {@code null} if none
-     *
-     * @throws TypeNotPresentException
-     *             if this annotation member is of type {@code Class} and no
-     *             definition can be found
-     */
-    public Object getDefaultValue() {
-        return getDefaultValue(declaringClass, slot);
-    }
-    native private Object getDefaultValue(Class declaringClass, int slot);
-
-    /**
-     * Indicates whether or not the specified {@code object} is equal to this
-     * method. To be equal, the specified object must be an instance
-     * of {@code Method} with the same declaring class and parameter types
-     * as this method.
-     *
-     * @param object
-     *            the object to compare
-     *
-     * @return {@code true} if the specified object is equal to this
-     *         method, {@code false} otherwise
-     *
-     * @see #hashCode
-     */
-    @Override
-    public boolean equals(Object object) {
-        return object instanceof Method && toString().equals(object.toString());
-    }
-
-    /**
-     * Returns the class that declares this method.
-     *
-     * @return the declaring class
+    /** {@collect.stats} 
+     * Returns the {@code Class} object representing the class or interface
+     * that declares the method represented by this {@code Method} object.
      */
     public Class<?> getDeclaringClass() {
-        return declaringClass;
+        return clazz;
     }
 
-    /**
-     * Returns the exception types as an array of {@code Class} instances. If
-     * this method has no declared exceptions, an empty array is returned.
-     *
-     * @return the declared exception classes
-     */
-    public Class<?>[] getExceptionTypes() {
-        if (exceptionTypes == null) {
-            return EmptyArray.CLASS;
-        }
-        return exceptionTypes.clone();
-    }
-
-    /**
-     * Returns the modifiers for this method. The {@link Modifier} class should
-     * be used to decode the result.
-     *
-     * @return the modifiers for this method
-     *
-     * @see Modifier
-     */
-    public int getModifiers() {
-        return getMethodModifiers(declaringClass, slot);
-    }
-
-    static native int getMethodModifiers(Class<?> declaringClass, int slot);
-
-    /**
+    /** {@collect.stats} 
      * Returns the name of the method represented by this {@code Method}
-     * instance.
-     *
-     * @return the name of this method
+     * object, as a {@code String}.
      */
     public String getName() {
         return name;
     }
 
-    /**
-     * Returns an array of {@code Class} objects associated with the parameter
-     * types of this method. If the method was declared with no parameters, an
-     * empty array will be returned.
+    /** {@collect.stats} 
+     * Returns the Java language modifiers for the method represented
+     * by this {@code Method} object, as an integer. The {@code Modifier} class should
+     * be used to decode the modifiers.
      *
-     * @return the parameter types
+     * @see Modifier
      */
-    public Class<?>[] getParameterTypes() {
-        return parameterTypes.clone();
+    public int getModifiers() {
+        return modifiers;
     }
 
-    /**
-     * Returns the {@code Class} associated with the return type of this
-     * method.
+    /** {@collect.stats} 
+     * Returns an array of {@code TypeVariable} objects that represent the
+     * type variables declared by the generic declaration represented by this
+     * {@code GenericDeclaration} object, in declaration order.  Returns an
+     * array of length 0 if the underlying generic declaration declares no type
+     * variables.
      *
-     * @return the return type
+     * @return an array of {@code TypeVariable} objects that represent
+     *     the type variables declared by this generic declaration
+     * @throws GenericSignatureFormatError if the generic
+     *     signature of this generic declaration does not conform to
+     *     the format specified in the Java Virtual Machine Specification,
+     *     3rd edition
+     * @since 1.5
+     */
+    public TypeVariable<Method>[] getTypeParameters() {
+        if (getGenericSignature() != null)
+            return (TypeVariable<Method>[])getGenericInfo().getTypeParameters();
+        else
+            return (TypeVariable<Method>[])new TypeVariable[0];
+    }
+
+    /** {@collect.stats} 
+     * Returns a {@code Class} object that represents the formal return type
+     * of the method represented by this {@code Method} object.
+     *
+     * @return the return type for the method this object represents
      */
     public Class<?> getReturnType() {
         return returnType;
     }
 
-    /**
-     * Returns an integer hash code for this method. Objects which are equal
-     * return the same value for this method. The hash code for this Method is
-     * the hash code of the name of this method.
+    /** {@collect.stats} 
+     * Returns a {@code Type} object that represents the formal return
+     * type of the method represented by this {@code Method} object.
      *
-     * @return hash code for this method
+     * <p>If the return type is a parameterized type,
+     * the {@code Type} object returned must accurately reflect
+     * the actual type parameters used in the source code.
      *
-     * @see #equals
+     * <p>If the return type is a type variable or a parameterized type, it
+     * is created. Otherwise, it is resolved.
+     *
+     * @return  a {@code Type} object that represents the formal return
+     *     type of the underlying  method
+     * @throws GenericSignatureFormatError
+     *     if the generic method signature does not conform to the format
+     *     specified in the Java Virtual Machine Specification, 3rd edition
+     * @throws TypeNotPresentException if the underlying method's
+     *     return type refers to a non-existent type declaration
+     * @throws MalformedParameterizedTypeException if the
+     *     underlying method's return typed refers to a parameterized
+     *     type that cannot be instantiated for any reason
+     * @since 1.5
      */
-    @Override
+    public Type getGenericReturnType() {
+      if (getGenericSignature() != null) {
+        return getGenericInfo().getReturnType();
+      } else { return getReturnType();}
+    }
+
+
+    /** {@collect.stats} 
+     * Returns an array of {@code Class} objects that represent the formal
+     * parameter types, in declaration order, of the method
+     * represented by this {@code Method} object.  Returns an array of length
+     * 0 if the underlying method takes no parameters.
+     *
+     * @return the parameter types for the method this object
+     * represents
+     */
+    public Class<?>[] getParameterTypes() {
+        return (Class<?>[]) parameterTypes.clone();
+    }
+
+    /** {@collect.stats} 
+     * Returns an array of {@code Type} objects that represent the formal
+     * parameter types, in declaration order, of the method represented by
+     * this {@code Method} object. Returns an array of length 0 if the
+     * underlying method takes no parameters.
+     *
+     * <p>If a formal parameter type is a parameterized type,
+     * the {@code Type} object returned for it must accurately reflect
+     * the actual type parameters used in the source code.
+     *
+     * <p>If a formal parameter type is a type variable or a parameterized
+     * type, it is created. Otherwise, it is resolved.
+     *
+     * @return an array of Types that represent the formal
+     *     parameter types of the underlying method, in declaration order
+     * @throws GenericSignatureFormatError
+     *     if the generic method signature does not conform to the format
+     *     specified in the Java Virtual Machine Specification, 3rd edition
+     * @throws TypeNotPresentException if any of the parameter
+     *     types of the underlying method refers to a non-existent type
+     *     declaration
+     * @throws MalformedParameterizedTypeException if any of
+     *     the underlying method's parameter types refer to a parameterized
+     *     type that cannot be instantiated for any reason
+     * @since 1.5
+     */
+    public Type[] getGenericParameterTypes() {
+        if (getGenericSignature() != null)
+            return getGenericInfo().getParameterTypes();
+        else
+            return getParameterTypes();
+    }
+
+
+    /** {@collect.stats} 
+     * Returns an array of {@code Class} objects that represent
+     * the types of the exceptions declared to be thrown
+     * by the underlying method
+     * represented by this {@code Method} object.  Returns an array of length
+     * 0 if the method declares no exceptions in its {@code throws} clause.
+     *
+     * @return the exception types declared as being thrown by the
+     * method this object represents
+     */
+    public Class<?>[] getExceptionTypes() {
+        return (Class<?>[]) exceptionTypes.clone();
+    }
+
+    /** {@collect.stats} 
+     * Returns an array of {@code Type} objects that represent the
+     * exceptions declared to be thrown by this {@code Method} object.
+     * Returns an array of length 0 if the underlying method declares
+     * no exceptions in its {@code throws} clause.
+     *
+     * <p>If an exception type is a parameterized type, the {@code Type}
+     * object returned for it must accurately reflect the actual type
+     * parameters used in the source code.
+     *
+     * <p>If an exception type is a type variable or a parameterized
+     * type, it is created. Otherwise, it is resolved.
+     *
+     * @return an array of Types that represent the exception types
+     *     thrown by the underlying method
+     * @throws GenericSignatureFormatError
+     *     if the generic method signature does not conform to the format
+     *     specified in the Java Virtual Machine Specification, 3rd edition
+     * @throws TypeNotPresentException if the underlying method's
+     *     {@code throws} clause refers to a non-existent type declaration
+     * @throws MalformedParameterizedTypeException if
+     *     the underlying method's {@code throws} clause refers to a
+     *     parameterized type that cannot be instantiated for any reason
+     * @since 1.5
+     */
+      public Type[] getGenericExceptionTypes() {
+          Type[] result;
+          if (getGenericSignature() != null &&
+              ((result = getGenericInfo().getExceptionTypes()).length > 0))
+              return result;
+          else
+              return getExceptionTypes();
+      }
+
+    /** {@collect.stats} 
+     * Compares this {@code Method} against the specified object.  Returns
+     * true if the objects are the same.  Two {@code Methods} are the same if
+     * they were declared by the same class and have the same name
+     * and formal parameter types and return type.
+     */
+    public boolean equals(Object obj) {
+        if (obj != null && obj instanceof Method) {
+            Method other = (Method)obj;
+            if ((getDeclaringClass() == other.getDeclaringClass())
+                && (getName() == other.getName())) {
+                if (!returnType.equals(other.getReturnType()))
+                    return false;
+                /* Avoid unnecessary cloning */
+                Class[] params1 = parameterTypes;
+                Class[] params2 = other.parameterTypes;
+                if (params1.length == params2.length) {
+                    for (int i = 0; i < params1.length; i++) {
+                        if (params1[i] != params2[i])
+                            return false;
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /** {@collect.stats} 
+     * Returns a hashcode for this {@code Method}.  The hashcode is computed
+     * as the exclusive-or of the hashcodes for the underlying
+     * method's declaring class name and the method's name.
+     */
     public int hashCode() {
-        return name.hashCode();
+        return getDeclaringClass().getName().hashCode() ^ getName().hashCode();
     }
 
-    /**
-     * Returns the result of dynamically invoking this method. Equivalent to
-     * {@code receiver.methodName(arg1, arg2, ... , argN)}.
+    /** {@collect.stats} 
+     * Returns a string describing this {@code Method}.  The string is
+     * formatted as the method access modifiers, if any, followed by
+     * the method return type, followed by a space, followed by the
+     * class declaring the method, followed by a period, followed by
+     * the method name, followed by a parenthesized, comma-separated
+     * list of the method's formal parameter types. If the method
+     * throws checked exceptions, the parameter list is followed by a
+     * space, followed by the word throws followed by a
+     * comma-separated list of the thrown exception types.
+     * For example:
+     * <pre>
+     *    public boolean java.lang.Object.equals(java.lang.Object)
+     * </pre>
      *
-     * <p>If the method is static, the receiver argument is ignored (and may be null).
-     *
-     * <p>If the method takes no arguments, you can pass {@code (Object[]) null} instead of
-     * allocating an empty array.
-     *
-     * <p>If you're calling a varargs method, you need to pass an {@code Object[]} for the
-     * varargs parameter: that conversion is usually done in {@code javac}, not the VM, and
-     * the reflection machinery does not do this for you. (It couldn't, because it would be
-     * ambiguous.)
-     *
-     * <p>Reflective method invocation follows the usual process for method lookup.
-     *
-     * <p>If an exception is thrown during the invocation it is caught and
-     * wrapped in an InvocationTargetException. This exception is then thrown.
-     *
-     * <p>If the invocation completes normally, the return value itself is
-     * returned. If the method is declared to return a primitive type, the
-     * return value is boxed. If the return type is void, null is returned.
-     *
-     * @param receiver
-     *            the object on which to call this method (or null for static methods)
-     * @param args
-     *            the arguments to the method
-     * @return the result
-     *
-     * @throws NullPointerException
-     *             if {@code receiver == null} for a non-static method
-     * @throws IllegalAccessException
-     *             if this method is not accessible (see {@link AccessibleObject})
-     * @throws IllegalArgumentException
-     *             if the number of arguments doesn't match the number of parameters, the receiver
-     *             is incompatible with the declaring class, or an argument could not be unboxed
-     *             or converted by a widening conversion to the corresponding parameter type
-     * @throws InvocationTargetException
-     *             if an exception was thrown by the invoked method
+     * <p>The access modifiers are placed in canonical order as
+     * specified by "The Java Language Specification".  This is
+     * {@code public}, {@code protected} or {@code private} first,
+     * and then other modifiers in the following order:
+     * {@code abstract}, {@code static}, {@code final},
+     * {@code synchronized}, {@code native}.
      */
-    public Object invoke(Object receiver, Object... args)
-            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        if (args == null) {
-            args = EmptyArray.OBJECT;
-        }
-        return invokeNative(receiver, args, declaringClass, parameterTypes, returnType, slot, flag);
-    }
-
-    private native Object invokeNative(Object obj, Object[] args, Class<?> declaringClass,
-            Class<?>[] parameterTypes, Class<?> returnType, int slot, boolean noAccessCheck)
-                    throws IllegalAccessException, IllegalArgumentException,
-                            InvocationTargetException;
-
-    /**
-     * Returns a string containing a concise, human-readable description of this
-     * method. The format of the string is:
-     *
-     * <ol>
-     *   <li>modifiers (if any)
-     *   <li>return type or 'void'
-     *   <li>declaring class name
-     *   <li>'('
-     *   <li>parameter types, separated by ',' (if any)
-     *   <li>')'
-     *   <li>'throws' plus exception types, separated by ',' (if any)
-     * </ol>
-     *
-     * For example: {@code public native Object
-     * java.lang.Method.invoke(Object,Object) throws
-     * IllegalAccessException,IllegalArgumentException
-     * ,InvocationTargetException}
-     *
-     * @return a printable representation for this method
-     */
-    @Override
     public String toString() {
-        StringBuilder result = new StringBuilder(Modifier.toString(getModifiers()));
-
-        if (result.length() != 0)
-            result.append(' ');
-        result.append(returnType.getName());
-        result.append(' ');
-        result.append(declaringClass.getName());
-        result.append('.');
-        result.append(name);
-        result.append("(");
-        result.append(toString(parameterTypes));
-        result.append(")");
-        if (exceptionTypes != null && exceptionTypes.length != 0) {
-            result.append(" throws ");
-            result.append(toString(exceptionTypes));
+        try {
+            StringBuffer sb = new StringBuffer();
+            int mod = getModifiers() & LANGUAGE_MODIFIERS;
+            if (mod != 0) {
+                sb.append(Modifier.toString(mod) + " ");
+            }
+            sb.append(Field.getTypeName(getReturnType()) + " ");
+            sb.append(Field.getTypeName(getDeclaringClass()) + ".");
+            sb.append(getName() + "(");
+            Class[] params = parameterTypes; // avoid clone
+            for (int j = 0; j < params.length; j++) {
+                sb.append(Field.getTypeName(params[j]));
+                if (j < (params.length - 1))
+                    sb.append(",");
+            }
+            sb.append(")");
+            Class[] exceptions = exceptionTypes; // avoid clone
+            if (exceptions.length > 0) {
+                sb.append(" throws ");
+                for (int k = 0; k < exceptions.length; k++) {
+                    sb.append(exceptions[k].getName());
+                    if (k < (exceptions.length - 1))
+                        sb.append(",");
+                }
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            return "<" + e + ">";
         }
-
-        return result.toString();
     }
 
-    /**
-     * Returns the constructor's signature in non-printable form. This is called
-     * (only) from IO native code and needed for deriving the serialVersionUID
-     * of the class
+    /** {@collect.stats} 
+     * Returns a string describing this {@code Method}, including
+     * type parameters.  The string is formatted as the method access
+     * modifiers, if any, followed by an angle-bracketed
+     * comma-separated list of the method's type parameters, if any,
+     * followed by the method's generic return type, followed by a
+     * space, followed by the class declaring the method, followed by
+     * a period, followed by the method name, followed by a
+     * parenthesized, comma-separated list of the method's generic
+     * formal parameter types.
      *
-     * @return The constructor's signature.
+     * A space is used to separate access modifiers from one another
+     * and from the type parameters or return type.  If there are no
+     * type parameters, the type parameter list is elided; if the type
+     * parameter list is present, a space separates the list from the
+     * class name.  If the method is declared to throw exceptions, the
+     * parameter list is followed by a space, followed by the word
+     * throws followed by a comma-separated list of the generic thrown
+     * exception types.  If there are no type parameters, the type
+     * parameter list is elided.
+     *
+     * <p>The access modifiers are placed in canonical order as
+     * specified by "The Java Language Specification".  This is
+     * {@code public}, {@code protected} or {@code private} first,
+     * and then other modifiers in the following order:
+     * {@code abstract}, {@code static}, {@code final},
+     * {@code synchronized} {@code native}.
+     *
+     * @return a string describing this {@code Method},
+     * include type parameters
+     *
+     * @since 1.5
      */
-    @SuppressWarnings("unused")
-    private String getSignature() {
-        StringBuilder result = new StringBuilder();
+    public String toGenericString() {
+        try {
+            StringBuilder sb = new StringBuilder();
+            int mod = getModifiers() & LANGUAGE_MODIFIERS;
+            if (mod != 0) {
+                sb.append(Modifier.toString(mod) + " ");
+            }
+            TypeVariable<?>[] typeparms = getTypeParameters();
+            if (typeparms.length > 0) {
+                boolean first = true;
+                sb.append("<");
+                for(TypeVariable<?> typeparm: typeparms) {
+                    if (!first)
+                        sb.append(",");
+                    // Class objects can't occur here; no need to test
+                    // and call Class.getName().
+                    sb.append(typeparm.toString());
+                    first = false;
+                }
+                sb.append("> ");
+            }
 
-        result.append('(');
-        for (int i = 0; i < parameterTypes.length; i++) {
-            result.append(getSignature(parameterTypes[i]));
+            Type genRetType = getGenericReturnType();
+            sb.append( ((genRetType instanceof Class<?>)?
+                        Field.getTypeName((Class<?>)genRetType):genRetType.toString())  + " ");
+
+            sb.append(Field.getTypeName(getDeclaringClass()) + ".");
+            sb.append(getName() + "(");
+            Type[] params = getGenericParameterTypes();
+            for (int j = 0; j < params.length; j++) {
+                String param = (params[j] instanceof Class)?
+                    Field.getTypeName((Class)params[j]):
+                    (params[j].toString());
+                sb.append(param);
+                if (j < (params.length - 1))
+                    sb.append(",");
+            }
+            sb.append(")");
+            Type[] exceptions = getGenericExceptionTypes();
+            if (exceptions.length > 0) {
+                sb.append(" throws ");
+                for (int k = 0; k < exceptions.length; k++) {
+                    sb.append((exceptions[k] instanceof Class)?
+                              ((Class)exceptions[k]).getName():
+                              exceptions[k].toString());
+                    if (k < (exceptions.length - 1))
+                        sb.append(",");
+                }
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            return "<" + e + ">";
         }
-        result.append(')');
-        result.append(getSignature(returnType));
-
-        return result.toString();
     }
 
+    /** {@collect.stats} 
+     * Invokes the underlying method represented by this {@code Method}
+     * object, on the specified object with the specified parameters.
+     * Individual parameters are automatically unwrapped to match
+     * primitive formal parameters, and both primitive and reference
+     * parameters are subject to method invocation conversions as
+     * necessary.
+     *
+     * <p>If the underlying method is static, then the specified {@code obj}
+     * argument is ignored. It may be null.
+     *
+     * <p>If the number of formal parameters required by the underlying method is
+     * 0, the supplied {@code args} array may be of length 0 or null.
+     *
+     * <p>If the underlying method is an instance method, it is invoked
+     * using dynamic method lookup as documented in The Java Language
+     * Specification, Second Edition, section 15.12.4.4; in particular,
+     * overriding based on the runtime type of the target object will occur.
+     *
+     * <p>If the underlying method is static, the class that declared
+     * the method is initialized if it has not already been initialized.
+     *
+     * <p>If the method completes normally, the value it returns is
+     * returned to the caller of invoke; if the value has a primitive
+     * type, it is first appropriately wrapped in an object. However,
+     * if the value has the type of an array of a primitive type, the
+     * elements of the array are <i>not</i> wrapped in objects; in
+     * other words, an array of primitive type is returned.  If the
+     * underlying method return type is void, the invocation returns
+     * null.
+     *
+     * @param obj  the object the underlying method is invoked from
+     * @param args the arguments used for the method call
+     * @return the result of dispatching the method represented by
+     * this object on {@code obj} with parameters
+     * {@code args}
+     *
+     * @exception IllegalAccessException    if this {@code Method} object
+     *              enforces Java language access control and the underlying
+     *              method is inaccessible.
+     * @exception IllegalArgumentException  if the method is an
+     *              instance method and the specified object argument
+     *              is not an instance of the class or interface
+     *              declaring the underlying method (or of a subclass
+     *              or implementor thereof); if the number of actual
+     *              and formal parameters differ; if an unwrapping
+     *              conversion for primitive arguments fails; or if,
+     *              after possible unwrapping, a parameter value
+     *              cannot be converted to the corresponding formal
+     *              parameter type by a method invocation conversion.
+     * @exception InvocationTargetException if the underlying method
+     *              throws an exception.
+     * @exception NullPointerException      if the specified object is null
+     *              and the method is an instance method.
+     * @exception ExceptionInInitializerError if the initialization
+     * provoked by this method fails.
+     */
+    public Object invoke(Object obj, Object... args)
+        throws IllegalAccessException, IllegalArgumentException,
+           InvocationTargetException
+    {
+        if (!override) {
+            if (!Reflection.quickCheckMemberAccess(clazz, modifiers)) {
+                Class caller = Reflection.getCallerClass(1);
+                Class targetClass = ((obj == null || !Modifier.isProtected(modifiers))
+                                     ? clazz
+                                     : obj.getClass());
+
+                boolean cached;
+                synchronized (this) {
+                    cached = (securityCheckCache == caller)
+                            && (securityCheckTargetClassCache == targetClass);
+                }
+                if (!cached) {
+                    Reflection.ensureMemberAccess(caller, clazz, obj, modifiers);
+                    synchronized (this) {
+                        securityCheckCache = caller;
+                        securityCheckTargetClassCache = targetClass;
+                    }
+                }
+            }
+        }
+        if (methodAccessor == null) acquireMethodAccessor();
+        return methodAccessor.invoke(obj, args);
+    }
+
+    /** {@collect.stats} 
+     * Returns {@code true} if this method is a bridge
+     * method; returns {@code false} otherwise.
+     *
+     * @return true if and only if this method is a bridge
+     * method as defined by the Java Language Specification.
+     * @since 1.5
+     */
+    public boolean isBridge() {
+        return (getModifiers() & Modifier.BRIDGE) != 0;
+    }
+
+    /** {@collect.stats} 
+     * Returns {@code true} if this method was declared to take
+     * a variable number of arguments; returns {@code false}
+     * otherwise.
+     *
+     * @return {@code true} if an only if this method was declared to
+     * take a variable number of arguments.
+     * @since 1.5
+     */
+    public boolean isVarArgs() {
+        return (getModifiers() & Modifier.VARARGS) != 0;
+    }
+
+    /** {@collect.stats} 
+     * Returns {@code true} if this method is a synthetic
+     * method; returns {@code false} otherwise.
+     *
+     * @return true if and only if this method is a synthetic
+     * method as defined by the Java Language Specification.
+     * @since 1.5
+     */
+    public boolean isSynthetic() {
+        return Modifier.isSynthetic(getModifiers());
+    }
+
+    // NOTE that there is no synchronization used here. It is correct
+    // (though not efficient) to generate more than one MethodAccessor
+    // for a given Method. However, avoiding synchronization will
+    // probably make the implementation more scalable.
+    private void acquireMethodAccessor() {
+        // First check to see if one has been created yet, and take it
+        // if so
+        MethodAccessor tmp = null;
+        if (root != null) tmp = root.getMethodAccessor();
+        if (tmp != null) {
+            methodAccessor = tmp;
+            return;
+        }
+        // Otherwise fabricate one and propagate it up to the root
+        tmp = reflectionFactory.newMethodAccessor(this);
+        setMethodAccessor(tmp);
+    }
+
+    // Returns MethodAccessor for this Method object, not looking up
+    // the chain to the root
+    MethodAccessor getMethodAccessor() {
+        return methodAccessor;
+    }
+
+    // Sets the MethodAccessor for this Method object and
+    // (recursively) its root
+    void setMethodAccessor(MethodAccessor accessor) {
+        methodAccessor = accessor;
+        // Propagate up
+        if (root != null) {
+            root.setMethodAccessor(accessor);
+        }
+    }
+
+    /** {@collect.stats} 
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.5
+     */
+    public <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
+        if (annotationClass == null)
+            throw new NullPointerException();
+
+        return (T) declaredAnnotations().get(annotationClass);
+    }
+
+    private static final Annotation[] EMPTY_ANNOTATION_ARRAY=new Annotation[0];
+
+    /** {@collect.stats} 
+     * @since 1.5
+     */
+    public Annotation[] getDeclaredAnnotations()  {
+        return declaredAnnotations().values().toArray(EMPTY_ANNOTATION_ARRAY);
+    }
+
+    private transient Map<Class, Annotation> declaredAnnotations;
+
+    private synchronized  Map<Class, Annotation> declaredAnnotations() {
+        if (declaredAnnotations == null) {
+            declaredAnnotations = AnnotationParser.parseAnnotations(
+                annotations, sun.misc.SharedSecrets.getJavaLangAccess().
+                getConstantPool(getDeclaringClass()),
+                getDeclaringClass());
+        }
+        return declaredAnnotations;
+    }
+
+    /** {@collect.stats} 
+     * Returns the default value for the annotation member represented by
+     * this {@code Method} instance.  If the member is of a primitive type,
+     * an instance of the corresponding wrapper type is returned. Returns
+     * null if no default is associated with the member, or if the method
+     * instance does not represent a declared member of an annotation type.
+     *
+     * @return the default value for the annotation member represented
+     *     by this {@code Method} instance.
+     * @throws TypeNotPresentException if the annotation is of type
+     *     {@link Class} and no definition can be found for the
+     *     default class value.
+     * @since  1.5
+     */
+    public Object getDefaultValue() {
+        if  (annotationDefault == null)
+            return null;
+        Class memberType = AnnotationType.invocationHandlerReturnType(
+            getReturnType());
+        Object result = AnnotationParser.parseMemberValue(
+            memberType, ByteBuffer.wrap(annotationDefault),
+            sun.misc.SharedSecrets.getJavaLangAccess().
+                getConstantPool(getDeclaringClass()),
+            getDeclaringClass());
+        if (result instanceof sun.reflect.annotation.ExceptionProxy)
+            throw new AnnotationFormatError("Invalid default: " + this);
+        return result;
+    }
+
+    /** {@collect.stats} 
+     * Returns an array of arrays that represent the annotations on the formal
+     * parameters, in declaration order, of the method represented by
+     * this {@code Method} object. (Returns an array of length zero if the
+     * underlying method is parameterless.  If the method has one or more
+     * parameters, a nested array of length zero is returned for each parameter
+     * with no annotations.) The annotation objects contained in the returned
+     * arrays are serializable.  The caller of this method is free to modify
+     * the returned arrays; it will have no effect on the arrays returned to
+     * other callers.
+     *
+     * @return an array of arrays that represent the annotations on the formal
+     *    parameters, in declaration order, of the method represented by this
+     *    Method object
+     * @since 1.5
+     */
+    public Annotation[][] getParameterAnnotations() {
+        int numParameters = parameterTypes.length;
+        if (parameterAnnotations == null)
+            return new Annotation[numParameters][0];
+
+        Annotation[][] result = AnnotationParser.parseParameterAnnotations(
+            parameterAnnotations,
+            sun.misc.SharedSecrets.getJavaLangAccess().
+                getConstantPool(getDeclaringClass()),
+            getDeclaringClass());
+        if (result.length != numParameters)
+            throw new java.lang.annotation.AnnotationFormatError(
+                "Parameter annotations don't match number of parameters");
+        return result;
+    }
 }

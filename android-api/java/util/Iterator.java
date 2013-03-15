@@ -1,64 +1,108 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.util;
 
-/**
- * An iterator over a sequence of objects, such as a collection.
+/** {@collect.stats} 
+ * {@description.open}
+ * An iterator over a collection.  {@code Iterator} takes the place of
+ * {@link Enumeration} in the Java Collections Framework.  Iterators
+ * differ from enumerations in two ways:
  *
- * <p>If a collection has been changed since the iterator was created,
- * methods {@code next} and {@code hasNext()} may throw a {@code ConcurrentModificationException}.
- * It is not possible to guarantee that this mechanism works in all cases of unsynchronized
- * concurrent modification. It should only be used for debugging purposes. Iterators with this
- * behavior are called fail-fast iterators.
+ * <ul>
+ *      <li> Iterators allow the caller to remove elements from the
+ *           underlying collection during the iteration with well-defined
+ *           semantics.
+ *      <li> Method names have been improved.
+ * </ul>
  *
- * <p>Implementing {@link Iterable} and returning an {@code Iterator} allows your
- * class to be used as a collection with the enhanced for loop.
+ * <p>This interface is a member of the
+ * <a href="{@docRoot}/../technotes/guides/collections/index.html">
+ * Java Collections Framework</a>.
+ * {@description.close}
  *
- * @param <E>
- *            the type of object returned by the iterator.
+ * @author  Josh Bloch
+ * @see Collection
+ * @see ListIterator
+ * @see Iterable
+ * @since 1.2
  */
 public interface Iterator<E> {
-    /**
-     * Returns true if there is at least one more element, false otherwise.
-     * @see #next
-     */
-    public boolean hasNext();
-
-    /**
-     * Returns the next object and advances the iterator.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns {@code true} if the iteration has more elements.
+     * (In other words, returns {@code true} if {@link #next} would
+     * return an element rather than throwing an exception.)
+     * {@description.close}
      *
-     * @return the next object.
-     * @throws NoSuchElementException
-     *             if there are no more elements.
-     * @see #hasNext
+     * @return {@code true} if the iteration has more elements
      */
-    public E next();
+    boolean hasNext();
 
-    /**
-     * Removes the last object returned by {@code next} from the collection.
-     * This method can only be called once between each call to {@code next}.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the next element in the iteration.
+     * {@description.close}
+     * {@property.open formal:java.util.Iterator_HasNext}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
+     * {@property.close}
      *
-     * @throws UnsupportedOperationException
-     *             if removing is not supported by the collection being
-     *             iterated.
-     * @throws IllegalStateException
-     *             if {@code next} has not been called, or {@code remove} has
-     *             already been called after the last call to {@code next}.
+     * @return the next element in the iteration
+     * @throws NoSuchElementException if the iteration has no more elements
      */
-    public void remove();
+    E next();
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Removes from the underlying collection the last element returned
+     * by this iterator (optional operation).
+     * {@description.close}
+     * {@property.open formal:java.util.Iterator_RemoveOnce}
+     * This method can be called
+     * only once per call to {@link #next}.
+     * {@new.open}
+     * If the {@link #next} method has not yet been called, this method cannot be called.
+     * {@new.close}
+     * {@property.close}
+     * {@property.open formal:java.util.Collection_UnsafeIterator formal:java.util.Map_UnsafeIterator}
+     * The behavior of an iterator
+     * is unspecified if the underlying collection is modified while the
+     * iteration is in progress in any way other than by calling this
+     * method.
+     * {@property.close}
+     *
+     * @throws UnsupportedOperationException if the {@code remove}
+     *         operation is not supported by this iterator
+     *
+     * @throws IllegalStateException if the {@code next} method has not
+     *         yet been called, or the {@code remove} method has already
+     *         been called after the last call to the {@code next}
+     *         method
+     */
+    void remove();
 }

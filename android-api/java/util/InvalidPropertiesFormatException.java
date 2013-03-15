@@ -1,69 +1,102 @@
-/* Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Copyright (c) 2003, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
-
 
 package java.util;
 
-import java.io.IOException;
 import java.io.NotSerializableException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.IOException;
 
-/**
- * An {@code InvalidPropertiesFormatException} is thrown if loading the XML
- * document defining the properties does not follow the {@code Properties}
- * specification.
+/** {@collect.stats} 
+ * {@description.open}
+ * Thrown to indicate that an operation could not complete because
+ * the input did not conform to the appropriate XML document type
+ * for a collection of properties, as per the {@link Properties}
+ * specification.<p>
+ * {@description.close}
  *
- * Even though this Exception inherits the {@code Serializable} interface, it is not
- * serializable. The methods used for serialization throw
- * {@code NotSerializableException}s.
+ * {@property.open formal:java.util.InvalidPropertiesFormatException_NonSerializable}
+ * Note, that although InvalidPropertiesFormatException inherits Serializable
+ * interface from Exception, it is not intended to be Serializable. Appropriate
+ * serialization methods are implemented to throw NotSerializableException.
+ * {@property.close}
+ *
+ * @see     Properties
+ * @since   1.5
+ * @serial exclude
  */
+
 public class InvalidPropertiesFormatException extends IOException {
-
-    private static final long serialVersionUID = 7763056076009360219L;
-
-    /**
-     * Constructs a new {@code InvalidPropertiesFormatException} with the
-     * current stack trace and message filled in.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs an InvalidPropertiesFormatException with the specified
+     * cause.
+     * {@description.close}
      *
-     * @param m
-     *           the detail message for the exception.
+     * @param  cause the cause (which is saved for later retrieval by the
+     *         {@link Throwable#getCause()} method).
      */
-    public InvalidPropertiesFormatException(String m) {
-        super(m);
+    public InvalidPropertiesFormatException(Throwable cause) {
+        super(cause==null ? null : cause.toString());
+        this.initCause(cause);
     }
 
-    /**
-     * Constructs a new {@code InvalidPropertiesFormatException} with the cause
-     * for the Exception.
-     *
-     * @param c
-     *           the cause for the Exception.
+   /** {@collect.stats} 
+    * {@description.open}
+    * Constructs an InvalidPropertiesFormatException with the specified
+    * detail message.
+    * {@description.close}
+    *
+    * @param   message   the detail message. The detail message is saved for
+    *          later retrieval by the {@link Throwable#getMessage()} method.
+    */
+    public InvalidPropertiesFormatException(String message) {
+        super(message);
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Throws NotSerializableException, since InvalidPropertiesFormatException
+     * objects are not intended to be serializable.
+     * {@description.close}
      */
-    public InvalidPropertiesFormatException(Throwable c) {
-        initCause(c);
+    private void writeObject(java.io.ObjectOutputStream out)
+        throws NotSerializableException
+    {
+        throw new NotSerializableException("Not serializable.");
     }
 
-    private void writeObject(ObjectOutputStream out)
-            throws NotSerializableException{
-        throw new NotSerializableException();
+    /** {@collect.stats} 
+     * {@description.open}
+     * Throws NotSerializableException, since InvalidPropertiesFormatException
+     * objects are not intended to be serializable.
+     * {@description.close}
+     */
+    private void readObject(java.io.ObjectInputStream in)
+        throws NotSerializableException
+    {
+        throw new NotSerializableException("Not serializable.");
     }
 
-    private void readObject(ObjectInputStream in)
-            throws NotSerializableException{
-        throw new NotSerializableException();
-    }
 }

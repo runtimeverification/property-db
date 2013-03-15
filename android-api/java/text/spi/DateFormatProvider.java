@@ -1,18 +1,26 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 2005, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.text.spi;
@@ -21,61 +29,86 @@ import java.text.DateFormat;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/**
- * This abstract class should be extended by service providers that provide
- * instances of {@code DateFormat}.
- * <p>Note that Android does not support user-supplied locale service providers.
- * @since 1.6
- * @hide
+/** {@collect.stats} 
+ * An abstract class for service providers that
+ * provide concrete implementations of the
+ * {@link java.text.DateFormat DateFormat} class.
+ *
+ * @since        1.6
  */
 public abstract class DateFormatProvider extends LocaleServiceProvider {
-    /**
-     * Default constructor, for use by subclasses.
+
+    /** {@collect.stats} 
+     * Sole constructor.  (For invocation by subclass constructors, typically
+     * implicit.)
      */
     protected DateFormatProvider() {
-        // Do nothing.
     }
 
-    /**
-     * Returns an instance of {@code DateFormat} that formats times
-     * in the given style for the given locale.
-     *
-     * @param style the given time formatting style.
-     * @param locale the locale
-     * @return an instance of {@code DateFormat}
-     * @throws NullPointerException if {@code locale == null}
-     * @throws IllegalArgumentException
-     *             if locale isn't one of the locales returned from
-     *             getAvailableLocales().
+    /** {@collect.stats} 
+     * Returns a new <code>DateFormat</code> instance which formats time
+     * with the given formatting style for the specified locale.
+     * @param style the given formatting style.  Either one of
+     *     {@link java.text.DateFormat#SHORT DateFormat.SHORT},
+     *     {@link java.text.DateFormat#MEDIUM DateFormat.MEDIUM},
+     *     {@link java.text.DateFormat#LONG DateFormat.LONG}, or
+     *     {@link java.text.DateFormat#FULL DateFormat.FULL}.
+     * @param locale the desired locale.
+     * @exception IllegalArgumentException if <code>style</code> is invalid,
+     *     or if <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @exception NullPointerException if <code>locale</code> is null
+     * @return a time formatter.
+     * @see java.text.DateFormat#getTimeInstance(int, java.util.Locale)
      */
     public abstract DateFormat getTimeInstance(int style, Locale locale);
 
-    /**
-     * Returns an instance of {@code DateFormat} that formats dates
-     * in the given style for the given locale.
-     *
-     * @param style the given date formatting style.
-     * @param locale the locale
-     * @return an instance of {@code DateFormat}
-     * @throws NullPointerException if {@code locale == null}
-     * @throws IllegalArgumentException
-     *             if locale isn't one of the locales returned from
-     *             getAvailableLocales().
+    /** {@collect.stats} 
+     * Returns a new <code>DateFormat</code> instance which formats date
+     * with the given formatting style for the specified locale.
+     * @param style the given formatting style.  Either one of
+     *     {@link java.text.DateFormat#SHORT DateFormat.SHORT},
+     *     {@link java.text.DateFormat#MEDIUM DateFormat.MEDIUM},
+     *     {@link java.text.DateFormat#LONG DateFormat.LONG}, or
+     *     {@link java.text.DateFormat#FULL DateFormat.FULL}.
+     * @param locale the desired locale.
+     * @exception IllegalArgumentException if <code>style</code> is invalid,
+     *     or if <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @exception NullPointerException if <code>locale</code> is null
+     * @return a date formatter.
+     * @see java.text.DateFormat#getDateInstance(int, java.util.Locale)
      */
     public abstract DateFormat getDateInstance(int style, Locale locale);
 
-    /**
-     * Returns an instance of {@code DateFormat} that formats dates and times
-     * in the given style for the given locale.
-     *
-     * @param dateStyle the given date formatting style.
-     * @param timeStyle the given time formatting style.
-     * @param locale the locale
-     * @return an instance of {@code DateFormat}
-     * @throws NullPointerException if {@code locale == null}
-     * @throws IllegalArgumentException
-     *             if locale isn't one of the locales returned from
-     *             getAvailableLocales().
+    /** {@collect.stats} 
+     * Returns a new <code>DateFormat</code> instance which formats date and time
+     * with the given formatting style for the specified locale.
+     * @param dateStyle the given date formatting style.  Either one of
+     *     {@link java.text.DateFormat#SHORT DateFormat.SHORT},
+     *     {@link java.text.DateFormat#MEDIUM DateFormat.MEDIUM},
+     *     {@link java.text.DateFormat#LONG DateFormat.LONG}, or
+     *     {@link java.text.DateFormat#FULL DateFormat.FULL}.
+     * @param timeStyle the given time formatting style.  Either one of
+     *     {@link java.text.DateFormat#SHORT DateFormat.SHORT},
+     *     {@link java.text.DateFormat#MEDIUM DateFormat.MEDIUM},
+     *     {@link java.text.DateFormat#LONG DateFormat.LONG}, or
+     *     {@link java.text.DateFormat#FULL DateFormat.FULL}.
+     * @param locale the desired locale.
+     * @exception IllegalArgumentException if <code>dateStyle</code> or
+     *     <code>timeStyle</code> is invalid,
+     *     or if <code>locale</code> isn't
+     *     one of the locales returned from
+     *     {@link java.util.spi.LocaleServiceProvider#getAvailableLocales()
+     *     getAvailableLocales()}.
+     * @exception NullPointerException if <code>locale</code> is null
+     * @return a date/time formatter.
+     * @see java.text.DateFormat#getDateTimeInstance(int, int, java.util.Locale)
      */
-    public abstract DateFormat getDateTimeInstance(int dateStyle, int timeStyle, Locale locale);
+    public abstract DateFormat
+        getDateTimeInstance(int dateStyle, int timeStyle, Locale locale);
 }

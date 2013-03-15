@@ -1,145 +1,238 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*
- * Copyright (C) 2008 The Android Open Source Project
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang.ref;
 
-/**
- * Provides an abstract class which describes behavior common to all reference
- * objects. It is not possible to create immediate subclasses of
- * {@code Reference} in addition to the ones provided by this package. It is
- * also not desirable to do so, since references require very close cooperation
- * with the system's garbage collector. The existing, specialized reference
- * classes should be used instead.
+import sun.misc.Cleaner;
+
+
+/** {@collect.stats} 
+ * Abstract base class for reference objects.  This class defines the
+ * operations common to all reference objects.  Because reference objects are
+ * implemented in close cooperation with the garbage collector, this class may
+ * not be subclassed directly.
+ *
+ * @author   Mark Reinhold
+ * @since    1.2
  */
+
 public abstract class Reference<T> {
 
-    /**
-     * The object to which this reference refers.
-     * VM requirement: this field <em>must</em> be called "referent"
-     * and be an object.
-     */
-    volatile T referent;
-
-    /**
-     * If non-null, the queue on which this reference will be enqueued
-     * when the referent is appropriately reachable.
-     * VM requirement: this field <em>must</em> be called "queue"
-     * and be a java.lang.ref.ReferenceQueue.
-     */
-    volatile ReferenceQueue<? super T> queue;
-
-    /**
-     * Used internally by java.lang.ref.ReferenceQueue.
-     * VM requirement: this field <em>must</em> be called "queueNext"
-     * and be a java.lang.ref.Reference.
-     */
-    @SuppressWarnings("unchecked")
-    volatile Reference queueNext;
-
-    /**
-     * Used internally by the VM.  This field forms a circular and
-     * singly linked list of reference objects discovered by the
-     * garbage collector and awaiting processing by the reference
-     * queue thread.
+    /* A Reference instance is in one of four possible internal states:
      *
-     * @hide
-     */
-    public volatile Reference<?> pendingNext;
-
-    /**
-     * Constructs a new instance of this class.
-     */
-    Reference() {
-    }
-
-    Reference(T r, ReferenceQueue<? super T> q) {
-        referent = r;
-        queue = q;
-    }
-
-    /**
-     * Makes the referent {@code null}. This does not force the reference
-     * object to be enqueued.
-     */
-    public void clear() {
-        referent = null;
-    }
-
-    /**
-     * Adds an object to its reference queue.
+     *     Active: Subject to special treatment by the garbage collector.  Some
+     *     time after the collector detects that the reachability of the
+     *     referent has changed to the appropriate state, it changes the
+     *     instance's state to either Pending or Inactive, depending upon
+     *     whether or not the instance was registered with a queue when it was
+     *     created.  In the former case it also adds the instance to the
+     *     pending-Reference list.  Newly-created instances are Active.
      *
-     * @return {@code true} if this call has caused the {@code Reference} to
-     * become enqueued, or {@code false} otherwise
+     *     Pending: An element of the pending-Reference list, waiting to be
+     *     enqueued by the Reference-handler thread.  Unregistered instances
+     *     are never in this state.
      *
-     * @hide
+     *     Enqueued: An element of the queue with which the instance was
+     *     registered when it was created.  When an instance is removed from
+     *     its ReferenceQueue, it is made Inactive.  Unregistered instances are
+     *     never in this state.
+     *
+     *     Inactive: Nothing more to do.  Once an instance becomes Inactive its
+     *     state will never change again.
+     *
+     * The state is encoded in the queue and next fields as follows:
+     *
+     *     Active: queue = ReferenceQueue with which instance is registered, or
+     *     ReferenceQueue.NULL if it was not registered with a queue; next =
+     *     null.
+     *
+     *     Pending: queue = ReferenceQueue with which instance is registered;
+     *     next = Following instance in queue, or this if at end of list.
+     *
+     *     Enqueued: queue = ReferenceQueue.ENQUEUED; next = Following instance
+     *     in queue, or this if at end of list.
+     *
+     *     Inactive: queue = ReferenceQueue.NULL; next = this.
+     *
+     * With this scheme the collector need only examine the next field in order
+     * to determine whether a Reference instance requires special treatment: If
+     * the next field is null then the instance is active; if it is non-null,
+     * then the collector should treat the instance normally.
+     *
+     * To ensure that concurrent collector can discover active Reference
+     * objects without interfering with application threads that may apply
+     * the enqueue() method to those objects, collectors should link
+     * discovered objects through the discovered field.
      */
-    public final synchronized boolean enqueueInternal() {
-        if (queue != null && queueNext == null) {
-            queue.enqueue(this);
-            queue = null;
-            return true;
+
+    private T referent;         /* Treated specially by GC */
+
+    ReferenceQueue<? super T> queue;
+
+    Reference next;
+    transient private Reference<T> discovered;  /* used by VM */
+
+
+    /* Object used to synchronize with the garbage collector.  The collector
+     * must acquire this lock at the beginning of each collection cycle.  It is
+     * therefore critical that any code holding this lock complete as quickly
+     * as possible, allocate no new objects, and avoid calling user code.
+     */
+    static private class Lock { };
+    private static Lock lock = new Lock();
+
+
+    /* List of References waiting to be enqueued.  The collector adds
+     * References to this list, while the Reference-handler thread removes
+     * them.  This list is protected by the above lock object.
+     */
+    private static Reference pending = null;
+
+    /* High-priority thread to enqueue pending References
+     */
+    private static class ReferenceHandler extends Thread {
+
+        ReferenceHandler(ThreadGroup g, String name) {
+            super(g, name);
         }
-        return false;
+
+        public void run() {
+            for (;;) {
+
+                Reference r;
+                synchronized (lock) {
+                    if (pending != null) {
+                        r = pending;
+                        Reference rn = r.next;
+                        pending = (rn == r) ? null : rn;
+                        r.next = r;
+                    } else {
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException x) { }
+                        continue;
+                    }
+                }
+
+                // Fast path for cleaners
+                if (r instanceof Cleaner) {
+                    ((Cleaner)r).clean();
+                    continue;
+                }
+
+                ReferenceQueue q = r.queue;
+                if (q != ReferenceQueue.NULL) q.enqueue(r);
+            }
+        }
     }
 
-    /**
-     * Forces the reference object to be enqueued if it has been associated with
-     * a queue.
-     *
-     * @return {@code true} if this call has caused the {@code Reference} to
-     * become enqueued, or {@code false} otherwise
-     */
-    public boolean enqueue() {
-        return enqueueInternal();
+    static {
+        ThreadGroup tg = Thread.currentThread().getThreadGroup();
+        for (ThreadGroup tgn = tg;
+             tgn != null;
+             tg = tgn, tgn = tg.getParent());
+        Thread handler = new ReferenceHandler(tg, "Reference Handler");
+        /* If there were a special system-only priority greater than
+         * MAX_PRIORITY, it would be used here
+         */
+        handler.setPriority(Thread.MAX_PRIORITY);
+        handler.setDaemon(true);
+        handler.start();
     }
 
-    /**
-     * Returns the referent of the reference object.
+
+    /* -- Referent accessor and setters -- */
+
+    /** {@collect.stats} 
+     * Returns this reference object's referent.  If this reference object has
+     * been cleared, either by the program or by the garbage collector, then
+     * this method returns <code>null</code>.
      *
-     * @return the referent to which reference refers, or {@code null} if the
-     *         object has been cleared.
+     * @return   The object to which this reference refers, or
+     *           <code>null</code> if this reference object has been cleared
      */
     public T get() {
-        return referent;
+        return this.referent;
     }
 
-    /**
-     * Checks whether the reference object has been enqueued.
+    /** {@collect.stats} 
+     * Clears this reference object.  Invoking this method will not cause this
+     * object to be enqueued.
      *
-     * @return {@code true} if the {@code Reference} has been enqueued, {@code
-     *         false} otherwise
+     * <p> This method is invoked only by Java code; when the garbage collector
+     * clears references it does so directly, without invoking this method.
+     */
+    public void clear() {
+        this.referent = null;
+    }
+
+
+    /* -- Queue operations -- */
+
+    /** {@collect.stats} 
+     * Tells whether or not this reference object has been enqueued, either by
+     * the program or by the garbage collector.  If this reference object was
+     * not registered with a queue when it was created, then this method will
+     * always return <code>false</code>.
+     *
+     * @return   <code>true</code> if and only if this reference object has
+     *           been enqueued
      */
     public boolean isEnqueued() {
-        return queueNext != null;
+        /* In terms of the internal states, this predicate actually tests
+           whether the instance is either Pending or Enqueued */
+        synchronized (this) {
+            return (this.queue != ReferenceQueue.NULL) && (this.next != null);
+        }
+    }
+
+    /** {@collect.stats} 
+     * Adds this reference object to the queue with which it is registered,
+     * if any.
+     *
+     * <p> This method is invoked only by Java code; when the garbage collector
+     * enqueues references it does so directly, without invoking this method.
+     *
+     * @return   <code>true</code> if this reference object was successfully
+     *           enqueued; <code>false</code> if it was already enqueued or if
+     *           it was not registered with a queue when it was created
+     */
+    public boolean enqueue() {
+        return this.queue.enqueue(this);
+    }
+
+
+    /* -- Constructors -- */
+
+    Reference(T referent) {
+        this(referent, null);
+    }
+
+    Reference(T referent, ReferenceQueue<? super T> queue) {
+        this.referent = referent;
+        this.queue = (queue == null) ? ReferenceQueue.NULL : queue;
     }
 
 }

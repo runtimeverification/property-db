@@ -331,7 +331,7 @@ public abstract class WebSettings {
 	 * Note that this enables or disables file system access only.
      * Assets and resources are still accessible using file:///android_asset and
      * file:///android_res.
-	 * {@property.open}
+	 * {@property.close}
      */
     public void setAllowFileAccess(boolean allow) {
         throw new MustOverrideException();

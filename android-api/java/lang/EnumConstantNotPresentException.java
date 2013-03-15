@@ -1,69 +1,85 @@
-/* Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.lang;
 
-/**
- * Thrown if an {@code enum} constant does not exist for a particular name.
+/** {@collect.stats}
+ * {@description.open} 
+ * Thrown when an application tries to access an enum constant by name
+ * and the enum type contains no constant with the specified name.
+ * {@description.close}
  *
- * @since 1.5
+ * @author  Josh Bloch
+ * @since   1.5
  */
 public class EnumConstantNotPresentException extends RuntimeException {
-
-    private static final long serialVersionUID = -6046998521960521108L;
-
-    @SuppressWarnings("unchecked")
-    private final Class<? extends Enum> enumType;
-
-    private final String constantName;
-
-    /**
-     * Constructs a new {@code EnumConstantNotPresentException} with the current
-     * stack trace and a detail message based on the specified enum type and
-     * missing constant name.
-     *
-     * @param enumType
-     *            the enum type.
-     * @param constantName
-     *            the missing constant name.
+    /** {@collect.stats}
+     * {@description.open} 
+     * The type of the missing enum constant.
+     * {@description.close}
      */
-    @SuppressWarnings("unchecked")
-    public EnumConstantNotPresentException(Class<? extends Enum> enumType, String constantName) {
-        super("enum constant " + enumType.getName() + "." + constantName + " is missing");
+    private Class<? extends Enum> enumType;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * The name of the missing enum constant.
+     * {@description.close}
+     */
+    private String constantName;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Constructs an <tt>EnumConstantNotPresentException</tt> for the
+     * specified constant.
+     * {@description.close}
+     *
+     * @param enumType the type of the missing enum constant
+     * @param constantName the name of the missing enum constant
+     */
+    public EnumConstantNotPresentException(Class<? extends Enum> enumType,
+                                           String constantName) {
+        super(enumType.getName() + "." + constantName);
         this.enumType = enumType;
-        this.constantName = constantName;
+        this.constantName  = constantName;
     }
 
-    /**
-     * Gets the enum type for which the constant name is missing.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the type of the missing enum constant.
+     * {@description.close}
      *
-     * @return the enum type for which a constant name has not been found.
+     * @return the type of the missing enum constant
      */
-    @SuppressWarnings("unchecked")
-    public Class<? extends Enum> enumType() {
-        return enumType;
-    }
+    public Class<? extends Enum> enumType() { return enumType; }
 
-    /**
-     * Gets the name of the missing constant.
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the name of the missing enum constant.
+     * {@description.close}
      *
-     * @return the name of the constant that has not been found in the enum
-     *         type.
+     * @return the name of the missing enum constant
      */
-    public String constantName() {
-        return constantName;
-    }
+    public String constantName() { return constantName; }
 }
