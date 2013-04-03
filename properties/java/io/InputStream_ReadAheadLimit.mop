@@ -40,7 +40,7 @@ InputStream_ReadAheadLimit(InputStream i) {
 		this.rest = l;
 	}
 
-	event read after(InputStream i) returning(int n) :
+	event read1 after(InputStream i) returning(int n) :
 		call(* InputStream+.read()) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
@@ -53,7 +53,7 @@ InputStream_ReadAheadLimit(InputStream i) {
 		}
 	}
 
-	event read after(InputStream i) returning(int n) :
+	event readn after(InputStream i) returning(int n) :
 		call(* InputStream+.read(char[], ..)) && target(i) && if (
 			i instanceof BufferedInputStream ||
 			i instanceof DataInputStream ||
@@ -85,7 +85,7 @@ InputStream_ReadAheadLimit(InputStream i) {
 		this.rest = this.limit;
 	}
 
-	ere : (mark | read | goodreset)* badreset+
+	ere : (mark | read1 | readn | goodreset)* badreset+
 
 	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);

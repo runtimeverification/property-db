@@ -35,7 +35,7 @@ Reader_ReadAheadLimit(Reader r) {
 		this.rest = l;
 	}
 
-	event read after(Reader r) returning(int n) :
+	event read1 after(Reader r) returning(int n) :
 		call(* Reader+.read()) && target(r) && if (
 			r instanceof BufferedReader ||
 			r instanceof LineNumberReader
@@ -47,7 +47,7 @@ Reader_ReadAheadLimit(Reader r) {
 		}
 	}
 
-	event read after(Reader r) returning(int n) :
+	event readn after(Reader r) returning(int n) :
 		call(* Reader+.read(char[], ..)) && target(r) && if (
 			r instanceof BufferedReader ||
 			r instanceof LineNumberReader
@@ -76,7 +76,7 @@ Reader_ReadAheadLimit(Reader r) {
 		this.rest = this.limit;
 	}
 
-	ere : (mark | read | goodreset)* badreset+
+	ere : (mark | read1 | readn | goodreset)* badreset+
 
 	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);

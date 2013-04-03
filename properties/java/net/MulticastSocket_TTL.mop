@@ -21,13 +21,13 @@ MulticastSocket_TTL() {
 		MOPLogging.out.println(Level.CRITICAL, "The specified TTL " + ttl + " is out of range; [0 ~ 255]");
 	}
 
-	event set before(byte ttl) :
+	event set1 before(byte ttl) :
 		call(* MulticastSocket+.setTTL(byte)) && args(ttl)
 	{
 		this.check(__DEFAULT_MESSAGE, ttl & 0xff);
 	}
 
-	event set before(int ttl) :
+	event set2 before(int ttl) :
 		call(* MulticastSocket+.setTimeToLive(int)) && args(ttl)
 	{
 		this.check(__DEFAULT_MESSAGE, ttl);
