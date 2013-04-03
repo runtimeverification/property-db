@@ -23,10 +23,10 @@ Socket_CloseOutput(Socket sock, OutputStream output) {
 		call(OutputStream Socket+.getOutputStream()) && target(sock) {}
 
 	event close before(Socket sock) :
-		call(* Socket+.close(..)) && target(sock) {}
-
-	event close before(Socket sock) :
-		call(* Socket+.shutdownOutput(..)) && target(sock) {}
+		(
+			call(* Socket+.close(..)) ||
+			call(* Socket+.shutdownOutput(..))
+		) && target(sock) {}
 
 	event use before(OutputStream output) :
 		call(* OutputStream+.*(..)) && target(output) {}
