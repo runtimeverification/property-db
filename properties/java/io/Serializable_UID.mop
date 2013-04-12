@@ -29,7 +29,7 @@ import javamoprt.MOPLogging.Level;
  */
 Serializable_UID() {
 	event staticinit after() : staticinitialization(Serializable+) {
-		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		org.aspectj.lang.Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

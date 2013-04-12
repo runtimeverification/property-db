@@ -20,7 +20,7 @@ import javamoprt.MOPLogging.Level;
 
 URLConnection_OverrideGetPermission() {
 	event staticinit after() : staticinitialization(URLConnection+) {
-		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		org.aspectj.lang.Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		Method overriden = null;

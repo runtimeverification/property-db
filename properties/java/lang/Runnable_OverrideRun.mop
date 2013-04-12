@@ -16,7 +16,7 @@ import javamoprt.MOPLogging.Level;
  */
 Runnable_OverrideRun() {
 	event staticinit after() : staticinitialization(Runnable+) {
-		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		org.aspectj.lang.Signature initsig = __STATICSIG;
 		Class klass = initsig.getDeclaringType();		
 
 		if (klass != null) {

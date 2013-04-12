@@ -39,12 +39,12 @@ PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {
 		this.pos = size;
 	}
 
-	event read after(PushbackInputStream p) returning(int r) :
+	event read1 after(PushbackInputStream p) returning(int r) :
 		call(* PushbackInputStream+.read()) && target(p) {
 		if (this.pos < this.limit)
 			this.pos++;
 	}
-	event read after(PushbackInputStream p) returning(int n) :
+	event read2 after(PushbackInputStream p) returning(int n) :
 		call(* PushbackInputStream+.read(byte[], int, int)) && target(p) {
 		int avail = this.limit - this.pos;
 		if (avail > 0) {
@@ -106,7 +106,7 @@ PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {
 		condition(pos < len) {
 	}
 
-	ere : create (read | safeunread)*
+	ere : create (read1 | read2 | safeunread)*
 
 	@fail {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
