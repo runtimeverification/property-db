@@ -22,20 +22,19 @@ Socket_CloseOutput(Socket sock, OutputStream output) {
 	creation event getoutput after(Socket sock) returning(OutputStream output) :
 		call(OutputStream Socket+.getOutputStream()) && target(sock) {}
 
-	event close1 before(Socket sock) :
-		call(* Socket+.close(..)) && target(sock) {}
-
-	event close2 before(Socket sock) :
-		call(* Socket+.shutdownOutput(..)) && target(sock) {}
+	event close before(Socket sock) :
+		(
+			call(* Socket+.close(..)) ||
+			call(* Socket+.shutdownOutput(..))
+		) && target(sock) {}
 
 	event use before(OutputStream output) :
 		call(* OutputStream+.*(..)) && target(output) {}
 
-	ere : getoutput (close1 | close2) use+
+	ere : getoutput close use+
 
 	@match {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 		MOPLogging.out.println(Level.CRITICAL, "The output stream of a closed socket is about to be used.");
 	}
 }
-
