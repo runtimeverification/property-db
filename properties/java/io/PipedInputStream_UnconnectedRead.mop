@@ -21,9 +21,9 @@ PipedInputStream_UnconnectedRead(PipedInputStream i) {
 	event create_io before(PipedInputStream i) :
 		call(PipedOutputStream+.new(PipedInputStream+)) && args(i) {}
 
-	event connect before(PipedInputStream i) :
+	event connect1 before(PipedInputStream i) :
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && args(i) {}
-	event connect before(PipedInputStream i) :
+	event connect2 before(PipedInputStream i) :
 		call(* PipedInputStream+.connect(PipedOutputStream+)) && target(i) {}
 
 	event read before(PipedInputStream i) :
@@ -40,7 +40,8 @@ PipedInputStream_UnconnectedRead(PipedInputStream i) {
 		]
 		unconnected [
 			create_io -> connected
-			connect -> connected
+			connect1 -> connected
+			connect2 -> connected
 		]
 		connected [
 			read -> connected

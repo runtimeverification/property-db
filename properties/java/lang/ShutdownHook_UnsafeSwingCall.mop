@@ -20,14 +20,14 @@ ShutdownHook_UnsafeSwingCall(Thread t) {
 	creation event register before(Thread t) : call(* Runtime+.addShutdownHook(..)) && args(t) {}
 	creation event unregister before(Thread t) : call(* Runtime+.removeShutdownHook(..)) && args(t) {}
 	event start before(Thread t) : startThread() && thread(t) {}
-	event swingcall void around(Thread t) :
+	event swingcall1 void around(Thread t) :
 		(
 			call(* SwingUtilities+.invokeAndWait(..))
 			|| call(* SwingUtilities+.invokeLater(..))
 			|| call(* SwingWorker+.execute(..))
 		)
 		&& thread(t) {__SKIP;}
-	event swingcall Object around(Thread t) :
+	event swingcall2 Object around(Thread t) :
 		(
 			call(* SwingWorker+.get(..))
 		)
@@ -42,10 +42,12 @@ ShutdownHook_UnsafeSwingCall(Thread t) {
 			start -> started
 		]
 		started [
-			swingcall -> unsafe
+			swingcall1 -> unsafe
+			swingcall2 -> unsafe
 		]
 		unsafe [
-			swingcall -> unsafe
+			swingcall1 -> unsafe
+			swingcall2 -> unsafe
 		]
 
 	@unsafe {

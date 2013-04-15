@@ -21,13 +21,13 @@ import javamoprt.MOPLogging.Level;
  * @severity warning
  */
 PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
-	creation event create after(PipedOutputStream o) returning(PipedInputStream i) :
+	creation event create1 after(PipedOutputStream o) returning(PipedInputStream i) :
 		call(PipedInputStream+.new(PipedOutputStream+)) && args(o) {}
-	creation event create before(PipedInputStream i, PipedOutputStream o) :
+	creation event create2 before(PipedInputStream i, PipedOutputStream o) :
 		call(* PipedInputStream+.connect(PipedOutputStream+)) && target(i) && args(o) {}
-	creation event create after(PipedInputStream i) returning(PipedOutputStream o) :
+	creation event create3 after(PipedInputStream i) returning(PipedOutputStream o) :
 		call(PipedOutputStream+.new(PipedInputStream+)) && args(i) {}
-	creation event create before(PipedOutputStream o, PipedInputStream i) :
+	creation event create4 before(PipedOutputStream o, PipedInputStream i) :
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && target(o) && args(i) {}
 
 	event write before(PipedOutputStream o, Thread t) :
@@ -36,7 +36,7 @@ PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 	event read before(PipedInputStream i, Thread t) :
 		call(* PipedInputStream+.read(..)) && target(i) && thread(t) {}
 
-	ere: create (write* | read*)
+	ere: (create1 create2 create3 create4) (write* | read*)
 
 	@fail {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);

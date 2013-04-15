@@ -21,9 +21,9 @@ PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
 	event create_oi before(PipedOutputStream o) :
 		call(PipedInputStream+.new(PipedOutputStream+)) && args(o) {}
 
-	event connect before(PipedOutputStream o) :
+	event connect1 before(PipedOutputStream o) :
 		call(* PipedInputStream+.connect(PipedOutputStream+)) && args(o) {}
-	event connect before(PipedOutputStream o) :
+	event connect2 before(PipedOutputStream o) :
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && target(o) {}
 
 	event write before(PipedOutputStream o) :
@@ -36,7 +36,8 @@ PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
 		]
 		unconnected [
 			create_oi -> connected
-			connect -> connected
+			connect1 -> connected
+			connect2 -> connected
 		]
 		connected [
 			write -> connected

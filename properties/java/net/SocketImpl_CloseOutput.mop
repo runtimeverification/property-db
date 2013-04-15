@@ -20,10 +20,10 @@ SocketImpl_CloseOutput(SocketImpl sock, OutputStream output) {
 		call(OutputStream SocketImpl+.getOutputStream()) && target(sock) {}
 
 	event close before(SocketImpl sock) :
-		call(* SocketImpl+.close(..)) && target(sock) {}
-
-	event close before(SocketImpl sock) :
-		call(* SocketImpl+.shutdownOutput(..)) && target(sock) {}
+		(
+			call(* SocketImpl+.close(..)) ||
+			call(* SocketImpl+.shutdownOutput(..))
+		)  && target(sock) {}
 
 	event use before(OutputStream output) :
 		call(* OutputStream+.*(..)) && target(output) {}
