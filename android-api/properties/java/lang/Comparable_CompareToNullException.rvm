@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Comparable_CompareToNullException() {
+	event badexception(Object o, Exception e){
+		if ( ! (!(e instanceof NullPointerException)) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
+		}
+	}
+	event badcompare(Object o, int i){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
+	}
+}

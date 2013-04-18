@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ClassLoader_UnsafeClassDefinition() {
+	event defineClass(String name){
+		if ( ! (name.startsWith("java.")) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "An invalid binary name is used");
+		}
+	}
+}

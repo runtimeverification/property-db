@@ -1,0 +1,25 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+CookieManager_GetInstance() {
+
+	String LOC = null;
+	event webViewInstance(){
+	}
+	event createCookieSyncManagerInstance(){
+	}
+	event getCookieManagerInstance(){
+		this.LOC = __LOC;
+	}
+	ltl: getCookieManagerInstance => <*> (webViewInstance or createCookieSyncManagerInstance)
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "CookieManager.getInstance() was called at line " + this.LOC);
+		MOPLogging.out.println(Level.CRITICAL, "However, no WebView instance was created, nor CookieSyncManager.createInstance(..) has been called");
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.createInstance(..) should be call to correct the problem.");
+	}
+}

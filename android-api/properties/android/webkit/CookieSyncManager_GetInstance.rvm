@@ -1,0 +1,23 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+CookieSyncManager_GetInstance() {
+
+	String LOC = null;
+	event createCookieSyncManagerInstance(){
+	}
+	event getCookieSyncManagerInstance(){
+		this.LOC = __LOC;
+	}
+	ltl: getCookieSyncManagerInstance => <*> createCookieSyncManagerInstance
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.getInstance() was called at line " + this.LOC);
+		MOPLogging.out.println(Level.CRITICAL, "However, CookieSyncManager.createInstance(..) has not been called previously");
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager.createInstance(..) should be called to correct the problem.");
+	}
+}

@@ -1,0 +1,18 @@
+package mop;
+
+import java.util.*;
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Properties_ManipulateAfterLoad(InputStream i) {
+	event manipulate(InputStream i){
+	}
+	creation event close(InputStream i){
+	}
+	ere: close+ manipulate
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "read(), available(), reset() or skip() was invoked after Properties.loadFromXML() closes the stream.");
+	}
+}

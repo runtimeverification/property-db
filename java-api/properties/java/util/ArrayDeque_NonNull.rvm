@@ -1,0 +1,16 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ArrayDeque_NonNull() {
+	event insertnull(Object e){
+		if ( ! (e == null) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "ArrayDeque does not permit null.");
+		}
+	}
+}

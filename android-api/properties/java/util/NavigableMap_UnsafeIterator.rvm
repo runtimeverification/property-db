@@ -1,0 +1,24 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+NavigableMap_UnsafeIterator(NavigableMap m, Set s, Iterator i) {
+	creation event getset(NavigableMap m, Set s){
+	}
+	event getiter(Set s, Iterator i){
+	}
+	event modifyMap(NavigableMap m){
+	}
+	event modifySet(Set s){
+	}
+	event useiter(Iterator i){
+	}
+	ere: getset (modifyMap | modifySet)* getiter useiter* (modifyMap | modifySet)+ useiter
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The NavigableMap was modified while an iteration over the set is in progress.");
+	}
+}

@@ -1,0 +1,17 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+URLConnection_SetBeforeConnect(URLConnection c) {
+	event set(URLConnection c){
+	}
+	event connect(URLConnection c){
+	}
+	ere: set* connect*
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Options were specified after the connection was made.");
+	}
+}

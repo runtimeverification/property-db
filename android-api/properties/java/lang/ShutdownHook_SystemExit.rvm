@@ -1,0 +1,34 @@
+package mop;
+
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ShutdownHook_SystemExit(Thread t) {
+	creation event register(Thread t){
+	}
+	creation event unregister(Thread t){
+	}
+	event start(Thread t){
+	}
+	event exit(Thread t){
+		__SKIP;
+	}
+	fsm: unregistered [
+	register -> registered
+	]
+	registered [
+	unregister -> unregistered
+	start -> started
+	]
+	started [
+	exit -> unsafe
+	]
+	unsafe [
+	exit -> unsafe
+	]
+	@unsafe
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Invoking System.exit() in a shutdown hook was suppressed because it may lead to deadlocks.");
+	}
+}

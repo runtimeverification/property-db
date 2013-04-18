@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Long_StaticFactory() {
+	event constructor_create(Long l){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Using the constructor Long(long value) might be inefficient. Use valueOf(long) if it is appropriate.");
+	}
+}

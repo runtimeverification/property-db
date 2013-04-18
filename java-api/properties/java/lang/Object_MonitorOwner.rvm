@@ -1,0 +1,16 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Object_MonitorOwner() {
+	event bad_notify(Object o){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "notify() and notifyAll() can be called only by the owner of this object's monitor.");
+	}
+	event bad_wait(Object o){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "wait() can be called only by the owner of this object's monitor.");
+	}
+}

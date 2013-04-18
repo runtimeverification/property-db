@@ -1,0 +1,20 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+import java.io.InputStream;
+Socket_CloseInput(Socket sock, InputStream input) {
+	creation event getinput(Socket sock, InputStream input){
+	}
+	event close(Socket sock){
+	}
+	event use(InputStream input){
+	}
+	ere: getinput close use+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The input stream of a closed socket is about to be used.");
+	}
+}

@@ -1,0 +1,13 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+NetPermission_Actions() {
+	event construct(String actions){
+		if (actions != null) {
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "The 'actions' value should be null.");
+		}
+	}
+}

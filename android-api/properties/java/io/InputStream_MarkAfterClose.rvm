@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+InputStream_MarkAfterClose(InputStream i) {
+	event mark(InputStream i){
+	}
+	event close(InputStream i){
+	}
+	ere: close+ mark+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "mark() after close() had no effect.");
+	}
+}

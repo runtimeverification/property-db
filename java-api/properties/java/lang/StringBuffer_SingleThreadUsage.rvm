@@ -1,0 +1,29 @@
+package mop;
+
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+StringBuffer_SingleThreadUsage(StringBuffer s) {
+
+	Thread th = null;
+
+	boolean flag = false;
+	creation event init(Thread t, StringBuffer s){
+		this.th = t;
+	}
+	event use(StringBuffer s, Thread t){
+		if (this.th == null) {
+			this.th = t;
+		} else if (this.th != t) {
+			this.flag = true;
+		}
+	}
+	event endprogram(){
+	}
+	ere: init use+ endprogram
+	@match
+	{
+		if (!this.flag) MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A StringBuffer instance is used in a single thread. You may replace it with a StringBuilder instance, which will be faster under most implementations.");
+	}
+}

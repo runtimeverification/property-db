@@ -1,0 +1,26 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+CookieSyncManager_GetInstance(CookieSyncManager csm) {
+
+	String LOC = null;
+	creation event createCookieSyncManagerInstance(CookieSyncManager csm){
+	}
+	event startSync(){
+	}
+	event badstartSync(){
+	}
+	event stopSync(){
+	}
+	event badstopSync(){
+	}
+	ere: createCookieSyncManagerInstance (startSync stopSync)*
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "CookieSyncManager contract violated");
+	}
+}

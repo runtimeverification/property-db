@@ -1,0 +1,15 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Dictionary_Obsolete(Dictionary d) {
+	event use(Dictionary d){
+	}
+	ere: use
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The Dictionary class is obsolete. New implementations should implement the Map interface.");
+	}
+}

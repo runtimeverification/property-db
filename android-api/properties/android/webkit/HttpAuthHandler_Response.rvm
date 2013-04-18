@@ -1,0 +1,24 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+HttpAuthHandler_Response(HttpAuthHandler hah) {
+
+	String LOC = null;
+	creation event receivedRequestStart(){
+	}
+	creation event receivedRequestEnd(){
+	}
+	event proceed(){
+	}
+	event cancel(){
+	}
+	ere: receivedRequestStart (proceed | cancel) receivedRequestEnd
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "HttpAuthHandler contract violated");
+	}
+}

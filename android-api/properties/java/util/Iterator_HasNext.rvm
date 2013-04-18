@@ -1,0 +1,29 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Iterator_HasNext(Iterator i) {
+	event hasnexttrue(Iterator i, boolean b){
+		if ( ! (b) ) {
+			return false;
+		}
+		{
+		}
+	}
+	event hasnextfalse(Iterator i, boolean b){
+		if ( ! (!b) ) {
+			return false;
+		}
+		{
+		}
+	}
+	event next(Iterator i){
+	}
+	ltl: [](next => (*) hasnexttrue)
+	@violation
+	{
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "Iterator.hasNext() was not called before calling next().");
+	}
+}

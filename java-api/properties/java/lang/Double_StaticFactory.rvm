@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Double_StaticFactory() {
+	event constructor_create(Double d){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
+	}
+}

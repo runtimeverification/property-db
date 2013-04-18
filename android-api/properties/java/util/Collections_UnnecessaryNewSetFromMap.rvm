@@ -1,0 +1,11 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Collections_UnnecessaryNewSetFromMap() {
+	event unnecessary(){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "There is no need to use Collections.newSetFromMap() on HashMap or TreeMap.");
+	}
+}

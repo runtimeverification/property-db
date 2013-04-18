@@ -1,0 +1,22 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+WebViewClient_OnReceivedSslError(SslErrorHandler hand) {
+	creation event receivedSslError(){
+	}
+	creation event receivedSslErrorEnd(){
+	}
+	event proceed(){
+	}
+	event cancel(){
+	}
+	ere: receivedSslErrorStart (proceed | cancel) receivedSslErrorEnd
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "WebViewClient.OnReceivedSslError contract violated");
+	}
+}

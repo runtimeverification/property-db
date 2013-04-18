@@ -1,0 +1,51 @@
+package mop;
+
+import android.webkit.*;
+import android.webkit.WebStorage.QuotaUpdater;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+WebChromeClient_ExceededQuotaUpdate(WebChromeClient c, QuotaUpdater u) {
+
+	int quota = 0;
+
+	int badQuota = 0;
+
+	String LOC_client = null;
+
+	String LOC_update = null;
+	creation event onExceededDatabaseQuota(WebChromeClient c, Webstorage.QuotaUpdater u, int quota){
+		this.quota = quota;
+		this.LOC_client = __LOC;
+	}
+	event goodUpdateQuota(QuotaUpdater u, long quota){
+		if ( ! (quota >= this.quota) ) {
+			return false;
+		}
+		{
+		}
+	}
+	event badUpdateQuota(QuotaUpdater u, long quota){
+		if ( ! (quota < this.quota) ) {
+			return false;
+		}
+		{
+			this.badQuota = quota;
+			this.LOC_update = __LOC;
+		}
+	}
+	event endProg(){
+		System.out.println("Program has ended.");
+	}
+	ere: (onExceededDatabaseQuota updateQuota)* endProg
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "onExceededDatabaseQuotaupdateQuota was called with quota " + this.quota + " at line " + this.LOC_client);
+		if (this.LOC != null) {
+			MOPLogging.out.println(Level.CRITICAL, "However, the callback updateQuota was called with a lower quota, " + this.badQuota + ", at line " + this.LOC_update);
+		} else {
+			MOPLogging.out.println(Level.CRITICAL, "However, the callback updateQuota was not called before the program end.");
+		}
+	}
+}

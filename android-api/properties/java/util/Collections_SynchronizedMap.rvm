@@ -1,0 +1,42 @@
+package mop;
+
+import java.io.*;
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Collections_SynchronizedMap(Map syncMap, Collection col, Iterator iter) {
+
+	Map map;
+	creation event sync(Map syncMap){
+		this.map = syncMap;
+	}
+	event createSet(Map syncMap, Collection col){
+	}
+	event syncCreateIter(Collection col, Iterator iter){
+		if ( ! (Thread.holdsLock(map)) ) {
+			return false;
+		}
+		{
+		}
+	}
+	event asyncCreateIter(Collection col, Iterator iter){
+		if ( ! (!Thread.holdsLock(map)) ) {
+			return false;
+		}
+		{
+		}
+	}
+	event accessIter(Iterator iter){
+		if ( ! (!Thread.holdsLock(map)) ) {
+			return false;
+		}
+		{
+		}
+	}
+	ere: sync createSet (asyncCreateIter | (syncCreateIter accessIter))
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A collection view of a synchronized map was accessed in a thread-unsafe manner.");
+	}
+}

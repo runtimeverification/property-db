@@ -1,0 +1,19 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ObjectStreamClass_Initialize(ObjectStreamClass c) {
+	event create(ObjectStreamClass c){
+	}
+	event init(ObjectStreamClass c){
+	}
+	event endProg(){
+	}
+	ltl: [](create => o init)
+	@violation
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
+	}
+}

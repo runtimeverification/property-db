@@ -1,0 +1,16 @@
+package mop;
+
+import java.util.*;
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+InvalidPropertiesFormatException_NonSerializable() {
+	event serialize(ObjectOutputStream out, InvalidPropertiesFormatException obj){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "InvalidPropertiesFormatException is not intended to be Serialized.");
+	}
+	event deserialize(ObjectInputStream in, InvalidPropertiesFormatException obj){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "InvalidPropertiesFormatException is not intended to be Serialized.");
+	}
+}

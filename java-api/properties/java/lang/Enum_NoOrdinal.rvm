@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Enum_NoOrdinal() {
+	event ordinal(){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Most programmers will have no use for ordinal() method.");
+	}
+}

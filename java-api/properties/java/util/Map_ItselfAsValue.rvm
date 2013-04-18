@@ -1,0 +1,22 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Map_ItselfAsValue() {
+	event put(Map map, Object key, Object value){
+		if (value == map) {
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
+		}
+	}
+	event putall(Map map, Map src){
+		for (Map.Entry entry : (Set<Map.Entry>) src.entrySet()) {
+			if (entry.getValue() == map) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
+			}
+		}
+	}
+}

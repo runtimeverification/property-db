@@ -1,0 +1,22 @@
+package mop;
+
+import android.webkit.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+JsPromptResult_Response(JsPromptResult jpr) {
+	creation event jsPromptStart(){
+	}
+	creation event jsPromptEnd(){
+	}
+	event confirm(){
+	}
+	event cancel(){
+	}
+	ere: jsPromptStart (confirm | cancel) jsPromptEnd
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "JsPromptResult contract violated");
+	}
+}

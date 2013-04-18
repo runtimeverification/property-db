@@ -1,0 +1,37 @@
+package mop;
+
+import java.io.*;
+import java.lang.reflect.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Serializable_UID() {
+	event staticinit(){
+		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();
+		if (klass != null) {
+			try {
+				Field field = klass.getDeclaredField("serialVersionUID");
+				int mod = field.getModifiers();
+				boolean isstatic = Modifier.isStatic(mod);
+				boolean isfinal = Modifier.isFinal(mod);
+				Class fieldtype = field.getType();
+				boolean islong = fieldtype.getName() == "long";
+				if (!isstatic) {
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
+				}
+				if (!isfinal) {
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
+				}
+				if (!islong) {
+					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
+				}
+			} catch (NoSuchFieldException e) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
+			}
+		}
+	}
+}

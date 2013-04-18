@@ -1,0 +1,11 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Closeable_MeaninglessClose() {
+	event close(){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() has no effect.");
+	}
+}

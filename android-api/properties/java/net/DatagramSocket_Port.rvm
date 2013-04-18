@@ -1,0 +1,12 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+DatagramSocket_Port() {
+	event construct_port(int port){
+		if (0 <= port && port <= 65535) return;
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The specified port " + port + " is out of range; [0 ~ 65535]");
+	}
+}

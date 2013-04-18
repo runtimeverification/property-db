@@ -1,0 +1,20 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+List_UnsafeListIterator(List l, ListIterator i) {
+	creation event create(List l, ListIterator i){
+	}
+	event modify(List l){
+	}
+	event useiter(ListIterator i){
+	}
+	ere: create useiter* modify+ useiter
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The list was modified while a list iterator is being used.");
+	}
+}

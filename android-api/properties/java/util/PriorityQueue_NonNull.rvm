@@ -1,0 +1,25 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+PriorityQueue_NonNull() {
+	event insertnull(Object e){
+		if ( ! (e == null) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit null.");
+		}
+	}
+	event insertnull(Collection c){
+		for (Object elem : c) {
+			if (elem == null) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit null.");
+			}
+		}
+	}
+}

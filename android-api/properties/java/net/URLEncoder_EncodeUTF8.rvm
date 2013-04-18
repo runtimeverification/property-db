@@ -1,0 +1,12 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+URLEncoder_EncodeUTF8() {
+	event encode(String enc){
+		if (enc.equalsIgnoreCase("utf-8") || enc.equalsIgnoreCase("utf8")) return;
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The used encoding '" + enc + "' may introduce incompatibilites.");
+	}
+}

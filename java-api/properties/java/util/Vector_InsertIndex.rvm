@@ -1,0 +1,13 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Vector_InsertIndex() {
+	event insert(Vector v, int index){
+		if (!(0 <= index && index <= v.size())) {
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "The index passed to insertElementAt() is invalid.");
+		}
+	}
+}

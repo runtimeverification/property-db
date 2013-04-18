@@ -1,0 +1,15 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Closeable_MultipleClose(Closeable c) {
+	event close(Closeable c){
+	}
+	ere: close close+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() was invoked multiple times.");
+	}
+}

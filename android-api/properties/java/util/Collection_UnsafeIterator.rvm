@@ -1,0 +1,20 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Collection_UnsafeIterator(Collection c, Iterator i) {
+	creation event create(Collection c, Iterator i){
+	}
+	event modify(Collection c){
+	}
+	event useiter(Iterator i){
+	}
+	ere: create useiter* modify+ useiter
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The collection was modified while an iterator is being used.");
+	}
+}

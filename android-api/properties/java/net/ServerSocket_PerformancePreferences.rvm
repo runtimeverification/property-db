@@ -1,0 +1,21 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ServerSocket_PerformancePreferences(ServerSocket sock) {
+	creation event create_bound(ServerSocket sock){
+	}
+	creation event create_unbound(ServerSocket sock){
+	}
+	event bind(ServerSocket sock){
+	}
+	event set(ServerSocket sock){
+	}
+	ere: (create_bound | create_unbound set* bind+) set
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Invoking ServerSocket.setPerformancePreferences() after the socket has been bound will have no effect.");
+	}
+}

@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Comparable_CompareToNull() {
+	event nullcompare(Object o){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "null cannot be compared to any object");
+	}
+}

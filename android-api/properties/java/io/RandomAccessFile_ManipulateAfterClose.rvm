@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+RandomAccessFile_ManipulateAfterClose(RandomAccessFile f) {
+	event manipulate(RandomAccessFile f){
+	}
+	creation event close(RandomAccessFile f){
+	}
+	ere: close+ manipulate+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A closed random access file cannot perform input or output operations.");
+	}
+}

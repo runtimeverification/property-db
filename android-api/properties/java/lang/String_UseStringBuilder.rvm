@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+String_UseStringBuilder() {
+	event constructor_create(String b){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Using the constructor String(StringBuilder builder) is inefficient. Use toString() method on the StringBuilder.");
+	}
+}

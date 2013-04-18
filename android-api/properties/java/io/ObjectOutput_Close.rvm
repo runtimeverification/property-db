@@ -1,0 +1,19 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ObjectOutput_Close(ObjectOutput o) {
+	event create(ObjectOutput o){
+	}
+	event close(ObjectOutput o){
+	}
+	event endProg(){
+	}
+	ltl: [](create => o close)
+	@violation
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "close() was not called.");
+	}
+}

@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Reader_ManipulateAfterClose(Reader r) {
+	event manipulate(Reader r){
+	}
+	creation event close(Reader r){
+	}
+	ere: close+ manipulate+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "read(), ready(), mark(), reset() or skip() was invoked after close().");
+	}
+}

@@ -1,0 +1,17 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ResourceBundleControl_MutateFormatList(List l) {
+	creation event create(List l){
+	}
+	event mutate(List l){
+	}
+	ere: create mutate
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
+	}
+}

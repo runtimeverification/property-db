@@ -1,0 +1,38 @@
+package mop;
+
+import java.lang.*;
+import javax.swing.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ShutdownHook_UnsafeSwingCall(Thread t) {
+	creation event register(Thread t){
+	}
+	creation event unregister(Thread t){
+	}
+	event start(Thread t){
+	}
+	event swingcall(Thread t){
+		__SKIP;
+	}
+	event swingcall(Thread t){
+		__SKIP;
+	}
+	fsm: unregistered [
+	register -> registered
+	]
+	registered [
+	unregister -> unregistered
+	start -> started
+	]
+	started [
+	swingcall -> unsafe
+	]
+	unsafe [
+	swingcall -> unsafe
+	]
+	@unsafe
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "An operation that potentially leads to deadlocks was performed in a shutdown hook.");
+	}
+}

@@ -1,0 +1,29 @@
+package mop;
+
+import java.lang.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ShutdownHook_LateRegister() {
+
+	HashSet<Thread> threadSet = new HashSet<Thread>();
+	creation event register(Thread t){
+		threadSet.add(t);
+	}
+	creation event unregister(Thread t){
+		threadSet.remove(t);
+	}
+	event start(Thread t){
+		if ( ! (threadSet.contains(t)) ) {
+			return false;
+		}
+		{
+		}
+	}
+	ere: (register | unregister)* start+ (register | unregister)
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A shutdown hook was registered/unregister after the shutdown sequence had begun.");
+	}
+}

@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Thread_StartOnce(Thread t) {
+	event start(Thread t){
+	}
+	ere: start start+
+	@match
+	{
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "Thread should not be started more than once.");
+	}
+}

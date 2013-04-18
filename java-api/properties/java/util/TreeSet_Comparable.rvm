@@ -1,0 +1,22 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+TreeSet_Comparable() {
+	event add(Object e){
+		if (!(e instanceof Comparable)) {
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a TreeSet object.");
+		}
+	}
+	event addall(Collection c){
+		for (Object elem : c) {
+			if (!(elem instanceof Comparable)) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a TreeSet object.");
+			}
+		}
+	}
+}

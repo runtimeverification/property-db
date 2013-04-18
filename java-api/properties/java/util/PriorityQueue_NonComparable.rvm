@@ -1,0 +1,22 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+PriorityQueue_NonComparable() {
+	event insertnull(Object e){
+		if (!(e instanceof Comparable)) {
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit non-comparable objects.");
+		}
+	}
+	event insertnull(Collection c){
+		for (Object elem : c) {
+			if (!(elem instanceof Comparable)) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "PriorityQueue does not permit non-comparable objects.");
+			}
+		}
+	}
+}

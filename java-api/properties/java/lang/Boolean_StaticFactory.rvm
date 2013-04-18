@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Boolean_StaticFactory() {
+	event constructor_create(Boolean b){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Using the constructor Boolean(boolean value) might be inefficient. Use valueOf(boolean) if it is appropriate.");
+	}
+}

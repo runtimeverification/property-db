@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Enum_NoExtraWhiteSpace() {
+	event valueOf(Class c, String name){
+		if ( ! (name.length() != name.trim().length()) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "Please use the exact name. No extraneous whitespace characters are permitted");
+		}
+	}
+}

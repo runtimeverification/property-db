@@ -1,0 +1,26 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Collection_HashCode() {
+	event staticinit(org.aspectj.lang.Signature staticsig){
+		Signature initsig = staticsig;
+		Class klass = initsig.getDeclaringType();
+		if (klass != null) {
+			Method equalsmethod = null;
+			Method hashcodemethod = null;
+			try {
+				equalsmethod = klass.getDeclaredMethod("equals", Object.class);
+				hashcodemethod = klass.getDeclaredMethod("hashCode", (Class[]) null);
+			} catch (NoSuchMethodException e) {
+			}
+			if (equalsmethod != null && hashcodemethod == null) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " overrides equals() but does not override hashCode().");
+			}
+		}
+	}
+}

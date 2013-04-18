@@ -1,0 +1,15 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Reader_MarkReset() {
+	event mark(Reader r){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+	}
+	event reset(Reader r){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+	}
+}

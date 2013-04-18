@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.nio.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+CharSequence_UndefinedHashCode() {
+	event equals(){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence");
+	}
+	event hashCode(){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence");
+	}
+}

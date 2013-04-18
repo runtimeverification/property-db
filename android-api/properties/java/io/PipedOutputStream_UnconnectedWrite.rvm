@@ -1,0 +1,35 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+PipedOutputStream_UnconnectedWrite(PipedOutputStream o) {
+	creation event create(PipedOutputStream o){
+	}
+	creation event create_io(PipedOutputStream o){
+	}
+	event create_oi(PipedOutputStream o){
+	}
+	event connect(PipedOutputStream o){
+	}
+	event connect(PipedOutputStream o){
+	}
+	event write(PipedOutputStream o){
+	}
+	fsm: initial [
+	create -> unconnected
+	create_io -> connected
+	]
+	unconnected [
+	create_oi -> connected
+	connect -> connected
+	]
+	connected [
+	write -> connected
+	]
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "An unconnected PipedOutputStream performed write() operation.");
+	}
+}

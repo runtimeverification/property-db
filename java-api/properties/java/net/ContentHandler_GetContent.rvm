@@ -1,0 +1,11 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ContentHandler_GetContent() {
+	event get_content(){
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "An application does not generally call ContentHandler.getContent().");
+	}
+}

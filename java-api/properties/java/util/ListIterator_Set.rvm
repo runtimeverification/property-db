@@ -1,0 +1,26 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ListIterator_Set(ListIterator i) {
+	creation event create(ListIterator i){
+	}
+	event remove(ListIterator i){
+	}
+	event add(ListIterator i){
+	}
+	event next(ListIterator i){
+	}
+	event previous(ListIterator i){
+	}
+	event set(ListIterator i){
+	}
+	ere: create add* ((next | previous)+ set* (remove | add+ | epsilon))*
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "ListIterator.set() can be made only if neither remove() nor add() have been called after the last call to next() or previous().");
+	}
+}

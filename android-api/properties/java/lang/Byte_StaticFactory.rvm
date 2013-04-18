@@ -1,0 +1,12 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Byte_StaticFactory() {
+	event constructor_create(Byte b){
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "Using the constructor Byte(byte value) might be inefficient. Use valueOf(byte) if it is appropriate.");
+	}
+}

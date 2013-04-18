@@ -1,0 +1,20 @@
+package mop;
+
+import java.util.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+ArrayDeque_UnsafeIterator(ArrayDeque q, Iterator i) {
+	creation event create(ArrayDeque q, Iterator i){
+	}
+	event modify(ArrayDeque q){
+	}
+	event useiter(Iterator i){
+	}
+	ere: create useiter* modify+ useiter
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The deque was modified while an iterator is being used.");
+	}
+}

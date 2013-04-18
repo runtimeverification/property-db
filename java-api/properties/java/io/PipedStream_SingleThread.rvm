@@ -1,0 +1,25 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
+	creation event create(PipedOutputStream o, PipedInputStream i){
+	}
+	creation event create(PipedInputStream i, PipedOutputStream o){
+	}
+	creation event create(PipedInputStream i, PipedOutputStream o){
+	}
+	creation event create(PipedOutputStream o, PipedInputStream i){
+	}
+	event write(PipedOutputStream o, Thread t){
+	}
+	event read(PipedInputStream i, Thread t){
+	}
+	ere: create (write* | read*)
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instance, which may deadlock the thread.");
+	}
+}

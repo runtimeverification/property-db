@@ -1,0 +1,22 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+import java.io.OutputStream;
+SocketImpl_CloseOutput(SocketImpl sock, OutputStream output) {
+	creation event getoutput(SocketImpl sock, OutputStream output){
+	}
+	event close(SocketImpl sock){
+	}
+	event close(SocketImpl sock){
+	}
+	event use(OutputStream output){
+	}
+	ere: getoutput close use+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The output stream of a closed socket is about to be used.");
+	}
+}

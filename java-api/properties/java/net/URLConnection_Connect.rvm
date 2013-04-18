@@ -1,0 +1,17 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+URLConnection_Connect(URLConnection c) {
+	event explicit(URLConnection c){
+	}
+	event implicit(URLConnection c){
+	}
+	ere: (explicit | implicit) explicit+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "URLConnection.connect() has been called multiple twice.");
+	}
+}

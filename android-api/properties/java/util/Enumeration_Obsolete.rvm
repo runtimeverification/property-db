@@ -1,0 +1,15 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Enumeration_Obsolete(Enumeration e) {
+	event use(Enumeration e){
+	}
+	ere: use
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
+	}
+}

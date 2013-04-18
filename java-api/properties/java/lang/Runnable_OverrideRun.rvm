@@ -1,0 +1,22 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.lang.reflect.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Runnable_OverrideRun() {
+	event staticinit(){
+		org.aspectj.lang.Signature initsig = thisJoinPoint.getStaticPart().getSignature();
+		Class klass = initsig.getDeclaringType();
+		if (klass != null) {
+			Method m;
+			try {
+				m = klass.getMethod("run");
+			} catch (NoSuchMethodException e) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "A Runnable class should provide/override run() method.");
+			}
+		}
+	}
+}

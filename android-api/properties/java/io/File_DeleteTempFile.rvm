@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+File_DeleteTempFile(File f) {
+	event create(File f){
+	}
+	event explicit(File f){
+	}
+	event implicit(File f){
+	}
+	event endProg(){
+	}
+	ltl: [](create => o (explicit or implicit))
+	@violation
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "A temporary file has not been deleted.");
+	}
+}

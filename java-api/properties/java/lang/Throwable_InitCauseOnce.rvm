@@ -1,0 +1,21 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Throwable_InitCauseOnce(Throwable t) {
+	event createWithoutThrowable(Throwable t){
+	}
+	event createWithThrowable(Throwable t){
+	}
+	event initCause(Throwable t){
+	}
+	ere: (createWithoutThrowable initCause initCause+) | (createWithThrowable initCause+)
+	@match
+	{
+		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.WARNING, "initCause should not be called more than once.");
+	}
+}

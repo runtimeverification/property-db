@@ -1,0 +1,16 @@
+package mop;
+
+import java.io.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
+	event fill(){
+	}
+	ere: fill
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "BufferedInputStream.fill() is being called by a non-synchronized method.");
+		__RESET;
+	}
+}

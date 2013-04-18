@@ -1,0 +1,21 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Random_OverrideNext() {
+	event staticinit(org.aspectj.lang.Signature staticsig){
+		Signature initsig = staticsig;
+		Class klass = initsig.getDeclaringType();
+		if (klass != null) {
+			try {
+				Method nextmethod = klass.getDeclaredMethod("next", Integer.class);
+			} catch (NoSuchMethodException e) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " does not override int next(int bits).");
+			}
+		}
+	}
+}

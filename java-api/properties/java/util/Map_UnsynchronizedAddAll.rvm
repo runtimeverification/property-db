@@ -1,0 +1,19 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Map_UnsynchronizedAddAll(Map t, Map s) {
+	creation event enter(Map t, Map s){
+	}
+	event modify(Map s){
+	}
+	event leave(Map t, Map s){
+	}
+	ere: (enter leave modify*)*
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The source map of putAll() has been modified.");
+	}
+}

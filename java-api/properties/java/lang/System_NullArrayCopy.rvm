@@ -1,0 +1,17 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+System_NullArrayCopy() {
+	event null_arraycopy(Object src, int srcPos, Object dest, int destPos, int length){
+		if ( ! (src == null || dest == null) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "src or dest should not be null.");
+		}
+	}
+}

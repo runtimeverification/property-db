@@ -1,0 +1,15 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+URL_SetURLStreamHandlerFactory() {
+	event set(){
+	}
+	ere: set set+
+	@match
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "URL.setURLStreamHandlerFactory() can be called at most once in a given Java Virtual Machine.");
+	}
+}

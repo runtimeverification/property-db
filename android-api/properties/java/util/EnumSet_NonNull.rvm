@@ -1,0 +1,24 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+EnumSet_NonNull() {
+	event insertnull(Object e){
+		if ( ! (e == null) ) {
+			return false;
+		}
+		{
+			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			MOPLogging.out.println(Level.CRITICAL, "EnumSet does not permit null.");
+		}
+	}
+	event insertnull(Collection c){
+		for (Object elem : c) {
+			if (elem == null) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, "EnumSet does not permit null.");
+			}
+		}
+	}
+}

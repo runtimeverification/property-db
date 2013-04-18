@@ -1,0 +1,22 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+import org.aspectj.lang.Signature;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+Map_StandardConstructors() {
+	event staticinit(org.aspectj.lang.Signature staticsig){
+		Signature initsig = staticsig;
+		Class klass = initsig.getDeclaringType();
+		if (klass != null) {
+			try {
+				Constructor ctor1 = klass.getDeclaredConstructor((Class[]) null);
+				Constructor ctor2 = klass.getDeclaredConstructor(Map.class);
+			} catch (NoSuchMethodException e) {
+				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' constructors.");
+			}
+		}
+	}
+}

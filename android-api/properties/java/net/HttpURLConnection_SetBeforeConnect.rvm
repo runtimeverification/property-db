@@ -1,0 +1,17 @@
+package mop;
+
+import java.net.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+HttpURLConnection_SetBeforeConnect(HttpURLConnection c) {
+	event set(HttpURLConnection c){
+	}
+	event connect(HttpURLConnection c){
+	}
+	ere: set* connect*
+	@fail
+	{
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "setFixedLengthStreamingMode(), setChunkedStreamingMode() or setRequestMethod() should not be invoked after the connection was made.");
+	}
+}
