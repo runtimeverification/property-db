@@ -13,7 +13,6 @@ $imgsuffix = catfile("images","GBubble");
 $jssuffix = "js";
 $imgpath = catfile(dirname($0), "..", catfile("resources",$imgsuffix));
 $jspath = catfile(dirname($0), "..", catfile("resources",$jssuffix));
-$out_root = "";
 
 $tpackage="edu.uiuc.cs.fsl.propertydocs.taglets";
 
@@ -25,7 +24,10 @@ $upackage="edu.uiuc.cs.fsl.propertydocs.util";
 
 #this command line might be too long to run on windows...
 
-$header ="\"<script type='text/javascript' src='{\@docRoot}/js/balloon.config.js'></script>";
+$header ="\" <script type='text/javascript'>";
+$header.="   var docRoot = '{\@docRoot}';";
+$header.=" </script>";
+$header.="<script type='text/javascript' src='{\@docRoot}/js/balloon.config.js'></script>";
 $header.=" <script type='text/javascript' src='{\@docRoot}/js/balloon.js'></script>";
 $header.=" <script type='text/javascript' src='{\@docRoot}/js/box.js'></script>";
 $header.=" <script type='text/javascript' src='{\@docRoot}/js/yahoo-dom-event.js'></script>";
@@ -121,35 +123,28 @@ $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.Description
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
 
-$docscmd = "java -Xmx1024m -cp $srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
+$docscmdPrefix = "java -Xmx1024m ";
+$docscmdSuffix = " -cp $srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
 
 $dflag = 0;
 $pflag = 0;
-$rootflag = 0;
 $helpflag = 0;
 $dir = ".";
 $property_path = "properties";
 
 foreach(@ARGV){
-  #print "$dflag:$pflag:$rootflag";
+  #print "$dflag:$pflag";
   #print "\n";
   #print;
   #print "\n";
-  #for some reason rootflag has to be first or this breaks
-  #I blame it on perl being the stupidest, most buggy language ever
-  #created
-  if($rootflag == 1){
-    $out_root = $_;
-    $rootflag = 0;    
-  }
-  elsif($dflag == 1){
+  if($dflag == 1){
     $dir = $_;
     $dflag = 0;	
-    $docscmd .= " $_";
+    $docscmdSuffix .= " $_";
   }
   elsif(/-d/){
     $dflag = 1;
-    $docscmd .= " $_";
+    $docscmdSuffix .= " $_";
   }
   #the next two must not be passed to javadoc
   #so we do not concat them to $docscmd
@@ -159,9 +154,6 @@ foreach(@ARGV){
   }
   elsif(/-propertypath/){
     $pflag = 1;
-  }
-  elsif(/-outroot/){
-    $rootflag = 1;
   }
   #anything else isn't special and should just be passed
   #to javadoc without alteration
@@ -174,22 +166,25 @@ foreach(@ARGV){
     $helpflag = 1;
   }
   else {
-    $docscmd .= " $_";
+    $docscmdSuffix .= " $_";
   }
 }
 
-#print "$out_root $dir $property_path\n";
+#print "$dir $property_path\n";
 
 #sicne we can't give command line args to taglets we 
 #send this info via environment variables... ugly hack
 $ENV{__ANNOTATED_DOC_PROPERTY_PATH__} = $property_path;
 
+$docscmdPrefix .= " -Doutputpath='$dir' -Dpropertypath='$property_path' ";
 
-$propertypagecmd = "java -cp $srcpath $upackage.FinishUp ".$dir;
+$propertypagecmd = $docscmdPrefix . " -cp $srcpath $upackage.FinishUp ".$dir;
 
 $destjspath = catfile($dir, $jssuffix);
 $destimgpath = catfile($dir, $imgsuffix);
 
+
+$docscmd = $docscmdPrefix .$docscmdSuffix;
 system $docscmd;
 #here we move the javascript and images to the generated dir
 #and call the FinishUp class.  The FinishUp class will modify
@@ -202,21 +197,7 @@ if($helpflag == 1){
 }
 print "...finishing up"."\n";
 mkdir $destjspath;
-#copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
- open(BALLOONCONFIG, "<".catfile($jspath, "balloon.config.js"));
- open(OUT, ">".catfile($destjspath, "balloon.config.js"));
- #this is a web url, must be forward slash on windows too
- #so no catfile
- $repl = '\''.$out_root."/images/GBubble/\'"; 
- #set the image path in the javascript for the popup... this should probably
- #be changed to a command line option because it currently only works for
- #html that is hosted locally (the root is wrong for actual webservers)
- for(<BALLOONCONFIG>){
-   s/'images\/GBubble'/$repl/;
-   print OUT;
- }  
- close(OUT);
- close(BALLOONCONFIG);
+ copy(catfile($jspath, "balloon.config.js"), catfile($destjspath, "balloon.config.js"));
  copy(catfile($jspath, "balloon.js"), catfile($destjspath, "balloon.js"));
  copy(catfile($jspath, "box.js"), catfile($destjspath, "box.js"));
  copy(catfile($jspath, "yahoo-dom-event.js"), catfile($destjspath, "yahoo-dom-event.js"));
@@ -233,9 +214,7 @@ system $propertypagecmd;
 
 sub print_help{
   print "the flags specific to properydocs are:\n";
-  print "    -d: the output directory for the generated html\n";
-  print "    -propertypath:  the root directory for MOP properties\n";
-  print "    -outroot: the root directory for the generated html, necessary to make the pop-up baloons work correctly\n";
+  print "    -propertypath:  the root directory for RVM properties\n";
   print "\nThe following is help info from the base javadocs program, propertydocs passes options it does not know straight to javadoc:\n";  
 }
 

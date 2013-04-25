@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
+import edu.uiuc.cs.fsl.propertydocs.util.FinishUp;
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
@@ -26,7 +27,7 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 public class CollectTaglet implements Taglet {
     private static final String NAME = "collect.stats";
-  	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
+  	private static final String dir = System.getProperty( "outputpath" );
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "undecided.stats");
 

@@ -1,22 +1,17 @@
 package edu.uiuc.cs.fsl.propertydocs.taglets;
 
 import com.sun.javadoc.Tag;
-
 import com.sun.tools.doclets.Taglet;
-import com.sun.tools.doclets.standard.Standard;
+import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
+import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
+import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import edu.uiuc.cs.fsl.propertydocs.util.DefaultMap;
-import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
-import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 /**
 * This Taglet handles to opening of Description text comments
@@ -27,7 +22,7 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 public class DescriptionOpenTaglet implements Taglet {
     private static final String NAME = "description.open";
-  	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
+  	private static final String dir = System.getProperty( "outputpath" );
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "description.stats");
 
@@ -156,7 +151,7 @@ public class DescriptionOpenTaglet implements Taglet {
 
     /**
      * This method should not be called since arrays of inline tags do not
-     * exist.  Method {@link #tostring(Tag)} should be used to convert this
+     * exist.  Method {@link #toString(Tag)} should be used to convert this
      * inline tag to a string.
      * @param tags the array of <code>Tag</code>s representing of this custom tag.
      */

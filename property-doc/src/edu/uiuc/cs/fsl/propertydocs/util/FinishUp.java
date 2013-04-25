@@ -1,14 +1,7 @@
 package edu.uiuc.cs.fsl.propertydocs.util;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.PrintStream;
-
+import java.io.*;
 import java.util.Map;
-import java.util.HashMap;
 
 public class FinishUp {
 
@@ -16,6 +9,7 @@ public class FinishUp {
    // 1e3f would scale to 3, etc.
    private final static float FACTOR = 1e2f;
    private static String propertiesDir;
+	public static String destDirName = System.getProperty( "outputpath" );
 
    //TODO? should probably really be defined in Util or something instead of in multiple places
    private static final String GLOBAL = "<global>";
@@ -27,7 +21,8 @@ public class FinishUp {
    private static PropertyMap propertyDB; 
 
    public static void main(String[] args){
-     propertiesDir = args[0] + File.separator + "__properties";
+     destDirName = args[0];
+     propertiesDir = destDirName + File.separator + "__properties";
      File propertiesList   = new File(propertiesDir + File.separator + "property-list.html");
 
      File undecidedStats   = new File(propertiesDir + File.separator + "undecided.stats"); 
@@ -71,7 +66,7 @@ public class FinishUp {
 
      StringBuilder table 
        = new StringBuilder();
-     table.append("<H2> MOP Coverage Statistics and Property Links</H2><HR />");
+     table.append("<H2> RVM Coverage Statistics and Property Links</H2><HR />");
 
      makeTableForPackage("Global", GLOBAL, table);
      //this assumes that {@collect.stats} is seen in every package that uses our tags!
@@ -137,7 +132,7 @@ public class FinishUp {
      table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
      table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
      table.append("<TH ALIGN=\"left\" COLSPAN=\"4\"><FONT SIZE=\"+2\">");
-     table.append("<B>" + prettyName + " MOP Coverage Statistics </B></FONT></TH></TR>");
+     table.append("<B>" + prettyName + " RVM Coverage Statistics </B></FONT></TH></TR>");
 
      int undecidedW   = undecidedDB.get(packageName);
      int descriptionW = descriptionDB.get(packageName);
@@ -227,7 +222,7 @@ public class FinishUp {
            table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
            table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
            table.append("<TH ALIGN=\"left\" COLSPAN=\"1\"><FONT SIZE=\"+2\">");
-           table.append("<B>MOP Property Links for the " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix) 
+           table.append("<B>RVM Property Links for the " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix)
                                                          + " Package </B></FONT></TH></TR>\n");
            tableHeadingAdded = true;
          }

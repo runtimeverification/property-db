@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JAVAMOP=javamop
+RVM=rv-monitor
 AJC=ajc
 JAVA=java
 
@@ -55,7 +55,8 @@ function handle_property {
 	packname=$1
 	propname=$2
 
-	moppath=$PROPERTYDIR/$packname/$propname.mop
+	rvmpath=$PROPERTYDIR/$packname/$propname.rvm
+	ajpath=$PROPERTYDIR/$packname/{$propname}MonitorAspect.aj
 	classdir=$BUILDIR/$packname/$propname
 	ajdir=$classdir/mop
 
@@ -70,7 +71,7 @@ function handle_property {
 	ajpath=$ajdir/${propname}MonitorAspect.aj
 	exampledir=$EXAMPLEDIR/$packname/$propname
 	examplepaths=$exampledir/*.java
-	$AJC -1.6 -d $classdir $ajpath $examplepaths || exit 2
+	$AJC -1.6 -d $classdir $ajpath $examplepaths  || exit 2
 
 	for example in `ls $exampledir/*.java`
 	do

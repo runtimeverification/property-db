@@ -1,18 +1,13 @@
 package edu.uiuc.cs.fsl.propertydocs.util;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.util.HashSet;
-
-import com.sun.tools.doclets.standard.Standard;
 import com.sun.javadoc.Tag;
+
+import java.io.*;
+import java.util.HashSet;
 
 public class CreatePropertyFile {
 
-  private static final String dir = Standard.htmlDoclet.configuration().destDirName;
+  private static final String dir = System.getProperty( "outputpath" );
 
   private static HashSet<String> seenPositions
     = new HashSet<String> (); //this is to ensure that we don't link back
@@ -22,22 +17,23 @@ public class CreatePropertyFile {
     = new HashSet<String>(); //since we modify property files in place, we need this to
                              //ensure that we delete the files on a fresh run
 
-  public static final String PROPDIR = "__ANNOTATED_DOC_PROPERTY_PATH__";
+  public static final String PROPDIR = "propertypath";
+	private static final String propDir = System.getProperty(PROPDIR);
 
-  static {
+	static {
     File propertyDir = new File(dir + "/" + "__properties");
     if(!propertyDir.exists()) propertyDir.mkdir();
     File htmlDir = new File(dir + "/" + "__properties" + "/" + "html");
     if(!htmlDir.exists()) htmlDir.mkdir();
-    File mopDir = new File(dir + "/" + "__properties" + "/" + "mop");
-    if(!mopDir.exists()) mopDir.mkdir();
+    File rvmDir = new File(dir + "/" + "__properties" + "/" + "rvm");
+    if(!rvmDir.exists()) rvmDir.mkdir();
   }
 
-  public static void forceInit() { /* call this method to force this class to be initialized */ }
+	public static void forceInit() { /* call this method to force this class to be initialized */ }
 
   //Name is the name of the property
   //tag is the PropertyOpen Tag referencing the property
-  //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.mop 
+  //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.rvm
   //  is 4 (3 + 1, + 1 because of __properties dir)
   public static void createOrModifyPropertyFile(String name, PositionWrapper p, Tag tag, int depth){
       if(seenPositions.contains(p.toString() + name)) return;
@@ -52,13 +48,17 @@ public class CreatePropertyFile {
       String htmlOutName = dir + "/" + "__properties" + "/" 
             + "html" +  "/" + pathifiedName + ".html";
       try {
-        //copy specified mop file
-        File in = new File(System.getenv().get(PROPDIR) + "/" + pathifiedName + ".mop");
+        //copy specified rvm file
+		  final String inName = propDir + File.separator + pathifiedName + "" +
+				  ".rvm";
+		  File in = new File(inName);
         File htmlOut = new File(htmlOutName);
-        //create the HTML file that will link to the given mop file
+        //create the HTML file that will link to the given rvm file
         populate(htmlOutName);
-        String outName = dir + "__properties" + "/" 
-            + "mop" +  "/" + pathifiedName + ".mop";
+        String outName = dir + File.separator + "__properties" + File.separator
+            + "rvm" +  File.separator + pathifiedName + ".rvm";
+//		System.out.println("inName: " + inName);
+//		System.out.println("outName: " + outName);
         populate(outName);
         File out = new File(outName);
         if(!seenNames.contains(name)){
@@ -87,7 +87,7 @@ public class CreatePropertyFile {
         PrintStream htmlps = new PrintStream(htmlfos);
         htmlps.print(getHtmlHeader(pathifiedName));
         htmlps.print("<P><IFRAME SRC='" + buildRelativeUrlFromName(pathifiedName)  
-            + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");
+            + "/rvm/" + pathifiedName + ".rvm' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");
         htmlps.print("<P>This property is referenced in the following locations:</P>\n");
         htmlps.print("<UL>\n<LI><A HREF='" + linkBack +"'>" + nameBack + "</A></LI></UL>\n");
         htmlps.print(getHtmlFooter(pathifiedName));
@@ -163,7 +163,9 @@ public class CreatePropertyFile {
     + "\n"
     + "<META NAME=\"date\" CONTENT=\"2011-07-13\">\n"
     + "\n"
-    + "<LINK REL =\"stylesheet\" TYPE=\"text/css\" HREF=\"stylesheet.css\" TITLE=\"Style\">\n"
+    + "<LINK REL =\"stylesheet\" TYPE=\"text/css\" HREF=\"" +
+			  buildRelativeUrlFromName(name)  + "/../" +
+			  "stylesheet.css\" TITLE=\"Style\">\n"
     + "\n"
     + "<SCRIPT type=\"text/javascript\">\n"
     + "function windowTitle()\n"

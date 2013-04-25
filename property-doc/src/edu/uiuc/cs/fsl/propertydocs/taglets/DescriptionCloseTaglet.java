@@ -1,13 +1,9 @@
 package edu.uiuc.cs.fsl.propertydocs.taglets;
 
+import com.sun.javadoc.Tag;
 import com.sun.tools.doclets.Taglet;
 
-import com.sun.javadoc.Tag;
-
 import java.util.Map;
-
-import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
-import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 
 /**
@@ -63,7 +59,7 @@ public class DescriptionCloseTaglet implements Taglet {
     } 
     /**
      * This method should not be called since arrays of inline tags do not
-     * exist.  Method {@link #tostring(Tag)} should be used to convert this
+     * exist.  Method {@link #toString(Tag)} should be used to convert this
      * inline tag to a string.
      * @param tags the array of <code>Tag</code>s representing of this custom tag.
      */

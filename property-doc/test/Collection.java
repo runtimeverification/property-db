@@ -127,7 +127,7 @@ package java.util;
  * of Iterators only, it is included here for ease of reference (and to showcase
  * the new propertydocs tools).{@property.close}
  *
- * @property.mop {@property.name HasNext}
+ * @property.rvm {@property.name HasNext}
  *  // This property requires that hasnext be called before next
  *  // and that hasnext return true.  It is a modification of the
  *  // HasNext property from tracematches 
