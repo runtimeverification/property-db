@@ -31,10 +31,10 @@ PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 		call(* PipedOutputStream+.connect(PipedInputStream+)) && target(o) && args(i) {}
 
 	event write before(PipedOutputStream o, Thread t) :
-		call(* PipedOutputStream+.write(..)) && target(o) && thread(t) {}
+		call(* OutputStream+.write(..)) && target(o) && thread(t) {}
 
 	event read before(PipedInputStream i, Thread t) :
-		call(* PipedInputStream+.read(..)) && target(i) && thread(t) {}
+		call(* InputStream+.read(..)) && target(i) && thread(t) {}
 
 	ere: (create1 create2 create3 create4) (write* | read*)
 
