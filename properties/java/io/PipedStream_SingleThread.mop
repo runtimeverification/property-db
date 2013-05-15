@@ -36,7 +36,7 @@ PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 	event read before(PipedInputStream i, Thread t) :
 		call(* InputStream+.read(..)) && target(i) && thread(t) {}
 
-	ere: (create1 create2 create3 create4) (write* | read*)
+	ere: (create1 | create2 | create3 | create4) (write* | read*)
 
 	@fail {
 		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
