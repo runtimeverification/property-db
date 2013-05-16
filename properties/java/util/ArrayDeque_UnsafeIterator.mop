@@ -30,7 +30,7 @@ ArrayDeque_UnsafeIterator(ArrayDeque q, Iterator i) {
 		) && target(q) {}
 
 	event modify before(ArrayDeque q) :
-		target(Collection+) &&
+		target(ArrayDeque) &&
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Collection+.clear(..)) ||
