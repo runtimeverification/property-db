@@ -14,15 +14,15 @@ import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
  *
  * @severity error
  */
+
 BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
-	event fill before(BufferedInputStream i) : call(* BufferedInputStream.fill(..)) && target(i) {}
-	event lock after(BufferedInputStream i) : call(*) {}
+     event fill before(BufferedInputStream i) : call(* BufferedInputStream.fill(..)) && target(i) && !cflow(call(synchronized * *.*(..))){}
 
-	ptcaret : [*s@b] fill
+     ere: fill
 
-	@match {
-		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		RVMLogging.out.println(Level.CRITICAL, "BufferedInputStream.fill() is being called by a non-synchronized method.");
-	}
+     @match {
+            RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            RVMLogging.out.println(Level.CRITICAL, "BufferedInputStream.fill() is being called by a non-synchronized method.");
+     }
 }
 
