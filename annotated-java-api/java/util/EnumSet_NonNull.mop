@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if null is added to an EnumSet object.

@@ -1,8 +1,8 @@
 package mop;
 
 import java.lang.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * suggests if a Math.random() is used by multiple threads.

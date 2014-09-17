@@ -2,8 +2,8 @@ package mop;
 
 import java.lang.*;
 import java.lang.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if one registers a new shutdown hook after the shutdown sequence has begun.

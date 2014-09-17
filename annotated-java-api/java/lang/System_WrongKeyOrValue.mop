@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if null key or value is inserted, or non-String key or value is used.

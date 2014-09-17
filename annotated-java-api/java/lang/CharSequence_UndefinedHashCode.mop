@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.nio.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if one tries to use equals or hashCode method of a CharSequence instance.  

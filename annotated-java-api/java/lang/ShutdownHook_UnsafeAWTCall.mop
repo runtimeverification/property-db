@@ -2,8 +2,8 @@ package mop;
 
 import java.lang.*;
 import java.awt.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if a shutdown hook attempts to use thread-based services such as the

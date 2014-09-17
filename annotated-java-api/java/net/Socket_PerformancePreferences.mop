@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if ServerSocket.setPerformancePreferences() is invoked after the

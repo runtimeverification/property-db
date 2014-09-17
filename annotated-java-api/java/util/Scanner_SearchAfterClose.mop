@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.io.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if a closed Scanner object attempts to perform search operations.

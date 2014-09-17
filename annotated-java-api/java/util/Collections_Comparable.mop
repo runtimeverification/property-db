@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if the argument of Collections.sort(List<T>, Comparator) is not comparable.

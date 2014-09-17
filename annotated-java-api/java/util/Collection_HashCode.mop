@@ -3,8 +3,8 @@ package mop;
 import java.util.*;
 import java.lang.reflect.*;
 import org.aspectj.lang.Signature;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if equals() is overriden but hashCode() is not.

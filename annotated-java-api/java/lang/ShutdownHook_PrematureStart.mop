@@ -1,8 +1,8 @@
 package mop;
 
 import java.lang.*;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Prevents registering a shutdown hook that has been started.

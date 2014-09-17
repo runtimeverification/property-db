@@ -2,8 +2,8 @@ package mop;
 
 import java.net.*;
 import java.io.InputStream;
-import javamoprt.MOPLogging;
-import javamoprt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
+import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 /**
  * Warns if the timeout option is set after the blocking operation starts.
