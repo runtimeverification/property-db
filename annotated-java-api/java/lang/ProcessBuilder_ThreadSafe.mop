@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if two threads attempt to use the same ProcessBuilder object.
@@ -32,8 +32,8 @@ ProcessBuilder_ThreadSafe(ProcessBuilder p){
 	ere: safe_oper*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "More than two threads attempted to use a ProcessBuilder instance, which may lead to a race condition");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "More than two threads attempted to use a ProcessBuilder instance, which may lead to a race condition");
 		__RESET;
 	}
 }

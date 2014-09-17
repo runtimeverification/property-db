@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Prevents access to invalidated fields of StreamTokenizer.
@@ -67,8 +67,8 @@ StreamTokenizer_AccessInvalidField(StreamTokenizer s) {
 		]
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The caller attempted to read an invalidated value. " + __LOC);
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The caller attempted to read an invalidated value. " + __LOC);
 		__RESET;
 	}
 }

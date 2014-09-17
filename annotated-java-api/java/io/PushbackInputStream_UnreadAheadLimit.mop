@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if unread() is invoked when the internal pushback buffer is full.
@@ -109,8 +109,8 @@ PushbackInputStream_UnreadAheadLimit(PushbackInputStream p) {
 	ere : create (read1 | read2 | safeunread)*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "unread() cannot be performed because the internal pushback buffer is full.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "unread() cannot be performed because the internal pushback buffer is full.");
 	}
 }
 

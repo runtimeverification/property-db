@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.reflect.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a subclass of Set contains itself as an element.
@@ -24,16 +24,16 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 Set_ItselfAsElement() {
 	event add before(Set s, Object elem) :
 		call(* Set+.add(Object)) && target(s) && args(elem) && condition(elem == s){
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "A set cannot contain itself as an element.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "A set cannot contain itself as an element.");
 	}
 
 	event addall before(Set s, Collection src) :
 		call(* Set+.addAll(Collection)) && target(s) && args(src) {
 		for (Object elem : src) {
 			if (elem == s) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "A set cannot contain itself as an element.");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "A set cannot contain itself as an element.");
 			}
 		}
 	}

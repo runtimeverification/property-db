@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Prevents invocations of mark() if the InputStream does not support.
@@ -31,7 +31,7 @@ InputStream_MarkReset() {
 			|| target(SequenceInputStream)
 		)
 		{
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "FileInputStream, PushbackInputStream, ObjectInputStream, PipedInputStream and SequenceInputStream do not support mark() and reset().");
 		}
 }

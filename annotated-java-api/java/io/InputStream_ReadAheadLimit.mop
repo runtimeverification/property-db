@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Raises an error if mark() is invalidated by reading.
@@ -88,10 +88,10 @@ InputStream_ReadAheadLimit(InputStream i) {
 	ere : (mark | read1 | readn | goodreset)* badreset+
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The position mark has been invalidated.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The position mark has been invalidated.");
 		if (this.LOC != null) {
-			MOPLogging.out.println(Level.CRITICAL, "read() at line " + this.LOC + " invalidated the mark.");
+			RVMLogging.out.println(Level.CRITICAL, "read() at line " + this.LOC + " invalidated the mark.");
 		}
 	}
 }

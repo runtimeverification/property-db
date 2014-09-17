@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the name argument to valueOf() method of Enum contains any whitespace.
@@ -18,7 +18,7 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 Enum_NoExtraWhiteSpace() {
 	event valueOf before(Class c, String name) : call(* Enum+.valueOf(Class, String)) && args(c, name) 
 		&& condition(name.length() != name.trim().length()) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Please use the exact name. No extraneous whitespace characters are permitted");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Please use the exact name. No extraneous whitespace characters are permitted");
 	}
 }

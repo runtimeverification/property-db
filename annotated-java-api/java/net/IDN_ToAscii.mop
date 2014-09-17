@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the input to IDN.toASCII() should not be used in an
@@ -33,8 +33,8 @@ IDN_ToAscii() {
 		boolean safe = this.isAsciiSafe(input);
 
 		if (!safe) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The input to IDN.toASCII() should not be used in an internationalized domain name.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The input to IDN.toASCII() should not be used in an internationalized domain name.");
 		}
 	}
 }

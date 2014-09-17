@@ -2,8 +2,8 @@ package mop;
 
 import java.lang.*;
 import javax.swing.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a shutdown hook attempts to use thread-based services such as
@@ -51,8 +51,8 @@ ShutdownHook_UnsafeSwingCall(Thread t) {
 		]
 
 	@unsafe {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "An operation that potentially leads to deadlocks was performed in a shutdown hook.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "An operation that potentially leads to deadlocks was performed in a shutdown hook.");
 	}
 }
 

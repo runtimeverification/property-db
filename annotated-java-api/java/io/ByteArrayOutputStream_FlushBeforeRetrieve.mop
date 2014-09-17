@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Flushes OutputStream before using the underlying ByteArrayOutputStream.
@@ -59,8 +59,8 @@ ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream 
 		]
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
 	}
 }
 

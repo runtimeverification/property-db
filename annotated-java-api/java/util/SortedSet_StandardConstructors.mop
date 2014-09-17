@@ -3,8 +3,8 @@ package mop;
 import java.util.*;
 import java.lang.reflect.*;
 import org.aspectj.lang.Signature;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a subclass of SortedSet does not define the four "standard" constructors.
@@ -43,8 +43,8 @@ SortedSet_StandardConstructors() {
 				Constructor ctor4 = klass.getDeclaredConstructor(SortedSet.class);
 			}
 			catch (NoSuchMethodException e) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' SortedSet constructors.");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' SortedSet constructors.");
 			}
 		}
 	}

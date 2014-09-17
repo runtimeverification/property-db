@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a single thread attempts to use both a PipedInputStream instance
@@ -39,8 +39,8 @@ PipedStream_SingleThread(PipedInputStream i, PipedOutputStream o, Thread t) {
 	ere: (create1 | create2 | create3 | create4) (write* | read*)
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instance, which may deadlock the thread.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "A single thread attempted to use both a PipedInputStream instance and a PipedOutputStream instance, which may deadlock the thread.");
 	}
 }
 

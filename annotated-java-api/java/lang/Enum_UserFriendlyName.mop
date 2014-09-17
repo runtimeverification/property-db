@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Suggests to use toString() instead of name() in Enum.
@@ -16,8 +16,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 Enum_UserFriendlyName() {
 	event name before() : call(* Enum+.name()) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Most programmers should use toString(). It gives a more user-friendly name."); 
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Most programmers should use toString(). It gives a more user-friendly name."); 
 	}
 
 	

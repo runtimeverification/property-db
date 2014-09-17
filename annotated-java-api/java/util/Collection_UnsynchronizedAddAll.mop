@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the source collection is modified while Collection.addAll() is
@@ -37,8 +37,8 @@ Collection_UnsynchronizedAddAll(Collection t, Collection s) {
 	ere : (enter leave modify*)*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The source collection of addAll() has been modified.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The source collection of addAll() has been modified.");
 	}
 }
 

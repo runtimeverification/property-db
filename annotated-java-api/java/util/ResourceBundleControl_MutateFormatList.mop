@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a list returned by ResourceBundle.Control.getFormats() or
@@ -34,8 +34,8 @@ ResourceBundleControl_MutateFormatList(List l) {
 	ere : create mutate
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The list returned by ResourceBundle.Control.getFormats() or getCandidateLocales() was mutated.");
 	}
 }
 

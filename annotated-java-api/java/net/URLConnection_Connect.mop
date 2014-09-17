@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if URLConnection.connect() is called when the connection has already
@@ -65,8 +65,8 @@ URLConnection_Connect(URLConnection c) {
 	ere : (explicit | implicit) explicit+
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "URLConnection.connect() has been called multiple twice.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "URLConnection.connect() has been called multiple twice.");
 	}
 }
 

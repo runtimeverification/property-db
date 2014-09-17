@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the argument of Collections.sort(List<T>) is not comparable.
@@ -31,8 +31,8 @@ Collections_ImplementComparable() {
 			// Each element must implement the Comparable interface.
 			Object o1 = arr[i];
 			if (!(o1 instanceof Comparable)) {
-				MOPLogging.out.println(Level.CRITICAL, msg);
-				MOPLogging.out.println(Level.CRITICAL, i + "-th element does not implement the Comparable interface.");
+				RVMLogging.out.println(Level.CRITICAL, msg);
+				RVMLogging.out.println(Level.CRITICAL, i + "-th element does not implement the Comparable interface.");
 			}
 			Comparable c1 = (Comparable)o1;
 
@@ -44,8 +44,8 @@ Collections_ImplementComparable() {
 					c2.compareTo(c1);
 				}
 				catch (ClassCastException e) {
-					MOPLogging.out.println(Level.CRITICAL, msg);
-					MOPLogging.out.println(Level.CRITICAL, i + "-th element and " + j + "-th element are not comparable.");
+					RVMLogging.out.println(Level.CRITICAL, msg);
+					RVMLogging.out.println(Level.CRITICAL, i + "-th element and " + j + "-th element are not comparable.");
 				}
 			}
 		}

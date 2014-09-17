@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.reflect.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a subclass of Map contains itself as a value.
@@ -20,8 +20,8 @@ Map_ItselfAsValue() {
 	event put before(Map map, Object key, Object value) :
 		call(* Map+.put(Object, Object)) && target(map) && args(key, value) {
 		if (value == map) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
 		}
 	}
 
@@ -29,8 +29,8 @@ Map_ItselfAsValue() {
 		call(* Map+.putAll(Map)) && target(map) && args(src) {
 		for (Map.Entry entry : (Set<Map.Entry>)src.entrySet()) {
 			if (entry.getValue() == map) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "A map cannot contain itself as a value.");
 			}
 		}
 	}

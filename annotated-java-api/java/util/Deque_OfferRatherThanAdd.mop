@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.util.concurrent.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a capacity-restricted deque performs a less preferable operation.
@@ -38,8 +38,8 @@ Deque_OfferRatherThanAdd(Deque q) {
 	ere : create add+
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "When using a capacity-restricted deque, it is generally preferable to use offerFirst(), offerLast() and offer() instead of addFirt(), addLast() and add().");
 	}
 }
 

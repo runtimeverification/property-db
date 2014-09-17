@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a thread is started more than once.
@@ -22,8 +22,8 @@ Thread_StartOnce(Thread t){
     ere : start start+ 
 
 	@match{
-           MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
-           MOPLogging.out.println(Level.WARNING, "Thread should not be started more than once.");
+           RVMLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+           RVMLogging.out.println(Level.WARNING, "Thread should not be started more than once.");
 	}
 }
 		

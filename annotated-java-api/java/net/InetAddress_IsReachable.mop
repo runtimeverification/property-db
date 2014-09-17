@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the arguments for an InetAddress.isReachable() call are invalid.
@@ -18,8 +18,8 @@ InetAddress_IsReachable() {
 		call(* InetAddress+.isReachable(int)) && args(timeout)
 	{
 		if (timeout < 0) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The timeout value for InetAddress.isReachable() should not be a negative value.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The timeout value for InetAddress.isReachable() should not be a negative value.");
 		}
 	}
 
@@ -27,16 +27,16 @@ InetAddress_IsReachable() {
 		call(* InetAddress+.isReachable(NetworkInterface, int, int)) && args(*, ttl, timeout)
 	{
 		if (ttl < 0 || timeout < 0) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 
 			if (ttl < 0 && timeout < 0) {
-				MOPLogging.out.println(Level.CRITICAL, "The ttl value and the timeout value for InetAddress.isReachable() should not be negative values.");
+				RVMLogging.out.println(Level.CRITICAL, "The ttl value and the timeout value for InetAddress.isReachable() should not be negative values.");
 			}
 			else if (ttl < 0) {
-				MOPLogging.out.println(Level.CRITICAL, "The ttl value for InetAddress.isReachable() should not be a negative value.");
+				RVMLogging.out.println(Level.CRITICAL, "The ttl value for InetAddress.isReachable() should not be a negative value.");
 			}
 			else {
-				MOPLogging.out.println(Level.CRITICAL, "The timeout value for InetAddress.isReachable() should not be a negative value.");
+				RVMLogging.out.println(Level.CRITICAL, "The timeout value for InetAddress.isReachable() should not be a negative value.");
 			}
 		}
 	}

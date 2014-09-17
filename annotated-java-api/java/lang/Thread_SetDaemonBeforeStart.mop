@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if setDaemon is called after starting the thread.
@@ -27,8 +27,8 @@ Thread_SetDaemonBeforeStart(Thread t){
     ere : setDaemon* start 
 
 	@fail{
-           MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-           MOPLogging.out.println(Level.CRITICAL, "setDaemon should not be set after the thread started");
+           RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+           RVMLogging.out.println(Level.CRITICAL, "setDaemon should not be set after the thread started");
 	}
 }
 		

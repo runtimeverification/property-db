@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the timeout option is set after the blocking operation starts.
@@ -27,8 +27,8 @@ ServerSocket_SetTimeoutBeforeBlocking(ServerSocket sock) {
 	ere : set* (enter leave)* set*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "ServerSocket.setSoTimeout() should be set prior to entering the blocking operation.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "ServerSocket.setSoTimeout() should be set prior to entering the blocking operation.");
 
 		__RESET;
 	}

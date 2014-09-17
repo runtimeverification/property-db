@@ -3,8 +3,8 @@ package mop;
 import java.util.*;
 import java.io.*;
 import java.nio.channels.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a Closeable object, used in Scanner, is used after the Scanner
@@ -50,8 +50,8 @@ Scanner_ManipulateAfterClose(Scanner s, Closeable c) {
 	ere : create close+ manipulate
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The source stream or reader was used after the Scanner had been closed.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The source stream or reader was used after the Scanner had been closed.");
 	}
 }
 

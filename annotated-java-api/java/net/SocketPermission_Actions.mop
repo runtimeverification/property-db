@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the 'actions' parameter is invalid.
@@ -39,8 +39,8 @@ SocketPermission_Actions() {
 		}
 
 		if (!valid) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The 'actions' parameter '" + actions + "' is invalid.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The 'actions' parameter '" + actions + "' is invalid.");
 		}
 	}
 }

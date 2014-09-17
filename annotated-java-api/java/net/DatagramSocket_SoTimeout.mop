@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if DatagramSocket.setSoTimeout() is called with an invalid timeout value.
@@ -21,8 +21,8 @@ DatagramSocket_SoTimeout() {
 		if (timeout >= 0)
 			return;
 
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The timeout value " + timeout + " is out of range; [0 ~ ]");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The timeout value " + timeout + " is out of range; [0 ~ ]");
 	}
 }
 

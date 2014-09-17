@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Suggests if the constructor of Double is used.
@@ -18,8 +18,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 Double_StaticFactory() {
     event constructor_create after() returning(Double d): 
         call(Double+.new(double)) {
-            MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-            MOPLogging.out.println(Level.CRITICAL, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
+            RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            RVMLogging.out.println(Level.CRITICAL, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
         }
     
 }

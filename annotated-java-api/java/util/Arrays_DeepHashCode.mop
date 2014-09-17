@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if Arrays.deepHashCode() is invoked on an array that contains itself
@@ -44,8 +44,8 @@ Arrays_DeepHashCode() {
 		call(int Arrays.deepHashCode(Object[])) && args(arr) {
 		ArrayList<Object[]> enclosing = new ArrayList<Object[]>();
 		if (cycle(enclosing, arr)){
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The specified array contains itself as an element.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The specified array contains itself as an element.");
 		}
 	}
 }

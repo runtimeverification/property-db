@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.reflect.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a class is serializable, its superclass is not serializable, and
@@ -57,8 +57,8 @@ Serializable_NoArgConstructor() {
 				catch (NoSuchMethodException e) {
 				}
 				if (inaccessible) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The superclass of " + klass.getName() + " does not have an accessible no-arg constructor.");
 				}
 			}
 		}

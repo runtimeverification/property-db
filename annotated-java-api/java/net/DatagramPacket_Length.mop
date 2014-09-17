@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a DatagramPacket object is constructed with a wrong length.
@@ -25,8 +25,8 @@ DatagramPacket_Length() {
 		if (offset + length <= buffer.length)
 			return;
 
-		MOPLogging.out.println(Level.CRITICAL, msg);
-		MOPLogging.out.println(Level.CRITICAL, "The offset argument and/or the length argument are out of range; " + offset + " + " + length + " > " + buffer.length);
+		RVMLogging.out.println(Level.CRITICAL, msg);
+		RVMLogging.out.println(Level.CRITICAL, "The offset argument and/or the length argument are out of range; " + offset + " + " + length + " > " + buffer.length);
 	}
 
 	event construct_len before(byte[] buffer, int length) :

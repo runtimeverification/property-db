@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if actions in the constructor of RuntimePermission is not null.
@@ -17,8 +17,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 RuntimePermission_NullAction() {
 	event constructor_runtimeperm after(String name, String actions) returning(RuntimePermission r): 
 		call(RuntimePermission.new(String, String)) && args(name, actions) && condition(actions != null) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The actions string should be null.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The actions string should be null.");
 		}
 }
 

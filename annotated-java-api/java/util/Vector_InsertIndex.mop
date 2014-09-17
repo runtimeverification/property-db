@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the index passed to insertElementAt() is invalid.
@@ -18,8 +18,8 @@ Vector_InsertIndex() {
 	event insert before(Vector v, int index) :
 		call(* Vector+.insertElementAt(Object, int)) && target(v) && args(.., index) {
 		if (!(0 <= index && index <= v.size())) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The index passed to insertElementAt() is invalid.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The index passed to insertElementAt() is invalid.");
 		}
 	}
 }

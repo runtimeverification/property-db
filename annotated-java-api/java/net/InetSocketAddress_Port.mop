@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if an InetSocketAddress_Port object is created with an invalid port.
@@ -24,8 +24,8 @@ InetSocketAddress_Port() {
 		if (0 <= port && port <= 65535)
 			return;
 
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The specified port " + port + " is out of range; [0 ~ 65535]");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The specified port " + port + " is out of range; [0 ~ 65535]");
 	}
 }
 

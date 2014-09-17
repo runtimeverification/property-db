@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if an invalid TTL value is set for a MulticastSocket object.
@@ -17,8 +17,8 @@ MulticastSocket_TTL() {
 		if (0 <= ttl && ttl <= 255)
 			return;
 
-		MOPLogging.out.println(Level.CRITICAL, msg);
-		MOPLogging.out.println(Level.CRITICAL, "The specified TTL " + ttl + " is out of range; [0 ~ 255]");
+		RVMLogging.out.println(Level.CRITICAL, msg);
+		RVMLogging.out.println(Level.CRITICAL, "The specified TTL " + ttl + " is out of range; [0 ~ 255]");
 	}
 
 	event set1 before(byte ttl) :

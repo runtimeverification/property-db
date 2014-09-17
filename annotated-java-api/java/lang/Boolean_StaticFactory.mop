@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Suggests if the constructor of Boolean is used.
@@ -17,8 +17,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 Boolean_StaticFactory() {
     event constructor_create after() returning(Boolean b): 
         call(Boolean+.new(boolean)) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Using the constructor Boolean(boolean value) might be inefficient. Use valueOf(boolean) if it is appropriate.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Using the constructor Boolean(boolean value) might be inefficient. Use valueOf(boolean) if it is appropriate.");
     }
 }
 

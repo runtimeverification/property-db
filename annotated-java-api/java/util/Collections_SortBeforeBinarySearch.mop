@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if binarySearch() is invoked on an unsorted list.
@@ -68,8 +68,8 @@ Collections_SortBeforeBinarySearch(List list) {
 		]
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The list must be sorted prior to making binarySearch() call.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The list must be sorted prior to making binarySearch() call.");
 	}
 }
 

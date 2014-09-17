@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if null key or value is inserted.
@@ -32,8 +32,8 @@ ProcessBuilder_NullKeyOrValue(Map map){
     ere : createMap (nullPut | nullQuery)+ 
 
 	@match{
-           MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
-           MOPLogging.out.println(Level.WARNING, "null key or value is not permitted in the map from ProcessBuilder.environment()");
+           RVMLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+           RVMLogging.out.println(Level.WARNING, "null key or value is not permitted in the map from ProcessBuilder.environment()");
 	}
 }
 		

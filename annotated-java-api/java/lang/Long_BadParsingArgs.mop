@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns when arguments to parseLong are wrong.
@@ -18,11 +18,11 @@ Long_BadParsingArgs() {
 	event bad_arg before(String s, int radix) : 
 		call(* Long.parseLong(String, int)) && args(s, radix) {
 			if(s == null || s.length() == 0){
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
 			} else if(radix < java.lang.Character.MIN_RADIX || radix > java.lang.Character.MAX_RADIX){
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
 			} else {
 				for(int j = 0; j < s.length(); j++){
 					if(Character.digit(s.charAt(j), radix) == -1){
@@ -31,8 +31,8 @@ Long_BadParsingArgs() {
 						} else if(j == s.length() - 1 && (s.charAt(j) == 'l' || s.charAt(j) == 'L')){
 							//okay
 						} else {
-							MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-							MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
+							RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+							RVMLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s, int radix)");
 						}
 					} 
 				}
@@ -42,8 +42,8 @@ Long_BadParsingArgs() {
 	event bad_arg2 before(String s) : 
 		call(* Long.parseLong(String)) && args(s) {
 			if(s == null || s.length() == 0){
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s)");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s)");
 			} else {
 				for(int j = 0; j < s.length(); j++){
 					if(Character.digit(s.charAt(j), 10) == -1){
@@ -52,8 +52,8 @@ Long_BadParsingArgs() {
 						} else if(j == s.length() - 1 && (s.charAt(j) == 'l' || s.charAt(j) == 'L')){
 							//okay
 						} else {
-							MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-							MOPLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s)");
+							RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+							RVMLogging.out.println(Level.CRITICAL, "Wrong argument to Long.parseLong(String s)");
 						}
 					} 
 				}

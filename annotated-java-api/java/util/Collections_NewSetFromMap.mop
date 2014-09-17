@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the map passed to Collections.newSetFromMap() is either non-empty,
@@ -30,8 +30,8 @@ Collections_NewSetFromMap(Map map) {
 	ere : bad_create | (create access)
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The map used in Collections.newSetFromMap() must be empty before calling this method, and should not be accessed directly after this method returns.");
 	}
 }
 

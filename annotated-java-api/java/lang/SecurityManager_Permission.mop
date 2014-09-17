@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.security.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the context argument to checkPermission method is not from getSecurityContext method call. 
@@ -25,8 +25,8 @@ SecurityManager_Permission(SecurityManager manager, Object context) {
 
 	ere: get (get | check)*
 	@fail{
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The context argument to checkPermission must come from getSecurityContext method call.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The context argument to checkPermission must come from getSecurityContext method call.");
 	}
 }
 

@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if ContentHandler.getContent() is invoked.
@@ -22,8 +22,8 @@ ContentHandler_GetContent() {
 	event get_content before() : 
 		call(* ContentHandler+.getContent(..))
 	{
-		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.WARNING, "An application does not generally call ContentHandler.getContent().");
+		RVMLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.WARNING, "An application does not generally call ContentHandler.getContent().");
 	}
 }
 

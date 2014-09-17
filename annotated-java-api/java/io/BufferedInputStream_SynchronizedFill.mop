@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if BufferedInputStream.fill() is being called by non-synchronized methods.
@@ -21,8 +21,8 @@ BufferedInputStream_SynchronizedFill(BufferedInputStream i) {
 	ptcaret : [*s@b] fill
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "BufferedInputStream.fill() is being called by a non-synchronized method.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "BufferedInputStream.fill() is being called by a non-synchronized method.");
 	}
 }
 

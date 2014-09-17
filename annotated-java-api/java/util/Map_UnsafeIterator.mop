@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a map is modified while an iterator is being used.
@@ -61,8 +61,8 @@ Map_UnsafeIterator(Map m, Collection c, Iterator i) {
 	ere : getset (modifyMap | modifyCol)* getiter useiter* (modifyMap | modifyCol)+ useiter
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The map was modified while an iteration over the set is in progress.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The map was modified while an iteration over the set is in progress.");
 	}
 }
 

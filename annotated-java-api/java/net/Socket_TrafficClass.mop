@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if Socket.setTrafficClass() is called with an invalid traffic class
@@ -36,16 +36,16 @@ Socket_TrafficClass() {
 		}
 
 		if (outofrange || mbz || precedence) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 			if (outofrange) {
-				MOPLogging.out.println(Level.CRITICAL, "The traffic class value " + tc + " is out of range; [0 ~ 255].");
+				RVMLogging.out.println(Level.CRITICAL, "The traffic class value " + tc + " is out of range; [0 ~ 255].");
 			}
 			else {
 				if (mbz) {
-					MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets 1 to MBZ.");
+					RVMLogging.out.println(Level.CRITICAL, "The traffic class value sets 1 to MBZ.");
 				}
 				if (precedence) {
-					MOPLogging.out.println(Level.CRITICAL, "The traffic class value sets non-zero precedence.");
+					RVMLogging.out.println(Level.CRITICAL, "The traffic class value sets non-zero precedence.");
 				}
 			}
 		}

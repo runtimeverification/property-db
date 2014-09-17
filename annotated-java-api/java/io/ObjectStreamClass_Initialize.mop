@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns write operation after close().
@@ -27,8 +27,8 @@ ObjectStreamClass_Initialize(ObjectStreamClass c) {
 	ltl : [](create => o init)
 
 	@violation {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "An ObjectStreamClass object was instantiated, but was not initialized using initProxy(), initNonProxy() or readNonProxy()");
 	}
 }
 

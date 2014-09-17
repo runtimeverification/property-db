@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if length() is invoked on a File object that represents a directory.
@@ -17,8 +17,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 File_LengthOnDirectory() {
 	event bad_length before(File f) :
 		call(* File+.length()) && target(f) && condition(f.isDirectory()) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "length() was invoked on a File instance that represents a directory.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "length() was invoked on a File instance that represents a directory.");
 	}
 }
 

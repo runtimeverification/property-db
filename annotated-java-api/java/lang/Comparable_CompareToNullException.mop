@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a comparable object does not throw a NullPointerException when compared to null.
@@ -18,12 +18,12 @@ Comparable_CompareToNullException() {
 
 	event badexception after(Object o) throwing(Exception e) : call(* Comparable+.compareTo(..)) 
 		&& args(o) && if(o == null) && condition(!(e instanceof NullPointerException)) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
 		}
 	event badcompare after(Object o) returning(int i) : call(* Comparable+.compareTo(..)) 
 		&& args(o) && if(o == null) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "NullPointerException should be thrown when an object is compared to null");
 		}
 }

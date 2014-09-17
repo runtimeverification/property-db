@@ -1,8 +1,8 @@
 package mop;
 
 import java.io.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Prevents invocations of mark() if the Reader does not support.
@@ -21,14 +21,14 @@ Reader_MarkReset() {
 	event mark before(Reader+ r) : 
 		call(* Reader+.mark(..)) && target(r) 
 		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
 
 	event reset before(Reader+ r) : 
 		call(* Reader+.reset(..)) && target(r)
 		&& (target(PushbackReader) || target(InputStreamReader) || target(FileReader) || target(PipedReader)){
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "PushbackReader, InputStreamReader, FileReader and PipedReader do not support mark() and reset().");
 		}
 }

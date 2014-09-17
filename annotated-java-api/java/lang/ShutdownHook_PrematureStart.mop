@@ -1,8 +1,8 @@
 package mop;
 
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Prevents registering a shutdown hook that has been started.
@@ -40,8 +40,8 @@ ShutdownHook_PrematureStart(Thread t) {
 		]
 
 	@err {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "A virtual-machine shutdown hook has been started by the user code.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "A virtual-machine shutdown hook has been started by the user code.");
 	}
 }
 

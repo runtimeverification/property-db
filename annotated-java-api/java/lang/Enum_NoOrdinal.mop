@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Suggests not to use ordinal() method.
@@ -16,8 +16,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 Enum_NoOrdinal() {
 	event ordinal before() : call(* Enum+.ordinal()) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Most programmers will have no use for ordinal() method."); 
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Most programmers will have no use for ordinal() method."); 
 	}
 
 	

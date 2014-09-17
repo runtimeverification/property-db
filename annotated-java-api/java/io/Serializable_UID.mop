@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.reflect.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a Serializable class does not declare a serialVersionUID.
@@ -42,21 +42,21 @@ Serializable_UID() {
 				boolean islong = fieldtype.getName() == "long";
 
 				if (!isstatic) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a static field.");
 				}
 				if (!isfinal) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not a final field.");
 				}
 				if (!islong) {
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The serialVersionUID field of " + klass.getName() + " is not of type long.");
 				}
 			}
 			catch (NoSuchFieldException e) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "A serializable class " + klass.getName() + " does not declare a serialVersionUID");
 			}
 		}
 	}

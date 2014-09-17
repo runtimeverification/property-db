@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if Iterator.remove() is called multiple times per next().
@@ -27,8 +27,8 @@ Iterator_RemoveOnce(Iterator i) {
 	ere : (next+ (remove | epsilon))*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Iterator.remove() can be called only once per call to next().");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Iterator.remove() can be called only once per call to next().");
 	}
 }
 

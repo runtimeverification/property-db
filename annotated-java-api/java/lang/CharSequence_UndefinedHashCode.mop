@@ -3,8 +3,8 @@ package mop;
 import java.io.*;
 import java.lang.*;
 import java.nio.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if one tries to use equals or hashCode method of a CharSequence instance.  
@@ -20,12 +20,12 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 CharSequence_UndefinedHashCode() {
 	event equals before() : call(* CharSequence+.equals(..)) && !target(String) && !target(CharBuffer){
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence"); 
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence"); 
 	}
 	
 	event hashCode before() : call(* CharSequence+.hashCode(..)) && !target(String) && !target(CharBuffer){
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence"); 
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "equals and hashCode methods might not be supported in CharSequence"); 
 	}
 }

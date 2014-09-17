@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a comparable object is compared to null.
@@ -16,7 +16,7 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 
 Comparable_CompareToNull() {
 	event nullcompare before(Object o) : call(* Comparable+.compareTo(..)) && args(o) && if(o == null) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "null cannot be compared to any object");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "null cannot be compared to any object");
 	}
 }

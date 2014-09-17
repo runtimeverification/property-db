@@ -2,8 +2,8 @@ package mop;
 
 import java.util.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a non-comparable key is about to be inserted into TreeMap.
@@ -22,8 +22,8 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 TreeMap_Comparable() {
 	private void validate(Object elem, String msg) {
 		if (!(elem instanceof Comparable)) {
-			MOPLogging.out.println(Level.CRITICAL, msg);
-			MOPLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a TreeMap object.");
+			RVMLogging.out.println(Level.CRITICAL, msg);
+			RVMLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a TreeMap object.");
 		}
 	}
 

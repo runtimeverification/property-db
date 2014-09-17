@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a closed socket is about to be reused for binding or connecting.
@@ -28,8 +28,8 @@ Socket_ReuseSocket(Socket sock) {
 	ere : close (bind | connect)+
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "Once a socket has been closed, it is not available for further networking use; a new socket needs to be created.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Once a socket has been closed, it is not available for further networking use; a new socket needs to be created.");
 	}
 }
 

@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if next()/previous() is invoked when hasNext()/hasPrevious() is not
@@ -64,8 +64,8 @@ ListIterator_hasNextPrevious(ListIterator i) {
 		]
 
 	@fail {
-		MOPLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.WARNING, "ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
+		RVMLogging.out.println(Level.WARNING, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.WARNING, "ListIterator.hasNext()/hasPrevious() was not called before calling next()/previous().");
 	}
 }
 

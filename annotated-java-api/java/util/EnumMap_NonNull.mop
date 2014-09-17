@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if null is provided as a key of an EnumMap object.
@@ -18,15 +18,15 @@ import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
 EnumMap_NonNull() {
 	event insertnull before(Object e) :
 		call(* EnumMap.put(Object, Object)) && args(e, ..) && condition(e == null) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
 	}
 	event insertnull before(Map m) :
 		call(* EnumMap.putAll(Map)) && args(m) {
 		for (Map.Entry entry : (Set<Map.Entry>)m.entrySet()) {
 			if (entry.getKey() == null) {
-				MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-				MOPLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, "EnumMap does not permit null.");
 			}
 		}
 	}

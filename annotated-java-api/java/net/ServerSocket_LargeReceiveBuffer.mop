@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if a large receive buffer is set after the server socket is bound.
@@ -34,8 +34,8 @@ ServerSocket_LargeReceiveBuffer(ServerSocket sock) {
 	ere : (create_bound | create_unbound set* bind+) set
 
 	@match {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "A receive window large than 64K bytes must be set before the server socket is bound.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "A receive window large than 64K bytes must be set before the server socket is bound.");
 	}
 }
 

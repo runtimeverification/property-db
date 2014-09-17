@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if clone method is called on an Object instance.
@@ -25,8 +25,8 @@ Object_NoClone() {
 		&& !within(org.apache.batik.ext.awt.image.spi.MagicNumberRegistryEntry)
 		&& !within(org.apache.xerces.util.XMLCatalogResolver)
 		&& target(o) && condition(o.getClass().getCanonicalName().equals("java.lang.Object")){
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "Using the clone method on an Object instance will result in throwing an exception.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "Using the clone method on an Object instance will result in throwing an exception.");
 	}
 
 }

@@ -1,8 +1,8 @@
 package mop;
 
 import java.util.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the destination list of Arrays.copy() is not as long as the source
@@ -21,8 +21,8 @@ Collections_CopySize() {
 	event bad_copy before(List dest, List src) :
 		call(void Collections.copy(List, List)) && args(dest, src) &&
 		condition(dest.size() < src.size()) {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "The destination list must be at least as long as the source list.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The destination list must be at least as long as the source list.");
 	}
 }
 

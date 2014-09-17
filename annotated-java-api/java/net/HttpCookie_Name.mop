@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if the name of an HttpCookie object has invalid character.
@@ -63,8 +63,8 @@ HttpCookie_Name() {
 		}
 
 		if (outofrange || hasctrl || hassep) {
-			MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-			MOPLogging.out.println(Level.CRITICAL, "The specified cookie name '" + name + "' is invalid; it cannot contain '" + ch + "'.");
+			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+			RVMLogging.out.println(Level.CRITICAL, "The specified cookie name '" + name + "' is invalid; it cannot contain '" + ch + "'.");
 		}
 	}
 }

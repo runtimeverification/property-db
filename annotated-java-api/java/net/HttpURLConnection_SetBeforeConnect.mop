@@ -1,8 +1,8 @@
 package mop;
 
 import java.net.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if HttpURLConnection.setFixedLengthStreamingMode(),
@@ -83,8 +83,8 @@ HttpURLConnection_SetBeforeConnect(HttpURLConnection c) {
 	ere : set* connect*
 
 	@fail {
-		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-		MOPLogging.out.println(Level.CRITICAL, "setFixedLengthStreamingMode(), setChunkedStreamingMode() or setRequestMethod() should not be invoked after the connection was made.");
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "setFixedLengthStreamingMode(), setChunkedStreamingMode() or setRequestMethod() should not be invoked after the connection was made.");
 	}
 }
 

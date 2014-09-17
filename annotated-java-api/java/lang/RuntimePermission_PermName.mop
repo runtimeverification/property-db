@@ -2,8 +2,8 @@ package mop;
 
 import java.io.*;
 import java.lang.*;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging;
-import com.runtimeverification.rvmonitor.java.rt.MOPLogging.Level;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
 
 /**
  * Warns if permission name is not in the format.
@@ -21,11 +21,11 @@ RuntimePermission_PermName() {
 			int index = name.indexOf("*");
 			if(index != -1 && name.length() > 1){
 				if(index != name.length() - 1){
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The permission name for RuntimePermission is invalid");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The permission name for RuntimePermission is invalid");
 				} else if (name.charAt(index - 1) != '.'){
-					MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
-					MOPLogging.out.println(Level.CRITICAL, "The permission name for RuntimePermission is invalid");
+					RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+					RVMLogging.out.println(Level.CRITICAL, "The permission name for RuntimePermission is invalid");
 				}
 			}
 		}
