@@ -1,0 +1,30 @@
+package mop;
+
+import java.util.*;
+import javamoprt.MOPLogging;
+import javamoprt.MOPLogging.Level;
+
+/**
+ * Warns if an obsolete class Dictionary is used.
+ *
+ * The Dictionary class is obsolete in favor of the Map interface.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Dictionary.html
+ *
+ * This property warns if any method of the Dictionary class is invoked. To
+ * avoid too verbose messages, this property warns once per object.
+ *
+ * @severity warning
+ */
+
+Dictionary_Obsolete(Dictionary d) {
+	event use before(Dictionary d) :
+		call(* Dictionary+.*(..)) && target(d) {}
+
+	ere : use
+
+	@match {
+		MOPLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		MOPLogging.out.println(Level.CRITICAL, "The Dictionary class is obsolete. New implementations should implement the Map interface.");
+	}
+}
+
