@@ -1,0 +1,52 @@
+package mop;
+
+import java.util.*;
+import java.lang.reflect.*;
+import org.aspectj.lang.Signature;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Warns if a subclass of SortedSet does not define the four "standard" constructors.
+ *
+ * All general-purpose sorted set implementation classes should provide four
+ * "standard" constructors: 1) A void (no arguments) constructor, which
+ * creates an empty sorted set sorted according to the natural ordering of its
+ * elements. 2) A constructor with a single argument of type Comparator, which
+ * creates an empty sorted set sorted according to the specified comparator.
+ * 3) A constructor with a single argument of type Collection, which creates a
+ * new sorted set with the same elements as its argument, sorted according to
+ * the natural ordering of the elements. 4) A constructor with a single
+ * argument of type SortedSet, which creates a new sorted set with the same
+ * elements and the same ordering as the input sorted set.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/SortedSet.html
+ *
+ * Having four constructors cannot be enforced by the language, as interfaces
+ * cannot contain constructors. This specification dynamically checks the
+ * recommendation and warns if a sorted set does not have the four
+ * constructors. Since there is no way to detect if the class is
+ * "general-purpose", a violation of this property may be false positive.
+ *
+ * @severity warning
+ */
+
+SortedSet_StandardConstructors() {
+	event staticinit after() : staticinitialization(SortedSet+) {
+		Signature initsig = __STATICSIG;
+		Class klass = initsig.getDeclaringType();		
+
+		if (klass != null) {
+			try {
+				Constructor ctor1 = klass.getDeclaredConstructor((Class[]) null);
+				Constructor ctor2 = klass.getDeclaredConstructor(Comparator.class);
+				Constructor ctor3 = klass.getDeclaredConstructor(Collection.class);
+				Constructor ctor4 = klass.getDeclaredConstructor(SortedSet.class);
+			}
+			catch (NoSuchMethodException e) {
+				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+				RVMLogging.out.println(Level.CRITICAL, klass.getName() + " does not define the 'standard' SortedSet constructors.");
+			}
+		}
+	}
+}
+

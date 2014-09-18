@@ -1,0 +1,42 @@
+package mop;
+
+import java.io.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Checks if a temporary file is explicitly deleted or scheduled to be deleted
+ * when the virtual machine terminates.
+ *
+ * The documents mentions how to utilize a temporary-file facility, as follows
+ * (http://download.oracle.com/javase/6/docs/api/java/io/File.html#createTempFile%28java.lang.String,%20java.lang.String,%20java.io.File%29):
+ * <blockquote>
+ * This method provides only part of a temporary-file facility. To arrange for
+ * a file created by this method to be deleted automatically, use the
+ * deleteOnExit() method. 
+ * </blockquote>
+ *
+ * This specification assumes that a temporary file created by
+ * createTempFile() is ephemeral and thus should be deleted either explicitly
+ * by delete() or implicitly by deleteOnExit(). An execution that violates
+ * this property is not necessarily faulty but may not be what the user
+ * intended.
+ *
+ * @severity suggestion
+ */
+
+File_DeleteTempFile(File f) {
+	event create after returning(File f) :
+		call(File+ File.createTempFile(..)) {}
+	event explicit before(File f) : call(* File+.delete(..)) && target(f) {}
+	event implicit before(File f) : call(* File+.deleteOnExit(..)) && target(f) {}
+	event endProg before() : endProgram() {}
+
+	ltl : [](create => o (explicit or implicit))
+
+	@violation {
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "A temporary file has not been deleted.");
+	}
+}
+

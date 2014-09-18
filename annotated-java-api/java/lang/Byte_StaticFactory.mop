@@ -1,0 +1,25 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Suggests if the constructor of Byte is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Byte.html#valueOf%28byte%29
+ *
+ * @severity suggestion
+ */
+ 
+Byte_StaticFactory() {
+    event constructor_create after() returning(Byte b): 
+        call(Byte+.new(byte)) {
+            RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            RVMLogging.out.println(Level.CRITICAL, "Using the constructor Byte(byte value) might be inefficient. Use valueOf(byte) if it is appropriate.");
+        }
+}
+

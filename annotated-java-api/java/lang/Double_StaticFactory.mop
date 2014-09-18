@@ -1,0 +1,26 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Suggests if the constructor of Double is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Double.html#valueOf%28double%29
+ *
+ * @severity suggestion
+ */
+ 
+Double_StaticFactory() {
+    event constructor_create after() returning(Double d): 
+        call(Double+.new(double)) {
+            RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            RVMLogging.out.println(Level.CRITICAL, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
+        }
+    
+}
+

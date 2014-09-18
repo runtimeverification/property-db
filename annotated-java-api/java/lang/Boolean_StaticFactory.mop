@@ -1,0 +1,24 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Suggests if the constructor of Boolean is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Boolean.html#valueOf%28boolean%29
+ *
+ * @severity suggestion
+ */
+Boolean_StaticFactory() {
+    event constructor_create after() returning(Boolean b): 
+        call(Boolean+.new(boolean)) {
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Using the constructor Boolean(boolean value) might be inefficient. Use valueOf(boolean) if it is appropriate.");
+    }
+}
+

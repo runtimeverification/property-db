@@ -1,0 +1,24 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Suggests to use toString() instead of name() in Enum.
+ * 
+ * According to the manual, toString() is more recommended for its more user-friendly name. 
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html#name%28%29
+ * 
+ * @severity suggestion
+ */
+
+Enum_UserFriendlyName() {
+	event name before() : call(* Enum+.name()) {
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "Most programmers should use toString(). It gives a more user-friendly name."); 
+	}
+
+	
+}
