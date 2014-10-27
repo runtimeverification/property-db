@@ -15,7 +15,7 @@ import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
  * raises a warning in the hope that the warning helps developers to find a
  * glitch in their programs.
  *
-* @severity suggestion
+ * @severity suggestion
  */
 
 Closeable_MultipleClose(Closeable c) {
