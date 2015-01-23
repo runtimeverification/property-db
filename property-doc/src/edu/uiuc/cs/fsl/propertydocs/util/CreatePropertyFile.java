@@ -1,20 +1,17 @@
 package edu.uiuc.cs.fsl.propertydocs.util;
 
 import com.sun.javadoc.Tag;
-
 import java.io.*;
 import java.util.HashSet;
 
 public class CreatePropertyFile {
-    
     private static final String dir = System.getProperty( "outputpath" );
     
-    private static HashSet<String> seenPositions
-    = new HashSet<String> (); //this is to ensure that we don't link back
-    //to the same location multiple times
+    //This is to ensure that we don't link back to the same location multiple times
+    private static HashSet<String> seenPositions = new HashSet<String> ();
     
-    private static HashSet<String> seenNames
-    = new HashSet<String>(); //since we modify property files in place, we need this to
+    private static HashSet<String> seenNames = new HashSet<String>();
+    //Since we modify property files in place, we need this to
     //ensure that we delete the files on a fresh run
     
     public static final String PROPDIR = "propertypath";
@@ -33,8 +30,8 @@ public class CreatePropertyFile {
                 if(!mopDir.exists()) mopDir.mkdir();
                     }
     
-	public static void forceInit() { /* call this method to force this class to be initialized */ }
-    
+    /* call this method to force this class to be initialized */
+	public static void forceInit() {}
     //Name is the name of the property
     //tag is the PropertyOpen Tag referencing the property
     //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.rvm
@@ -52,9 +49,9 @@ public class CreatePropertyFile {
         String htmlOutName = dir + "/" + "__properties" + "/"
         + "html" +  "/" + pathifiedName + ".html";
         try {
-            //copy specified rvm file
             //final String inName = propDir + File.separator + pathifiedName + "" +
-            //	  ".rvm";////F
+            //".rvm";////F
+            //copy specified mop file
             final String inName = propDir + File.separator + pathifiedName + "" +
             ".mop";
             File in = new File(inName);
@@ -93,11 +90,12 @@ public class CreatePropertyFile {
             PrintStream htmlps = new PrintStream(htmlfos);
             htmlps.print(getHtmlHeader(pathifiedName));
             htmlps.print("<P><IFRAME SRC='" + buildRelativeUrlFromName(pathifiedName)
-                         //         + "/rvm/" + pathifiedName + ".rvm' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");////F
+                         //+ "/rvm/" + pathifiedName + ".rvm' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");////F
                          + "/mop/" + pathifiedName + ".mop' WIDTH='100%' HEIGHT='600'></IFRAME></P>\n");
             htmlps.print("<P>This property is referenced in the following locations:</P>\n");
             //if(linkBack.contains("("))
-            //htmlps.print("<UL>\n<LI><A HREF='" + linkBack.substring(0, linkBack.lastIndexOf("(")) +"--'>" + nameBack + "</A></LI><!- --></UL>\n");
+            //htmlps.print("<UL>\n<LI><A HREF='" + linkBack.substring(0,
+            //linkBack.lastIndexOf("(")) +"--'>" + nameBack + "</A></LI><!- --></UL>\n");
             //else{
             htmlps.print("<UL>\n<LI><A HREF='" + linkBack +"'>" + nameBack + "</A></LI><!- --></UL>\n");
             //}
@@ -211,6 +209,8 @@ public class CreatePropertyFile {
         + "</UL>\n"
         + " <DIV CLASS=\"aboutLanguage\">"
         + "  <DIV CLASS=\"navBarRV\">"
+        + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
+        + "   <IMG SRC=\"" + buildRelativeUrlFromName(name) + "/../images/favicon.ico\" style=\"vertical-align:middle\">"
         + "   <TD BGCOLOR='#FFFFFF'> <A HREF='" + buildRelativeUrlFromName(name) + "/property-list.html' CLASS=\"navBarCell1Rev\"> PROPERTIES&nbsp; </A></TD>"
         + "   <TD BGCOLOR='#FFFFFF'> <A HREF='" + buildRelativeUrlFromName(name) + "/Statistics.html'>STATISTICS&nbsp;</A></TD>\n"
         + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
@@ -260,6 +260,8 @@ public class CreatePropertyFile {
         + "</UL>\n"
         + " <DIV CLASS=\"aboutLanguage\">"
         + "  <DIV CLASS=\"navBarRV\">"
+        + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
+        + "   <IMG SRC=\"" + buildRelativeUrlFromName(name) + "/../images/favicon.ico\" style=\"vertical-align:middle\">"
         + "   <TD BGCOLOR='#FFFFFF'> <A HREF='" + buildRelativeUrlFromName(name) + "/property-list.html' CLASS=\"navBarCell1Rev\"> PROPERTIES&nbsp; </A></TD>"
         + "   <TD BGCOLOR='#FFFFFF'> <A HREF='" + buildRelativeUrlFromName(name) + "/Statistics.html'>STATISTICS&nbsp;</A></TD>\n"
         + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
@@ -270,7 +272,6 @@ public class CreatePropertyFile {
         + " <UL CLASS=\"navList\">\n"
         + "  <LI><A HREF=\""+ buildRelativeUrlFromName(name) + "/.."+"/index.html?__properties/property-list.html\" target=\"_top\">FRAMES</A> </LI>\n"
         + "  <LI><A HREF=\""+ buildRelativeUrlFromName(name) + "/property-list.html\" target=\"_top\">NO FRAMES</A>  </LI>\n"
-        //+ "  <LI><A HREF=\"property-list.html\" target=\"_top\">NO FRAMES</A>  </LI>\n"
         + " </UL>\n"
         + " <UL CLASS=\"navList\" ID=\"allclasses_navbar_bottom\" style=\"display: none;\">\n"
         + "  <LI><A HREF=\"allclasses-noframe.html\">All Classes</A></LI>\n"

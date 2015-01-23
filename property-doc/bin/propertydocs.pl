@@ -11,8 +11,10 @@ $imgsuffix = catfile("images","GBubble");
 #here we set up the path for the javascript we use to 
 #produce the popup balloons
 $jssuffix = "js";
+$logosuffix = "images";
 $imgpath = catfile(dirname($0), "..", catfile("resources",$imgsuffix));
 $jspath = catfile(dirname($0), "..", catfile("resources",$jssuffix));
+$logopath = catfile(dirname($0), "..", catfile("resources",$logosuffix));
 
 $tpackage="edu.uiuc.cs.fsl.propertydocs.taglets";
 
@@ -112,7 +114,10 @@ $header.="      }";
 $header.="    }";
 $header.="  }";
 $header.="</script>";
-$header.=" <DIV class=\"navBarRV\"><TD BGCOLOR='#FFFFFF' ><A HREF='{\@docRoot}__properties/property-list.html'>";
+$header.="<DIV class=\"navBarRV\">";
+$header.=" <A TARGET=\"_top\" href=\"https://runtimeverification.com\">";
+$header.=" <IMG style=\"vertical-align:middle\" SRC=\"images/favicon.ico\">";
+$header.=" <TD BGCOLOR='#FFFFFF' ><A HREF='{\@docRoot}__properties/property-list.html'>";
 $header.="  PROPERTIES&nbsp;</A></TD>";
 $header.=" <TD BGCOLOR='#FFFFFF' >";
 $header.="  STATISTICS&nbsp;</A></TD>";
@@ -183,7 +188,7 @@ $propertypagecmd = $docscmdPrefix . " -cp $srcpath $upackage.FinishUp ".$dir;
 
 $destjspath = catfile($dir, $jssuffix);
 $destimgpath = catfile($dir, $imgsuffix);
-
+$destlogopath = catfile($dir, $logosuffix);
 
 $docscmd = $docscmdPrefix .$docscmdSuffix;
 system $docscmd;
@@ -211,6 +216,7 @@ mkdir $destimgpath;
  copy(catfile($imgpath, "down_right.png"), catfile($destimgpath, "down_right.png"));
  copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
  copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
+ copy(catfile($logopath, "favicon.ico"), catfile($destlogopath, "favicon.ico"));
 system $propertypagecmd;
 
 
