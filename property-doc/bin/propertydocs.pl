@@ -55,11 +55,11 @@ $header.="function toggleHighlights()";
 $header.="  {";
 $header.="  var highlighting=document.getElementsByName('highlighting');";
 $header.="    for(var i = 0; i < highlighting.length; i++){";
-$header.="      if(highlighting[i].getAttribute('class') == 'HLon'){";
-$header.="        highlighting[i].setAttribute('class','HLoff');";
+$header.="      if(highlighting[i].getAttribute('class') == ''){";
+$header.="        highlighting[i].setAttribute('class','navBarCell1Rev');";
 $header.="      }";
 $header.="      else{";
-$header.="        highlighting[i].setAttribute('class','HLon');";
+$header.="        highlighting[i].setAttribute('class','');";
 $header.="      }";
 $header.="    }";
 
@@ -76,7 +76,6 @@ $header.="          divs[i].setAttribute('bak', divs[i].getAttribute('onmouseove
 $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
-
 $header.="      else if(divs[i].getAttribute('name') == 'brokenproperty'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','Red');";
@@ -113,10 +112,12 @@ $header.="      }";
 $header.="    }";
 $header.="  }";
 $header.="</script>";
-$header.=" <TD BGCOLOR='#FFFFFF' CLASS='NavBarCell'><A HREF='{\@docRoot}__properties/property-list.html'>";
-$header.="  <B>Properties</B></A></TD>";
-$header.=" <TD BGCOLOR='#FFFFFF' NAME='highlighting' CLASS='HLon'><SPAN ONCLICK='toggleHighlights()'>";
-$header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
+$header.=" <DIV class=\"navBarRV\"><TD BGCOLOR='#FFFFFF' ><A HREF='{\@docRoot}__properties/property-list.html'>";
+$header.="  PROPERTIES&nbsp;</A></TD>";
+$header.=" <TD BGCOLOR='#FFFFFF' >";
+$header.="  STATISTICS&nbsp;</A></TD>";
+$header.=" <TD BGCOLOR='#FFFFFF' ><SPAN NAME='highlighting' style=\"cursor:pointer\" ONCLICK='toggleHighlights()' CLASS=\"navBarCell1Rev\">";
+$header.=" HIGHLIGHTING</FONT></SPAN></TD></DIV>\"";
 
 $taglets ="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
@@ -124,7 +125,7 @@ $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet "
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
 
 $docscmdPrefix = "java -Xmx1024m ";
-$docscmdSuffix = " -cp $srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
+$docscmdSuffix = " -cp $srcpath/../lib/tools.jar:$srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
 
 $dflag = 0;
 $pflag = 0;
@@ -211,6 +212,7 @@ mkdir $destimgpath;
  copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
  copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
 system $propertypagecmd;
+
 
 sub print_help{
   print "the flags specific to properydocs are:\n";
