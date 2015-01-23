@@ -1,0 +1,2 @@
+sed 's/^\(<h1 title.*\)/<h1><a target="_top" href="https:\/\/runtimeverification.com" class="logo-text"><img src="images\/rv_logo.png" style="height:80px;">                        runtime verification<\/a><\/h1>/' $1 > tmp.file
+mv tmp.file $1

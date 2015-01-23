@@ -1,0 +1,2 @@
+sed 's/^\(<h1 title.*\)/<h1 title="Java\&#8482 Platform Platform Standard Ed. 8" class="bar"><strong>Java\&#8482 Platform<br>Standard Ed. 8<\/strong><\/h1>/' $1 > tmp.file
+mv tmp.file $1
