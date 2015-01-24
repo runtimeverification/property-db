@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.Map;
 
 public class FinishUp {
-    
     // This is the scale factor for scaling all percentages.  E.g., 1e2f will scale to 2 decimal places
     // 1e3f would scale to 3, etc.
     private final static float FACTOR = 1e2f;
@@ -59,9 +58,10 @@ public class FinishUp {
                      + "\n.NavBarCell1    { background-color:#EEEEFF; color:#000000} /* Light mauve */"
                      + "\n.NavBarCell1Rev { background-color:#00008B; color:#FFFFFF} /* Dark Blue */"
                      //background-color:#4D7A97;margin-top:11px;margin-right:5px
-                     + "\n .navBarRV { background-color:#000000; color:#FFFFFF; float:left; list-style:none; padding:12px; clear:right; height:2.8em;font-size:12px; margin: 0 auto;}"
+                     + "\n .navBarRV { background-color:#000000; color:#FFFFFF; float:left; list-style:none; padding:6px; clear:right; height:2.8em;font-size:12px; margin: 0 auto;}"
                      + "\n.selectionColor { background-color:#777778; }"
                      + "\ntable#globalstat {color:#F80303;}"
+                     + "\n.navBarCell1RevNR {background-color:#F8981D;color:#253441;}"
                      );
         } catch (java.io.IOException e){
             throw new RuntimeException(e);
@@ -106,12 +106,13 @@ public class FinishUp {
         StringBuilder table2 = new StringBuilder();
         table2.append("<H2> All Properties </H2><HR />");
         table2.append("<P>Below are all the available Java API properties, grouped by package.</P>");
-        table2.append("<P>Click on a property to see it, or select one or more properties to download ");
-        table2.append("or to generate an RV-Monitor-based Java agent.</P><HR />");
-        table2.append("<INPUT TYPE=\"button\" onclick=\"checkedAllForms();\" value=\"Select all/Unselect all properties\">");
-        table2.append("<INPUT TYPE=\"button\" onclick=javascript:sender() value=\"Generate Agent\">");
-        table2.append("<INPUT TYPE=\"button\" onclick=javascript:sender2() value=\"Download Properties\">");
-        
+        table2.append("<P><B>Click on a property to see it, or select one or more properties to download ");
+        table2.append("or to generate an RV-Monitor-based Java agent.</B></P><HR />");
+        table2.append("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=\"checkedAllForms();\" value=\"Select/Unselect all properties\">");
+        table2.append("&nbsp;&nbsp;&nbsp;");
+        table2.append("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=javascript:sender() value=\"Generate Agent\">");
+        table2.append("&nbsp;&nbsp;&nbsp;");
+        table2.append("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=javascript:zipproperties() value=\"Download Properties\">");
         generatePropertiesList(table2, propertiesDir + File.separator + "html");
         
         try {
@@ -120,9 +121,11 @@ public class FinishUp {
             ps.println(HTMLHEADER);
             ps.println("<DIV CLASS=\"contentContainer\">");
             ps.println(table2);
-            ps.println("<INPUT TYPE=\"button\" onclick=\"checkedAllForms();\" value=\"Select all/Unselect all properties\">");
-            ps.println("<INPUT TYPE=\"button\" onclick=javascript:sender() value=\"Generate Agent\">");
-            ps.println("<INPUT TYPE=\"button\" onclick=javascript:sender2() value=\"Download Properties\">");
+            ps.println("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=\"checkedAllForms();\" value=\"Select/Unselect all properties\">");
+            ps.println("&nbsp;&nbsp;&nbsp;");
+            ps.println("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=javascript:sender() value=\"Generate Agent\">");
+            ps.println("&nbsp;&nbsp;&nbsp;");
+            ps.println("<INPUT TYPE=\"button\" style=\"font-weight:bold; font-size:15px;width:250px; height:80px;\" onclick=javascript:zipproperties() value=\"Download Properties\">");
             ps.println("</DIV>");
             ps.println(HTMLFOOTER);
         } catch (java.io.IOException e){
@@ -266,8 +269,8 @@ public class FinishUp {
                 table.append("<FORM ACTION=\"\" METHOD=\"post\" NAME=\"form"+counter+
                              "\" ID=\"form"+(counter++)+"\">\n");//F
                 table.append("<TABLE CLASS=\"overviewSummary\" BORDER=\"0\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
-                table.append("<CAPTION><SPAN> Property Links for the " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix)
-                             + " Package"+"</SPAN><SPAN CLASS=\"tabEnd\">&nbsp;</SPAN></CAPTION>\n<TBODY>");
+                table.append("<CAPTION><SPAN> Package " + ((prefix.equals(""))? "&lt;Unnamed&gt;":prefix)
+                             +"</SPAN><SPAN CLASS=\"tabEnd\">&nbsp;</SPAN></CAPTION>\n<TBODY>");
                 
 
                 tableHeadingAdded = true;
@@ -278,7 +281,7 @@ public class FinishUp {
                 table.append("<TD CLASS=\"colFirst\">");//F
                 table.append("<INPUT TYPE=\"checkbox\" NAME=\"property\" VALUE=\""+((prefix.equals(""))? "&lt;Unnamed&gt;":prefix)+
                              "\" ID=\""+((prefix.equals(""))? "&lt;Unnamed&gt;":prefix)+
-                             "\" ONCLICK=\"checkedAll.call(this);\"/><B>&nbsp;Select all/Unselect all</B>");//F
+                             "\" checked ONCLICK=\"checkedAll.call(this);\"/><B>&nbsp;Select/Unselect all</B>");//F
                 table.append("</TD>");//F
                 //table.append("<TD WIDTH=\"15%\" CLASS=\"colSecond\"> </TD>\n");
                 //table.append("<TD WIDTH=\"15%\" CLASS=\"colLast\"> </TD>\n");
@@ -289,7 +292,7 @@ public class FinishUp {
             //table.append("<TD WIDTH=\"15%\" CLASS=\"colFirst\">");
             table.append("<TD CLASS=\"colFirst\">");
             String link = "html/" + ((linkPrefix.equals(""))? "" : (linkPrefix + "/")) + fn;
-            table.append("<INPUT TYPE=\"CHECKBOX\" NAME=\"property\" VALUE=\""+chop(fn)+"\">");
+            table.append("<INPUT TYPE=\"CHECKBOX\" NAME=\"property\" VALUE=\""+chop(fn)+"\"checked>");
             table.append("<A HREF='"+link+"'>"+chop(fn)+"</A></TD></TR>\n");
 //            table.append("<B>&nbsp;&nbsp;&nbsp;");
   //          table.append("<TD  CLASS=\"colLast\"><A HREF='"+link+"'>"+chop(fn)+"</A></TD></TR>\n");
@@ -326,6 +329,11 @@ public class FinishUp {
             lastColor="rowColor";
         else
             lastColor="altColor";
+    }
+    
+    private static StringBuilder generateZipped(){
+        //TODO
+        ;
     }
     
     private static StringBuilder generateFormsList(){
@@ -367,7 +375,7 @@ public class FinishUp {
     + "\n"
     + "<BODY>\n"
     + "<SCRIPT type=\"text/javascript\">\n"
-    + "var checkflag=\"false\";\n"
+    + "var checkflag=\"true\";\n"
     + "function windowTitle()\n"
     + "{\n"
     + "    if (location.href.indexOf('is-external=true') == -1) {\n"
@@ -399,6 +407,11 @@ public class FinishUp {
     + "  checkflag=\"false\";\n"
     + " }\n"
     + "}\n"
+    + "function zipproperties()\n"//FR
+    + "{\n"//FR
+    + generateZipped()
+    + " return true;\n"//FR
+    + "}\n"//FR
     + "function sender()\n"//FR
     + "{\n"//FR
     + generateFormsList()
@@ -426,9 +439,12 @@ public class FinishUp {
     + " <DIV CLASS=\"aboutLanguage\">"
     + "  <DIV CLASS=\"navBarRV\">"
     + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
-    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\">"
-    + "   <TD BGCOLOR='#FFFFFF'><SPAN CLASS=\"navBarCell1Rev\"> PROPERTIES&nbsp; </SPAN></TD>"
-    + "   <TD BGCOLOR='#FFFFFF'> <A HREF=\"Statistics.html\">STATISTICS&nbsp;</A></TD>\n"
+    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\" height=\"30\" width=\"30\" >"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'><SPAN CLASS=\"navBarCell1RevNR\">PROPERTIES</SPAN></TD>"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'> <A HREF=\"Statistics.html\">STATISTICS</A></TD>\n"
+    + "   <TD> &nbsp;&nbsp; </TD>"
     + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
     + "  </DIV>\n"
     + " </DIV>\n"
@@ -476,26 +492,19 @@ public class FinishUp {
     + "  <LI> <A HREF=\"../index-all.html\">Index</A> </LI>\n"
     + "  <LI> <A HREF=\"../help-doc.html\">Help</A> </LI>\n"
     + " </UL>\n"
-    
     + " <DIV CLASS=\"aboutLanguage\">"
     + "  <DIV CLASS=\"navBarRV\">"
     + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
-    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\">"
-    + "   <TD BGCOLOR='#FFFFFF'><SPAN CLASS=\"navBarCell1Rev\"> PROPERTIES&nbsp; </SPAN></TD>"
-    + "   <TD BGCOLOR='#FFFFFF'> <A HREF=\"Statistics.html\">STATISTICS&nbsp;</A></TD>\n"
+    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\" height=\"30\" width=\"30\" >"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'><SPAN CLASS=\"navBarCell1RevNR\">PROPERTIES</SPAN></TD>"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'> <A HREF=\"Statistics.html\">STATISTICS</A></TD>\n"
+    + "   <TD> &nbsp;&nbsp; </TD>"
     + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
     + "  </DIV>\n"
     + " </DIV>\n"
     + "</DIV>\n"
-/*
-    + "  <LI CLASS=\"navBarCell1Rev\"> Properties </LI>"
-    + "  <LI> <A HREF=\"Statistics.html\">Statistics</A></LI>\n"
-    + "  <LI> <A HREF=\"../overview-summary.html\">Overview</A></LI>\n"
-    + "  <LI> <A HREF=\"../index-all.html\">Index</A> </LI>\n"
-    + "  <LI> <A HREF=\"../help-doc.html\">Help</A> </LI>\n"
-    + " </UL>\n"
-    + "</DIV>\n"
- */
     + "<DIV CLASS=\"subNav\">\n"
     + " <UL CLASS=\"navList\">\n"
     + "  <LI><A HREF=\"../index.html?__properties/property-list.html\" target=\"_top\">FRAMES</A> </LI>\n"
@@ -570,9 +579,12 @@ public class FinishUp {
     + " <DIV CLASS=\"aboutLanguage\">"
     + "  <DIV CLASS=\"navBarRV\">"
     + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
-    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\">"
-    + "   <TD BGCOLOR='#FFFFFF'><A HREF=\"property-list.html\"> PROPERTIES&nbsp; </A> </TD>"
-    + "   <TD BGCOLOR='#FFFFFF'> <SPAN CLASS=\"navBarCell1Rev\">STATISTICS&nbsp;</SPAN></TD>\n"
+    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\" height=\"30\" width=\"30\" >"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'><A HREF=\"property-list.html\">PROPERTIES</A></TD>"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'> <SPAN CLASS=\"navBarCell1RevNR\">STATISTICS</SPAN></TD>\n"
+    + "   <TD> &nbsp;&nbsp; </TD>"
     + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
     + "  </DIV>\n"
     + " </DIV>\n"
@@ -623,23 +635,16 @@ public class FinishUp {
     + " <DIV CLASS=\"aboutLanguage\">"
     + "  <DIV CLASS=\"navBarRV\">"
     + "   <A TARGET=\"_top\" href=\"https://runtimeverification.com\">"
-    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\">"
-    + "   <TD BGCOLOR='#FFFFFF'><A HREF=\"property-list.html\"> PROPERTIES&nbsp; </A> </TD>"
-    + "   <TD BGCOLOR='#FFFFFF'> <SPAN CLASS=\"navBarCell1Rev\">STATISTICS&nbsp;</SPAN></TD>\n"
+    + "   <IMG SRC=\"../images/favicon.ico\" style=\"vertical-align:middle\" height=\"30\" width=\"30\" >"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'><A HREF=\"property-list.html\">PROPERTIES</A></TD>"
+    + "   <TD> &nbsp;&nbsp; </TD>"
+    + "   <TD BGCOLOR='#FFFFFF'> <SPAN CLASS=\"navBarCell1RevNR\">STATISTICS</SPAN></TD>\n"
+    + "   <TD> &nbsp;&nbsp; </TD>"
     + "   <TD BGCOLOR='#FFFFFF'> HIGHLIGHTING </TD>"
     + "  </DIV>\n"
     + " </DIV>\n"
     + "</DIV>\n"
-
-/*
-    + "  <LI> <A HREF=\"property-list.html\"> Properties </A></LI>\n"
-    + "  <LI CLASS=\"navBarCell1Rev\">Statistics</LI>\n"
-    + " <LI> <A HREF=\"../overview-summary.html\">Overview</A></LI>\n"
-    + "  <LI> <A HREF=\"../index-all.html\">Index</A> </LI>\n"
-    + "  <LI> <A HREF=\"../help-doc.html\">Help</A> </LI>\n"
-    + " </UL>\n"
-    + "</DIV>\n"
- */
     + "<DIV CLASS=\"subNav\">\n"
     + " <UL CLASS=\"navList\">\n"
     + "  <LI><A HREF=\"../index.html?__properties/Statistics.html\" target=\"_top\">FRAMES</A> </LI>\n"
