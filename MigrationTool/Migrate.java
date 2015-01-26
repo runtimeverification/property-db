@@ -15,8 +15,8 @@ public class Migrate{
     
     /**
      * This method compare the two folder in order to collect the .java files.
-     * It writes in the file Report.txt the files that has been removed/added in the new release.
-     * If the file Report.txt is already existing it just update it.
+     * It writes in the file Report.txt the files that has been removed/added in 
+     * the new release. If the file Report.txt is already existing it just update it.
      */
     public static void checkFiles(File[] fileArr1, File[] fileArr2){
         try{
@@ -37,14 +37,16 @@ public class Migrate{
             
             for(int i=0; i<fileList1.size();i++){
                 if(!fileList2.contains(fileList1.get(i))){
-                    bw.write("File " + fileList1.get(i) + " not existing in the new release");
+                    bw.write("File " + fileList1.get(i) +
+                             " not existing in the new release");
                     bw.newLine();
                 }
             }
             
             for(int i=0; i<fileList2.size();i++){
                 if(!fileList1.contains(fileList2.get(i))){
-                    bw.write("File " + fileList2.get(i) + " not existing in the old release");
+                    bw.write("File " + fileList2.get(i) +
+                             " not existing in the old release");
                     bw.newLine();
                 }
             }
@@ -56,7 +58,7 @@ public class Migrate{
     }
     
     public static void main(String[] args) {
-        //args[0] should point to the old release, args[1] should point to the new release.
+        //args[0] point to the old release, args[1] point to the new release.
         File dir1 = new File(args[0]);
         File dir2 = new File(args[1]);
         
@@ -77,7 +79,7 @@ public class Migrate{
         Scanner keyboard = new Scanner(System.in);
         boolean inside1=false;
         boolean inside2=false;
-        boolean match=false;
+        boolean match;
         
         try{
             FileOutputStream fos = new FileOutputStream(fout, true);
@@ -87,8 +89,12 @@ public class Migrate{
                 try {
                     bw.write(fileArr1[i].getName());
                     bw.newLine();
-                    List<String> lines1 = Files.readAllLines(Paths.get(args[0]+File.separator+fileArr1[i].getName()), Charset.defaultCharset());
-                    List<String> lines2 = Files.readAllLines(Paths.get(args[1]+File.separator+fileArr1[i].getName().substring(fileArr1[i].getName().lastIndexOf("/")+1)), Charset.defaultCharset());
+                    List<String> lines1 =
+                    Files.readAllLines(Paths.get(args[0]+File.separator+fileArr1[i].getName()),
+                                       Charset.defaultCharset());
+                    List<String> lines2 =
+                    Files.readAllLines(Paths.get(args[1]+File.separator+fileArr1[i].getName().substring(fileArr1[i].getName().lastIndexOf("/")+1)),
+                                       Charset.defaultCharset());
                     
                     File fout1 = new File("out");
                     fout1.mkdirs();
@@ -96,13 +102,11 @@ public class Migrate{
                     fout1.createNewFile();
                     FileOutputStream fos1 = new FileOutputStream(fout1, true);
                     BufferedWriter bw1 = new BufferedWriter(new OutputStreamWriter(fos1));
-                    
-                    int index1=0;
-                    int index2=0;
-                    int indexnew=0;
+                    int index1=0, index2=0, indexnew=0;
                     
                     System.out.println("Starting file "+fileArr1[i].getName()+ "...");
                     
+                    //Finding the starting point in the old release file
                     for ( ; index1<lines1.size() ; index1++) {
                         if(lines1.get(index1).contains("/**"))
                             break;
@@ -111,7 +115,8 @@ public class Migrate{
                         bw.write("Problem in: "+fileArr1[i].getName());
                         bw.newLine();
                     }
-                    
+
+                    //Finding the starting point in the new release file
                     for( ; index2 < lines2.size() ; index2++){
                         if(lines2.get(index2).contains("/**"))
                             break;
@@ -124,8 +129,11 @@ public class Migrate{
                         bw.newLine();
                     }
                     match=true;
+                    //Comparison between the two versions
                     while(index2<lines2.size()&&index1<lines1.size()){
-                        
+                        //The variables inside1 and inside2 are used to keep
+                        //track of when the current position in the old and the
+                        //new release respectively are inside the documentation.
                         if(lines1.get(index1).contains("/**"))
                             inside1=true;
                         if(lines2.get(index2).contains("/**"))
@@ -135,8 +143,7 @@ public class Migrate{
                         if(lines2.get(index2).contains("*/"))
                             inside2=false;
                         
-                        
-                        //Match between the two versions
+                        //The two version match in the current position
                         if(lines2.get(index2).equals(lines1.get(index1))||
                            (lines2.get(index2).replaceAll("\\s+","").toLowerCase()).equals((lines1.get(index1).replaceAll("\\s+","").toLowerCase()))){
                             bw1.write(lines2.get(index2));
@@ -150,16 +157,19 @@ public class Migrate{
                             //A collect.stats is required in the new file
                             if(lines2.get(index2).contains("/**") && match){
                                 if(lines1.get(index1).contains("/** {@collect.stats}")){
-                                    if(lines2.get(index2).contains("*/")){//Everything on one line case
-                                        String tmp=lines2.get(index2).substring((lines2.get(index2).indexOf("*")+1),(lines2.get(index2).lastIndexOf("/")-1));
+                                    //Everything on one line case
+                                    if(lines2.get(index2).contains("*/")){
+                                        String tmp=lines2.get(index2).substring((lines2.get(index2).indexOf("*")+1),
+                                                                                (lines2.get(index2).lastIndexOf("/")-1));
                                         if(tmp.replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
-                                            String tmp2=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
+                                            String tmp2=lines2.get(index2).substring(0, lines2.get(index2).indexOf("*")+2)+" {@collect.stats}";
                                             bw1.write(tmp2);
                                             bw1.newLine();
                                             indexnew++;
                                             index1++;
                                             for(int j=0;j<2;j++){
-                                                tmp2=lines2.get(index2).substring(0,lines2.get(index2).indexOf("/"))+"* "+(lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1));
+                                                tmp2=lines2.get(index2).substring(0,lines2.get(index2).indexOf("/"))+
+                                                "* "+(lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1));
                                                 bw1.write(tmp2);
                                                 bw1.newLine();
                                                 indexnew++;
@@ -183,7 +193,8 @@ public class Migrate{
                                             tmp2.append("/");
                                             
                                             System.out.println("New Method/Variable");
-                                            System.out.println("Code new release\n" + lines2.get(index2)+"\n");
+                                            System.out.println("Code new release\n" +
+                                                               lines2.get(index2)+"\n");
                                             System.out.println("Suggested code \n"+ tmp2);
                                             System.out.println("Type 0 to reject the change and any other number to accept");
                                             
@@ -192,13 +203,16 @@ public class Migrate{
                                                 bw1.write(tmp2.toString());
                                                 bw1.newLine();
                                                 indexnew+=5;
-                                                bw.write("-> The code at line " +  lines2.get(index2) + " needs a check (new Method/Variable)");
+                                                bw.write("-> The code at line " +
+                                                         indexnew +
+                                                         " needs a check (new Method/Variable)");
                                                 bw.newLine();
                                                 bw.flush();
                                                 index2++;
                                             }
                                         }
-                                    }else{//It is on multiple lines
+                                    }else{
+                                        //It is on multiple lines
                                         if(lines2.get(index2+1).replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
                                             String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
                                             bw1.write(tmp);
@@ -210,6 +224,9 @@ public class Migrate{
                                             bw1.newLine();
                                             indexnew+=2;
                                         }else if(lines2.get(index2+1).replaceAll("\\s+","").toLowerCase().startsWith(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
+                                            //In this case the string has been splitted
+                                            //during the instrumentation of the old release.
+                                            //.....
                                             match=false;
                                         }else{
                                             //Could be a new method. We propose a solution
@@ -218,6 +235,8 @@ public class Migrate{
                                             int tmpindex=index2;
                                             int count=0;
                                             
+                                            //tmp1 contain the original code
+                                            //tmp2 contain the suggested instrumentation
                                             tmp2.append(lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2));
                                             tmp2.append(" {@collect.stats}\n");
                                             tmp3.append(lines2.get(index2));
@@ -228,7 +247,13 @@ public class Migrate{
                                             tmp3.append(lines2.get(index2));
                                             tmp3.append("\n");
                                             count+=2;
-                                            while(!(lines2.get(index2).contains("*/")||lines2.get(index2).contains("@exception")||lines2.get(index2).contains("@param")||lines2.get(index2).contains("@author")||lines2.get(index2).contains("@see")||lines2.get(index2).contains("@return")||lines2.get(index2).contains("@since"))){
+                                            while(!(lines2.get(index2).contains("*/")||
+                                                    lines2.get(index2).contains("@exception")||
+                                                    lines2.get(index2).contains("@param")||
+                                                    lines2.get(index2).contains("@author")||
+                                                    lines2.get(index2).contains("@see")||
+                                                    lines2.get(index2).contains("@return")||
+                                                    lines2.get(index2).contains("@since"))){
                                                 tmp2.append(lines2.get(index2++));
                                                 tmp2.append("\n");
                                                 tmp3.append(lines2.get(index2));
@@ -253,14 +278,15 @@ public class Migrate{
                                                 bw.newLine();
                                                 bw.flush();
                                                 indexnew+=count;
+                                                match=true;
                                             }else{
                                                 index2=tmpindex;
+                                                match=false;
                                             }
-                                            match=false;
                                         }
 
                                     }
-                                }else{
+                                }else{//Check from here
                                     //new method?
                                     match=false;
                                 }
