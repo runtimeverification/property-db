@@ -1,4 +1,8 @@
-import java.io.*;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.io.IOException;
+import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.LinkedList;
@@ -12,6 +16,31 @@ import java.util.regex.Pattern;
 
 public class Migrate{
     static File fout = new File("Report.txt");
+    
+    /**
+     * This method check if two string are matching
+     */
+    public static boolean matching(String a, String b){
+        if(a.equals(b))
+            return true;
+        if((a.replaceAll("\\s+","").toLowerCase()).equals(b.replaceAll("\\s+","").toLowerCase()))
+            return true;
+        return false;
+    }
+    
+    /**
+     * This method check if two string are matching when they are both comments
+     */
+    public static boolean matchingComments(String a, String b){
+        //if((a.contains("<code>")||a.contains("{@code")||a.contains("<tt>"))&&
+          // (b.contains("<code>")||b.contains("{@code")||b.contains("<tt>"))){
+            String tmp_a=a.replaceAll("<code>","").replaceAll(Pattern.quote("{@code"), "").replaceAll("}","").replaceAll("</tt>","").replaceAll("<tt>","").replaceAll("</code>", "");
+            String tmp_b=b.replaceAll("<code>","").replaceAll(Pattern.quote("{@code"), "").replaceAll("}","").replaceAll("</tt>","").replaceAll("<tt>","").replaceAll("</code>", "");
+            return matching(tmp_a, tmp_b);
+        //}
+        //return false;
+    }
+    
     /**
      * This method compare the two folder in order to collect the .java files.
      * It writes in the file Report.txt the files that has been removed/added in 
@@ -141,8 +170,7 @@ public class Migrate{
                             inside2=false;
                         
                         //The two version match in the current position
-                        if(lines2.get(index2).equals(lines1.get(index1))||
-                           (lines2.get(index2).replaceAll("\\s+","").toLowerCase()).equals((lines1.get(index1).replaceAll("\\s+","").toLowerCase()))){
+                        if(matching(lines2.get(index2),lines1.get(index1))){
                             bw1.write(lines2.get(index2));
                             bw1.newLine();
                             indexnew++;
@@ -152,13 +180,18 @@ public class Migrate{
                         }else{
                             //Mismatch
                             //A collect.stats is required in the new file
-                            if(lines2.get(index2).contains("/**") && match){
+                            if(match && lines2.get(index2).contains("/**")){
                                 if(lines1.get(index1).contains("/** {@collect.stats}")){
                                     //Everything on one line case
                                     if(lines2.get(index2).contains("*/")){
+                                        boolean emptyline=false;
                                         String tmp=lines2.get(index2).substring((lines2.get(index2).indexOf("*")+1),
                                                                                 (lines2.get(index2).lastIndexOf("/")-1));
-                                        if(tmp.replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
+                                        if(lines1.get(index1+1).replaceAll("\\s+","").equals("*")){
+                                            index1++;
+                                            emptyline=true;
+                                        }
+                                        if(matchingComments(tmp,lines1.get(index1+2))){
                                             String tmp2=lines2.get(index2).substring(0, lines2.get(index2).indexOf("*")+2)+" {@collect.stats}";
                                             bw1.write(tmp2);
                                             bw1.newLine();
@@ -204,8 +237,7 @@ public class Migrate{
                                                 old_doc.append("\n");
                                             }
                                             index1=indtmp;
-                                            
-                                            
+                                                                                  
                                             System.out.println("New Method/Variable");
                                             System.out.println("Code old release\n" +
                                                                old_doc+"\n");
@@ -226,6 +258,8 @@ public class Migrate{
                                                 bw.flush();
                                                 index2++;
                                             }else{
+                                                if(emptyline)
+                                                    index1--;
                                                 match=false;
                                             }
                                             System.out.print("\033[2J");
@@ -234,7 +268,7 @@ public class Migrate{
                                         continue;
                                     }else{
                                         //It is on multiple lines
-                                        if(lines2.get(index2+1).replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
+                                        if(matchingComments(lines2.get(index2+1), lines1.get(index1+2))){
                                             String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
                                             bw1.write(tmp);
                                             bw1.newLine();
@@ -244,6 +278,51 @@ public class Migrate{
                                             bw1.write(tmp);
                                             bw1.newLine();
                                             indexnew+=2;
+                                            continue;
+                                        }else if(lines1.get(index1+1).replaceAll("\\s+","").equals("*") &&
+                                                 !(lines2.get(index2+1).replaceAll("\\s+","").equals("*")) &&
+                                                 matchingComments(lines2.get(index2+1), lines1.get(index1+3))){
+                                            String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            index2++;
+                                            index1+=3;
+                                            tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+" {@description.open}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            indexnew+=2;
+                                            continue;
+                                        }else if(!(lines1.get(index1+1).replaceAll("\\s+","").equals("*")) &&
+                                                 lines2.get(index2+1).replaceAll("\\s+","").equals("*") &&
+                                                 matchingComments(lines2.get(index2+2), lines1.get(index1+2))){
+                                            String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            index2++;
+                                            bw1.write(lines2.get(index2));
+                                            bw1.newLine();
+                                            index2++;
+                                            index1+=2;
+                                            tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+" {@description.open}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            indexnew+=3;
+                                            continue;
+                                        }else if(lines1.get(index1+1).replaceAll("\\s+","").equals("*") &&
+                                                 lines2.get(index2+1).replaceAll("\\s+","").equals("*") &&
+                                                 matchingComments(lines2.get(index2+2), lines1.get(index1+3))){
+                                            String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2)+ " {@collect.stats}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            index2++;
+                                            bw1.write(lines2.get(index2));
+                                            bw1.newLine();
+                                            index2++;
+                                            index1+=3;
+                                            tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+" {@description.open}";
+                                            bw1.write(tmp);
+                                            bw1.newLine();
+                                            indexnew+=3;
                                             continue;
                                         }else if(lines2.get(index2+1).replaceAll("\\s+","").toLowerCase().startsWith(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase())){
                                             //In this case the string has been splitted
@@ -329,97 +408,39 @@ public class Migrate{
                                             System.out.flush();
                                         }
                                     }
-                                }
-                                else{
+                                }else
                                     match=false;
-                                    //The current line on the old release does not contain /**
-                                    
-                                    /*
-                                    //Could be a new method. We propose a solution
-                                    StringBuilder tmp2=new StringBuilder();
-                                    StringBuilder tmp3=new StringBuilder();
-                                    int tmpindex=index2;
-                                    int count=0;
-                                    
-                                    //tmp1 contain the original code
-                                    //tmp2 contain the suggested instrumentation
-                                    tmp2.append(lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+2));
-                                    tmp2.append(" {@collect.stats}\n");
-                                    tmp3.append(lines2.get(index2));
-                                    tmp3.append("\n");
-                                    index2++;
-                                    tmp2.append(lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1));
-                                    tmp2.append(" {@description.open}\n");
-                                    tmp3.append(lines2.get(index2));
-                                    tmp3.append("\n");
-                                    count+=2;
-                                    while(!(lines2.get(index2).contains("* /")||
-                                            lines2.get(index2).contains("@exception")||
-                                            lines2.get(index2).contains("@param")||
-                                            lines2.get(index2).contains("@author")||
-                                            lines2.get(index2).contains("@see")||
-                                            lines2.get(index2).contains("@return")||
-                                            lines2.get(index2).contains("@since"))){
-                                        tmp2.append(lines2.get(index2++));
-                                        tmp2.append("\n");
-                                        tmp3.append(lines2.get(index2));
-                                        tmp3.append("\n");
-                                        count++;
-                                    }
-                                    tmp2.append(lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1));
-                                    tmp2.append(" {@description.close}\n");
-                                    tmp2.append(lines2.get(index2++));
-                                    count+=2;
-                                    
-                                    System.out.println("New Method/Variable");
-                                    System.out.println("Code new release\n" + tmp3+"\n");
-                                    System.out.println("Suggested code \n"+ tmp2);
-                                    System.out.println("Type 0 to reject the change and any other number to accept");
-                                    
-                                    int keyb=keyboard.nextInt();
-                                    if(keyb!=0){
-                                        bw1.write(tmp2.toString());
-                                        bw1.newLine();
-                                        bw.write("-> The code at line " + indexnew + " needs a check (new Method/Variable)");
-                                        bw.newLine();
-                                        bw.flush();
-                                        indexnew+=count;
-                                        match=true;
-                                    }else{
-                                        index2=tmpindex;
-                                        match=false;
-                                    }*/
-                                }
                             }else if(match &&
                                      inside1 && inside2 &&
-                                     (lines1.get(index1).contains("{@description.close") ||
-                                      lines1.get(index1).contains("{@property.close"))){
-                                String tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+
-                                         (lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1));
-                                bw1.write(tmp);
+                                     (lines1.get(index1).contains("{@description") ||
+                                      lines1.get(index1).contains("{@property"))){
+                                         String tmp;
+                                         if((lines1.get(index1).contains("{@description.close")&&
+                                            lines1.get(index1+1).contains("{@property"))||
+                                            (lines1.get(index1).contains("{@description.close")&&
+                                             lines1.get(index1+1).contains("{@description.open"))){
+                                                tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+
+                                                (lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1));
+                                                bw1.write(tmp);
+                                                bw1.newLine();
+                                                indexnew++;
+                                                index1++;
+                                            }
+                                         tmp=lines2.get(index2).substring(0,lines2.get(index2).indexOf("*")+1)+
+                                            (lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1));
+                                         bw1.write(tmp);
+                                         bw1.newLine();
+                                         indexnew++;
+                                         index1++;
+                            }else if(match &&
+                                     inside1 && inside2 &&
+                                     matchingComments(lines1.get(index1),lines2.get(index2))){                                
+                                
+                                bw1.write(lines2.get(index2));
                                 bw1.newLine();
                                 indexnew++;
                                 index1++;
-                            }else if(match &&
-                                     (lines1.get(index1).contains("<code>") ||
-                                      lines1.get(index1).contains("<tt>")) &&
-                                     lines2.get(index2).contains("{@code ")){
-                                
-                                System.out.println("Line old code: "+ lines1.get(index1));
-                                System.out.println("Line new code: "+ lines2.get(index2));
-                                System.out.println("Type 0 to reject the match and any other number to accept");
-                                
-                                int keyb=keyboard.nextInt();
-                                if(keyb!=0){
-                                    bw1.write(lines2.get(index2));
-                                    bw1.newLine();
-                                    indexnew++;
-                                    index1++;
-                                    index2++;
-                                }else
-                                    match=false;
-                                System.out.print("\033[2J");
-                                System.out.flush();
+                                index2++;
                             }else if(match &&
                                      !inside1 && !inside2 &&
                                      index1+1<lines1.size() &&
@@ -450,15 +471,6 @@ public class Migrate{
                                 bw1.newLine();
                                 lines2.set(index2, lines2.get(index2).replaceAll(Pattern.quote(lines1.get(index1).substring(lines1.get(index1).lastIndexOf("*")+1)), ""));
                                 index1++;                                              
-                                indexnew++;
-                            }else if(match &&
-                                     inside1 && inside2 &&
-                                     (lines1.get(index1).contains("{@property")||
-                                      lines1.get(index1).contains("{@description")) &&
-                                     lines2.get(index2).replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+1).replaceAll("\\s+","").toLowerCase())){
-                                bw1.write(lines1.get(index1));
-                                bw1.newLine();
-                                index1++;
                                 indexnew++;
                             }else{
                                 System.out.println("Old: ");
@@ -513,7 +525,6 @@ public class Migrate{
                                         index2++;
                                         tmp--;
                                     }
-                                    //System.out.println("Insert a comment");
                                     bw.write("-> " + indexnew + " " +keyboard.nextLine());
                                     bw.newLine();
                                     bw.flush();
@@ -530,7 +541,7 @@ public class Migrate{
                                 }else if(myint==5){
                                     System.out.println(index1 + " " +lines1.get(index1));
                                     System.out.println(index2 + " " +lines2.get(index2));
-                                    System.out.println(lines2.get(index2+1).replaceAll("\\s+","").toLowerCase().equals(lines1.get(index1+2).replaceAll("\\s+","").toLowerCase()));
+                                    System.out.println(matching(lines2.get(index2+1),lines1.get(index1+2)));
                                     match=true;
                                 }else{
                                     index2=lines2.size();
@@ -557,7 +568,8 @@ public class Migrate{
                     
                     while(index2<lines2.size()){
                         if(lines2.get(index2).contains("/**")){
-                            bw.write("Check the end of the file from line "+indexnew + " (new Methods/Variables)");
+                            bw.write("Check the end of the file from line " +
+                                     indexnew + " (new Methods/Variables)");
                             bw.newLine();
                             bw.flush();
                         }
