@@ -1,0 +1,138 @@
+File DefaultFileSystem.java not existing in the old release
+File FileDescriptor.java not existing in the old release
+File UncheckedIOException.java not existing in the old release
+File UnixFileSystem.java not existing in the old release
+Bits.java
+BufferedInputStream.java
+-> Line 60 new variable MAX_BUFFER_SIZE
+BufferedOutputStream.java
+BufferedReader.java
+-> Line 578 new method lines()
+BufferedWriter.java
+ByteArrayInputStream.java
+ByteArrayOutputStream.java
+-> Line 92 new method ensureCapacity(int minCapacity)
+-> Line 110 new method grow(int minCapacity)
+-> Line 172 Property on writeTo(OutputStream out) not existing anymore
+-> Line 311 Property on close() not existing anymore
+CharArrayReader.java
+CharArrayWriter.java
+CharConversionException.java
+Closeable.java
+-> Line 51 new text in the documentation close()
+Console.java
+DataInput.java
+DataInputStream.java
+DataOutput.java
+DataOutputStream.java
+DeleteOnExitHook.java
+-> Line 67 method name changed runHooks() but no documentation
+EOFException.java
+ExpiringCache.java
+Problem in: ExpiringCache.java
+Problem in: EOFException.java
+Externalizable.java
+File.java
+-> Line 133 new documentation
+-> Line 173 new variable PathStatus { INVALID, CHECKED }
+-> Line 185 new variable PathStatus status
+-> Line 187 new method isInvalid()
+-> Line 769 new documentation
+-> Line 808 new documentation
+-> Line 838 new documentation
+-> Line 896 new documentation
+-> Line 930 new documentation
+-> Line 993 new documentation
+-> Line 1029 new documentation
+-> Line 1105 new documentation
+-> Line 1188 new documentation
+-> Line 1282 new documentation
+-> Line 1474 new documentation
+-> Line 1583 new documentation
+-> Line 1631 new documentation
+-> Line 1665 new documentation
+-> Line 1716 new documentation
+-> Line 1754 new documentation
+-> Line 1839 new documentation
+-> Line 2189 new documentation
+-> Line 2343 new variable PATH_OFFSET
+-> Line 2344 new variable PREFIX_LENGTH_OFFSET
+-> Line 2345 new variable UNSAFE
+-> Line 2371 new method toPath() 
+FileFilter.java
+FileInputStream.java
+-> Line 56 new variable path
+-> Line 163 new documentation
+FilenameFilter.java
+FileNotFoundException.java
+FileOutputStream.java
+-> Line 74 new variable path
+-> Line 270 new method open(String name, boolean append) (previously openAppend(String name))
+-> Line 280 new method write(int b, boolean append)
+FilePermission.java
+-> Line 128 new variable READLINK
+FileReader.java
+FileSystem.java
+FileWriter.java
+FilterInputStream.java
+-> Line 164 new documentation
+FilterOutputStream.java
+FilterReader.java
+FilterWriter.java
+Flushable.java
+InputStream.java
+InputStreamReader.java
+InterruptedIOException.java
+InvalidClassException.java
+InvalidObjectException.java
+IOError.java
+IOException.java
+LineNumberInputStream.java
+LineNumberReader.java
+NotActiveException.java
+NotSerializableException.java
+ObjectInput.java
+ObjectInputStream.java
+-> Line 1725 new method isCustomSubclass()
+ObjectInputValidation.java
+ObjectOutput.java
+ObjectOutputStream.java
+-> Line 1422 new method isCustomSubclass()
+ObjectStreamClass.java
+-> Line 188 new class ExceptionInfo
+ObjectStreamConstants.java
+ObjectStreamException.java
+ObjectStreamField.java
+-> Line 348 new method getClassSignature()
+OptionalDataException.java
+OutputStream.java
+OutputStreamWriter.java
+PipedInputStream.java
+PipedOutputStream.java
+PipedReader.java
+PipedWriter.java
+PrintStream.java
+-> Line 76 new method requireNonNull(T obj, String message) 
+-> Line 87 new method Charset toCharset(String csn)  
+-> Line 144 new rewrited method PrintStream(OutputStream out, boolean autoFlush)
+PrintWriter.java
+-> Line 83 new method Charset toCharset(String csn)
+PushbackInputStream.java
+PushbackReader.java
+RandomAccessFile.java
+-> Line 67 new variable path
+Reader.java
+SequenceInputStream.java
+SerialCallbackContext.java
+Serializable.java
+SerializablePermission.java
+StreamCorruptedException.java
+StreamTokenizer.java
+StringBufferInputStream.java
+StringReader.java
+StringWriter.java
+SyncFailedException.java
+UnsupportedEncodingException.java
+UTFDataFormatException.java
+WriteAbortedException.java
+Writer.java
