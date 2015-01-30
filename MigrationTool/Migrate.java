@@ -113,8 +113,6 @@ public class Migrate{
             
             for(int i=0; i<fileArr1.length;i++){
                 try {
-                    bw.write(fileArr1[i].getName());
-                    bw.newLine();
                     List<String> lines1 =
                     Files.readAllLines(Paths.get(args[0]+File.separator+fileArr1[i].getName()),
                                        Charset.defaultCharset());
@@ -131,6 +129,8 @@ public class Migrate{
                     int index1=0, index2=0, indexnew=0;
                     
                     System.out.println("Starting file "+fileArr1[i].getName()+ "...");
+                    bw.write(fileArr1[i].getName());
+                    bw.newLine();
                     
                     //Finding the starting point in the old release file
                     for ( ; index1<lines1.size() ; index1++) {
@@ -155,6 +155,7 @@ public class Migrate{
                         bw.newLine();
                     }
                     match=true;
+                    
                     //Comparison between the two versions
                     while(index2<lines2.size()&&index1<lines1.size()){
                         //The variables inside1 and inside2 are used to keep
@@ -168,7 +169,7 @@ public class Migrate{
                             inside1=false;
                         if(index2>0 && lines2.get(index2-1).contains("*/"))
                             inside2=false;
-                        
+
                         //The two version match in the current position
                         if(matching(lines2.get(index2),lines1.get(index1))){
                             bw1.write(lines2.get(index2));
@@ -227,12 +228,13 @@ public class Migrate{
                                             old_doc.append(lines1.get(index1++));
                                             old_doc.append("\n");
                                             while(!(lines1.get(index1).contains("*/")||
-                                                    lines1.get(index2).contains("@exception")||
-                                                    lines1.get(index2).contains("@param")||
-                                                    lines1.get(index2).contains("@author")||
-                                                    lines1.get(index2).contains("@see")||
-                                                    lines1.get(index2).contains("@return")||
-                                                    lines1.get(index2).contains("@since"))){
+                                                    lines1.get(index1).contains("@throws")||
+                                                    lines1.get(index1).contains("@exception")||
+                                                    lines1.get(index1).contains("@param")||
+                                                    lines1.get(index1).contains("@author")||
+                                                    lines1.get(index1).contains("@see")||
+                                                    lines1.get(index1).contains("@return")||
+                                                    lines1.get(index1).contains("@since"))){
                                                 old_doc.append(lines1.get(index1++));
                                                 old_doc.append("\n");
                                             }
@@ -354,6 +356,7 @@ public class Migrate{
                                             tmp3.append("\n");
                                             count+=2;
                                             while(!(lines2.get(index2).contains("*/")||
+                                                    lines2.get(index2).contains("@throws")||
                                                     lines2.get(index2).contains("@exception")||
                                                     lines2.get(index2).contains("@param")||
                                                     lines2.get(index2).contains("@author")||
@@ -374,6 +377,7 @@ public class Migrate{
                                             tmp4.append(lines1.get(index1++));
                                             tmp4.append("\n");
                                             while(!(lines1.get(index1).contains("*/")||
+                                                    lines1.get(index1).contains("@throws")||
                                                     lines1.get(index1).contains("@exception")||
                                                     lines1.get(index1).contains("@param")||
                                                     lines1.get(index1).contains("@author")||
@@ -564,6 +568,7 @@ public class Migrate{
                             bw.newLine();
                             break;
                         }
+                        index1++;
                     }
                     
                     while(index2<lines2.size()){
@@ -571,13 +576,13 @@ public class Migrate{
                             bw.write("Check the end of the file from line " +
                                      indexnew + " (new Methods/Variables)");
                             bw.newLine();
-                            bw.flush();
                         }
                         bw1.write(lines2.get(index2));
                         bw1.newLine();
                         index2++;
                         indexnew++;
                     }
+                    bw.flush();
                     bw1.close();
                 } catch(NoSuchFileException e){
                     ;
