@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -53,7 +53,7 @@ import sun.security.util.SecurityConstants;
  * protocol is allowed to use a cached response.
  *
  * For more information on HTTP caching, see <a
- * href="http://www.ietf.org/rfc/rfc2616.txt""><i>RFC&nbsp;2616: Hypertext
+ * href="http://www.ietf.org/rfc/rfc2616.txt"><i>RFC&nbsp;2616: Hypertext
  * Transfer Protocol -- HTTP/1.1</i></a>
  * {@description.close}
  *
@@ -80,10 +80,10 @@ public abstract class ResponseCache {
      *
      * @throws  SecurityException
      *          If a security manager has been installed and it denies
-     * {@link NetPermission}<tt>("getResponseCache")</tt>
+     * {@link NetPermission}{@code ("getResponseCache")}
      *
      * @see #setDefault(ResponseCache)
-     * @return the system-wide <code>ResponseCache</code>
+     * @return the system-wide {@code ResponseCache}
      * @since 1.5
      */
     public synchronized  static ResponseCache getDefault() {
@@ -102,11 +102,11 @@ public abstract class ResponseCache {
      * {@description.close}
      *
      * @param responseCache The response cache, or
-     *          <code>null</code> to unset the cache.
+     *          {@code null} to unset the cache.
      *
      * @throws  SecurityException
      *          If a security manager has been installed and it denies
-     * {@link NetPermission}<tt>("setResponseCache")</tt>
+     * {@link NetPermission}{@code ("setResponseCache")}
      *
      * @see #getDefault()
      * @since 1.5
@@ -128,14 +128,14 @@ public abstract class ResponseCache {
      * that resource is used instead.
      * {@description.close}
      *
-     * @param uri a <code>URI</code> used to reference the requested
+     * @param uri a {@code URI} used to reference the requested
      *            network resource
-     * @param rqstMethod a <code>String</code> representing the request
+     * @param rqstMethod a {@code String} representing the request
      *            method
      * @param rqstHeaders - a Map from request header
      *            field names to lists of field values representing
      *            the current request headers
-     * @return a <code>CacheResponse</code> instance if available
+     * @return a {@code CacheResponse} instance if available
      *          from cache, or null otherwise
      * @throws  IOException if an I/O error occurs
      * @throws  IllegalArgumentException if any one of the arguments is null
@@ -163,11 +163,11 @@ public abstract class ResponseCache {
      * not to be cached, then put must return null.
      * {@property.close}
      *
-     * @param uri a <code>URI</code> used to reference the requested
+     * @param uri a {@code URI} used to reference the requested
      *            network resource
      * @param conn - a URLConnection instance that is used to fetch
      *            the response to be cached
-     * @return a <code>CacheRequest</code> for recording the
+     * @return a {@code CacheRequest} for recording the
      *            response to be cached. Null return indicates that
      *            the caller does not intend to cache the response.
      * @throws IOException if an I/O error occurs

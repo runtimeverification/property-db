@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -83,9 +83,9 @@ public class Proxy {
      */
     public final static Proxy NO_PROXY = new Proxy();
 
-    // Creates the proxy that represents a <code>DIRECT</code> connection.
+    // Creates the proxy that represents a {@code DIRECT} connection.
     private Proxy() {
-        type = type.DIRECT;
+        type = Type.DIRECT;
         sa = null;
     }
 
@@ -95,12 +95,12 @@ public class Proxy {
      * Certain combinations are illegal. For instance, for types Http, and
      * Socks, a SocketAddress <b>must</b> be provided.
      * <P>
-     * Use the <code>Proxy.NO_PROXY</code> constant
+     * Use the {@code Proxy.NO_PROXY} constant
      * for representing a direct connection.
      * {@description.close}
      *
-     * @param type the <code>Type</code> of the proxy
-     * @param sa the <code>SocketAddress</code> for that proxy
+     * @param type the {@code Type} of the proxy
+     * @param sa the {@code SocketAddress} for that proxy
      * @throws IllegalArgumentException when the type and the address are
      * incompatible
      */
@@ -128,7 +128,7 @@ public class Proxy {
      * <code>null</code> if its a direct connection.
      * {@description.close}
      *
-     * @return a <code>SocketAddress</code> representing the socket end
+     * @return a {@code SocketAddress} representing the socket end
      *         point of the proxy
      */
     public SocketAddress address() {
@@ -154,17 +154,17 @@ public class Proxy {
         /** {@collect.stats} 
          * {@description.open}
      * Compares this object against the specified object.
-     * The result is <code>true</code> if and only if the argument is
-     * not <code>null</code> and it represents the same proxy as
+     * The result is {@code true} if and only if the argument is
+     * not {@code null} and it represents the same proxy as
      * this object.
      * <p>
-     * Two instances of <code>Proxy</code> represent the same
+     * Two instances of {@code Proxy} represent the same
      * address if both the SocketAddresses and type are equal.
      * {@description.close}
      *
      * @param   obj   the object to compare against.
-     * @return  <code>true</code> if the objects are the same;
-     *          <code>false</code> otherwise.
+     * @return  {@code true} if the objects are the same;
+     *          {@code false} otherwise.
      * @see java.net.InetSocketAddress#equals(java.lang.Object)
      */
     public final boolean equals(Object obj) {

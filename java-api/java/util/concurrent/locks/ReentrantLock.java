@@ -434,11 +434,11 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *  <pre> {@code
      * if (lock.tryLock() ||
      *     lock.tryLock(timeout, unit))
-     * {@description.close} {
+     * {
      *   ...
      * }}</pre>
      *
-     *      
+     * {@description.close}      
 * {@property.open}
      * <p>If the current thread
      * already holds this lock then the hold count is incremented by one and
@@ -457,10 +457,10 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *
      * <li>The specified waiting time elapses
 
-     * {@property.close}     *
+    *
      * </ul>
      *
-     *      
+     * * {@property.close}          
 * {@description.open}
      * <p>If the lock is acquired then the value {@code true} is returned and
      * the lock hold count is set to one.
@@ -591,10 +591,10 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *     } finally {
      *       lock.unlock();
 
-     * {@description.close}     *     }
+     *     }
      *   }
      * }}</pre>
-     *
+     * * {@description.close}     
      * @return the number of holds on this lock by the current thread,
      *         or zero if this lock is not held by the current thread
      */

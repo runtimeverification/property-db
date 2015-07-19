@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -34,13 +34,17 @@ import java.util.StringTokenizer;
 import java.net.InetAddress;
 import java.security.Permission;
 import java.security.PermissionCollection;
-import java.security.Policy;
+import java.security.PrivilegedAction;
+import java.security.AccessController;
+import java.security.Security;
 import java.io.Serializable;
 import java.io.ObjectStreamField;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import sun.net.util.IPAddressUtil;
+import sun.net.RegisteredDomain;
+import sun.net.PortConfig;
 import sun.security.util.SecurityConstants;
 import sun.security.util.Debug;
 
@@ -90,6 +94,9 @@ import sun.security.util.Debug;
  * form "N-", where <i>N</i> is a port number, signifies all ports
  * numbered <i>N</i> and above, while a specification of the
  * form "-N" indicates all ports numbered <i>N</i> and below.
+ * The special port value {@code 0} refers to the entire <i>ephemeral</i>
+ * port range. This is a fixed range of ports a system may use to
+ * allocate dynamic ports from. The actual range may be system dependent.
  * <p>
  * The possible ways to connect to the host are
  * <pre>
@@ -98,10 +105,12 @@ import sun.security.util.Debug;
  * listen
  * resolve
  * </pre>
- * The "listen" action is only meaningful when used with "localhost".
+ * The "listen" action is only meaningful when used with "localhost" and
+ * means the ability to bind to a specified port.
  * The "resolve" action is implied when any of the other actions are present.
  * The action "resolve" refers to host/ip name service lookups.
- *
+ * <P>
+ * The actions string is converted to lowercase before processing.
  * <p>As an example of the creation and meaning of SocketPermissions,
  * note that if the following permission:
  *
@@ -110,12 +119,11 @@ import sun.security.util.Debug;
  * </pre>
  *
  * is granted to some code, it allows that code to connect to port 7777 on
- * <code>puffin.eng.sun.com</code>, and to accept connections on that port.
+ * {@code puffin.eng.sun.com}, and to accept connections on that port.
  *
  * <p>Similarly, if the following permission:
  *
  * <pre>
- *   p1 = new SocketPermission("puffin.eng.sun.com:7777", "connect,accept");
  *   p2 = new SocketPermission("localhost:1024-", "accept,connect,listen");
  * </pre>
  *
@@ -140,7 +148,7 @@ import sun.security.util.Debug;
  */
 
 public final class SocketPermission extends Permission
-implements java.io.Serializable
+    implements java.io.Serializable
 {
     private static final long serialVersionUID = -7204263841984476862L;
 
@@ -190,6 +198,7 @@ implements java.io.Serializable
     private static final int PORT_MIN = 0;
     private static final int PORT_MAX = 65535;
     private static final int PRIV_PORT_MAX = 1023;
+    private static final int DEF_EPH_LOW = 49152;
 
     // the actions mask
     private transient int mask;
@@ -234,9 +243,7 @@ implements java.io.Serializable
     // true if this SocketPermission represents a hostname
     // that failed our reverse mapping heuristic test
     private transient boolean untrusted;
-
-    // true if the trustProxy system property is set
-    private static boolean trustProxy;
+    private transient boolean trusted;
 
     // true if the sun.net.trustNameService system property is set
     private static boolean trustNameService;
@@ -244,17 +251,19 @@ implements java.io.Serializable
     private static Debug debug = null;
     private static boolean debugInit = false;
 
+    // lazy initializer
+    private static class EphemeralRange {
+        static final int low = initEphemeralPorts("low", DEF_EPH_LOW);
+        static final int high = initEphemeralPorts("high", PORT_MAX);
+    };
+
     static {
         Boolean tmp = java.security.AccessController.doPrivileged(
-                new sun.security.action.GetBooleanAction("trustProxy"));
-        trustProxy = tmp.booleanValue();
-        tmp = java.security.AccessController.doPrivileged(
-            new sun.security.action.GetBooleanAction("sun.net.trustNameService"));
+                new sun.security.action.GetBooleanAction("sun.net.trustNameService"));
         trustNameService = tmp.booleanValue();
     }
 
-    private static synchronized Debug getDebug()
-    {
+    private static synchronized Debug getDebug() {
         if (!debugInit) {
             debug = Debug.getInstance("access");
             debugInit = true;
@@ -315,8 +324,7 @@ implements java.io.Serializable
         defaultDeny = true;
     }
 
-    private static String getHost(String host)
-    {
+    private static String getHost(String host) {
         if (host.equals("")) {
             return "localhost";
         } else {
@@ -386,6 +394,16 @@ implements java.io.Serializable
 
             return new int[] {l, h};
         }
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns true if the permission has specified zero
+     * as its value (or lower bound) signifying the ephemeral range
+     * {@description.close}
+     */
+    private boolean includesEphemerals() {
+        return portrange[0] == 0;
     }
 
     /** {@collect.stats} 
@@ -510,7 +528,8 @@ implements java.io.Serializable
 
         int mask = NONE;
 
-        // Check against use of constants (used heavily within the JDK)
+        // Use object identity comparison against known-interned strings for
+        // performance benefit (these values are used heavily within the JDK).
         if (action == SecurityConstants.SOCKET_RESOLVE_ACTION) {
             return RESOLVE;
         } else if (action == SecurityConstants.SOCKET_CONNECT_ACTION) {
@@ -598,7 +617,7 @@ implements java.io.Serializable
                 switch(a[i-matchlen]) {
                 case ',':
                     seencomma = true;
-                    /*FALLTHROUGH*/
+                    break;
                 case ' ': case '\r': case '\n':
                 case '\f': case '\t':
                     break;
@@ -614,6 +633,37 @@ implements java.io.Serializable
         }
 
         return mask;
+    }
+
+    private boolean isUntrusted()
+        throws UnknownHostException
+    {
+        if (trusted) return false;
+        if (invalid || untrusted) return true;
+        try {
+            if (!trustNameService && (defaultDeny ||
+                sun.net.www.URLConnection.isProxiedHost(hostname))) {
+                if (this.cname == null) {
+                    this.getCanonName();
+                }
+                if (!match(cname, hostname)) {
+                    // Last chance
+                    if (!authorized(hostname, addresses[0].getAddress())) {
+                        untrusted = true;
+                        Debug debug = getDebug();
+                        if (debug != null && Debug.isOn("failure")) {
+                            debug.println("socket access restriction: proxied host " + "(" + addresses[0] + ")" + " does not match " + cname + " from reverse lookup");
+                        }
+                        return true;
+                    }
+                }
+                trusted = true;
+            }
+        } catch (UnknownHostException uhe) {
+            invalid = true;
+            throw uhe;
+        }
+        return false;
     }
 
     /** {@collect.stats} 
@@ -642,21 +692,8 @@ implements java.io.Serializable
             if (init_with_ip) {
                 cname = addresses[0].getHostName(false).toLowerCase();
             } else {
-                cname = InetAddress.getByName(addresses[0].getHostAddress()).
+             cname = InetAddress.getByName(addresses[0].getHostAddress()).
                                               getHostName(false).toLowerCase();
-                if (!trustNameService && sun.net.www.URLConnection.isProxiedHost(hostname)) {
-                    if (!match(cname, hostname) && 
-                        (defaultDeny || !cname.equals(addresses[0].getHostAddress()))) {
-                        // Last chance
-                        if (!authorized(hostname, addresses[0].getAddress())) {
-                            untrusted = true;
-                            Debug debug = getDebug();
-                            if (debug != null && Debug.isOn("failure")) {
-                                debug.println("socket access restriction: proxied host " + "(" + addresses[0] + ")" + " does not match " + cname + " from reverse lookup");
-                            }
-                        }
-                    }
-                }
             }
         } catch (UnknownHostException uhe) {
             invalid = true;
@@ -664,52 +701,23 @@ implements java.io.Serializable
         }
     }
 
+    private transient String cdomain, hdomain;
+
     private boolean match(String cname, String hname) {
         String a = cname.toLowerCase();
         String b = hname.toLowerCase();
         if (a.startsWith(b)  &&
             ((a.length() == b.length()) || (a.charAt(b.length()) == '.')))
             return true;
-        if (b.endsWith(".akamai.net") || b.endsWith(".akamai.com"))
-            return true;
-        String af = fragment(a);
-        String bf = fragment(b);
-        return af.length() != 0 && bf.length() != 0 && fragment(a).equals(fragment(b));
-    }
+        if (cdomain == null) {
+            cdomain = RegisteredDomain.getRegisteredDomain(a);
+        }
+        if (hdomain == null) {
+            hdomain = RegisteredDomain.getRegisteredDomain(b);
+        }
 
-    // www.sun.com. -> sun.com
-    // www.sun.co.uk -> sun.co.uk
-    // www.sun.com.au -> sun.com.au
-    private String fragment(String cname) {
-        int dot;
-        dot = cname.lastIndexOf('.');
-        if (dot == -1)
-            return cname;
-        if (dot == 0)
-            return "";
-        if (dot == cname.length() - 1) {
-            cname = cname.substring(0, cname.length() -1);
-            dot = cname.lastIndexOf('.');
-        }
-        if (dot < 1)
-            return "";
-        int second = cname.lastIndexOf('.', dot - 1);
-        if (second == -1)
-            return cname;
-        if (((cname.length() - dot) <= 3) && ((dot - second) <= 4) && second > 0) {
-            if (dot - second == 4) {
-                String s = cname.substring(second + 1, dot);
-                if (!(s.equals("com") || s.equals("org") || s.equals("edu"))) {
-                    return cname.substring(second + 1);
-                }
-            }
-            int third = cname.lastIndexOf('.', second - 1);
-            if (third == -1)
-                return cname.substring(second + 1);
-            else
-                return cname.substring(third + 1);
-        }
-        return cname.substring(second + 1);
+        return cdomain.length() != 0 && hdomain.length() != 0
+                        && cdomain.equals(hdomain);
     }
 
     private boolean authorized(String cname, byte[] addr) {
@@ -726,15 +734,17 @@ implements java.io.Serializable
         InetAddress auth;
 
         try {
-            authHost = "auth." + 
-                        (addr[3] & 0xff) + "." + (addr[2] & 0xff) + "." + 
+            authHost = "auth." +
+                        (addr[3] & 0xff) + "." + (addr[2] & 0xff) + "." +
                         (addr[1] & 0xff) + "." + (addr[0] & 0xff) +
                         ".in-addr.arpa";
-            //auth = InetAddress.getAllByName0(authHost, false)[0];
+            // Following check seems unnecessary
+            // auth = InetAddress.getAllByName0(authHost, false)[0];
             authHost = hostname + '.' + authHost;
             auth = InetAddress.getAllByName0(authHost, false)[0];
-            if (auth.equals(InetAddress.getByAddress(addr)))
+            if (auth.equals(InetAddress.getByAddress(addr))) {
                 return true;
+            }
             Debug debug = getDebug();
             if (debug != null && Debug.isOn("failure")) {
                 debug.println("socket access restriction: IP address of " + auth + " != " + InetAddress.getByAddress(addr));
@@ -744,7 +754,6 @@ implements java.io.Serializable
             if (debug != null && Debug.isOn("failure")) {
                 debug.println("socket access restriction: forward lookup failed for " + authHost);
             }
-        } catch (IOException x) {
         }
         return false;
     }
@@ -777,10 +786,10 @@ implements java.io.Serializable
             if (debug != null && Debug.isOn("failure")) {
                 debug.println("socket access restriction: forward lookup failed for " + authHost);
             }
-        } catch (IOException x) {
         }
         return false;
     }
+
 
     /** {@collect.stats} 
      * {@description.open}
@@ -826,37 +835,36 @@ implements java.io.Serializable
      * specified permission.
      * <P>
      * More specifically, this method first ensures that all of the following
-     * are true (and returns false if any of them are not):<p>
+     * are true (and returns false if any of them are not):
      * <ul>
-     * <li> <i>p</i> is an instanceof SocketPermission,<p>
+     * <li> <i>p</i> is an instanceof SocketPermission,
      * <li> <i>p</i>'s actions are a proper subset of this
-     * object's actions, and<p>
+     * object's actions, and
      * <li> <i>p</i>'s port range is included in this port range. Note:
-     * port range is ignored when p only contains the action, 'resolve'.<p>
+     * port range is ignored when p only contains the action, 'resolve'.
      * </ul>
      *
-     * Then <code>implies</code> checks each of the following, in order,
-     * and for each returns true if the stated condition is true:<p>
+     * Then {@code implies} checks each of the following, in order,
+     * and for each returns true if the stated condition is true:
      * <ul>
      * <li> If this object was initialized with a single IP address and one of <i>p</i>'s
-     * IP addresses is equal to this object's IP address.<p>
+     * IP addresses is equal to this object's IP address.
      * <li>If this object is a wildcard domain (such as *.sun.com), and
      * <i>p</i>'s canonical name (the name without any preceding *)
      * ends with this object's canonical host name. For example, *.sun.com
-     * implies *.eng.sun.com..<p>
+     * implies *.eng.sun.com.
      * <li>If this object was not initialized with a single IP address, and one of this
-     * object's IP addresses equals one of <i>p</i>'s IP addresses.<p>
-     * <li>If this canonical name equals <i>p</i>'s canonical name.<p>
+     * object's IP addresses equals one of <i>p</i>'s IP addresses.
+     * <li>If this canonical name equals <i>p</i>'s canonical name.
      * </ul>
      *
-     * If none of the above are true, <code>implies</code> returns false.
+     * If none of the above are true, {@code implies} returns false.
      * {@description.close}
      * @param p the permission to check against.
      *
      * @return true if the specified permission is implied by this object,
      * false if not.
      */
-
     public boolean implies(Permission p) {
         int i,j;
 
@@ -892,20 +900,30 @@ implements java.io.Serializable
      * <li> Attempt to match on the canonical hostnames of both objects.
      * </ul>
      * {@description.close}
-     * @param p the incoming permission request
+     * @param that the incoming permission request
      *
      * @return true if "permission" is a proper subset of the current object,
      * false if not.
      */
-
     boolean impliesIgnoreMask(SocketPermission that) {
         int i,j;
 
         if ((that.mask & RESOLVE) != that.mask) {
-            // check port range
+
+            // check simple port range
             if ((that.portrange[0] < this.portrange[0]) ||
                     (that.portrange[1] > this.portrange[1])) {
+
+                // if either includes the ephemeral range, do full check
+                if (this.includesEphemerals() || that.includesEphemerals()) {
+                    if (!inRange(this.portrange[0], this.portrange[1],
+                                     that.portrange[0], that.portrange[1]))
+                    {
+                                return false;
+                    }
+                } else {
                     return false;
+                }
             }
         }
 
@@ -915,12 +933,7 @@ implements java.io.Serializable
 
         // return if either one of these NetPerm objects are invalid...
         if (this.invalid || that.invalid) {
-            return (trustProxy ? inProxyWeTrust(that) : false);
-        }
-
-
-        if (this.getName().equalsIgnoreCase(that.getName())) {
-            return true;
+            return compareHostnames(that);
         }
 
         try {
@@ -964,10 +977,6 @@ implements java.io.Serializable
                 return (that.cname.endsWith(this.cname));
             }
 
-            if (this.cname == null) {
-                this.getCanonName();
-            }
-
             // comapare IP addresses
             if (this.addresses == null) {
                 this.getIP();
@@ -977,7 +986,7 @@ implements java.io.Serializable
                 that.getIP();
             }
 
-            if (!(that.init_with_ip && this.untrusted)) {
+            if (!(that.init_with_ip && this.isUntrusted())) {
                 for (j = 0; j < this.addresses.length; j++) {
                     for (i=0; i < that.addresses.length; i++) {
                         if (this.addresses[j].equals(that.addresses[i]))
@@ -987,6 +996,10 @@ implements java.io.Serializable
 
                 // XXX: if all else fails, compare hostnames?
                 // Do we really want this?
+                if (this.cname == null) {
+                    this.getCanonName();
+                }
+
                 if (that.cname == null) {
                     that.getCanonName();
                 }
@@ -995,8 +1008,7 @@ implements java.io.Serializable
             }
 
         } catch (UnknownHostException uhe) {
-            if (trustProxy)
-                return inProxyWeTrust(that);
+            return compareHostnames(that);
         }
 
         // make sure the first thing that is done here is to return
@@ -1005,19 +1017,24 @@ implements java.io.Serializable
         return false;
     }
 
-    private boolean inProxyWeTrust(SocketPermission that) {
-        // if we trust the proxy, we see if the original names/IPs passed
-        // in were equal.
+    private boolean compareHostnames(SocketPermission that) {
+        // we see if the original names/IPs passed in were equal.
 
         String thisHost = hostname;
         String thatHost = that.hostname;
 
-        if (thisHost == null)
+        if (thisHost == null) {
             return false;
-        else
+        } else if (this.wildcard) {
+            final int cnameLength = this.cname.length();
+            return thatHost.regionMatches(true,
+                                          (thatHost.length() - cnameLength),
+                                          this.cname, 0, cnameLength);
+        } else {
             return thisHost.equalsIgnoreCase(thatHost);
-
+        }
     }
+
     /** {@collect.stats} 
      * {@description.open}
      * Checks two SocketPermission objects for equality.
@@ -1195,7 +1212,7 @@ implements java.io.Serializable
      * <p>
      * SocketPermission objects must be stored in a manner that allows them
      * to be inserted into the collection in any order, but that also enables the
-     * PermissionCollection <code>implies</code>
+     * PermissionCollection {@code implies}
      * method to be implemented in an efficient (and consistent) manner.
      * {@description.close}
      *
@@ -1237,6 +1254,80 @@ implements java.io.Serializable
         init(getName(),getMask(actions));
     }
 
+    /**
+     * Check the system/security property for the ephemeral port range
+     * for this system. The suffix is either "high" or "low"
+     */
+    private static int initEphemeralPorts(String suffix, int defval) {
+        return AccessController.doPrivileged(
+            new PrivilegedAction<Integer>(){
+                public Integer run() {
+                    int val = Integer.getInteger(
+                            "jdk.net.ephemeralPortRange."+suffix, -1
+                    );
+                    if (val != -1) {
+                        return val;
+                    } else {
+                        return suffix.equals("low") ?
+                            PortConfig.getLower() : PortConfig.getUpper();
+                    }
+                }
+            }
+        );
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Check if the target range is within the policy range
+     * together with the ephemeral range for this platform
+     * (if policy includes ephemeral range)
+     * {@description.close}
+     */
+    private static boolean inRange(
+        int policyLow, int policyHigh, int targetLow, int targetHigh
+    )
+    {
+        final int ephemeralLow = EphemeralRange.low;
+        final int ephemeralHigh = EphemeralRange.high;
+
+        if (targetLow == 0) {
+            // check policy includes ephemeral range
+            if (!inRange(policyLow, policyHigh, ephemeralLow, ephemeralHigh)) {
+                return false;
+            }
+            if (targetHigh == 0) {
+                // nothing left to do
+                return true;
+            }
+            // continue check with first real port number
+            targetLow = 1;
+        }
+
+        if (policyLow == 0 && policyHigh == 0) {
+            // ephemeral range only
+            return targetLow >= ephemeralLow && targetHigh <= ephemeralHigh;
+        }
+
+        if (policyLow != 0) {
+            // simple check of policy only
+            return targetLow >= policyLow && targetHigh <= policyHigh;
+        }
+
+        // policyLow == 0 which means possibly two ranges to check
+
+        // first check if policy and ephem range overlap/contiguous
+
+        if (policyHigh >= ephemeralLow - 1) {
+            return targetHigh <= ephemeralHigh;
+        }
+
+        // policy and ephem range do not overlap
+
+        // target range must lie entirely inside policy range or eph range
+
+        return  (targetLow <= policyHigh && targetHigh <= policyHigh) ||
+                (targetLow >= ephemeralLow && targetHigh <= ephemeralHigh);
+    }
     /*
     public String toString()
     {
@@ -1296,10 +1387,10 @@ else its the cname?
  */
 
 final class SocketPermissionCollection extends PermissionCollection
-implements Serializable
+    implements Serializable
 {
     // Not serialized; see serialization section at end of class
-    private transient List perms;
+    private transient List<SocketPermission> perms;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -1309,7 +1400,7 @@ implements Serializable
      */
 
     public SocketPermissionCollection() {
-        perms = new ArrayList();
+        perms = new ArrayList<SocketPermission>();
     }
 
     /** {@collect.stats} 
@@ -1326,9 +1417,7 @@ implements Serializable
      * @exception SecurityException - if this SocketPermissionCollection object
      *                                has been marked readonly
      */
-
-    public void add(Permission permission)
-    {
+    public void add(Permission permission) {
         if (! (permission instanceof SocketPermission))
             throw new IllegalArgumentException("invalid permission: "+
                                                permission);
@@ -1339,7 +1428,7 @@ implements Serializable
         // optimization to ensure perms most likely to be tested
         // show up early (4301064)
         synchronized (this) {
-            perms.add(0, permission);
+            perms.add(0, (SocketPermission)permission);
         }
     }
 
@@ -1349,7 +1438,7 @@ implements Serializable
      * expressed in "permission".
      * {@description.close}
      *
-     * @param p the Permission object to compare
+     * @param permission the Permission object to compare
      *
      * @return true if "permission" is a proper subset of a permission in
      * the collection, false if not.
@@ -1370,7 +1459,7 @@ implements Serializable
             int len = perms.size();
             //System.out.println("implies "+np);
             for (int i = 0; i < len; i++) {
-                SocketPermission x = (SocketPermission) perms.get(i);
+                SocketPermission x = perms.get(i);
                 //System.out.println("  trying "+x);
                 if (((needed & x.getMask()) != 0) && x.impliesIgnoreMask(np)) {
                     effective |=  x.getMask();
@@ -1392,10 +1481,11 @@ implements Serializable
      * @return an enumeration of all the SocketPermission objects.
      */
 
-    public Enumeration elements() {
+    @SuppressWarnings("unchecked")
+    public Enumeration<Permission> elements() {
         // Convert Iterator into Enumeration
         synchronized (this) {
-            return Collections.enumeration(perms);
+            return Collections.enumeration((List<Permission>)(List)perms);
         }
     }
 
@@ -1431,7 +1521,7 @@ implements Serializable
         // Don't call out.defaultWriteObject()
 
         // Write out Vector
-        Vector permissions = new Vector(perms.size());
+        Vector<SocketPermission> permissions = new Vector<>(perms.size());
 
         synchronized (this) {
             permissions.addAll(perms);
@@ -1445,16 +1535,18 @@ implements Serializable
     /*
      * Reads in a Vector of SocketPermissions and saves them in the perms field.
      */
-    private void readObject(ObjectInputStream in) throws IOException,
-    ClassNotFoundException {
+    private void readObject(ObjectInputStream in)
+        throws IOException, ClassNotFoundException
+    {
         // Don't call in.defaultReadObject()
 
         // Read in serialized fields
         ObjectInputStream.GetField gfields = in.readFields();
 
         // Get the one we want
-        Vector permissions = (Vector)gfields.get("permissions", null);
-        perms = new ArrayList(permissions.size());
+        @SuppressWarnings("unchecked")
+        Vector<SocketPermission> permissions = (Vector<SocketPermission>)gfields.get("permissions", null);
+        perms = new ArrayList<SocketPermission>(permissions.size());
         perms.addAll(permissions);
     }
 }

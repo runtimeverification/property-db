@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -44,7 +44,7 @@ import sun.security.util.SecurityConstants;
  * CookieHandler.getDefault().
  *
  * For more information on HTTP state management, see <a
- * href="http://www.ietf.org/rfc/rfc2965.txt""><i>RFC&nbsp;2965: HTTP
+ * href="http://www.ietf.org/rfc/rfc2965.txt"><i>RFC&nbsp;2965: HTTP
  * State Management Mechanism</i></a>
  * {@description.close}
  *
@@ -72,7 +72,7 @@ public abstract class CookieHandler {
      *        there is no system-wide cookie handler currently set.
      * @throws SecurityException
      *       If a security manager has been installed and it denies
-     * {@link NetPermission}<tt>("getCookieHandler")</tt>
+     * {@link NetPermission}{@code ("getCookieHandler")}
      * @see #setDefault(CookieHandler)
      */
     public synchronized static CookieHandler getDefault() {
@@ -91,10 +91,10 @@ public abstract class CookieHandler {
      * {@description.close}
      *
      * @param cHandler The HTTP cookie handler, or
-     *       <code>null</code> to unset.
+     *       {@code null} to unset.
      * @throws SecurityException
      *       If a security manager has been installed and it denies
-     * {@link NetPermission}<tt>("setCookieHandler")</tt>
+     * {@link NetPermission}{@code ("setCookieHandler")}
      * @see #getDefault()
      */
     public synchronized static void setDefault(CookieHandler cHandler) {
@@ -111,13 +111,22 @@ public abstract class CookieHandler {
      * specified uri in the request header.
      * {@description.close}
      *
-     * {@property.open unchecked}
-     * HTTP protocol implementers should make sure that this method is
-     * called after all request headers related to choosing cookies
-     * are added, and before the request is sent.
-     * {@property.close}
+     * <P>The {@code URI} passed as an argument specifies the intended use for
+     * the cookies. In particular the scheme should reflect whether the cookies
+     * will be sent over http, https or used in another context like javascript.
+     * The host part should reflect either the destination of the cookies or
+     * their origin in the case of javascript.</P>
+     * <P>It is up to the implementation to take into account the {@code URI} and
+     * the cookies attributes and security settings to determine which ones
+     * should be returned.</P>
      *
-     * @param uri a <code>URI</code> to send cookies to in a request
+     * {@property.open unchecked}
+     * <P>HTTP protocol implementers should make sure that this method is
+     * called after all request headers related to choosing cookies
+     * are added, and before the request is sent.</P>
+     * {@property.close}
+     * @param uri a {@code URI} representing the intended use for the
+     *            cookies
      * @param requestHeaders - a Map from request header
      *            field names to lists of field values representing
      *            the current request headers
@@ -140,7 +149,7 @@ public abstract class CookieHandler {
      * headers into a cookie cache.
      * {@description.close}
      *
-     * @param uri a <code>URI</code> where the cookies come from
+     * @param uri a {@code URI} where the cookies come from
      * @param responseHeaders an immutable map from field names to
      *            lists of field values representing the response
      *            header fields returned

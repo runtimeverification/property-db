@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2005, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2005, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -53,7 +53,7 @@ public class InterfaceAddress {
      * Returns an <code>InetAddress</code> for this address.
      * {@description.close}
      *
-     * @return the <code>InetAddress</code> for this address.
+     * @return the {@code InetAddress} for this address.
      */
     public InetAddress getAddress() {
         return address;
@@ -68,8 +68,8 @@ public class InterfaceAddress {
      * of an IPv6 network, <code>null</code> will be returned.
      * {@description.close}
      *
-     * @return the <code>InetAddress</code> representing the broadcast
-     *         address or <code>null</code> if there is no broadcast address.
+     * @return the {@code InetAddress} representing the broadcast
+     *         address or {@code null} if there is no broadcast address.
      */
     public InetAddress getBroadcast() {
         return broadcast;
@@ -84,7 +84,7 @@ public class InterfaceAddress {
      * Typical IPv6 values would be 128 (::1/128) or 10 (fe80::203:baff:fe27:1243/10)
      * {@description.close}
      *
-     * @return a <code>short</code> representing the prefix length for the
+     * @return a {@code short} representing the prefix length for the
      *         subnet of that address.
      */
      public short getNetworkPrefixLength() {
@@ -94,18 +94,18 @@ public class InterfaceAddress {
     /** {@collect.stats} 
      * {@description.open}
      * Compares this object against the specified object.
-     * The result is <code>true</code> if and only if the argument is
-     * not <code>null</code> and it represents the same interface address as
+     * The result is {@code true} if and only if the argument is
+     * not {@code null} and it represents the same interface address as
      * this object.
      * <p>
-     * Two instances of <code>InterfaceAddress</code> represent the same
+     * Two instances of {@code InterfaceAddress} represent the same
      * address if the InetAddress, the prefix length and the broadcast are
      * the same for both.
      * {@description.close}
      *
      * @param   obj   the object to compare against.
-     * @return  <code>true</code> if the objects are the same;
-     *          <code>false</code> otherwise.
+     * @return  {@code true} if the objects are the same;
+     *          {@code false} otherwise.
      * @see     java.net.InterfaceAddress#hashCode()
      */
     public boolean equals(Object obj) {
@@ -113,11 +113,9 @@ public class InterfaceAddress {
             return false;
         }
         InterfaceAddress cmp = (InterfaceAddress) obj;
-        if ((address != null & cmp.address == null) ||
-            (!address.equals(cmp.address)))
+        if ( !(address == null ? cmp.address == null : address.equals(cmp.address)) )
             return false;
-        if ((broadcast != null & cmp.broadcast == null) ||
-            (!broadcast.equals(cmp.broadcast)))
+        if ( !(broadcast  == null ? cmp.broadcast == null : broadcast.equals(cmp.broadcast)) )
             return false;
         if (maskLength != cmp.maskLength)
             return false;

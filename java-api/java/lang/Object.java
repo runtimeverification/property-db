@@ -59,9 +59,9 @@ public class Object {
      * <p>
      * {@code Number n = 0;                             }<br>
      * {@code Class<? extends Number> c = n.getClass();
-     * {@description.close} }
+     * }
      * </p>
-     *
+     * {@description.close} 
      * @return The {@code Class} object that represents the runtime
      *         class of this object.
      * @jls 15.8.2 Class Literals

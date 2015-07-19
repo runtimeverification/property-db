@@ -1,33 +1,31 @@
 /*
- * Copyright (c) 1995, 2007, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1995, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
 
-import java.io.FileDescriptor;
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.nio.channels.DatagramChannel;
 import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
@@ -42,21 +40,22 @@ import java.security.PrivilegedExceptionAction;
  * one machine to another may be routed differently, and may arrive in
  * any order.
  *
- * <p>UDP broadcasts sends are always enabled on a DatagramSocket.
- * In order to receive broadcast packets a DatagramSocket
- * should be bound to the wildcard address. In some
- * implementations, broadcast packets may also be received when
+ * <p> Where possible, a newly constructed {@code DatagramSocket} has the
+ * {@link SocketOptions#SO_BROADCAST SO_BROADCAST} socket option enabled so as
+ * to allow the transmission of broadcast datagrams. In order to receive
+ * broadcast packets a DatagramSocket should be bound to the wildcard address.
+ * In some implementations, broadcast packets may also be received when
  * a DatagramSocket is bound to a more specific address.
  * <p>
  * Example:
- * <code>
+ * {@code
  *              DatagramSocket s = new DatagramSocket(null);
  *              s.bind(new InetSocketAddress(8888));
- * </code>
+ * }
  * Which is equivalent to:
- * <code>
+ * {@code
  *              DatagramSocket s = new DatagramSocket(8888);
- * </code>
+ * }
  * Both cases will create a DatagramSocket able to receive broadcasts on
  * UDP port 8888.
  * {@description.close}
@@ -67,7 +66,7 @@ import java.security.PrivilegedExceptionAction;
  * @since JDK1.0
  */
 public
-class DatagramSocket {
+class DatagramSocket implements java.io.Closeable {
     /** {@collect.stats} 
      * {@description.open}
      * Various states of this socket.
@@ -90,6 +89,17 @@ class DatagramSocket {
      */
     boolean oldImpl = false;
 
+    /**
+     * Set when a socket is ST_CONNECTED until we are certain
+     * that any packets which might have been received prior
+     * to calling connect() but not read by the application
+     * have been read. During this time we check the source
+     * address of all packets received to be sure they are from
+     * the connected destination. Other packets are read but
+     * silently dropped.
+     */
+    private boolean explicitFilter = false;
+    private int bytesLeftToFilter;
     /*
      * Connection state:
      * ST_NOT_CONNECTED = socket not connected
@@ -114,7 +124,7 @@ class DatagramSocket {
      * Binds socket if not already bound.
      * <p>
      * {@description.close}
-     * @param   addr    The remote address.
+     * @param   address The remote address.
      * @param   port    The remote port
      * @throws  SocketException if binding the socket fails.
      */
@@ -142,7 +152,8 @@ class DatagramSocket {
           bind(new InetSocketAddress(0));
 
         // old impls do not support connect/disconnect
-        if (oldImpl) {
+        if (oldImpl || (impl instanceof AbstractPlainDatagramSocketImpl &&
+             ((AbstractPlainDatagramSocketImpl)impl).nativeConnectDisabled())) {
             connectState = ST_CONNECTED_NO_IMPL;
         } else {
             try {
@@ -150,6 +161,15 @@ class DatagramSocket {
 
                 // socket is now connected by the impl
                 connectState = ST_CONNECTED;
+                // Do we need to filter some packets?
+                int avail = getImpl().dataAvailable();
+                if (avail == -1) {
+                    throw new SocketException();
+                }
+                explicitFilter = avail > 0;
+                if (explicitFilter) {
+                    bytesLeftToFilter = getReceiveBufferSize();
+                }
             } catch (SocketException se) {
 
                 // connection will be emulated by DatagramSocket
@@ -170,7 +190,7 @@ class DatagramSocket {
      * an IP address chosen by the kernel.
      *
      * <p>If there is a security manager,
-     * its <code>checkListen</code> method is first called
+     * its {@code checkListen} method is first called
      * with 0 as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
@@ -178,20 +198,12 @@ class DatagramSocket {
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkListen</code> method doesn't allow the operation.
+     *             {@code checkListen} method doesn't allow the operation.
      *
      * @see SecurityManager#checkListen
      */
     public DatagramSocket() throws SocketException {
-        // create a datagram socket.
-        createImpl();
-        try {
-            bind(new InetSocketAddress(0));
-        } catch (SocketException se) {
-            throw se;
-        } catch(IOException e) {
-            throw new SocketException(e.getMessage());
-        }
+        this(new InetSocketAddress(0));
     }
 
     /** {@collect.stats} 
@@ -216,22 +228,22 @@ class DatagramSocket {
      * Creates a datagram socket, bound to the specified local
      * socket address.
      * <p>
-     * If, if the address is <code>null</code>, creates an unbound socket.
-     * <p>
+     * If, if the address is {@code null}, creates an unbound socket.
+     *
      * <p>If there is a security manager,
-     * its <code>checkListen</code> method is first called
+     * its {@code checkListen} method is first called
      * with the port from the socket address
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
      *
-     * @param bindaddr local socket address to bind, or <code>null</code>
+     * @param bindaddr local socket address to bind, or {@code null}
      *                 for an unbound socket.
      *
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkListen</code> method doesn't allow the operation.
+     *             {@code checkListen} method doesn't allow the operation.
      *
      * @see SecurityManager#checkListen
      * @since   1.4
@@ -240,7 +252,12 @@ class DatagramSocket {
         // create a datagram socket.
         createImpl();
         if (bindaddr != null) {
-            bind(bindaddr);
+            try {
+                bind(bindaddr);
+            } finally {
+                if (!isBound())
+                    close();
+            }
         }
     }
 
@@ -252,22 +269,16 @@ class DatagramSocket {
      * an IP address chosen by the kernel.
      *
      * <p>If there is a security manager,
-     * its <code>checkListen</code> method is first called
-     * with the <code>port</code> argument
+     * its {@code checkListen} method is first called
+     * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
-     * {@property.open runtime formal:java.net.DatagramSocket_Port}
-     * {@new.open}
-     * The local port must be between 0 and 65535 inclusive.
-     * {@new.close}
-     * {@property.close}
-     *
      * @param      port port to use.
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkListen</code> method doesn't allow the operation.
+     *             {@code checkListen} method doesn't allow the operation.
      *
      * @see SecurityManager#checkListen
      */
@@ -278,7 +289,7 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Creates a datagram socket, bound to the specified local
-     * address.
+     * address.  
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramSocket_Port}
      * The local port must be between 0 and 65535 inclusive.
@@ -289,8 +300,8 @@ class DatagramSocket {
      * an IP address chosen by the kernel.
      *
      * <p>If there is a security manager,
-     * its <code>checkListen</code> method is first called
-     * with the <code>port</code> argument
+     * its {@code checkListen} method is first called
+     * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
@@ -301,7 +312,7 @@ class DatagramSocket {
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkListen</code> method doesn't allow the operation.
+     *             {@code checkListen} method doesn't allow the operation.
      *
      * @see SecurityManager#checkListen
      * @since   JDK1.1
@@ -316,9 +327,10 @@ class DatagramSocket {
         // DatagramSocketImpl.peekdata() is a protected method, therefore we need to use
         // getDeclaredMethod, therefore we need permission to access the member
         try {
-            AccessController.doPrivileged(new PrivilegedExceptionAction() {
-                    public Object run() throws NoSuchMethodException {
-                        Class[] cl = new Class[1];
+            AccessController.doPrivileged(
+                new PrivilegedExceptionAction<Void>() {
+                    public Void run() throws NoSuchMethodException {
+                        Class<?>[] cl = new Class<?>[1];
                         cl[0] = DatagramPacket.class;
                         impl.getClass().getDeclaredMethod("peekData", cl);
                         return null;
@@ -329,7 +341,7 @@ class DatagramSocket {
         }
     }
 
-    static Class implClass = null;
+    static Class<?> implClass = null;
 
     void createImpl() throws SocketException {
         if (impl == null) {
@@ -345,16 +357,17 @@ class DatagramSocket {
         }
         // creates a udp socket
         impl.create();
+        impl.setDatagramSocket(this);
         created = true;
     }
 
     /** {@collect.stats} 
      * {@description.open}
-     * Get the <code>DatagramSocketImpl</code> attached to this socket,
+     * Get the {@code DatagramSocketImpl} attached to this socket,
      * creating it if necessary.
      * {@description.close}
      *
-     * @return  the <code>DatagramSocketImpl</code> attached to that
+     * @return  the {@code DatagramSocketImpl} attached to that
      *          DatagramSocket
      * @throws SocketException if creation fails.
      * @since 1.4
@@ -367,17 +380,17 @@ class DatagramSocket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Binds this DatagramSocket to a specific address & port.
+     * Binds this DatagramSocket to a specific address and port.
      * <p>
-     * If the address is <code>null</code>, then the system will pick up
+     * If the address is {@code null}, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      *<p>
      * {@description.close}
-     * @param   addr The address & port to bind to.
+     * @param   addr The address and port to bind to.
      * @throws  SocketException if any error happens during the bind, or if the
      *          socket is already bound.
      * @throws  SecurityException  if a security manager exists and its
-     *             <code>checkListen</code> method doesn't allow the operation.
+     *             {@code checkListen} method doesn't allow the operation.
      * @throws IllegalArgumentException if addr is a SocketAddress subclass
      *         not supported by this socket.
      * @since 1.4
@@ -432,30 +445,40 @@ class DatagramSocket {
      * send or receive may throw a PortUnreachableException. Note, there is no
      * guarantee that the exception will be thrown.
      *
-     * <p>A caller's permission to send and receive datagrams to a
-     * given host and port are checked at connect time. When a socket
-     * is connected, receive and send <b>will not
-     * perform any security checks</b> on incoming and outgoing
-     * packets, other than matching the packet's and the socket's
-     * address and port. On a send operation, if the packet's address
-     * is set and the packet's address and the socket's address do not
-     * match, an IllegalArgumentException will be thrown. A socket
-     * connected to a multicast address may only be used to send packets.
-     * {@description.close}
+     * <p> If a security manager has been installed then it is invoked to check
+     * access to the remote address. Specifically, if the given {@code address}
+     * is a {@link InetAddress#isMulticastAddress multicast address},
+     * the security manager's {@link
+     * java.lang.SecurityManager#checkMulticast(InetAddress)
+     * checkMulticast} method is invoked with the given {@code address}.
+     * Otherwise, the security manager's {@link
+     * java.lang.SecurityManager#checkConnect(String,int) checkConnect}
+     * and {@link java.lang.SecurityManager#checkAccept checkAccept} methods
+     * are invoked, with the given {@code address} and {@code port}, to
+     * verify that datagrams are permitted to be sent and received
+     * respectively.
      *
+     * <p> When a socket is connected, {@link #receive receive} and
+     * {@link #send send} <b>will not perform any security checks</b>
+     * on incoming and outgoing packets, other than matching the packet's
+     * and the socket's address and port. On a send operation, if the
+     * packet's address is set and the packet's address and the socket's
+     * address do not match, an {@code IllegalArgumentException} will be
+     * thrown. A socket connected to a multicast address may only be used
+     * to send packets.
+     * {@description.close}
      * @param address the remote address for the socket
      *
      * @param port the remote port for the socket.
      *
-     * @exception IllegalArgumentException if the address is null,
-     * or the port is out of range.
+     * @throws IllegalArgumentException
+     *         if the address is null, or the port is out of range.
      *
-     * @exception SecurityException if the caller is not allowed to
-     * send datagrams to and receive datagrams from the address and port.
+     * @throws SecurityException
+     *         if a security manager has been installed and it does
+     *         not permit access to the given remote address
      *
      * @see #disconnect
-     * @see #send
-     * @see #receive
      */
     public void connect(InetAddress address, int port) {
         try {
@@ -468,14 +491,25 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Connects this socket to a remote socket address (IP address + port number).
-     * <p>
+     *
+     * <p> If given an {@link InetSocketAddress InetSocketAddress}, this method
+     * behaves as if invoking {@link #connect(InetAddress,int) connect(InetAddress,int)}
+     * with the the given socket addresses IP address and port number.
      * {@description.close}
      * @param   addr    The remote address.
-     * @throws  SocketException if the connect fails
-     * @throws  IllegalArgumentException if addr is null or addr is a SocketAddress
-     *          subclass not supported by this socket
+     *
+     * @throws  SocketException
+     *          if the connect fails
+     *
+     * @throws IllegalArgumentException
+     *         if {@code addr} is {@code null}, or {@code addr} is a SocketAddress
+     *         subclass not supported by this socket
+     *
+     * @throws SecurityException
+     *         if a security manager has been installed and it does
+     *         not permit access to the given remote address
+     *
      * @since 1.4
-     * @see #connect
      */
     public void connect(SocketAddress addr) throws SocketException {
         if (addr == null)
@@ -490,8 +524,8 @@ class DatagramSocket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Disconnects the socket. This does nothing if the socket is not
-     * connected.
+     * Disconnects the socket. If the socket is closed or not connected,
+     * then this method has no effect.
      * {@description.close}
      *
      * @see #connect
@@ -506,6 +540,7 @@ class DatagramSocket {
             connectedAddress = null;
             connectedPort = -1;
             connectState = ST_NOT_CONNECTED;
+            explicitFilter = false;
         }
     }
 
@@ -513,6 +548,11 @@ class DatagramSocket {
      * {@description.open}
      * Returns the binding state of the socket.
      * {@description.close}
+     *     
+     * <p>
+     * If the socket was bound prior to being {@link #close closed},
+     * then this method will continue to return {@code true}
+     * after the socket is closed.
      *
      * @return true if the socket successfully bound to an address
      * @since 1.4
@@ -524,6 +564,10 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the connection state of the socket.
+     * <p>
+     * If the socket was connected prior to being {@link #close closed},
+     * then this method will continue to return {@code true}
+     * after the socket is closed.
      * {@description.close}
      *
      * @return true if the socket successfully connected to a server
@@ -536,7 +580,11 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the address to which this socket is connected. Returns
-     * <code>null</code> if the socket is not connected.
+     * {@code null} if the socket is not connected.
+     * <p>
+     * If the socket was connected prior to being {@link #close closed},
+     * then this method will continue to return the connected address
+     * after the socket is closed.
      * {@description.close}
      *
      * @return the address to which this socket is connected.
@@ -548,7 +596,11 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the port number to which this socket is connected.
-     * Returns <code>-1</code> if the socket is not connected.
+     * Returns {@code -1} if the socket is not connected.
+     * <p>
+     * If the socket was connected prior to being {@link #close closed},
+     * then this method will continue to return the connected port number
+     * after the socket is closed.
      * {@description.close}
      *
      * @return the port number to which this socket is connected.
@@ -560,11 +612,15 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the address of the endpoint this socket is connected to, or
-     * <code>null</code> if it is unconnected.
+     * {@code null} if it is unconnected.
+     * <p>
+     * If the socket was connected prior to being {@link #close closed},
+     * then this method will continue to return the connected address
+     * after the socket is closed.
      * {@description.close}
      *
-     * @return a <code>SocketAddress</code> representing the remote
-     *         endpoint of this socket, or <code>null</code> if it is
+     * @return a {@code SocketAddress} representing the remote
+     *         endpoint of this socket, or {@code null} if it is
      *         not connected yet.
      * @see #getInetAddress()
      * @see #getPort()
@@ -579,12 +635,11 @@ class DatagramSocket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Returns the address of the endpoint this socket is bound to, or
-     * <code>null</code> if it is not bound yet.
+     * Returns the address of the endpoint this socket is bound to.
      * {@description.close}
      *
-     * @return a <code>SocketAddress</code> representing the local endpoint of this
-     *         socket, or <code>null</code> if it is not bound yet.
+     * @return a {@code SocketAddress} representing the local endpoint of this
+     *         socket, or {@code null} if it is closed or not bound yet.
      * @see #getLocalAddress()
      * @see #getLocalPort()
      * @see #bind(SocketAddress)
@@ -602,29 +657,29 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Sends a datagram packet from this socket. The
-     * <code>DatagramPacket</code> includes information indicating the
+     * {@code DatagramPacket} includes information indicating the
      * data to be sent, its length, the IP address of the remote host,
      * and the port number on the remote host.
      *
      * <p>If there is a security manager, and the socket is not currently
      * connected to a remote address, this method first performs some
-     * security checks. First, if <code>p.getAddress().isMulticastAddress()</code>
+     * security checks. First, if {@code p.getAddress().isMulticastAddress()}
      * is true, this method calls the
-     * security manager's <code>checkMulticast</code> method
-     * with <code>p.getAddress()</code> as its argument.
+     * security manager's {@code checkMulticast} method
+     * with {@code p.getAddress()} as its argument.
      * If the evaluation of that expression is false,
      * this method instead calls the security manager's
-     * <code>checkConnect</code> method with arguments
-     * <code>p.getAddress().getHostAddress()</code> and
-     * <code>p.getPort()</code>. Each call to a security manager method
+     * {@code checkConnect} method with arguments
+     * {@code p.getAddress().getHostAddress()} and
+     * {@code p.getPort()}. Each call to a security manager method
      * could result in a SecurityException if the operation is not allowed.
      * {@description.close}
      *
-     * @param      p   the <code>DatagramPacket</code> to be sent.
+     * @param      p   the {@code DatagramPacket} to be sent.
      *
      * @exception  IOException  if an I/O error occurs.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkMulticast</code> or <code>checkConnect</code>
+     *             {@code checkMulticast} or {@code checkConnect}
      *             method doesn't allow the send.
      * @exception  PortUnreachableException may be thrown if the socket is connected
      *             to a currently unreachable destination. Note, there is no
@@ -632,6 +687,8 @@ class DatagramSocket {
      * @exception  java.nio.channels.IllegalBlockingModeException
      *             if this socket has an associated channel,
      *             and the channel is in non-blocking mode.
+     * @exception  IllegalArgumentException if the socket is connected,
+     *             and connected address and packet address differ.
      *
      * @see        java.net.DatagramPacket
      * @see        SecurityManager#checkMulticast(InetAddress)
@@ -644,13 +701,13 @@ class DatagramSocket {
         synchronized (p) {
             if (isClosed())
                 throw new SocketException("Socket is closed");
-	    checkAddress (p.getAddress(), "send");
+            checkAddress (p.getAddress(), "send");
             if (connectState == ST_NOT_CONNECTED) {
                 // check the address is ok wiht the security manager on every send.
                 SecurityManager security = System.getSecurityManager();
 
                 // The reason you want to synchronize on datagram packet
-                // is because you dont want an applet to change the address
+                // is because you don't want an applet to change the address
                 // while you are trying to send the packet for example
                 // after the security check but before the send.
                 if (security != null) {
@@ -685,21 +742,21 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Receives a datagram packet from this socket. When this method
-     * returns, the <code>DatagramPacket</code>'s buffer is filled with
+     * returns, the {@code DatagramPacket}'s buffer is filled with
      * the data received. The datagram packet also contains the sender's
      * IP address, and the port number on the sender's machine.
      * <p>
      * This method blocks until a datagram is received. The
-     * <code>length</code> field of the datagram packet object contains
+     * {@code length} field of the datagram packet object contains
      * the length of the received message. If the message is longer than
      * the packet's length, the message is truncated.
      * <p>
      * If there is a security manager, a packet cannot be received if the
-     * security manager's <code>checkAccept</code> method
+     * security manager's {@code checkAccept} method
      * does not allow it.
      * {@description.close}
      *
-     * @param      p   the <code>DatagramPacket</code> into which to place
+     * @param      p   the {@code DatagramPacket} into which to place
      *                 the incoming data.
      * @exception  IOException  if an I/O error occurs.
      * @exception  SocketTimeoutException  if setSoTimeout was previously called
@@ -759,20 +816,39 @@ class DatagramSocket {
                     } // end of while
                 }
             }
-            if (connectState == ST_CONNECTED_NO_IMPL) {
+            DatagramPacket tmp = null;
+            if ((connectState == ST_CONNECTED_NO_IMPL) || explicitFilter) {
                 // We have to do the filtering the old fashioned way since
                 // the native impl doesn't support connect or the connect
-                // via the impl failed.
+                // via the impl failed, or .. "explicitFilter" may be set when
+                // a socket is connected via the impl, for a period of time
+                // when packets from other sources might be queued on socket.
                 boolean stop = false;
                 while (!stop) {
+                    InetAddress peekAddress = null;
+                    int peekPort = -1;
                     // peek at the packet to see who it is from.
-                    InetAddress peekAddress = new InetAddress();
-                    int peekPort = getImpl().peek(peekAddress);
+                    if (!oldImpl) {
+                        // We can use the new peekData() API
+                        DatagramPacket peekPacket = new DatagramPacket(new byte[1], 1);
+                        peekPort = getImpl().peekData(peekPacket);
+                        peekAddress = peekPacket.getAddress();
+                    } else {
+                        // this api only works for IPv4
+                        peekAddress = new InetAddress();
+                        peekPort = getImpl().peek(peekAddress);
+                    }
                     if ((!connectedAddress.equals(peekAddress)) ||
                         (connectedPort != peekPort)) {
                         // throw the packet away and silently continue
-                        DatagramPacket tmp = new DatagramPacket(new byte[1], 1);
+                        tmp = new DatagramPacket(
+                                                new byte[1024], 1024);
                         getImpl().receive(tmp);
+                        if (explicitFilter) {
+                            if (checkFiltering(tmp)) {
+                                stop = true;
+                            }
+                        }
                     } else {
                         stop = true;
                     }
@@ -781,7 +857,20 @@ class DatagramSocket {
             // If the security check succeeds, or the datagram is
             // connected then receive the packet
             getImpl().receive(p);
+            if (explicitFilter && tmp == null) {
+                // packet was not filtered, account for it here
+                checkFiltering(p);
+            }
         }
+    }
+
+    private boolean checkFiltering(DatagramPacket p) throws SocketException {
+        bytesLeftToFilter -= p.getLength();
+        if (bytesLeftToFilter <= 0 || getImpl().dataAvailable() <= 0) {
+            explicitFilter = false;
+            return true;
+        }
+        return false;
     }
 
     /** {@collect.stats} 
@@ -789,16 +878,18 @@ class DatagramSocket {
      * Gets the local address to which the socket is bound.
      *
      * <p>If there is a security manager, its
-     * <code>checkConnect</code> method is first called
-     * with the host address and <code>-1</code>
+     * {@code checkConnect} method is first called
+     * with the host address and {@code -1}
      * as its arguments to see if the operation is allowed.
      * {@description.close}
      *
      * @see SecurityManager#checkConnect
-     * @return  the local address to which the socket is bound, or
-     *          an <code>InetAddress</code> representing any local
+     * @return  the local address to which the socket is bound,
+     *          {@code null} if the socket is closed, or
+     *          an {@code InetAddress} representing
+     *          {@link InetAddress#isAnyLocalAddress wildcard}
      *          address if either the socket is not bound, or
-     *          the security manager <code>checkConnect</code>
+     *          the security manager {@code checkConnect}
      *          method does not allow the operation
      * @since   1.1
      */
@@ -827,7 +918,9 @@ class DatagramSocket {
      * is bound.
      * {@description.close}
      *
-     * @return  the port number on the local host to which this socket is bound.
+     * @return  the port number on the local host to which this socket is bound,
+                {@code -1} if the socket is closed, or
+                {@code 0} if it is not bound yet.
      */
     public int getLocalPort() {
         if (isClosed())
@@ -894,7 +987,7 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Sets the SO_SNDBUF option to the specified value for this
-     * <tt>DatagramSocket</tt>. The SO_SNDBUF option is used by the
+     * {@code DatagramSocket}. The SO_SNDBUF option is used by the
      * network implementation as a hint to size the underlying
      * network I/O buffers. The SO_SNDBUF setting may also be used
      * by the network implementation to determine the maximum size
@@ -908,7 +1001,7 @@ class DatagramSocket {
      * is high.
      * <p>
      * Note: If {@link #send(DatagramPacket)} is used to send a
-     * <code>DatagramPacket</code> that is larger than the setting
+     * {@code DatagramPacket} that is larger than the setting
      * of SO_SNDBUF then it is implementation specific if the
      * packet is sent or discarded.
      * {@description.close}
@@ -934,11 +1027,11 @@ class DatagramSocket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Get value of the SO_SNDBUF option for this <tt>DatagramSocket</tt>, that is the
-     * buffer size used by the platform for output on this <tt>DatagramSocket</tt>.
+     * Get value of the SO_SNDBUF option for this {@code DatagramSocket}, that is the
+     * buffer size used by the platform for output on this {@code DatagramSocket}.
      * {@description.close}
      *
-     * @return the value of the SO_SNDBUF option for this <tt>DatagramSocket</tt>
+     * @return the value of the SO_SNDBUF option for this {@code DatagramSocket}
      * @exception SocketException if there is an error in
      * the underlying protocol, such as an UDP error.
      * @see #setSendBufferSize
@@ -957,7 +1050,7 @@ class DatagramSocket {
     /** {@collect.stats} 
      * {@description.open}
      * Sets the SO_RCVBUF option to the specified value for this
-     * <tt>DatagramSocket</tt>. The SO_RCVBUF option is used by the
+     * {@code DatagramSocket}. The SO_RCVBUF option is used by the
      * the network implementation as a hint to size the underlying
      * network I/O buffers. The SO_RCVBUF setting may also be used
      * by the network implementation to determine the maximum size
@@ -996,11 +1089,11 @@ class DatagramSocket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Get value of the SO_RCVBUF option for this <tt>DatagramSocket</tt>, that is the
-     * buffer size used by the platform for input on this <tt>DatagramSocket</tt>.
+     * Get value of the SO_RCVBUF option for this {@code DatagramSocket}, that is the
+     * buffer size used by the platform for input on this {@code DatagramSocket}.
      * {@description.close}
      *
-     * @return the value of the SO_RCVBUF option for this <tt>DatagramSocket</tt>
+     * @return the value of the SO_RCVBUF option for this {@code DatagramSocket}
      * @exception SocketException if there is an error in the underlying protocol, such as an UDP error.
      * @see #setReceiveBufferSize(int)
      */
@@ -1024,27 +1117,27 @@ class DatagramSocket {
      * socket to the same socket address. This is typically for the
      * purpose of receiving multicast packets
      * (See {@link java.net.MulticastSocket}). The
-     * <tt>SO_REUSEADDR</tt> socket option allows multiple
+     * {@code SO_REUSEADDR} socket option allows multiple
      * sockets to be bound to the same socket address if the
-     * <tt>SO_REUSEADDR</tt> socket option is enabled prior
+     * {@code SO_REUSEADDR} socket option is enabled prior
      * to binding the socket using {@link #bind(SocketAddress)}.
      * <p>
      * Note: This functionality is not supported by all existing platforms,
      * so it is implementation specific whether this option will be ignored
      * or not. However, if it is not supported then
-     * {@link #getReuseAddress()} will always return <code>false</code>.
+     * {@link #getReuseAddress()} will always return {@code false}.
      * <p>
-     * When a <tt>DatagramSocket</tt> is created the initial setting
-     * of <tt>SO_REUSEADDR</tt> is disabled.
+     * When a {@code DatagramSocket} is created the initial setting
+     * of {@code SO_REUSEADDR} is disabled.
      * <p>
-     * The behaviour when <tt>SO_REUSEADDR</tt> is enabled or
+     * The behaviour when {@code SO_REUSEADDR} is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
      * {@description.close}
      *
      * @param on  whether to enable or disable the
      * @exception SocketException if an error occurs enabling or
-     *            disabling the <tt>SO_RESUEADDR</tt> socket option,
+     *            disabling the {@code SO_RESUEADDR} socket option,
      *            or the socket is closed.
      * @since 1.4
      * @see #getReuseAddress()
@@ -1067,7 +1160,7 @@ class DatagramSocket {
      * Tests if SO_REUSEADDR is enabled.
      * {@description.close}
      *
-     * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
+     * @return a {@code boolean} indicating whether or not SO_REUSEADDR is enabled.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as an UDP error.
      * @since   1.4
@@ -1084,9 +1177,17 @@ class DatagramSocket {
      * {@description.open}
      * Enable/disable SO_BROADCAST.
      * {@description.close}
-     * @param on     whether or not to have broadcast turned on.
-     * @exception SocketException if there is an error
-     * in the underlying protocol, such as an UDP error.
+     * <p> Some operating systems may require that the Java virtual machine be
+     * started with implementation specific privileges to enable this option or
+     * send broadcast datagrams.
+     *
+     * @param  on
+     *         whether or not to have broadcast turned on.
+     *
+     * @throws  SocketException
+     *          if there is an error in the underlying protocol, such as an UDP
+     *          error.
+     *
      * @since 1.4
      * @see #getBroadcast()
      */
@@ -1100,7 +1201,7 @@ class DatagramSocket {
      * {@description.open}
      * Tests if SO_BROADCAST is enabled.
      * {@description.close}
-     * @return a <code>boolean</code> indicating whether or not SO_BROADCAST is enabled.
+     * @return a {@code boolean} indicating whether or not SO_BROADCAST is enabled.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as an UDP error.
      * @since 1.4
@@ -1120,17 +1221,17 @@ class DatagramSocket {
      * value applications should consider it a hint.
      * {@description.close}
      *
-     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
-     * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
-     * 255</code> or an IllegalArgumentException will be thrown.
+     * <P> The tc <B>must</B> be in the range {@code 0 <= tc <=
+     * 255} or an IllegalArgumentException will be thrown.
      * {@property.close}
      * {@description.open}
      * <p>Notes:
-     * <p> for Internet Protocol v4 the value consists of an octet
-     * with precedence and TOS fields as detailed in RFC 1349. The
-     * TOS field is bitset created by bitwise-or'ing values such
-     * the following :-
-     * <p>
+     * <p>For Internet Protocol v4 the value consists of an
+     * {@code integer}, the least significant 8 bits of which
+     * represent the value of the TOS octet in IP packets sent by
+     * the socket.
+     * RFC 1349 defines the TOS values as follows:
+     *
      * <UL>
      * <LI><CODE>IPTOS_LOWCOST (0x02)</CODE></LI>
      * <LI><CODE>IPTOS_RELIABILITY (0x04)</CODE></LI>
@@ -1148,11 +1249,11 @@ class DatagramSocket {
      * {@property.close}
      * {@description.open}
      * <p>
-     * for Internet Protocol v6 <code>tc</code> is the value that
+     * for Internet Protocol v6 {@code tc} is the value that
      * would be placed into the sin6_flowinfo field of the IP header.
      * {@description.close}
      *
-     * @param tc        an <code>int</code> value for the bitset.
+     * @param tc        an {@code int} value for the bitset.
      * @throws SocketException if there is an error setting the
      * traffic class or type-of-service
      * @since 1.4
@@ -1239,7 +1340,7 @@ class DatagramSocket {
      * {@description.close}
      *
      * @return  the datagram channel associated with this datagram socket,
-     *          or <tt>null</tt> if this socket was not created for a channel
+     *          or {@code null} if this socket was not created for a channel
      *
      * @since 1.4
      * @spec JSR-51
@@ -1261,14 +1362,14 @@ class DatagramSocket {
      * application. The factory can be specified only once.
      * <p>
      * When an application creates a new datagram socket, the socket
-     * implementation factory's <code>createDatagramSocketImpl</code> method is
+     * implementation factory's {@code createDatagramSocketImpl} method is
      * called to create the actual datagram socket implementation.
      * <p>
-     * Passing <code>null</code> to the method is a no-op unless the factory
+     * Passing {@code null} to the method is a no-op unless the factory
      * was already set.
      *
      * <p>If there is a security manager, this method first calls
-     * the security manager's <code>checkSetFactory</code> method
+     * the security manager's {@code checkSetFactory} method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
@@ -1278,7 +1379,7 @@ class DatagramSocket {
      *              datagram socket factory.
      * @exception  SocketException  if the factory is already defined.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkSetFactory</code> method doesn't allow the
+     *             {@code checkSetFactory} method doesn't allow the
      operation.
      * @see
      java.net.DatagramSocketImplFactory#createDatagramSocketImpl()

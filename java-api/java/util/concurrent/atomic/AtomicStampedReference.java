@@ -109,8 +109,8 @@ public class AtomicStampedReference<V> {
 * {@description.open}
      * Returns the current values of both the reference and the stamp.
      * Typical usage is {@code int[1] holder; ref = v.get(holder);
-     * {@description.close} }.
-     *
+     * }.
+     * {@description.close} 
      * @param stampHolder an array of size of at least one.  On return,
      * {@code stampholder[0]} will hold the value of the stamp.
      * @return the current value of the reference

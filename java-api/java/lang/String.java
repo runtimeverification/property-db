@@ -2556,10 +2556,10 @@ public final class String
      *     <td>{@code { "boo", "and", "foo" }}</td></tr>
      * <tr><td align=center>o</td>
      *     <td>{@code { "b", "", ":and:f"
-     * {@description.close} }}</td></tr>
+     * }}</td></tr>
      * </table></blockquote>
      *
-     *
+     * {@description.close} 
      * @param  regex
      *         the delimiting regular expression
      *

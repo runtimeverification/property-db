@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1995, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1995, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -51,7 +51,12 @@ class DatagramPacket {
      */
     static {
         java.security.AccessController.doPrivileged(
-                  new sun.security.action.LoadLibraryAction("net"));
+            new java.security.PrivilegedAction<Void>() {
+                public Void run() {
+                    System.loadLibrary("net");
+                    return null;
+                }
+            });
         init();
     }
 
@@ -68,13 +73,13 @@ class DatagramPacket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Constructs a <code>DatagramPacket</code> for receiving packets of
-     * length <code>length</code>, specifying an offset into the buffer.
+     * Constructs a {@code DatagramPacket} for receiving packets of
+     * length {@code length}, specifying an offset into the buffer.
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * <p>
-     * The <code>length</code> argument must be less than or equal to
-     * <code>buf.length</code>.
+     * The {@code length} argument must be less than or equal to
+     * {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      buffer for holding the incoming datagram.
@@ -91,13 +96,13 @@ class DatagramPacket {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Constructs a <code>DatagramPacket</code> for receiving packets of
-     * length <code>length</code>.
+     * Constructs a {@code DatagramPacket} for receiving packets of
+     * length {@code length}.
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * <p>
-     * The <code>length</code> argument must be less than or equal to
-     * <code>buf.length</code>.
+     * The {@code length} argument must be less than or equal to
+     * {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      buffer for holding the incoming datagram.
@@ -110,13 +115,13 @@ class DatagramPacket {
     /** {@collect.stats} 
      * {@description.open}
      * Constructs a datagram packet for sending packets of length
-     * <code>length</code> with offset <code>ioffset</code>to the
-     * specified port number on the specified host.
+     * {@code length} with offset {@code ioffset}to the
+     * specified port number on the specified host. 
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The
-     * <code>length</code> argument must be less than or equal to
-     * <code>buf.length</code>.
+     * {@code length} argument must be less than or equal to
+     * {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      the packet data.
@@ -138,13 +143,13 @@ class DatagramPacket {
     /** {@collect.stats} 
      * {@description.open}
      * Constructs a datagram packet for sending packets of length
-     * <code>length</code> with offset <code>ioffset</code>to the
-     * specified port number on the specified host.
+     * {@code length} with offset {@code ioffset}to the
+     * specified port number on the specified host. 
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
      * The
-     * <code>length</code> argument must be less than or equal to
-     * <code>buf.length</code>.
+     * {@code length} argument must be less than or equal to
+     * {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      the packet data.
@@ -156,8 +161,7 @@ class DatagramPacket {
      *
      * @since 1.4
      */
-    public DatagramPacket(byte buf[], int offset, int length,
-                          SocketAddress address) throws SocketException {
+    public DatagramPacket(byte buf[], int offset, int length, SocketAddress address) {
         setData(buf, offset, length);
         setSocketAddress(address);
     }
@@ -165,12 +169,12 @@ class DatagramPacket {
     /** {@collect.stats} 
      * {@description.open}
      * Constructs a datagram packet for sending packets of length
-     * <code>length</code> to the specified port number on the specified
+     * {@code length} to the specified port number on the specified
      * host.
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
-     * The <code>length</code> argument must be less than or equal
-     * to <code>buf.length</code>.
+     * The {@code length} argument must be less than or equal
+     * to {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      the packet data.
@@ -187,12 +191,12 @@ class DatagramPacket {
     /** {@collect.stats} 
      * {@description.open}
      * Constructs a datagram packet for sending packets of length
-     * <code>length</code> to the specified port number on the specified
-     * host.
+     * {@code length} to the specified port number on the specified
+     * host. 
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_Length}
-     * The <code>length</code> argument must be less than or equal
-     * to <code>buf.length</code>.
+     * The {@code length} argument must be less than or equal
+     * to {@code buf.length}.
      * {@property.close}
      *
      * @param   buf      the packet data.
@@ -202,8 +206,7 @@ class DatagramPacket {
      * @since 1.4
      * @see     java.net.InetAddress
      */
-    public DatagramPacket(byte buf[], int length,
-                          SocketAddress address) throws SocketException {
+    public DatagramPacket(byte buf[], int length, SocketAddress address) {
         this(buf, 0, length, address);
     }
 
@@ -239,8 +242,8 @@ class DatagramPacket {
     /** {@collect.stats} 
      * {@description.open}
      * Returns the data buffer. The data received or the data to be sent
-     * starts from the <code>offset</code> in the buffer,
-     * and runs for <code>length</code> long.
+     * starts from the {@code offset} in the buffer,
+     * and runs for {@code length} long.
      * {@description.close}
      *
      * @return  the buffer used to receive or  send data
@@ -318,7 +321,7 @@ class DatagramPacket {
      * Sets the IP address of the machine to which this datagram
      * is being sent.
      * {@description.close}
-     * @param iaddr the <code>InetAddress</code>
+     * @param iaddr the {@code InetAddress}
      * @since   JDK1.1
      * @see #getAddress()
      */
@@ -348,7 +351,7 @@ class DatagramPacket {
      * host to which this datagram is being sent.
      * {@description.close}
      *
-     * @param address the <code>SocketAddress</code>
+     * @param address the {@code SocketAddress}
      * @throws  IllegalArgumentException if address is null or is a
      *          SocketAddress subclass not supported by this socket
      *
@@ -371,7 +374,7 @@ class DatagramPacket {
      * host that this packet is being sent to or is coming from.
      * {@description.close}
      *
-     * @return the <code>SocketAddress</code>
+     * @return the {@code SocketAddress}
      * @since 1.4
      * @see #setSocketAddress
      */
@@ -383,7 +386,7 @@ class DatagramPacket {
      * {@description.open}
      * Set the data buffer for this packet. With the offset of
      * this DatagramPacket set to 0, and the length set to
-     * the length of <code>buf</code>.
+     * the length of {@code buf}.
      * {@description.close}
      *
      * @param buf the buffer to set for this packet.
@@ -410,7 +413,7 @@ class DatagramPacket {
      * Set the length for this packet. The length of the packet is
      * the number of bytes from the packet's data buffer that will be
      * sent, or the number of bytes of the packet's data buffer that
-     * will be used for receiving data.
+     * will be used for receiving data. 
      * {@description.close}
      * {@property.open runtime formal:java.net.DatagramPacket_SetLength}
      * The length must be lesser or

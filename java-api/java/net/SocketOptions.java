@@ -1,29 +1,31 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
+
+import java.lang.annotation.Native;
 
 /** {@collect.stats} 
  * {@description.open}
@@ -147,7 +149,7 @@ public interface SocketOptions {
      * @see Socket#getTcpNoDelay
      */
 
-    public final static int TCP_NODELAY = 0x0001;
+    @Native public final static int TCP_NODELAY = 0x0001;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -170,7 +172,7 @@ public interface SocketOptions {
      * @see DatagramSocket#getLocalAddress
      */
 
-    public final static int SO_BINDADDR = 0x000F;
+    @Native public final static int SO_BINDADDR = 0x000F;
 
     /** {@collect.stats}
      * {@description.open}
@@ -181,7 +183,7 @@ public interface SocketOptions {
      * {@description.close}
      */
 
-    public final static int SO_REUSEADDR = 0x04;
+    @Native public final static int SO_REUSEADDR = 0x04;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -194,7 +196,7 @@ public interface SocketOptions {
      * @since 1.4
      */
 
-    public final static int SO_BROADCAST = 0x0020;
+    @Native public final static int SO_BROADCAST = 0x0020;
 
     /** {@collect.stats}
      * {@description.open}
@@ -203,13 +205,12 @@ public interface SocketOptions {
      * want to use other than the system default.  Takes/returns an InetAddress.
      * <P>
      * Valid for Multicast: DatagramSocketImpl
-     * <P>
      * {@description.close}
      * @see MulticastSocket#setInterface(InetAddress)
      * @see MulticastSocket#getInterface()
      */
 
-    public final static int IP_MULTICAST_IF = 0x10;
+    @Native public final static int IP_MULTICAST_IF = 0x10;
 
     /** {@collect.stats}
      * {@description.open}
@@ -224,7 +225,7 @@ public interface SocketOptions {
      * @see MulticastSocket#getNetworkInterface()
      * @since 1.4
      */
-    public final static int IP_MULTICAST_IF2 = 0x1f;
+    @Native public final static int IP_MULTICAST_IF2 = 0x1f;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -234,7 +235,7 @@ public interface SocketOptions {
      * @since 1.4
      */
 
-    public final static int IP_MULTICAST_LOOP = 0x12;
+    @Native public final static int IP_MULTICAST_LOOP = 0x12;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -244,7 +245,7 @@ public interface SocketOptions {
      * @since 1.4
      */
 
-    public final static int IP_TOS = 0x3;
+    @Native public final static int IP_TOS = 0x3;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -264,7 +265,7 @@ public interface SocketOptions {
      * @see Socket#setSoLinger
      * @see Socket#getSoLinger
      */
-    public final static int SO_LINGER = 0x0080;
+    @Native public final static int SO_LINGER = 0x0080;
 
     /** {@collect.stats}
      * {@description.open}
@@ -288,7 +289,7 @@ public interface SocketOptions {
      * @see ServerSocket#setSoTimeout
      * @see DatagramSocket#setSoTimeout
      */
-    public final static int SO_TIMEOUT = 0x1006;
+    @Native public final static int SO_TIMEOUT = 0x1006;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -307,7 +308,7 @@ public interface SocketOptions {
      * @see DatagramSocket#setSendBufferSize
      * @see DatagramSocket#getSendBufferSize
      */
-    public final static int SO_SNDBUF = 0x1001;
+    @Native public final static int SO_SNDBUF = 0x1001;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -322,12 +323,13 @@ public interface SocketOptions {
      * Valid for all sockets: SocketImpl, DatagramSocketImpl
      * {@description.close}
      *
+
      * @see Socket#setReceiveBufferSize
      * @see Socket#getReceiveBufferSize
      * @see DatagramSocket#setReceiveBufferSize
      * @see DatagramSocket#getReceiveBufferSize
      */
-    public final static int SO_RCVBUF = 0x1002;
+    @Native public final static int SO_RCVBUF = 0x1002;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -352,7 +354,7 @@ public interface SocketOptions {
      * @see Socket#setKeepAlive
      * @see Socket#getKeepAlive
      */
-    public final static int SO_KEEPALIVE = 0x0008;
+    @Native public final static int SO_KEEPALIVE = 0x0008;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -365,5 +367,5 @@ public interface SocketOptions {
      * @see Socket#setOOBInline
      * @see Socket#getOOBInline
      */
-    public final static int SO_OOBINLINE = 0x1003;
+    @Native public final static int SO_OOBINLINE = 0x1003;
 }

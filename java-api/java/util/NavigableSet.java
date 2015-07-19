@@ -202,10 +202,10 @@ public interface NavigableSet<E> extends SortedSet<E> {
 * {@description.open}
      * <p>The returned set has an ordering equivalent to
      * <tt>{@link Collections#reverseOrder(Comparator)
-     * {@description.close} Collections.reverseOrder}(comparator())</tt>.
+     * Collections.reverseOrder}(comparator())</tt>.
      * The expression {@code s.descendingSet().descendingSet()} returns a
      * view of {@code s} essentially equivalent to {@code s}.
-     *
+     * {@description.close} 
      * @return a reverse order view of this set
      */
     NavigableSet<E> descendingSet();

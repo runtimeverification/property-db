@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1995, 2011, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1995, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -28,11 +28,10 @@ package java.net;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.InterruptedIOException;
 import java.io.FileDescriptor;
-import java.io.ByteArrayOutputStream;
 
 import sun.net.ConnectionResetException;
+import sun.net.NetHooks;
 import sun.net.ResourceManager;
 
 /** {@collect.stats} 
@@ -57,12 +56,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     private boolean shut_wr = false;
 
     private SocketInputStream socketInputStream = null;
+    private SocketOutputStream socketOutputStream = null;
 
     /* number of threads using the FileDescriptor */
     protected int fdUseCount = 0;
 
     /* lock when increment/decrementing fdUseCount */
-    protected Object fdLock = new Object();
+    protected final Object fdLock = new Object();
 
     /* indicates a close is pending on the file descriptor */
     protected boolean closePending = false;
@@ -72,11 +72,11 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     private int CONNECTION_RESET_PENDING = 1;
     private int CONNECTION_RESET = 2;
     private int resetState;
-    private Object resetLock = new Object();
+    private final Object resetLock = new Object();
 
    /* whether this Socket is a stream (TCP) socket or not (UDP)
     */
-    private boolean stream;
+    protected boolean stream;
 
     /** {@collect.stats} 
      * {@description.open}
@@ -85,7 +85,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      */
     static {
         java.security.AccessController.doPrivileged(
-                  new sun.security.action.LoadLibraryAction("net"));
+            new java.security.PrivilegedAction<Void>() {
+                public Void run() {
+                    System.loadLibrary("net");
+                    return null;
+                }
+            });
     }
 
     /** {@collect.stats} 
@@ -95,10 +100,11 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * {@description.close}
      */
     protected synchronized void create(boolean stream) throws IOException {
-        fd = new FileDescriptor();
         this.stream = stream;
         if (!stream) {
             ResourceManager.beforeUdpCreate();
+            // only create the fd after we know we will be able to create the socket
+            fd = new FileDescriptor();
             try {
                 socketCreate(false);
             } catch (IOException ioe) {
@@ -107,6 +113,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
                 throw ioe;
             }
         } else {
+            fd = new FileDescriptor();
             socketCreate(true);
         }
         if (socket != null)
@@ -126,32 +133,31 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     protected void connect(String host, int port)
         throws UnknownHostException, IOException
     {
-        IOException pending = null;
+        boolean connected = false;
         try {
             InetAddress address = InetAddress.getByName(host);
             this.port = port;
             this.address = address;
 
-            try {
-                connectToAddress(address, port, timeout);
-                return;
-            } catch (IOException e) {
-                pending = e;
+            connectToAddress(address, port, timeout);
+            connected = true;
+        } finally {
+            if (!connected) {
+                try {
+                    close();
+                } catch (IOException ioe) {
+                    /* Do nothing. If connect threw an exception then
+                       it will be passed up the call stack */
+                }
             }
-        } catch (UnknownHostException e) {
-            pending = e;
         }
-
-        // everything failed
-        close();
-        throw pending;
     }
 
     /** {@collect.stats} 
      * {@description.open}
      * Creates a socket and connects it to the specified address on
      * the specified port.
-     * {@description.close}
+     * {@description.close}    
      * @param address the address
      * @param port the specified port
      */
@@ -173,7 +179,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * {@description.open}
      * Creates a socket and connects it to the specified address on
      * the specified port.
-     * {@description.close}
+     * {@description.close}     
      * @param address the address
      * @param timeout the timeout value in milliseconds, or zero for no timeout.
      * @throws IOException if connection fails
@@ -181,22 +187,29 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      *          SocketAddress subclass not supported by this socket
      * @since 1.4
      */
-    protected void connect(SocketAddress address, int timeout) throws IOException {
-        if (address == null || !(address instanceof InetSocketAddress))
-            throw new IllegalArgumentException("unsupported address type");
-        InetSocketAddress addr = (InetSocketAddress) address;
-        if (addr.isUnresolved())
-            throw new UnknownHostException(addr.getHostName());
-        this.port = addr.getPort();
-        this.address = addr.getAddress();
-
+    protected void connect(SocketAddress address, int timeout)
+            throws IOException {
+        boolean connected = false;
         try {
+            if (address == null || !(address instanceof InetSocketAddress))
+                throw new IllegalArgumentException("unsupported address type");
+            InetSocketAddress addr = (InetSocketAddress) address;
+            if (addr.isUnresolved())
+                throw new UnknownHostException(addr.getHostName());
+            this.port = addr.getPort();
+            this.address = addr.getAddress();
+
             connectToAddress(this.address, port, timeout);
-            return;
-        } catch (IOException e) {
-            // everything failed
-            close();
-            throw e;
+            connected = true;
+        } finally {
+            if (!connected) {
+                try {
+                    close();
+                } catch (IOException ioe) {
+                    /* Do nothing. If connect threw an exception then
+                       it will be passed up the call stack */
+                }
+            }
         }
     }
 
@@ -337,10 +350,21 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      */
 
     synchronized void doConnect(InetAddress address, int port, int timeout) throws IOException {
+        synchronized (fdLock) {
+            if (!closePending && (socket == null || !socket.isBound())) {
+                NetHooks.beforeTcpConnect(fd, address, port);
+            }
+        }
         try {
-            FileDescriptor fd = acquireFD();
+            acquireFD();
             try {
                 socketConnect(address, port, timeout);
+                /* socket may have been closed during poll/select */
+                synchronized (fdLock) {
+                    if (closePending) {
+                        throw new SocketException ("Socket closed");
+                    }
+                }
                 // If we have a ref. to the Socket, then sets the flags
                 // created, bound & connected to true.
                 // This is normally done in Socket.connect() but some
@@ -363,11 +387,16 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * Binds the socket to the specified address of the specified local port.
      * {@description.close}
      * @param address the address
-     * @param port the port
+     * @param lport the port
      */
     protected synchronized void bind(InetAddress address, int lport)
         throws IOException
     {
+       synchronized (fdLock) {
+            if (!closePending && (socket == null || !socket.isBound())) {
+                NetHooks.beforeTcpBind(fd, address, lport);
+            }
+        }
         socketBind(address, lport);
         if (socket != null)
             socket.setBound();
@@ -392,7 +421,7 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * @param s the connection
      */
     protected void accept(SocketImpl s) throws IOException {
-        FileDescriptor fd = acquireFD();
+        acquireFD();
         try {
             socketAccept(s);
         } finally {
@@ -406,14 +435,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * {@description.close}
      */
     protected synchronized InputStream getInputStream() throws IOException {
-        if (isClosedOrPending()) {
-            throw new IOException("Socket Closed");
-        }
-        if (shut_rd) {
-            throw new IOException("Socket input is shutdown");
-        }
-        if (socketInputStream == null) {
-            socketInputStream = new SocketInputStream(this);
+        synchronized (fdLock) {
+            if (isClosedOrPending())
+                throw new IOException("Socket Closed");
+            if (shut_rd)
+                throw new IOException("Socket input is shutdown");
+            if (socketInputStream == null)
+                socketInputStream = new SocketInputStream(this);
         }
         return socketInputStream;
     }
@@ -428,13 +456,15 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
      * {@description.close}
      */
     protected synchronized OutputStream getOutputStream() throws IOException {
-        if (isClosedOrPending()) {
-            throw new IOException("Socket Closed");
+        synchronized (fdLock) {
+            if (isClosedOrPending())
+                throw new IOException("Socket Closed");
+            if (shut_wr)
+                throw new IOException("Socket output is shutdown");
+            if (socketOutputStream == null)
+                socketOutputStream = new SocketOutputStream(this);
         }
-        if (shut_wr) {
-            throw new IOException("Socket output is shutdown");
-        }
-        return new SocketOutputStream(this);
+        return socketOutputStream;
     }
 
     void setFileDescriptor(FileDescriptor fd) {
@@ -464,10 +494,10 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
 
         /*
-         * If connection has been reset then return 0 to indicate
-         * there are no buffered bytes.
+         * If connection has been reset or shut down for input, then return 0
+         * to indicate there are no buffered bytes.
          */
-        if (isConnectionReset()) {
+        if (isConnectionReset() || shut_rd) {
             return 0;
         }
 
@@ -601,7 +631,6 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         close();
     }
 
-
     /*
      * "Acquires" and returns the FileDescriptor for this impl
      *
@@ -720,14 +749,9 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     abstract void socketSetOption(int cmd, boolean on, Object value)
         throws SocketException;
     abstract int socketGetOption(int opt, Object iaContainerObj) throws SocketException;
-    abstract int socketGetOption1(int opt, Object iaContainerObj, FileDescriptor fd) throws SocketException;
     abstract void socketSendUrgentData(int data)
         throws IOException;
 
     public final static int SHUT_RD = 0;
     public final static int SHUT_WR = 1;
-}
-
-class InetAddressContainer {
-    InetAddress addr;
 }

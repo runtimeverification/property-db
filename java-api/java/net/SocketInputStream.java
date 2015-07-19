@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1995, 2007, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1995, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -104,6 +104,28 @@ class SocketInputStream extends FileInputStream
                                    int timeout)
         throws IOException;
 
+    // wrap native call to allow instrumentation
+    /** {@collect.stats} 
+     * {@description.open}
+     * Reads into an array of bytes at the specified offset using
+     * the received socket primitive.
+     * {@description.close}
+     * @param fd the FileDescriptor
+     * @param b the buffer into which the data is read
+     * @param off the start offset of the data
+     * @param len the maximum number of bytes read
+     * @param timeout the read timeout in ms
+     * @return the actual number of bytes read, -1 is
+     *          returned when the end of the stream is reached.
+     * @exception IOException If an I/O error has occurred.
+     */
+    private int socketRead(FileDescriptor fd,
+                           byte b[], int off, int len,
+                           int timeout)
+        throws IOException {
+        return socketRead0(fd, b, off, len, timeout);
+    }
+
     /** {@collect.stats} 
      * {@description.open}
      * Reads into a byte array data from the socket.
@@ -124,12 +146,16 @@ class SocketInputStream extends FileInputStream
      * {@description.close}
      * @param b the buffer into which the data is read
      * @param off the start offset of the data
-     * @param len the maximum number of bytes read
+     * @param length the maximum number of bytes read
      * @return the actual number of bytes read, -1 is
      *          returned when the end of the stream is reached.
      * @exception IOException If an I/O error has occurred.
      */
     public int read(byte b[], int off, int length) throws IOException {
+        return read(b, off, length, impl.getTimeout());
+    }
+
+    int read(byte b[], int off, int length, int timeout) throws IOException {
         int n;
 
         // EOF already encountered
@@ -155,7 +181,7 @@ class SocketInputStream extends FileInputStream
         // acquire file descriptor and do the read
         FileDescriptor fd = impl.acquireFD();
         try {
-            n = socketRead0(fd, b, off, length, impl.getTimeout());
+            n = socketRead(fd, b, off, length, timeout);
             if (n > 0) {
                 return n;
             }
@@ -173,7 +199,7 @@ class SocketInputStream extends FileInputStream
             impl.setConnectionResetPending();
             impl.acquireFD();
             try {
-                n = socketRead0(fd, b, off, length, impl.getTimeout());
+                n = socketRead(fd, b, off, length, timeout);
                 if (n > 0) {
                     return n;
                 }
@@ -221,7 +247,7 @@ class SocketInputStream extends FileInputStream
      * {@description.open}
      * Skips n bytes of input.
      * {@description.close}
-     * @param n the number of bytes to skip
+     * @param numbytes the number of bytes to skip
      * @return  the actual number of bytes skipped.
      * @exception IOException If an I/O error has occurred.
      */

@@ -1,33 +1,31 @@
 /*
- * Copyright (c) 2000, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
 
-import java.security.AccessController;
 import java.io.ObjectStreamException;
-import sun.security.action.*;
 
 /** {@collect.stats} 
  * {@description.open}
@@ -39,16 +37,16 @@ import sun.security.action.*;
  * and <a href="http://www.ietf.org/rfc/rfc2365.txt"><i>RFC&nbsp;2365:
  * Administratively Scoped IP Multicast</i></a>
  *
- * <h4> <A NAME="format">Textual representation of IP addresses</a> </h4>
+ * <h3> <A NAME="format">Textual representation of IP addresses</a> </h3>
  *
  * Textual representation of IPv4 address used as input to methods
  * takes one of the following forms:
  *
  * <blockquote><table cellpadding=0 cellspacing=0 summary="layout">
- * <tr><td><tt>d.d.d.d</tt></td></tr>
- * <tr><td><tt>d.d.d</tt></td></tr>
- * <tr><td><tt>d.d</tt></td></tr>
- * <tr><td><tt>d</tt></td></tr>
+ * <tr><td>{@code d.d.d.d}</td></tr>
+ * <tr><td>{@code d.d.d}</td></tr>
+ * <tr><td>{@code d.d}</td></tr>
+ * <tr><td>{@code d}</td></tr>
  * </table></blockquote>
  *
  * <p> When four parts are specified, each is interpreted as a byte of
@@ -94,8 +92,9 @@ class Inet4Address extends InetAddress {
      * {@description.open}
      * use serialVersionUID from InetAddress, but Inet4Address instance
      *  is always replaced by an InetAddress instance before being
+     *  serialized 
      * {@description.close}
-     *  serialized */
+     */
     private static final long serialVersionUID = 3286316764910316507L;
 
     /*
@@ -107,27 +106,28 @@ class Inet4Address extends InetAddress {
 
     Inet4Address() {
         super();
-        hostName = null;
-        address = 0;
-        family = IPv4;
+        holder().hostName = null;
+        holder().address = 0;
+        holder().family = IPv4;
     }
 
     Inet4Address(String hostName, byte addr[]) {
-        this.hostName = hostName;
-        this.family = IPv4;
+        holder().hostName = hostName;
+        holder().family = IPv4;
         if (addr != null) {
             if (addr.length == INADDRSZ) {
-                address  = addr[3] & 0xFF;
+                int address  = addr[3] & 0xFF;
                 address |= ((addr[2] << 8) & 0xFF00);
                 address |= ((addr[1] << 16) & 0xFF0000);
                 address |= ((addr[0] << 24) & 0xFF000000);
+                holder().address = address;
             }
         }
     }
     Inet4Address(String hostName, int address) {
-        this.hostName = hostName;
-        this.family = IPv4;
-        this.address = address;
+        holder().hostName = hostName;
+        holder().family = IPv4;
+        holder().address = address;
     }
 
     /** {@collect.stats} 
@@ -143,8 +143,8 @@ class Inet4Address extends InetAddress {
     private Object writeReplace() throws ObjectStreamException {
         // will replace the to be serialized 'this' object
         InetAddress inet = new InetAddress();
-        inet.hostName = this.hostName;
-        inet.address = this.address;
+        inet.holder().hostName = holder().getHostName();
+        inet.holder().address = holder().getAddress();
 
         /** {@collect.stats} 
          * {@description.open}
@@ -154,7 +154,7 @@ class Inet4Address extends InetAddress {
          * the InetAddress with this family.
          * {@description.close}
          */
-        inet.family = 2;
+        inet.holder().family = 2;
 
         return inet;
     }
@@ -170,7 +170,7 @@ class Inet4Address extends InetAddress {
      * @since   JDK1.1
      */
     public boolean isMulticastAddress() {
-        return ((address & 0xf0000000) == 0xe0000000);
+        return ((holder().getAddress() & 0xf0000000) == 0xe0000000);
     }
 
     /** {@collect.stats} 
@@ -182,7 +182,7 @@ class Inet4Address extends InetAddress {
      * @since 1.4
      */
     public boolean isAnyLocalAddress() {
-        return address == 0;
+        return holder().getAddress() == 0;
     }
 
     /** {@collect.stats} 
@@ -190,11 +190,10 @@ class Inet4Address extends InetAddress {
      * Utility routine to check if the InetAddress is a loopback address.
      * {@description.close}
      *
-     * @return a <code>boolean</code> indicating if the InetAddress is
+     * @return a {@code boolean} indicating if the InetAddress is
      * a loopback address; or false otherwise.
      * @since 1.4
      */
-    private static final int loopback = 2130706433; /* 127.0.0.1 */
     public boolean isLoopbackAddress() {
         /* 127.x.x.x */
         byte[] byteAddr = getAddress();
@@ -215,6 +214,7 @@ class Inet4Address extends InetAddress {
         // defined in "Documenting Special Use IPv4 Address Blocks
         // that have been Registered with IANA" by Bill Manning
         // draft-manning-dsua-06.txt
+        int address = holder().getAddress();
         return (((address >>> 24) & 0xFF) == 169)
             && (((address >>> 16) & 0xFF) == 254);
     }
@@ -233,6 +233,7 @@ class Inet4Address extends InetAddress {
         // 10/8 prefix
         // 172.16/12 prefix
         // 192.168/16 prefix
+        int address = holder().getAddress();
         return (((address >>> 24) & 0xFF) == 10)
             || ((((address >>> 24) & 0xFF) == 172)
                 && (((address >>> 16) & 0xF0) == 16))
@@ -285,6 +286,7 @@ class Inet4Address extends InetAddress {
      */
     public boolean isMCLinkLocal() {
         // 224.0.0/24 prefix and ttl == 1
+        int address = holder().getAddress();
         return (((address >>> 24) & 0xFF) == 224)
             && (((address >>> 16) & 0xFF) == 0)
             && (((address >>> 8) & 0xFF) == 0);
@@ -302,6 +304,7 @@ class Inet4Address extends InetAddress {
      */
     public boolean isMCSiteLocal() {
         // 239.255/16 prefix or ttl < 32
+        int address = holder().getAddress();
         return (((address >>> 24) & 0xFF) == 239)
             && (((address >>> 16) & 0xFF) == 255);
     }
@@ -319,6 +322,7 @@ class Inet4Address extends InetAddress {
      */
     public boolean isMCOrgLocal() {
         // 239.192 - 239.195
+        int address = holder().getAddress();
         return (((address >>> 24) & 0xFF) == 239)
             && (((address >>> 16) & 0xFF) >= 192)
             && (((address >>> 16) & 0xFF) <= 195);
@@ -334,6 +338,7 @@ class Inet4Address extends InetAddress {
      * @return  the raw IP address of this object.
      */
     public byte[] getAddress() {
+        int address = holder().getAddress();
         byte[] addr = new byte[INADDRSZ];
 
         addr[0] = (byte) ((address >>> 24) & 0xFF);
@@ -363,30 +368,30 @@ class Inet4Address extends InetAddress {
      * @return  a hash code value for this IP address.
      */
     public int hashCode() {
-        return address;
+        return holder().getAddress();
     }
 
     /** {@collect.stats} 
      * {@description.open}
      * Compares this object against the specified object.
-     * The result is <code>true</code> if and only if the argument is
-     * not <code>null</code> and it represents the same IP address as
+     * The result is {@code true} if and only if the argument is
+     * not {@code null} and it represents the same IP address as
      * this object.
      * <p>
-     * Two instances of <code>InetAddress</code> represent the same IP
+     * Two instances of {@code InetAddress} represent the same IP
      * address if the length of the byte arrays returned by
-     * <code>getAddress</code> is the same for both, and each of the
+     * {@code getAddress} is the same for both, and each of the
      * array components is the same for the byte arrays.
      * {@description.close}
      *
      * @param   obj   the object to compare against.
-     * @return  <code>true</code> if the objects are the same;
-     *          <code>false</code> otherwise.
+     * @return  {@code true} if the objects are the same;
+     *          {@code false} otherwise.
      * @see     java.net.InetAddress#getAddress()
      */
     public boolean equals(Object obj) {
         return (obj != null) && (obj instanceof Inet4Address) &&
-            (((InetAddress)obj).address == address);
+            (((InetAddress)obj).holder().getAddress() == holder().getAddress());
     }
 
     // Utilities

@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2010, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.net;
@@ -47,6 +47,24 @@ import java.util.Date;
  * if a persistent connection is otherwise idle at that time.
  * {@description.close}
  *
+ * <P>The HTTP protocol handler has a few settings that can be accessed through
+ * System Properties. This covers
+ * <a href="doc-files/net-properties.html#Proxies">Proxy settings</a> as well as
+ * <a href="doc-files/net-properties.html#MiscHTTP"> various other settings</a>.
+ * </P>
+ * <p>
+ * <b>Security permissions</b>
+ * <p>
+ * If a security manager is installed, and if a method is called which results in an
+ * attempt to open a connection, the caller must possess either:-
+ * <ul><li>a "connect" {@link SocketPermission} to the host/port combination of the
+ * destination URL or</li>
+ * <li>a {@link URLPermission} that permits this request.</li>
+ * </ul><p>
+ * If automatic redirection is enabled, and this request is redirected to another
+ * destination, then the caller must also have permission to connect to the
+ * redirected host/URL.
+ *
  * @see     java.net.HttpURLConnection#disconnect()
  * @since JDK1.1
  */
@@ -63,7 +81,7 @@ abstract public class HttpURLConnection extends URLConnection {
     /** {@collect.stats} 
      * {@description.open}
      * The chunk-length when using chunked encoding streaming mode for output.
-     * A value of <code>-1</code> means chunked encoding is disabled for output.
+     * A value of {@code -1} means chunked encoding is disabled for output.
      * {@description.close}
      * @since 1.5
      */
@@ -72,25 +90,39 @@ abstract public class HttpURLConnection extends URLConnection {
     /** {@collect.stats} 
      * {@description.open}
      * The fixed content-length when using fixed-length streaming mode.
-     * A value of <code>-1</code> means fixed-length streaming mode is disabled
+     * A value of {@code -1} means fixed-length streaming mode is disabled
      * for output.
      * {@description.close}
+     * <P> <B>NOTE:</B> {@link #fixedContentLengthLong} is recommended instead
+     * of this field, as it allows larger content lengths to be set.
+     *
      * @since 1.5
      */
     protected int fixedContentLength = -1;
 
     /** {@collect.stats} 
      * {@description.open}
-     * Returns the key for the <code>n</code><sup>th</sup> header field.
-     * Some implementations may treat the <code>0</code><sup>th</sup>
-     * header field as special, i.e. as the status line returned by the HTTP
-     * server. In this case, {@link #getHeaderField(int) getHeaderField(0)} returns the status
-     * line, but <code>getHeaderFieldKey(0)</code> returns null.
+     * The fixed content-length when using fixed-length streaming mode.
+     * A value of {@code -1} means fixed-length streaming mode is disabled
+     * for output.
      * {@description.close}
      *
-     * @param   n   an index, where n >=0.
-     * @return  the key for the <code>n</code><sup>th</sup> header field,
-     *          or <code>null</code> if the key does not exist.
+     * @since 1.7
+     */
+    protected long fixedContentLengthLong = -1;
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * Returns the key for the {@code n}<sup>th</sup> header field.
+     * Some implementations may treat the {@code 0}<sup>th</sup>
+     * header field as special, i.e. as the status line returned by the HTTP
+     * server. In this case, {@link #getHeaderField(int) getHeaderField(0)} returns the status
+     * line, but {@code getHeaderFieldKey(0)} returns null.
+     * {@description.close}
+     *
+     * @param   n   an index, where {@code n >=0}.
+     * @return  the key for the {@code n}<sup>th</sup> header field,
+     *          or {@code null} if the key does not exist.
      */
     public String getHeaderFieldKey (int n) {
         return null;
@@ -120,7 +152,11 @@ abstract public class HttpURLConnection extends URLConnection {
      * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
      * <p>
      * This method must be called before the URLConnection is connected.
+     * <p>
      * {@property.close}
+     *
+     * <B>NOTE:</B> {@link #setFixedLengthStreamingMode(long)} is recommended
+     * instead of this method as it allows larger content lengths to be set.
      *
      * @param   contentLength The number of bytes which will be written
      *          to the OutputStream.
@@ -145,6 +181,54 @@ abstract public class HttpURLConnection extends URLConnection {
             throw new IllegalArgumentException ("invalid content length");
         }
         fixedContentLength = contentLength;
+    }
+
+    /** {@collect.stats} 
+     * {@description.open}
+     * This method is used to enable streaming of a HTTP request body
+     * without internal buffering, when the content length is known in
+     * advance.
+     *
+     * <P> An exception will be thrown if the application attempts to write
+     * more data than the indicated content-length, or if the application
+     * closes the OutputStream before writing the indicated amount.
+     *
+     * <P> When output streaming is enabled, authentication and redirection
+     * cannot be handled automatically. A {@linkplain HttpRetryException} will
+     * be thrown when reading the response if authentication or redirection
+     * are required. This exception can be queried for the details of the
+     * error.
+     *
+     * <P> This method must be called before the URLConnection is connected.
+     *
+     * <P> The content length set by invoking this method takes precedence
+     * over any value set by {@link #setFixedLengthStreamingMode(int)}.
+     * {@property.close}
+     *
+     * @param  contentLength
+     *         The number of bytes which will be written to the OutputStream.
+     *
+     * @throws  IllegalStateException
+     *          if URLConnection is already connected or if a different
+     *          streaming mode is already enabled.
+     *
+     * @throws  IllegalArgumentException
+     *          if a content length less than zero is specified.
+     *
+     * @since 1.7
+     */
+    public void setFixedLengthStreamingMode(long contentLength) {
+        if (connected) {
+            throw new IllegalStateException("Already connected");
+        }
+        if (chunkLength != -1) {
+            throw new IllegalStateException(
+                "Chunked encoding streaming mode set");
+        }
+        if (contentLength < 0) {
+            throw new IllegalArgumentException("invalid content length");
+        }
+        fixedContentLengthLong = contentLength;
     }
 
     /* Default chunk size (including chunk header) if not specified;
@@ -186,7 +270,7 @@ abstract public class HttpURLConnection extends URLConnection {
         if (connected) {
             throw new IllegalStateException ("Can't set streaming mode: already connected");
         }
-        if (fixedContentLength != -1) {
+        if (fixedContentLength != -1 || fixedContentLengthLong != -1) {
             throw new IllegalStateException ("Fixed length streaming mode set");
         }
         chunkLength = chunklen <=0? DEFAULT_CHUNK_SIZE : chunklen;
@@ -194,8 +278,8 @@ abstract public class HttpURLConnection extends URLConnection {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Returns the value for the <code>n</code><sup>th</sup> header field.
-     * Some implementations may treat the <code>0</code><sup>th</sup>
+     * Returns the value for the {@code n}<sup>th</sup> header field.
+     * Some implementations may treat the {@code 0}<sup>th</sup>
      * header field as special, i.e. as the status line returned by the HTTP
      * server.
      * <p>
@@ -204,9 +288,9 @@ abstract public class HttpURLConnection extends URLConnection {
      * the headers in the message.
      * {@description.close}
      *
-     * @param   n   an index, where n>=0.
-     * @return  the value of the <code>n</code><sup>th</sup> header field,
-     *          or <code>null</code> if the value does not exist.
+     * @param   n   an index, where {@code n>=0}.
+     * @return  the value of the {@code n}<sup>th</sup> header field,
+     *          or {@code null} if the value does not exist.
      * @see     java.net.HttpURLConnection#getHeaderFieldKey(int)
      */
     public String getHeaderField(int n) {
@@ -215,7 +299,7 @@ abstract public class HttpURLConnection extends URLConnection {
 
     /** {@collect.stats} 
      * {@description.open}
-     * An <code>int</code> representing the three digit HTTP Status-Code.
+     * An {@code int} representing the three digit HTTP Status-Code.
      * <ul>
      * <li> 1xx: Informational
      * <li> 2xx: Success
@@ -241,12 +325,12 @@ abstract public class HttpURLConnection extends URLConnection {
 
     /** {@collect.stats} 
      * {@description.open}
-     * If <code>true</code>, the protocol will automatically follow redirects.
-     * If <code>false</code>, the protocol will not automatically follow
+     * If {@code true}, the protocol will automatically follow redirects.
+     * If {@code false}, the protocol will not automatically follow
      * redirects.
      * <p>
-     * This field is set by the <code>setInstanceFollowRedirects</code>
-     * method. Its value is returned by the <code>getInstanceFollowRedirects</code>
+     * This field is set by the {@code setInstanceFollowRedirects}
+     * method. Its value is returned by the {@code getInstanceFollowRedirects}
      * method.
      * <p>
      * Its default value is based on the value of the static followRedirects
@@ -281,15 +365,15 @@ abstract public class HttpURLConnection extends URLConnection {
      * cannot change this variable.
      * <p>
      * If there is a security manager, this method first calls
-     * the security manager's <code>checkSetFactory</code> method
+     * the security manager's {@code checkSetFactory} method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
      *
-     * @param set a <code>boolean</code> indicating whether or not
+     * @param set a {@code boolean} indicating whether or not
      * to follow HTTP redirects.
      * @exception  SecurityException  if a security manager exists and its
-     *             <code>checkSetFactory</code> method doesn't
+     *             {@code checkSetFactory} method doesn't
      *             allow the operation.
      * @see        SecurityManager#checkSetFactory
      * @see #getFollowRedirects()
@@ -305,13 +389,13 @@ abstract public class HttpURLConnection extends URLConnection {
 
     /** {@collect.stats} 
      * {@description.open}
-     * Returns a <code>boolean</code> indicating
+     * Returns a {@code boolean} indicating
      * whether or not HTTP redirects (3xx) should
      * be automatically followed.
      * {@description.close}
      *
-     * @return <code>true</code> if HTTP redirects should
-     * be automatically followed, <tt>false</tt> if not.
+     * @return {@code true} if HTTP redirects should
+     * be automatically followed, {@code false} if not.
      * @see #setFollowRedirects(boolean)
      */
     public static boolean getFollowRedirects() {
@@ -321,14 +405,14 @@ abstract public class HttpURLConnection extends URLConnection {
     /** {@collect.stats} 
      * {@description.open}
      * Sets whether HTTP redirects (requests with response code 3xx) should
-     * be automatically followed by this <code>HttpURLConnection</code>
+     * be automatically followed by this {@code HttpURLConnection}
      * instance.
      * <p>
      * The default value comes from followRedirects, which defaults to
      * true.
      * {@description.close}
      *
-     * @param followRedirects a <code>boolean</code> indicating
+     * @param followRedirects a {@code boolean} indicating
      * whether or not to follow HTTP redirects.
      *
      * @see    java.net.HttpURLConnection#instanceFollowRedirects
@@ -341,12 +425,12 @@ abstract public class HttpURLConnection extends URLConnection {
 
      /** {@collect.stats} 
       * {@description.open}
-     * Returns the value of this <code>HttpURLConnection</code>'s
-     * <code>instanceFollowRedirects</code> field.
+     * Returns the value of this {@code HttpURLConnection}'s
+     * {@code instanceFollowRedirects} field.
      * {@description.close}
      *
-     * @return  the value of this <code>HttpURLConnection</code>'s
-     *          <code>instanceFollowRedirects</code> field.
+     * @return  the value of this {@code HttpURLConnection}'s
+     *          {@code instanceFollowRedirects} field.
      * @see     java.net.HttpURLConnection#instanceFollowRedirects
      * @see #setInstanceFollowRedirects(boolean)
      * @since 1.3
@@ -379,6 +463,9 @@ abstract public class HttpURLConnection extends URLConnection {
      * @param method the HTTP method
      * @exception ProtocolException if the method cannot be reset or if
      *              the requested method isn't valid for HTTP.
+     * @exception SecurityException if a security manager is set and the
+     *              method is "TRACE", but the "allowHttpTrace"
+     *              NetPermission is not granted.
      * @see #getRequestMethod()
      */
     public void setRequestMethod(String method) throws ProtocolException {
@@ -392,12 +479,12 @@ abstract public class HttpURLConnection extends URLConnection {
 
         for (int i = 0; i < methods.length; i++) {
             if (methods[i].equals(method)) {
-		if (method.equals("TRACE")) {
-		    SecurityManager s = System.getSecurityManager();
-		    if (s != null) {
-		        s.checkPermission(new NetPermission("allowHttpTrace"));
-		    }
-		}
+                if (method.equals("TRACE")) {
+                    SecurityManager s = System.getSecurityManager();
+                    if (s != null) {
+                        s.checkPermission(new NetPermission("allowHttpTrace"));
+                    }
+                }
                 this.method = method;
                 return;
             }
@@ -511,13 +598,14 @@ abstract public class HttpURLConnection extends URLConnection {
      * (the result was not valid HTTP).
      * {@description.close}
      * @throws IOException if an error occurred connecting to the server.
-     * @return the HTTP response message, or <code>null</code>
+     * @return the HTTP response message, or {@code null}
      */
     public String getResponseMessage() throws IOException {
         getResponseCode();
         return responseMessage;
     }
 
+    @SuppressWarnings("deprecation")
     public long getHeaderFieldDate(String name, long Default) {
         String dateString = getHeaderField(name);
         try {
@@ -550,6 +638,19 @@ abstract public class HttpURLConnection extends URLConnection {
      */
     public abstract boolean usingProxy();
 
+   /** {@collect.stats} 
+    * {@description.open}
+     * Returns a {@link SocketPermission} object representing the
+     * permission necessary to connect to the destination host and port.
+    * {@description.close}
+    *
+     * @exception IOException if an error occurs while computing
+     *            the permission.
+     *
+     * @return a {@code SocketPermission} object representing the
+     *         permission necessary to connect to the destination
+     *         host and port.
+     */
     public Permission getPermission() throws IOException {
         int port = url.getPort();
         port = port < 0 ? 80 : port;

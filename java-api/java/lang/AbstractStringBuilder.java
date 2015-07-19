@@ -373,9 +373,9 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * at index {@code dstBegin} and ending at index:
      * <pre>{@code
      * dstbegin + (srcEnd-srcBegin) - 1
+     * }</pre>
 
-     * {@description.close}     * }</pre>
-     *
+     * {@description.close}          *
      * @param      srcBegin   start copying at this offset.
      * @param      srcEnd     stop copying at this offset.
      * @param      dst        the array to copy the data into.
