@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1997, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
@@ -30,8 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** {@collect.stats}
- * {@description.open} 
+/**
  * This class is for runtime permissions. A RuntimePermission
  * contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -40,22 +39,15 @@ import java.util.StringTokenizer;
  * <P>
  * The target name is the name of the runtime permission (see below). The
  * naming convention follows the  hierarchical property naming convention.
- * {@description.close}
- * {@property.open runtime formal:java.lang.RuntimePermission_PermName}
  * Also, an asterisk
  * may appear at the end of the name, following a ".", or by itself, to
- * signify a wildcard match. For example: "loadLibrary.*" or "*" is valid,
- * "*loadLibrary" or "a*b" is not valid.
- * {@property.close}
- * {@description.open}
+ * signify a wildcard match. For example: "loadLibrary.*" and "*" signify a
+ * wildcard match, while "*loadLibrary" and "a*b" do not.
  * <P>
  * The following table lists all the possible RuntimePermission target names,
  * and for each provides a description of what the permission allows
  * and a discussion of the risks of granting code the permission.
- * <P>
- * {@description.close}
- * 
- * {@description.open}
+ *
  * <table border=1 cellpadding=5 summary="permission target name,
  *  what the target allows,and associated risks">
  * <tr>
@@ -104,6 +96,13 @@ import java.util.StringTokenizer;
  * class loader. Granting enableContextClassLoaderOverride permission would allow
  * a subclass of Thread to override the methods that are used
  * to get or set the context class loader for a particular thread.</td>
+ * </tr>
+ *
+ * <tr>
+ *   <td>closeClassLoader</td>
+ *   <td>Closing of a ClassLoader</td>
+ *   <td>Granting this permission allows code to close any URLClassLoader
+ * that it has a reference to.</td>
  * </tr>
  *
  * <tr>
@@ -323,8 +322,18 @@ import java.util.StringTokenizer;
  *   The actual backing store may reside within a traditional filesystem
  *   directory or within a registry depending on the platform OS</td>
  * </tr>
+ *
+ * <tr>
+ *   <td>usePolicy</td>
+ *   <td>Granting this permission disables the Java Plug-In's default
+ *   security prompting behavior.</td>
+ *   <td>For more information, refer to Java Plug-In's guides, <a href=
+ *   "../../../technotes/guides/plugin/developer_guide/security.html">
+ *   Applet Security Basics</a> and <a href=
+ *   "../../../technotes/guides/plugin/developer_guide/rsa_how.html#use">
+ *   usePolicy Permission</a>.</td>
+ * </tr>
  * </table>
- * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -341,17 +350,12 @@ public final class RuntimePermission extends BasicPermission {
 
     private static final long serialVersionUID = 7399184964622342223L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates a new RuntimePermission with the specified name.
      * The name is the symbolic name of the RuntimePermission, such as
-     * "exit", "setFactory", etc. 
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.RuntimePermission_PermName}
-     * An asterisk
+     * "exit", "setFactory", etc. An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
-     * {@property.close}
      *
      * @param name the name of the RuntimePermission.
      *
@@ -365,11 +369,9 @@ public final class RuntimePermission extends BasicPermission {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime formal:java.lang.RuntimePermission_NullAction} 
      * Creates a new RuntimePermission object with the specified name.
      * The name is the symbolic name of the RuntimePermission, and the
      * actions String is currently unused and should be null.
-     * {@property.close}
      *
      * @param name the name of the RuntimePermission.
      * @param actions should be null.

@@ -1,33 +1,33 @@
 /*
- * Copyright (c) 2003, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
 import javax.management.openmbean.CompositeData;
 import sun.management.MemoryNotifInfoCompositeData;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * The information about a memory notification.
  *
  * <p>
@@ -109,7 +109,7 @@ public class MemoryNotificationInfo {
     private final MemoryUsage usage;
     private final long count;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Notification type denoting that
      * the memory usage of a memory pool has
      * reached or exceeded its
@@ -124,7 +124,7 @@ public class MemoryNotificationInfo {
     public static final String MEMORY_THRESHOLD_EXCEEDED =
         "java.management.memory.threshold.exceeded";
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Notification type denoting that
      * the memory usage of a memory pool is greater than or equal to its
      * <a href="MemoryPoolMXBean.html#CollectionThreshold">
@@ -138,7 +138,7 @@ public class MemoryNotificationInfo {
     public static final String MEMORY_COLLECTION_THRESHOLD_EXCEEDED =
         "java.management.memory.collection.threshold.exceeded";
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Constructs a <tt>MemoryNotificationInfo</tt> object.
      *
      * @param poolName The name of the memory pool which triggers this notification.
@@ -168,7 +168,7 @@ public class MemoryNotificationInfo {
         this.count = MemoryNotifInfoCompositeData.getCount(cd);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the name of the memory pool that triggers this notification.
      * The memory pool usage has crossed a threshold.
      *
@@ -178,7 +178,7 @@ public class MemoryNotificationInfo {
         return poolName;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the memory usage of the memory pool
      * when this notification was constructed.
      *
@@ -189,7 +189,7 @@ public class MemoryNotificationInfo {
         return usage;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the number of times that the memory usage has crossed
      * a threshold when the notification was constructed.
      * For usage threshold notifications, this count will be the
@@ -206,13 +206,13 @@ public class MemoryNotificationInfo {
         return count;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns a <tt>MemoryNotificationInfo</tt> object represented by the
      * given <tt>CompositeData</tt>.
      * The given <tt>CompositeData</tt> must contain
      * the following attributes:
      * <blockquote>
-     * <table border>
+     * <table border summary="The attributes and the types the given CompositeData contains">
      * <tr>
      *   <th align=left>Attribute Name</th>
      *   <th align=left>Type</th>

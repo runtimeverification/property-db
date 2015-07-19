@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1997, 2007, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2014, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
@@ -28,10 +28,20 @@ import java.io.Serializable;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
-/** {@collect.stats} 
- * {@description.open}
- * This class consists exclusively of static methods that operate on or return
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This class consists exclusively of static methods that operate on or return
  * collections.  It contains polymorphic algorithms that operate on
  * collections, "wrappers", which return a new collection backed by a
  * specified collection, and a few other odds and ends.
@@ -59,8 +69,8 @@ import java.lang.reflect.Array;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Josh Bloch
  * @author  Neal Gafter
  * @see     Collection
@@ -100,125 +110,81 @@ public class Collections {
     private static final int REPLACEALL_THRESHOLD     =   11;
     private static final int INDEXOFSUBLIST_THRESHOLD =   35;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sorts the specified list into ascending order, according to the
-     * <i>natural ordering</i> of its elements.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_ImplementComparable}
-     * All elements in the list must
-     * implement the <tt>Comparable</tt> interface.  Furthermore, all elements
-     * in the list must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the list).<p>
-     * {@property.close}
+     * {@linkplain Comparable natural ordering} of its elements.
+     * All elements in the list must implement the {@link Comparable}
+     * interface.  Furthermore, all elements in the list must be
+     * <i>mutually comparable</i> (that is, {@code e1.compareTo(e2)}
+     * must not throw a {@code ClassCastException} for any elements
+     * {@code e1} and {@code e2} in the list).
      *
-     * {@description.open}
-     * This sort is guaranteed to be <i>stable</i>:  equal elements will
-     * not be reordered as a result of the sort.<p>
-     * {@description.close}
+     * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
+     * not be reordered as a result of the sort.
      *
-     * {@property.open uncheckable}
-     * The specified list must be modifiable, but need not be resizable.<p>
-     * {@property.close}
+     * <p>The specified list must be modifiable, but need not be resizable.
      *
-     * {@description.open}
-     * The sorting algorithm is a modified mergesort (in which the merge is
-     * omitted if the highest element in the low sublist is less than the
-     * lowest element in the high sublist).  This algorithm offers guaranteed
-     * n log(n) performance.
+     * @implNote
+     * This implementation defers to the {@link List#sort(Comparator)}
+     * method using the specified list and a {@code null} comparator.
      *
-     * This implementation dumps the specified list into an array, sorts
-     * the array, and iterates over the list resetting each element
-     * from the corresponding position in the array.  This avoids the
-     * n<sup>2</sup> log(n) performance that would result from attempting
-     * to sort a linked list in place.
-     * {@description.close}
-     *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be sorted.
      * @throws ClassCastException if the list contains elements that are not
      *         <i>mutually comparable</i> (for example, strings and integers).
      * @throws UnsupportedOperationException if the specified list's
-     *         list-iterator does not support the <tt>set</tt> operation.
-     * @see Comparable
+     *         list-iterator does not support the {@code set} operation.
+     * @throws IllegalArgumentException (optional) if the implementation
+     *         detects that the natural ordering of the list elements is
+     *         found to violate the {@link Comparable} contract
+     * @see List#sort(Comparator)
      */
+    @SuppressWarnings("unchecked")
     public static <T extends Comparable<? super T>> void sort(List<T> list) {
-        Object[] a = list.toArray();
-        Arrays.sort(a);
-        ListIterator<T> i = list.listIterator();
-        for (int j=0; j<a.length; j++) {
-            i.next();
-            i.set((T)a[j]);
-        }
+        list.sort(null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sorts the specified list according to the order induced by the
-     * specified comparator.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_Comparable}
-     * All elements in the list must be <i>mutually
+     * specified comparator.  All elements in the list must be <i>mutually
      * comparable</i> using the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the list).<p>
-     * {@property.close}
+     * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
+     * for any elements {@code e1} and {@code e2} in the list).
      *
-     * {@description.open}
-     * This sort is guaranteed to be <i>stable</i>:  equal elements will
-     * not be reordered as a result of the sort.<p>
+     * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
+     * not be reordered as a result of the sort.
      *
-     * The sorting algorithm is a modified mergesort (in which the merge is
-     * omitted if the highest element in the low sublist is less than the
-     * lowest element in the high sublist).  This algorithm offers guaranteed
-     * n log(n) performance.
-     * {@description.close}
+     * <p>The specified list must be modifiable, but need not be resizable.
      *
-     * {@property.open uncheckable}
-     * The specified list must be modifiable, but need not be resizable.
-     * {@property.close}
-     * {@description.open}
-     * This implementation dumps the specified list into an array, sorts
-     * the array, and iterates over the list resetting each element
-     * from the corresponding position in the array.  This avoids the
-     * n<sup>2</sup> log(n) performance that would result from attempting
-     * to sort a linked list in place.
-     * {@description.close}
+     * @implNote
+     * This implementation defers to the {@link List#sort(Comparator)}
+     * method using the specified list and comparator.
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be sorted.
      * @param  c the comparator to determine the order of the list.  A
-     *        <tt>null</tt> value indicates that the elements' <i>natural
+     *        {@code null} value indicates that the elements' <i>natural
      *        ordering</i> should be used.
      * @throws ClassCastException if the list contains elements that are not
      *         <i>mutually comparable</i> using the specified comparator.
      * @throws UnsupportedOperationException if the specified list's
-     *         list-iterator does not support the <tt>set</tt> operation.
-     * @see Comparator
+     *         list-iterator does not support the {@code set} operation.
+     * @throws IllegalArgumentException (optional) if the comparator is
+     *         found to violate the {@link Comparator} contract
+     * @see List#sort(Comparator)
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static <T> void sort(List<T> list, Comparator<? super T> c) {
-        Object[] a = list.toArray();
-        Arrays.sort(a, (Comparator)c);
-        ListIterator i = list.listIterator();
-        for (int j=0; j<a.length; j++) {
-            i.next();
-            i.set(a[j]);
-        }
+        list.sort(c);
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Searches the specified list for the specified object using the binary
-     * search algorithm.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
-     * The list must be sorted into ascending order
+     * search algorithm.  The list must be sorted into ascending order
      * according to the {@linkplain Comparable natural ordering} of its
      * elements (as by the {@link #sort(List)} method) prior to making this
-     * call.  If it is not sorted, the results are undefined.
-     * {@property.close}
-     * {@description.open}
-     * If the list
+     * call.  If it is not sorted, the results are undefined.  If the list
      * contains multiple elements equal to the specified object, there is no
      * guarantee which one will be found.
      *
@@ -227,8 +193,8 @@ public class Collections {
      * does not implement the {@link RandomAccess} interface and is large,
      * this method will do an iterator-based binary search that performs
      * O(n) link traversals and O(log n) element comparisons.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be searched.
      * @param  key the key to be searched for.
      * @return the index of the search key, if it is contained in the list;
@@ -253,8 +219,7 @@ public class Collections {
     }
 
     private static <T>
-    int indexedBinarySearch(List<? extends Comparable<? super T>> list, T key)
-    {
+    int indexedBinarySearch(List<? extends Comparable<? super T>> list, T key) {
         int low = 0;
         int high = list.size()-1;
 
@@ -295,11 +260,9 @@ public class Collections {
         return -(low + 1);  // key not found
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the ith element from the given list by repositioning the specified
      * list listIterator.
-     * {@description.close}
      */
     private static <T> T get(ListIterator<? extends T> i, int index) {
         T obj = null;
@@ -316,20 +279,13 @@ public class Collections {
         return obj;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Searches the specified list for the specified object using the binary
-     * search algorithm.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_SortBeforeBinarySearch}
-     * The list must be sorted into ascending order
+     * search algorithm.  The list must be sorted into ascending order
      * according to the specified comparator (as by the
      * {@link #sort(List, Comparator) sort(List, Comparator)}
      * method), prior to making this call.  If it is
-     * not sorted, the results are undefined.
-     * {@property.close}
-     * {@description.open}
-     * If the list contains multiple
+     * not sorted, the results are undefined.  If the list contains multiple
      * elements equal to the specified object, there is no guarantee which one
      * will be found.
      *
@@ -338,8 +294,8 @@ public class Collections {
      * does not implement the {@link RandomAccess} interface and is large,
      * this method will do an iterator-based binary search that performs
      * O(n) link traversals and O(log n) element comparisons.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be searched.
      * @param  key the key to be searched for.
      * @param  c the comparator by which the list is ordered.
@@ -358,9 +314,10 @@ public class Collections {
      *         or the search key is not mutually comparable with the
      *         elements of the list using this comparator.
      */
+    @SuppressWarnings("unchecked")
     public static <T> int binarySearch(List<? extends T> list, T key, Comparator<? super T> c) {
         if (c==null)
-            return binarySearch((List) list, key);
+            return binarySearch((List<? extends Comparable<? super T>>) list, key);
 
         if (list instanceof RandomAccess || list.size()<BINARYSEARCH_THRESHOLD)
             return Collections.indexedBinarySearch(list, key, c);
@@ -407,26 +364,25 @@ public class Collections {
         return -(low + 1);  // key not found
     }
 
-    private interface SelfComparable extends Comparable<SelfComparable> {}
-
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Reverses the order of the elements in the specified list.<p>
      *
      * This method runs in linear time.
-     * {@description.close}
      *
      * @param  list the list whose elements are to be reversed.
      * @throws UnsupportedOperationException if the specified list or
      *         its list-iterator does not support the <tt>set</tt> operation.
      */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void reverse(List<?> list) {
         int size = list.size();
         if (size < REVERSE_THRESHOLD || list instanceof RandomAccess) {
             for (int i=0, mid=size>>1, j=size-1; i<mid; i++, j--)
                 swap(list, i, j);
         } else {
+            // instead of using a raw type here, it's possible to capture
+            // the wildcard but it will require a call to a supplementary
+            // private method
             ListIterator fwd = list.listIterator();
             ListIterator rev = list.listIterator(size);
             for (int i=0, mid=list.size()>>1; i<mid; i++) {
@@ -437,46 +393,44 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Randomly permutes the specified list using a default source of
      * randomness.  All permutations occur with approximately equal
-     * likelihood.<p>
+     * likelihood.
      *
-     * The hedge "approximately" is used in the foregoing description because
+     * <p>The hedge "approximately" is used in the foregoing description because
      * default source of randomness is only approximately an unbiased source
      * of independently chosen bits. If it were a perfect source of randomly
      * chosen bits, then the algorithm would choose permutations with perfect
-     * uniformity.<p>
+     * uniformity.
      *
-     * This implementation traverses the list backwards, from the last element
-     * up to the second, repeatedly swapping a randomly selected element into
-     * the "current position".  Elements are randomly selected from the
+     * <p>This implementation traverses the list backwards, from the last
+     * element up to the second, repeatedly swapping a randomly selected element
+     * into the "current position".  Elements are randomly selected from the
      * portion of the list that runs from the first element to the current
-     * position, inclusive.<p>
+     * position, inclusive.
      *
-     * This method runs in linear time.  If the specified list does not
+     * <p>This method runs in linear time.  If the specified list does not
      * implement the {@link RandomAccess} interface and is large, this
      * implementation dumps the specified list into an array before shuffling
      * it, and dumps the shuffled array back into the list.  This avoids the
      * quadratic behavior that would result from shuffling a "sequential
      * access" list in place.
-     * {@description.close}
      *
      * @param  list the list to be shuffled.
      * @throws UnsupportedOperationException if the specified list or
      *         its list-iterator does not support the <tt>set</tt> operation.
      */
     public static void shuffle(List<?> list) {
-        if (r == null) {
-            r = new Random();
-        }
-        shuffle(list, r);
+        Random rnd = r;
+        if (rnd == null)
+            r = rnd = new Random(); // harmless race.
+        shuffle(list, rnd);
     }
+
     private static Random r;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Randomly permute the specified list using the specified source of
      * randomness.  All permutations occur with equal likelihood
      * assuming that the source of randomness is fair.<p>
@@ -493,13 +447,13 @@ public class Collections {
      * it, and dumps the shuffled array back into the list.  This avoids the
      * quadratic behavior that would result from shuffling a "sequential
      * access" list in place.
-     * {@description.close}
      *
      * @param  list the list to be shuffled.
      * @param  rnd the source of randomness to use to shuffle the list.
      * @throws UnsupportedOperationException if the specified list or its
      *         list-iterator does not support the <tt>set</tt> operation.
      */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void shuffle(List<?> list, Random rnd) {
         int size = list.size();
         if (size < SHUFFLE_THRESHOLD || list instanceof RandomAccess) {
@@ -513,6 +467,9 @@ public class Collections {
                 swap(arr, i-1, rnd.nextInt(i));
 
             // Dump array back into list
+            // instead of using a raw type here, it's possible to capture
+            // the wildcard but it will require a call to a supplementary
+            // private method
             ListIterator it = list.listIterator();
             for (int i=0; i<arr.length; i++) {
                 it.next();
@@ -521,12 +478,10 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Swaps the elements at the specified positions in the specified list.
      * (If the specified positions are equal, invoking this method leaves
      * the list unchanged.)
-     * {@description.close}
      *
      * @param list The list in which to swap elements.
      * @param i the index of one element to be swapped.
@@ -536,15 +491,17 @@ public class Collections {
      *         || j &lt; 0 || j &gt;= list.size()).
      * @since 1.4
      */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void swap(List<?> list, int i, int j) {
+        // instead of using a raw type here, it's possible to capture
+        // the wildcard but it will require a call to a supplementary
+        // private method
         final List l = list;
         l.set(i, l.set(j, l.get(i)));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Swaps the two specified elements in the specified array.
-     * {@description.close}
      */
     private static void swap(Object[] arr, int i, int j) {
         Object tmp = arr[i];
@@ -552,14 +509,13 @@ public class Collections {
         arr[j] = tmp;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Replaces all of the elements of the specified list with the specified
      * element. <p>
      *
      * This method runs in linear time.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be filled with the specified element.
      * @param  obj The element with which to fill the specified list.
      * @throws UnsupportedOperationException if the specified list or its
@@ -580,23 +536,16 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Copies all of the elements from one list into another.  After the
      * operation, the index of each copied element in the destination list
-     * will be identical to its index in the source list.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_CopySize}
-     * The destination
-     * list must be at least as long as the source list.
-     * {@property.close}
-     * {@description.open}
-     * If it is longer, the
+     * will be identical to its index in the source list.  The destination
+     * list must be at least as long as the source list.  If it is longer, the
      * remaining elements in the destination list are unaffected. <p>
      *
      * This method runs in linear time.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the lists
      * @param  dest The destination list.
      * @param  src The source list.
      * @throws IndexOutOfBoundsException if the destination list is too small
@@ -623,25 +572,19 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the minimum element of the given collection, according to the
-     * <i>natural ordering</i> of its elements.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_ImplementComparable}
-     * All elements in the
+     * <i>natural ordering</i> of its elements.  All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
-     * {@property.close}
      *
-     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  coll the collection whose minimum element is to be determined.
      * @return the minimum element of the given collection, according
      *         to the <i>natural ordering</i> of its elements.
@@ -663,24 +606,18 @@ public class Collections {
         return candidate;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the minimum element of the given collection, according to the
-     * order induced by the specified comparator.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_Comparable}
-     * All elements in the
+     * order induced by the specified comparator.  All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
-     * {@property.close}
      *
-     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  coll the collection whose minimum element is to be determined.
      * @param  comp the comparator with which to determine the minimum element.
      *         A <tt>null</tt> value indicates that the elements' <i>natural
@@ -692,9 +629,10 @@ public class Collections {
      * @throws NoSuchElementException if the collection is empty.
      * @see Comparable
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static <T> T min(Collection<? extends T> coll, Comparator<? super T> comp) {
         if (comp==null)
-            return (T)min((Collection<SelfComparable>) (Collection) coll);
+            return (T)min((Collection) coll);
 
         Iterator<? extends T> i = coll.iterator();
         T candidate = i.next();
@@ -707,25 +645,19 @@ public class Collections {
         return candidate;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the maximum element of the given collection, according to the
-     * <i>natural ordering</i> of its elements.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_ImplementComparable}
-     * All elements in the
+     * <i>natural ordering</i> of its elements.  All elements in the
      * collection must implement the <tt>Comparable</tt> interface.
      * Furthermore, all elements in the collection must be <i>mutually
      * comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
-     * {@property.close}
      *
-     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  coll the collection whose maximum element is to be determined.
      * @return the maximum element of the given collection, according
      *         to the <i>natural ordering</i> of its elements.
@@ -747,24 +679,18 @@ public class Collections {
         return candidate;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the maximum element of the given collection, according to the
-     * order induced by the specified comparator.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_Comparable}
-     * All elements in the
+     * order induced by the specified comparator.  All elements in the
      * collection must be <i>mutually comparable</i> by the specified
      * comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a
      * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
      * <tt>e2</tt> in the collection).<p>
-     * {@property.close}
      *
-     * {@description.open}
      * This method iterates over the entire collection, hence it requires
      * time proportional to the size of the collection.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  coll the collection whose maximum element is to be determined.
      * @param  comp the comparator with which to determine the maximum element.
      *         A <tt>null</tt> value indicates that the elements' <i>natural
@@ -776,9 +702,10 @@ public class Collections {
      * @throws NoSuchElementException if the collection is empty.
      * @see Comparable
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static <T> T max(Collection<? extends T> coll, Comparator<? super T> comp) {
         if (comp==null)
-            return (T)max((Collection<SelfComparable>) (Collection) coll);
+            return (T)max((Collection) coll);
 
         Iterator<? extends T> i = coll.iterator();
         T candidate = i.next();
@@ -791,8 +718,7 @@ public class Collections {
         return candidate;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Rotates the elements in the specified list by the specified distance.
      * After calling this method, the element at index <tt>i</tt> will be
      * the element previously at index <tt>(i - distance)</tt> mod
@@ -838,7 +764,6 @@ public class Collections {
      * and finally it is invoked on the entire list.  For a more complete
      * description of both algorithms, see Section 2.3 of Jon Bentley's
      * <i>Programming Pearls</i> (Addison-Wesley, 1986).
-     * {@description.close}
      *
      * @param list the list to be rotated.
      * @param distance the distance to rotate the list.  There are no
@@ -874,7 +799,7 @@ public class Collections {
                     i -= size;
                 displaced = list.set(i, displaced);
                 nMoved ++;
-            } while(i != cycleStart);
+            } while (i != cycleStart);
         }
     }
 
@@ -893,15 +818,14 @@ public class Collections {
         reverse(list);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Replaces all occurrences of one specified value in a list with another.
      * More formally, replaces with <tt>newVal</tt> each element <tt>e</tt>
      * in <tt>list</tt> such that
      * <tt>(oldVal==null ? e==null : oldVal.equals(e))</tt>.
      * (This method has no effect on the size of the list.)
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param list the list in which replacement is to occur.
      * @param oldVal the old value to be replaced.
      * @param newVal the new value with which <tt>oldVal</tt> is to be
@@ -953,19 +877,17 @@ public class Collections {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the starting position of the first occurrence of the specified
      * target list within the specified source list, or -1 if there is no
      * such occurrence.  More formally, returns the lowest index <tt>i</tt>
-     * such that <tt>source.subList(i, i+target.size()).equals(target)</tt>,
+     * such that {@code source.subList(i, i+target.size()).equals(target)},
      * or -1 if there is no such index.  (Returns -1 if
-     * <tt>target.size() > source.size()</tt>.)
+     * {@code target.size() > source.size()})
      *
      * <p>This implementation uses the "brute force" technique of scanning
      * over the source list, looking for a match with the target at each
      * location in turn.
-     * {@description.close}
      *
      * @param source the list in which to search for the first occurrence
      *        of <tt>target</tt>.
@@ -1008,19 +930,17 @@ public class Collections {
         return -1;  // No candidate matched the target
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the starting position of the last occurrence of the specified
      * target list within the specified source list, or -1 if there is no such
      * occurrence.  More formally, returns the highest index <tt>i</tt>
-     * such that <tt>source.subList(i, i+target.size()).equals(target)</tt>,
+     * such that {@code source.subList(i, i+target.size()).equals(target)},
      * or -1 if there is no such index.  (Returns -1 if
-     * <tt>target.size() > source.size()</tt>.)
+     * {@code target.size() > source.size()})
      *
      * <p>This implementation uses the "brute force" technique of iterating
      * over the source list, looking for a match with the target at each
      * location in turn.
-     * {@description.close}
      *
      * @param source the list in which to search for the last occurrence
      *        of <tt>target</tt>.
@@ -1070,8 +990,7 @@ public class Collections {
 
     // Unmodifiable Wrappers
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified collection.  This method
      * allows modules to provide users with "read-only" access to internal
      * collections.  Query operations on the returned collection "read through"
@@ -1087,17 +1006,17 @@ public class Collections {
      *
      * The returned collection will be serializable if the specified collection
      * is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  c the collection for which an unmodifiable view is to be
      *         returned.
      * @return an unmodifiable view of the specified collection.
      */
     public static <T> Collection<T> unmodifiableCollection(Collection<? extends T> c) {
-        return new UnmodifiableCollection<T>(c);
+        return new UnmodifiableCollection<>(c);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableCollection<E> implements Collection<E>, Serializable {
@@ -1127,6 +1046,11 @@ public class Collections {
                 public void remove() {
                     throw new UnsupportedOperationException();
                 }
+                @Override
+                public void forEachRemaining(Consumer<? super E> action) {
+                    // Use backing collection version
+                    i.forEachRemaining(action);
+                }
             };
         }
 
@@ -1152,10 +1076,34 @@ public class Collections {
         public void clear() {
             throw new UnsupportedOperationException();
         }
+
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            c.forEach(action);
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            throw new UnsupportedOperationException();
+        }
+        @SuppressWarnings("unchecked")
+        @Override
+        public Spliterator<E> spliterator() {
+            return (Spliterator<E>)c.spliterator();
+        }
+        @SuppressWarnings("unchecked")
+        @Override
+        public Stream<E> stream() {
+            return (Stream<E>)c.stream();
+        }
+        @SuppressWarnings("unchecked")
+        @Override
+        public Stream<E> parallelStream() {
+            return (Stream<E>)c.parallelStream();
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified set.  This method allows
      * modules to provide users with "read-only" access to internal sets.
      * Query operations on the returned set "read through" to the specified
@@ -1164,16 +1112,16 @@ public class Collections {
      *
      * The returned set will be serializable if the specified set
      * is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the set
      * @param  s the set for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified set.
      */
     public static <T> Set<T> unmodifiableSet(Set<? extends T> s) {
-        return new UnmodifiableSet<T>(s);
+        return new UnmodifiableSet<>(s);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableSet<E> extends UnmodifiableCollection<E>
@@ -1185,8 +1133,7 @@ public class Collections {
         public int hashCode()           {return c.hashCode();}
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified sorted set.  This method
      * allows modules to provide users with "read-only" access to internal
      * sorted sets.  Query operations on the returned sorted set "read
@@ -1197,17 +1144,17 @@ public class Collections {
      *
      * The returned sorted set will be serializable if the specified sorted set
      * is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the set
      * @param s the sorted set for which an unmodifiable view is to be
      *        returned.
      * @return an unmodifiable view of the specified sorted set.
      */
     public static <T> SortedSet<T> unmodifiableSortedSet(SortedSet<T> s) {
-        return new UnmodifiableSortedSet<T>(s);
+        return new UnmodifiableSortedSet<>(s);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableSortedSet<E>
@@ -1221,21 +1168,109 @@ public class Collections {
         public Comparator<? super E> comparator() {return ss.comparator();}
 
         public SortedSet<E> subSet(E fromElement, E toElement) {
-            return new UnmodifiableSortedSet<E>(ss.subSet(fromElement,toElement));
+            return new UnmodifiableSortedSet<>(ss.subSet(fromElement,toElement));
         }
         public SortedSet<E> headSet(E toElement) {
-            return new UnmodifiableSortedSet<E>(ss.headSet(toElement));
+            return new UnmodifiableSortedSet<>(ss.headSet(toElement));
         }
         public SortedSet<E> tailSet(E fromElement) {
-            return new UnmodifiableSortedSet<E>(ss.tailSet(fromElement));
+            return new UnmodifiableSortedSet<>(ss.tailSet(fromElement));
         }
 
         public E first()                   {return ss.first();}
         public E last()                    {return ss.last();}
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     * Returns an unmodifiable view of the specified navigable set.  This method
+     * allows modules to provide users with "read-only" access to internal
+     * navigable sets.  Query operations on the returned navigable set "read
+     * through" to the specified navigable set.  Attempts to modify the returned
+     * navigable set, whether direct, via its iterator, or via its
+     * {@code subSet}, {@code headSet}, or {@code tailSet} views, result in
+     * an {@code UnsupportedOperationException}.<p>
+     *
+     * The returned navigable set will be serializable if the specified
+     * navigable set is serializable.
+     *
+     * @param  <T> the class of the objects in the set
+     * @param s the navigable set for which an unmodifiable view is to be
+     *        returned
+     * @return an unmodifiable view of the specified navigable set
+     * @since 1.8
+     */
+    public static <T> NavigableSet<T> unmodifiableNavigableSet(NavigableSet<T> s) {
+        return new UnmodifiableNavigableSet<>(s);
+    }
+
+    /** {@collect.stats}
+     * Wraps a navigable set and disables all of the mutative operations.
+     *
+     * @param <E> type of elements
+     * @serial include
+     */
+    static class UnmodifiableNavigableSet<E>
+                             extends UnmodifiableSortedSet<E>
+                             implements NavigableSet<E>, Serializable {
+
+        private static final long serialVersionUID = -6027448201786391929L;
+
+        /** {@collect.stats}
+         * A singleton empty unmodifiable navigable set used for
+         * {@link #emptyNavigableSet()}.
+         *
+         * @param <E> type of elements, if there were any, and bounds
+         */
+        private static class EmptyNavigableSet<E> extends UnmodifiableNavigableSet<E>
+            implements Serializable {
+            private static final long serialVersionUID = -6291252904449939134L;
+
+            public EmptyNavigableSet() {
+                super(new TreeSet<E>());
+            }
+
+            private Object readResolve()        { return EMPTY_NAVIGABLE_SET; }
+        }
+
+        @SuppressWarnings("rawtypes")
+        private static final NavigableSet<?> EMPTY_NAVIGABLE_SET =
+                new EmptyNavigableSet<>();
+
+        /** {@collect.stats}
+         * The instance we are protecting.
+         */
+        private final NavigableSet<E> ns;
+
+        UnmodifiableNavigableSet(NavigableSet<E> s)         {super(s); ns = s;}
+
+        public E lower(E e)                             { return ns.lower(e); }
+        public E floor(E e)                             { return ns.floor(e); }
+        public E ceiling(E e)                         { return ns.ceiling(e); }
+        public E higher(E e)                           { return ns.higher(e); }
+        public E pollFirst()     { throw new UnsupportedOperationException(); }
+        public E pollLast()      { throw new UnsupportedOperationException(); }
+        public NavigableSet<E> descendingSet()
+                 { return new UnmodifiableNavigableSet<>(ns.descendingSet()); }
+        public Iterator<E> descendingIterator()
+                                         { return descendingSet().iterator(); }
+
+        public NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive) {
+            return new UnmodifiableNavigableSet<>(
+                ns.subSet(fromElement, fromInclusive, toElement, toInclusive));
+        }
+
+        public NavigableSet<E> headSet(E toElement, boolean inclusive) {
+            return new UnmodifiableNavigableSet<>(
+                ns.headSet(toElement, inclusive));
+        }
+
+        public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
+            return new UnmodifiableNavigableSet<>(
+                ns.tailSet(fromElement, inclusive));
+        }
+    }
+
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified list.  This method allows
      * modules to provide users with "read-only" access to internal
      * lists.  Query operations on the returned list "read through" to the
@@ -1246,23 +1281,24 @@ public class Collections {
      * The returned list will be serializable if the specified list
      * is serializable. Similarly, the returned list will implement
      * {@link RandomAccess} if the specified list does.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified list.
      */
     public static <T> List<T> unmodifiableList(List<? extends T> list) {
         return (list instanceof RandomAccess ?
-                new UnmodifiableRandomAccessList<T>(list) :
-                new UnmodifiableList<T>(list));
+                new UnmodifiableRandomAccessList<>(list) :
+                new UnmodifiableList<>(list));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableList<E> extends UnmodifiableCollection<E>
                                   implements List<E> {
         private static final long serialVersionUID = -283967356065247728L;
+
         final List<? extends E> list;
 
         UnmodifiableList(List<? extends E> list) {
@@ -1288,6 +1324,16 @@ public class Collections {
         public boolean addAll(int index, Collection<? extends E> c) {
             throw new UnsupportedOperationException();
         }
+
+        @Override
+        public void replaceAll(UnaryOperator<E> operator) {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public void sort(Comparator<? super E> c) {
+            throw new UnsupportedOperationException();
+        }
+
         public ListIterator<E> listIterator()   {return listIterator(0);}
 
         public ListIterator<E> listIterator(final int index) {
@@ -1311,15 +1357,19 @@ public class Collections {
                 public void add(E e) {
                     throw new UnsupportedOperationException();
                 }
+
+                @Override
+                public void forEachRemaining(Consumer<? super E> action) {
+                    i.forEachRemaining(action);
+                }
             };
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            return new UnmodifiableList<E>(list.subList(fromIndex, toIndex));
+            return new UnmodifiableList<>(list.subList(fromIndex, toIndex));
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * UnmodifiableRandomAccessList instances are serialized as
          * UnmodifiableList instances to allow them to be deserialized
          * in pre-1.4 JREs (which do not have UnmodifiableRandomAccessList).
@@ -1330,16 +1380,15 @@ public class Collections {
          * Note: Unfortunately, UnmodifiableRandomAccessList instances
          * serialized in 1.4.1 and deserialized in 1.4 will become
          * UnmodifiableList instances, as this method was missing in 1.4.
-         * {@description.close}
          */
         private Object readResolve() {
             return (list instanceof RandomAccess
-                    ? new UnmodifiableRandomAccessList<E>(list)
+                    ? new UnmodifiableRandomAccessList<>(list)
                     : this);
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableRandomAccessList<E> extends UnmodifiableList<E>
@@ -1350,27 +1399,24 @@ public class Collections {
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            return new UnmodifiableRandomAccessList<E>(
+            return new UnmodifiableRandomAccessList<>(
                 list.subList(fromIndex, toIndex));
         }
 
         private static final long serialVersionUID = -2542308836966382001L;
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Allows instances to be deserialized in pre-1.4 JREs (which do
          * not have UnmodifiableRandomAccessList).  UnmodifiableList has
          * a readResolve method that inverts this transformation upon
          * deserialization.
-         * {@description.close}
          */
         private Object writeReplace() {
-            return new UnmodifiableList<E>(list);
+            return new UnmodifiableList<>(list);
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified map.  This method
      * allows modules to provide users with "read-only" access to internal
      * maps.  Query operations on the returned map "read through"
@@ -1380,16 +1426,17 @@ public class Collections {
      *
      * The returned map will be serializable if the specified map
      * is serializable.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param  m the map for which an unmodifiable view is to be returned.
      * @return an unmodifiable view of the specified map.
      */
     public static <K,V> Map<K,V> unmodifiableMap(Map<? extends K, ? extends V> m) {
-        return new UnmodifiableMap<K,V>(m);
+        return new UnmodifiableMap<>(m);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class UnmodifiableMap<K,V> implements Map<K,V>, Serializable {
@@ -1422,9 +1469,9 @@ public class Collections {
             throw new UnsupportedOperationException();
         }
 
-        private transient Set<K> keySet = null;
-        private transient Set<Map.Entry<K,V>> entrySet = null;
-        private transient Collection<V> values = null;
+        private transient Set<K> keySet;
+        private transient Set<Map.Entry<K,V>> entrySet;
+        private transient Collection<V> values;
 
         public Set<K> keySet() {
             if (keySet==null)
@@ -1434,7 +1481,7 @@ public class Collections {
 
         public Set<Map.Entry<K,V>> entrySet() {
             if (entrySet==null)
-                entrySet = new UnmodifiableEntrySet<K,V>(m.entrySet());
+                entrySet = new UnmodifiableEntrySet<>(m.entrySet());
             return entrySet;
         }
 
@@ -1448,13 +1495,72 @@ public class Collections {
         public int hashCode()           {return m.hashCode();}
         public String toString()        {return m.toString();}
 
-        /** {@collect.stats} 
-         * {@description.open}
+        // Override default methods in Map
+        @Override
+        @SuppressWarnings("unchecked")
+        public V getOrDefault(Object k, V defaultValue) {
+            // Safe cast as we don't change the value
+            return ((Map<K, V>)m).getOrDefault(k, defaultValue);
+        }
+
+        @Override
+        public void forEach(BiConsumer<? super K, ? super V> action) {
+            m.forEach(action);
+        }
+
+        @Override
+        public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V putIfAbsent(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean remove(Object key, Object value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean replace(K key, V oldValue, V newValue) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V replace(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfPresent(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V compute(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V merge(K key, V value,
+                BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        /** {@collect.stats}
          * We need this class in addition to UnmodifiableSet as
          * Map.Entries themselves permit modification of the backing Map
          * via their setValue operation.  This class is subtle: there are
          * many possible attacks that must be thwarted.
-         * {@description.close}
          *
          * @serial include
          */
@@ -1462,9 +1568,91 @@ public class Collections {
             extends UnmodifiableSet<Map.Entry<K,V>> {
             private static final long serialVersionUID = 7854390611657943733L;
 
+            @SuppressWarnings({"unchecked", "rawtypes"})
             UnmodifiableEntrySet(Set<? extends Map.Entry<? extends K, ? extends V>> s) {
+                // Need to cast to raw in order to work around a limitation in the type system
                 super((Set)s);
             }
+
+            static <K, V> Consumer<Map.Entry<K, V>> entryConsumer(Consumer<? super Entry<K, V>> action) {
+                return e -> action.accept(new UnmodifiableEntry<>(e));
+            }
+
+            public void forEach(Consumer<? super Entry<K, V>> action) {
+                Objects.requireNonNull(action);
+                c.forEach(entryConsumer(action));
+            }
+
+            static final class UnmodifiableEntrySetSpliterator<K, V>
+                    implements Spliterator<Entry<K,V>> {
+                final Spliterator<Map.Entry<K, V>> s;
+
+                UnmodifiableEntrySetSpliterator(Spliterator<Entry<K, V>> s) {
+                    this.s = s;
+                }
+
+                @Override
+                public boolean tryAdvance(Consumer<? super Entry<K, V>> action) {
+                    Objects.requireNonNull(action);
+                    return s.tryAdvance(entryConsumer(action));
+                }
+
+                @Override
+                public void forEachRemaining(Consumer<? super Entry<K, V>> action) {
+                    Objects.requireNonNull(action);
+                    s.forEachRemaining(entryConsumer(action));
+                }
+
+                @Override
+                public Spliterator<Entry<K, V>> trySplit() {
+                    Spliterator<Entry<K, V>> split = s.trySplit();
+                    return split == null
+                           ? null
+                           : new UnmodifiableEntrySetSpliterator<>(split);
+                }
+
+                @Override
+                public long estimateSize() {
+                    return s.estimateSize();
+                }
+
+                @Override
+                public long getExactSizeIfKnown() {
+                    return s.getExactSizeIfKnown();
+                }
+
+                @Override
+                public int characteristics() {
+                    return s.characteristics();
+                }
+
+                @Override
+                public boolean hasCharacteristics(int characteristics) {
+                    return s.hasCharacteristics(characteristics);
+                }
+
+                @Override
+                public Comparator<? super Entry<K, V>> getComparator() {
+                    return s.getComparator();
+                }
+            }
+
+            @SuppressWarnings("unchecked")
+            public Spliterator<Entry<K,V>> spliterator() {
+                return new UnmodifiableEntrySetSpliterator<>(
+                        (Spliterator<Map.Entry<K, V>>) c.spliterator());
+            }
+
+            @Override
+            public Stream<Entry<K,V>> stream() {
+                return StreamSupport.stream(spliterator(), false);
+            }
+
+            @Override
+            public Stream<Entry<K,V>> parallelStream() {
+                return StreamSupport.stream(spliterator(), true);
+            }
+
             public Iterator<Map.Entry<K,V>> iterator() {
                 return new Iterator<Map.Entry<K,V>>() {
                     private final Iterator<? extends Map.Entry<? extends K, ? extends V>> i = c.iterator();
@@ -1473,7 +1661,7 @@ public class Collections {
                         return i.hasNext();
                     }
                     public Map.Entry<K,V> next() {
-                        return new UnmodifiableEntry<K,V>(i.next());
+                        return new UnmodifiableEntry<>(i.next());
                     }
                     public void remove() {
                         throw new UnsupportedOperationException();
@@ -1481,13 +1669,15 @@ public class Collections {
                 };
             }
 
+            @SuppressWarnings("unchecked")
             public Object[] toArray() {
                 Object[] a = c.toArray();
                 for (int i=0; i<a.length; i++)
-                    a[i] = new UnmodifiableEntry<K,V>((Map.Entry<K,V>)a[i]);
+                    a[i] = new UnmodifiableEntry<>((Map.Entry<? extends K, ? extends V>)a[i]);
                 return a;
             }
 
+            @SuppressWarnings("unchecked")
             public <T> T[] toArray(T[] a) {
                 // We don't pass a to c.toArray, to avoid window of
                 // vulnerability wherein an unscrupulous multithreaded client
@@ -1495,7 +1685,7 @@ public class Collections {
                 Object[] arr = c.toArray(a.length==0 ? a : Arrays.copyOf(a, 0));
 
                 for (int i=0; i<arr.length; i++)
-                    arr[i] = new UnmodifiableEntry<K,V>((Map.Entry<K,V>)arr[i]);
+                    arr[i] = new UnmodifiableEntry<>((Map.Entry<? extends K, ? extends V>)arr[i]);
 
                 if (arr.length > a.length)
                     return (T[])arr;
@@ -1506,33 +1696,29 @@ public class Collections {
                 return a;
             }
 
-            /** {@collect.stats} 
-             * {@description.open}
+            /** {@collect.stats}
              * This method is overridden to protect the backing set against
              * an object with a nefarious equals function that senses
              * that the equality-candidate is Map.Entry and calls its
              * setValue method.
-             * {@description.close}
              */
             public boolean contains(Object o) {
                 if (!(o instanceof Map.Entry))
                     return false;
                 return c.contains(
-                    new UnmodifiableEntry<Object,Object>((Map.Entry<?,?>) o));
+                    new UnmodifiableEntry<>((Map.Entry<?,?>) o));
             }
 
-            /** {@collect.stats} 
-            * {@description.open}
+            /** {@collect.stats}
              * The next two methods are overridden to protect against
              * an unscrupulous List whose contains(Object o) method senses
              * when o is a Map.Entry, and calls o.setValue.
-             * {@description.close}
              */
             public boolean containsAll(Collection<?> coll) {
-                Iterator<?> e = coll.iterator();
-                while (e.hasNext())
-                    if (!contains(e.next())) // Invokes safe contains() above
+                for (Object e : coll) {
+                    if (!contains(e)) // Invokes safe contains() above
                         return false;
+                }
                 return true;
             }
             public boolean equals(Object o) {
@@ -1541,46 +1727,46 @@ public class Collections {
 
                 if (!(o instanceof Set))
                     return false;
-                Set s = (Set) o;
+                Set<?> s = (Set<?>) o;
                 if (s.size() != c.size())
                     return false;
                 return containsAll(s); // Invokes safe containsAll() above
             }
 
-            /** {@collect.stats} 
-             * {@description.open}
+            /** {@collect.stats}
              * This "wrapper class" serves two purposes: it prevents
              * the client from modifying the backing Map, by short-circuiting
              * the setValue method, and it protects the backing Map against
              * an ill-behaved Map.Entry that attempts to modify another
              * Map Entry when asked to perform an equality check.
-             * {@description.close}
              */
             private static class UnmodifiableEntry<K,V> implements Map.Entry<K,V> {
                 private Map.Entry<? extends K, ? extends V> e;
 
-                UnmodifiableEntry(Map.Entry<? extends K, ? extends V> e) {this.e = e;}
+                UnmodifiableEntry(Map.Entry<? extends K, ? extends V> e)
+                        {this.e = Objects.requireNonNull(e);}
 
-                public K getKey()         {return e.getKey();}
-                public V getValue()  {return e.getValue();}
+                public K getKey()        {return e.getKey();}
+                public V getValue()      {return e.getValue();}
                 public V setValue(V value) {
                     throw new UnsupportedOperationException();
                 }
-                public int hashCode()     {return e.hashCode();}
+                public int hashCode()    {return e.hashCode();}
                 public boolean equals(Object o) {
+                    if (this == o)
+                        return true;
                     if (!(o instanceof Map.Entry))
                         return false;
-                    Map.Entry t = (Map.Entry)o;
+                    Map.Entry<?,?> t = (Map.Entry<?,?>)o;
                     return eq(e.getKey(),   t.getKey()) &&
                            eq(e.getValue(), t.getValue());
                 }
-                public String toString()  {return e.toString();}
+                public String toString() {return e.toString();}
             }
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an unmodifiable view of the specified sorted map.  This method
      * allows modules to provide users with "read-only" access to internal
      * sorted maps.  Query operations on the returned sorted map "read through"
@@ -1591,17 +1777,18 @@ public class Collections {
      *
      * The returned sorted map will be serializable if the specified sorted map
      * is serializable.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param m the sorted map for which an unmodifiable view is to be
      *        returned.
      * @return an unmodifiable view of the specified sorted map.
      */
     public static <K,V> SortedMap<K,V> unmodifiableSortedMap(SortedMap<K, ? extends V> m) {
-        return new UnmodifiableSortedMap<K,V>(m);
+        return new UnmodifiableSortedMap<>(m);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class UnmodifiableSortedMap<K,V>
@@ -1611,73 +1798,204 @@ public class Collections {
 
         private final SortedMap<K, ? extends V> sm;
 
-        UnmodifiableSortedMap(SortedMap<K, ? extends V> m) {super(m); sm = m;}
-
-        public Comparator<? super K> comparator() {return sm.comparator();}
-
-        public SortedMap<K,V> subMap(K fromKey, K toKey) {
-            return new UnmodifiableSortedMap<K,V>(sm.subMap(fromKey, toKey));
-        }
-        public SortedMap<K,V> headMap(K toKey) {
-            return new UnmodifiableSortedMap<K,V>(sm.headMap(toKey));
-        }
-        public SortedMap<K,V> tailMap(K fromKey) {
-            return new UnmodifiableSortedMap<K,V>(sm.tailMap(fromKey));
-        }
-
-        public K firstKey()           {return sm.firstKey();}
-        public K lastKey()            {return sm.lastKey();}
+        UnmodifiableSortedMap(SortedMap<K, ? extends V> m) {super(m); sm = m; }
+        public Comparator<? super K> comparator()   { return sm.comparator(); }
+        public SortedMap<K,V> subMap(K fromKey, K toKey)
+             { return new UnmodifiableSortedMap<>(sm.subMap(fromKey, toKey)); }
+        public SortedMap<K,V> headMap(K toKey)
+                     { return new UnmodifiableSortedMap<>(sm.headMap(toKey)); }
+        public SortedMap<K,V> tailMap(K fromKey)
+                   { return new UnmodifiableSortedMap<>(sm.tailMap(fromKey)); }
+        public K firstKey()                           { return sm.firstKey(); }
+        public K lastKey()                             { return sm.lastKey(); }
     }
 
+    /** {@collect.stats}
+     * Returns an unmodifiable view of the specified navigable map.  This method
+     * allows modules to provide users with "read-only" access to internal
+     * navigable maps.  Query operations on the returned navigable map "read
+     * through" to the specified navigable map.  Attempts to modify the returned
+     * navigable map, whether direct, via its collection views, or via its
+     * {@code subMap}, {@code headMap}, or {@code tailMap} views, result in
+     * an {@code UnsupportedOperationException}.<p>
+     *
+     * The returned navigable map will be serializable if the specified
+     * navigable map is serializable.
+     *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
+     * @param m the navigable map for which an unmodifiable view is to be
+     *        returned
+     * @return an unmodifiable view of the specified navigable map
+     * @since 1.8
+     */
+    public static <K,V> NavigableMap<K,V> unmodifiableNavigableMap(NavigableMap<K, ? extends V> m) {
+        return new UnmodifiableNavigableMap<>(m);
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
+    static class UnmodifiableNavigableMap<K,V>
+          extends UnmodifiableSortedMap<K,V>
+          implements NavigableMap<K,V>, Serializable {
+        private static final long serialVersionUID = -4858195264774772197L;
+
+        /** {@collect.stats}
+         * A class for the {@link EMPTY_NAVIGABLE_MAP} which needs readResolve
+         * to preserve singleton property.
+         *
+         * @param <K> type of keys, if there were any, and of bounds
+         * @param <V> type of values, if there were any
+         */
+        private static class EmptyNavigableMap<K,V> extends UnmodifiableNavigableMap<K,V>
+            implements Serializable {
+
+            private static final long serialVersionUID = -2239321462712562324L;
+
+            EmptyNavigableMap()                       { super(new TreeMap<K,V>()); }
+
+            @Override
+            public NavigableSet<K> navigableKeySet()
+                                                { return emptyNavigableSet(); }
+
+            private Object readResolve()        { return EMPTY_NAVIGABLE_MAP; }
+        }
+
+        /** {@collect.stats}
+         * Singleton for {@link emptyNavigableMap()} which is also immutable.
+         */
+        private static final EmptyNavigableMap<?,?> EMPTY_NAVIGABLE_MAP =
+            new EmptyNavigableMap<>();
+
+        /** {@collect.stats}
+         * The instance we wrap and protect.
+         */
+        private final NavigableMap<K, ? extends V> nm;
+
+        UnmodifiableNavigableMap(NavigableMap<K, ? extends V> m)
+                                                            {super(m); nm = m;}
+
+        public K lowerKey(K key)                   { return nm.lowerKey(key); }
+        public K floorKey(K key)                   { return nm.floorKey(key); }
+        public K ceilingKey(K key)               { return nm.ceilingKey(key); }
+        public K higherKey(K key)                 { return nm.higherKey(key); }
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> lowerEntry(K key) {
+            Entry<K,V> lower = (Entry<K, V>) nm.lowerEntry(key);
+            return (null != lower)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(lower)
+                : null;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> floorEntry(K key) {
+            Entry<K,V> floor = (Entry<K, V>) nm.floorEntry(key);
+            return (null != floor)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(floor)
+                : null;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> ceilingEntry(K key) {
+            Entry<K,V> ceiling = (Entry<K, V>) nm.ceilingEntry(key);
+            return (null != ceiling)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(ceiling)
+                : null;
+        }
+
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> higherEntry(K key) {
+            Entry<K,V> higher = (Entry<K, V>) nm.higherEntry(key);
+            return (null != higher)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(higher)
+                : null;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> firstEntry() {
+            Entry<K,V> first = (Entry<K, V>) nm.firstEntry();
+            return (null != first)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(first)
+                : null;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Entry<K, V> lastEntry() {
+            Entry<K,V> last = (Entry<K, V>) nm.lastEntry();
+            return (null != last)
+                ? new UnmodifiableEntrySet.UnmodifiableEntry<>(last)
+                : null;
+        }
+
+        public Entry<K, V> pollFirstEntry()
+                                 { throw new UnsupportedOperationException(); }
+        public Entry<K, V> pollLastEntry()
+                                 { throw new UnsupportedOperationException(); }
+        public NavigableMap<K, V> descendingMap()
+                       { return unmodifiableNavigableMap(nm.descendingMap()); }
+        public NavigableSet<K> navigableKeySet()
+                     { return unmodifiableNavigableSet(nm.navigableKeySet()); }
+        public NavigableSet<K> descendingKeySet()
+                    { return unmodifiableNavigableSet(nm.descendingKeySet()); }
+
+        public NavigableMap<K, V> subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive) {
+            return unmodifiableNavigableMap(
+                nm.subMap(fromKey, fromInclusive, toKey, toInclusive));
+        }
+
+        public NavigableMap<K, V> headMap(K toKey, boolean inclusive)
+             { return unmodifiableNavigableMap(nm.headMap(toKey, inclusive)); }
+        public NavigableMap<K, V> tailMap(K fromKey, boolean inclusive)
+           { return unmodifiableNavigableMap(nm.tailMap(fromKey, inclusive)); }
+    }
 
     // Synch Wrappers
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) collection backed by the specified
      * collection.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing collection is accomplished
      * through the returned collection.<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
-     * collection when iterating over it:
+     * collection when traversing it via {@link Iterator}, {@link Spliterator}
+     * or {@link Stream}:
      * <pre>
      *  Collection c = Collections.synchronizedCollection(myCollection);
      *     ...
-     *  synchronized(c) {
+     *  synchronized (c) {
      *      Iterator i = c.iterator(); // Must be in the synchronized block
      *      while (i.hasNext())
      *         foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
-     * <p>The returned collection does <i>not</i> pass the <tt>hashCode</tt>
-     * and <tt>equals</tt> operations through to the backing collection, but
-     * relies on <tt>Object</tt>'s equals and hashCode methods.  This is
+     * <p>The returned collection does <i>not</i> pass the {@code hashCode}
+     * and {@code equals} operations through to the backing collection, but
+     * relies on {@code Object}'s equals and hashCode methods.  This is
      * necessary to preserve the contracts of these operations in the case
      * that the backing collection is a set or a list.<p>
      *
      * The returned collection will be serializable if the specified collection
      * is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param  c the collection to be "wrapped" in a synchronized collection.
      * @return a synchronized view of the specified collection.
      */
     public static <T> Collection<T> synchronizedCollection(Collection<T> c) {
-        return new SynchronizedCollection<T>(c);
+        return new SynchronizedCollection<>(c);
     }
 
     static <T> Collection<T> synchronizedCollection(Collection<T> c, Object mutex) {
-        return new SynchronizedCollection<T>(c, mutex);
+        return new SynchronizedCollection<>(c, mutex);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedCollection<E> implements Collection<E>, Serializable {
@@ -1687,30 +2005,29 @@ public class Collections {
         final Object mutex;     // Object on which to synchronize
 
         SynchronizedCollection(Collection<E> c) {
-            if (c==null)
-                throw new NullPointerException();
-            this.c = c;
+            this.c = Objects.requireNonNull(c);
             mutex = this;
         }
+
         SynchronizedCollection(Collection<E> c, Object mutex) {
-            this.c = c;
-            this.mutex = mutex;
+            this.c = Objects.requireNonNull(c);
+            this.mutex = Objects.requireNonNull(mutex);
         }
 
         public int size() {
-            synchronized(mutex) {return c.size();}
+            synchronized (mutex) {return c.size();}
         }
         public boolean isEmpty() {
-            synchronized(mutex) {return c.isEmpty();}
+            synchronized (mutex) {return c.isEmpty();}
         }
         public boolean contains(Object o) {
-            synchronized(mutex) {return c.contains(o);}
+            synchronized (mutex) {return c.contains(o);}
         }
         public Object[] toArray() {
-            synchronized(mutex) {return c.toArray();}
+            synchronized (mutex) {return c.toArray();}
         }
         public <T> T[] toArray(T[] a) {
-            synchronized(mutex) {return c.toArray(a);}
+            synchronized (mutex) {return c.toArray(a);}
         }
 
         public Iterator<E> iterator() {
@@ -1718,75 +2035,91 @@ public class Collections {
         }
 
         public boolean add(E e) {
-            synchronized(mutex) {return c.add(e);}
+            synchronized (mutex) {return c.add(e);}
         }
         public boolean remove(Object o) {
-            synchronized(mutex) {return c.remove(o);}
+            synchronized (mutex) {return c.remove(o);}
         }
 
         public boolean containsAll(Collection<?> coll) {
-            synchronized(mutex) {return c.containsAll(coll);}
+            synchronized (mutex) {return c.containsAll(coll);}
         }
         public boolean addAll(Collection<? extends E> coll) {
-            synchronized(mutex) {return c.addAll(coll);}
+            synchronized (mutex) {return c.addAll(coll);}
         }
         public boolean removeAll(Collection<?> coll) {
-            synchronized(mutex) {return c.removeAll(coll);}
+            synchronized (mutex) {return c.removeAll(coll);}
         }
         public boolean retainAll(Collection<?> coll) {
-            synchronized(mutex) {return c.retainAll(coll);}
+            synchronized (mutex) {return c.retainAll(coll);}
         }
         public void clear() {
-            synchronized(mutex) {c.clear();}
+            synchronized (mutex) {c.clear();}
         }
         public String toString() {
-            synchronized(mutex) {return c.toString();}
+            synchronized (mutex) {return c.toString();}
+        }
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> consumer) {
+            synchronized (mutex) {c.forEach(consumer);}
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            synchronized (mutex) {return c.removeIf(filter);}
+        }
+        @Override
+        public Spliterator<E> spliterator() {
+            return c.spliterator(); // Must be manually synched by user!
+        }
+        @Override
+        public Stream<E> stream() {
+            return c.stream(); // Must be manually synched by user!
+        }
+        @Override
+        public Stream<E> parallelStream() {
+            return c.parallelStream(); // Must be manually synched by user!
         }
         private void writeObject(ObjectOutputStream s) throws IOException {
-            synchronized(mutex) {s.defaultWriteObject();}
+            synchronized (mutex) {s.defaultWriteObject();}
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) set backed by the specified
      * set.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing set is accomplished
      * through the returned set.<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * set when iterating over it:
      * <pre>
      *  Set s = Collections.synchronizedSet(new HashSet());
      *      ...
-     *  synchronized(s) {
+     *  synchronized (s) {
      *      Iterator i = s.iterator(); // Must be in the synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The returned set will be serializable if the specified set is
      * serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the set
      * @param  s the set to be "wrapped" in a synchronized set.
      * @return a synchronized view of the specified set.
      */
     public static <T> Set<T> synchronizedSet(Set<T> s) {
-        return new SynchronizedSet<T>(s);
+        return new SynchronizedSet<>(s);
     }
 
     static <T> Set<T> synchronizedSet(Set<T> s, Object mutex) {
-        return new SynchronizedSet<T>(s, mutex);
+        return new SynchronizedSet<>(s, mutex);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedSet<E>
@@ -1802,29 +2135,28 @@ public class Collections {
         }
 
         public boolean equals(Object o) {
-            synchronized(mutex) {return c.equals(o);}
+            if (this == o)
+                return true;
+            synchronized (mutex) {return c.equals(o);}
         }
         public int hashCode() {
-            synchronized(mutex) {return c.hashCode();}
+            synchronized (mutex) {return c.hashCode();}
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) sorted set backed by the specified
      * sorted set.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing sorted set is accomplished
      * through the returned sorted set (or its views).<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * sorted set when iterating over it or any of its <tt>subSet</tt>,
      * <tt>headSet</tt>, or <tt>tailSet</tt> views.
      * <pre>
      *  SortedSet s = Collections.synchronizedSortedSet(new TreeSet());
      *      ...
-     *  synchronized(s) {
+     *  synchronized (s) {
      *      Iterator i = s.iterator(); // Must be in the synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
@@ -1835,28 +2167,26 @@ public class Collections {
      *  SortedSet s = Collections.synchronizedSortedSet(new TreeSet());
      *  SortedSet s2 = s.headSet(foo);
      *      ...
-     *  synchronized(s) {  // Note: s, not s2!!!
+     *  synchronized (s) {  // Note: s, not s2!!!
      *      Iterator i = s2.iterator(); // Must be in the synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The returned sorted set will be serializable if the specified
      * sorted set is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the set
      * @param  s the sorted set to be "wrapped" in a synchronized sorted set.
      * @return a synchronized view of the specified sorted set.
      */
     public static <T> SortedSet<T> synchronizedSortedSet(SortedSet<T> s) {
-        return new SynchronizedSortedSet<T>(s);
+        return new SynchronizedSortedSet<>(s);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedSortedSet<E>
@@ -1865,7 +2195,7 @@ public class Collections {
     {
         private static final long serialVersionUID = 8695801310862127406L;
 
-        final private SortedSet<E> ss;
+        private final SortedSet<E> ss;
 
         SynchronizedSortedSet(SortedSet<E> s) {
             super(s);
@@ -1877,78 +2207,188 @@ public class Collections {
         }
 
         public Comparator<? super E> comparator() {
-            synchronized(mutex) {return ss.comparator();}
+            synchronized (mutex) {return ss.comparator();}
         }
 
         public SortedSet<E> subSet(E fromElement, E toElement) {
-            synchronized(mutex) {
-                return new SynchronizedSortedSet<E>(
+            synchronized (mutex) {
+                return new SynchronizedSortedSet<>(
                     ss.subSet(fromElement, toElement), mutex);
             }
         }
         public SortedSet<E> headSet(E toElement) {
-            synchronized(mutex) {
-                return new SynchronizedSortedSet<E>(ss.headSet(toElement), mutex);
+            synchronized (mutex) {
+                return new SynchronizedSortedSet<>(ss.headSet(toElement), mutex);
             }
         }
         public SortedSet<E> tailSet(E fromElement) {
-            synchronized(mutex) {
-               return new SynchronizedSortedSet<E>(ss.tailSet(fromElement),mutex);
+            synchronized (mutex) {
+               return new SynchronizedSortedSet<>(ss.tailSet(fromElement),mutex);
             }
         }
 
         public E first() {
-            synchronized(mutex) {return ss.first();}
+            synchronized (mutex) {return ss.first();}
         }
         public E last() {
-            synchronized(mutex) {return ss.last();}
+            synchronized (mutex) {return ss.last();}
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     * Returns a synchronized (thread-safe) navigable set backed by the
+     * specified navigable set.  In order to guarantee serial access, it is
+     * critical that <strong>all</strong> access to the backing navigable set is
+     * accomplished through the returned navigable set (or its views).<p>
+     *
+     * It is imperative that the user manually synchronize on the returned
+     * navigable set when iterating over it or any of its {@code subSet},
+     * {@code headSet}, or {@code tailSet} views.
+     * <pre>
+     *  NavigableSet s = Collections.synchronizedNavigableSet(new TreeSet());
+     *      ...
+     *  synchronized (s) {
+     *      Iterator i = s.iterator(); // Must be in the synchronized block
+     *      while (i.hasNext())
+     *          foo(i.next());
+     *  }
+     * </pre>
+     * or:
+     * <pre>
+     *  NavigableSet s = Collections.synchronizedNavigableSet(new TreeSet());
+     *  NavigableSet s2 = s.headSet(foo, true);
+     *      ...
+     *  synchronized (s) {  // Note: s, not s2!!!
+     *      Iterator i = s2.iterator(); // Must be in the synchronized block
+     *      while (i.hasNext())
+     *          foo(i.next());
+     *  }
+     * </pre>
+     * Failure to follow this advice may result in non-deterministic behavior.
+     *
+     * <p>The returned navigable set will be serializable if the specified
+     * navigable set is serializable.
+     *
+     * @param  <T> the class of the objects in the set
+     * @param  s the navigable set to be "wrapped" in a synchronized navigable
+     * set
+     * @return a synchronized view of the specified navigable set
+     * @since 1.8
+     */
+    public static <T> NavigableSet<T> synchronizedNavigableSet(NavigableSet<T> s) {
+        return new SynchronizedNavigableSet<>(s);
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
+    static class SynchronizedNavigableSet<E>
+        extends SynchronizedSortedSet<E>
+        implements NavigableSet<E>
+    {
+        private static final long serialVersionUID = -5505529816273629798L;
+
+        private final NavigableSet<E> ns;
+
+        SynchronizedNavigableSet(NavigableSet<E> s) {
+            super(s);
+            ns = s;
+        }
+
+        SynchronizedNavigableSet(NavigableSet<E> s, Object mutex) {
+            super(s, mutex);
+            ns = s;
+        }
+        public E lower(E e)      { synchronized (mutex) {return ns.lower(e);} }
+        public E floor(E e)      { synchronized (mutex) {return ns.floor(e);} }
+        public E ceiling(E e)  { synchronized (mutex) {return ns.ceiling(e);} }
+        public E higher(E e)    { synchronized (mutex) {return ns.higher(e);} }
+        public E pollFirst()  { synchronized (mutex) {return ns.pollFirst();} }
+        public E pollLast()    { synchronized (mutex) {return ns.pollLast();} }
+
+        public NavigableSet<E> descendingSet() {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.descendingSet(), mutex);
+            }
+        }
+
+        public Iterator<E> descendingIterator()
+                 { synchronized (mutex) { return descendingSet().iterator(); } }
+
+        public NavigableSet<E> subSet(E fromElement, E toElement) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.subSet(fromElement, true, toElement, false), mutex);
+            }
+        }
+        public NavigableSet<E> headSet(E toElement) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.headSet(toElement, false), mutex);
+            }
+        }
+        public NavigableSet<E> tailSet(E fromElement) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.tailSet(fromElement, true), mutex);
+            }
+        }
+
+        public NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.subSet(fromElement, fromInclusive, toElement, toInclusive), mutex);
+            }
+        }
+
+        public NavigableSet<E> headSet(E toElement, boolean inclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.headSet(toElement, inclusive), mutex);
+            }
+        }
+
+        public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(ns.tailSet(fromElement, inclusive), mutex);
+            }
+        }
+    }
+
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) list backed by the specified
      * list.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing list is accomplished
      * through the returned list.<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * list when iterating over it:
      * <pre>
      *  List list = Collections.synchronizedList(new ArrayList());
      *      ...
-     *  synchronized(list) {
+     *  synchronized (list) {
      *      Iterator i = list.iterator(); // Must be in synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The returned list will be serializable if the specified list is
      * serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param  list the list to be "wrapped" in a synchronized list.
      * @return a synchronized view of the specified list.
      */
     public static <T> List<T> synchronizedList(List<T> list) {
         return (list instanceof RandomAccess ?
-                new SynchronizedRandomAccessList<T>(list) :
-                new SynchronizedList<T>(list));
+                new SynchronizedRandomAccessList<>(list) :
+                new SynchronizedList<>(list));
     }
 
     static <T> List<T> synchronizedList(List<T> list, Object mutex) {
         return (list instanceof RandomAccess ?
-                new SynchronizedRandomAccessList<T>(list, mutex) :
-                new SynchronizedList<T>(list, mutex));
+                new SynchronizedRandomAccessList<>(list, mutex) :
+                new SynchronizedList<>(list, mutex));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedList<E>
@@ -1968,34 +2408,36 @@ public class Collections {
         }
 
         public boolean equals(Object o) {
-            synchronized(mutex) {return list.equals(o);}
+            if (this == o)
+                return true;
+            synchronized (mutex) {return list.equals(o);}
         }
         public int hashCode() {
-            synchronized(mutex) {return list.hashCode();}
+            synchronized (mutex) {return list.hashCode();}
         }
 
         public E get(int index) {
-            synchronized(mutex) {return list.get(index);}
+            synchronized (mutex) {return list.get(index);}
         }
         public E set(int index, E element) {
-            synchronized(mutex) {return list.set(index, element);}
+            synchronized (mutex) {return list.set(index, element);}
         }
         public void add(int index, E element) {
-            synchronized(mutex) {list.add(index, element);}
+            synchronized (mutex) {list.add(index, element);}
         }
         public E remove(int index) {
-            synchronized(mutex) {return list.remove(index);}
+            synchronized (mutex) {return list.remove(index);}
         }
 
         public int indexOf(Object o) {
-            synchronized(mutex) {return list.indexOf(o);}
+            synchronized (mutex) {return list.indexOf(o);}
         }
         public int lastIndexOf(Object o) {
-            synchronized(mutex) {return list.lastIndexOf(o);}
+            synchronized (mutex) {return list.lastIndexOf(o);}
         }
 
         public boolean addAll(int index, Collection<? extends E> c) {
-            synchronized(mutex) {return list.addAll(index, c);}
+            synchronized (mutex) {return list.addAll(index, c);}
         }
 
         public ListIterator<E> listIterator() {
@@ -2007,14 +2449,22 @@ public class Collections {
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            synchronized(mutex) {
-                return new SynchronizedList<E>(list.subList(fromIndex, toIndex),
+            synchronized (mutex) {
+                return new SynchronizedList<>(list.subList(fromIndex, toIndex),
                                             mutex);
             }
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        @Override
+        public void replaceAll(UnaryOperator<E> operator) {
+            synchronized (mutex) {list.replaceAll(operator);}
+        }
+        @Override
+        public void sort(Comparator<? super E> c) {
+            synchronized (mutex) {list.sort(c);}
+        }
+
+        /** {@collect.stats}
          * SynchronizedRandomAccessList instances are serialized as
          * SynchronizedList instances to allow them to be deserialized
          * in pre-1.4 JREs (which do not have SynchronizedRandomAccessList).
@@ -2025,16 +2475,15 @@ public class Collections {
          * Note: Unfortunately, SynchronizedRandomAccessList instances
          * serialized in 1.4.1 and deserialized in 1.4 will become
          * SynchronizedList instances, as this method was missing in 1.4.
-         * {@description.close}
          */
         private Object readResolve() {
             return (list instanceof RandomAccess
-                    ? new SynchronizedRandomAccessList<E>(list)
+                    ? new SynchronizedRandomAccessList<>(list)
                     : this);
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedRandomAccessList<E>
@@ -2050,36 +2499,31 @@ public class Collections {
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            synchronized(mutex) {
-                return new SynchronizedRandomAccessList<E>(
+            synchronized (mutex) {
+                return new SynchronizedRandomAccessList<>(
                     list.subList(fromIndex, toIndex), mutex);
             }
         }
 
         private static final long serialVersionUID = 1530674583602358482L;
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Allows instances to be deserialized in pre-1.4 JREs (which do
          * not have SynchronizedRandomAccessList).  SynchronizedList has
          * a readResolve method that inverts this transformation upon
          * deserialization.
-         * {@description.close}
          */
         private Object writeReplace() {
-            return new SynchronizedList<E>(list);
+            return new SynchronizedList<>(list);
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) map backed by the specified
      * map.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing map is accomplished
      * through the returned map.<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedMap}
      * It is imperative that the user manually synchronize on the returned
      * map when iterating over any of its collection views:
      * <pre>
@@ -2087,28 +2531,27 @@ public class Collections {
      *      ...
      *  Set s = m.keySet();  // Needn't be in synchronized block
      *      ...
-     *  synchronized(m) {  // Synchronizing on m, not s!
+     *  synchronized (m) {  // Synchronizing on m, not s!
      *      Iterator i = s.iterator(); // Must be in synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The returned map will be serializable if the specified map is
      * serializable.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param  m the map to be "wrapped" in a synchronized map.
      * @return a synchronized view of the specified map.
      */
     public static <K,V> Map<K,V> synchronizedMap(Map<K,V> m) {
-        return new SynchronizedMap<K,V>(m);
+        return new SynchronizedMap<>(m);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class SynchronizedMap<K,V>
@@ -2119,9 +2562,7 @@ public class Collections {
         final Object      mutex;        // Object on which to synchronize
 
         SynchronizedMap(Map<K,V> m) {
-            if (m==null)
-                throw new NullPointerException();
-            this.m = m;
+            this.m = Objects.requireNonNull(m);
             mutex = this;
         }
 
@@ -2131,85 +2572,135 @@ public class Collections {
         }
 
         public int size() {
-            synchronized(mutex) {return m.size();}
+            synchronized (mutex) {return m.size();}
         }
         public boolean isEmpty() {
-            synchronized(mutex) {return m.isEmpty();}
+            synchronized (mutex) {return m.isEmpty();}
         }
         public boolean containsKey(Object key) {
-            synchronized(mutex) {return m.containsKey(key);}
+            synchronized (mutex) {return m.containsKey(key);}
         }
         public boolean containsValue(Object value) {
-            synchronized(mutex) {return m.containsValue(value);}
+            synchronized (mutex) {return m.containsValue(value);}
         }
         public V get(Object key) {
-            synchronized(mutex) {return m.get(key);}
+            synchronized (mutex) {return m.get(key);}
         }
 
         public V put(K key, V value) {
-            synchronized(mutex) {return m.put(key, value);}
+            synchronized (mutex) {return m.put(key, value);}
         }
         public V remove(Object key) {
-            synchronized(mutex) {return m.remove(key);}
+            synchronized (mutex) {return m.remove(key);}
         }
         public void putAll(Map<? extends K, ? extends V> map) {
-            synchronized(mutex) {m.putAll(map);}
+            synchronized (mutex) {m.putAll(map);}
         }
         public void clear() {
-            synchronized(mutex) {m.clear();}
+            synchronized (mutex) {m.clear();}
         }
 
-        private transient Set<K> keySet = null;
-        private transient Set<Map.Entry<K,V>> entrySet = null;
-        private transient Collection<V> values = null;
+        private transient Set<K> keySet;
+        private transient Set<Map.Entry<K,V>> entrySet;
+        private transient Collection<V> values;
 
         public Set<K> keySet() {
-            synchronized(mutex) {
+            synchronized (mutex) {
                 if (keySet==null)
-                    keySet = new SynchronizedSet<K>(m.keySet(), mutex);
+                    keySet = new SynchronizedSet<>(m.keySet(), mutex);
                 return keySet;
             }
         }
 
         public Set<Map.Entry<K,V>> entrySet() {
-            synchronized(mutex) {
+            synchronized (mutex) {
                 if (entrySet==null)
-                    entrySet = new SynchronizedSet<Map.Entry<K,V>>(m.entrySet(), mutex);
+                    entrySet = new SynchronizedSet<>(m.entrySet(), mutex);
                 return entrySet;
             }
         }
 
         public Collection<V> values() {
-            synchronized(mutex) {
+            synchronized (mutex) {
                 if (values==null)
-                    values = new SynchronizedCollection<V>(m.values(), mutex);
+                    values = new SynchronizedCollection<>(m.values(), mutex);
                 return values;
             }
         }
 
         public boolean equals(Object o) {
-            synchronized(mutex) {return m.equals(o);}
+            if (this == o)
+                return true;
+            synchronized (mutex) {return m.equals(o);}
         }
         public int hashCode() {
-            synchronized(mutex) {return m.hashCode();}
+            synchronized (mutex) {return m.hashCode();}
         }
         public String toString() {
-            synchronized(mutex) {return m.toString();}
+            synchronized (mutex) {return m.toString();}
         }
+
+        // Override default methods in Map
+        @Override
+        public V getOrDefault(Object k, V defaultValue) {
+            synchronized (mutex) {return m.getOrDefault(k, defaultValue);}
+        }
+        @Override
+        public void forEach(BiConsumer<? super K, ? super V> action) {
+            synchronized (mutex) {m.forEach(action);}
+        }
+        @Override
+        public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+            synchronized (mutex) {m.replaceAll(function);}
+        }
+        @Override
+        public V putIfAbsent(K key, V value) {
+            synchronized (mutex) {return m.putIfAbsent(key, value);}
+        }
+        @Override
+        public boolean remove(Object key, Object value) {
+            synchronized (mutex) {return m.remove(key, value);}
+        }
+        @Override
+        public boolean replace(K key, V oldValue, V newValue) {
+            synchronized (mutex) {return m.replace(key, oldValue, newValue);}
+        }
+        @Override
+        public V replace(K key, V value) {
+            synchronized (mutex) {return m.replace(key, value);}
+        }
+        @Override
+        public V computeIfAbsent(K key,
+                Function<? super K, ? extends V> mappingFunction) {
+            synchronized (mutex) {return m.computeIfAbsent(key, mappingFunction);}
+        }
+        @Override
+        public V computeIfPresent(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            synchronized (mutex) {return m.computeIfPresent(key, remappingFunction);}
+        }
+        @Override
+        public V compute(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            synchronized (mutex) {return m.compute(key, remappingFunction);}
+        }
+        @Override
+        public V merge(K key, V value,
+                BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            synchronized (mutex) {return m.merge(key, value, remappingFunction);}
+        }
+
         private void writeObject(ObjectOutputStream s) throws IOException {
-            synchronized(mutex) {s.defaultWriteObject();}
+            synchronized (mutex) {s.defaultWriteObject();}
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a synchronized (thread-safe) sorted map backed by the specified
      * sorted map.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing sorted map is accomplished
      * through the returned sorted map (or its views).<p>
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_SynchronizedMap}
      * It is imperative that the user manually synchronize on the returned
      * sorted map when iterating over any of its collection views, or the
      * collections views of any of its <tt>subMap</tt>, <tt>headMap</tt> or
@@ -2219,7 +2710,7 @@ public class Collections {
      *      ...
      *  Set s = m.keySet();  // Needn't be in synchronized block
      *      ...
-     *  synchronized(m) {  // Synchronizing on m, not s!
+     *  synchronized (m) {  // Synchronizing on m, not s!
      *      Iterator i = s.iterator(); // Must be in synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
@@ -2232,29 +2723,27 @@ public class Collections {
      *      ...
      *  Set s2 = m2.keySet();  // Needn't be in synchronized block
      *      ...
-     *  synchronized(m) {  // Synchronizing on m, not m2 or s2!
+     *  synchronized (m) {  // Synchronizing on m, not m2 or s2!
      *      Iterator i = s.iterator(); // Must be in synchronized block
      *      while (i.hasNext())
      *          foo(i.next());
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>The returned sorted map will be serializable if the specified
      * sorted map is serializable.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param  m the sorted map to be "wrapped" in a synchronized sorted map.
      * @return a synchronized view of the specified sorted map.
      */
     public static <K,V> SortedMap<K,V> synchronizedSortedMap(SortedMap<K,V> m) {
-        return new SynchronizedSortedMap<K,V>(m);
+        return new SynchronizedSortedMap<>(m);
     }
 
-
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class SynchronizedSortedMap<K,V>
@@ -2275,38 +2764,197 @@ public class Collections {
         }
 
         public Comparator<? super K> comparator() {
-            synchronized(mutex) {return sm.comparator();}
+            synchronized (mutex) {return sm.comparator();}
         }
 
         public SortedMap<K,V> subMap(K fromKey, K toKey) {
-            synchronized(mutex) {
-                return new SynchronizedSortedMap<K,V>(
+            synchronized (mutex) {
+                return new SynchronizedSortedMap<>(
                     sm.subMap(fromKey, toKey), mutex);
             }
         }
         public SortedMap<K,V> headMap(K toKey) {
-            synchronized(mutex) {
-                return new SynchronizedSortedMap<K,V>(sm.headMap(toKey), mutex);
+            synchronized (mutex) {
+                return new SynchronizedSortedMap<>(sm.headMap(toKey), mutex);
             }
         }
         public SortedMap<K,V> tailMap(K fromKey) {
-            synchronized(mutex) {
-               return new SynchronizedSortedMap<K,V>(sm.tailMap(fromKey),mutex);
+            synchronized (mutex) {
+               return new SynchronizedSortedMap<>(sm.tailMap(fromKey),mutex);
             }
         }
 
         public K firstKey() {
-            synchronized(mutex) {return sm.firstKey();}
+            synchronized (mutex) {return sm.firstKey();}
         }
         public K lastKey() {
-            synchronized(mutex) {return sm.lastKey();}
+            synchronized (mutex) {return sm.lastKey();}
+        }
+    }
+
+    /** {@collect.stats}
+     * Returns a synchronized (thread-safe) navigable map backed by the
+     * specified navigable map.  In order to guarantee serial access, it is
+     * critical that <strong>all</strong> access to the backing navigable map is
+     * accomplished through the returned navigable map (or its views).<p>
+     *
+     * It is imperative that the user manually synchronize on the returned
+     * navigable map when iterating over any of its collection views, or the
+     * collections views of any of its {@code subMap}, {@code headMap} or
+     * {@code tailMap} views.
+     * <pre>
+     *  NavigableMap m = Collections.synchronizedNavigableMap(new TreeMap());
+     *      ...
+     *  Set s = m.keySet();  // Needn't be in synchronized block
+     *      ...
+     *  synchronized (m) {  // Synchronizing on m, not s!
+     *      Iterator i = s.iterator(); // Must be in synchronized block
+     *      while (i.hasNext())
+     *          foo(i.next());
+     *  }
+     * </pre>
+     * or:
+     * <pre>
+     *  NavigableMap m = Collections.synchronizedNavigableMap(new TreeMap());
+     *  NavigableMap m2 = m.subMap(foo, true, bar, false);
+     *      ...
+     *  Set s2 = m2.keySet();  // Needn't be in synchronized block
+     *      ...
+     *  synchronized (m) {  // Synchronizing on m, not m2 or s2!
+     *      Iterator i = s.iterator(); // Must be in synchronized block
+     *      while (i.hasNext())
+     *          foo(i.next());
+     *  }
+     * </pre>
+     * Failure to follow this advice may result in non-deterministic behavior.
+     *
+     * <p>The returned navigable map will be serializable if the specified
+     * navigable map is serializable.
+     *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
+     * @param  m the navigable map to be "wrapped" in a synchronized navigable
+     *              map
+     * @return a synchronized view of the specified navigable map.
+     * @since 1.8
+     */
+    public static <K,V> NavigableMap<K,V> synchronizedNavigableMap(NavigableMap<K,V> m) {
+        return new SynchronizedNavigableMap<>(m);
+    }
+
+    /** {@collect.stats}
+     * A synchronized NavigableMap.
+     *
+     * @serial include
+     */
+    static class SynchronizedNavigableMap<K,V>
+        extends SynchronizedSortedMap<K,V>
+        implements NavigableMap<K,V>
+    {
+        private static final long serialVersionUID = 699392247599746807L;
+
+        private final NavigableMap<K,V> nm;
+
+        SynchronizedNavigableMap(NavigableMap<K,V> m) {
+            super(m);
+            nm = m;
+        }
+        SynchronizedNavigableMap(NavigableMap<K,V> m, Object mutex) {
+            super(m, mutex);
+            nm = m;
+        }
+
+        public Entry<K, V> lowerEntry(K key)
+                        { synchronized (mutex) { return nm.lowerEntry(key); } }
+        public K lowerKey(K key)
+                          { synchronized (mutex) { return nm.lowerKey(key); } }
+        public Entry<K, V> floorEntry(K key)
+                        { synchronized (mutex) { return nm.floorEntry(key); } }
+        public K floorKey(K key)
+                          { synchronized (mutex) { return nm.floorKey(key); } }
+        public Entry<K, V> ceilingEntry(K key)
+                      { synchronized (mutex) { return nm.ceilingEntry(key); } }
+        public K ceilingKey(K key)
+                        { synchronized (mutex) { return nm.ceilingKey(key); } }
+        public Entry<K, V> higherEntry(K key)
+                       { synchronized (mutex) { return nm.higherEntry(key); } }
+        public K higherKey(K key)
+                         { synchronized (mutex) { return nm.higherKey(key); } }
+        public Entry<K, V> firstEntry()
+                           { synchronized (mutex) { return nm.firstEntry(); } }
+        public Entry<K, V> lastEntry()
+                            { synchronized (mutex) { return nm.lastEntry(); } }
+        public Entry<K, V> pollFirstEntry()
+                       { synchronized (mutex) { return nm.pollFirstEntry(); } }
+        public Entry<K, V> pollLastEntry()
+                        { synchronized (mutex) { return nm.pollLastEntry(); } }
+
+        public NavigableMap<K, V> descendingMap() {
+            synchronized (mutex) {
+                return
+                    new SynchronizedNavigableMap<>(nm.descendingMap(), mutex);
+            }
+        }
+
+        public NavigableSet<K> keySet() {
+            return navigableKeySet();
+        }
+
+        public NavigableSet<K> navigableKeySet() {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(nm.navigableKeySet(), mutex);
+            }
+        }
+
+        public NavigableSet<K> descendingKeySet() {
+            synchronized (mutex) {
+                return new SynchronizedNavigableSet<>(nm.descendingKeySet(), mutex);
+            }
+        }
+
+
+        public SortedMap<K,V> subMap(K fromKey, K toKey) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableMap<>(
+                    nm.subMap(fromKey, true, toKey, false), mutex);
+            }
+        }
+        public SortedMap<K,V> headMap(K toKey) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableMap<>(nm.headMap(toKey, false), mutex);
+            }
+        }
+        public SortedMap<K,V> tailMap(K fromKey) {
+            synchronized (mutex) {
+        return new SynchronizedNavigableMap<>(nm.tailMap(fromKey, true),mutex);
+            }
+        }
+
+        public NavigableMap<K, V> subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableMap<>(
+                    nm.subMap(fromKey, fromInclusive, toKey, toInclusive), mutex);
+            }
+        }
+
+        public NavigableMap<K, V> headMap(K toKey, boolean inclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableMap<>(
+                        nm.headMap(toKey, inclusive), mutex);
+            }
+        }
+
+        public NavigableMap<K, V> tailMap(K fromKey, boolean inclusive) {
+            synchronized (mutex) {
+                return new SynchronizedNavigableMap<>(
+                    nm.tailMap(fromKey, inclusive), mutex);
+            }
         }
     }
 
     // Dynamically typesafe collection wrappers
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified collection.
      * Any attempt to insert an element of the wrong type will result in an
      * immediate {@link ClassCastException}.  Assuming a collection
@@ -2335,12 +2983,12 @@ public class Collections {
      * program to wrap the collection with a dynamically typesafe view.
      * For example, this declaration:
      *  <pre> {@code
-     *     Collection<String> c = new HashSet<String>();
+     *     Collection<String> c = new HashSet<>();
      * }</pre>
      * may be replaced temporarily by this one:
      *  <pre> {@code
      *     Collection<String> c = Collections.checkedCollection(
-     *         new HashSet<String>(), String.class);
+     *         new HashSet<>(), String.class);
      * }</pre>
      * Running the program again will cause it to fail at the point where
      * an incorrectly typed element is inserted into the collection, clearly
@@ -2359,8 +3007,8 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned collection permits insertion of null elements
      * whenever the backing collection does.
-     * {@description.close}
      *
+     * @param <E> the class of the objects in the collection
      * @param c the collection for which a dynamically typesafe view is to be
      *          returned
      * @param type the type of element that {@code c} is permitted to hold
@@ -2369,7 +3017,7 @@ public class Collections {
      */
     public static <E> Collection<E> checkedCollection(Collection<E> c,
                                                       Class<E> type) {
-        return new CheckedCollection<E>(c, type);
+        return new CheckedCollection<>(c, type);
     }
 
     @SuppressWarnings("unchecked")
@@ -2377,7 +3025,7 @@ public class Collections {
         return (T[]) Array.newInstance(type, 0);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedCollection<E> implements Collection<E>, Serializable {
@@ -2386,9 +3034,11 @@ public class Collections {
         final Collection<E> c;
         final Class<E> type;
 
-        void typeCheck(Object o) {
+        @SuppressWarnings("unchecked")
+        E typeCheck(Object o) {
             if (o != null && !type.isInstance(o))
                 throw new ClassCastException(badElementMsg(o));
+            return (E) o;
         }
 
         private String badElementMsg(Object o) {
@@ -2397,10 +3047,8 @@ public class Collections {
         }
 
         CheckedCollection(Collection<E> c, Class<E> type) {
-            if (c==null || type == null)
-                throw new NullPointerException();
-            this.c = c;
-            this.type = type;
+            this.c = Objects.requireNonNull(c, "c");
+            this.type = Objects.requireNonNull(type, "type");
         }
 
         public int size()                 { return c.size(); }
@@ -2423,6 +3071,8 @@ public class Collections {
         }
 
         public Iterator<E> iterator() {
+            // JDK-6363904 - unwrapped iterator could be typecast to
+            // ListIterator with unsafe set()
             final Iterator<E> it = c.iterator();
             return new Iterator<E>() {
                 public boolean hasNext() { return it.hasNext(); }
@@ -2430,12 +3080,9 @@ public class Collections {
                 public void remove()     {        it.remove(); }};
         }
 
-        public boolean add(E e) {
-            typeCheck(e);
-            return c.add(e);
-        }
+        public boolean add(E e)          { return c.add(typeCheck(e)); }
 
-        private E[] zeroLengthElementArray = null; // Lazily initialized
+        private E[] zeroLengthElementArray; // Lazily initialized
 
         private E[] zeroLengthElementArray() {
             return zeroLengthElementArray != null ? zeroLengthElementArray :
@@ -2444,7 +3091,7 @@ public class Collections {
 
         @SuppressWarnings("unchecked")
         Collection<E> checkedCopyOf(Collection<? extends E> coll) {
-            Object[] a = null;
+            Object[] a;
             try {
                 E[] z = zeroLengthElementArray();
                 a = coll.toArray(z);
@@ -2472,10 +3119,78 @@ public class Collections {
             // element as we added it)
             return c.addAll(checkedCopyOf(coll));
         }
+
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {c.forEach(action);}
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            return c.removeIf(filter);
+        }
+        @Override
+        public Spliterator<E> spliterator() {return c.spliterator();}
+        @Override
+        public Stream<E> stream()           {return c.stream();}
+        @Override
+        public Stream<E> parallelStream()   {return c.parallelStream();}
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     * Returns a dynamically typesafe view of the specified queue.
+     * Any attempt to insert an element of the wrong type will result in
+     * an immediate {@link ClassCastException}.  Assuming a queue contains
+     * no incorrectly typed elements prior to the time a dynamically typesafe
+     * view is generated, and that all subsequent access to the queue
+     * takes place through the view, it is <i>guaranteed</i> that the
+     * queue cannot contain an incorrectly typed element.
+     *
+     * <p>A discussion of the use of dynamically typesafe views may be
+     * found in the documentation for the {@link #checkedCollection
+     * checkedCollection} method.
+     *
+     * <p>The returned queue will be serializable if the specified queue
+     * is serializable.
+     *
+     * <p>Since {@code null} is considered to be a value of any reference
+     * type, the returned queue permits insertion of {@code null} elements
+     * whenever the backing queue does.
+     *
+     * @param <E> the class of the objects in the queue
+     * @param queue the queue for which a dynamically typesafe view is to be
+     *             returned
+     * @param type the type of element that {@code queue} is permitted to hold
+     * @return a dynamically typesafe view of the specified queue
+     * @since 1.8
+     */
+    public static <E> Queue<E> checkedQueue(Queue<E> queue, Class<E> type) {
+        return new CheckedQueue<>(queue, type);
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
+    static class CheckedQueue<E>
+        extends CheckedCollection<E>
+        implements Queue<E>, Serializable
+    {
+        private static final long serialVersionUID = 1433151992604707767L;
+        final Queue<E> queue;
+
+        CheckedQueue(Queue<E> queue, Class<E> elementType) {
+            super(queue, elementType);
+            this.queue = queue;
+        }
+
+        public E element()              {return queue.element();}
+        public boolean equals(Object o) {return o == this || c.equals(o);}
+        public int hashCode()           {return c.hashCode();}
+        public E peek()                 {return queue.peek();}
+        public E poll()                 {return queue.poll();}
+        public E remove()               {return queue.remove();}
+        public boolean offer(E e)       {return queue.offer(typeCheck(e));}
+    }
+
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified set.
      * Any attempt to insert an element of the wrong type will result in
      * an immediate {@link ClassCastException}.  Assuming a set contains
@@ -2494,8 +3209,8 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned set permits insertion of null elements whenever
      * the backing set does.
-     * {@description.close}
      *
+     * @param <E> the class of the objects in the set
      * @param s the set for which a dynamically typesafe view is to be
      *          returned
      * @param type the type of element that {@code s} is permitted to hold
@@ -2503,10 +3218,10 @@ public class Collections {
      * @since 1.5
      */
     public static <E> Set<E> checkedSet(Set<E> s, Class<E> type) {
-        return new CheckedSet<E>(s, type);
+        return new CheckedSet<>(s, type);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedSet<E> extends CheckedCollection<E>
@@ -2520,8 +3235,7 @@ public class Collections {
         public int hashCode()           { return c.hashCode(); }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified sorted set.
      * Any attempt to insert an element of the wrong type will result in an
      * immediate {@link ClassCastException}.  Assuming a sorted set
@@ -2541,8 +3255,8 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned sorted set permits insertion of null elements
      * whenever the backing sorted set does.
-     * {@description.close}
      *
+     * @param <E> the class of the objects in the set
      * @param s the sorted set for which a dynamically typesafe view is to be
      *          returned
      * @param type the type of element that {@code s} is permitted to hold
@@ -2551,16 +3265,17 @@ public class Collections {
      */
     public static <E> SortedSet<E> checkedSortedSet(SortedSet<E> s,
                                                     Class<E> type) {
-        return new CheckedSortedSet<E>(s, type);
+        return new CheckedSortedSet<>(s, type);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedSortedSet<E> extends CheckedSet<E>
         implements SortedSet<E>, Serializable
     {
         private static final long serialVersionUID = 1599911165492914959L;
+
         private final SortedSet<E> ss;
 
         CheckedSortedSet(SortedSet<E> s, Class<E> type) {
@@ -2583,8 +3298,89 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+/** {@collect.stats}
+     * Returns a dynamically typesafe view of the specified navigable set.
+     * Any attempt to insert an element of the wrong type will result in an
+     * immediate {@link ClassCastException}.  Assuming a navigable set
+     * contains no incorrectly typed elements prior to the time a
+     * dynamically typesafe view is generated, and that all subsequent
+     * access to the navigable set takes place through the view, it is
+     * <em>guaranteed</em> that the navigable set cannot contain an incorrectly
+     * typed element.
+     *
+     * <p>A discussion of the use of dynamically typesafe views may be
+     * found in the documentation for the {@link #checkedCollection
+     * checkedCollection} method.
+     *
+     * <p>The returned navigable set will be serializable if the specified
+     * navigable set is serializable.
+     *
+     * <p>Since {@code null} is considered to be a value of any reference
+     * type, the returned navigable set permits insertion of null elements
+     * whenever the backing sorted set does.
+     *
+     * @param <E> the class of the objects in the set
+     * @param s the navigable set for which a dynamically typesafe view is to be
+     *          returned
+     * @param type the type of element that {@code s} is permitted to hold
+     * @return a dynamically typesafe view of the specified navigable set
+     * @since 1.8
+     */
+    public static <E> NavigableSet<E> checkedNavigableSet(NavigableSet<E> s,
+                                                    Class<E> type) {
+        return new CheckedNavigableSet<>(s, type);
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
+    static class CheckedNavigableSet<E> extends CheckedSortedSet<E>
+        implements NavigableSet<E>, Serializable
+    {
+        private static final long serialVersionUID = -5429120189805438922L;
+
+        private final NavigableSet<E> ns;
+
+        CheckedNavigableSet(NavigableSet<E> s, Class<E> type) {
+            super(s, type);
+            ns = s;
+        }
+
+        public E lower(E e)                             { return ns.lower(e); }
+        public E floor(E e)                             { return ns.floor(e); }
+        public E ceiling(E e)                         { return ns.ceiling(e); }
+        public E higher(E e)                           { return ns.higher(e); }
+        public E pollFirst()                         { return ns.pollFirst(); }
+        public E pollLast()                            {return ns.pollLast(); }
+        public NavigableSet<E> descendingSet()
+                      { return checkedNavigableSet(ns.descendingSet(), type); }
+        public Iterator<E> descendingIterator()
+            {return checkedNavigableSet(ns.descendingSet(), type).iterator(); }
+
+        public NavigableSet<E> subSet(E fromElement, E toElement) {
+            return checkedNavigableSet(ns.subSet(fromElement, true, toElement, false), type);
+        }
+        public NavigableSet<E> headSet(E toElement) {
+            return checkedNavigableSet(ns.headSet(toElement, false), type);
+        }
+        public NavigableSet<E> tailSet(E fromElement) {
+            return checkedNavigableSet(ns.tailSet(fromElement, true), type);
+        }
+
+        public NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive) {
+            return checkedNavigableSet(ns.subSet(fromElement, fromInclusive, toElement, toInclusive), type);
+        }
+
+        public NavigableSet<E> headSet(E toElement, boolean inclusive) {
+            return checkedNavigableSet(ns.headSet(toElement, inclusive), type);
+        }
+
+        public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
+            return checkedNavigableSet(ns.tailSet(fromElement, inclusive), type);
+        }
+    }
+
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified list.
      * Any attempt to insert an element of the wrong type will result in
      * an immediate {@link ClassCastException}.  Assuming a list contains
@@ -2603,8 +3399,8 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned list permits insertion of null elements whenever
      * the backing list does.
-     * {@description.close}
      *
+     * @param <E> the class of the objects in the list
      * @param list the list for which a dynamically typesafe view is to be
      *             returned
      * @param type the type of element that {@code list} is permitted to hold
@@ -2613,11 +3409,11 @@ public class Collections {
      */
     public static <E> List<E> checkedList(List<E> list, Class<E> type) {
         return (list instanceof RandomAccess ?
-                new CheckedRandomAccessList<E>(list, type) :
-                new CheckedList<E>(list, type));
+                new CheckedRandomAccessList<>(list, type) :
+                new CheckedList<>(list, type));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedList<E>
@@ -2640,13 +3436,11 @@ public class Collections {
         public int lastIndexOf(Object o) { return list.lastIndexOf(o); }
 
         public E set(int index, E element) {
-            typeCheck(element);
-            return list.set(index, element);
+            return list.set(index, typeCheck(element));
         }
 
         public void add(int index, E element) {
-            typeCheck(element);
-            list.add(index, element);
+            list.add(index, typeCheck(element));
         }
 
         public boolean addAll(int index, Collection<? extends E> c) {
@@ -2667,23 +3461,45 @@ public class Collections {
                 public void remove()         {        i.remove(); }
 
                 public void set(E e) {
-                    typeCheck(e);
-                    i.set(e);
+                    i.set(typeCheck(e));
                 }
 
                 public void add(E e) {
-                    typeCheck(e);
-                    i.add(e);
+                    i.add(typeCheck(e));
+                }
+
+                @Override
+                public void forEachRemaining(Consumer<? super E> action) {
+                    i.forEachRemaining(action);
                 }
             };
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            return new CheckedList<E>(list.subList(fromIndex, toIndex), type);
+            return new CheckedList<>(list.subList(fromIndex, toIndex), type);
+        }
+
+        /** {@collect.stats}
+         * {@inheritDoc}
+         *
+         * @throws ClassCastException if the class of an element returned by the
+         *         operator prevents it from being added to this collection. The
+         *         exception may be thrown after some elements of the list have
+         *         already been replaced.
+         */
+        @Override
+        public void replaceAll(UnaryOperator<E> operator) {
+            Objects.requireNonNull(operator);
+            list.replaceAll(e -> typeCheck(operator.apply(e)));
+        }
+
+        @Override
+        public void sort(Comparator<? super E> c) {
+            list.sort(c);
         }
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedRandomAccessList<E> extends CheckedList<E>
@@ -2696,13 +3512,12 @@ public class Collections {
         }
 
         public List<E> subList(int fromIndex, int toIndex) {
-            return new CheckedRandomAccessList<E>(
-                list.subList(fromIndex, toIndex), type);
+            return new CheckedRandomAccessList<>(
+                    list.subList(fromIndex, toIndex), type);
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified map.
      * Any attempt to insert a mapping whose key or value have the wrong
      * type will result in an immediate {@link ClassCastException}.
@@ -2728,8 +3543,9 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned map permits insertion of null keys or values
      * whenever the backing map does.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param m the map for which a dynamically typesafe view is to be
      *          returned
      * @param keyType the type of key that {@code m} is permitted to hold
@@ -2740,11 +3556,11 @@ public class Collections {
     public static <K, V> Map<K, V> checkedMap(Map<K, V> m,
                                               Class<K> keyType,
                                               Class<V> valueType) {
-        return new CheckedMap<K,V>(m, keyType, valueType);
+        return new CheckedMap<>(m, keyType, valueType);
     }
 
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class CheckedMap<K,V>
@@ -2764,22 +3580,30 @@ public class Collections {
                 throw new ClassCastException(badValueMsg(value));
         }
 
+        private BiFunction<? super K, ? super V, ? extends V> typeCheck(
+                BiFunction<? super K, ? super V, ? extends V> func) {
+            Objects.requireNonNull(func);
+            return (k, v) -> {
+                V newValue = func.apply(k, v);
+                typeCheck(k, newValue);
+                return newValue;
+            };
+        }
+
         private String badKeyMsg(Object key) {
             return "Attempt to insert " + key.getClass() +
-                " key into map with key type " + keyType;
+                    " key into map with key type " + keyType;
         }
 
         private String badValueMsg(Object value) {
             return "Attempt to insert " + value.getClass() +
-                " value into map with value type " + valueType;
+                    " value into map with value type " + valueType;
         }
 
         CheckedMap(Map<K, V> m, Class<K> keyType, Class<V> valueType) {
-            if (m == null || keyType == null || valueType == null)
-                throw new NullPointerException();
-            this.m = m;
-            this.keyType = keyType;
-            this.valueType = valueType;
+            this.m = Objects.requireNonNull(m);
+            this.keyType = Objects.requireNonNull(keyType);
+            this.valueType = Objects.requireNonNull(valueType);
         }
 
         public int size()                      { return m.size(); }
@@ -2808,35 +3632,100 @@ public class Collections {
             // - protection from malicious t
             // - correct behavior if t is a concurrent map
             Object[] entries = t.entrySet().toArray();
-            List<Map.Entry<K,V>> checked =
-                new ArrayList<Map.Entry<K,V>>(entries.length);
+            List<Map.Entry<K,V>> checked = new ArrayList<>(entries.length);
             for (Object o : entries) {
                 Map.Entry<?,?> e = (Map.Entry<?,?>) o;
                 Object k = e.getKey();
                 Object v = e.getValue();
                 typeCheck(k, v);
                 checked.add(
-                    new AbstractMap.SimpleImmutableEntry<K,V>((K) k, (V) v));
+                        new AbstractMap.SimpleImmutableEntry<>((K)k, (V)v));
             }
             for (Map.Entry<K,V> e : checked)
                 m.put(e.getKey(), e.getValue());
         }
 
-        private transient Set<Map.Entry<K,V>> entrySet = null;
+        private transient Set<Map.Entry<K,V>> entrySet;
 
         public Set<Map.Entry<K,V>> entrySet() {
             if (entrySet==null)
-                entrySet = new CheckedEntrySet<K,V>(m.entrySet(), valueType);
+                entrySet = new CheckedEntrySet<>(m.entrySet(), valueType);
             return entrySet;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        // Override default methods in Map
+        @Override
+        public void forEach(BiConsumer<? super K, ? super V> action) {
+            m.forEach(action);
+        }
+
+        @Override
+        public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+            m.replaceAll(typeCheck(function));
+        }
+
+        @Override
+        public V putIfAbsent(K key, V value) {
+            typeCheck(key, value);
+            return m.putIfAbsent(key, value);
+        }
+
+        @Override
+        public boolean remove(Object key, Object value) {
+            return m.remove(key, value);
+        }
+
+        @Override
+        public boolean replace(K key, V oldValue, V newValue) {
+            typeCheck(key, newValue);
+            return m.replace(key, oldValue, newValue);
+        }
+
+        @Override
+        public V replace(K key, V value) {
+            typeCheck(key, value);
+            return m.replace(key, value);
+        }
+
+        @Override
+        public V computeIfAbsent(K key,
+                Function<? super K, ? extends V> mappingFunction) {
+            Objects.requireNonNull(mappingFunction);
+            return m.computeIfAbsent(key, k -> {
+                V value = mappingFunction.apply(k);
+                typeCheck(k, value);
+                return value;
+            });
+        }
+
+        @Override
+        public V computeIfPresent(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            return m.computeIfPresent(key, typeCheck(remappingFunction));
+        }
+
+        @Override
+        public V compute(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            return m.compute(key, typeCheck(remappingFunction));
+        }
+
+        @Override
+        public V merge(K key, V value,
+                BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            Objects.requireNonNull(remappingFunction);
+            return m.merge(key, value, (v1, v2) -> {
+                V newValue = remappingFunction.apply(v1, v2);
+                typeCheck(null, newValue);
+                return newValue;
+            });
+        }
+
+        /** {@collect.stats}
          * We need this class in addition to CheckedSet as Map.Entry permits
          * modification of the backing Map via the setValue operation.  This
          * class is subtle: there are many possible attacks that must be
          * thwarted.
-         * {@description.close}
          *
          * @serial exclude
          */
@@ -2913,13 +3802,11 @@ public class Collections {
                 return a;
             }
 
-            /** {@collect.stats} 
-             * {@description.open}
+            /** {@collect.stats}
              * This method is overridden to protect the backing set against
              * an object with a nefarious equals function that senses
              * that the equality-candidate is Map.Entry and calls its
              * setValue method.
-             * {@description.close}
              */
             public boolean contains(Object o) {
                 if (!(o instanceof Map.Entry))
@@ -2929,12 +3816,10 @@ public class Collections {
                     (e instanceof CheckedEntry) ? e : checkedEntry(e, valueType));
             }
 
-            /** {@collect.stats} 
-             * {@description.open}
+            /** {@collect.stats}
              * The bulk collection methods are overridden to protect
              * against an unscrupulous collection whose contains(Object o)
              * method senses when o is a Map.Entry, and calls o.setValue.
-             * {@description.close}
              */
             public boolean containsAll(Collection<?> c) {
                 for (Object o : c)
@@ -2947,7 +3832,7 @@ public class Collections {
                 if (!(o instanceof Map.Entry))
                     return false;
                 return s.remove(new AbstractMap.SimpleImmutableEntry
-                                <Object, Object>((Map.Entry<?,?>)o));
+                                <>((Map.Entry<?,?>)o));
             }
 
             public boolean removeAll(Collection<?> c) {
@@ -2957,6 +3842,7 @@ public class Collections {
                 return batchRemove(c, true);
             }
             private boolean batchRemove(Collection<?> c, boolean complement) {
+                Objects.requireNonNull(c);
                 boolean modified = false;
                 Iterator<Map.Entry<K,V>> it = iterator();
                 while (it.hasNext()) {
@@ -2980,25 +3866,23 @@ public class Collections {
 
             static <K,V,T> CheckedEntry<K,V,T> checkedEntry(Map.Entry<K,V> e,
                                                             Class<T> valueType) {
-                return new CheckedEntry<K,V,T>(e, valueType);
+                return new CheckedEntry<>(e, valueType);
             }
 
-            /** {@collect.stats} 
-             * {@description.open}
+            /** {@collect.stats}
              * This "wrapper class" serves two purposes: it prevents
              * the client from modifying the backing Map, by short-circuiting
              * the setValue method, and it protects the backing Map against
              * an ill-behaved Map.Entry that attempts to modify another
              * Map.Entry when asked to perform an equality check.
-             * {@description.close}
              */
             private static class CheckedEntry<K,V,T> implements Map.Entry<K,V> {
                 private final Map.Entry<K, V> e;
                 private final Class<T> valueType;
 
                 CheckedEntry(Map.Entry<K, V> e, Class<T> valueType) {
-                    this.e = e;
-                    this.valueType = valueType;
+                    this.e = Objects.requireNonNull(e);
+                    this.valueType = Objects.requireNonNull(valueType);
                 }
 
                 public K getKey()        { return e.getKey(); }
@@ -3023,14 +3907,13 @@ public class Collections {
                     if (!(o instanceof Map.Entry))
                         return false;
                     return e.equals(new AbstractMap.SimpleImmutableEntry
-                                    <Object, Object>((Map.Entry<?,?>)o));
+                                    <>((Map.Entry<?,?>)o));
                 }
             }
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a dynamically typesafe view of the specified sorted map.
      * Any attempt to insert a mapping whose key or value have the wrong
      * type will result in an immediate {@link ClassCastException}.
@@ -3056,8 +3939,9 @@ public class Collections {
      * <p>Since {@code null} is considered to be a value of any reference
      * type, the returned map permits insertion of null keys or values
      * whenever the backing map does.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param m the map for which a dynamically typesafe view is to be
      *          returned
      * @param keyType the type of key that {@code m} is permitted to hold
@@ -3068,10 +3952,10 @@ public class Collections {
     public static <K,V> SortedMap<K,V> checkedSortedMap(SortedMap<K, V> m,
                                                         Class<K> keyType,
                                                         Class<V> valueType) {
-        return new CheckedSortedMap<K,V>(m, keyType, valueType);
+        return new CheckedSortedMap<>(m, keyType, valueType);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     static class CheckedSortedMap<K,V> extends CheckedMap<K,V>
@@ -3103,82 +3987,244 @@ public class Collections {
         }
     }
 
+    /** {@collect.stats}
+     * Returns a dynamically typesafe view of the specified navigable map.
+     * Any attempt to insert a mapping whose key or value have the wrong
+     * type will result in an immediate {@link ClassCastException}.
+     * Similarly, any attempt to modify the value currently associated with
+     * a key will result in an immediate {@link ClassCastException},
+     * whether the modification is attempted directly through the map
+     * itself, or through a {@link Map.Entry} instance obtained from the
+     * map's {@link Map#entrySet() entry set} view.
+     *
+     * <p>Assuming a map contains no incorrectly typed keys or values
+     * prior to the time a dynamically typesafe view is generated, and
+     * that all subsequent access to the map takes place through the view
+     * (or one of its collection views), it is <em>guaranteed</em> that the
+     * map cannot contain an incorrectly typed key or value.
+     *
+     * <p>A discussion of the use of dynamically typesafe views may be
+     * found in the documentation for the {@link #checkedCollection
+     * checkedCollection} method.
+     *
+     * <p>The returned map will be serializable if the specified map is
+     * serializable.
+     *
+     * <p>Since {@code null} is considered to be a value of any reference
+     * type, the returned map permits insertion of null keys or values
+     * whenever the backing map does.
+     *
+     * @param <K> type of map keys
+     * @param <V> type of map values
+     * @param m the map for which a dynamically typesafe view is to be
+     *          returned
+     * @param keyType the type of key that {@code m} is permitted to hold
+     * @param valueType the type of value that {@code m} is permitted to hold
+     * @return a dynamically typesafe view of the specified map
+     * @since 1.8
+     */
+    public static <K,V> NavigableMap<K,V> checkedNavigableMap(NavigableMap<K, V> m,
+                                                        Class<K> keyType,
+                                                        Class<V> valueType) {
+        return new CheckedNavigableMap<>(m, keyType, valueType);
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
+    static class CheckedNavigableMap<K,V> extends CheckedSortedMap<K,V>
+        implements NavigableMap<K,V>, Serializable
+    {
+        private static final long serialVersionUID = -4852462692372534096L;
+
+        private final NavigableMap<K, V> nm;
+
+        CheckedNavigableMap(NavigableMap<K, V> m,
+                         Class<K> keyType, Class<V> valueType) {
+            super(m, keyType, valueType);
+            nm = m;
+        }
+
+        public Comparator<? super K> comparator()   { return nm.comparator(); }
+        public K firstKey()                           { return nm.firstKey(); }
+        public K lastKey()                             { return nm.lastKey(); }
+
+        public Entry<K, V> lowerEntry(K key) {
+            Entry<K,V> lower = nm.lowerEntry(key);
+            return (null != lower)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(lower, valueType)
+                : null;
+        }
+
+        public K lowerKey(K key)                   { return nm.lowerKey(key); }
+
+        public Entry<K, V> floorEntry(K key) {
+            Entry<K,V> floor = nm.floorEntry(key);
+            return (null != floor)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(floor, valueType)
+                : null;
+        }
+
+        public K floorKey(K key)                   { return nm.floorKey(key); }
+
+        public Entry<K, V> ceilingEntry(K key) {
+            Entry<K,V> ceiling = nm.ceilingEntry(key);
+            return (null != ceiling)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(ceiling, valueType)
+                : null;
+        }
+
+        public K ceilingKey(K key)               { return nm.ceilingKey(key); }
+
+        public Entry<K, V> higherEntry(K key) {
+            Entry<K,V> higher = nm.higherEntry(key);
+            return (null != higher)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(higher, valueType)
+                : null;
+        }
+
+        public K higherKey(K key)                 { return nm.higherKey(key); }
+
+        public Entry<K, V> firstEntry() {
+            Entry<K,V> first = nm.firstEntry();
+            return (null != first)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(first, valueType)
+                : null;
+        }
+
+        public Entry<K, V> lastEntry() {
+            Entry<K,V> last = nm.lastEntry();
+            return (null != last)
+                ? new CheckedMap.CheckedEntrySet.CheckedEntry<>(last, valueType)
+                : null;
+        }
+
+        public Entry<K, V> pollFirstEntry() {
+            Entry<K,V> entry = nm.pollFirstEntry();
+            return (null == entry)
+                ? null
+                : new CheckedMap.CheckedEntrySet.CheckedEntry<>(entry, valueType);
+        }
+
+        public Entry<K, V> pollLastEntry() {
+            Entry<K,V> entry = nm.pollLastEntry();
+            return (null == entry)
+                ? null
+                : new CheckedMap.CheckedEntrySet.CheckedEntry<>(entry, valueType);
+        }
+
+        public NavigableMap<K, V> descendingMap() {
+            return checkedNavigableMap(nm.descendingMap(), keyType, valueType);
+        }
+
+        public NavigableSet<K> keySet() {
+            return navigableKeySet();
+        }
+
+        public NavigableSet<K> navigableKeySet() {
+            return checkedNavigableSet(nm.navigableKeySet(), keyType);
+        }
+
+        public NavigableSet<K> descendingKeySet() {
+            return checkedNavigableSet(nm.descendingKeySet(), keyType);
+        }
+
+        @Override
+        public NavigableMap<K,V> subMap(K fromKey, K toKey) {
+            return checkedNavigableMap(nm.subMap(fromKey, true, toKey, false),
+                                    keyType, valueType);
+        }
+
+        @Override
+        public NavigableMap<K,V> headMap(K toKey) {
+            return checkedNavigableMap(nm.headMap(toKey, false), keyType, valueType);
+        }
+
+        @Override
+        public NavigableMap<K,V> tailMap(K fromKey) {
+            return checkedNavigableMap(nm.tailMap(fromKey, true), keyType, valueType);
+        }
+
+        public NavigableMap<K, V> subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive) {
+            return checkedNavigableMap(nm.subMap(fromKey, fromInclusive, toKey, toInclusive), keyType, valueType);
+        }
+
+        public NavigableMap<K, V> headMap(K toKey, boolean inclusive) {
+            return checkedNavigableMap(nm.headMap(toKey, inclusive), keyType, valueType);
+        }
+
+        public NavigableMap<K, V> tailMap(K fromKey, boolean inclusive) {
+            return checkedNavigableMap(nm.tailMap(fromKey, inclusive), keyType, valueType);
+        }
+    }
+
     // Empty collections
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator that has no elements.  More precisely,
      *
-     * <ul compact>
-     *
+     * <ul>
      * <li>{@link Iterator#hasNext hasNext} always returns {@code
-     * false}.
-     *
+     * false}.</li>
      * <li>{@link Iterator#next next} always throws {@link
-     * NoSuchElementException}.
-     *
+     * NoSuchElementException}.</li>
      * <li>{@link Iterator#remove remove} always throws {@link
-     * IllegalStateException}.
-     *
+     * IllegalStateException}.</li>
      * </ul>
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
-     * {@description.close}
      *
+     * @param <T> type of elements, if there were any, in the iterator
      * @return an empty iterator
      * @since 1.7
      */
     @SuppressWarnings("unchecked")
-    static <T> Iterator<T> emptyIterator() {
+    public static <T> Iterator<T> emptyIterator() {
         return (Iterator<T>) EmptyIterator.EMPTY_ITERATOR;
     }
 
     private static class EmptyIterator<E> implements Iterator<E> {
         static final EmptyIterator<Object> EMPTY_ITERATOR
-            = new EmptyIterator<Object>();
+            = new EmptyIterator<>();
 
         public boolean hasNext() { return false; }
         public E next() { throw new NoSuchElementException(); }
         public void remove() { throw new IllegalStateException(); }
+        @Override
+        public void forEachRemaining(Consumer<? super E> action) {
+            Objects.requireNonNull(action);
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a list iterator that has no elements.  More precisely,
      *
-     * <ul compact>
-     *
+     * <ul>
      * <li>{@link Iterator#hasNext hasNext} and {@link
      * ListIterator#hasPrevious hasPrevious} always return {@code
-     * false}.
-     *
+     * false}.</li>
      * <li>{@link Iterator#next next} and {@link ListIterator#previous
-     * previous} always throw {@link NoSuchElementException}.
-     *
+     * previous} always throw {@link NoSuchElementException}.</li>
      * <li>{@link Iterator#remove remove} and {@link ListIterator#set
-     * set} always throw {@link IllegalStateException}.
-     *
+     * set} always throw {@link IllegalStateException}.</li>
      * <li>{@link ListIterator#add add} always throws {@link
-     * UnsupportedOperationException}.
-     *
+     * UnsupportedOperationException}.</li>
      * <li>{@link ListIterator#nextIndex nextIndex} always returns
-     * {@code 0} .
-     *
+     * {@code 0}.</li>
      * <li>{@link ListIterator#previousIndex previousIndex} always
-     * returns {@code -1}.
-     *
+     * returns {@code -1}.</li>
      * </ul>
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
-     * {@description.close}
      *
+     * @param <T> type of elements, if there were any, in the iterator
      * @return an empty list iterator
      * @since 1.7
      */
     @SuppressWarnings("unchecked")
-    static <T> ListIterator<T> emptyListIterator() {
+    public static <T> ListIterator<T> emptyListIterator() {
         return (ListIterator<T>) EmptyListIterator.EMPTY_ITERATOR;
     }
 
@@ -3187,7 +4233,7 @@ public class Collections {
         implements ListIterator<E>
     {
         static final EmptyListIterator<Object> EMPTY_ITERATOR
-            = new EmptyListIterator<Object>();
+            = new EmptyListIterator<>();
 
         public boolean hasPrevious() { return false; }
         public E previous() { throw new NoSuchElementException(); }
@@ -3197,64 +4243,59 @@ public class Collections {
         public void add(E e) { throw new UnsupportedOperationException(); }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an enumeration that has no elements.  More precisely,
      *
-     * <ul compact>
-     *
+     * <ul>
      * <li>{@link Enumeration#hasMoreElements hasMoreElements} always
-     * returns {@code false}.
-     *
+     * returns {@code false}.</li>
      * <li> {@link Enumeration#nextElement nextElement} always throws
-     * {@link NoSuchElementException}.
-     *
+     * {@link NoSuchElementException}.</li>
      * </ul>
      *
      * <p>Implementations of this method are permitted, but not
      * required, to return the same object from multiple invocations.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the enumeration
      * @return an empty enumeration
      * @since 1.7
      */
     @SuppressWarnings("unchecked")
-    static <T> Enumeration<T> emptyEnumeration() {
+    public static <T> Enumeration<T> emptyEnumeration() {
         return (Enumeration<T>) EmptyEnumeration.EMPTY_ENUMERATION;
     }
 
     private static class EmptyEnumeration<E> implements Enumeration<E> {
         static final EmptyEnumeration<Object> EMPTY_ENUMERATION
-            = new EmptyEnumeration<Object>();
+            = new EmptyEnumeration<>();
 
         public boolean hasMoreElements() { return false; }
         public E nextElement() { throw new NoSuchElementException(); }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The empty set (immutable).  This set is serializable.
-     * {@description.close}
      *
      * @see #emptySet()
      */
-    @SuppressWarnings("unchecked")
-    public static final Set EMPTY_SET = new EmptySet<Object>();
+    @SuppressWarnings("rawtypes")
+    public static final Set EMPTY_SET = new EmptySet<>();
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the empty set (immutable).  This set is serializable.
+    /** {@collect.stats}
+     * Returns an empty set (immutable).  This set is serializable.
      * Unlike the like-named field, this method is parameterized.
      *
      * <p>This example illustrates the type-safe way to obtain an empty set:
      * <pre>
      *     Set&lt;String&gt; s = Collections.emptySet();
      * </pre>
-     * Implementation note:  Implementations of this method need not
-     * create a separate <tt>Set</tt> object for each call.   Using this
-     * method is likely to have comparable cost to using the like-named
-     * field.  (Unlike this method, the field does not provide type safety.)
-     * {@description.close}
+     * @implNote Implementations of this method need not create a separate
+     * {@code Set} object for each call.  Using this method is likely to have
+     * comparable cost to using the like-named field.  (Unlike this method, the
+     * field does not provide type safety.)
+     *
+     * @param  <T> the class of the objects in the set
+     * @return the empty set
      *
      * @see #EMPTY_SET
      * @since 1.5
@@ -3264,7 +4305,7 @@ public class Collections {
         return (Set<T>) EMPTY_SET;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class EmptySet<E>
@@ -3289,35 +4330,91 @@ public class Collections {
             return a;
         }
 
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            Objects.requireNonNull(action);
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            Objects.requireNonNull(filter);
+            return false;
+        }
+        @Override
+        public Spliterator<E> spliterator() { return Spliterators.emptySpliterator(); }
+
         // Preserves singleton property
         private Object readResolve() {
             return EMPTY_SET;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     * Returns an empty sorted set (immutable).  This set is serializable.
+     *
+     * <p>This example illustrates the type-safe way to obtain an empty
+     * sorted set:
+     * <pre> {@code
+     *     SortedSet<String> s = Collections.emptySortedSet();
+     * }</pre>
+     *
+     * @implNote Implementations of this method need not create a separate
+     * {@code SortedSet} object for each call.
+     *
+     * @param <E> type of elements, if there were any, in the set
+     * @return the empty sorted set
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public static <E> SortedSet<E> emptySortedSet() {
+        return (SortedSet<E>) UnmodifiableNavigableSet.EMPTY_NAVIGABLE_SET;
+    }
+
+    /** {@collect.stats}
+     * Returns an empty navigable set (immutable).  This set is serializable.
+     *
+     * <p>This example illustrates the type-safe way to obtain an empty
+     * navigable set:
+     * <pre> {@code
+     *     NavigableSet<String> s = Collections.emptyNavigableSet();
+     * }</pre>
+     *
+     * @implNote Implementations of this method need not
+     * create a separate {@code NavigableSet} object for each call.
+     *
+     * @param <E> type of elements, if there were any, in the set
+     * @return the empty navigable set
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public static <E> NavigableSet<E> emptyNavigableSet() {
+        return (NavigableSet<E>) UnmodifiableNavigableSet.EMPTY_NAVIGABLE_SET;
+    }
+
+    /** {@collect.stats}
      * The empty list (immutable).  This list is serializable.
-     * {@description.close}
      *
      * @see #emptyList()
      */
-    @SuppressWarnings("unchecked")
-    public static final List EMPTY_LIST = new EmptyList<Object>();
+    @SuppressWarnings("rawtypes")
+    public static final List EMPTY_LIST = new EmptyList<>();
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the empty list (immutable).  This list is serializable.
+    /** {@collect.stats}
+     * Returns an empty list (immutable).  This list is serializable.
      *
      * <p>This example illustrates the type-safe way to obtain an empty list:
      * <pre>
      *     List&lt;String&gt; s = Collections.emptyList();
      * </pre>
-     * Implementation note:  Implementations of this method need not
-     * create a separate <tt>List</tt> object for each call.   Using this
-     * method is likely to have comparable cost to using the like-named
-     * field.  (Unlike this method, the field does not provide type safety.)
-     * {@description.close}
+     *
+     * @implNote
+     * Implementations of this method need not create a separate <tt>List</tt>
+     * object for each call.   Using this method is likely to have comparable
+     * cost to using the like-named field.  (Unlike this method, the field does
+     * not provide type safety.)
+     *
+     * @param <T> type of elements, if there were any, in the list
+     * @return an empty immutable list
      *
      * @see #EMPTY_LIST
      * @since 1.5
@@ -3327,7 +4424,7 @@ public class Collections {
         return (List<T>) EMPTY_LIST;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class EmptyList<E>
@@ -3366,37 +4463,58 @@ public class Collections {
 
         public int hashCode() { return 1; }
 
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            Objects.requireNonNull(filter);
+            return false;
+        }
+        @Override
+        public void replaceAll(UnaryOperator<E> operator) {
+            Objects.requireNonNull(operator);
+        }
+        @Override
+        public void sort(Comparator<? super E> c) {
+        }
+
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            Objects.requireNonNull(action);
+        }
+
+        @Override
+        public Spliterator<E> spliterator() { return Spliterators.emptySpliterator(); }
+
         // Preserves singleton property
         private Object readResolve() {
             return EMPTY_LIST;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The empty map (immutable).  This map is serializable.
-     * {@description.close}
      *
      * @see #emptyMap()
      * @since 1.3
      */
-    @SuppressWarnings("unchecked")
-    public static final Map EMPTY_MAP = new EmptyMap<Object,Object>();
+    @SuppressWarnings("rawtypes")
+    public static final Map EMPTY_MAP = new EmptyMap<>();
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the empty map (immutable).  This map is serializable.
+    /** {@collect.stats}
+     * Returns an empty map (immutable).  This map is serializable.
      *
-     * <p>This example illustrates the type-safe way to obtain an empty set:
+     * <p>This example illustrates the type-safe way to obtain an empty map:
      * <pre>
      *     Map&lt;String, Date&gt; s = Collections.emptyMap();
      * </pre>
-     * Implementation note:  Implementations of this method need not
-     * create a separate <tt>Map</tt> object for each call.   Using this
-     * method is likely to have comparable cost to using the like-named
-     * field.  (Unlike this method, the field does not provide type safety.)
-     * {@description.close}
+     * @implNote Implementations of this method need not create a separate
+     * {@code Map} object for each call.  Using this method is likely to have
+     * comparable cost to using the like-named field.  (Unlike this method, the
+     * field does not provide type safety.)
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
+     * @return an empty map
      * @see #EMPTY_MAP
      * @since 1.5
      */
@@ -3405,6 +4523,51 @@ public class Collections {
         return (Map<K,V>) EMPTY_MAP;
     }
 
+    /** {@collect.stats}
+     * Returns an empty sorted map (immutable).  This map is serializable.
+     *
+     * <p>This example illustrates the type-safe way to obtain an empty map:
+     * <pre> {@code
+     *     SortedMap<String, Date> s = Collections.emptySortedMap();
+     * }</pre>
+     *
+     * @implNote Implementations of this method need not create a separate
+     * {@code SortedMap} object for each call.
+     *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
+     * @return an empty sorted map
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public static final <K,V> SortedMap<K,V> emptySortedMap() {
+        return (SortedMap<K,V>) UnmodifiableNavigableMap.EMPTY_NAVIGABLE_MAP;
+    }
+
+    /** {@collect.stats}
+     * Returns an empty navigable map (immutable).  This map is serializable.
+     *
+     * <p>This example illustrates the type-safe way to obtain an empty map:
+     * <pre> {@code
+     *     NavigableMap<String, Date> s = Collections.emptyNavigableMap();
+     * }</pre>
+     *
+     * @implNote Implementations of this method need not create a separate
+     * {@code NavigableMap} object for each call.
+     *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
+     * @return an empty navigable map
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public static final <K,V> NavigableMap<K,V> emptyNavigableMap() {
+        return (NavigableMap<K,V>) UnmodifiableNavigableMap.EMPTY_NAVIGABLE_MAP;
+    }
+
+    /** {@collect.stats}
+     * @serial include
+     */
     private static class EmptyMap<K,V>
         extends AbstractMap<K,V>
         implements Serializable
@@ -3426,6 +4589,67 @@ public class Collections {
 
         public int hashCode()                      {return 0;}
 
+        // Override default methods in Map
+        @Override
+        @SuppressWarnings("unchecked")
+        public V getOrDefault(Object k, V defaultValue) {
+            return defaultValue;
+        }
+
+        @Override
+        public void forEach(BiConsumer<? super K, ? super V> action) {
+            Objects.requireNonNull(action);
+        }
+
+        @Override
+        public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+            Objects.requireNonNull(function);
+        }
+
+        @Override
+        public V putIfAbsent(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean remove(Object key, Object value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean replace(K key, V oldValue, V newValue) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V replace(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfAbsent(K key,
+                Function<? super K, ? extends V> mappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfPresent(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V compute(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V merge(K key, V value,
+                BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
         // Preserves singleton property
         private Object readResolve() {
             return EMPTY_MAP;
@@ -3434,17 +4658,16 @@ public class Collections {
 
     // Singleton collections
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an immutable set containing only the specified object.
      * The returned set is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the set
      * @param o the sole object to be stored in the returned set.
      * @return an immutable set containing only the specified object.
      */
     public static <T> Set<T> singleton(T o) {
-        return new SingletonSet<T>(o);
+        return new SingletonSet<>(o);
     }
 
     static <E> Iterator<E> singletonIterator(final E e) {
@@ -3463,10 +4686,64 @@ public class Collections {
             public void remove() {
                 throw new UnsupportedOperationException();
             }
+            @Override
+            public void forEachRemaining(Consumer<? super E> action) {
+                Objects.requireNonNull(action);
+                if (hasNext) {
+                    action.accept(e);
+                    hasNext = false;
+                }
+            }
         };
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * Creates a {@code Spliterator} with only the specified element
+     *
+     * @param <T> Type of elements
+     * @return A singleton {@code Spliterator}
+     */
+    static <T> Spliterator<T> singletonSpliterator(final T element) {
+        return new Spliterator<T>() {
+            long est = 1;
+
+            @Override
+            public Spliterator<T> trySplit() {
+                return null;
+            }
+
+            @Override
+            public boolean tryAdvance(Consumer<? super T> consumer) {
+                Objects.requireNonNull(consumer);
+                if (est > 0) {
+                    est--;
+                    consumer.accept(element);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public void forEachRemaining(Consumer<? super T> consumer) {
+                tryAdvance(consumer);
+            }
+
+            @Override
+            public long estimateSize() {
+                return est;
+            }
+
+            @Override
+            public int characteristics() {
+                int value = (element != null) ? Spliterator.NONNULL : 0;
+
+                return value | Spliterator.SIZED | Spliterator.SUBSIZED | Spliterator.IMMUTABLE |
+                       Spliterator.DISTINCT | Spliterator.ORDERED;
+            }
+        };
+    }
+
+    /** {@collect.stats}
      * @serial include
      */
     private static class SingletonSet<E>
@@ -3475,7 +4752,7 @@ public class Collections {
     {
         private static final long serialVersionUID = 3193687207550431679L;
 
-        final private E element;
+        private final E element;
 
         SingletonSet(E e) {element = e;}
 
@@ -3486,22 +4763,38 @@ public class Collections {
         public int size() {return 1;}
 
         public boolean contains(Object o) {return eq(o, element);}
+
+        // Override default methods for Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            action.accept(element);
+        }
+        @Override
+        public Spliterator<E> spliterator() {
+            return singletonSpliterator(element);
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            throw new UnsupportedOperationException();
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an immutable list containing only the specified object.
      * The returned list is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the list
      * @param o the sole object to be stored in the returned list.
      * @return an immutable list containing only the specified object.
      * @since 1.3
      */
     public static <T> List<T> singletonList(T o) {
-        return new SingletonList<T>(o);
+        return new SingletonList<>(o);
     }
 
+    /** {@collect.stats}
+     * @serial include
+     */
     private static class SingletonList<E>
         extends AbstractList<E>
         implements RandomAccess, Serializable {
@@ -3525,14 +4818,35 @@ public class Collections {
               throw new IndexOutOfBoundsException("Index: "+index+", Size: 1");
             return element;
         }
+
+        // Override default methods for Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            action.accept(element);
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public void replaceAll(UnaryOperator<E> operator) {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public void sort(Comparator<? super E> c) {
+        }
+        @Override
+        public Spliterator<E> spliterator() {
+            return singletonSpliterator(element);
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an immutable map, mapping only the specified key to the
      * specified value.  The returned map is serializable.
-     * {@description.close}
      *
+     * @param <K> the class of the map keys
+     * @param <V> the class of the map values
      * @param key the sole key to be stored in the returned map.
      * @param value the value to which the returned map maps <tt>key</tt>.
      * @return an immutable map containing only the specified key-value
@@ -3540,9 +4854,12 @@ public class Collections {
      * @since 1.3
      */
     public static <K,V> Map<K,V> singletonMap(K key, V value) {
-        return new SingletonMap<K,V>(key, value);
+        return new SingletonMap<>(key, value);
     }
 
+    /** {@collect.stats}
+     * @serial include
+     */
     private static class SingletonMap<K,V>
           extends AbstractMap<K,V>
           implements Serializable {
@@ -3556,19 +4873,15 @@ public class Collections {
             v = value;
         }
 
-        public int size()                          {return 1;}
+        public int size()                                           {return 1;}
+        public boolean isEmpty()                                {return false;}
+        public boolean containsKey(Object key)             {return eq(key, k);}
+        public boolean containsValue(Object value)       {return eq(value, v);}
+        public V get(Object key)              {return (eq(key, k) ? v : null);}
 
-        public boolean isEmpty()                   {return false;}
-
-        public boolean containsKey(Object key)     {return eq(key, k);}
-
-        public boolean containsValue(Object value) {return eq(value, v);}
-
-        public V get(Object key)                   {return (eq(key, k) ? v : null);}
-
-        private transient Set<K> keySet = null;
-        private transient Set<Map.Entry<K,V>> entrySet = null;
-        private transient Collection<V> values = null;
+        private transient Set<K> keySet;
+        private transient Set<Map.Entry<K,V>> entrySet;
+        private transient Collection<V> values;
 
         public Set<K> keySet() {
             if (keySet==null)
@@ -3579,7 +4892,7 @@ public class Collections {
         public Set<Map.Entry<K,V>> entrySet() {
             if (entrySet==null)
                 entrySet = Collections.<Map.Entry<K,V>>singleton(
-                    new SimpleImmutableEntry<K,V>(k, v));
+                    new SimpleImmutableEntry<>(k, v));
             return entrySet;
         }
 
@@ -3589,34 +4902,93 @@ public class Collections {
             return values;
         }
 
+        // Override default methods in Map
+        @Override
+        public V getOrDefault(Object key, V defaultValue) {
+            return eq(key, k) ? v : defaultValue;
+        }
+
+        @Override
+        public void forEach(BiConsumer<? super K, ? super V> action) {
+            action.accept(k, v);
+        }
+
+        @Override
+        public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V putIfAbsent(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean remove(Object key, Object value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean replace(K key, V oldValue, V newValue) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V replace(K key, V value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfAbsent(K key,
+                Function<? super K, ? extends V> mappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V computeIfPresent(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V compute(K key,
+                BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public V merge(K key, V value,
+                BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     // Miscellaneous
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an immutable list consisting of <tt>n</tt> copies of the
      * specified object.  The newly allocated data object is tiny (it contains
      * a single reference to the data object).  This method is useful in
      * combination with the <tt>List.addAll</tt> method to grow lists.
      * The returned list is serializable.
-     * {@description.close}
      *
+     * @param  <T> the class of the object to copy and of the objects
+     *         in the returned list.
      * @param  n the number of elements in the returned list.
      * @param  o the element to appear repeatedly in the returned list.
      * @return an immutable list consisting of <tt>n</tt> copies of the
      *         specified object.
-     * @throws IllegalArgumentException if n &lt; 0.
+     * @throws IllegalArgumentException if {@code n < 0}
      * @see    List#addAll(Collection)
      * @see    List#addAll(int, Collection)
      */
     public static <T> List<T> nCopies(int n, T o) {
         if (n < 0)
             throw new IllegalArgumentException("List length = " + n);
-        return new CopiesList<T>(n, o);
+        return new CopiesList<>(n, o);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class CopiesList<E>
@@ -3664,6 +5036,7 @@ public class Collections {
             return a;
         }
 
+        @SuppressWarnings("unchecked")
         public <T> T[] toArray(T[] a) {
             final int n = this.n;
             if (a.length < n) {
@@ -3687,36 +5060,52 @@ public class Collections {
             if (fromIndex > toIndex)
                 throw new IllegalArgumentException("fromIndex(" + fromIndex +
                                                    ") > toIndex(" + toIndex + ")");
-            return new CopiesList<E>(toIndex - fromIndex, element);
+            return new CopiesList<>(toIndex - fromIndex, element);
+        }
+
+        // Override default methods in Collection
+        @Override
+        public Stream<E> stream() {
+            return IntStream.range(0, n).mapToObj(i -> element);
+        }
+
+        @Override
+        public Stream<E> parallelStream() {
+            return IntStream.range(0, n).parallel().mapToObj(i -> element);
+        }
+
+        @Override
+        public Spliterator<E> spliterator() {
+            return stream().spliterator();
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns a comparator that imposes the reverse of the <i>natural
-     * ordering</i> on a collection of objects that implement the
-     * <tt>Comparable</tt> interface.  (The natural ordering is the ordering
-     * imposed by the objects' own <tt>compareTo</tt> method.)  This enables a
+    /** {@collect.stats}
+     * Returns a comparator that imposes the reverse of the <em>natural
+     * ordering</em> on a collection of objects that implement the
+     * {@code Comparable} interface.  (The natural ordering is the ordering
+     * imposed by the objects' own {@code compareTo} method.)  This enables a
      * simple idiom for sorting (or maintaining) collections (or arrays) of
-     * objects that implement the <tt>Comparable</tt> interface in
-     * reverse-natural-order.  For example, suppose a is an array of
+     * objects that implement the {@code Comparable} interface in
+     * reverse-natural-order.  For example, suppose {@code a} is an array of
      * strings. Then: <pre>
      *          Arrays.sort(a, Collections.reverseOrder());
      * </pre> sorts the array in reverse-lexicographic (alphabetical) order.<p>
      *
      * The returned comparator is serializable.
-     * {@description.close}
      *
-     * @return a comparator that imposes the reverse of the <i>natural
+     * @param  <T> the class of the objects compared by the comparator
+     * @return A comparator that imposes the reverse of the <i>natural
      *         ordering</i> on a collection of objects that implement
      *         the <tt>Comparable</tt> interface.
      * @see Comparable
      */
+    @SuppressWarnings("unchecked")
     public static <T> Comparator<T> reverseOrder() {
         return (Comparator<T>) ReverseComparator.REVERSE_ORDER;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class ReverseComparator
@@ -3731,23 +5120,29 @@ public class Collections {
             return c2.compareTo(c1);
         }
 
-        private Object readResolve() { return reverseOrder(); }
+        private Object readResolve() { return Collections.reverseOrder(); }
+
+        @Override
+        public Comparator<Comparable<Object>> reversed() {
+            return Comparator.naturalOrder();
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a comparator that imposes the reverse ordering of the specified
-     * comparator.  If the specified comparator is null, this method is
+     * comparator.  If the specified comparator is {@code null}, this method is
      * equivalent to {@link #reverseOrder()} (in other words, it returns a
-     * comparator that imposes the reverse of the <i>natural ordering</i> on a
-     * collection of objects that implement the Comparable interface).
+     * comparator that imposes the reverse of the <em>natural ordering</em> on
+     * a collection of objects that implement the Comparable interface).
      *
      * <p>The returned comparator is serializable (assuming the specified
-     * comparator is also serializable or null).
-     * {@description.close}
+     * comparator is also serializable or {@code null}).
      *
-     * @return a comparator that imposes the reverse ordering of the
-     *         specified comparator
+     * @param <T> the class of the objects compared by the comparator
+     * @param cmp a comparator who's ordering is to be reversed by the returned
+     * comparator or {@code null}
+     * @return A comparator that imposes the reverse ordering of the
+     *         specified comparator.
      * @since 1.5
      */
     public static <T> Comparator<T> reverseOrder(Comparator<T> cmp) {
@@ -3757,10 +5152,10 @@ public class Collections {
         if (cmp instanceof ReverseComparator2)
             return ((ReverseComparator2<T>)cmp).cmp;
 
-        return new ReverseComparator2<T>(cmp);
+        return new ReverseComparator2<>(cmp);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @serial include
      */
     private static class ReverseComparator2<T> implements Comparator<T>,
@@ -3768,12 +5163,10 @@ public class Collections {
     {
         private static final long serialVersionUID = 4374092139857L;
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The comparator specified in the static factory.  This will never
          * be null, as the static factory returns a ReverseComparator
          * instance if its argument is null.
-         * {@description.close}
          *
          * @serial
          */
@@ -3797,15 +5190,19 @@ public class Collections {
         public int hashCode() {
             return cmp.hashCode() ^ Integer.MIN_VALUE;
         }
+
+        @Override
+        public Comparator<T> reversed() {
+            return cmp;
+        }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an enumeration over the specified collection.  This provides
      * interoperability with legacy APIs that require an enumeration
      * as input.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the collection
      * @param c the collection for which an enumeration is to be returned.
      * @return an enumeration over the specified collection.
      * @see Enumeration
@@ -3824,15 +5221,14 @@ public class Collections {
         };
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an array list containing the elements returned by the
      * specified enumeration in the order they are returned by the
      * enumeration.  This method provides interoperability between
      * legacy APIs that return enumerations and new APIs that require
      * collections.
-     * {@description.close}
      *
+     * @param <T> the class of the objects returned by the enumeration
      * @param e enumeration providing elements for the returned
      *          array list
      * @return an array list containing the elements returned
@@ -3842,32 +5238,31 @@ public class Collections {
      * @see ArrayList
      */
     public static <T> ArrayList<T> list(Enumeration<T> e) {
-        ArrayList<T> l = new ArrayList<T>();
+        ArrayList<T> l = new ArrayList<>();
         while (e.hasMoreElements())
             l.add(e.nextElement());
         return l;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns true if the specified arguments are equal, or both null.
-     * {@description.close}
+     *
+     * NB: Do not replace with Object.equals until JDK-8015417 is resolved.
      */
     static boolean eq(Object o1, Object o2) {
         return o1==null ? o2==null : o1.equals(o2);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of elements in the specified collection equal to the
      * specified object.  More formally, returns the number of elements
      * <tt>e</tt> in the collection such that
      * <tt>(o == null ? e == null : o.equals(e))</tt>.
-     * {@description.close}
      *
      * @param c the collection in which to determine the frequency
      *     of <tt>o</tt>
      * @param o the object whose frequency is to be determined
+     * @return the number of elements in {@code c} equal to {@code o}
      * @throws NullPointerException if <tt>c</tt> is null
      * @since 1.5
      */
@@ -3885,53 +5280,97 @@ public class Collections {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns <tt>true</tt> if the two specified collections have no
+    /** {@collect.stats}
+     * Returns {@code true} if the two specified collections have no
      * elements in common.
      *
      * <p>Care must be exercised if this method is used on collections that
-     * do not comply with the general contract for <tt>Collection</tt>.
+     * do not comply with the general contract for {@code Collection}.
      * Implementations may elect to iterate over either collection and test
      * for containment in the other collection (or to perform any equivalent
      * computation).  If either collection uses a nonstandard equality test
-     * (as does a {@link SortedSet} whose ordering is not <i>compatible with
-     * equals</i>, or the key set of an {@link IdentityHashMap}), both
+     * (as does a {@link SortedSet} whose ordering is not <em>compatible with
+     * equals</em>, or the key set of an {@link IdentityHashMap}), both
      * collections must use the same nonstandard equality test, or the
      * result of this method is undefined.
      *
+     * <p>Care must also be exercised when using collections that have
+     * restrictions on the elements that they may contain. Collection
+     * implementations are allowed to throw exceptions for any operation
+     * involving elements they deem ineligible. For absolute safety the
+     * specified collections should contain only elements which are
+     * eligible elements for both collections.
+     *
      * <p>Note that it is permissible to pass the same collection in both
-     * parameters, in which case the method will return true if and only if
-     * the collection is empty.
-     * {@description.close}
+     * parameters, in which case the method will return {@code true} if and
+     * only if the collection is empty.
      *
      * @param c1 a collection
      * @param c2 a collection
-     * @throws NullPointerException if either collection is null
+     * @return {@code true} if the two specified collections have no
+     * elements in common.
+     * @throws NullPointerException if either collection is {@code null}.
+     * @throws NullPointerException if one collection contains a {@code null}
+     * element and {@code null} is not an eligible element for the other collection.
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
+     * @throws ClassCastException if one collection contains an element that is
+     * of a type which is ineligible for the other collection.
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @since 1.5
      */
     public static boolean disjoint(Collection<?> c1, Collection<?> c2) {
-        /*
-         * We're going to iterate through c1 and test for inclusion in c2.
-         * If c1 is a Set and c2 isn't, swap the collections.  Otherwise,
-         * place the shorter collection in c1.  Hopefully this heuristic
-         * will minimize the cost of the operation.
-         */
-        if ((c1 instanceof Set) && !(c2 instanceof Set) ||
-            (c1.size() > c2.size())) {
-            Collection<?> tmp = c1;
-            c1 = c2;
-            c2 = tmp;
+        // The collection to be used for contains(). Preference is given to
+        // the collection who's contains() has lower O() complexity.
+        Collection<?> contains = c2;
+        // The collection to be iterated. If the collections' contains() impl
+        // are of different O() complexity, the collection with slower
+        // contains() will be used for iteration. For collections who's
+        // contains() are of the same complexity then best performance is
+        // achieved by iterating the smaller collection.
+        Collection<?> iterate = c1;
+
+        // Performance optimization cases. The heuristics:
+        //   1. Generally iterate over c1.
+        //   2. If c1 is a Set then iterate over c2.
+        //   3. If either collection is empty then result is always true.
+        //   4. Iterate over the smaller Collection.
+        if (c1 instanceof Set) {
+            // Use c1 for contains as a Set's contains() is expected to perform
+            // better than O(N/2)
+            iterate = c2;
+            contains = c1;
+        } else if (!(c2 instanceof Set)) {
+            // Both are mere Collections. Iterate over smaller collection.
+            // Example: If c1 contains 3 elements and c2 contains 50 elements and
+            // assuming contains() requires ceiling(N/2) comparisons then
+            // checking for all c1 elements in c2 would require 75 comparisons
+            // (3 * ceiling(50/2)) vs. checking all c2 elements in c1 requiring
+            // 100 comparisons (50 * ceiling(3/2)).
+            int c1size = c1.size();
+            int c2size = c2.size();
+            if (c1size == 0 || c2size == 0) {
+                // At least one collection is empty. Nothing will match.
+                return true;
+            }
+
+            if (c1size > c2size) {
+                iterate = c2;
+                contains = c1;
+            }
         }
 
-        for (Object e : c1)
-            if (c2.contains(e))
+        for (Object e : iterate) {
+            if (contains.contains(e)) {
+               // Found a common element. Collections are not disjoint.
                 return false;
+            }
+        }
+
+        // No common elements were found.
         return true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds all of the specified elements to the specified collection.
      * Elements to be added may be specified individually or as an array.
      * The behavior of this convenience method is identical to that of
@@ -3943,8 +5382,8 @@ public class Collections {
      * <pre>
      *     Collections.addAll(flavors, "Peaches 'n Plutonium", "Rocky Racoon");
      * </pre>
-     * {@description.close}
      *
+     * @param  <T> the class of the elements to add and of the collection
      * @param c the collection into which <tt>elements</tt> are to be inserted
      * @param elements the elements to insert into <tt>c</tt>
      * @return <tt>true</tt> if the collection changed as a result of the call
@@ -3958,6 +5397,7 @@ public class Collections {
      * @see Collection#addAll(Collection)
      * @since 1.5
      */
+    @SafeVarargs
     public static <T> boolean addAll(Collection<? super T> c, T... elements) {
         boolean result = false;
         for (T element : elements)
@@ -3965,27 +5405,20 @@ public class Collections {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a set backed by the specified map.  The resulting set displays
      * the same ordering, concurrency, and performance characteristics as the
      * backing map.  In essence, this factory method provides a {@link Set}
-     * implementation corresponding to any {@link Map} implementation.
-     * {@description.close}
-     * {@property.open formal:java.util.Collections_UnnecessaryNewSetFromMap}
-     * There
+     * implementation corresponding to any {@link Map} implementation.  There
      * is no need to use this method on a {@link Map} implementation that
      * already has a corresponding {@link Set} implementation (such as {@link
      * HashMap} or {@link TreeMap}).
-     * {@property.close}
      *
      * <p>Each method invocation on the set returned by this method results in
      * exactly one method invocation on the backing map or its <tt>keySet</tt>
      * view, with one exception.  The <tt>addAll</tt> method is implemented
      * as a sequence of <tt>put</tt> invocations on the backing map.
-     * {@description.close}
      *
-     * {@property.open formal:java.util.Collections_NewSetFromMap}
      * <p>The specified map must be empty at the time this method is invoked,
      * and should not be accessed directly after this method returns.  These
      * conditions are ensured if the map is created empty, passed directly
@@ -3995,17 +5428,21 @@ public class Collections {
      *    Set&lt;Object&gt; weakHashSet = Collections.newSetFromMap(
      *        new WeakHashMap&lt;Object, Boolean&gt;());
      * </pre>
-     * {@property.close}
      *
+     * @param <E> the class of the map keys and of the objects in the
+     *        returned set
      * @param map the backing map
      * @return the set backed by the map
      * @throws IllegalArgumentException if <tt>map</tt> is not empty
      * @since 1.6
      */
     public static <E> Set<E> newSetFromMap(Map<E, Boolean> map) {
-        return new SetFromMap<E>(map);
+        return new SetFromMap<>(map);
     }
 
+    /** {@collect.stats}
+     * @serial include
+     */
     private static class SetFromMap<E> extends AbstractSet<E>
         implements Set<E>, Serializable
     {
@@ -4036,6 +5473,23 @@ public class Collections {
         public boolean retainAll(Collection<?> c)   {return s.retainAll(c);}
         // addAll is the only inherited implementation
 
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            s.forEach(action);
+        }
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            return s.removeIf(filter);
+        }
+
+        @Override
+        public Spliterator<E> spliterator() {return s.spliterator();}
+        @Override
+        public Stream<E> stream()           {return s.stream();}
+        @Override
+        public Stream<E> parallelStream()   {return s.parallelStream();}
+
         private static final long serialVersionUID = 2454657854757543876L;
 
         private void readObject(java.io.ObjectInputStream stream)
@@ -4046,8 +5500,7 @@ public class Collections {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a view of a {@link Deque} as a Last-in-first-out (Lifo)
      * {@link Queue}. Method <tt>add</tt> is mapped to <tt>push</tt>,
      * <tt>remove</tt> is mapped to <tt>pop</tt> and so on. This
@@ -4059,16 +5512,19 @@ public class Collections {
      * one exception.  The {@link Queue#addAll addAll} method is
      * implemented as a sequence of {@link Deque#addFirst addFirst}
      * invocations on the backing deque.
-     * {@description.close}
      *
+     * @param  <T> the class of the objects in the deque
      * @param deque the deque
      * @return the queue
      * @since  1.6
      */
     public static <T> Queue<T> asLifoQueue(Deque<T> deque) {
-        return new AsLIFOQueue<T>(deque);
+        return new AsLIFOQueue<>(deque);
     }
 
+    /** {@collect.stats}
+     * @serial include
+     */
     static class AsLIFOQueue<E> extends AbstractQueue<E>
         implements Queue<E>, Serializable {
         private static final long serialVersionUID = 1802017725587941708L;
@@ -4093,5 +5549,19 @@ public class Collections {
         public boolean removeAll(Collection<?> c)   {return q.removeAll(c);}
         public boolean retainAll(Collection<?> c)   {return q.retainAll(c);}
         // We use inherited addAll; forwarding addAll would be wrong
+
+        // Override default methods in Collection
+        @Override
+        public void forEach(Consumer<? super E> action) {q.forEach(action);}
+        @Override
+        public boolean removeIf(Predicate<? super E> filter) {
+            return q.removeIf(filter);
+        }
+        @Override
+        public Spliterator<E> spliterator() {return q.spliterator();}
+        @Override
+        public Stream<E> stream()           {return q.stream();}
+        @Override
+        public Stream<E> parallelStream()   {return q.parallelStream();}
     }
 }

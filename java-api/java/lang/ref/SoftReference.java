@@ -1,32 +1,32 @@
 /*
  * Copyright (c) 1997, 2003, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.ref;
 
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * Soft reference objects, which are cleared at the discretion of the garbage
  * collector in response to memory demand.  Soft references are most often used
  * to implement memory-sensitive caches.
@@ -63,17 +63,19 @@ package java.lang.ref;
 
 public class SoftReference<T> extends Reference<T> {
 
-    /* Timestamp clock, updated by the garbage collector
+    /**
+     * Timestamp clock, updated by the garbage collector
      */
     static private long clock;
 
-    /* Timestamp updated by each invocation of the get method.  The VM may use
+    /**
+     * Timestamp updated by each invocation of the get method.  The VM may use
      * this field when selecting soft references to be cleared, but it is not
      * required to do so.
      */
     private long timestamp;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Creates a new soft reference that refers to the given object.  The new
      * reference is not registered with any queue.
      *
@@ -84,7 +86,7 @@ public class SoftReference<T> extends Reference<T> {
         this.timestamp = clock;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Creates a new soft reference that refers to the given object and is
      * registered with the given queue.
      *
@@ -98,7 +100,7 @@ public class SoftReference<T> extends Reference<T> {
         this.timestamp = clock;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns this reference object's referent.  If this reference object has
      * been cleared, either by the program or by the garbage collector, then
      * this method returns <code>null</code>.
@@ -108,7 +110,8 @@ public class SoftReference<T> extends Reference<T> {
      */
     public T get() {
         T o = super.get();
-        if (o != null) this.timestamp = clock;
+        if (o != null && this.timestamp != clock)
+            this.timestamp = clock;
         return o;
     }
 

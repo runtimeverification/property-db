@@ -1,52 +1,48 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
 package java.util.concurrent.locks;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.*;
+import java.util.concurrent.TimeUnit;
+import java.util.Collection;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * A reentrant mutual exclusion {@link Lock} with the same basic
  * behavior and semantics as the implicit monitor lock accessed using
  * {@code synchronized} methods and statements, but with extended
  * capabilities.
- * {@description.close}
  *
- * {@property.open}
  * <p>A {@code ReentrantLock} is <em>owned</em> by the thread last
  * successfully locking, but not yet unlocking it. A thread invoking
  * {@code lock} will return, successfully acquiring the lock, when
@@ -54,9 +50,7 @@ import java.util.concurrent.atomic.*;
  * immediately if the current thread already owns the lock. This can
  * be checked using methods {@link #isHeldByCurrentThread}, and {@link
  * #getHoldCount}.
- * {@property.close}
  *
- * {@description.open}
  * <p>The constructor for this class accepts an optional
  * <em>fairness</em> parameter.  When set {@code true}, under
  * contention, locks favor granting access to the longest-waiting
@@ -70,17 +64,15 @@ import java.util.concurrent.atomic.*;
  * fair lock may obtain it multiple times in succession while other
  * active threads are not progressing and not currently holding the
  * lock.
- * Also note that the untimed {@link #tryLock() tryLock} method does not
+ * Also note that the untimed {@link #tryLock()} method does not
  * honor the fairness setting. It will succeed if the lock
  * is available even if other threads are waiting.
- * {@description.close}
  *
- * {@property.open}
  * <p>It is recommended practice to <em>always</em> immediately
  * follow a call to {@code lock} with a {@code try} block, most
  * typically in a before/after construction such as:
  *
- * <pre>
+ *  <pre> {@code
  * class X {
  *   private final ReentrantLock lock = new ReentrantLock();
  *   // ...
@@ -93,16 +85,12 @@ import java.util.concurrent.atomic.*;
  *       lock.unlock()
  *     }
  *   }
- * }
- * </pre>
- * {@property.close}
+ * }}</pre>
  *
- * {@description.open}
  * <p>In addition to implementing the {@link Lock} interface, this
- * class defines methods {@code isLocked} and
- * {@code getLockQueueLength}, as well as some associated
- * {@code protected} access methods that may be useful for
- * instrumentation and monitoring.
+ * class defines a number of {@code public} and {@code protected}
+ * methods for inspecting the state of the lock.  Some of these
+ * methods are only useful for instrumentation and monitoring.
  *
  * <p>Serialization of this class behaves in the same way as built-in
  * locks: a deserialized lock is in the unlocked state, regardless of
@@ -111,45 +99,45 @@ import java.util.concurrent.atomic.*;
  * <p>This lock supports a maximum of 2147483647 recursive locks by
  * the same thread. Attempts to exceed this limit result in
  * {@link Error} throws from locking methods.
- * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
  */
 public class ReentrantLock implements Lock, java.io.Serializable {
     private static final long serialVersionUID = 7373984872572414699L;
-    /** {@collect.stats}
-     * {@description.open}
-     * Synchronizer providing all implementation mechanics 
-     * {@description.close}
-     */
+    /** {@collect.stats}      
+* {@description.open}
+     * Synchronizer providing all implementation mechanics
+     * {@description.close} */
     private final Sync sync;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Base of synchronization control for this lock. Subclassed
      * into fair and nonfair versions below. Uses AQS state to
      * represent the number of holds on the lock.
-     * {@description.close}
-     */
-    static abstract class Sync extends AbstractQueuedSynchronizer {
+
+     * {@description.close}     */
+    abstract static class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = -5179523762034025860L;
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * Performs {@link Lock#lock}. The main reason for subclassing
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * Performs {@link Lock#lock}. The main reason for subclassing
          * is to allow fast path for nonfair version.
-         * {@description.close}
-         */
+
+     * {@description.close}         */
         abstract void lock();
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * Performs non-fair tryLock.  tryAcquire is
-         * implemented in subclasses, but both need nonfair
-         * try for trylock method.
-         * {@description.close}
-         */
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * Performs non-fair tryLock.  tryAcquire is implemented in
+         * subclasses, but both need nonfair try for trylock method.
+
+     * {@description.close}         */
         final boolean nonfairTryAcquire(int acquires) {
             final Thread current = Thread.currentThread();
             int c = getState();
@@ -206,11 +194,8 @@ public class ReentrantLock implements Lock, java.io.Serializable {
             return getState() != 0;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * Reconstitutes this lock instance from a stream.
-         * {@description.close}
-         * @param s the stream
+        /**
+         * Reconstitutes the instance from a stream (that is, deserializes it).
          */
         private void readObject(java.io.ObjectInputStream s)
             throws java.io.IOException, ClassNotFoundException {
@@ -219,20 +204,22 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sync object for non-fair locks
-     * {@description.close}
-     */
-    final static class NonfairSync extends Sync {
+
+     * {@description.close}     */
+    static final class NonfairSync extends Sync {
         private static final long serialVersionUID = 7316153563782823691L;
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * Performs lock.  Try immediate barge, backing up to normal
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * Performs lock.  Try immediate barge, backing up to normal
          * acquire on failure.
-         * {@description.close}
-         */
+
+     * {@description.close}         */
         final void lock() {
             if (compareAndSetState(0, 1))
                 setExclusiveOwnerThread(Thread.currentThread());
@@ -245,24 +232,26 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sync object for fair locks
-     * {@description.close}
-     */
-    final static class FairSync extends Sync {
+
+     * {@description.close}     */
+    static final class FairSync extends Sync {
         private static final long serialVersionUID = -3000897897090466540L;
 
         final void lock() {
             acquire(1);
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * Fair version of tryAcquire.  Don't grant access unless
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * Fair version of tryAcquire.  Don't grant access unless
          * recursive call or no waiters or is first.
-         * {@description.close}
-         */
+
+     * {@description.close}         */
         protected final boolean tryAcquire(int acquires) {
             final Thread current = Thread.currentThread();
             int c = getState();
@@ -284,82 +273,88 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an instance of {@code ReentrantLock}.
      * This is equivalent to using {@code ReentrantLock(false)}.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public ReentrantLock() {
         sync = new NonfairSync();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an instance of {@code ReentrantLock} with the
      * given fairness policy.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param fair {@code true} if this lock should use a fair ordering policy
      */
     public ReentrantLock(boolean fair) {
-        sync = (fair)? new FairSync() : new NonfairSync();
+        sync = fair ? new FairSync() : new NonfairSync();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Acquires the lock.
-     * {@description.close}
      *
-     * {@property.open}
+     *      
+* {@property.open}
      * <p>Acquires the lock if it is not held by another thread and returns
      * immediately, setting the lock hold count to one.
      *
      * <p>If the current thread already holds the lock then the hold
      * count is incremented by one and the method returns immediately.
-     * {@property.close}
-     *
-     * {@description.open}
+
+     * {@property.close}     *
+     *      
+* {@description.open}
      * <p>If the lock is held by another thread then the
      * current thread becomes disabled for thread scheduling
      * purposes and lies dormant until the lock has been acquired,
      * at which time the lock hold count is set to one.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void lock() {
         sync.lock();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Acquires the lock unless the current thread is
      * {@linkplain Thread#interrupt interrupted}.
-     * {@description.close}
-     *
-     * {@property.open}
+
+     * {@description.close}     *
+     *      
+* {@property.open}
      * <p>Acquires the lock if it is not held by another thread and returns
      * immediately, setting the lock hold count to one.
      *
      * <p>If the current thread already holds this lock then the hold count
      * is incremented by one and the method returns immediately.
-     * {@property.close}
-     *
-     * {@property.open}
+
+     * {@property.close}     *
+     *      
+* {@property.open}
      * <p>If the lock is held by another thread then the
      * current thread becomes disabled for thread scheduling
      * purposes and lies dormant until one of two things happens:
      *
      * <ul>
      *
-     * <li>The lock is acquired by the current thread; or
+     * <li>The lock is acquired by the current thread;
+     * {@property.close} or
      *
      * <li>Some other thread {@linkplain Thread#interrupt interrupts} the
      * current thread.
      *
      * </ul>
-     * {@property.close}
      *
-     * {@description.open}
+     *      
+* {@description.open}
      * <p>If the lock is acquired by the current thread then the lock hold
      * count is set to one.
      *
@@ -380,16 +375,17 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * <p>In this implementation, as this method is an explicit
      * interruption point, preference is given to responding to the
      * interrupt over normal or reentrant acquisition of the lock.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws InterruptedException if the current thread is interrupted
      */
     public void lockInterruptibly() throws InterruptedException {
         sync.acquireInterruptibly(1);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Acquires the lock only if it is not held by another thread at the time
      * of invocation.
      *
@@ -405,13 +401,13 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * {@link #tryLock(long, TimeUnit) tryLock(0, TimeUnit.SECONDS) }
      * which is almost equivalent (it also detects interruption).
      *
-     * <p> If the current thread already holds this lock then the hold
+     * <p>If the current thread already holds this lock then the hold
      * count is incremented by one and the method returns {@code true}.
      *
      * <p>If the lock is held by another thread then this method will return
      * immediately with the value {@code false}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return {@code true} if the lock was free and was acquired by the
      *         current thread, or the lock was already held by the current
      *         thread; and {@code false} otherwise
@@ -420,8 +416,9 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.nonfairTryAcquire(1);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Acquires the lock if it is not held by another thread within the given
      * waiting time and the current thread has not been
      * {@linkplain Thread#interrupt interrupted}.
@@ -434,11 +431,15 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * method. If you want a timed {@code tryLock} that does permit barging on
      * a fair lock then combine the timed and un-timed forms together:
      *
-     * <pre>if (lock.tryLock() || lock.tryLock(timeout, unit) ) { ... }
-     * </pre>
-     * {@description.close}
+     *  <pre> {@code
+     * if (lock.tryLock() ||
+     *     lock.tryLock(timeout, unit))
+     * {@description.close} {
+     *   ...
+     * }}</pre>
      *
-     * {@property.open}
+     *      
+* {@property.open}
      * <p>If the current thread
      * already holds this lock then the hold count is incremented by one and
      * the method returns {@code true}.
@@ -455,11 +456,12 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * the current thread; or
      *
      * <li>The specified waiting time elapses
-     *
+
+     * {@property.close}     *
      * </ul>
-     * {@property.close}
      *
-     * {@description.open}
+     *      
+* {@description.open}
      * <p>If the lock is acquired then the value {@code true} is returned and
      * the lock hold count is set to one.
      *
@@ -484,8 +486,8 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * interruption point, preference is given to responding to the
      * interrupt over normal or reentrant acquisition of the lock, and
      * over reporting the elapse of the waiting time.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param timeout the time to wait for the lock
      * @param unit the time unit of the timeout argument
      * @return {@code true} if the lock was free and was acquired by the
@@ -494,24 +496,26 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *         the lock could be acquired
      * @throws InterruptedException if the current thread is interrupted
      * @throws NullPointerException if the time unit is null
-     *
      */
-    public boolean tryLock(long timeout, TimeUnit unit) throws InterruptedException {
+    public boolean tryLock(long timeout, TimeUnit unit)
+            throws InterruptedException {
         return sync.tryAcquireNanos(1, unit.toNanos(timeout));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Attempts to release this lock.
-     * {@description.close}
-     *
-     * {@property.open}
+
+     * {@description.close}     *
+     *      
+* {@property.open}
      * <p>If the current thread is the holder of this lock then the hold
      * count is decremented.  If the hold count is now zero then the lock
      * is released.  If the current thread is not the holder of this
      * lock then {@link IllegalMonitorStateException} is thrown.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @throws IllegalMonitorStateException if the current thread does not
      *         hold this lock
      */
@@ -519,8 +523,7 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         sync.release(1);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns a {@link Condition} instance for use with this
      * {@link Lock} instance.
      *
@@ -556,7 +559,6 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * waiting the longest.
      *
      * </ul>
-     * {@description.close}
      *
      * @return the Condition object
      */
@@ -564,8 +566,9 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.newCondition();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Queries the number of holds on this lock by the current thread.
      *
      * <p>A thread has a hold on a lock for each lock action that is not
@@ -576,7 +579,7 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * not be entered with the lock already held then we can assert that
      * fact:
      *
-     * <pre>
+     *  <pre> {@code
      * class X {
      *   ReentrantLock lock = new ReentrantLock();
      *   // ...
@@ -587,11 +590,10 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *       // ... method body
      *     } finally {
      *       lock.unlock();
-     *     }
+
+     * {@description.close}     *     }
      *   }
-     * }
-     * </pre>
-     * {@description.close}
+     * }}</pre>
      *
      * @return the number of holds on this lock by the current thread,
      *         or zero if this lock is not held by the current thread
@@ -600,16 +602,15 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.getHoldCount();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Queries if this lock is held by the current thread.
      *
-     * <p>Analogous to the {@link Thread#holdsLock} method for built-in
-     * monitor locks, this method is typically used for debugging and
-     * testing. For example, a method that should only be called while
-     * a lock is held can assert that this is the case:
+     * <p>Analogous to the {@link Thread#holdsLock(Object)} method for
+     * built-in monitor locks, this method is typically used for
+     * debugging and testing. For example, a method that should only be
+     * called while a lock is held can assert that this is the case:
      *
-     * <pre>
+     *  <pre> {@code
      * class X {
      *   ReentrantLock lock = new ReentrantLock();
      *   // ...
@@ -618,13 +619,12 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *       assert lock.isHeldByCurrentThread();
      *       // ... method body
      *   }
-     * }
-     * </pre>
+     * }}</pre>
      *
      * <p>It can also be used to ensure that a reentrant lock is used
      * in a non-reentrant manner, for example:
      *
-     * <pre>
+     *  <pre> {@code
      * class X {
      *   ReentrantLock lock = new ReentrantLock();
      *   // ...
@@ -638,9 +638,7 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      *           lock.unlock();
      *       }
      *   }
-     * }
-     * </pre>
-     * {@description.close}
+     * }}</pre>
      *
      * @return {@code true} if current thread holds this lock and
      *         {@code false} otherwise
@@ -649,13 +647,14 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.isHeldExclusively();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Queries if this lock is held by any thread. This method is
      * designed for use in monitoring of the system state,
      * not for synchronization control.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return {@code true} if any thread holds this lock and
      *         {@code false} otherwise
      */
@@ -663,19 +662,21 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.isLocked();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns {@code true} if this lock has fairness set true.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return {@code true} if this lock has fairness set true
      */
     public final boolean isFair() {
         return sync instanceof FairSync;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the thread that currently owns this lock, or
      * {@code null} if not owned. When this method is called by a
      * thread that is not the owner, the return value reflects a
@@ -685,23 +686,24 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * This method is designed to facilitate construction of
      * subclasses that provide more extensive lock monitoring
      * facilities.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the owner, or {@code null} if not owned
      */
     protected Thread getOwner() {
         return sync.getOwner();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Queries whether any threads are waiting to acquire this lock. Note that
      * because cancellations may occur at any time, a {@code true}
      * return does not guarantee that any other thread will ever
      * acquire this lock.  This method is designed primarily for use in
      * monitoring of the system state.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return {@code true} if there may be other threads waiting to
      *         acquire the lock
      */
@@ -709,16 +711,16 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.hasQueuedThreads();
     }
 
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Queries whether the given thread is waiting to acquire this
      * lock. Note that because cancellations may occur at any time, a
      * {@code true} return does not guarantee that this thread
      * will ever acquire this lock.  This method is designed primarily for use
      * in monitoring of the system state.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param thread the thread
      * @return {@code true} if the given thread is queued waiting for this lock
      * @throws NullPointerException if the thread is null
@@ -727,25 +729,26 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.isQueued(thread);
     }
 
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns an estimate of the number of threads waiting to
      * acquire this lock.  The value is only an estimate because the number of
      * threads may change dynamically while this method traverses
      * internal data structures.  This method is designed for use in
      * monitoring of the system state, not for synchronization
      * control.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the estimated number of threads waiting for this lock
      */
     public final int getQueueLength() {
         return sync.getQueueLength();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a collection containing threads that may be waiting to
      * acquire this lock.  Because the actual set of threads may change
      * dynamically while constructing this result, the returned
@@ -753,24 +756,25 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * returned collection are in no particular order.  This method is
      * designed to facilitate construction of subclasses that provide
      * more extensive monitoring facilities.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the collection of threads
      */
     protected Collection<Thread> getQueuedThreads() {
         return sync.getQueuedThreads();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Queries whether any threads are waiting on the given condition
      * associated with this lock. Note that because timeouts and
      * interrupts may occur at any time, a {@code true} return does
      * not guarantee that a future {@code signal} will awaken any
      * threads.  This method is designed primarily for use in
      * monitoring of the system state.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param condition the condition
      * @return {@code true} if there are any waiting threads
      * @throws IllegalMonitorStateException if this lock is not held
@@ -786,16 +790,17 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.hasWaiters((AbstractQueuedSynchronizer.ConditionObject)condition);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns an estimate of the number of threads waiting on the
      * given condition associated with this lock. Note that because
      * timeouts and interrupts may occur at any time, the estimate
      * serves only as an upper bound on the actual number of waiters.
      * This method is designed for use in monitoring of the system
      * state, not for synchronization control.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param condition the condition
      * @return the estimated number of waiting threads
      * @throws IllegalMonitorStateException if this lock is not held
@@ -811,8 +816,9 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.getWaitQueueLength((AbstractQueuedSynchronizer.ConditionObject)condition);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a collection containing those threads that may be
      * waiting on the given condition associated with this lock.
      * Because the actual set of threads may change dynamically while
@@ -821,8 +827,8 @@ public class ReentrantLock implements Lock, java.io.Serializable {
      * are in no particular order.  This method is designed to
      * facilitate construction of subclasses that provide more
      * extensive condition monitoring facilities.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param condition the condition
      * @return the collection of threads
      * @throws IllegalMonitorStateException if this lock is not held
@@ -838,14 +844,15 @@ public class ReentrantLock implements Lock, java.io.Serializable {
         return sync.getWaitingThreads((AbstractQueuedSynchronizer.ConditionObject)condition);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a string identifying this lock, as well as its lock state.
      * The state, in brackets, includes either the String {@code "Unlocked"}
      * or the String {@code "Locked by"} followed by the
      * {@linkplain Thread#getName name} of the owning thread.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return a string identifying this lock, as well as its lock state
      */
     public String toString() {

@@ -1,47 +1,52 @@
 /*
- * Copyright (c) 1994, 2007, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 package java.lang;
 
 import java.io.*;
+import java.lang.reflect.Executable;
+import java.lang.annotation.Annotation;
+import java.security.AccessControlContext;
 import java.util.Properties;
 import java.util.PropertyPermission;
 import java.util.StringTokenizer;
+import java.util.Map;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.security.AllPermission;
 import java.nio.channels.Channel;
 import java.nio.channels.spi.SelectorProvider;
 import sun.nio.ch.Interruptible;
-import sun.net.InetAddressCachePolicy;
+import sun.reflect.CallerSensitive;
 import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 import sun.reflect.annotation.AnnotationType;
 
-/** {@collect.stats} 
- * {@description.open}
- * The <code>System</code> class contains several useful class fields
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * The <code>System</code> class contains several useful class fields
  * and methods. It cannot be instantiated.
  *
  * <p>Among the facilities provided by the <code>System</code> class
@@ -49,39 +54,46 @@ import sun.reflect.annotation.AnnotationType;
  * access to externally defined properties and environment
  * variables; a means of loading files and libraries; and a utility
  * method for quickly copying a portion of an array.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  unascribed
  * @since   JDK1.0
  */
 public final class System {
 
-    /* First thing---register the natives */
+    /* register the natives via the static initializer.
+     *
+     * VM will invoke the initializeSystemClass method to complete
+     * the initialization for this class separated from clinit.
+     * Note that to use properties set by the VM, see the constraints
+     * described in the initializeSystemClass method.
+     */
     private static native void registerNatives();
     static {
         registerNatives();
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Don't let anyone instantiate this class
-     * {@description.close}
-     *  */
+     * {@description.close} */
     private System() {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The "standard" input stream. This stream is already
      * open and ready to supply input data. Typically this stream
      * corresponds to keyboard input or another input source specified by
      * the host environment or user.
-     * {@description.close}
-     */
-    public final static InputStream in = nullInputStream();
 
-    /** {@collect.stats} 
-     * {@description.open}
+     * {@description.close}     */
+    public final static InputStream in = null;
+
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The "standard" output stream. This stream is already
      * open and ready to accept output data. Typically this stream
      * corresponds to display output or another output destination
@@ -94,8 +106,8 @@ public final class System {
      * </pre></blockquote>
      * <p>
      * See the <code>println</code> methods in class <code>PrintStream</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @see     java.io.PrintStream#println()
      * @see     java.io.PrintStream#println(boolean)
      * @see     java.io.PrintStream#println(char)
@@ -107,10 +119,11 @@ public final class System {
      * @see     java.io.PrintStream#println(java.lang.Object)
      * @see     java.io.PrintStream#println(java.lang.String)
      */
-    public final static PrintStream out = nullPrintStream();
+    public final static PrintStream out = null;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The "standard" error output stream. This stream is already
      * open and ready to accept output data.
      * <p>
@@ -121,23 +134,24 @@ public final class System {
      * of a user even if the principal output stream, the value of the
      * variable <code>out</code>, has been redirected to a file or other
      * destination that is typically not continuously monitored.
-     * {@description.close}
-     */
-    public final static PrintStream err = nullPrintStream();
+
+     * {@description.close}     */
+    public final static PrintStream err = null;
 
     /* The security manager for the system.
      */
     private static volatile SecurityManager security = null;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Reassigns the "standard" input stream.
-     *
+
+     * {@description.close}     *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" input stream.
      * <p>
-     * {@description.close}
      *
      * @param in the new standard input stream.
      *
@@ -156,14 +170,15 @@ public final class System {
         setIn0(in);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Reassigns the "standard" output stream.
-     *
+
+     * {@description.close}     *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" output stream.
-     * {@description.close}
      *
      * @param out the new standard output stream
      *
@@ -183,13 +198,14 @@ public final class System {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Reassigns the "standard" error output stream.
-     *
+
+     * {@description.close}     *
      * <p>First, if there is a security manager, its <code>checkPermission</code>
      * method is called with a <code>RuntimePermission("setIO")</code> permission
      *  to see if it's ok to reassign the "standard" error output stream.
-     * {@description.close}
      *
      * @param err the new standard error output stream.
      *
@@ -209,12 +225,13 @@ public final class System {
     }
 
     private static volatile Console cons = null;
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the unique {@link java.io.Console Console} object associated
      * with the current Java virtual machine, if any.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  The system console, if any, otherwise <tt>null</tt>.
      *
      * @since   1.6
@@ -228,8 +245,9 @@ public final class System {
          return cons;
      }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the channel inherited from the entity that created this
      * Java virtual machine.
      *
@@ -242,8 +260,8 @@ public final class System {
      * {@link java.nio.channels.spi.SelectorProvider#inheritedChannel
      * inheritedChannel}, this method may return other kinds of
      * channels in the future.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  The inherited channel, if any, otherwise <tt>null</tt>.
      *
      * @throws  IOException
@@ -270,8 +288,9 @@ public final class System {
     private static native void setOut0(PrintStream out);
     private static native void setErr0(PrintStream err);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the System security.
      *
      * <p> If there is a security manager already installed, this method first
@@ -285,8 +304,8 @@ public final class System {
      * security manager. If the argument is <code>null</code> and no
      * security manager has been established, then no action is taken and
      * the method simply returns.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      s   the security manager.
      * @exception  SecurityException  if the security manager has already
      *             been set and its <code>checkPermission</code> method
@@ -334,14 +353,14 @@ public final class System {
         }
 
         security = s;
-        InetAddressCachePolicy.setIfNotSet(InetAddressCachePolicy.FOREVER);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the system security interface.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  if a security manager has already been established for the
      *          current application, then that security manager is returned;
      *          otherwise, <code>null</code> is returned.
@@ -351,8 +370,9 @@ public final class System {
         return security;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the current time in milliseconds.  Note that
      * while the unit of time of the return value is a millisecond,
      * the granularity of the value depends on the underlying
@@ -363,48 +383,67 @@ public final class System {
      * <p> See the description of the class <code>Date</code> for
      * a discussion of slight discrepancies that may arise between
      * "computer time" and coordinated universal time (UTC).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the difference, measured in milliseconds, between
      *          the current time and midnight, January 1, 1970 UTC.
      * @see     java.util.Date
      */
     public static native long currentTimeMillis();
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the current value of the most precise available system
-     * timer, in nanoseconds.
+    /**
+     * Returns the current value of the running Java Virtual Machine's
+     * high-resolution time source, in nanoseconds.
      *
      * <p>This method can only be used to measure elapsed time and is
      * not related to any other notion of system or wall-clock time.
      * The value returned represents nanoseconds since some fixed but
-     * arbitrary time (perhaps in the future, so values may be
-     * negative).  This method provides nanosecond precision, but not
-     * necessarily nanosecond accuracy. No guarantees are made about
-     * how frequently values change. Differences in successive calls
-     * that span greater than approximately 292 years (2<sup>63</sup>
-     * nanoseconds) will not accurately compute elapsed time due to
-     * numerical overflow.
+     * arbitrary <i>origin</i> time (perhaps in the future, so values
+     * may be negative).  The same origin is used by all invocations of
+     * this method in an instance of a Java virtual machine; other
+     * virtual machine instances are likely to use a different origin.
+     *
+     * <p>This method provides nanosecond precision, but not necessarily
+     * nanosecond resolution (that is, how frequently the value changes)
+     * - no guarantees are made except that the resolution is at least as
+     * good as that of {@link #currentTimeMillis()}.
+     *
+     * <p>Differences in successive calls that span greater than
+     * approximately 292 years (2<sup>63</sup> nanoseconds) will not
+     * correctly compute elapsed time due to numerical overflow.
+     *
+     * <p>The values returned by this method become meaningful only when
+     * the difference between two such values, obtained within the same
+     * instance of a Java virtual machine, is computed.
      *
      * <p> For example, to measure how long some code takes to execute:
-     * <pre>
-     *   long startTime = System.nanoTime();
-     *   // ... the code being measured ...
-     *   long estimatedTime = System.nanoTime() - startTime;
-     * </pre>
-     * {@description.close}
+     *  <pre> {@code
+     * long startTime = System.nanoTime();
+     * // ... the code being measured ...
+     * long estimatedTime = System.nanoTime() - startTime;}</pre>
      *
-     * @return The current value of the system timer, in nanoseconds.
+     * <p>To compare two nanoTime values
+     *  <pre> {@code
+     * long t0 = System.nanoTime();
+     * ...
+     * long t1 = System.nanoTime();}</pre>
+     *
+     * one should use {@code t1 - t0 < 0}, not {@code t1 < t0},
+     * because of the possibility of numerical overflow.
+     *
+     * @return the current value of the running Java Virtual Machine's
+     *         high-resolution time source, in nanoseconds
      * @since 1.5
      */
     public static native long nanoTime();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Copies an array from the specified source array, beginning at the
      * specified position, to the specified position of the destination array.
-     * A subsequence of array components are copied from the source
+
+     * {@description.close}     * A subsequence of array components are copied from the source
      * array referenced by <code>src</code> to the destination array
      * referenced by <code>dest</code>. The number of components copied is
      * equal to the <code>length</code> argument. The components at
@@ -422,8 +461,6 @@ public final class System {
      * the temporary array were copied into positions
      * <code>destPos</code> through <code>destPos+length-1</code> of the
      * destination array.
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.System_NullArrayCopy}
      * <p>
      * If <code>dest</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown.
@@ -431,8 +468,6 @@ public final class System {
      * If <code>src</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown and the destination
      * array is not modified.
-     * {@property.close}
-     * {@description.open}
      * <p>
      * Otherwise, if any of the following is true, an
      * <code>ArrayStoreException</code> is thrown and the destination is
@@ -483,7 +518,6 @@ public final class System {
      * (Because of the restrictions already itemized, this
      * paragraph effectively applies only to the situation where both
      * arrays have component types that are reference types.)
-     * {@description.close}
      *
      * @param      src      the source array.
      * @param      srcPos   starting position in the source array.
@@ -502,23 +536,25 @@ public final class System {
                                         Object dest, int destPos,
                                         int length);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the same hash code for the given object as
      * would be returned by the default method hashCode(),
      * whether or not the given object's class overrides
      * hashCode().
      * The hash code for the null reference is zero.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param x object for which the hashCode is to be calculated
      * @return  the hashCode
      * @since   JDK1.1
      */
     public static native int identityHashCode(Object x);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * System properties. The following properties are guaranteed to be defined:
      * <dl>
      * <dt>java.version         <dd>Java version number
@@ -532,19 +568,19 @@ public final class System {
      * <dt>os.version           <dd>Operating System Version
      * <dt>file.separator       <dd>File separator ("/" on Unix)
      * <dt>path.separator       <dd>Path separator (":" on Unix)
-     * <dt>line.separator       <dd>Line separator ("\n" on Unix)
+     * <dt>line.separator       <dd>Line separator ("
+" on Unix)
      * <dt>user.name            <dd>User account name
      * <dt>user.home            <dd>User home directory
      * <dt>user.dir             <dd>User's current working directory
-     * </dl>
-     * {@description.close}
+
+     * {@description.close}     * </dl>
      */
 
     private static Properties props;
     private static native Properties initProperties(Properties props);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Determines the current system properties.
      * <p>
      * First, if there is a security manager, its
@@ -563,7 +599,7 @@ public final class System {
      * <tr><td><code>java.version</code></td>
      *     <td>Java Runtime Environment version</td></tr>
      * <tr><td><code>java.vendor</code></td>
-     *     <td>Java Runtime Environment vendor</td></tr
+     *     <td>Java Runtime Environment vendor</td></tr>
      * <tr><td><code>java.vendor.url</code></td>
      *     <td>Java vendor URL</td></tr>
      * <tr><td><code>java.home</code></td>
@@ -597,7 +633,10 @@ public final class System {
      * <tr><td><code>java.compiler</code></td>
      *     <td>Name of JIT compiler to use</td></tr>
      * <tr><td><code>java.ext.dirs</code></td>
-     *     <td>Path of extension directory or directories</td></tr>
+     *     <td>Path of extension directory or directories
+     *         <b>Deprecated.</b> <i>This property, and the mechanism
+     *            which implements it, may be removed in a future
+     *            release.</i> </td></tr>
      * <tr><td><code>os.name</code></td>
      *     <td>Operating system name</td></tr>
      * <tr><td><code>os.arch</code></td>
@@ -624,7 +663,6 @@ public final class System {
      * Note that even if the security manager does not permit the
      * <code>getProperties</code> operation, it may choose to permit the
      * {@link #getProperty(String)} operation.
-     * {@description.close}
      *
      * @return     the system properties
      * @exception  SecurityException  if a security manager exists and its
@@ -644,8 +682,26 @@ public final class System {
         return props;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
+     * Returns the system-dependent line separator string.  It always
+     * returns the same value - the initial value of the {@linkplain
+     * #getProperty(String) system property} {@code line.separator}.
+     *
+     * <p>On UNIX systems, it returns {@code "\n"}; on Microsoft
+     * Windows systems it returns {@code "\r\n"}.
+     *
+     * @return the system-dependent line separator string
+     * @since 1.7
+     */
+    public static String lineSeparator() {
+        return lineSeparator;
+    }
+
+    private static String lineSeparator;
+
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the system properties to the <code>Properties</code>
      * argument.
      * <p>
@@ -657,8 +713,8 @@ public final class System {
      * by the {@link #getProperty(String)} method. If the argument is
      * <code>null</code>, then the current set of system properties is
      * forgotten.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      props   the new system properties.
      * @exception  SecurityException  if a security manager exists and its
      *             <code>checkPropertiesAccess</code> method doesn't allow access
@@ -680,8 +736,9 @@ public final class System {
         System.props = props;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -691,8 +748,8 @@ public final class System {
      * If there is no current set of system properties, a set of system
      * properties is first created and initialized in the same manner as
      * for the <code>getProperties</code> method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      key   the name of the system property.
      * @return     the string value of the system property,
      *             or <code>null</code> if there is no property with that key.
@@ -718,8 +775,9 @@ public final class System {
         return props.getProperty(key);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the system property indicated by the specified key.
      * <p>
      * First, if there is a security manager, its
@@ -729,8 +787,8 @@ public final class System {
      * If there is no current set of system properties, a set of system
      * properties is first created and initialized in the same manner as
      * for the <code>getProperties</code> method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      key   the name of the system property.
      * @param      def   a default value.
      * @return     the string value of the system property,
@@ -756,8 +814,9 @@ public final class System {
         return props.getProperty(key, def);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -766,8 +825,8 @@ public final class System {
      * permission. This may result in a SecurityException being thrown.
      * If no exception is thrown, the specified property is set to the given
      * value.
-     * <p>
-     * {@description.close}
+
+     * {@description.close}     * <p>
      *
      * @param      key   the name of the system property.
      * @param      value the value of the system property.
@@ -799,7 +858,8 @@ public final class System {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Removes the system property indicated by the specified key.
      * <p>
      * First, if a security manager exists, its
@@ -807,8 +867,8 @@ public final class System {
      * is called with a <code>PropertyPermission(key, "write")</code>
      * permission. This may result in a SecurityException being thrown.
      * If no exception is thrown, the specified property is removed.
-     * <p>
-     * {@description.close}
+
+     * {@description.close}     * <p>
      *
      * @param      key   the name of the system property to be removed.
      * @return     the previous string value of the system property,
@@ -846,8 +906,9 @@ public final class System {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the value of the specified environment variable. An
      * environment variable is a system-dependent external named
      * value.
@@ -876,11 +937,11 @@ public final class System {
      * requires an environment variable (such as <code>PATH</code>).
      *
      * <p>On UNIX systems the alphabetic case of <code>name</code> is
-     * typically significant, while on Microsoft Windows systems it is
+     * typically significant, while on Microsoft Windows
+     * {@description.close} systems it is
      * typically not.  For example, the expression
      * <code>System.getenv("FOO").equals(System.getenv("foo"))</code>
      * is likely to be true on Microsoft Windows.
-     * {@description.close}
      *
      * @param  name the name of the environment variable
      * @return the string value of the variable, or <code>null</code>
@@ -904,23 +965,28 @@ public final class System {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns an unmodifiable string map view of the current system environment.
      * The environment is a system-dependent mapping from names to
      * values which is passed from parent to child processes.
      *
      * <p>If the system does not support environment variables, an
      * empty map is returned.
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.System_WrongKeyOrValue}
+
+     * {@description.close}     *
+     *      
+* {@property.open runtime formal:java.lang.System_WrongKeyOrValue}
      * <p>The returned map will never contain null keys or values.
      * Attempting to query the presence of a null key or value will
      * throw a {@link NullPointerException}.  Attempting to query
      * the presence of a key or value which is not of type
      * {@link String} will throw a {@link ClassCastException}.
-     * {@property.close}
-     * {@description.open}
+
+     * {@property.close}     *
+     *      
+* {@description.open}
      * <p>The returned map and its collection views may not obey the
      * general contract of the {@link Object#equals} and
      * {@link Object#hashCode} methods.
@@ -937,8 +1003,8 @@ public final class System {
      * <p>When passing information to a Java subprocess,
      * <a href=#EnvironmentVSSystemProperties>system properties</a>
      * are generally preferred over environment variables.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the environment as a map of variable names to values
      * @throws SecurityException
      *         if a security manager exists and its
@@ -957,8 +1023,9 @@ public final class System {
         return ProcessEnvironment.getenv();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Terminates the currently running Java Virtual Machine. The
      * argument serves as a status code; by convention, a nonzero status
      * code indicates abnormal termination.
@@ -970,8 +1037,8 @@ public final class System {
      * the call:
      * <blockquote><pre>
      * Runtime.getRuntime().exit(n)
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @param      status   exit status.
      * @throws  SecurityException
@@ -983,8 +1050,9 @@ public final class System {
         Runtime.getRuntime().exit(status);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Runs the garbage collector.
      * <p>
      * Calling the <code>gc</code> method suggests that the Java Virtual
@@ -998,8 +1066,8 @@ public final class System {
      * call:
      * <blockquote><pre>
      * Runtime.getRuntime().gc()
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @see     java.lang.Runtime#gc()
      */
@@ -1007,8 +1075,9 @@ public final class System {
         Runtime.getRuntime().gc();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Runs the finalization methods of any objects pending finalization.
      * <p>
      * Calling this method suggests that the Java Virtual Machine expend
@@ -1022,8 +1091,8 @@ public final class System {
      * equivalent to the call:
      * <blockquote><pre>
      * Runtime.getRuntime().runFinalization()
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @see     java.lang.Runtime#runFinalization()
      */
@@ -1031,8 +1100,9 @@ public final class System {
         Runtime.getRuntime().runFinalization();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Enable or disable finalization on exit; doing so specifies that the
      * finalizers of all objects that have finalizers that have not yet been
      * automatically invoked are to be run before the Java runtime exits.
@@ -1042,8 +1112,8 @@ public final class System {
      * its <code>checkExit</code> method is first called
      * with 0 as its argument to ensure the exit is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @deprecated  This method is inherently unsafe.  It may result in
      *      finalizers being called on live objects while other threads are
      *      concurrently manipulating those objects, resulting in erratic
@@ -1060,69 +1130,93 @@ public final class System {
      */
     @Deprecated
     public static void runFinalizersOnExit(boolean value) {
-        Runtime.getRuntime().runFinalizersOnExit(value);
+        Runtime.runFinalizersOnExit(value);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Loads a code file with the specified filename from the local file
-     * system as a dynamic library. The filename
-     * argument must be a complete path name.
+    /**
+     * Loads the native library specified by the filename argument.  The filename
+     * argument must be an absolute path name.
+     *
+     * If the filename argument, when stripped of any platform-specific library
+     * prefix, path, and file extension, indicates a library whose name is,
+     * for example, L, and a native library called L is statically linked
+     * with the VM, then the JNI_OnLoad_L function exported by the library
+     * is invoked rather than attempting to load a dynamic library.
+     * A filename matching the argument does not have to exist in the
+     * file system.
+     * See the JNI Specification for more details.
+     *
+     * Otherwise, the filename argument is mapped to a native library image in
+     * an implementation-dependent manner.
+     *
      * <p>
      * The call <code>System.load(name)</code> is effectively equivalent
      * to the call:
      * <blockquote><pre>
      * Runtime.getRuntime().load(name)
      * </pre></blockquote>
-     * {@description.close}
      *
      * @param      filename   the file to load.
      * @exception  SecurityException  if a security manager exists and its
      *             <code>checkLink</code> method doesn't allow
      *             loading of the specified dynamic library
-     * @exception  UnsatisfiedLinkError  if the file does not exist.
+     * @exception  UnsatisfiedLinkError  if either the filename is not an
+     *             absolute path name, the native library is not statically
+     *             linked with the VM, or the library cannot be mapped to
+     *             a native library image by the host system.
      * @exception  NullPointerException if <code>filename</code> is
      *             <code>null</code>
      * @see        java.lang.Runtime#load(java.lang.String)
      * @see        java.lang.SecurityManager#checkLink(java.lang.String)
      */
+    @CallerSensitive
     public static void load(String filename) {
-        Runtime.getRuntime().load0(getCallerClass(), filename);
+        Runtime.getRuntime().load0(Reflection.getCallerClass(), filename);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Loads the system library specified by the <code>libname</code>
-     * argument. The manner in which a library name is mapped to the
-     * actual system library is system dependent.
+    /**
+     * Loads the native library specified by the <code>libname</code>
+     * argument.  The <code>libname</code> argument must not contain any platform
+     * specific prefix, file extension or path. If a native library
+     * called <code>libname</code> is statically linked with the VM, then the
+     * JNI_OnLoad_<code>libname</code> function exported by the library is invoked.
+     * See the JNI Specification for more details.
+     *
+     * Otherwise, the libname argument is loaded from a system library
+     * location and mapped to a native library image in an implementation-
+     * dependent manner.
      * <p>
      * The call <code>System.loadLibrary(name)</code> is effectively
      * equivalent to the call
      * <blockquote><pre>
      * Runtime.getRuntime().loadLibrary(name)
      * </pre></blockquote>
-     * {@description.close}
      *
      * @param      libname   the name of the library.
      * @exception  SecurityException  if a security manager exists and its
      *             <code>checkLink</code> method doesn't allow
      *             loading of the specified dynamic library
-     * @exception  UnsatisfiedLinkError  if the library does not exist.
+     * @exception  UnsatisfiedLinkError if either the libname argument
+     *             contains a file path, the native library is not statically
+     *             linked with the VM,  or the library cannot be mapped to a
+     *             native library image by the host system.
      * @exception  NullPointerException if <code>libname</code> is
      *             <code>null</code>
      * @see        java.lang.Runtime#loadLibrary(java.lang.String)
      * @see        java.lang.SecurityManager#checkLink(java.lang.String)
      */
+    @CallerSensitive
     public static void loadLibrary(String libname) {
-        Runtime.getRuntime().loadLibrary0(getCallerClass(), libname);
+        Runtime.getRuntime().loadLibrary0(Reflection.getCallerClass(), libname);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Maps a library name into a platform-specific string representing
      * a native library.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      libname the name of the library.
      * @return     a platform-dependent native library name.
      * @exception  NullPointerException if <code>libname</code> is
@@ -1133,43 +1227,64 @@ public final class System {
      */
     public static native String mapLibraryName(String libname);
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * The following two methods exist because in, out, and err must be
-     * initialized to null.  The compiler, however, cannot be permitted to
-     * inline access to them, since they are later set to more sensible values
-     * by initializeSystemClass().
-     * {@description.close}
+    /**
+     * Create PrintStream for stdout/err based on encoding.
      */
-    private static InputStream nullInputStream() throws NullPointerException {
-        if (currentTimeMillis() > 0) {
-            return null;
+    private static PrintStream newPrintStream(FileOutputStream fos, String enc) {
+       if (enc != null) {
+            try {
+                return new PrintStream(new BufferedOutputStream(fos, 128), true, enc);
+            } catch (UnsupportedEncodingException uee) {}
         }
-        throw new NullPointerException();
+        return new PrintStream(new BufferedOutputStream(fos, 128), true);
     }
 
-    private static PrintStream nullPrintStream() throws NullPointerException {
-        if (currentTimeMillis() > 0) {
-            return null;
-        }
-        throw new NullPointerException();
-    }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Initialize the system class.  Called after thread initialization.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static void initializeSystemClass() {
+
+        // VM might invoke JNU_NewStringPlatform() to set those encoding
+        // sensitive properties (user.home, user.name, boot.class.path, etc.)
+        // during "props" initialization, in which it may need access, via
+        // System.getProperty(), to the related system encoding property that
+        // have been initialized (put into "props") at early stage of the
+        // initialization. So make sure the "props" is available at the
+        // very beginning of the initialization and all system properties to
+        // be put into it directly.
         props = new Properties();
-        initProperties(props);
+        initProperties(props);  // initialized by the VM
+
+        // There are certain system configurations that may be controlled by
+        // VM options such as the maximum amount of direct memory and
+        // Integer cache size used to support the object identity semantics
+        // of autoboxing.  Typically, the library will obtain these values
+        // from the properties set by the VM.  If the properties are for
+        // internal implementation use only, these properties should be
+        // removed from the system properties.
+        //
+        // See java.lang.Integer.IntegerCache and the
+        // sun.misc.VM.saveAndRemoveProperties method for example.
+        //
+        // Save a private copy of the system properties object that
+        // can only be accessed by the internal implementation.  Remove
+        // certain system properties that are not intended for public access.
+        sun.misc.VM.saveAndRemoveProperties(props);
+
+
+        lineSeparator = props.getProperty("line.separator");
         sun.misc.Version.init();
+
         FileInputStream fdIn = new FileInputStream(FileDescriptor.in);
         FileOutputStream fdOut = new FileOutputStream(FileDescriptor.out);
         FileOutputStream fdErr = new FileOutputStream(FileDescriptor.err);
         setIn0(new BufferedInputStream(fdIn));
-        setOut0(new PrintStream(new BufferedOutputStream(fdOut, 128), true));
-        setErr0(new PrintStream(new BufferedOutputStream(fdErr, 128), true));
+        setOut0(newPrintStream(fdOut, props.getProperty("sun.stdout.encoding")));
+        setErr0(newPrintStream(fdErr, props.getProperty("sun.stderr.encoding")));
 
         // Load the zip library now in order to keep java.util.zip.ZipFile
         // from trying to use itself to load this library later.
@@ -1178,51 +1293,50 @@ public final class System {
         // Setup Java signal handlers for HUP, TERM, and INT (where available).
         Terminator.setup();
 
-        // The order in with the hooks are added here is important as it
-        // determines the order in which they are run.
-        // (1)Console restore hook needs to be called first.
-        // (2)Application hooks must be run before calling deleteOnExitHook.
-        Shutdown.add(sun.misc.SharedSecrets.getJavaIOAccess().consoleRestoreHook());
-        Shutdown.add(ApplicationShutdownHooks.hook());
-        Shutdown.add(sun.misc.SharedSecrets.getJavaIODeleteOnExitAccess());
-
         // Initialize any miscellenous operating system settings that need to be
         // set for the class libraries. Currently this is no-op everywhere except
         // for Windows where the process-wide error mode is set before the java.io
         // classes are used.
         sun.misc.VM.initializeOSEnvironment();
 
-        // Set the maximum amount of direct memory.  This value is controlled
-        // by the vm option -XX:MaxDirectMemorySize=<size>.  This method acts
-        // as an initializer only if it is called before sun.misc.VM.booted().
-        sun.misc.VM.maxDirectMemory();
-
-        // Set a boolean to determine whether ClassLoader.loadClass accepts
-        // array syntax.  This value is controlled by the system property
-        // "sun.lang.ClassLoader.allowArraySyntax".  This method acts as
-        // an initializer only if it is called before sun.misc.VM.booted().
-        sun.misc.VM.allowArraySyntax();
-
-        // Subsystems that are invoked during initialization can invoke
-        // sun.misc.VM.isBooted() in order to avoid doing things that should
-        // wait until the application class loader has been set up.
-        sun.misc.VM.booted();
-
         // The main thread is not added to its thread group in the same
         // way as other threads; we must do it ourselves here.
         Thread current = Thread.currentThread();
         current.getThreadGroup().add(current);
 
+        // register shared secrets
+        setJavaLangAccess();
+
+        // Subsystems that are invoked during initialization can invoke
+        // sun.misc.VM.isBooted() in order to avoid doing things that should
+        // wait until the application class loader has been set up.
+        // IMPORTANT: Ensure that this remains the last initialization action!
+        sun.misc.VM.booted();
+    }
+
+    private static void setJavaLangAccess() {
         // Allow privileged classes outside of java.lang
         sun.misc.SharedSecrets.setJavaLangAccess(new sun.misc.JavaLangAccess(){
-            public sun.reflect.ConstantPool getConstantPool(Class klass) {
+            public sun.reflect.ConstantPool getConstantPool(Class<?> klass) {
                 return klass.getConstantPool();
             }
-            public void setAnnotationType(Class klass, AnnotationType type) {
-                klass.setAnnotationType(type);
+            public boolean casAnnotationType(Class<?> klass, AnnotationType oldType, AnnotationType newType) {
+                return klass.casAnnotationType(oldType, newType);
             }
-            public AnnotationType getAnnotationType(Class klass) {
+            public AnnotationType getAnnotationType(Class<?> klass) {
                 return klass.getAnnotationType();
+            }
+            public Map<Class<? extends Annotation>, Annotation> getDeclaredAnnotationMap(Class<?> klass) {
+                return klass.getDeclaredAnnotationMap();
+            }
+            public byte[] getRawClassAnnotations(Class<?> klass) {
+                return klass.getRawAnnotations();
+            }
+            public byte[] getRawClassTypeAnnotations(Class<?> klass) {
+                return klass.getRawTypeAnnotations();
+            }
+            public byte[] getRawExecutableTypeAnnotations(Executable executable) {
+                return Class.getExecutableTypeAnnotationBytes(executable);
             }
             public <E extends Enum<E>>
                     E[] getEnumConstantsShared(Class<E> klass) {
@@ -1231,12 +1345,24 @@ public final class System {
             public void blockedOn(Thread t, Interruptible b) {
                 t.blockedOn(b);
             }
+            public void registerShutdownHook(int slot, boolean registerShutdownInProgress, Runnable hook) {
+                Shutdown.add(slot, registerShutdownInProgress, hook);
+            }
+            public int getStackTraceDepth(Throwable t) {
+                return t.getStackTraceDepth();
+            }
+            public StackTraceElement getStackTraceElement(Throwable t, int i) {
+                return t.getStackTraceElement(i);
+            }
+            public String newStringUnsafe(char[] chars) {
+                return new String(chars, true);
+            }
+            public Thread newThreadWithAcc(Runnable target, AccessControlContext acc) {
+                return new Thread(target, acc);
+            }
+            public void invokeFinalize(Object o) throws Throwable {
+                o.finalize();
+            }
         });
-    }
-
-    /* returns the class of the caller. */
-    static Class getCallerClass() {
-        // NOTE use of more generic Reflection.getCallerClass()
-        return Reflection.getCallerClass(3);
     }
 }

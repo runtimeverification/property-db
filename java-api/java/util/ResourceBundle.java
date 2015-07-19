@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
@@ -55,23 +55,26 @@ import java.security.PrivilegedExceptionAction;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.jar.JarEntry;
+import java.util.spi.ResourceBundleControlProvider;
+
+import sun.reflect.CallerSensitive;
+import sun.reflect.Reflection;
+import sun.util.locale.BaseLocale;
+import sun.util.locale.LocaleObjectCache;
 
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  *
- * Resource bundles contain locale-specific objects.
- * When your program needs a locale-specific resource,
- * a <code>String</code> for example, your program can load it
- * from the resource bundle that is appropriate for the
- * current user's locale. In this way, you can write
- * program code that is largely independent of the user's
- * locale isolating most, if not all, of the locale-specific
+ * Resource bundles contain locale-specific objects.  When your program needs a
+ * locale-specific resource, a <code>String</code> for example, your program can
+ * load it from the resource bundle that is appropriate for the current user's
+ * locale. In this way, you can write program code that is largely independent
+ * of the user's locale isolating most, if not all, of the locale-specific
  * information in resource bundles.
  *
  * <p>
  * This allows you to write programs that can:
- * <UL type=SQUARE>
+ * <UL>
  * <LI> be easily localized, or translated, into different languages
  * <LI> handle multiple locales at once
  * <LI> be easily modified later to support even more locales
@@ -181,7 +184,14 @@ import java.util.jar.JarEntry;
  * subclass.  Your subclasses must override two methods: <code>handleGetObject</code>
  * and <code>getKeys()</code>.
  *
- * <h4>ResourceBundle.Control</h4>
+ * <p>
+ * The implementation of a {@code ResourceBundle} subclass must be thread-safe
+ * if it's simultaneously used by multiple threads. The default implementations
+ * of the non-abstract methods in this class, and the methods in the direct
+ * known concrete subclasses {@code ListResourceBundle} and
+ * {@code PropertyResourceBundle} are thread-safe.
+ *
+ * <h3>ResourceBundle.Control</h3>
  *
  * The {@link ResourceBundle.Control} class provides information necessary
  * to perform the bundle loading process by the <code>getBundle</code>
@@ -192,7 +202,18 @@ import java.util.jar.JarEntry;
  * {@link #getBundle(String, Locale, ClassLoader, Control) getBundle}
  * factory method for details.
  *
- * <h4>Cache Management</h4>
+ * <p><a name="modify_default_behavior">For the {@code getBundle} factory</a>
+ * methods that take no {@link Control} instance, their <a
+ * href="#default_behavior"> default behavior</a> of resource bundle loading
+ * can be modified with <em>installed</em> {@link
+ * ResourceBundleControlProvider} implementations. Any installed providers are
+ * detected at the {@code ResourceBundle} class loading time. If any of the
+ * providers provides a {@link Control} for the given base name, that {@link
+ * Control} will be used instead of the default {@link Control}. If there is
+ * more than one service provider installed for supporting the same base name,
+ * the first one returned from {@link ServiceLoader} will be used.
+ *
+ * <h3>Cache Management</h3>
  *
  * Resource bundle instances created by the <code>getBundle</code> factory
  * methods are cached by default, and the factory methods return the same
@@ -208,7 +229,7 @@ import java.util.jar.JarEntry;
  * Control#needsReload(String, Locale, String, ClassLoader, ResourceBundle,
  * long) ResourceBundle.Control.needsReload} for details.
  *
- * <h4>Example</h4>
+ * <h3>Example</h3>
  *
  * The following is a very simple example of a <code>ResourceBundle</code>
  * subclass, <code>MyResources</code>, that manages two resources (for a larger number of
@@ -257,7 +278,6 @@ import java.util.jar.JarEntry;
  * (<code>ExceptionResources_fr</code>, <code>ExceptionResources_de</code>, ...),
  * and one for widgets, <code>WidgetResource</code> (<code>WidgetResources_fr</code>,
  * <code>WidgetResources_de</code>, ...); breaking up the resources however you like.
- * {@description.close}
  *
  * @see ListResourceBundle
  * @see PropertyResourceBundle
@@ -266,18 +286,16 @@ import java.util.jar.JarEntry;
  */
 public abstract class ResourceBundle {
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * initial size of the bundle cache
-     * {@description.close}
-     */
+     * {@description.close} */
     private static final int INITIAL_CACHE_SIZE = 32;
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * constant indicating that no resource bundle exists
-     * {@description.close}
-     */
+     * {@description.close} */
     private static final ResourceBundle NONEXISTENT_BUNDLE = new ResourceBundle() {
             public Enumeration<String> getKeys() { return null; }
             protected Object handleGetObject(String key) { return null; }
@@ -285,8 +303,7 @@ public abstract class ResourceBundle {
         };
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The cache is a map from cache keys (with bundle base name, locale, and
      * class loader) to either a resource bundle or NONEXISTENT_BUNDLE wrapped by a
      * BundleReference.
@@ -297,92 +314,94 @@ public abstract class ResourceBundle {
      *
      * This variable would be better named "cache", but we keep the old
      * name for compatibility with some workarounds for bug 4212439.
-     * {@description.close}
      */
     private static final ConcurrentMap<CacheKey, BundleReference> cacheList
-        = new ConcurrentHashMap<CacheKey, BundleReference>(INITIAL_CACHE_SIZE);
+        = new ConcurrentHashMap<>(INITIAL_CACHE_SIZE);
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * This ConcurrentMap is used to keep multiple threads from loading the
-     * same bundle concurrently.  The table entries are <CacheKey, Thread>
-     * where CacheKey is the key for the bundle that is under construction
-     * and Thread is the thread that is constructing the bundle.
-     * This list is manipulated in findBundleInCache and putBundleInCache.
-     * {@description.close}
-     */
-    private static final ConcurrentMap<CacheKey, Thread> underConstruction
-        = new ConcurrentHashMap<CacheKey, Thread>();
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Queue for reference objects referring to class loaders or bundles.
-     * {@description.close}
      */
-    private static final ReferenceQueue referenceQueue = new ReferenceQueue();
+    private static final ReferenceQueue<Object> referenceQueue = new ReferenceQueue<>();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     * Returns the base name of this bundle, if known, or {@code null} if unknown.
+     *
+     * If not null, then this is the value of the {@code baseName} parameter
+     * that was passed to the {@code ResourceBundle.getBundle(...)} method
+     * when the resource bundle was loaded.
+     *
+     * @return The base name of the resource bundle, as provided to and expected
+     * by the {@code ResourceBundle.getBundle(...)} methods.
+     *
+     * @see #getBundle(java.lang.String, java.util.Locale, java.lang.ClassLoader)
+     *
+     * @since 1.8
+     */
+    public String getBaseBundleName() {
+        return name;
+    }
+
+    /** {@collect.stats}
      * The parent bundle of this bundle.
      * The parent bundle is searched by {@link #getObject getObject}
      * when this bundle does not contain a particular resource.
-     * {@description.close}
      */
     protected ResourceBundle parent = null;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The locale for this bundle.
-     * {@description.close}
      */
     private Locale locale = null;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The base bundle name for this bundle.
-     * {@description.close}
      */
     private String name;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The flag indicating this bundle has expired in the cache.
-     * {@description.close}
      */
     private volatile boolean expired;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The back link to the cache key. null if this bundle isn't in
      * the cache (yet) or has expired.
-     * {@description.close}
      */
     private volatile CacheKey cacheKey;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * A Set of the keys contained only in this ResourceBundle.
-     * {@description.close}
      */
     private volatile Set<String> keySet;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    private static final List<ResourceBundleControlProvider> providers;
+
+    static {
+        List<ResourceBundleControlProvider> list = null;
+        ServiceLoader<ResourceBundleControlProvider> serviceLoaders
+                = ServiceLoader.loadInstalled(ResourceBundleControlProvider.class);
+        for (ResourceBundleControlProvider provider : serviceLoaders) {
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            list.add(provider);
+        }
+        providers = list;
+    }
+
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
-     * {@description.close}
      */
     public ResourceBundle() {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets a string for the given key from this resource bundle or one of its parents.
      * Calling this method is equivalent to calling
      * <blockquote>
      * <code>(String) {@link #getObject(java.lang.String) getObject}(key)</code>.
      * </blockquote>
-     * {@description.close}
      *
      * @param key the key for the desired string
      * @exception NullPointerException if <code>key</code> is <code>null</code>
@@ -394,14 +413,12 @@ public abstract class ResourceBundle {
         return (String) getObject(key);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets a string array for the given key from this resource bundle or one of its parents.
      * Calling this method is equivalent to calling
      * <blockquote>
      * <code>(String[]) {@link #getObject(java.lang.String) getObject}(key)</code>.
      * </blockquote>
-     * {@description.close}
      *
      * @param key the key for the desired string array
      * @exception NullPointerException if <code>key</code> is <code>null</code>
@@ -413,15 +430,13 @@ public abstract class ResourceBundle {
         return (String[]) getObject(key);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets an object for the given key from this resource bundle or one of its parents.
      * This method first tries to obtain the object from this resource bundle using
      * {@link #handleGetObject(java.lang.String) handleGetObject}.
      * If not successful, and the parent resource bundle is not null,
      * it calls the parent's <code>getObject</code> method.
      * If still not successful, it throws a MissingResourceException.
-     * {@description.close}
      *
      * @param key the key for the desired object
      * @exception NullPointerException if <code>key</code> is <code>null</code>
@@ -434,22 +449,21 @@ public abstract class ResourceBundle {
             if (parent != null) {
                 obj = parent.getObject(key);
             }
-            if (obj == null)
+            if (obj == null) {
                 throw new MissingResourceException("Can't find resource for bundle "
                                                    +this.getClass().getName()
                                                    +", key "+key,
                                                    this.getClass().getName(),
                                                    key);
+            }
         }
         return obj;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the locale of this resource bundle. This method can be used after a
      * call to getBundle() to determine whether the resource bundle returned really
      * corresponds to the requested locale or is a fallback.
-     * {@description.close}
      *
      * @return the locale of this resource bundle
      */
@@ -459,14 +473,10 @@ public abstract class ResourceBundle {
 
     /*
      * Automatic determination of the ClassLoader to be used to load
-     * resources on behalf of the client.  N.B. The client is getLoader's
-     * caller's caller.
+     * resources on behalf of the client.
      */
-    private static ClassLoader getLoader() {
-        Class[] stack = getClassContext();
-        /* Magic number 2 identifies our caller's caller */
-        Class c = stack[2];
-        ClassLoader cl = (c == null) ? null : c.getClassLoader();
+    private static ClassLoader getLoader(Class<?> caller) {
+        ClassLoader cl = caller == null ? null : caller.getClassLoader();
         if (cl == null) {
             // When the caller's loader is the boot class loader, cl is null
             // here. In that case, ClassLoader.getSystemClassLoader() may
@@ -480,12 +490,8 @@ public abstract class ResourceBundle {
         return cl;
     }
 
-    private static native Class[] getClassContext();
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * A wrapper of ClassLoader.getSystemClassLoader().
-     * {@description.close}
      */
     private static class RBClassLoader extends ClassLoader {
         private static final RBClassLoader INSTANCE = AccessController.doPrivileged(
@@ -518,12 +524,10 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the parent bundle of this bundle.
      * The parent bundle is searched by {@link #getObject getObject}
      * when this bundle does not contain a particular resource.
-     * {@description.close}
      *
      * @param parent this bundle's parent bundle.
      */
@@ -532,16 +536,14 @@ public abstract class ResourceBundle {
         this.parent = parent;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Key used for cached resource bundles.  The key checks the base
      * name, the locale, and the class loader to determine if the
      * resource is a match to the requested one. The loader may be
      * null, but the base name and the locale must have a non-null
      * value.
-     * {@description.close}
      */
-    private static final class CacheKey implements Cloneable {
+    private static class CacheKey implements Cloneable {
         // These three are the actual keys for lookup in Map.
         private String name;
         private Locale locale;
@@ -636,8 +638,7 @@ public abstract class ResourceBundle {
                         // treat it as unequal
                         && (loader != null)
                         && (loader == otherEntry.loaderRef.get());
-            } catch (NullPointerException e) {
-            } catch (ClassCastException e) {
+            } catch (    NullPointerException | ClassCastException e) {
             }
             return false;
         }
@@ -667,7 +668,7 @@ public abstract class ResourceBundle {
                 return clone;
             } catch (CloneNotSupportedException e) {
                 //this should never happen
-                throw new InternalError();
+                throw new InternalError(e);
             }
         }
 
@@ -709,28 +710,24 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The common interface to get a CacheKey in LoaderReference and
      * BundleReference.
-     * {@description.close}
      */
     private static interface CacheKeyReference {
         public CacheKey getCacheKey();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * References to class loaders are weak references, so that they can be
      * garbage collected when nobody else is using them. The ResourceBundle
      * class has no reason to keep class loaders alive.
-     * {@description.close}
      */
-    private static final class LoaderReference extends WeakReference<ClassLoader>
-                                               implements CacheKeyReference {
+    private static class LoaderReference extends WeakReference<ClassLoader>
+                                         implements CacheKeyReference {
         private CacheKey cacheKey;
 
-        LoaderReference(ClassLoader referent, ReferenceQueue q, CacheKey key) {
+        LoaderReference(ClassLoader referent, ReferenceQueue<Object> q, CacheKey key) {
             super(referent, q);
             cacheKey = key;
         }
@@ -740,17 +737,15 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * References to bundles are soft references so that they can be garbage
      * collected when they have no hard references.
-     * {@description.close}
      */
-    private static final class BundleReference extends SoftReference<ResourceBundle>
-                                               implements CacheKeyReference {
+    private static class BundleReference extends SoftReference<ResourceBundle>
+                                         implements CacheKeyReference {
         private CacheKey cacheKey;
 
-        BundleReference(ResourceBundle referent, ReferenceQueue q, CacheKey key) {
+        BundleReference(ResourceBundle referent, ReferenceQueue<Object> q, CacheKey key) {
             super(referent, q);
             cacheKey = key;
         }
@@ -760,8 +755,7 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets a resource bundle using the specified base name, the default locale,
      * and the caller's class loader. Calling this method is equivalent to calling
      * <blockquote>
@@ -771,7 +765,6 @@ public abstract class ResourceBundle {
      * privileges of <code>ResourceBundle</code>.
      * See {@link #getBundle(String, Locale, ClassLoader) getBundle}
      * for a complete description of the search and instantiation strategy.
-     * {@description.close}
      *
      * @param baseName the base name of the resource bundle, a fully qualified class name
      * @exception java.lang.NullPointerException
@@ -780,16 +773,15 @@ public abstract class ResourceBundle {
      *     if no resource bundle for the specified base name can be found
      * @return a resource bundle for the given base name and the default locale
      */
+    @CallerSensitive
     public static final ResourceBundle getBundle(String baseName)
     {
         return getBundleImpl(baseName, Locale.getDefault(),
-                             /* must determine loader here, else we break stack invariant */
-                             getLoader(),
-                             Control.INSTANCE);
+                             getLoader(Reflection.getCallerClass()),
+                             getDefaultControl(baseName));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a resource bundle using the specified base name, the
      * default locale and the specified control. Calling this method
      * is equivalent to calling
@@ -802,7 +794,6 @@ public abstract class ResourceBundle {
      * #getBundle(String, Locale, ClassLoader, Control) getBundle} for the
      * complete description of the resource bundle loading process with a
      * <code>ResourceBundle.Control</code>.
-     * {@description.close}
      *
      * @param baseName
      *        the base name of the resource bundle, a fully qualified class
@@ -824,16 +815,15 @@ public abstract class ResourceBundle {
      *        needed.
      * @since 1.6
      */
+    @CallerSensitive
     public static final ResourceBundle getBundle(String baseName,
                                                  Control control) {
         return getBundleImpl(baseName, Locale.getDefault(),
-                             /* must determine loader here, else we break stack invariant */
-                             getLoader(),
+                             getLoader(Reflection.getCallerClass()),
                              control);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets a resource bundle using the specified base name and locale,
      * and the caller's class loader. Calling this method is equivalent to calling
      * <blockquote>
@@ -843,7 +833,6 @@ public abstract class ResourceBundle {
      * privileges of <code>ResourceBundle</code>.
      * See {@link #getBundle(String, Locale, ClassLoader) getBundle}
      * for a complete description of the search and instantiation strategy.
-     * {@description.close}
      *
      * @param baseName
      *        the base name of the resource bundle, a fully qualified class name
@@ -855,17 +844,16 @@ public abstract class ResourceBundle {
      *        if no resource bundle for the specified base name can be found
      * @return a resource bundle for the given base name and locale
      */
+    @CallerSensitive
     public static final ResourceBundle getBundle(String baseName,
                                                  Locale locale)
     {
         return getBundleImpl(baseName, locale,
-                             /* must determine loader here, else we break stack invariant */
-                             getLoader(),
-                             Control.INSTANCE);
+                             getLoader(Reflection.getCallerClass()),
+                             getDefaultControl(baseName));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a resource bundle using the specified base name, target
      * locale and control, and the caller's class loader. Calling this
      * method is equivalent to calling
@@ -878,7 +866,6 @@ public abstract class ResourceBundle {
      * #getBundle(String, Locale, ClassLoader, Control) getBundle} for the
      * complete description of the resource bundle loading process with a
      * <code>ResourceBundle.Control</code>.
-     * {@description.close}
      *
      * @param baseName
      *        the base name of the resource bundle, a fully qualified
@@ -903,97 +890,155 @@ public abstract class ResourceBundle {
      *        needed.
      * @since 1.6
      */
+    @CallerSensitive
     public static final ResourceBundle getBundle(String baseName, Locale targetLocale,
                                                  Control control) {
         return getBundleImpl(baseName, targetLocale,
-                             /* must determine loader here, else we break stack invariant */
-                             getLoader(),
+                             getLoader(Reflection.getCallerClass()),
                              control);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Gets a resource bundle using the specified base name, locale, and class loader.
+    /** {@collect.stats}
+     * Gets a resource bundle using the specified base name, locale, and class
+     * loader.
      *
-     * <p><a name="default_behavior"/>
-     * Conceptually, <code>getBundle</code> uses the following strategy for locating and instantiating
-     * resource bundles:
-     * <p>
-     * <code>getBundle</code> uses the base name, the specified locale, and the default
-     * locale (obtained from {@link java.util.Locale#getDefault() Locale.getDefault})
-     * to generate a sequence of <a name="candidates"><em>candidate bundle names</em></a>.
-     * If the specified locale's language, country, and variant are all empty
-     * strings, then the base name is the only candidate bundle name.
-     * Otherwise, the following sequence is generated from the attribute
-     * values of the specified locale (language1, country1, and variant1)
-     * and of the default locale (language2, country2, and variant2):
-     * <ul>
-     * <li> baseName + "_" + language1 + "_" + country1 + "_" + variant1
-     * <li> baseName + "_" + language1 + "_" + country1
-     * <li> baseName + "_" + language1
-     * <li> baseName + "_" + language2 + "_" + country2 + "_" + variant2
-     * <li> baseName + "_" + language2 + "_" + country2
-     * <li> baseName + "_" + language2
-     * <li> baseName
-     * </ul>
-     * <p>
-     * Candidate bundle names where the final component is an empty string are omitted.
-     * For example, if country1 is an empty string, the second candidate bundle name is omitted.
+     * <p>This method behaves the same as calling
+     * {@link #getBundle(String, Locale, ClassLoader, Control)} passing a
+     * default instance of {@link Control} unless another {@link Control} is
+     * provided with the {@link ResourceBundleControlProvider} SPI. Refer to the
+     * description of <a href="#modify_default_behavior">modifying the default
+     * behavior</a>.
      *
-     * <p>
-     * <code>getBundle</code> then iterates over the candidate bundle names to find the first
-     * one for which it can <em>instantiate</em> an actual resource bundle. For each candidate
-     * bundle name, it attempts to create a resource bundle:
-     * <ul>
-     * <li>
-     * First, it attempts to load a class using the candidate bundle name.
-     * If such a class can be found and loaded using the specified class loader, is assignment
-     * compatible with ResourceBundle, is accessible from ResourceBundle, and can be instantiated,
-     * <code>getBundle</code> creates a new instance of this class and uses it as the <em>result
-     * resource bundle</em>.
-     * <li>
-     * Otherwise, <code>getBundle</code> attempts to locate a property resource file.
-     * It generates a path name from the candidate bundle name by replacing all "." characters
-     * with "/" and appending the string ".properties".
-     * It attempts to find a "resource" with this name using
-     * {@link java.lang.ClassLoader#getResource(java.lang.String) ClassLoader.getResource}.
-     * (Note that a "resource" in the sense of <code>getResource</code> has nothing to do with
-     * the contents of a resource bundle, it is just a container of data, such as a file.)
-     * If it finds a "resource", it attempts to create a new
-     * {@link PropertyResourceBundle} instance from its contents.
-     * If successful, this instance becomes the <em>result resource bundle</em>.
-     * </ul>
+     * <p><a name="default_behavior">The following describes the default
+     * behavior</a>.
      *
-     * <p>
-     * If no result resource bundle has been found, a <code>MissingResourceException</code>
-     * is thrown.
+     * <p><code>getBundle</code> uses the base name, the specified locale, and
+     * the default locale (obtained from {@link java.util.Locale#getDefault()
+     * Locale.getDefault}) to generate a sequence of <a
+     * name="candidates"><em>candidate bundle names</em></a>.  If the specified
+     * locale's language, script, country, and variant are all empty strings,
+     * then the base name is the only candidate bundle name.  Otherwise, a list
+     * of candidate locales is generated from the attribute values of the
+     * specified locale (language, script, country and variant) and appended to
+     * the base name.  Typically, this will look like the following:
      *
-     * <p><a name="parent_chain"/>
-     * Once a result resource bundle has been found, its <em>parent chain</em> is instantiated.
-     * <code>getBundle</code> iterates over the candidate bundle names that can be
-     * obtained by successively removing variant, country, and language
-     * (each time with the preceding "_") from the bundle name of the result resource bundle.
-     * As above, candidate bundle names where the final component is an empty string are omitted.
-     * With each of the candidate bundle names it attempts to instantiate a resource bundle, as
-     * described above.
-     * Whenever it succeeds, it calls the previously instantiated resource
+     * <pre>
+     *     baseName + "_" + language + "_" + script + "_" + country + "_" + variant
+     *     baseName + "_" + language + "_" + script + "_" + country
+     *     baseName + "_" + language + "_" + script
+     *     baseName + "_" + language + "_" + country + "_" + variant
+     *     baseName + "_" + language + "_" + country
+     *     baseName + "_" + language
+     * </pre>
+     *
+     * <p>Candidate bundle names where the final component is an empty string
+     * are omitted, along with the underscore.  For example, if country is an
+     * empty string, the second and the fifth candidate bundle names above
+     * would be omitted.  Also, if script is an empty string, the candidate names
+     * including script are omitted.  For example, a locale with language "de"
+     * and variant "JAVA" will produce candidate names with base name
+     * "MyResource" below.
+     *
+     * <pre>
+     *     MyResource_de__JAVA
+     *     MyResource_de
+     * </pre>
+     *
+     * In the case that the variant contains one or more underscores ('_'), a
+     * sequence of bundle names generated by truncating the last underscore and
+     * the part following it is inserted after a candidate bundle name with the
+     * original variant.  For example, for a locale with language "en", script
+     * "Latn, country "US" and variant "WINDOWS_VISTA", and bundle base name
+     * "MyResource", the list of candidate bundle names below is generated:
+     *
+     * <pre>
+     * MyResource_en_Latn_US_WINDOWS_VISTA
+     * MyResource_en_Latn_US_WINDOWS
+     * MyResource_en_Latn_US
+     * MyResource_en_Latn
+     * MyResource_en_US_WINDOWS_VISTA
+     * MyResource_en_US_WINDOWS
+     * MyResource_en_US
+     * MyResource_en
+     * </pre>
+     *
+     * <blockquote><b>Note:</b> For some <code>Locale</code>s, the list of
+     * candidate bundle names contains extra names, or the order of bundle names
+     * is slightly modified.  See the description of the default implementation
+     * of {@link Control#getCandidateLocales(String, Locale)
+     * getCandidateLocales} for details.</blockquote>
+     *
+     * <p><code>getBundle</code> then iterates over the candidate bundle names
+     * to find the first one for which it can <em>instantiate</em> an actual
+     * resource bundle. It uses the default controls' {@link Control#getFormats
+     * getFormats} method, which generates two bundle names for each generated
+     * name, the first a class name and the second a properties file name. For
+     * each candidate bundle name, it attempts to create a resource bundle:
+     *
+     * <ul><li>First, it attempts to load a class using the generated class name.
+     * If such a class can be found and loaded using the specified class
+     * loader, is assignment compatible with ResourceBundle, is accessible from
+     * ResourceBundle, and can be instantiated, <code>getBundle</code> creates a
+     * new instance of this class and uses it as the <em>result resource
+     * bundle</em>.
+     *
+     * <li>Otherwise, <code>getBundle</code> attempts to locate a property
+     * resource file using the generated properties file name.  It generates a
+     * path name from the candidate bundle name by replacing all "." characters
+     * with "/" and appending the string ".properties".  It attempts to find a
+     * "resource" with this name using {@link
+     * java.lang.ClassLoader#getResource(java.lang.String)
+     * ClassLoader.getResource}.  (Note that a "resource" in the sense of
+     * <code>getResource</code> has nothing to do with the contents of a
+     * resource bundle, it is just a container of data, such as a file.)  If it
+     * finds a "resource", it attempts to create a new {@link
+     * PropertyResourceBundle} instance from its contents.  If successful, this
+     * instance becomes the <em>result resource bundle</em>.  </ul>
+     *
+     * <p>This continues until a result resource bundle is instantiated or the
+     * list of candidate bundle names is exhausted.  If no matching resource
+     * bundle is found, the default control's {@link Control#getFallbackLocale
+     * getFallbackLocale} method is called, which returns the current default
+     * locale.  A new sequence of candidate locale names is generated using this
+     * locale and and searched again, as above.
+     *
+     * <p>If still no result bundle is found, the base name alone is looked up. If
+     * this still fails, a <code>MissingResourceException</code> is thrown.
+     *
+     * <p><a name="parent_chain"> Once a result resource bundle has been found,
+     * its <em>parent chain</em> is instantiated</a>.  If the result bundle already
+     * has a parent (perhaps because it was returned from a cache) the chain is
+     * complete.
+     *
+     * <p>Otherwise, <code>getBundle</code> examines the remainder of the
+     * candidate locale list that was used during the pass that generated the
+     * result resource bundle.  (As before, candidate bundle names where the
+     * final component is an empty string are omitted.)  When it comes to the
+     * end of the candidate list, it tries the plain bundle name.  With each of the
+     * candidate bundle names it attempts to instantiate a resource bundle (first
+     * looking for a class and then a properties file, as described above).
+     *
+     * <p>Whenever it succeeds, it calls the previously instantiated resource
      * bundle's {@link #setParent(java.util.ResourceBundle) setParent} method
-     * with the new resource bundle, unless the previously instantiated resource
-     * bundle already has a non-null parent.
+     * with the new resource bundle.  This continues until the list of names
+     * is exhausted or the current bundle already has a non-null parent.
      *
+     * <p>Once the parent chain is complete, the bundle is returned.
+     *
+     * <p><b>Note:</b> <code>getBundle</code> caches instantiated resource
+     * bundles and might return the same resource bundle instance multiple times.
+     *
+     * <p><b>Note:</b>The <code>baseName</code> argument should be a fully
+     * qualified class name. However, for compatibility with earlier versions,
+     * Sun's Java SE Runtime Environments do not verify this, and so it is
+     * possible to access <code>PropertyResourceBundle</code>s by specifying a
+     * path name (using "/") instead of a fully qualified class name (using
+     * ".").
+     *
+     * <p><a name="default_behavior_example">
+     * <strong>Example:</strong></a>
      * <p>
-     * <code>getBundle</code> caches instantiated resource bundles and
-     * may return the same resource bundle instance multiple
-     * times.
-     *
-     * <p>
-     * The <code>baseName</code> argument should be a fully qualified class name. However, for
-     * compatibility with earlier versions, Sun's Java SE Runtime Environments do not verify this,
-     * and so it is possible to access <code>PropertyResourceBundle</code>s by specifying a
-     * path name (using "/") instead of a fully qualified class name (using ".").
-     *
-     * <p><a name="default_behavior_example"/>
-     * <strong>Example:</strong><br>The following class and property files are provided:
+     * The following class and property files are provided:
      * <pre>
      *     MyResources.class
      *     MyResources.properties
@@ -1003,23 +1048,26 @@ public abstract class ResourceBundle {
      *     MyResources_en.properties
      *     MyResources_es_ES.class
      * </pre>
-     * The contents of all files are valid (that is, public non-abstract subclasses of <code>ResourceBundle</code> for
-     * the ".class" files, syntactically correct ".properties" files).
-     * The default locale is <code>Locale("en", "GB")</code>.
-     * <p>
-     * Calling <code>getBundle</code> with the shown locale argument values instantiates
-     * resource bundles from the following sources:
-     * <ul>
-     * <li>Locale("fr", "CH"): result MyResources_fr_CH.class, parent MyResources_fr.properties, parent MyResources.class
-     * <li>Locale("fr", "FR"): result MyResources_fr.properties, parent MyResources.class
-     * <li>Locale("de", "DE"): result MyResources_en.properties, parent MyResources.class
-     * <li>Locale("en", "US"): result MyResources_en.properties, parent MyResources.class
-     * <li>Locale("es", "ES"): result MyResources_es_ES.class, parent MyResources.class
-     * </ul>
-     * <p>The file MyResources_fr_CH.properties is never used because it is hidden by
-     * MyResources_fr_CH.class. Likewise, MyResources.properties is also hidden by
-     * MyResources.class.
-     * {@description.close}
+     *
+     * The contents of all files are valid (that is, public non-abstract
+     * subclasses of <code>ResourceBundle</code> for the ".class" files,
+     * syntactically correct ".properties" files).  The default locale is
+     * <code>Locale("en", "GB")</code>.
+     *
+     * <p>Calling <code>getBundle</code> with the locale arguments below will
+     * instantiate resource bundles as follows:
+     *
+     * <table summary="getBundle() locale to resource bundle mapping">
+     * <tr><td>Locale("fr", "CH")</td><td>MyResources_fr_CH.class, parent MyResources_fr.properties, parent MyResources.class</td></tr>
+     * <tr><td>Locale("fr", "FR")</td><td>MyResources_fr.properties, parent MyResources.class</td></tr>
+     * <tr><td>Locale("de", "DE")</td><td>MyResources_en.properties, parent MyResources.class</td></tr>
+     * <tr><td>Locale("en", "US")</td><td>MyResources_en.properties, parent MyResources.class</td></tr>
+     * <tr><td>Locale("es", "ES")</td><td>MyResources_es_ES.class, parent MyResources.class</td></tr>
+     * </table>
+     *
+     * <p>The file MyResources_fr_CH.properties is never used because it is
+     * hidden by the MyResources_fr_CH.class. Likewise, MyResources.properties
+     * is also hidden by MyResources.class.
      *
      * @param baseName the base name of the resource bundle, a fully qualified class name
      * @param locale the locale for which a resource bundle is desired
@@ -1037,11 +1085,10 @@ public abstract class ResourceBundle {
         if (loader == null) {
             throw new NullPointerException();
         }
-        return getBundleImpl(baseName, locale, loader, Control.INSTANCE);
+        return getBundleImpl(baseName, locale, loader, getDefaultControl(baseName));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a resource bundle using the specified base name, target
      * locale, class loader and control. Unlike the {@linkplain
      * #getBundle(String, Locale, ClassLoader) <code>getBundle</code>
@@ -1050,7 +1097,6 @@ public abstract class ResourceBundle {
      * bundles. Conceptually, the bundle loading process with the given
      * <code>control</code> is performed in the following steps.
      *
-     * <p>
      * <ol>
      * <li>This factory method looks up the resource bundle in the cache for
      * the specified <code>baseName</code>, <code>targetLocale</code> and
@@ -1090,45 +1136,45 @@ public abstract class ResourceBundle {
      * <code>control.newBundle</code>.
      *
      * <table style="width: 50%; text-align: left; margin-left: 40px;"
-     *  border="0" cellpadding="2" cellspacing="2">
-     * <tbody><code>
+     *  border="0" cellpadding="2" cellspacing="2" summary="locale-format combinations for newBundle">
+     * <tbody>
      * <tr>
      * <td
-     * style="vertical-align: top; text-align: left; font-weight: bold; width: 50%;">Locale<br>
+     * style="vertical-align: top; text-align: left; font-weight: bold; width: 50%;"><code>Locale</code><br>
      * </td>
      * <td
-     * style="vertical-align: top; text-align: left; font-weight: bold; width: 50%;">format<br>
+     * style="vertical-align: top; text-align: left; font-weight: bold; width: 50%;"><code>format</code><br>
      * </td>
      * </tr>
      * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("de", "DE")<br>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("de", "DE")</code><br>
      * </td>
-     * <td style="vertical-align: top; width: 50%;">java.class<br>
-     * </td>
-     * </tr>
-     * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("de", "DE")</td>
-     * <td style="vertical-align: top; width: 50%;">java.properties<br>
+     * <td style="vertical-align: top; width: 50%;"><code>java.class</code><br>
      * </td>
      * </tr>
      * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("de")</td>
-     * <td style="vertical-align: top; width: 50%;">java.class</td>
-     * </tr>
-     * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("de")</td>
-     * <td style="vertical-align: top; width: 50%;">java.properties</td>
-     * </tr>
-     * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("")<br>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("de", "DE")</code></td>
+     * <td style="vertical-align: top; width: 50%;"><code>java.properties</code><br>
      * </td>
-     * <td style="vertical-align: top; width: 50%;">java.class</td>
      * </tr>
      * <tr>
-     * <td style="vertical-align: top; width: 50%;">Locale("")</td>
-     * <td style="vertical-align: top; width: 50%;">java.properties</td>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("de")</code></td>
+     * <td style="vertical-align: top; width: 50%;"><code>java.class</code></td>
      * </tr>
-     * </code></tbody>
+     * <tr>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("de")</code></td>
+     * <td style="vertical-align: top; width: 50%;"><code>java.properties</code></td>
+     * </tr>
+     * <tr>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("")</code><br>
+     * </td>
+     * <td style="vertical-align: top; width: 50%;"><code>java.class</code></td>
+     * </tr>
+     * <tr>
+     * <td style="vertical-align: top; width: 50%;"><code>Locale("")</code></td>
+     * <td style="vertical-align: top; width: 50%;"><code>java.properties</code></td>
+     * </tr>
+     * </tbody>
      * </table>
      * </li>
      *
@@ -1156,8 +1202,6 @@ public abstract class ResourceBundle {
      * href="./ResourceBundle.html#parent_chain">parent chain</a> is
      * instantiated based on the list of candidate locales from which it was
      * found. Finally, the bundle is returned to the caller.</li>
-     *
-     *
      * </ol>
      *
      * <p>During the resource bundle loading process above, this factory
@@ -1180,7 +1224,6 @@ public abstract class ResourceBundle {
      * {@link Control#getTimeToLive(String,Locale)
      * control.getTimeToLive} for details.
      *
-     *
      * <p>The following is an example of the bundle loading process with the
      * default <code>ResourceBundle.Control</code> implementation.
      *
@@ -1192,7 +1235,6 @@ public abstract class ResourceBundle {
      * <li>Available resource bundles:
      * <code>foo/bar/Messages_fr.properties</code> and
      * <code>foo/bar/Messages.properties</code></li>
-     *
      * </ul>
      *
      * <p>First, <code>getBundle</code> tries loading a resource bundle in
@@ -1225,12 +1267,11 @@ public abstract class ResourceBundle {
      * <p><code>getBundle</code> finds
      * <code>foo/bar/Messages_fr.properties</code> and creates a
      * <code>ResourceBundle</code> instance. Then, <code>getBundle</code>
-     * sets up its parent chain from the list of the candiate locales.  Only
+     * sets up its parent chain from the list of the candidate locales.  Only
      * <code>foo/bar/Messages.properties</code> is found in the list and
      * <code>getBundle</code> creates a <code>ResourceBundle</code> instance
      * that becomes the parent of the instance for
      * <code>foo/bar/Messages_fr.properties</code>.
-     * {@description.close}
      *
      * @param baseName
      *        the base name of the resource bundle, a fully qualified
@@ -1262,6 +1303,18 @@ public abstract class ResourceBundle {
             throw new NullPointerException();
         }
         return getBundleImpl(baseName, targetLocale, loader, control);
+    }
+
+    private static Control getDefaultControl(String baseName) {
+        if (providers != null) {
+            for (ResourceBundleControlProvider provider : providers) {
+                Control control = provider.getControl(baseName);
+                if (control != null) {
+                    return control;
+                }
+            }
+        }
+        return Control.INSTANCE;
     }
 
     private static ResourceBundle getBundleImpl(String baseName, Locale locale,
@@ -1345,14 +1398,12 @@ public abstract class ResourceBundle {
         return bundle;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Checks if the given <code>List</code> is not null, not empty,
      * not having null in its elements.
-     * {@description.close}
      */
-    private static final boolean checkList(List a) {
-        boolean valid = (a != null && a.size() != 0);
+    private static boolean checkList(List<?> a) {
+        boolean valid = (a != null && !a.isEmpty());
         if (valid) {
             int size = a.size();
             for (int i = 0; valid && i < size; i++) {
@@ -1362,12 +1413,12 @@ public abstract class ResourceBundle {
         return valid;
     }
 
-    private static final ResourceBundle findBundle(CacheKey cacheKey,
-                                                   List<Locale> candidateLocales,
-                                                   List<String> formats,
-                                                   int index,
-                                                   Control control,
-                                                   ResourceBundle baseBundle) {
+    private static ResourceBundle findBundle(CacheKey cacheKey,
+                                             List<Locale> candidateLocales,
+                                             List<String> formats,
+                                             int index,
+                                             Control control,
+                                             ResourceBundle baseBundle) {
         Locale targetLocale = candidateLocales.get(index);
         ResourceBundle parent = null;
         if (index != candidateLocales.size() - 1) {
@@ -1390,7 +1441,7 @@ public abstract class ResourceBundle {
         boolean expiredBundle = false;
 
         // First, look up the cache to see if it's in the cache, without
-        // declaring beginLoading.
+        // attempting to load bundle.
         cacheKey.setLocale(targetLocale);
         ResourceBundle bundle = findBundleInCache(cacheKey, control);
         if (isValidBundle(bundle)) {
@@ -1417,64 +1468,32 @@ public abstract class ResourceBundle {
             CacheKey constKey = (CacheKey) cacheKey.clone();
 
             try {
-                // Try declaring loading. If beginLoading() returns true,
-                // then we can proceed. Otherwise, we need to take a look
-                // at the cache again to see if someone else has loaded
-                // the bundle and put it in the cache while we've been
-                // waiting for other loading work to complete.
-                while (!beginLoading(constKey)) {
-                    bundle = findBundleInCache(cacheKey, control);
-                    if (bundle == null) {
-                        continue;
+                bundle = loadBundle(cacheKey, formats, control, expiredBundle);
+                if (bundle != null) {
+                    if (bundle.parent == null) {
+                        bundle.setParent(parent);
                     }
-                    if (bundle == NONEXISTENT_BUNDLE) {
-                        // If the bundle is NONEXISTENT_BUNDLE, the bundle doesn't exist.
-                        return parent;
-                    }
-                    expiredBundle = bundle.expired;
-                    if (!expiredBundle) {
-                        if (bundle.parent == parent) {
-                            return bundle;
-                        }
-                        BundleReference bundleRef = cacheList.get(cacheKey);
-                        if (bundleRef != null && bundleRef.get() == bundle) {
-                            cacheList.remove(cacheKey, bundleRef);
-                        }
-                    }
+                    bundle.locale = targetLocale;
+                    bundle = putBundleInCache(cacheKey, bundle, control);
+                    return bundle;
                 }
 
-                try {
-                    bundle = loadBundle(cacheKey, formats, control, expiredBundle);
-                    if (bundle != null) {
-                        if (bundle.parent == null) {
-                            bundle.setParent(parent);
-                        }
-                        bundle.locale = targetLocale;
-                        bundle = putBundleInCache(cacheKey, bundle, control);
-                        return bundle;
-                    }
-
-                    // Put NONEXISTENT_BUNDLE in the cache as a mark that there's no bundle
-                    // instance for the locale.
-                    putBundleInCache(cacheKey, NONEXISTENT_BUNDLE, control);
-                } finally {
-                    endLoading(constKey);
-                }
+                // Put NONEXISTENT_BUNDLE in the cache as a mark that there's no bundle
+                // instance for the locale.
+                putBundleInCache(cacheKey, NONEXISTENT_BUNDLE, control);
             } finally {
                 if (constKey.getCause() instanceof InterruptedException) {
                     Thread.currentThread().interrupt();
                 }
             }
         }
-        assert underConstruction.get(cacheKey) != Thread.currentThread();
         return parent;
     }
 
-    private static final ResourceBundle loadBundle(CacheKey cacheKey,
-                                                   List<String> formats,
-                                                   Control control,
-                                                   boolean reload) {
-        assert underConstruction.get(cacheKey) == Thread.currentThread();
+    private static ResourceBundle loadBundle(CacheKey cacheKey,
+                                             List<String> formats,
+                                             Control control,
+                                             boolean reload) {
 
         // Here we actually load the bundle in the order of formats
         // specified by the getFormats() value.
@@ -1507,22 +1526,19 @@ public abstract class ResourceBundle {
                 break;
             }
         }
-        assert underConstruction.get(cacheKey) == Thread.currentThread();
 
         return bundle;
     }
 
-    private static final boolean isValidBundle(ResourceBundle bundle) {
+    private static boolean isValidBundle(ResourceBundle bundle) {
         return bundle != null && bundle != NONEXISTENT_BUNDLE;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Determines whether any of resource bundles in the parent chain,
      * including the leaf, have expired.
-     * {@description.close}
      */
-    private static final boolean hasValidParentChain(ResourceBundle bundle) {
+    private static boolean hasValidParentChain(ResourceBundle bundle) {
         long now = System.currentTimeMillis();
         while (bundle != null) {
             if (bundle.expired) {
@@ -1540,69 +1556,12 @@ public abstract class ResourceBundle {
         return true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Declares the beginning of actual resource bundle loading. This method
-     * returns true if the declaration is successful and the current thread has
-     * been put in underConstruction. If someone else has already begun
-     * loading, this method waits until that loading work is complete and
-     * returns false.
-     * {@description.close}
-     */
-    private static final boolean beginLoading(CacheKey constKey) {
-        Thread me = Thread.currentThread();
-        Thread worker;
-        // We need to declare by putting the current Thread (me) to
-        // underConstruction that we are working on loading the specified
-        // resource bundle. If we are already working the loading, it means
-        // that the resource loading requires a recursive call. In that case,
-        // we have to proceed. (4300693)
-        if (((worker = underConstruction.putIfAbsent(constKey, me)) == null)
-            || worker == me) {
-            return true;
-        }
-
-        // If someone else is working on the loading, wait until
-        // the Thread finishes the bundle loading.
-        synchronized (worker) {
-            while (underConstruction.get(constKey) == worker) {
-                try {
-                    worker.wait();
-                } catch (InterruptedException e) {
-                    // record the interruption
-                    constKey.setCause(e);
-                }
-            }
-        }
-        return false;
-    }
-
-    /** {@collect.stats} 
-     * {@description.open}
-     * Declares the end of the bundle loading. This method calls notifyAll
-     * for those who are waiting for this completion.
-     * {@description.close}
-     */
-    private static final void endLoading(CacheKey constKey) {
-        // Remove this Thread from the underConstruction map and wake up
-        // those who have been waiting for me to complete this bundle
-        // loading.
-        Thread me = Thread.currentThread();
-        assert (underConstruction.get(constKey) == me);
-        underConstruction.remove(constKey);
-        synchronized (me) {
-            me.notifyAll();
-        }
-    }
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Throw a MissingResourceException with proper message
-     * {@description.close}
      */
-    private static final void throwMissingResourceException(String baseName,
-                                                            Locale locale,
-                                                            Throwable cause) {
+    private static void throwMissingResourceException(String baseName,
+                                                      Locale locale,
+                                                      Throwable cause) {
         // If the cause is a MissingResourceException, avoid creating
         // a long chain. (6355009)
         if (cause instanceof MissingResourceException) {
@@ -1615,11 +1574,9 @@ public abstract class ResourceBundle {
                                            cause);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Finds a bundle in the cache. Any expired bundles are marked as
      * `expired' and removed from the cache upon return.
-     * {@description.close}
      *
      * @param cacheKey the key to look up the cache
      * @param control the Control to be used for the expiration control
@@ -1627,8 +1584,8 @@ public abstract class ResourceBundle {
      * cache or its parent has expired. <code>bundle.expire</code> is true
      * upon return if the bundle in the cache has expired.
      */
-    private static final ResourceBundle findBundleInCache(CacheKey cacheKey,
-                                                          Control control) {
+    private static ResourceBundle findBundleInCache(CacheKey cacheKey,
+                                                    Control control) {
         BundleReference bundleRef = cacheList.get(cacheKey);
         if (bundleRef == null) {
             return null;
@@ -1725,10 +1682,8 @@ public abstract class ResourceBundle {
         return bundle;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Put a new bundle in the cache.
-     * {@description.close}
      *
      * @param cacheKey the key for the resource bundle
      * @param bundle the resource bundle to be put in the cache
@@ -1736,9 +1691,9 @@ public abstract class ResourceBundle {
      * the bundle before this call, the one found in the cache is
      * returned.
      */
-    private static final ResourceBundle putBundleInCache(CacheKey cacheKey,
-                                                         ResourceBundle bundle,
-                                                         Control control) {
+    private static ResourceBundle putBundleInCache(CacheKey cacheKey,
+                                                   ResourceBundle bundle,
+                                                   Control control) {
         setExpirationTime(cacheKey, control);
         if (cacheKey.expirationTime != Control.TTL_DONT_CACHE) {
             CacheKey key = (CacheKey) cacheKey.clone();
@@ -1769,7 +1724,7 @@ public abstract class ResourceBundle {
         return bundle;
     }
 
-    private static final void setExpirationTime(CacheKey cacheKey, Control control) {
+    private static void setExpirationTime(CacheKey cacheKey, Control control) {
         long ttl = control.getTimeToLive(cacheKey.getName(),
                                          cacheKey.getLocale());
         if (ttl >= 0) {
@@ -1785,24 +1740,21 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes all resource bundles from the cache that have been loaded
      * using the caller's class loader.
-     * {@description.close}
      *
      * @since 1.6
      * @see ResourceBundle.Control#getTimeToLive(String,Locale)
      */
+    @CallerSensitive
     public static final void clearCache() {
-        clearCache(getLoader());
+        clearCache(getLoader(Reflection.getCallerClass()));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes all resource bundles from the cache that have been loaded
      * using the given class loader.
-     * {@description.close}
      *
      * @param loader the class loader
      * @exception NullPointerException if <code>loader</code> is null
@@ -1821,12 +1773,10 @@ public abstract class ResourceBundle {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets an object for the given key from this resource bundle.
      * Returns null if this resource bundle does not contain an
      * object for the given key.
-     * {@description.close}
      *
      * @param key the key for the desired object
      * @exception NullPointerException if <code>key</code> is <code>null</code>
@@ -1834,21 +1784,17 @@ public abstract class ResourceBundle {
      */
     protected abstract Object handleGetObject(String key);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an enumeration of the keys.
-     * {@description.close}
      *
      * @return an <code>Enumeration</code> of the keys contained in
      *         this <code>ResourceBundle</code> and its parent bundles.
      */
     public abstract Enumeration<String> getKeys();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Determines whether the given <code>key</code> is contained in
      * this <code>ResourceBundle</code> or its parent bundles.
-     * {@description.close}
      *
      * @param key
      *        the resource <code>key</code>
@@ -1871,26 +1817,23 @@ public abstract class ResourceBundle {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a <code>Set</code> of all keys contained in this
      * <code>ResourceBundle</code> and its parent bundles.
-     * {@description.close}
      *
      * @return a <code>Set</code> of all keys contained in this
      *         <code>ResourceBundle</code> and its parent bundles.
      * @since 1.6
      */
     public Set<String> keySet() {
-        Set<String> keys = new HashSet<String>();
+        Set<String> keys = new HashSet<>();
         for (ResourceBundle rb = this; rb != null; rb = rb.parent) {
             keys.addAll(rb.handleKeySet());
         }
         return keys;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a <code>Set</code> of the keys contained <em>only</em>
      * in this <code>ResourceBundle</code>.
      *
@@ -1900,9 +1843,8 @@ public abstract class ResourceBundle {
      * handleGetObject} method returns <code>null</code>. Once the
      * <code>Set</code> has been created, the value is kept in this
      * <code>ResourceBundle</code> in order to avoid producing the
-     * same <code>Set</code> in the next calls.  Override this method
-     * in subclass implementations for faster handling.
-     * {@description.close}
+     * same <code>Set</code> in subsequent calls. Subclasses can
+     * override this method for faster handling.
      *
      * @return a <code>Set</code> of the keys contained only in this
      *        <code>ResourceBundle</code>
@@ -1912,7 +1854,7 @@ public abstract class ResourceBundle {
         if (keySet == null) {
             synchronized (this) {
                 if (keySet == null) {
-                    Set<String> keys = new HashSet<String>();
+                    Set<String> keys = new HashSet<>();
                     Enumeration<String> enumKeys = getKeys();
                     while (enumKeys.hasMoreElements()) {
                         String key = enumKeys.nextElement();
@@ -1929,8 +1871,7 @@ public abstract class ResourceBundle {
 
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * <code>ResourceBundle.Control</code> defines a set of callback methods
      * that are invoked by the {@link ResourceBundle#getBundle(String,
      * Locale, ClassLoader, Control) ResourceBundle.getBundle} factory
@@ -2074,18 +2015,15 @@ public abstract class ResourceBundle {
      *     }
      * }
      * </pre>
-     * {@description.close}
      *
      * @since 1.6
      */
     public static class Control {
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The default format <code>List</code>, which contains the strings
          * <code>"java.class"</code> and <code>"java.properties"</code>, in
          * this order. This <code>List</code> is {@linkplain
          * Collections#unmodifiableList(List) unmodifiable}.
-         * {@description.close}
          *
          * @see #getFormats(String)
          */
@@ -2093,45 +2031,37 @@ public abstract class ResourceBundle {
             = Collections.unmodifiableList(Arrays.asList("java.class",
                                                          "java.properties"));
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The class-only format <code>List</code> containing
          * <code>"java.class"</code>. This <code>List</code> is {@linkplain
          * Collections#unmodifiableList(List) unmodifiable}.
-         * {@description.close}
          *
          * @see #getFormats(String)
          */
         public static final List<String> FORMAT_CLASS
             = Collections.unmodifiableList(Arrays.asList("java.class"));
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The properties-only format <code>List</code> containing
          * <code>"java.properties"</code>. This <code>List</code> is
          * {@linkplain Collections#unmodifiableList(List) unmodifiable}.
-         * {@description.close}
          *
          * @see #getFormats(String)
          */
         public static final List<String> FORMAT_PROPERTIES
             = Collections.unmodifiableList(Arrays.asList("java.properties"));
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The time-to-live constant for not caching loaded resource bundle
          * instances.
-         * {@description.close}
          *
          * @see #getTimeToLive(String, Locale)
          */
         public static final long TTL_DONT_CACHE = -1;
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * The time-to-live constant for disabling the expiration control
          * for loaded resource bundle instances in the cache.
-         * {@description.close}
          *
          * @see #getTimeToLive(String, Locale)
          */
@@ -2139,17 +2069,14 @@ public abstract class ResourceBundle {
 
         private static final Control INSTANCE = new Control();
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Sole constructor. (For invocation by subclass constructors,
          * typically implicit.)
-         * {@description.close}
          */
         protected Control() {
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code>. The <code>formats</code> must be equal to
@@ -2161,7 +2088,6 @@ public abstract class ResourceBundle {
          * <p>Specifying {@link Control#FORMAT_DEFAULT} is equivalent to
          * instantiating the <code>ResourceBundle.Control</code> class,
          * except that this method returns a singleton.
-         * {@description.close}
          *
          * @param formats
          *        the formats to be returned by the
@@ -2186,8 +2112,7 @@ public abstract class ResourceBundle {
             throw new IllegalArgumentException();
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code> and the {@link
@@ -2197,7 +2122,6 @@ public abstract class ResourceBundle {
          * Control#FORMAT_CLASS} or {@link Control#FORMAT_DEFAULT}.
          * <code>ResourceBundle.Control</code> instances returned by this
          * method are singletons and thread-safe.
-         * {@description.close}
          *
          * @param formats
          *        the formats to be returned by the
@@ -2223,8 +2147,7 @@ public abstract class ResourceBundle {
             throw new IllegalArgumentException();
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Returns a <code>List</code> of <code>String</code>s containing
          * formats to be used to load resource bundles for the given
          * <code>baseName</code>. The <code>ResourceBundle.getBundle</code>
@@ -2236,21 +2159,16 @@ public abstract class ResourceBundle {
          * PropertyResourceBundle properties-based} ones. Strings starting
          * with <code>"java."</code> are reserved for future extensions and
          * must not be used by application-defined formats.
-         * {@description.close}
          *
-         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
          * <p>It is not a requirement to return an immutable (unmodifiable)
          * <code>List</code>.  However, the returned <code>List</code> must
          * not be mutated after it has been returned by
          * <code>getFormats</code>.
-         * {@property.close}
          *
-         * {@description.open}
          * <p>The default implementation returns {@link #FORMAT_DEFAULT} so
          * that the <code>ResourceBundle.getBundle</code> factory method
          * looks up first class-based resource bundles, then
          * properties-based ones.
-         * {@description.close}
          *
          * @param baseName
          *        the base name of the resource bundle, a fully qualified class
@@ -2270,8 +2188,7 @@ public abstract class ResourceBundle {
             return FORMAT_DEFAULT;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Returns a <code>List</code> of <code>Locale</code>s as candidate
          * locales for <code>baseName</code> and <code>locale</code>. This
          * method is called by the <code>ResourceBundle.getBundle</code>
@@ -2291,28 +2208,131 @@ public abstract class ResourceBundle {
          * <code>Locale</code> must be returned. In this case, the
          * <code>ResourceBundle.getBundle</code> factory method loads only
          * the base bundle as the resulting resource bundle.
-         * {@description.close}
          *
-         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
-         * <p>It is not a requirement to return an immutable
-         * (unmodifiable) <code>List</code>. However, the returned
-         * <code>List</code> must not be mutated after it has been
-         * returned by <code>getCandidateLocales</code>.
-         * {@property.close}
+         * <p>It is not a requirement to return an immutable (unmodifiable)
+         * <code>List</code>. However, the returned <code>List</code> must not
+         * be mutated after it has been returned by
+         * <code>getCandidateLocales</code>.
          *
-         * {@description.open}
          * <p>The default implementation returns a <code>List</code> containing
-         * <code>Locale</code>s in the following sequence:
-         * <pre>
-         *     Locale(language, country, variant)
-         *     Locale(language, country)
-         *     Locale(language)
-         *     Locale.ROOT
-         * </pre>
-         * where <code>language</code>, <code>country</code> and
-         * <code>variant</code> are the language, country and variant values
-         * of the given <code>locale</code>, respectively. Locales where the
+         * <code>Locale</code>s using the rules described below.  In the
+         * description below, <em>L</em>, <em>S</em>, <em>C</em> and <em>V</em>
+         * respectively represent non-empty language, script, country, and
+         * variant.  For example, [<em>L</em>, <em>C</em>] represents a
+         * <code>Locale</code> that has non-empty values only for language and
+         * country.  The form <em>L</em>("xx") represents the (non-empty)
+         * language value is "xx".  For all cases, <code>Locale</code>s whose
          * final component values are empty strings are omitted.
+         *
+         * <ol><li>For an input <code>Locale</code> with an empty script value,
+         * append candidate <code>Locale</code>s by omitting the final component
+         * one by one as below:
+         *
+         * <ul>
+         * <li> [<em>L</em>, <em>C</em>, <em>V</em>] </li>
+         * <li> [<em>L</em>, <em>C</em>] </li>
+         * <li> [<em>L</em>] </li>
+         * <li> <code>Locale.ROOT</code> </li>
+         * </ul></li>
+         *
+         * <li>For an input <code>Locale</code> with a non-empty script value,
+         * append candidate <code>Locale</code>s by omitting the final component
+         * up to language, then append candidates generated from the
+         * <code>Locale</code> with country and variant restored:
+         *
+         * <ul>
+         * <li> [<em>L</em>, <em>S</em>, <em>C</em>, <em>V</em>]</li>
+         * <li> [<em>L</em>, <em>S</em>, <em>C</em>]</li>
+         * <li> [<em>L</em>, <em>S</em>]</li>
+         * <li> [<em>L</em>, <em>C</em>, <em>V</em>]</li>
+         * <li> [<em>L</em>, <em>C</em>]</li>
+         * <li> [<em>L</em>]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul></li>
+         *
+         * <li>For an input <code>Locale</code> with a variant value consisting
+         * of multiple subtags separated by underscore, generate candidate
+         * <code>Locale</code>s by omitting the variant subtags one by one, then
+         * insert them after every occurrence of <code> Locale</code>s with the
+         * full variant value in the original list.  For example, if the
+         * the variant consists of two subtags <em>V1</em> and <em>V2</em>:
+         *
+         * <ul>
+         * <li> [<em>L</em>, <em>S</em>, <em>C</em>, <em>V1</em>, <em>V2</em>]</li>
+         * <li> [<em>L</em>, <em>S</em>, <em>C</em>, <em>V1</em>]</li>
+         * <li> [<em>L</em>, <em>S</em>, <em>C</em>]</li>
+         * <li> [<em>L</em>, <em>S</em>]</li>
+         * <li> [<em>L</em>, <em>C</em>, <em>V1</em>, <em>V2</em>]</li>
+         * <li> [<em>L</em>, <em>C</em>, <em>V1</em>]</li>
+         * <li> [<em>L</em>, <em>C</em>]</li>
+         * <li> [<em>L</em>]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul></li>
+         *
+         * <li>Special cases for Chinese.  When an input <code>Locale</code> has the
+         * language "zh" (Chinese) and an empty script value, either "Hans" (Simplified) or
+         * "Hant" (Traditional) might be supplied, depending on the country.
+         * When the country is "CN" (China) or "SG" (Singapore), "Hans" is supplied.
+         * When the country is "HK" (Hong Kong SAR China), "MO" (Macau SAR China),
+         * or "TW" (Taiwan), "Hant" is supplied.  For all other countries or when the country
+         * is empty, no script is supplied.  For example, for <code>Locale("zh", "CN")
+         * </code>, the candidate list will be:
+         * <ul>
+         * <li> [<em>L</em>("zh"), <em>S</em>("Hans"), <em>C</em>("CN")]</li>
+         * <li> [<em>L</em>("zh"), <em>S</em>("Hans")]</li>
+         * <li> [<em>L</em>("zh"), <em>C</em>("CN")]</li>
+         * <li> [<em>L</em>("zh")]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul>
+         *
+         * For <code>Locale("zh", "TW")</code>, the candidate list will be:
+         * <ul>
+         * <li> [<em>L</em>("zh"), <em>S</em>("Hant"), <em>C</em>("TW")]</li>
+         * <li> [<em>L</em>("zh"), <em>S</em>("Hant")]</li>
+         * <li> [<em>L</em>("zh"), <em>C</em>("TW")]</li>
+         * <li> [<em>L</em>("zh")]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul></li>
+         *
+         * <li>Special cases for Norwegian.  Both <code>Locale("no", "NO",
+         * "NY")</code> and <code>Locale("nn", "NO")</code> represent Norwegian
+         * Nynorsk.  When a locale's language is "nn", the standard candidate
+         * list is generated up to [<em>L</em>("nn")], and then the following
+         * candidates are added:
+         *
+         * <ul><li> [<em>L</em>("no"), <em>C</em>("NO"), <em>V</em>("NY")]</li>
+         * <li> [<em>L</em>("no"), <em>C</em>("NO")]</li>
+         * <li> [<em>L</em>("no")]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul>
+         *
+         * If the locale is exactly <code>Locale("no", "NO", "NY")</code>, it is first
+         * converted to <code>Locale("nn", "NO")</code> and then the above procedure is
+         * followed.
+         *
+         * <p>Also, Java treats the language "no" as a synonym of Norwegian
+         * Bokm&#xE5;l "nb".  Except for the single case <code>Locale("no",
+         * "NO", "NY")</code> (handled above), when an input <code>Locale</code>
+         * has language "no" or "nb", candidate <code>Locale</code>s with
+         * language code "no" and "nb" are interleaved, first using the
+         * requested language, then using its synonym. For example,
+         * <code>Locale("nb", "NO", "POSIX")</code> generates the following
+         * candidate list:
+         *
+         * <ul>
+         * <li> [<em>L</em>("nb"), <em>C</em>("NO"), <em>V</em>("POSIX")]</li>
+         * <li> [<em>L</em>("no"), <em>C</em>("NO"), <em>V</em>("POSIX")]</li>
+         * <li> [<em>L</em>("nb"), <em>C</em>("NO")]</li>
+         * <li> [<em>L</em>("no"), <em>C</em>("NO")]</li>
+         * <li> [<em>L</em>("nb")]</li>
+         * <li> [<em>L</em>("no")]</li>
+         * <li> <code>Locale.ROOT</code></li>
+         * </ul>
+         *
+         * <code>Locale("no", "NO", "POSIX")</code> would generate the same list
+         * except that locales with "no" would appear before the corresponding
+         * locales with "nb".</li>
+         * </ol>
          *
          * <p>The default implementation uses an {@link ArrayList} that
          * overriding implementations may modify before returning it to the
@@ -2331,10 +2351,9 @@ public abstract class ResourceBundle {
          * is returned. And if the resource bundles for the "ja" and
          * "" <code>Locale</code>s are found, then the runtime resource
          * lookup path (parent chain) is:
-         * <pre>
+         * <pre>{@code
          *     Messages_ja -> Messages
-         * </pre>
-         * {@description.close}
+         * }</pre>
          *
          * @param baseName
          *        the base name of the resource bundle, a fully
@@ -2351,28 +2370,131 @@ public abstract class ResourceBundle {
             if (baseName == null) {
                 throw new NullPointerException();
             }
-            String language = locale.getLanguage();
-            String country = locale.getCountry();
-            String variant = locale.getVariant();
-
-            List<Locale> locales = new ArrayList<Locale>(4);
-            if (variant.length() > 0) {
-                locales.add(locale);
-            }
-            if (country.length() > 0) {
-                locales.add((locales.size() == 0) ?
-                            locale : Locale.getInstance(language, country, ""));
-            }
-            if (language.length() > 0) {
-                locales.add((locales.size() == 0) ?
-                            locale : Locale.getInstance(language, "", ""));
-            }
-            locales.add(Locale.ROOT);
-            return locales;
+            return new ArrayList<>(CANDIDATES_CACHE.get(locale.getBaseLocale()));
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        private static final CandidateListCache CANDIDATES_CACHE = new CandidateListCache();
+
+        private static class CandidateListCache extends LocaleObjectCache<BaseLocale, List<Locale>> {
+            protected List<Locale> createObject(BaseLocale base) {
+                String language = base.getLanguage();
+                String script = base.getScript();
+                String region = base.getRegion();
+                String variant = base.getVariant();
+
+                // Special handling for Norwegian
+                boolean isNorwegianBokmal = false;
+                boolean isNorwegianNynorsk = false;
+                if (language.equals("no")) {
+                    if (region.equals("NO") && variant.equals("NY")) {
+                        variant = "";
+                        isNorwegianNynorsk = true;
+                    } else {
+                        isNorwegianBokmal = true;
+                    }
+                }
+                if (language.equals("nb") || isNorwegianBokmal) {
+                    List<Locale> tmpList = getDefaultList("nb", script, region, variant);
+                    // Insert a locale replacing "nb" with "no" for every list entry
+                    List<Locale> bokmalList = new LinkedList<>();
+                    for (Locale l : tmpList) {
+                        bokmalList.add(l);
+                        if (l.getLanguage().length() == 0) {
+                            break;
+                        }
+                        bokmalList.add(Locale.getInstance("no", l.getScript(), l.getCountry(),
+                                l.getVariant(), null));
+                    }
+                    return bokmalList;
+                } else if (language.equals("nn") || isNorwegianNynorsk) {
+                    // Insert no_NO_NY, no_NO, no after nn
+                    List<Locale> nynorskList = getDefaultList("nn", script, region, variant);
+                    int idx = nynorskList.size() - 1;
+                    nynorskList.add(idx++, Locale.getInstance("no", "NO", "NY"));
+                    nynorskList.add(idx++, Locale.getInstance("no", "NO", ""));
+                    nynorskList.add(idx++, Locale.getInstance("no", "", ""));
+                    return nynorskList;
+                }
+                // Special handling for Chinese
+                else if (language.equals("zh")) {
+                    if (script.length() == 0 && region.length() > 0) {
+                        // Supply script for users who want to use zh_Hans/zh_Hant
+                        // as bundle names (recommended for Java7+)
+                        switch (region) {
+                        case "TW":
+                        case "HK":
+                        case "MO":
+                            script = "Hant";
+                            break;
+                        case "CN":
+                        case "SG":
+                            script = "Hans";
+                            break;
+                        }
+                    } else if (script.length() > 0 && region.length() == 0) {
+                        // Supply region(country) for users who still package Chinese
+                        // bundles using old convension.
+                        switch (script) {
+                        case "Hans":
+                            region = "CN";
+                            break;
+                        case "Hant":
+                            region = "TW";
+                            break;
+                        }
+                    }
+                }
+
+                return getDefaultList(language, script, region, variant);
+            }
+
+            private static List<Locale> getDefaultList(String language, String script, String region, String variant) {
+                List<String> variants = null;
+
+                if (variant.length() > 0) {
+                    variants = new LinkedList<>();
+                    int idx = variant.length();
+                    while (idx != -1) {
+                        variants.add(variant.substring(0, idx));
+                        idx = variant.lastIndexOf('_', --idx);
+                    }
+                }
+
+                List<Locale> list = new LinkedList<>();
+
+                if (variants != null) {
+                    for (String v : variants) {
+                        list.add(Locale.getInstance(language, script, region, v, null));
+                    }
+                }
+                if (region.length() > 0) {
+                    list.add(Locale.getInstance(language, script, region, "", null));
+                }
+                if (script.length() > 0) {
+                    list.add(Locale.getInstance(language, script, "", "", null));
+
+                    // With script, after truncating variant, region and script,
+                    // start over without script.
+                    if (variants != null) {
+                        for (String v : variants) {
+                            list.add(Locale.getInstance(language, "", region, v, null));
+                        }
+                    }
+                    if (region.length() > 0) {
+                        list.add(Locale.getInstance(language, "", region, "", null));
+                    }
+                }
+                if (language.length() > 0) {
+                    list.add(Locale.getInstance(language, "", "", "", null));
+                }
+                // Add root locale at the end
+                list.add(Locale.ROOT);
+
+                return list;
+            }
+        }
+
+        /** {@collect.stats}
          * Returns a <code>Locale</code> to be used as a fallback locale for
          * further resource bundle searches by the
          * <code>ResourceBundle.getBundle</code> factory method. This method
@@ -2389,7 +2511,6 @@ public abstract class ResourceBundle {
          * Locale#getDefault() default <code>Locale</code>} if the given
          * <code>locale</code> isn't the default one.  Otherwise,
          * <code>null</code> is returned.
-         * {@description.close}
          *
          * @param baseName
          *        the base name of the resource bundle, a fully
@@ -2417,8 +2538,7 @@ public abstract class ResourceBundle {
             return locale.equals(defaultLocale) ? null : defaultLocale;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Instantiates a resource bundle for the given bundle name of the
          * given format and locale, using the given class loader if
          * necessary. This method returns <code>null</code> if there is no
@@ -2471,7 +2591,6 @@ public abstract class ResourceBundle {
          * <code>IllegalArgumentException</code> is thrown.</li>
          *
          * </ul>
-         * {@description.close}
          *
          * @param baseName
          *        the base bundle name of the resource bundle, a fully
@@ -2522,6 +2641,7 @@ public abstract class ResourceBundle {
             ResourceBundle bundle = null;
             if (format.equals("java.class")) {
                 try {
+                    @SuppressWarnings("unchecked")
                     Class<? extends ResourceBundle> bundleClass
                         = (Class<? extends ResourceBundle>)loader.loadClass(bundleName);
 
@@ -2536,7 +2656,10 @@ public abstract class ResourceBundle {
                 } catch (ClassNotFoundException e) {
                 }
             } else if (format.equals("java.properties")) {
-                final String resourceName = toResourceName(bundleName, "properties");
+                final String resourceName = toResourceName0(bundleName, "properties");
+                if (resourceName == null) {
+                    return bundle;
+                }
                 final ClassLoader classLoader = loader;
                 final boolean reloadFlag = reload;
                 InputStream stream = null;
@@ -2578,8 +2701,7 @@ public abstract class ResourceBundle {
             return bundle;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Returns the time-to-live (TTL) value for resource bundles that
          * are loaded under this
          * <code>ResourceBundle.Control</code>. Positive time-to-live values
@@ -2609,7 +2731,6 @@ public abstract class ResourceBundle {
          * resource bundles in the cache.
          *
          * <p>The default implementation returns {@link #TTL_NO_EXPIRATION_CONTROL}.
-         * {@description.close}
          *
          * @param baseName
          *        the base name of the resource bundle for which the
@@ -2633,8 +2754,7 @@ public abstract class ResourceBundle {
             return TTL_NO_EXPIRATION_CONTROL;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Determines if the expired <code>bundle</code> in the cache needs
          * to be reloaded based on the loading time given by
          * <code>loadTime</code> or some other criteria. The method returns
@@ -2658,7 +2778,6 @@ public abstract class ResourceBundle {
          * same string as its file suffix if it's not one of the default
          * formats, <code>"java.class"</code> or
          * <code>"java.properties"</code>.
-         * {@description.close}
          *
          * @param baseName
          *        the base bundle name of the resource bundle, a
@@ -2694,7 +2813,10 @@ public abstract class ResourceBundle {
             }
             boolean result = false;
             try {
-                String resourceName = toResourceName(toBundleName(baseName, locale), format);
+                String resourceName = toResourceName0(toBundleName(baseName, locale), format);
+                if (resourceName == null) {
+                    return result;
+                }
                 URL url = loader.getResource(resourceName);
                 if (url != null) {
                     long lastModified = 0;
@@ -2724,8 +2846,7 @@ public abstract class ResourceBundle {
             return result;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Converts the given <code>baseName</code> and <code>locale</code>
          * to the bundle name. This method is called from the default
          * implementation of the {@link #newBundle(String, Locale, String,
@@ -2735,13 +2856,14 @@ public abstract class ResourceBundle {
          *
          * <p>This implementation returns the following value:
          * <pre>
-         *     baseName + "_" + language + "_" + country + "_" + variant
+         *     baseName + "_" + language + "_" + script + "_" + country + "_" + variant
          * </pre>
-         * where <code>language</code>, <code>country</code> and
-         * <code>variant</code> are the language, country and variant values
-         * of <code>locale</code>, respectively. Final component values that
-         * are empty Strings are omitted along with the preceding '_'. If
-         * all of the values are empty strings, then <code>baseName</code>
+         * where <code>language</code>, <code>script</code>, <code>country</code>,
+         * and <code>variant</code> are the language, script, country, and variant
+         * values of <code>locale</code>, respectively. Final component values that
+         * are empty Strings are omitted along with the preceding '_'.  When the
+         * script is empty, the script value is omitted along with the preceding '_'.
+         * If all of the values are empty strings, then <code>baseName</code>
          * is returned.
          *
          * <p>For example, if <code>baseName</code> is
@@ -2754,7 +2876,6 @@ public abstract class ResourceBundle {
          * <p>Overriding this method allows applications to use different
          * conventions in the organization and packaging of localized
          * resources.
-         * {@description.close}
          *
          * @param baseName
          *        the base name of the resource bundle, a fully
@@ -2773,6 +2894,7 @@ public abstract class ResourceBundle {
             }
 
             String language = locale.getLanguage();
+            String script = locale.getScript();
             String country = locale.getCountry();
             String variant = locale.getVariant();
 
@@ -2782,19 +2904,28 @@ public abstract class ResourceBundle {
 
             StringBuilder sb = new StringBuilder(baseName);
             sb.append('_');
-            if (variant != "") {
-                sb.append(language).append('_').append(country).append('_').append(variant);
-            } else if (country != "") {
-                sb.append(language).append('_').append(country);
+            if (script != "") {
+                if (variant != "") {
+                    sb.append(language).append('_').append(script).append('_').append(country).append('_').append(variant);
+                } else if (country != "") {
+                    sb.append(language).append('_').append(script).append('_').append(country);
+                } else {
+                    sb.append(language).append('_').append(script);
+                }
             } else {
-                sb.append(language);
+                if (variant != "") {
+                    sb.append(language).append('_').append(country).append('_').append(variant);
+                } else if (country != "") {
+                    sb.append(language).append('_').append(country);
+                } else {
+                    sb.append(language);
+                }
             }
             return sb.toString();
 
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Converts the given <code>bundleName</code> to the form required
          * by the {@link ClassLoader#getResource ClassLoader.getResource}
          * method by replacing all occurrences of <code>'.'</code> in
@@ -2804,7 +2935,6 @@ public abstract class ResourceBundle {
          * <code>"foo.bar.MyResources_ja_JP"</code> and <code>suffix</code>
          * is <code>"properties"</code>, then
          * <code>"foo/bar/MyResources_ja_JP.properties"</code> is returned.
-         * {@description.close}
          *
          * @param bundleName
          *        the bundle name
@@ -2819,6 +2949,15 @@ public abstract class ResourceBundle {
             StringBuilder sb = new StringBuilder(bundleName.length() + 1 + suffix.length());
             sb.append(bundleName.replace('.', '/')).append('.').append(suffix);
             return sb.toString();
+        }
+
+        private String toResourceName0(String bundleName, String suffix) {
+            // application protocol check
+            if (bundleName.contains("://")) {
+                return null;
+            } else {
+                return toResourceName(bundleName, suffix);
+            }
         }
     }
 

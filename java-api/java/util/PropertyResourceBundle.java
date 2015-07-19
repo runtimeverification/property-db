@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
@@ -44,8 +44,7 @@ import java.io.Reader;
 import java.io.IOException;
 import sun.util.ResourceBundleEnumeration;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * <code>PropertyResourceBundle</code> is a concrete subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * using a set of static strings from a property file. See
@@ -99,18 +98,21 @@ import sun.util.ResourceBundleEnumeration;
  * s7=3. M&auml;rz 1996
  * </pre>
  * </blockquote>
- * {@description.close}
  *
- * {@property.open uncheckable}
+ * <p>
+ * The implementation of a {@code PropertyResourceBundle} subclass must be
+ * thread-safe if it's simultaneously used by multiple threads. The default
+ * implementations of the non-abstract methods in this class are thread-safe.
+ *
  * <p>
  * <strong>Note:</strong> PropertyResourceBundle can be constructed either
  * from an InputStream or a Reader, which represents a property file.
  * Constructing a PropertyResourceBundle instance from an InputStream requires
  * that the input stream be encoded in ISO-8859-1.  In that case, characters
- * that cannot be represented in ISO-8859-1 encoding must be represented by
- * <a href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#3.3">Unicode Escapes</a>,
+ * that cannot be represented in ISO-8859-1 encoding must be represented by Unicode Escapes
+ * as defined in section 3.3 of
+ * <cite>The Java&trade; Language Specification</cite>
  * whereas the other constructor which takes a Reader does not have that limitation.
- * {@property.close}
  *
  * @see ResourceBundle
  * @see ListResourceBundle
@@ -118,41 +120,49 @@ import sun.util.ResourceBundleEnumeration;
  * @since JDK1.1
  */
 public class PropertyResourceBundle extends ResourceBundle {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a property resource bundle from an {@link java.io.InputStream
      * InputStream}.
-     * {@description.close}
-     * {@property.open uncheckable}
+     * {@description.close}       
+* {@property.open uncheckable}
      * The property file read with this constructor
      * must be encoded in ISO-8859-1.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param stream an InputStream that represents a property file
      *        to read from.
      * @throws IOException if an I/O error occurs
      * @throws NullPointerException if <code>stream</code> is null
+     * @throws IllegalArgumentException if {@code stream} contains a
+     *     malformed Unicode escape sequence.
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public PropertyResourceBundle (InputStream stream) throws IOException {
         Properties properties = new Properties();
         properties.load(stream);
         lookup = new HashMap(properties);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a property resource bundle from a {@link java.io.Reader
      * Reader}.  Unlike the constructor
      * {@link #PropertyResourceBundle(java.io.InputStream) PropertyResourceBundle(InputStream)},
      * there is no limitation as to the encoding of the input property file.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param reader a Reader that represents a property file to
      *        read from.
      * @throws IOException if an I/O error occurs
      * @throws NullPointerException if <code>reader</code> is null
+     * @throws IllegalArgumentException if a malformed Unicode escape sequence appears
+     *     from {@code reader}.
      * @since 1.6
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public PropertyResourceBundle (Reader reader) throws IOException {
         Properties properties = new Properties();
         properties.load(reader);
@@ -167,12 +177,13 @@ public class PropertyResourceBundle extends ResourceBundle {
         return lookup.get(key);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return an <code>Enumeration</code> of the keys contained in
      *         this <code>ResourceBundle</code> and its parent bundles.
      * @see #keySet()
@@ -183,12 +194,13 @@ public class PropertyResourceBundle extends ResourceBundle {
                 (parent != null) ? parent.getKeys() : null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return a <code>Set</code> of the keys contained only in this
      *         <code>ResourceBundle</code>
      * @since 1.6

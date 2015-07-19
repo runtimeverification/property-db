@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2000, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 
@@ -28,8 +28,7 @@ package java.util.logging;
 
 import java.io.*;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * Stream based logging <tt>Handler</tt>.
  * <p>
  * This is primarily intended as a base class or support class to
@@ -39,32 +38,44 @@ import java.io.*;
  * <p>
  * <b>Configuration:</b>
  * By default each <tt>StreamHandler</tt> is initialized using the following
- * <tt>LogManager</tt> configuration properties.  If properties are not defined
+ * <tt>LogManager</tt> configuration properties where <tt>&lt;handler-name&gt;</tt>
+ * refers to the fully-qualified class name of the handler.
+ * If properties are not defined
  * (or have invalid values) then the specified default values are used.
  * <ul>
- * <li>   java.util.logging.StreamHandler.level
+ * <li>   &lt;handler-name&gt;.level
  *        specifies the default level for the <tt>Handler</tt>
- *        (defaults to <tt>Level.INFO</tt>).
- * <li>   java.util.logging.StreamHandler.filter
+ *        (defaults to <tt>Level.INFO</tt>). </li>
+ * <li>   &lt;handler-name&gt;.filter
  *        specifies the name of a <tt>Filter</tt> class to use
- *         (defaults to no <tt>Filter</tt>).
- * <li>   java.util.logging.StreamHandler.formatter
+ *         (defaults to no <tt>Filter</tt>). </li>
+ * <li>   &lt;handler-name&gt;.formatter
  *        specifies the name of a <tt>Formatter</tt> class to use
- *        (defaults to <tt>java.util.logging.SimpleFormatter</tt>).
- * <li>   java.util.logging.StreamHandler.encoding
+ *        (defaults to <tt>java.util.logging.SimpleFormatter</tt>). </li>
+ * <li>   &lt;handler-name&gt;.encoding
  *        the name of the character set encoding to use (defaults to
- *        the default platform encoding).
+ *        the default platform encoding). </li>
  * </ul>
- * {@description.close}
- *
+ * <p>
+ * For example, the properties for {@code StreamHandler} would be:
+ * <ul>
+ * <li>   java.util.logging.StreamHandler.level=INFO </li>
+ * <li>   java.util.logging.StreamHandler.formatter=java.util.logging.SimpleFormatter </li>
+ * </ul>
+ * <p>
+ * For a custom handler, e.g. com.foo.MyHandler, the properties would be:
+ * <ul>
+ * <li>   com.foo.MyHandler.level=INFO </li>
+ * <li>   com.foo.MyHandler.formatter=java.util.logging.SimpleFormatter </li>
+ * </ul>
+ * <p>
  * @since 1.4
  */
 
 public class StreamHandler extends Handler {
-    private LogManager manager = LogManager.getLogManager();
     private OutputStream output;
     private boolean doneHeader;
-    private Writer writer;
+    private volatile Writer writer;
 
     // Private method to configure a StreamHandler from LogManager
     // properties and/or default values as specified in the class
@@ -88,10 +99,8 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Create a <tt>StreamHandler</tt>, with no current output stream.
-     * {@description.close}
      */
     public StreamHandler() {
         sealed = false;
@@ -99,12 +108,10 @@ public class StreamHandler extends Handler {
         sealed = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Create a <tt>StreamHandler</tt> with a given <tt>Formatter</tt>
      * and output stream.
      * <p>
-     * {@description.close}
      * @param out         the target output stream
      * @param formatter   Formatter to be used to format output
      */
@@ -116,14 +123,12 @@ public class StreamHandler extends Handler {
         sealed = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Change the output stream.
      * <P>
      * If there is a current output stream then the <tt>Formatter</tt>'s
      * tail string is written and the stream is flushed and closed.
      * Then the output stream is replaced with the new output stream.
-     * {@description.close}
      *
      * @param out   New output stream.  May not be null.
      * @exception  SecurityException  if a security manager exists and if
@@ -150,13 +155,11 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Set (or change) the character encoding used by this <tt>Handler</tt>.
      * <p>
      * The encoding should be set before any <tt>LogRecords</tt> are written
      * to the <tt>Handler</tt>.
-     * {@description.close}
      *
      * @param encoding  The name of a supported character encoding.
      *        May be null, to indicate the default platform encoding.
@@ -165,7 +168,8 @@ public class StreamHandler extends Handler {
      * @exception  UnsupportedEncodingException if the named encoding is
      *          not supported.
      */
-    public void setEncoding(String encoding)
+    @Override
+    public synchronized void setEncoding(String encoding)
                         throws SecurityException, java.io.UnsupportedEncodingException {
         super.setEncoding(encoding);
         if (output == null) {
@@ -180,8 +184,7 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Format and publish a <tt>LogRecord</tt>.
      * <p>
      * The <tt>StreamHandler</tt> first checks if there is an <tt>OutputStream</tt>
@@ -194,11 +197,11 @@ public class StreamHandler extends Handler {
      * If this is the first <tt>LogRecord</tt> to be written to a given
      * <tt>OutputStream</tt>, the <tt>Formatter</tt>'s "head" string is
      * written to the stream before the <tt>LogRecord</tt> is written.
-     * {@description.close}
      *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
      */
+    @Override
     public synchronized void publish(LogRecord record) {
         if (!isLoggable(record)) {
             return;
@@ -227,19 +230,18 @@ public class StreamHandler extends Handler {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Check if this <tt>Handler</tt> would actually log a given <tt>LogRecord</tt>.
      * <p>
      * This method checks if the <tt>LogRecord</tt> has an appropriate level and
      * whether it satisfies any <tt>Filter</tt>.  It will also return false if
-     * no output stream has been assigned yet or the LogRecord is Null.
+     * no output stream has been assigned yet or the LogRecord is null.
      * <p>
-     * {@description.close}
      * @param record  a <tt>LogRecord</tt>
      * @return true if the <tt>LogRecord</tt> would be logged.
      *
      */
+    @Override
     public boolean isLoggable(LogRecord record) {
         if (writer == null || record == null) {
             return false;
@@ -247,11 +249,10 @@ public class StreamHandler extends Handler {
         return super.isLoggable(record);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Flush any buffered messages.
-     * {@description.close}
      */
+    @Override
     public synchronized void flush() {
         if (writer != null) {
             try {
@@ -265,7 +266,7 @@ public class StreamHandler extends Handler {
     }
 
     private synchronized void flushAndClose() throws SecurityException {
-        checkAccess();
+        checkPermission();
         if (writer != null) {
             try {
                 if (!doneHeader) {
@@ -285,19 +286,18 @@ public class StreamHandler extends Handler {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Close the current output stream.
      * <p>
      * The <tt>Formatter</tt>'s "tail" string is written to the stream before it
      * is closed.  In addition, if the <tt>Formatter</tt>'s "head" string has not
      * yet been written to the stream, it will be written before the
      * "tail" string.
-     * {@description.close}
      *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have LoggingPermission("control").
      */
+    @Override
     public synchronized void close() throws SecurityException {
         flushAndClose();
     }

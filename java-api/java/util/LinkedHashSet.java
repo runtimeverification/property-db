@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 2000, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
- * <p>Hash table and linked list implementation of the <tt>Set</tt> interface,
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * <p>Hash table and linked list implementation of the <tt>Set</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashSet</tt> in that it maintains a doubly-linked list running through
  * all of its entries.  This linked list defines the iteration ordering,
@@ -103,8 +104,8 @@ package java.util;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @param <E> the type of elements maintained by this set
  *
  * @author  Josh Bloch
@@ -123,11 +124,9 @@ public class LinkedHashSet<E>
 
     private static final long serialVersionUID = -2851667679971038690L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and load factor.
-     * {@description.close}
      *
      * @param      initialCapacity the initial capacity of the linked hash set
      * @param      loadFactor      the load factor of the linked hash set
@@ -138,11 +137,9 @@ public class LinkedHashSet<E>
         super(initialCapacity, loadFactor, true);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty linked hash set with the specified initial
      * capacity and the default load factor (0.75).
-     * {@description.close}
      *
      * @param   initialCapacity   the initial capacity of the LinkedHashSet
      * @throws  IllegalArgumentException if the initial capacity is less
@@ -152,23 +149,19 @@ public class LinkedHashSet<E>
         super(initialCapacity, .75f, true);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty linked hash set with the default initial
      * capacity (16) and load factor (0.75).
-     * {@description.close}
      */
     public LinkedHashSet() {
         super(16, .75f, true);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new linked hash set with the same elements as the
      * specified collection.  The linked hash set is created with an initial
      * capacity sufficient to hold the elements in the specified collection
      * and the default load factor (0.75).
-     * {@description.close}
      *
      * @param c  the collection whose elements are to be placed into
      *           this set
@@ -177,5 +170,29 @@ public class LinkedHashSet<E>
     public LinkedHashSet(Collection<? extends E> c) {
         super(Math.max(2*c.size(), 11), .75f, true);
         addAll(c);
+    }
+
+    /** {@collect.stats}
+     * Creates a <em><a href="Spliterator.html#binding">late-binding</a></em>
+     * and <em>fail-fast</em> {@code Spliterator} over the elements in this set.
+     *
+     * <p>The {@code Spliterator} reports {@link Spliterator#SIZED},
+     * {@link Spliterator#DISTINCT}, and {@code ORDERED}.  Implementations
+     * should document the reporting of additional characteristic values.
+     *
+     * @implNote
+     * The implementation creates a
+     * <em><a href="Spliterator.html#binding">late-binding</a></em> spliterator
+     * from the set's {@code Iterator}.  The spliterator inherits the
+     * <em>fail-fast</em> properties of the set's iterator.
+     * The created {@code Spliterator} additionally reports
+     * {@link Spliterator#SUBSIZED}.
+     *
+     * @return a {@code Spliterator} over the elements in this set
+     * @since 1.8
+     */
+    @Override
+    public Spliterator<E> spliterator() {
+        return Spliterators.spliterator(this, Spliterator.DISTINCT | Spliterator.ORDERED);
     }
 }

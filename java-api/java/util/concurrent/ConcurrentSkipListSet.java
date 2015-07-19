@@ -1,44 +1,52 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
 package java.util.concurrent;
-import java.util.*;
-import sun.misc.Unsafe;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.NavigableSet;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.Spliterator;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * A scalable concurrent {@link NavigableSet} implementation based on
  * a {@link ConcurrentSkipListMap}.  The elements of the set are kept
  * sorted according to their {@linkplain Comparable natural ordering},
@@ -46,42 +54,38 @@ import sun.misc.Unsafe;
  * on which constructor is used.
  *
  * <p>This implementation provides expected average <i>log(n)</i> time
- * cost for the <tt>contains</tt>, <tt>add</tt>, and <tt>remove</tt>
+ * cost for the {@code contains}, {@code add}, and {@code remove}
  * operations and their variants.  Insertion, removal, and access
  * operations safely execute concurrently by multiple threads.
- * {@description.close}
- * {@property.open synchronized}
- * Iterators are <i>weakly consistent</i>, returning elements
- * reflecting the state of the set at some point at or since the
- * creation of the iterator.  They do <em>not</em> throw {@link
- * ConcurrentModificationException}, and may proceed concurrently with
- * other operations.
- * {@property.close}
- * {@description.open}
- * Ascending ordered views and their iterators are
- * faster than descending ones.
  *
- * <p>Beware that, unlike in most collections, the <tt>size</tt>
+ * <p>Iterators and spliterators are
+ * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
+ *
+ * <p>Ascending ordered views and their iterators are faster than
+ * descending ones.
+ *
+ * <p>Beware that, unlike in most collections, the {@code size}
  * method is <em>not</em> a constant-time operation. Because of the
  * asynchronous nature of these sets, determining the current number
- * of elements requires a traversal of the elements. Additionally, the
- * bulk operations <tt>addAll</tt>, <tt>removeAll</tt>,
- * <tt>retainAll</tt>, and <tt>containsAll</tt> are <em>not</em>
- * guaranteed to be performed atomically. For example, an iterator
- * operating concurrently with an <tt>addAll</tt> operation might view
- * only some of the added elements.
+ * of elements requires a traversal of the elements, and so may report
+ * inaccurate results if this collection is modified during traversal.
+ * Additionally, the bulk operations {@code addAll},
+ * {@code removeAll}, {@code retainAll}, {@code containsAll},
+ * {@code equals}, and {@code toArray} are <em>not</em> guaranteed
+ * to be performed atomically. For example, an iterator operating
+ * concurrently with an {@code addAll} operation might view only some
+ * of the added elements.
  *
  * <p>This class and its iterators implement all of the
  * <em>optional</em> methods of the {@link Set} and {@link Iterator}
  * interfaces. Like most other concurrent collection implementations,
- * this class does not permit the use of <tt>null</tt> elements,
- * because <tt>null</tt> arguments and return values cannot be reliably
+ * this class does not permit the use of {@code null} elements,
+ * because {@code null} arguments and return values cannot be reliably
  * distinguished from the absence of elements.
  *
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@description.close}
  *
  * @author Doug Lea
  * @param <E> the type of elements maintained by this set
@@ -93,48 +97,40 @@ public class ConcurrentSkipListSet<E>
 
     private static final long serialVersionUID = -2479143111061671589L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The underlying map. Uses Boolean.TRUE as value for each
      * element.  This field is declared final for the sake of thread
-     * safety, which entails some ugliness in clone()
-     * {@description.close}
+     * safety, which entails some ugliness in clone().
      */
     private final ConcurrentNavigableMap<E,Object> m;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty set that orders its elements according to
      * their {@linkplain Comparable natural ordering}.
-     * {@description.close}
      */
     public ConcurrentSkipListSet() {
         m = new ConcurrentSkipListMap<E,Object>();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty set that orders its elements according to
      * the specified comparator.
-     * {@description.close}
      *
      * @param comparator the comparator that will be used to order this set.
-     *        If <tt>null</tt>, the {@linkplain Comparable natural
+     *        If {@code null}, the {@linkplain Comparable natural
      *        ordering} of the elements will be used.
      */
     public ConcurrentSkipListSet(Comparator<? super E> comparator) {
         m = new ConcurrentSkipListMap<E,Object>(comparator);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new set containing the elements in the specified
      * collection, that orders its elements according to their
      * {@linkplain Comparable natural ordering}.
-     * {@description.close}
      *
      * @param c The elements that will comprise the new set
-     * @throws ClassCastException if the elements in <tt>c</tt> are
+     * @throws ClassCastException if the elements in {@code c} are
      *         not {@link Comparable}, or are not mutually comparable
      * @throws NullPointerException if the specified collection or any
      *         of its elements are null
@@ -144,11 +140,9 @@ public class ConcurrentSkipListSet<E>
         addAll(c);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new set containing the same elements and using the
      * same ordering as the specified sorted set.
-     * {@description.close}
      *
      * @param s sorted set whose elements will comprise the new set
      * @throws NullPointerException if the specified sorted set or any
@@ -159,42 +153,37 @@ public class ConcurrentSkipListSet<E>
         addAll(s);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * For use by submaps
-     * {@description.close}
      */
     ConcurrentSkipListSet(ConcurrentNavigableMap<E,Object> m) {
         this.m = m;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns a shallow copy of this <tt>ConcurrentSkipListSet</tt>
+    /** {@collect.stats}
+     * Returns a shallow copy of this {@code ConcurrentSkipListSet}
      * instance. (The elements themselves are not cloned.)
-     * {@description.close}
      *
      * @return a shallow copy of this set
      */
     public ConcurrentSkipListSet<E> clone() {
-        ConcurrentSkipListSet<E> clone = null;
         try {
-            clone = (ConcurrentSkipListSet<E>) super.clone();
-            clone.setMap(new ConcurrentSkipListMap(m));
+            @SuppressWarnings("unchecked")
+            ConcurrentSkipListSet<E> clone =
+                (ConcurrentSkipListSet<E>) super.clone();
+            clone.setMap(new ConcurrentSkipListMap<E,Object>(m));
+            return clone;
         } catch (CloneNotSupportedException e) {
             throw new InternalError();
         }
-
-        return clone;
     }
 
     /* ---------------- Set operations -------------- */
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of elements in this set.  If this set
-     * contains more than <tt>Integer.MAX_VALUE</tt> elements, it
-     * returns <tt>Integer.MAX_VALUE</tt>.
+     * contains more than {@code Integer.MAX_VALUE} elements, it
+     * returns {@code Integer.MAX_VALUE}.
      *
      * <p>Beware that, unlike in most collections, this method is
      * <em>NOT</em> a constant-time operation. Because of the
@@ -204,7 +193,6 @@ public class ConcurrentSkipListSet<E>
      * execution of this method, in which case the returned result
      * will be inaccurate. Thus, this method is typically not very
      * useful in concurrent applications.
-     * {@description.close}
      *
      * @return the number of elements in this set
      */
@@ -212,25 +200,21 @@ public class ConcurrentSkipListSet<E>
         return m.size();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns <tt>true</tt> if this set contains no elements.
-     * {@description.close}
-     * @return <tt>true</tt> if this set contains no elements
+    /** {@collect.stats}
+     * Returns {@code true} if this set contains no elements.
+     * @return {@code true} if this set contains no elements
      */
     public boolean isEmpty() {
         return m.isEmpty();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns <tt>true</tt> if this set contains the specified element.
-     * More formally, returns <tt>true</tt> if and only if this set
-     * contains an element <tt>e</tt> such that <tt>o.equals(e)</tt>.
-     * {@description.close}
+    /** {@collect.stats}
+     * Returns {@code true} if this set contains the specified element.
+     * More formally, returns {@code true} if and only if this set
+     * contains an element {@code e} such that {@code o.equals(e)}.
      *
      * @param o object to be checked for containment in this set
-     * @return <tt>true</tt> if this set contains the specified element
+     * @return {@code true} if this set contains the specified element
      * @throws ClassCastException if the specified element cannot be
      *         compared with the elements currently in this set
      * @throws NullPointerException if the specified element is null
@@ -239,19 +223,17 @@ public class ConcurrentSkipListSet<E>
         return m.containsKey(o);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds the specified element to this set if it is not already present.
-     * More formally, adds the specified element <tt>e</tt> to this set if
-     * the set contains no element <tt>e2</tt> such that <tt>e.equals(e2)</tt>.
+     * More formally, adds the specified element {@code e} to this set if
+     * the set contains no element {@code e2} such that {@code e.equals(e2)}.
      * If this set already contains the element, the call leaves the set
-     * unchanged and returns <tt>false</tt>.
-     * {@description.close}
+     * unchanged and returns {@code false}.
      *
      * @param e element to be added to this set
-     * @return <tt>true</tt> if this set did not already contain the
+     * @return {@code true} if this set did not already contain the
      *         specified element
-     * @throws ClassCastException if <tt>e</tt> cannot be compared
+     * @throws ClassCastException if {@code e} cannot be compared
      *         with the elements currently in this set
      * @throws NullPointerException if the specified element is null
      */
@@ -259,19 +241,17 @@ public class ConcurrentSkipListSet<E>
         return m.putIfAbsent(e, Boolean.TRUE) == null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes the specified element from this set if it is present.
-     * More formally, removes an element <tt>e</tt> such that
-     * <tt>o.equals(e)</tt>, if this set contains such an element.
-     * Returns <tt>true</tt> if this set contained the element (or
+     * More formally, removes an element {@code e} such that
+     * {@code o.equals(e)}, if this set contains such an element.
+     * Returns {@code true} if this set contained the element (or
      * equivalently, if this set changed as a result of the call).
      * (This set will not contain the element once the call returns.)
-     * {@description.close}
      *
      * @param o object to be removed from this set, if present
-     * @return <tt>true</tt> if this set contained the specified element
-     * @throws ClassCastException if <tt>o</tt> cannot be compared
+     * @return {@code true} if this set contained the specified element
+     * @throws ClassCastException if {@code o} cannot be compared
      *         with the elements currently in this set
      * @throws NullPointerException if the specified element is null
      */
@@ -279,19 +259,15 @@ public class ConcurrentSkipListSet<E>
         return m.remove(o, Boolean.TRUE);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes all of the elements from this set.
-     * {@description.close}
      */
     public void clear() {
         m.clear();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set in ascending order.
-     * {@description.close}
      *
      * @return an iterator over the elements in this set in ascending order
      */
@@ -299,10 +275,8 @@ public class ConcurrentSkipListSet<E>
         return m.navigableKeySet().iterator();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set in descending order.
-     * {@description.close}
      *
      * @return an iterator over the elements in this set in descending order
      */
@@ -313,19 +287,17 @@ public class ConcurrentSkipListSet<E>
 
     /* ---------------- AbstractSet Overrides -------------- */
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares the specified object with this set for equality.  Returns
-     * <tt>true</tt> if the specified object is also a set, the two sets
+     * {@code true} if the specified object is also a set, the two sets
      * have the same size, and every member of the specified set is
      * contained in this set (or equivalently, every member of this set is
      * contained in the specified set).  This definition ensures that the
      * equals method works properly across different implementations of the
      * set interface.
-     * {@description.close}
      *
      * @param o the object to be compared for equality with this set
-     * @return <tt>true</tt> if the specified object is equal to this set
+     * @return {@code true} if the specified object is equal to this set
      */
     public boolean equals(Object o) {
         // Override AbstractSet version to avoid calling size()
@@ -336,23 +308,21 @@ public class ConcurrentSkipListSet<E>
         Collection<?> c = (Collection<?>) o;
         try {
             return containsAll(c) && c.containsAll(this);
-        } catch (ClassCastException unused)   {
+        } catch (ClassCastException unused) {
             return false;
         } catch (NullPointerException unused) {
             return false;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes from this set all of its elements that are contained in
      * the specified collection.  If the specified collection is also
      * a set, this operation effectively modifies this set so that its
      * value is the <i>asymmetric set difference</i> of the two sets.
-     * {@description.close}
      *
      * @param  c collection containing elements to be removed from this set
-     * @return <tt>true</tt> if this set changed as a result of the call
+     * @return {@code true} if this set changed as a result of the call
      * @throws ClassCastException if the types of one or more elements in this
      *         set are incompatible with the specified collection
      * @throws NullPointerException if the specified collection or any
@@ -361,15 +331,15 @@ public class ConcurrentSkipListSet<E>
     public boolean removeAll(Collection<?> c) {
         // Override AbstractSet version to avoid unnecessary call to size()
         boolean modified = false;
-        for (Iterator<?> i = c.iterator(); i.hasNext(); )
-            if (remove(i.next()))
+        for (Object e : c)
+            if (remove(e))
                 modified = true;
         return modified;
     }
 
     /* ---------------- Relational operations -------------- */
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      */
@@ -377,7 +347,7 @@ public class ConcurrentSkipListSet<E>
         return m.lowerKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      */
@@ -385,7 +355,7 @@ public class ConcurrentSkipListSet<E>
         return m.floorKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      */
@@ -393,7 +363,7 @@ public class ConcurrentSkipListSet<E>
         return m.ceilingKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      */
@@ -403,12 +373,12 @@ public class ConcurrentSkipListSet<E>
 
     public E pollFirst() {
         Map.Entry<E,Object> e = m.pollFirstEntry();
-        return e == null? null : e.getKey();
+        return (e == null) ? null : e.getKey();
     }
 
     public E pollLast() {
         Map.Entry<E,Object> e = m.pollLastEntry();
-        return e == null? null : e.getKey();
+        return (e == null) ? null : e.getKey();
     }
 
 
@@ -419,21 +389,21 @@ public class ConcurrentSkipListSet<E>
         return m.comparator();
     }
 
-    /** {@collect.stats} 
-     * @throws NoSuchElementException {@inheritDoc}
+    /** {@collect.stats}
+     * @throws java.util.NoSuchElementException {@inheritDoc}
      */
     public E first() {
         return m.firstKey();
     }
 
-    /** {@collect.stats} 
-     * @throws NoSuchElementException {@inheritDoc}
+    /** {@collect.stats}
+     * @throws java.util.NoSuchElementException {@inheritDoc}
      */
     public E last() {
         return m.lastKey();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} or
      *         {@code toElement} is null
@@ -448,7 +418,7 @@ public class ConcurrentSkipListSet<E>
                       toElement,   toInclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toElement} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -457,7 +427,7 @@ public class ConcurrentSkipListSet<E>
         return new ConcurrentSkipListSet<E>(m.headMap(toElement, inclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -466,7 +436,7 @@ public class ConcurrentSkipListSet<E>
         return new ConcurrentSkipListSet<E>(m.tailMap(fromElement, inclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} or
      *         {@code toElement} is null
@@ -476,7 +446,7 @@ public class ConcurrentSkipListSet<E>
         return subSet(fromElement, true, toElement, false);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toElement} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -485,7 +455,7 @@ public class ConcurrentSkipListSet<E>
         return headSet(toElement, false);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -494,35 +464,63 @@ public class ConcurrentSkipListSet<E>
         return tailSet(fromElement, true);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a reverse order view of the elements contained in this set.
      * The descending set is backed by this set, so changes to the set are
      * reflected in the descending set, and vice-versa.
      *
      * <p>The returned set has an ordering equivalent to
-     * <tt>{@link Collections#reverseOrder(Comparator) Collections.reverseOrder}(comparator())</tt>.
+     * {@link Collections#reverseOrder(Comparator) Collections.reverseOrder}{@code (comparator())}.
      * The expression {@code s.descendingSet().descendingSet()} returns a
      * view of {@code s} essentially equivalent to {@code s}.
-     * {@description.close}
      *
      * @return a reverse order view of this set
      */
     public NavigableSet<E> descendingSet() {
-        return new ConcurrentSkipListSet(m.descendingMap());
+        return new ConcurrentSkipListSet<E>(m.descendingMap());
+    }
+
+    /** {@collect.stats}
+     * Returns a {@link Spliterator} over the elements in this set.
+     *
+     * <p>The {@code Spliterator} reports {@link Spliterator#CONCURRENT},
+     * {@link Spliterator#NONNULL}, {@link Spliterator#DISTINCT},
+     * {@link Spliterator#SORTED} and {@link Spliterator#ORDERED}, with an
+     * encounter order that is ascending order.  Overriding implementations
+     * should document the reporting of additional characteristic values.
+     *
+     * <p>The spliterator's comparator (see
+     * {@link java.util.Spliterator#getComparator()}) is {@code null} if
+     * the set's comparator (see {@link #comparator()}) is {@code null}.
+     * Otherwise, the spliterator's comparator is the same as or imposes the
+     * same total ordering as the set's comparator.
+     *
+     * @return a {@code Spliterator} over the elements in this set
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public Spliterator<E> spliterator() {
+        if (m instanceof ConcurrentSkipListMap)
+            return ((ConcurrentSkipListMap<E,?>)m).keySpliterator();
+        else
+            return (Spliterator<E>)((ConcurrentSkipListMap.SubMap<E,?>)m).keyIterator();
     }
 
     // Support for resetting map in clone
-    private static final Unsafe unsafe = Unsafe.getUnsafe();
+    private void setMap(ConcurrentNavigableMap<E,Object> map) {
+        UNSAFE.putObjectVolatile(this, mapOffset, map);
+    }
+
+    private static final sun.misc.Unsafe UNSAFE;
     private static final long mapOffset;
     static {
         try {
-            mapOffset = unsafe.objectFieldOffset
-                (ConcurrentSkipListSet.class.getDeclaredField("m"));
-        } catch (Exception ex) { throw new Error(ex); }
+            UNSAFE = sun.misc.Unsafe.getUnsafe();
+            Class<?> k = ConcurrentSkipListSet.class;
+            mapOffset = UNSAFE.objectFieldOffset
+                (k.getDeclaredField("m"));
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
-    private void setMap(ConcurrentNavigableMap<E,Object> map) {
-        unsafe.putObjectVolatile(this, mapOffset, map);
-    }
-
 }

@@ -1,31 +1,31 @@
 /*
- * Copyright (c) 2003, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2008, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
 
-/** {@collect.stats} 
+/**
  * The management interface for the class loading system of
  * the Java virtual machine.
  *
@@ -35,7 +35,7 @@ package java.lang.management;
  * that can be obtained by calling
  * the {@link ManagementFactory#getClassLoadingMXBean} method or
  * from the {@link ManagementFactory#getPlatformMBeanServer
- * platform <tt>MBeanServer</tt>} method.
+ * platform <tt>MBeanServer</tt>}.
  *
  * <p>The <tt>ObjectName</tt> for uniquely identifying the MXBean for
  * the class loading system within an <tt>MBeanServer</tt> is:
@@ -44,6 +44,10 @@ package java.lang.management;
  *        <tt>java.lang:type=ClassLoading</tt>}
  * </blockquote>
  *
+ * It can be obtained by calling the
+ * {@link PlatformManagedObject#getObjectName} method.
+ *
+ * @see ManagementFactory#getPlatformMXBeans(Class)
  * @see <a href="../../../javax/management/package-summary.html">
  *      JMX Specification.</a>
  * @see <a href="package-summary.html#examples">
@@ -52,9 +56,9 @@ package java.lang.management;
  * @author  Mandy Chung
  * @since   1.5
  */
-public interface ClassLoadingMXBean {
+public interface ClassLoadingMXBean extends PlatformManagedObject {
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the total number of classes that have been loaded since
      * the Java virtual machine has started execution.
      *
@@ -63,7 +67,7 @@ public interface ClassLoadingMXBean {
      */
     public long getTotalLoadedClassCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the number of classes that are currently loaded in the
      * Java virtual machine.
      *
@@ -71,7 +75,7 @@ public interface ClassLoadingMXBean {
      */
     public int getLoadedClassCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the total number of classes unloaded since the Java virtual machine
      * has started execution.
      *
@@ -79,7 +83,7 @@ public interface ClassLoadingMXBean {
      */
     public long getUnloadedClassCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if the verbose output for the class loading system is enabled.
      *
      * @return <tt>true</tt> if the verbose output for the class loading
@@ -87,7 +91,7 @@ public interface ClassLoadingMXBean {
      */
     public boolean isVerbose();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Enables or disables the verbose output for the class loading
      * system.  The verbose output information and the output stream
      * to which the verbose information is emitted are implementation

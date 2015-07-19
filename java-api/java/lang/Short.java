@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
 
-/** {@collect.stats} 
- * {@description.open}
- * The {@code Short} class wraps a value of primitive type {@code
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * The {@code Short} class wraps a value of primitive type {@code
  * short} in an object.  An object of type {@code Short} contains a
  * single field whose type is {@code short}.
  *
@@ -35,8 +36,8 @@ package java.lang;
  * a {@code short} to a {@code String} and a {@code String} to a
  * {@code short}, as well as other constants and methods useful when
  * dealing with a {@code short}.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Nakul Saraiya
  * @author  Joseph D. Darcy
  * @see     java.lang.Number
@@ -45,35 +46,34 @@ package java.lang;
 public final class Short extends Number implements Comparable<Short> {
 
     /** {@collect.stats}
-     * {@description.open} 
      * A constant holding the minimum value a {@code short} can
      * have, -2<sup>15</sup>.
-     * {@description.close}
      */
     public static final short   MIN_VALUE = -32768;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * A constant holding the maximum value a {@code short} can
      * have, 2<sup>15</sup>-1.
-     * {@description.close}
      */
     public static final short   MAX_VALUE = 32767;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The {@code Class} instance representing the primitive type
      * {@code short}.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
+    @SuppressWarnings("unchecked")
     public static final Class<Short>    TYPE = (Class<Short>) Class.getPrimitiveClass("short");
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Returns a new {@code String} object representing the
      * specified {@code short}. The radix is assumed to be 10.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param s the {@code short} to be converted
      * @return the string representation of the specified {@code short}
      * @see java.lang.Integer#toString(int)
@@ -82,24 +82,18 @@ public final class Short extends Number implements Comparable<Short> {
         return Integer.toString((int)s, 10);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Parses the string argument as a signed {@code short} in the
-     * radix specified by the second argument. 
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.Short_BadParsingArgs}
-     * The characters in the
+     * radix specified by the second argument. The characters in the
      * string must all be digits, of the specified radix (as
      * determined by whether {@link java.lang.Character#digit(char,
      * int)} returns a nonnegative value) except that the first
      * character may be an ASCII minus sign {@code '-'}
-     * (<code>'&#92;u002D'</code>) to indicate a negative value. 
-     * {@property.close}
-     * {@description.open}
-     * The resulting {@code short} value is returned.
-     * {@description.close}
+     * ({@code '\u005Cu002D'}) to indicate a negative value or an
+     * ASCII plus sign {@code '+'} ({@code '\u005Cu002B'}) to
+     * indicate a positive value.  The resulting {@code short} value
+     * is returned.
      *
-     * {@property.open runtime formal:java.lang.Short_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
      * thrown if any of the following situations occurs:
      * <ul>
@@ -112,13 +106,13 @@ public final class Short extends Number implements Comparable<Short> {
      *
      * <li> Any character of the string is not a digit of the
      * specified radix, except that the first character may be a minus
-     * sign {@code '-'} (<code>'&#92;u002D'</code>) provided that the
+     * sign {@code '-'} ({@code '\u005Cu002D'}) or plus sign
+     * {@code '+'} ({@code '\u005Cu002B'}) provided that the
      * string is longer than length 1.
      *
      * <li> The value represented by the string is not a value of type
      * {@code short}.
      * </ul>
-     * {@property.close}
      *
      * @param s         the {@code String} containing the
      *                  {@code short} representation to be parsed
@@ -137,23 +131,16 @@ public final class Short extends Number implements Comparable<Short> {
         return (short)i;
     }
 
-    /** {@collect.stats}
-     * {@description.open} 
+    /**
      * Parses the string argument as a signed decimal {@code
-     * short}.
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.Short_BadParsingArgs}
-     * The characters in the string must all be decimal
+     * short}. The characters in the string must all be decimal
      * digits, except that the first character may be an ASCII minus
-     * sign {@code '-'} (<code>'&#92;u002D'</code>) to indicate a
-     * negative value.
-     * {@property.close}
-     * {@description.open}
-     * The resulting {@code short} value is returned,
-     * exactly as if the argument and the radix 10 were given as
-     * arguments to the {@link #parseShort(java.lang.String, int)}
-     * method.
-     * {@description.close}
+     * sign {@code '-'} ({@code '\u005Cu002D'}) to indicate a
+     * negative value or an ASCII plus sign {@code '+'}
+     * ({@code '\u005Cu002B'}) to indicate a positive value.  The
+     * resulting {@code short} value is returned, exactly as if the
+     * argument and the radix 10 were given as arguments to the {@link
+     * #parseShort(java.lang.String, int)} method.
      *
      * @param s a {@code String} containing the {@code short}
      *          representation to be parsed
@@ -167,7 +154,8 @@ public final class Short extends Number implements Comparable<Short> {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Returns a {@code Short} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -182,8 +170,8 @@ public final class Short extends Number implements Comparable<Short> {
      *
      * <blockquote>
      *  {@code new Short(Short.parseShort(s, radix))}
-     * </blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </blockquote>
      *
      * @param s         the string to be parsed
      * @param radix     the radix to be used in interpreting {@code s}
@@ -195,11 +183,12 @@ public final class Short extends Number implements Comparable<Short> {
      */
     public static Short valueOf(String s, int radix)
         throws NumberFormatException {
-        return new Short(parseShort(s, radix));
+        return valueOf(parseShort(s, radix));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a {@code Short} object holding the
      * value given by the specified {@code String}. The argument
      * is interpreted as representing a signed decimal
@@ -213,8 +202,8 @@ public final class Short extends Number implements Comparable<Short> {
      *
      * <blockquote>
      *  {@code new Short(Short.parseShort(s))}
-     * </blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </blockquote>
      *
      * @param s the string to be parsed
      * @return  a {@code Short} object holding the value
@@ -237,18 +226,17 @@ public final class Short extends Number implements Comparable<Short> {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns a {@code Short} instance representing the specified
      * {@code short} value.
-     * {@description.close}
-     * {@property.open runtime performance formal:java.lang.Short_StaticFactory}
      * If a new {@code Short} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Short(short)}, as this method is likely to yield
      * significantly better space and time performance by caching
      * frequently requested values.
-     * {@property.close}
+     *
+     * This method will always cache values in the range -128 to 127,
+     * inclusive, and may cache other values outside of this range.
      *
      * @param  s a short value.
      * @return a {@code Short} instance representing {@code s}.
@@ -263,8 +251,7 @@ public final class Short extends Number implements Comparable<Short> {
         return new Short(s);
     }
 
-    /** {@collect.stats}
-     * {@description.open} 
+    /**
      * Decodes a {@code String} into a {@code Short}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -277,36 +264,27 @@ public final class Short extends Number implements Comparable<Short> {
      * <dd><i>Sign<sub>opt</sub></i> {@code 0X} <i>HexDigits</i>
      * <dd><i>Sign<sub>opt</sub></i> {@code #} <i>HexDigits</i>
      * <dd><i>Sign<sub>opt</sub></i> {@code 0} <i>OctalDigits</i>
-     * <p>
+     *
      * <dt><i>Sign:</i>
      * <dd>{@code -}
+     * <dd>{@code +}
      * </dl>
      * </blockquote>
      *
      * <i>DecimalNumeral</i>, <i>HexDigits</i>, and <i>OctalDigits</i>
-     * are defined in <a href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#48282">&sect;3.10.1</a>
-     * of the <a href="http://java.sun.com/docs/books/jls/html/">Java
-     * Language Specification</a>.
+     * are as defined in section 3.10.1 of
+     * <cite>The Java&trade; Language Specification</cite>,
+     * except that underscores are not accepted between digits.
      *
-     * <p>The sequence of characters following an (optional) negative
+     * <p>The sequence of characters following an optional
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Short.parseShort} method with the indicated radix (10, 16, or
-     * 8).
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.Short_BadDecodeArg}
-     * This sequence of characters must represent a positive
-     * value or a {@link NumberFormatException} will be thrown.
-     * {@property.close}
-     * {@description.open}
-     * The
+     * 8).  This sequence of characters must represent a positive
+     * value or a {@link NumberFormatException} will be thrown.  The
      * result is negated if first character of the specified {@code
-     * String} is the minus sign.
-     * {@description.close}
-     * {@property.open runtime formal:java.lang.Short_BadDecodeArg}
-     * No whitespace characters are
+     * String} is the minus sign.  No whitespace characters are
      * permitted in the {@code String}.
-     * {@property.close}
      *
      * @param     nm the {@code String} to decode.
      * @return    a {@code Short} object holding the {@code short}
@@ -320,24 +298,26 @@ public final class Short extends Number implements Comparable<Short> {
         if (i < MIN_VALUE || i > MAX_VALUE)
             throw new NumberFormatException(
                     "Value " + i + " out of range from input " + nm);
-        return (short)i;
+        return valueOf((short)i);
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * The value of the {@code Short}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @serial
      */
     private final short value;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a newly allocated {@code Short} object that
      * represents the specified {@code short} value.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param value     the value to be represented by the
      *                  {@code Short}.
      */
@@ -345,15 +325,16 @@ public final class Short extends Number implements Comparable<Short> {
         this.value = value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a newly allocated {@code Short} object that
      * represents the {@code short} value indicated by the
      * {@code String} parameter. The string is converted to a
      * {@code short} value in exactly the manner used by the
      * {@code parseShort} method for radix 10.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param s the {@code String} to be converted to a
      *          {@code Short}
      * @throws  NumberFormatException If the {@code String}
@@ -364,99 +345,111 @@ public final class Short extends Number implements Comparable<Short> {
         this.value = parseShort(s, 10);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this {@code Short} as a
-     * {@code byte}.
-     * {@description.close}
+    /**
+     * Returns the value of this {@code Short} as a {@code byte} after
+     * a narrowing primitive conversion.
+     * @jls 5.1.3 Narrowing Primitive Conversions
      */
     public byte byteValue() {
         return (byte)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the value of this {@code Short} as a
      * {@code short}.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public short shortValue() {
         return value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this {@code Short} as an
-     * {@code int}.
-     * {@description.close}
+    /**
+     * Returns the value of this {@code Short} as an {@code int} after
+     * a widening primitive conversion.
+     * @jls 5.1.2 Widening Primitive Conversions
      */
     public int intValue() {
         return (int)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this {@code Short} as a
-     * {@code long}.
-     * {@description.close}
+    /**
+     * Returns the value of this {@code Short} as a {@code long} after
+     * a widening primitive conversion.
+     * @jls 5.1.2 Widening Primitive Conversions
      */
     public long longValue() {
         return (long)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this {@code Short} as a
-     * {@code float}.
-     * {@description.close}
+    /**
+     * Returns the value of this {@code Short} as a {@code float}
+     * after a widening primitive conversion.
+     * @jls 5.1.2 Widening Primitive Conversions
      */
     public float floatValue() {
         return (float)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this {@code Short} as a
-     * {@code double}.
-     * {@description.close}
+    /**
+     * Returns the value of this {@code Short} as a {@code double}
+     * after a widening primitive conversion.
+     * @jls 5.1.2 Widening Primitive Conversions
      */
     public double doubleValue() {
         return (double)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a {@code String} object representing this
      * {@code Short}'s value.  The value is converted to signed
      * decimal representation and returned as a string, exactly as if
      * the {@code short} value were given as an argument to the
      * {@link java.lang.Short#toString(short)} method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  a string representation of the value of this object in
      *          base&nbsp;10.
      */
     public String toString() {
-        return String.valueOf((int)value);
+        return Integer.toString((int)value);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns a hash code for this {@code Short}.
-     * {@description.close}
+    /**
+     * Returns a hash code for this {@code Short}; equal to the result
+     * of invoking {@code intValue()}.
+     *
+     * @return a hash code value for this {@code Short}
      */
+    @Override
     public int hashCode() {
+        return Short.hashCode(value);
+    }
+
+    /**
+     * Returns a hash code for a {@code short} value; compatible with
+     * {@code Short.hashCode()}.
+     *
+     * @param value the value to hash
+     * @return a hash code value for a {@code short} value.
+     * @since 1.8
+     */
+    public static int hashCode(short value) {
         return (int)value;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is a {@code Short} object that
      * contains the same {@code short} value as this object.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param obj       the object to compare with
      * @return          {@code true} if the objects are the same;
      *                  {@code false} otherwise.
@@ -468,11 +461,12 @@ public final class Short extends Number implements Comparable<Short> {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Compares two {@code Short} objects numerically.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   anotherShort   the {@code Short} to be compared.
      * @return  the value {@code 0} if this {@code Short} is
      *          equal to the argument {@code Short}; a value less than
@@ -484,25 +478,53 @@ public final class Short extends Number implements Comparable<Short> {
      * @since   1.2
      */
     public int compareTo(Short anotherShort) {
-        return this.value - anotherShort.value;
+        return compare(this.value, anotherShort.value);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
+     * Compares two {@code short} values numerically.
+     * The value returned is identical to what would be returned by:
+     * <pre>
+     *    Short.valueOf(x).compareTo(Short.valueOf(y))
+     * </pre>
+     *
+     * @param  x the first {@code short} to compare
+     * @param  y the second {@code short} to compare
+     * @return the value {@code 0} if {@code x == y};
+     *         a value less than {@code 0} if {@code x < y}; and
+     *         a value greater than {@code 0} if {@code x > y}
+     * @since 1.7
+     */
+    public static int compare(short x, short y) {
+        return x - y;
+    }
+
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The number of bits used to represent a {@code short} value in two's
      * complement binary form.
-     * {@description.close}
-     * 
-     * @since 1.5
+
+     * {@description.close}     * @since 1.5
      */
     public static final int SIZE = 16;
 
+    /**
+     * The number of bytes used to represent a {@code short} value in two's
+     * complement binary form.
+     *
+     * @since 1.8
+     */
+    public static final int BYTES = SIZE / Byte.SIZE;
+
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Returns the value obtained by reversing the order of the bytes in the
      * two's complement representation of the specified {@code short} value.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
+     * @param i the value whose bytes are to be reversed
      * @return the value obtained by reversing (or, equivalently, swapping)
      *     the bytes in the specified {@code short} value.
      * @since 1.5
@@ -511,10 +533,50 @@ public final class Short extends Number implements Comparable<Short> {
         return (short) (((i & 0xFF00) >> 8) | (i << 8));
     }
 
-    /** {@collect.stats}
-     * {@description.open}
-     * use serialVersionUID from JDK 1.1. for interoperability
-     * {@description.close}
+
+    /**
+     * Converts the argument to an {@code int} by an unsigned
+     * conversion.  In an unsigned conversion to an {@code int}, the
+     * high-order 16 bits of the {@code int} are zero and the
+     * low-order 16 bits are equal to the bits of the {@code short} argument.
+     *
+     * Consequently, zero and positive {@code short} values are mapped
+     * to a numerically equal {@code int} value and negative {@code
+     * short} values are mapped to an {@code int} value equal to the
+     * input plus 2<sup>16</sup>.
+     *
+     * @param  x the value to convert to an unsigned {@code int}
+     * @return the argument converted to {@code int} by an unsigned
+     *         conversion
+     * @since 1.8
      */
+    public static int toUnsignedInt(short x) {
+        return ((int) x) & 0xffff;
+    }
+
+    /**
+     * Converts the argument to a {@code long} by an unsigned
+     * conversion.  In an unsigned conversion to a {@code long}, the
+     * high-order 48 bits of the {@code long} are zero and the
+     * low-order 16 bits are equal to the bits of the {@code short} argument.
+     *
+     * Consequently, zero and positive {@code short} values are mapped
+     * to a numerically equal {@code long} value and negative {@code
+     * short} values are mapped to a {@code long} value equal to the
+     * input plus 2<sup>16</sup>.
+     *
+     * @param  x the value to convert to an unsigned {@code long}
+     * @return the argument converted to {@code long} by an unsigned
+     *         conversion
+     * @since 1.8
+     */
+    public static long toUnsignedLong(short x) {
+        return ((long) x) & 0xffffL;
+    }
+
+    /** {@collect.stats}      
+* {@description.open}
+     * use serialVersionUID from JDK 1.1. for interoperability
+     * {@description.close} */
     private static final long serialVersionUID = 7515723908773894738L;
 }

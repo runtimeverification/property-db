@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2002, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2002, 2012, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util.prefs;
@@ -34,12 +34,13 @@ import javax.xml.transform.stream.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
 
-/** {@collect.stats} 
- * {@description.open}
- * XML Support for java.util.prefs. Methods to import and export preference
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * XML Support for java.util.prefs. Methods to import and export preference
  * nodes and subtrees.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Josh Bloch and Mark Reinhold
  * @see     Preferences
  * @since   1.4
@@ -74,11 +75,12 @@ class XmlSupport {
         "<!ATTLIST entry"                            +
         "          key CDATA #REQUIRED"              +
         "          value CDATA #REQUIRED >"          ;
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Version number for the format exported preferences files.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static final String EXTERNAL_XML_VERSION = "1.0";
 
     /*
@@ -86,19 +88,20 @@ class XmlSupport {
      */
     private static final String MAP_XML_VERSION = "1.0";
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Export the specified preferences node and, if subTree is true, all
      * subnodes, to the specified output stream.  Preferences are exported as
      * an XML document conforming to the definition in the Preferences spec.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws IOException if writing to the specified output stream
      *         results in an <tt>IOException</tt>.
      * @throws BackingStoreException if preference data cannot be read from
      *         backing store.
      * @throws IllegalStateException if this node (or an ancestor) has been
-     *         removed with the {@link #removeNode()} method.
+     *         removed with the {@link Preferences#removeNode()} method.
      */
     static void export(OutputStream os, final Preferences p, boolean subTree)
         throws IOException, BackingStoreException {
@@ -112,7 +115,7 @@ class XmlSupport {
         xmlRoot.setAttribute("type", (p.isUserNode() ? "user" : "system"));
 
         // Get bottom-up list of nodes from p to root, excluding root
-        List ancestors = new ArrayList();
+        List<Preferences> ancestors = new ArrayList<>();
 
         for (Preferences kid = p, dad = kid.parent(); dad != null;
                                    kid = dad, dad = kid.parent()) {
@@ -122,23 +125,24 @@ class XmlSupport {
         for (int i=ancestors.size()-1; i >= 0; i--) {
             e.appendChild(doc.createElement("map"));
             e = (Element) e.appendChild(doc.createElement("node"));
-            e.setAttribute("name", ((Preferences)ancestors.get(i)).name());
+            e.setAttribute("name", ancestors.get(i).name());
         }
         putPreferencesInXml(e, doc, p, subTree);
 
         writeDoc(doc, os);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Put the preferences in the specified Preferences node into the
      * specified XML element which is assumed to represent a node
      * in the specified XML document which is assumed to conform to
      * PREFS_DTD.  If subTree is true, create children of the specified
      * XML node conforming to all of the children of the specified
      * Preferences node and recurse.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws BackingStoreException if it is not possible to read
      *         the preferences or children out of the specified
      *         preferences node.
@@ -190,13 +194,14 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Import preferences from the specified input stream, which is assumed
      * to contain an XML document in the format described in the Preferences
      * spec.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws IOException if reading from the specified output stream
      *         results in an <tt>IOException</tt>.
      * @throws InvalidPreferencesFormatException Data on input stream does not
@@ -227,11 +232,12 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Create a new prefs XML document.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static Document createPrefsDoc( String qname ) {
         try {
             DOMImplementation di = DocumentBuilderFactory.newInstance().
@@ -243,12 +249,13 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Load an XML document from specified input stream, which must
      * have the requisite DTD URI.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static Document loadPrefsDoc(InputStream in)
         throws SAXException, IOException
     {
@@ -267,11 +274,12 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Write XML document to the specified output stream.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static final void writeDoc(Document doc, OutputStream out)
         throws IOException
     {
@@ -296,13 +304,14 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Recursively traverse the specified preferences node and store
      * the described preferences into the system or current user
      * preferences tree, as appropriate.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static void ImportSubtree(Preferences prefsNode, Element xmlNode) {
         NodeList xmlKids = xmlNode.getChildNodes();
         int numXmlKids = xmlKids.getLength();
@@ -335,13 +344,14 @@ class XmlSupport {
             ImportSubtree(prefsKids[i-1], (Element)xmlKids.item(i));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Import the preferences described by the specified XML element
      * (a map from a preferences document) into the specified
      * preferences node.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static void ImportPrefs(Preferences prefsNode, Element map) {
         NodeList entries = map.getChildNodes();
         for (int i=0, numEntries = entries.getLength(); i < numEntries; i++) {
@@ -351,48 +361,50 @@ class XmlSupport {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Export the specified Map<String,String> to a map document on
      * the specified OutputStream as per the prefs DTD.  This is used
      * as the internal (undocumented) format for FileSystemPrefs.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws IOException if writing to the specified output stream
      *         results in an <tt>IOException</tt>.
      */
-    static void exportMap(OutputStream os, Map map) throws IOException {
+    static void exportMap(OutputStream os, Map<String, String> map) throws IOException {
         Document doc = createPrefsDoc("map");
         Element xmlMap = doc.getDocumentElement( ) ;
         xmlMap.setAttribute("MAP_XML_VERSION", MAP_XML_VERSION);
 
-        for (Iterator i = map.entrySet().iterator(); i.hasNext(); ) {
-            Map.Entry e = (Map.Entry) i.next();
+        for (Iterator<Map.Entry<String, String>> i = map.entrySet().iterator(); i.hasNext(); ) {
+            Map.Entry<String, String> e = i.next();
             Element xe = (Element)
                 xmlMap.appendChild(doc.createElement("entry"));
-            xe.setAttribute("key",   (String) e.getKey());
-            xe.setAttribute("value", (String) e.getValue());
+            xe.setAttribute("key",   e.getKey());
+            xe.setAttribute("value", e.getValue());
         }
 
         writeDoc(doc, os);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Import Map from the specified input stream, which is assumed
      * to contain a map document as per the prefs DTD.  This is used
      * as the internal (undocumented) format for FileSystemPrefs.  The
      * key-value pairs specified in the XML document will be put into
      * the specified Map.  (If this Map is empty, it will contain exactly
      * the key-value pairs int the XML-document when this method returns.)
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws IOException if reading from the specified output stream
      *         results in an <tt>IOException</tt>.
      * @throws InvalidPreferencesFormatException Data on input stream does not
      *         constitute a valid XML document with the mandated document type.
      */
-    static void importMap(InputStream is, Map m)
+    static void importMap(InputStream is, Map<String, String> m)
         throws IOException, InvalidPreferencesFormatException
     {
         try {

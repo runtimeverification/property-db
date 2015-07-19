@@ -1,26 +1,26 @@
 /*
  * Copyright (c) 1996, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
@@ -29,8 +29,9 @@ import java.io.ObjectOutput;
 import java.io.ObjectInput;
 
 /** {@collect.stats}
- * {@property.open}
- * Only the identity of the class of an Externalizable instance is
+ *      
+* {@property.open}
+     * Only the identity of the class of an Externalizable instance is
  * written in the serialization stream and it is the responsibility
  * of the class to save and restore the contents of its instances.
  *
@@ -51,14 +52,15 @@ import java.io.ObjectInput;
  * reconstructed, an instance is created using the public no-arg
  * constructor, then the readExternal method called.  Serializable
  * objects are restored by reading them from an ObjectInputStream.<br>
- * {@property.close}
- *
- * {@description.open}
- * An Externalizable instance can designate a substitution object via
+
+     * {@property.close} *
+ *      
+* {@description.open}
+     * An Externalizable instance can designate a substitution object via
  * the writeReplace and readResolve methods documented in the Serializable
  * interface.<br>
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  unascribed
  * @see java.io.ObjectOutputStream
  * @see java.io.ObjectInputStream
@@ -69,13 +71,14 @@ import java.io.ObjectInput;
  */
 public interface Externalizable extends java.io.Serializable {
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The object implements the writeExternal method to save its contents
      * by calling the methods of DataOutput for its primitive values or
      * calling the writeObject method of ObjectOutput for objects, strings,
      * and arrays.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @serialData Overriding methods should use this tag to describe
      *             the data layout of this Externalizable object.
      *             List the sequence of element types and, if possible,
@@ -88,14 +91,15 @@ public interface Externalizable extends java.io.Serializable {
     void writeExternal(ObjectOutput out) throws IOException;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The object implements the readExternal method to restore its
      * contents by calling the methods of DataInput for primitive
      * types and readObject for objects, strings and arrays.  The
      * readExternal method must read the values in the same sequence
      * and with the same types as were written by writeExternal.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param in the stream to read data from in order to restore the object
      * @exception IOException if I/O errors occur
      * @exception ClassNotFoundException If the class for an object being

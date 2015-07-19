@@ -1,43 +1,45 @@
 /*
  * Copyright (c) 1994, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 /** {@collect.stats}
- * {@description.open}
- * This abstract class is the superclass of all classes representing
+ *      
+* {@description.open}
+     * This abstract class is the superclass of all classes representing
  * an output stream of bytes. An output stream accepts output bytes
  * and sends them to some sink.
- * {@description.close}
- * {@property.open enforced}
- * <p>
- * Applications that need to define a subclass of
+
+     * {@description.close} * <p>
+ *      
+* {@property.open enforced}
+     * Applications that need to define a subclass of
  * <code>OutputStream</code> must always provide at least a method
  * that writes one byte of output.
- * {@property.close}
- *
+
+     * {@property.close} *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
  * @see     java.io.ByteArrayOutputStream
@@ -49,19 +51,21 @@ package java.io;
  */
 public abstract class OutputStream implements Closeable, Flushable {
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes the specified byte to this output stream. The general
      * contract for <code>write</code> is that one byte is written
      * to the output stream. The byte to be written is the eight
      * low-order bits of the argument <code>b</code>. The 24
      * high-order bits of <code>b</code> are ignored.
-     * {@description.close}
-     * {@property.open enforced}
-     * <p>
+
+     * {@description.close}     * <p>
+     *      
+* {@property.open enforced}
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs. In particular,
      *             an <code>IOException</code> may be thrown if the
@@ -70,13 +74,14 @@ public abstract class OutputStream implements Closeable, Flushable {
     public abstract void write(int b) throws IOException;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this output stream. The general contract for <code>write(b)</code>
      * is that it should have exactly the same effect as the call
      * <code>write(b, 0, b.length)</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      b   the data.
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.OutputStream#write(byte[], int, int)
@@ -86,7 +91,8 @@ public abstract class OutputStream implements Closeable, Flushable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this output stream.
      * The general contract for <code>write(b, off, len)</code> is that
@@ -106,8 +112,8 @@ public abstract class OutputStream implements Closeable, Flushable {
      * If <code>off</code> is negative, or <code>len</code> is negative, or
      * <code>off+len</code> is greater than the length of the array
      * <code>b</code>, then an <tt>IndexOutOfBoundsException</tt> is thrown.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      b     the data.
      * @param      off   the start offset in the data.
      * @param      len   the number of bytes to write.
@@ -130,7 +136,8 @@ public abstract class OutputStream implements Closeable, Flushable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out. The general contract of <code>flush</code> is
      * that calling it is an indication that, if any bytes previously
@@ -145,28 +152,30 @@ public abstract class OutputStream implements Closeable, Flushable {
      * they are actually written to a physical device such as a disk drive.
      * <p>
      * The <code>flush</code> method of <code>OutputStream</code> does nothing.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  if an I/O error occurs.
      */
     public void flush() throws IOException {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Closes this output stream and releases any system resources
      * associated with this stream.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.OutputStream_ManipulateAfterClose}
+     * {@description.close}      
+* {@property.open runtime formal:java.io.OutputStream_ManipulateAfterClose}
      * The general contract of <code>close</code>
      * is that it closes the output stream. A closed stream cannot perform
      * output operations and cannot be reopened.
-     * {@property.close}
-     * {@description.open}
-     * <p>
+
+     * {@property.close}     * <p>
+     *      
+* {@description.open}
      * The <code>close</code> method of <code>OutputStream</code> does nothing.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  if an I/O error occurs.
      */
     public void close() throws IOException {

@@ -1,31 +1,31 @@
 /*
- * Copyright (c) 2003, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2008, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
 
-/** {@collect.stats} 
+/**
  * The management interface for a memory manager.
  * A memory manager manages one or more memory pools of the
  * Java virtual machine.
@@ -45,6 +45,10 @@ package java.lang.management;
  *    <tt>java.lang:type=MemoryManager</tt>}<tt>,name=</tt><i>manager's name</i>
  * </blockquote>
  *
+ * It can be obtained by calling the
+ * {@link PlatformManagedObject#getObjectName} method.
+ *
+ * @see ManagementFactory#getPlatformMXBeans(Class)
  * @see MemoryMXBean
  *
  * @see <a href="../../../javax/management/package-summary.html">
@@ -55,15 +59,15 @@ package java.lang.management;
  * @author  Mandy Chung
  * @since   1.5
  */
-public interface MemoryManagerMXBean {
-    /** {@collect.stats} 
+public interface MemoryManagerMXBean extends PlatformManagedObject {
+    /** {@collect.stats}
      * Returns the name representing this memory manager.
      *
      * @return the name of this memory manager.
      */
     public String getName();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if this memory manager is valid in the Java virtual
      * machine.  A memory manager becomes invalid once the Java virtual
      * machine removes it from the memory system.
@@ -74,7 +78,7 @@ public interface MemoryManagerMXBean {
      */
     public boolean isValid();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the name of memory pools that this memory manager manages.
      *
      * @return an array of <tt>String</tt> objects, each is

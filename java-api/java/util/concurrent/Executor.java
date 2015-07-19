@@ -1,48 +1,47 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
 package java.util.concurrent;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * An object that executes submitted {@link Runnable} tasks. This
  * interface provides a way of decoupling task submission from the
  * mechanics of how each task will be run, including details of thread
- * use, scheduling, etc.  An <tt>Executor</tt> is normally used
+ * use, scheduling, etc.  An {@code Executor} is normally used
  * instead of explicitly creating threads. For example, rather than
- * invoking <tt>new Thread(new(RunnableTask())).start()</tt> for each
+ * invoking {@code new Thread(new(RunnableTask())).start()} for each
  * of a set of tasks, you might use:
  *
  * <pre>
@@ -52,67 +51,67 @@ package java.util.concurrent;
  * ...
  * </pre>
  *
- * However, the <tt>Executor</tt> interface does not strictly
+ * However, the {@code Executor} interface does not strictly
  * require that execution be asynchronous. In the simplest case, an
  * executor can run the submitted task immediately in the caller's
  * thread:
  *
- * <pre>
+ *  <pre> {@code
  * class DirectExecutor implements Executor {
- *     public void execute(Runnable r) {
- *         r.run();
- *     }
- * }</pre>
+ *   public void execute(Runnable r) {
+ *     r.run();
+ *   }
+ * }}</pre>
  *
  * More typically, tasks are executed in some thread other
  * than the caller's thread.  The executor below spawns a new thread
  * for each task.
  *
- * <pre>
+ *  <pre> {@code
  * class ThreadPerTaskExecutor implements Executor {
- *     public void execute(Runnable r) {
- *         new Thread(r).start();
- *     }
- * }</pre>
+ *   public void execute(Runnable r) {
+ *     new Thread(r).start();
+ *   }
+ * }}</pre>
  *
- * Many <tt>Executor</tt> implementations impose some sort of
+ * Many {@code Executor} implementations impose some sort of
  * limitation on how and when tasks are scheduled.  The executor below
  * serializes the submission of tasks to a second executor,
  * illustrating a composite executor.
  *
- * <pre>
+ *  <pre> {@code
  * class SerialExecutor implements Executor {
- *     final Queue&lt;Runnable&gt; tasks = new ArrayDeque&lt;Runnable&gt;();
- *     final Executor executor;
- *     Runnable active;
+ *   final Queue<Runnable> tasks = new ArrayDeque<Runnable>();
+ *   final Executor executor;
+ *   Runnable active;
  *
- *     SerialExecutor(Executor executor) {
- *         this.executor = executor;
- *     }
+ *   SerialExecutor(Executor executor) {
+ *     this.executor = executor;
+ *   }
  *
- *     public synchronized void execute(final Runnable r) {
- *         tasks.offer(new Runnable() {
- *             public void run() {
- *                 try {
- *                     r.run();
- *                 } finally {
- *                     scheduleNext();
- *                 }
- *             }
- *         });
- *         if (active == null) {
- *             scheduleNext();
+ *   public synchronized void execute(final Runnable r) {
+ *     tasks.offer(new Runnable() {
+ *       public void run() {
+ *         try {
+ *           r.run();
+ *         } finally {
+ *           scheduleNext();
  *         }
+ *       }
+ *     });
+ *     if (active == null) {
+ *       scheduleNext();
  *     }
+ *   }
  *
- *     protected synchronized void scheduleNext() {
- *         if ((active = tasks.poll()) != null) {
- *             executor.execute(active);
- *         }
+ *   protected synchronized void scheduleNext() {
+ *     if ((active = tasks.poll()) != null) {
+ *       executor.execute(active);
  *     }
- * }</pre>
+ *   }
+ * }}</pre>
  *
- * The <tt>Executor</tt> implementations provided in this package
+ * The {@code Executor} implementations provided in this package
  * implement {@link ExecutorService}, which is a more extensive
  * interface.  The {@link ThreadPoolExecutor} class provides an
  * extensible thread pool implementation. The {@link Executors} class
@@ -122,23 +121,20 @@ package java.util.concurrent;
  * submitting a {@code Runnable} object to an {@code Executor}
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
  * its execution begins, perhaps in another thread.
- * {@description.close}
  *
  * @since 1.5
  * @author Doug Lea
  */
 public interface Executor {
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Executes the given command at some time in the future.  The command
      * may execute in a new thread, in a pooled thread, or in the calling
-     * thread, at the discretion of the <tt>Executor</tt> implementation.
-     * {@description.close}
+     * thread, at the discretion of the {@code Executor} implementation.
      *
      * @param command the runnable task
      * @throws RejectedExecutionException if this task cannot be
-     * accepted for execution.
+     * accepted for execution
      * @throws NullPointerException if command is null
      */
     void execute(Runnable command);

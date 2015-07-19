@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1998, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1998, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
- * A {@link NavigableSet} implementation based on a {@link TreeMap}.
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * A {@link NavigableSet} implementation based on a {@link TreeMap}.
  * The elements are ordered using their {@linkplain Comparable natural
  * ordering}, or by a {@link Comparator} provided at set creation
  * time, depending on which constructor is used.
@@ -37,7 +38,8 @@ package java.util;
  *
  * <p>Note that the ordering maintained by a set (whether or not an explicit
  * comparator is provided) must be <i>consistent with equals</i> if it is to
- * correctly implement the {@code Set} interface.  (See {@code Comparable}
+ * correctly implement the {@code Set} interface.
+     * {@description.close}  (See {@code Comparable}
  * or {@code Comparator} for a precise definition of <i>consistent with
  * equals</i>.)  This is so because the {@code Set} interface is defined in
  * terms of the {@code equals} operation, but a {@code TreeSet} instance
@@ -46,10 +48,10 @@ package java.util;
  * are, from the standpoint of the set, equal.  The behavior of a set
  * <i>is</i> well-defined even if its ordering is inconsistent with equals; it
  * just fails to obey the general contract of the {@code Set} interface.
- * {@description.close}
  *
- * {@property.open formal:java.util.Collections_SynchronizedCollection}
- * <p><strong>Note that this implementation is not synchronized.</strong>
+ *      
+* {@property.open formal:java.util.Collections_SynchronizedCollection}
+     * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a tree set concurrently, and at least one
  * of the threads modifies the set, it <i>must</i> be synchronized
  * externally.  This is typically accomplished by synchronizing on some
@@ -59,10 +61,11 @@ package java.util;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the set: <pre>
  *   SortedSet s = Collections.synchronizedSortedSet(new TreeSet(...));</pre>
- * {@property.close}
- *
- * {@property.open formal:java.util.Collection_UnsafeIterator}
- * <p>The iterators returned by this class's {@code iterator} method are
+
+     * {@property.close} *
+ *      
+* {@property.open formal:java.util.Collection_UnsafeIterator}
+     * <p>The iterators returned by this class's {@code iterator} method are
  * <i>fail-fast</i>: if the set is modified at any time after the iterator is
  * created, in any way except through the iterator's own {@code remove}
  * method, the iterator will throw a {@link ConcurrentModificationException}.
@@ -77,14 +80,15 @@ package java.util;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:   <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- * {@property.close}
- *
- * {@description.open}
- * <p>This class is a member of the
+
+     * {@property.close} *
+ *      
+* {@description.open}
+     * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @param <E> the type of elements maintained by this set
  *
  * @author  Josh Bloch
@@ -100,32 +104,24 @@ package java.util;
 public class TreeSet<E> extends AbstractSet<E>
     implements NavigableSet<E>, Cloneable, java.io.Serializable
 {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The backing map.
-     * {@description.close}
      */
     private transient NavigableMap<E,Object> m;
 
     // Dummy value to associate with an Object in the backing Map
     private static final Object PRESENT = new Object();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a set backed by the specified navigable map.
-     * {@description.close}
      */
     TreeSet(NavigableMap<E,Object> m) {
         this.m = m;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty tree set, sorted according to the
-     * natural ordering of its elements.
-     * {@description.close}
-     * {@property.open formal:java.util.TreeSet_Comparable}
-     * All elements inserted into
+     * natural ordering of its elements.  All elements inserted into
      * the set must implement the {@link Comparable} interface.
      * Furthermore, all such elements must be <i>mutually
      * comparable</i>: {@code e1.compareTo(e2)} must not throw a
@@ -135,47 +131,36 @@ public class TreeSet<E> extends AbstractSet<E>
      * attempts to add a string element to a set whose elements are
      * integers), the {@code add} call will throw a
      * {@code ClassCastException}.
-     * {@property.close}
      */
     public TreeSet() {
         this(new TreeMap<E,Object>());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new, empty tree set, sorted according to the specified
-     * comparator.
-     * {@description.close}
-     * {@property.open formal:java.util.TreeSet_Comparable}
-     * All elements inserted into the set must be <i>mutually
+     * comparator.  All elements inserted into the set must be <i>mutually
      * comparable</i> by the specified comparator: {@code comparator.compare(e1,
      * e2)} must not throw a {@code ClassCastException} for any elements
      * {@code e1} and {@code e2} in the set.  If the user attempts to add
      * an element to the set that violates this constraint, the
      * {@code add} call will throw a {@code ClassCastException}.
-     * {@property.close}
      *
      * @param comparator the comparator that will be used to order this set.
      *        If {@code null}, the {@linkplain Comparable natural
      *        ordering} of the elements will be used.
      */
     public TreeSet(Comparator<? super E> comparator) {
-        this(new TreeMap<E,Object>(comparator));
+        this(new TreeMap<>(comparator));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new tree set containing the elements in the specified
      * collection, sorted according to the <i>natural ordering</i> of its
-     * elements.
-     * {@description.close}
-     * {@property.open formal:java.util.TreeSet_Comparable}
-     * All elements inserted into the set must implement the
+     * elements.  All elements inserted into the set must implement the
      * {@link Comparable} interface.  Furthermore, all such elements must be
      * <i>mutually comparable</i>: {@code e1.compareTo(e2)} must not throw a
      * {@code ClassCastException} for any elements {@code e1} and
      * {@code e2} in the set.
-     * {@property.close}
      *
      * @param c collection whose elements will comprise the new set
      * @throws ClassCastException if the elements in {@code c} are
@@ -187,11 +172,9 @@ public class TreeSet<E> extends AbstractSet<E>
         addAll(c);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a new tree set containing the same elements and
      * using the same ordering as the specified sorted set.
-     * {@description.close}
      *
      * @param s sorted set whose elements will comprise the new set
      * @throws NullPointerException if the specified sorted set is null
@@ -201,10 +184,8 @@ public class TreeSet<E> extends AbstractSet<E>
         addAll(s);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set in ascending order.
-     * {@description.close}
      *
      * @return an iterator over the elements in this set in ascending order
      */
@@ -212,10 +193,8 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.navigableKeySet().iterator();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set in descending order.
-     * {@description.close}
      *
      * @return an iterator over the elements in this set in descending order
      * @since 1.6
@@ -224,17 +203,15 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.descendingKeySet().iterator();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @since 1.6
      */
     public NavigableSet<E> descendingSet() {
-        return new TreeSet(m.descendingMap());
+        return new TreeSet<>(m.descendingMap());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of elements in this set (its cardinality).
-     * {@description.close}
      *
      * @return the number of elements in this set (its cardinality)
      */
@@ -242,10 +219,8 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.size();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns {@code true} if this set contains no elements.
-     * {@description.close}
      *
      * @return {@code true} if this set contains no elements
      */
@@ -253,13 +228,11 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.isEmpty();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns {@code true} if this set contains the specified element.
      * More formally, returns {@code true} if and only if this set
      * contains an element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     * {@description.close}
      *
      * @param o object to be checked for containment in this set
      * @return {@code true} if this set contains the specified element
@@ -273,15 +246,13 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.containsKey(o);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element {@code e} to this set if
      * the set contains no element {@code e2} such that
      * <tt>(e==null&nbsp;?&nbsp;e2==null&nbsp;:&nbsp;e.equals(e2))</tt>.
      * If this set already contains the element, the call leaves the set
      * unchanged and returns {@code false}.
-     * {@description.close}
      *
      * @param e element to be added to this set
      * @return {@code true} if this set did not already contain the specified
@@ -296,8 +267,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.put(e, PRESENT)==null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes the specified element from this set if it is present.
      * More formally, removes an element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -305,7 +275,6 @@ public class TreeSet<E> extends AbstractSet<E>
      * this set contained the element (or equivalently, if this set
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
-     * {@description.close}
      *
      * @param o object to be removed from this set, if present
      * @return {@code true} if this set contained the specified element
@@ -319,20 +288,16 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.remove(o)==PRESENT;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes all of the elements from this set.
      * The set will be empty after this call returns.
-     * {@description.close}
      */
     public void clear() {
         m.clear();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds all of the elements in the specified collection to this set.
-     * {@description.close}
      *
      * @param c collection containing elements to be added to this set
      * @return {@code true} if this set changed as a result of the call
@@ -349,7 +314,7 @@ public class TreeSet<E> extends AbstractSet<E>
             m instanceof TreeMap) {
             SortedSet<? extends E> set = (SortedSet<? extends E>) c;
             TreeMap<E,Object> map = (TreeMap<E, Object>) m;
-            Comparator<? super E> cc = (Comparator<? super E>) set.comparator();
+            Comparator<?> cc = set.comparator();
             Comparator<? super E> mc = map.comparator();
             if (cc==mc || (cc != null && cc.equals(mc))) {
                 map.addAllForTreeSet(set, PRESENT);
@@ -359,7 +324,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return super.addAll(c);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} or {@code toElement}
      *         is null and this set uses natural ordering, or its comparator
@@ -369,11 +334,11 @@ public class TreeSet<E> extends AbstractSet<E>
      */
     public NavigableSet<E> subSet(E fromElement, boolean fromInclusive,
                                   E toElement,   boolean toInclusive) {
-        return new TreeSet<E>(m.subMap(fromElement, fromInclusive,
+        return new TreeSet<>(m.subMap(fromElement, fromInclusive,
                                        toElement,   toInclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toElement} is null and
      *         this set uses natural ordering, or its comparator does
@@ -382,10 +347,10 @@ public class TreeSet<E> extends AbstractSet<E>
      * @since 1.6
      */
     public NavigableSet<E> headSet(E toElement, boolean inclusive) {
-        return new TreeSet<E>(m.headMap(toElement, inclusive));
+        return new TreeSet<>(m.headMap(toElement, inclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} is null and
      *         this set uses natural ordering, or its comparator does
@@ -394,10 +359,10 @@ public class TreeSet<E> extends AbstractSet<E>
      * @since 1.6
      */
     public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
-        return new TreeSet<E>(m.tailMap(fromElement, inclusive));
+        return new TreeSet<>(m.tailMap(fromElement, inclusive));
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} or
      *         {@code toElement} is null and this set uses natural ordering,
@@ -408,7 +373,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return subSet(fromElement, true, toElement, false);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toElement} is null
      *         and this set uses natural ordering, or its comparator does
@@ -419,7 +384,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return headSet(toElement, false);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromElement} is null
      *         and this set uses natural ordering, or its comparator does
@@ -434,14 +399,14 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.comparator();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E first() {
         return m.firstKey();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E last() {
@@ -450,7 +415,7 @@ public class TreeSet<E> extends AbstractSet<E>
 
     // NavigableSet API methods
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      *         and this set uses natural ordering, or its comparator
@@ -461,7 +426,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.lowerKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      *         and this set uses natural ordering, or its comparator
@@ -472,7 +437,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.floorKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      *         and this set uses natural ordering, or its comparator
@@ -483,7 +448,7 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.ceilingKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified element is null
      *         and this set uses natural ordering, or its comparator
@@ -494,47 +459,44 @@ public class TreeSet<E> extends AbstractSet<E>
         return m.higherKey(e);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @since 1.6
      */
     public E pollFirst() {
         Map.Entry<E,?> e = m.pollFirstEntry();
-        return (e == null)? null : e.getKey();
+        return (e == null) ? null : e.getKey();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @since 1.6
      */
     public E pollLast() {
         Map.Entry<E,?> e = m.pollLastEntry();
-        return (e == null)? null : e.getKey();
+        return (e == null) ? null : e.getKey();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a shallow copy of this {@code TreeSet} instance. (The elements
      * themselves are not cloned.)
-     * {@description.close}
      *
      * @return a shallow copy of this set
      */
+    @SuppressWarnings("unchecked")
     public Object clone() {
-        TreeSet<E> clone = null;
+        TreeSet<E> clone;
         try {
             clone = (TreeSet<E>) super.clone();
         } catch (CloneNotSupportedException e) {
-            throw new InternalError();
+            throw new InternalError(e);
         }
 
-        clone.m = new TreeMap<E,Object>(m);
+        clone.m = new TreeMap<>(m);
         return clone;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Save the state of the {@code TreeSet} instance to a stream (that is,
      * serialize it).
-     * {@description.close}
      *
      * @serialData Emits the comparator used to order this set, or
      *             {@code null} if it obeys its elements' natural ordering
@@ -556,15 +518,13 @@ public class TreeSet<E> extends AbstractSet<E>
         s.writeInt(m.size());
 
         // Write out all elements in the proper order.
-        for (Iterator i=m.keySet().iterator(); i.hasNext(); )
-            s.writeObject(i.next());
+        for (E e : m.keySet())
+            s.writeObject(e);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Reconstitute the {@code TreeSet} instance from a stream (that is,
      * deserialize it).
-     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {
@@ -572,20 +532,40 @@ public class TreeSet<E> extends AbstractSet<E>
         s.defaultReadObject();
 
         // Read in Comparator
-        Comparator<? super E> c = (Comparator<? super E>) s.readObject();
+        @SuppressWarnings("unchecked")
+            Comparator<? super E> c = (Comparator<? super E>) s.readObject();
 
         // Create backing TreeMap
-        TreeMap<E,Object> tm;
-        if (c==null)
-            tm = new TreeMap<E,Object>();
-        else
-            tm = new TreeMap<E,Object>(c);
+        TreeMap<E,Object> tm = new TreeMap<>(c);
         m = tm;
 
         // Read in size
         int size = s.readInt();
 
         tm.readTreeSet(size, s, PRESENT);
+    }
+
+    /** {@collect.stats}
+     * Creates a <em><a href="Spliterator.html#binding">late-binding</a></em>
+     * and <em>fail-fast</em> {@link Spliterator} over the elements in this
+     * set.
+     *
+     * <p>The {@code Spliterator} reports {@link Spliterator#SIZED},
+     * {@link Spliterator#DISTINCT}, {@link Spliterator#SORTED}, and
+     * {@link Spliterator#ORDERED}.  Overriding implementations should document
+     * the reporting of additional characteristic values.
+     *
+     * <p>The spliterator's comparator (see
+     * {@link java.util.Spliterator#getComparator()}) is {@code null} if
+     * the tree set's comparator (see {@link #comparator()}) is {@code null}.
+     * Otherwise, the spliterator's comparator is the same as or imposes the
+     * same total ordering as the tree set's comparator.
+     *
+     * @return a {@code Spliterator} over the elements in this set
+     * @since 1.8
+     */
+    public Spliterator<E> spliterator() {
+        return TreeMap.keySpliteratorFor(m);
     }
 
     private static final long serialVersionUID = -2479143000061671589L;

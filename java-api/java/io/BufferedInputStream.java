@@ -1,34 +1,35 @@
 /*
- * Copyright (c) 1994, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 /** {@collect.stats}
- * {@description.open}
- * A <code>BufferedInputStream</code> adds
+ *      
+* {@description.open}
+     * A <code>BufferedInputStream</code> adds
  * functionality to another input stream-namely,
  * the ability to buffer the input and to
  * support the <code>mark</code> and <code>reset</code>
@@ -38,70 +39,83 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * or skipped, the internal buffer is refilled
  * as necessary  from the contained input stream,
  * many bytes at a time.
- * {@description.close}
- *
- * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_ReadAheadLimit formal:java.io.Reader_UnmarkedReset}
- * The <code>mark</code>
+     * {@description.close}      
+* {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_ReadAheadLimit formal:java.io.Reader_UnmarkedReset}
+     * The <code>mark</code>
  * operation  remembers a point in the input
  * stream and the <code>reset</code> operation
  * causes all the  bytes read since the most
  * recent <code>mark</code> operation to be
  * reread before new bytes are  taken from
  * the contained input stream.
- * {@property.close}
- *
+
+     * {@property.close} *
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
 public
 class BufferedInputStream extends FilterInputStream {
 
-    private static int defaultBufferSize = 8192;
+    private static int DEFAULT_BUFFER_SIZE = 8192;
+
+    /**
+     * The maximum size of array to allocate.
+     * Some VMs reserve some header words in an array.
+     * Attempts to allocate larger arrays may result in
+     * OutOfMemoryError: Requested array size exceeds VM limit
+     */
+    private static int MAX_BUFFER_SIZE = Integer.MAX_VALUE - 8;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The internal buffer array where the data is stored. When necessary,
      * it may be replaced by another array of
      * a different size.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected volatile byte buf[];
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Atomic updater to provide compareAndSet for buf. This is
      * necessary because closes can be asynchronous. We use nullness
      * of buf[] as primary indicator that this stream is closed. (The
      * "in" field is also nulled out on close.)
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static final
         AtomicReferenceFieldUpdater<BufferedInputStream, byte[]> bufUpdater =
         AtomicReferenceFieldUpdater.newUpdater
         (BufferedInputStream.class,  byte[].class, "buf");
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The index one greater than the index of the last valid byte in
      * the buffer.
-     * {@description.close}
-     * {@property.open internal}
+
+     * {@description.close}     *      
+* {@property.open internal}
      * This value is always
      * in the range <code>0</code> through <code>buf.length</code>;
      * elements <code>buf[0]</code>  through <code>buf[count-1]
      * </code>contain buffered input data obtained
      * from the underlying  input stream.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     protected int count;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The current position in the buffer. This is the index of the next
      * character to be read from the <code>buf</code> array.
-     * <p>
-     * {@description.close}
-     * {@property.open internal}
+
+     * {@description.close}     * <p>
+     *      
+* {@property.open internal}
      * This value is always in the range <code>0</code>
      * through <code>count</code>. If it is less
      * than <code>count</code>, then  <code>buf[pos]</code>
@@ -110,19 +124,21 @@ class BufferedInputStream extends FilterInputStream {
      * the  next <code>read</code> or <code>skip</code>
      * operation will require more bytes to be
      * read from the contained  input stream.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @see     java.io.BufferedInputStream#buf
      */
     protected int pos;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The value of the <code>pos</code> field at the time the last
      * <code>mark</code> method was called.
-     * <p>
-     * {@description.close}
-     * {@property.open internal}
+
+     * {@description.close}     * <p>
+     *      
+* {@property.open internal}
      * This value is always
      * in the range <code>-1</code> through <code>pos</code>.
      * If there is no marked position in  the input
@@ -142,37 +158,40 @@ class BufferedInputStream extends FilterInputStream {
      * be discarded unless and until the difference
      * between <code>pos</code> and <code>markpos</code>
      * exceeds <code>marklimit</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @see     java.io.BufferedInputStream#mark(int)
      * @see     java.io.BufferedInputStream#pos
      */
     protected int markpos = -1;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The maximum read ahead allowed after a call to the
      * <code>mark</code> method before subsequent calls to the
      * <code>reset</code> method fail.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
+
+     * {@description.close}     *      
+* {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
      * Whenever the difference between <code>pos</code>
      * and <code>markpos</code> exceeds <code>marklimit</code>,
      * then the  mark may be dropped by setting
      * <code>markpos</code> to <code>-1</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @see     java.io.BufferedInputStream#mark(int)
      * @see     java.io.BufferedInputStream#reset()
      */
     protected int marklimit;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Check to make sure that underlying input stream has not been
      * nulled out due to close; if not return it;
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private InputStream getInIfOpen() throws IOException {
         InputStream input = in;
         if (input == null)
@@ -181,11 +200,12 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Check to make sure that buffer has not been nulled out due to
      * close; if not return it;
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private byte[] getBufIfOpen() throws IOException {
         byte[] buffer = buf;
         if (buffer == null)
@@ -194,32 +214,34 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a <code>BufferedInputStream</code>
      * and saves its  argument, the input stream
      * <code>in</code>, for later use. An internal
      * buffer array is created and  stored in <code>buf</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   in   the underlying input stream.
      */
     public BufferedInputStream(InputStream in) {
-        this(in, defaultBufferSize);
+        this(in, DEFAULT_BUFFER_SIZE);
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a <code>BufferedInputStream</code>
      * with the specified buffer size,
      * and saves its  argument, the input stream
      * <code>in</code>, for later use.  An internal
      * buffer array of length  <code>size</code>
      * is created and stored in <code>buf</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   in     the underlying input stream.
      * @param   size   the buffer size.
-     * @exception IllegalArgumentException if size <= 0.
+     * @exception IllegalArgumentException if {@code size <= 0}.
      */
     public BufferedInputStream(InputStream in, int size) {
         super(in);
@@ -230,18 +252,21 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Fills the buffer with more data, taking into account
      * shuffling and other tricks for dealing with marks.
-     * {@description.close}
-     * {@property.open runtime internal formal:java.io.BufferedInputStream_SynchronizedFill}
+
+     * {@description.close}     *      
+* {@property.open runtime internal formal:java.io.BufferedInputStream_SynchronizedFill}
      * Assumes that it is being called by a synchronized method.
-     * {@property.close}
-     * {@property.open internal}
+
+     * {@property.close}     *      
+* {@property.open internal}
      * This method also assumes that all data has already been read in,
      * hence pos > count.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     private void fill() throws IOException {
         byte[] buffer = getBufIfOpen();
         if (markpos < 0)
@@ -255,8 +280,11 @@ class BufferedInputStream extends FilterInputStream {
             } else if (buffer.length >= marklimit) {
                 markpos = -1;   /* buffer got too big, invalidate mark */
                 pos = 0;        /* drop buffer contents */
+            } else if (buffer.length >= MAX_BUFFER_SIZE) {
+                throw new OutOfMemoryError("Required array size too large");
             } else {            /* grow buffer */
-                int nsz = pos * 2;
+                int nsz = (pos <= MAX_BUFFER_SIZE - pos) ?
+                        pos * 2 : MAX_BUFFER_SIZE;
                 if (nsz > marklimit)
                     nsz = marklimit;
                 byte nbuf[] = new byte[nsz];
@@ -278,12 +306,13 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * See
      * the general contract of the <code>read</code>
      * method of <code>InputStream</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
      * @exception  IOException  if this input stream has been closed by
@@ -301,11 +330,12 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Read characters into a portion of an array, reading from the underlying
      * stream at most once if necessary.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private int read1(byte[] b, int off, int len) throws IOException {
         int avail = count - pos;
         if (avail <= 0) {
@@ -327,7 +357,8 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads bytes from this byte-input stream into the specified byte array,
      * starting at the given offset.
      *
@@ -354,8 +385,8 @@ class BufferedInputStream extends FilterInputStream {
      *
      * <p> Subclasses of this class are encouraged, but not required, to
      * attempt to read as many bytes as possible in the same fashion.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      b     destination buffer.
      * @param      off   offset at which to start storing bytes.
      * @param      len   maximum number of bytes to read.
@@ -391,11 +422,12 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * See the general contract of the <code>skip</code>
      * method of <code>InputStream</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  if the stream does not support seek,
      *                          or if this input stream has been closed by
      *                          invoking its {@link #close()} method, or an
@@ -425,20 +457,16 @@ class BufferedInputStream extends FilterInputStream {
         return skipped;
     }
 
-    /** {@collect.stats}
-     * {@description.open blocking}
+    /**
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation might be
      * the same thread or another thread.  A single read or skip of this
      * many bytes will not block, but may read or skip fewer bytes.
-     * {@description.close}
-     * {@description.open}
      * <p>
      * This method returns the sum of the number of bytes remaining to be read in
      * the buffer (<code>count&nbsp;- pos</code>) and the result of calling the
      * {@link java.io.FilterInputStream#in in}.available().
-     * {@description.close}
      *
      * @return     an estimate of the number of bytes that can be read (or skipped
      *             over) from this input stream without blocking.
@@ -447,15 +475,20 @@ class BufferedInputStream extends FilterInputStream {
      *                          or an I/O error occurs.
      */
     public synchronized int available() throws IOException {
-        return getInIfOpen().available() + (count - pos);
+        int n = count - pos;
+        int avail = getInIfOpen().available();
+        return n > (Integer.MAX_VALUE - avail)
+                    ? Integer.MAX_VALUE
+                    : n + avail;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * See the general contract of the <code>mark</code>
      * method of <code>InputStream</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
      * @see     java.io.BufferedInputStream#reset()
@@ -466,19 +499,21 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * See the general contract of the <code>reset</code>
      * method of <code>InputStream</code>.
-     * <p>
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_ReadAheadLimit formal:java.io.Reader_UnmarkedReset}
+
+     * {@description.close}     * <p>
+     *      
+* {@property.open runtime formal:java.io.Reader_ReadAheadLimit formal:java.io.Reader_UnmarkedReset}
      * If <code>markpos</code> is <code>-1</code>
      * (no mark has been set or the mark has been
      * invalidated), an <code>IOException</code>
      * is thrown. Otherwise, <code>pos</code> is
      * set equal to <code>markpos</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @exception  IOException  if this stream has not been marked or,
      *                  if the mark has been invalidated, or the stream
      *                  has been closed by invoking its {@link #close()}
@@ -493,16 +528,17 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     * {@description.close}      
+* {@property.open runtime formal:java.io.Reader_MarkReset}
      * The <code>markSupported</code>
      * method of <code>BufferedInputStream</code> returns
      * <code>true</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @return  a <code>boolean</code> indicating if this stream type supports
      *          the <code>mark</code> and <code>reset</code> methods.
      * @see     java.io.InputStream#mark(int)
@@ -513,18 +549,21 @@ class BufferedInputStream extends FilterInputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_ManipulateAfterClose}
+
+     * {@description.close}     *      
+* {@property.open runtime formal:java.io.InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), available(), reset(),
      * or skip() invocations will throw an IOException.
-     * {@property.close}
-     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+
+     * {@property.close}     *      
+* {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @exception  IOException  if an I/O error occurs.
      */
     public void close() throws IOException {

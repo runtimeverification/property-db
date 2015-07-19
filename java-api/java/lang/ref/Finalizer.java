@@ -1,46 +1,43 @@
 /*
- * Copyright (c) 1997, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.ref;
 
 import java.security.PrivilegedAction;
 import java.security.AccessController;
+import sun.misc.JavaLangAccess;
+import sun.misc.SharedSecrets;
+import sun.misc.VM;
 
+final class Finalizer extends FinalReference<Object> { /* Package-private; must be in
+                                                          same package as the Reference
+                                                          class */
 
-final class Finalizer extends FinalReference { /* Package-private; must be in
-                                                  same package as the Reference
-                                                  class */
-
-    /* A native method that invokes an arbitrary object's finalize method is
-       required since the finalize method is protected
-     */
-    static native void invokeFinalizeMethod(Object o) throws Throwable;
-
-    static private ReferenceQueue queue = new ReferenceQueue();
-    static private Finalizer unfinalized = null;
-    static private Object lock = new Object();
+    private static ReferenceQueue<Object> queue = new ReferenceQueue<>();
+    private static Finalizer unfinalized = null;
+    private static final Object lock = new Object();
 
     private Finalizer
         next = null,
@@ -90,7 +87,7 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
         new Finalizer(finalizee);
     }
 
-    private void runFinalizer() {
+    private void runFinalizer(JavaLangAccess jla) {
         synchronized (this) {
             if (hasBeenFinalized()) return;
             remove();
@@ -98,7 +95,8 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
         try {
             Object finalizee = this.get();
             if (finalizee != null && !(finalizee instanceof java.lang.Enum)) {
-                invokeFinalizeMethod(finalizee);
+                jla.invokeFinalize(finalizee);
+
                 /* Clear stack slot containing this variable, to decrease
                    the chances of false retention with a conservative GC */
                 finalizee = null;
@@ -121,8 +119,9 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
        invokers of these methods from a stalled or deadlocked finalizer thread.
      */
     private static void forkSecondaryFinalizer(final Runnable proc) {
-        PrivilegedAction pa = new PrivilegedAction() {
-            public Object run() {
+        AccessController.doPrivileged(
+            new PrivilegedAction<Void>() {
+                public Void run() {
                 ThreadGroup tg = Thread.currentThread().getThreadGroup();
                 for (ThreadGroup tgn = tg;
                      tgn != null;
@@ -135,18 +134,26 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
                     /* Ignore */
                 }
                 return null;
-            }};
-        AccessController.doPrivileged(pa);
+                }});
     }
 
     /* Called by Runtime.runFinalization() */
     static void runFinalization() {
+        if (!VM.isBooted()) {
+            return;
+        }
+
         forkSecondaryFinalizer(new Runnable() {
+            private volatile boolean running;
             public void run() {
+                if (running)
+                    return;
+                final JavaLangAccess jla = SharedSecrets.getJavaLangAccess();
+                running = true;
                 for (;;) {
                     Finalizer f = (Finalizer)queue.poll();
                     if (f == null) break;
-                    f.runFinalizer();
+                    f.runFinalizer(jla);
                 }
             }
         });
@@ -154,8 +161,17 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
 
     /* Invoked by java.lang.Shutdown */
     static void runAllFinalizers() {
+        if (!VM.isBooted()) {
+            return;
+        }
+
         forkSecondaryFinalizer(new Runnable() {
+            private volatile boolean running;
             public void run() {
+                if (running)
+                    return;
+                final JavaLangAccess jla = SharedSecrets.getJavaLangAccess();
+                running = true;
                 for (;;) {
                     Finalizer f;
                     synchronized (lock) {
@@ -163,21 +179,37 @@ final class Finalizer extends FinalReference { /* Package-private; must be in
                         if (f == null) break;
                         unfinalized = f.next;
                     }
-                    f.runFinalizer();
+                    f.runFinalizer(jla);
                 }}});
     }
 
     private static class FinalizerThread extends Thread {
+        private volatile boolean running;
         FinalizerThread(ThreadGroup g) {
             super(g, "Finalizer");
         }
         public void run() {
+            if (running)
+                return;
+
+            // Finalizer thread starts before System.initializeSystemClass
+            // is called.  Wait until JavaLangAccess is available
+            while (!VM.isBooted()) {
+                // delay until VM completes initialization
+                try {
+                    VM.awaitBooted();
+                } catch (InterruptedException x) {
+                    // ignore and continue
+                }
+            }
+            final JavaLangAccess jla = SharedSecrets.getJavaLangAccess();
+            running = true;
             for (;;) {
                 try {
                     Finalizer f = (Finalizer)queue.remove();
-                    f.runFinalizer();
+                    f.runFinalizer(jla);
                 } catch (InterruptedException x) {
-                    continue;
+                    // ignore and continue
                 }
             }
         }

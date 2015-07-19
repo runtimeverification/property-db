@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
@@ -31,10 +31,11 @@ import sun.nio.cs.StreamDecoder;
 
 
 /** {@collect.stats}
- * {@description.open}
- * An InputStreamReader is a bridge from byte streams to character streams: It
+ *      
+* {@description.open}
+     * An InputStreamReader is a bridge from byte streams to character streams: It
  * reads bytes and decodes them into characters using a specified {@link
- * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
+ * java.nio.charset.Charset charset}.  The charset that it uses
  * may be specified by name or may be given explicitly, or the platform's
  * default charset may be accepted.
  *
@@ -50,8 +51,8 @@ import sun.nio.cs.StreamDecoder;
  * <pre>
  * BufferedReader in
  *   = new BufferedReader(new InputStreamReader(System.in));
- * </pre>
- * {@description.close}
+
+     * {@description.close} * </pre>
  *
  * @see BufferedReader
  * @see InputStream
@@ -66,10 +67,11 @@ public class InputStreamReader extends Reader {
     private final StreamDecoder sd;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates an InputStreamReader that uses the default charset.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  in   An InputStream
      */
     public InputStreamReader(InputStream in) {
@@ -83,16 +85,17 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates an InputStreamReader that uses the named charset.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  in
      *         An InputStream
      *
      * @param  charsetName
      *         The name of a supported
-     *         {@link java.nio.charset.Charset </code>charset<code>}
+     *         {@link java.nio.charset.Charset charset}
      *
      * @exception  UnsupportedEncodingException
      *             If the named charset is not supported
@@ -107,10 +110,11 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
-     * Creates an InputStreamReader that uses the given charset. </p>
-     * {@description.close}
-     *
+     *      
+* {@description.open}
+     * Creates an InputStreamReader that uses the given charset.
+
+     * {@description.close}     *
      * @param  in       An InputStream
      * @param  cs       A charset
      *
@@ -125,10 +129,11 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
-     * Creates an InputStreamReader that uses the given charset decoder.  </p>
-     * {@description.close}
-     *
+     *      
+* {@description.open}
+     * Creates an InputStreamReader that uses the given charset decoder.
+
+     * {@description.close}     *
      * @param  in       An InputStream
      * @param  dec      A charset decoder
      *
@@ -143,23 +148,26 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Returns the name of the character encoding being used by this stream.
-     * {@description.close}
+
+     * {@description.close}     *
+     * <p>      
+* {@property.open}
+     * If the encoding has an historical name then that name is returned;
+
+     * {@property.close}     * otherwise the encoding's canonical name is returned.
      *
-     * {@property.open}
-     * <p> If the encoding has an historical name then that name is returned;
-     * otherwise the encoding's canonical name is returned.
-     * {@property.close}
-     *
-     * {@description.open}
-     * <p> If this instance was created with the {@link
+     * <p>      
+* {@description.open}
+     * If this instance was created with the {@link
      * #InputStreamReader(InputStream, String)} constructor then the returned
      * name, being unique for the encoding, may differ from the name passed to
      * the constructor. This method will return <code>null</code> if the
      * stream has been closed.
-     * </p>
-     * {@description.close}
+
+     * {@description.close}     * </p>
      * @return The historical name of this encoding, or
      *         <code>null</code> if the stream has been closed
      *
@@ -173,10 +181,11 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads a single character.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return The character read, or -1 if the end of the stream has been
      *         reached
      *
@@ -187,10 +196,11 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads characters into a portion of an array.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      cbuf     Destination buffer
      * @param      offset   Offset at which to start storing characters
      * @param      length   Maximum number of characters to read
@@ -205,12 +215,13 @@ public class InputStreamReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Tells whether this stream is ready to be read.  An InputStreamReader is
      * ready if its input buffer is not empty, or if bytes are available to be
      * read from the underlying byte stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  If an I/O error occurs
      */
     public boolean ready() throws IOException {

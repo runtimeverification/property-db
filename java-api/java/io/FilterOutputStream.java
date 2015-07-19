@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1994, 1999, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2011, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 /** {@collect.stats}
- * {@description.open}
- * This class is the superclass of all classes that filter output
+ *      
+* {@description.open}
+     * This class is the superclass of all classes that filter output
  * streams. These streams sit on top of an already existing output
  * stream (the <i>underlying</i> output stream) which it uses as its
  * basic sink of data, but possibly transforming the data along the
@@ -38,26 +39,28 @@ package java.io;
  * all requests to the underlying output stream. Subclasses of
  * <code>FilterOutputStream</code> may further override some of these
  * methods as well as provide additional methods and fields.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Jonathan Payne
  * @since   JDK1.0
  */
 public
 class FilterOutputStream extends OutputStream {
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The underlying output stream to be filtered.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected OutputStream out;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates an output stream filter built on top of the specified
      * underlying output stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   out   the underlying output stream to be assigned to
      *                the field <tt>this.out</tt> for later use, or
      *                <code>null</code> if this instance is to be
@@ -68,15 +71,16 @@ class FilterOutputStream extends OutputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes the specified <code>byte</code> to this output stream.
      * <p>
      * The <code>write</code> method of <code>FilterOutputStream</code>
-     * calls the <code>write</code> method of its underlying output stream,
+
+     * {@description.close}     * calls the <code>write</code> method of its underlying output stream,
      * that is, it performs <tt>out.write(b)</tt>.
      * <p>
      * Implements the abstract <tt>write</tt> method of <tt>OutputStream</tt>.
-     * {@description.close}
      *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs.
@@ -86,7 +90,8 @@ class FilterOutputStream extends OutputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes <code>b.length</code> bytes to this output stream.
      * <p>
      * The <code>write</code> method of <code>FilterOutputStream</code>
@@ -97,8 +102,8 @@ class FilterOutputStream extends OutputStream {
      * Note that this method does not call the one-argument
      * <code>write</code> method of its underlying stream with the single
      * argument <code>b</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      b   the data to be written.
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterOutputStream#write(byte[], int, int)
@@ -108,7 +113,8 @@ class FilterOutputStream extends OutputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes <code>len</code> bytes from the specified
      * <code>byte</code> array starting at offset <code>off</code> to
      * this output stream.
@@ -121,8 +127,8 @@ class FilterOutputStream extends OutputStream {
      * of its underlying input stream with the same arguments. Subclasses
      * of <code>FilterOutputStream</code> should provide a more efficient
      * implementation of this method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      b     the data.
      * @param      off   the start offset in the data.
      * @param      len   the number of bytes to write.
@@ -139,14 +145,15 @@ class FilterOutputStream extends OutputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out to the stream.
      * <p>
      * The <code>flush</code> method of <code>FilterOutputStream</code>
      * calls the <code>flush</code> method of its underlying output stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterOutputStream#out
      */
@@ -155,24 +162,24 @@ class FilterOutputStream extends OutputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Closes this output stream and releases any system resources
      * associated with the stream.
      * <p>
      * The <code>close</code> method of <code>FilterOutputStream</code>
      * calls its <code>flush</code> method, and then calls the
      * <code>close</code> method of its underlying output stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterOutputStream#flush()
      * @see        java.io.FilterOutputStream#out
      */
+    @SuppressWarnings("try")
     public void close() throws IOException {
-        try {
-          flush();
-        } catch (IOException ignored) {
+        try (OutputStream ostream = out) {
+            flush();
         }
-        out.close();
     }
 }

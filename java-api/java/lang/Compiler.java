@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1995, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
 
 /** {@collect.stats}
- * {@description.open}
- * The {@code Compiler} class is provided to support Java-to-native-code
+ *      
+* {@description.open}
+     * The {@code Compiler} class is provided to support Java-to-native-code
  * compilers and related services. By design, the {@code Compiler} class does
  * nothing; it serves as a placeholder for a JIT compiler implementation.
  *
@@ -41,8 +42,8 @@ package java.lang;
  * library is called.
  *
  * <p> If no compiler is available, these methods do nothing.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Frank Yellin
  * @since   JDK1.0
  */
@@ -55,9 +56,9 @@ public final class Compiler  {
 
     static {
         registerNatives();
-        java.security.AccessController.doPrivileged
-            (new java.security.PrivilegedAction() {
-                public Object run() {
+        java.security.AccessController.doPrivileged(
+            new java.security.PrivilegedAction<Void>() {
+                public Void run() {
                     boolean loaded = false;
                     String jit = System.getProperty("java.compiler");
                     if ((jit != null) && (!jit.equals("NONE")) &&
@@ -84,10 +85,11 @@ public final class Compiler  {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Compiles the specified class.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  clazz
      *         A class
      *
@@ -100,10 +102,11 @@ public final class Compiler  {
     public static native boolean compileClass(Class<?> clazz);
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Compiles all classes whose name matches the specified string.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  string
      *         The name of the classes to compile
      *
@@ -116,11 +119,12 @@ public final class Compiler  {
     public static native boolean compileClasses(String string);
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Examines the argument type and its fields and perform some documented
      * operation.  No specific operations are required.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  any
      *         An argument
      *
@@ -133,16 +137,18 @@ public final class Compiler  {
     public static native Object command(Object any);
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Cause the Compiler to resume operation.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public static native void enable();
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Cause the Compiler to cease operation.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public static native void disable();
 }

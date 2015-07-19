@@ -1,41 +1,44 @@
 /*
- * Copyright (c) 2000, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
 
+import java.util.Objects;
+
 /** {@collect.stats}
- * {@description.open} 
- * An element in a stack trace, as returned by {@link
+ *      
+* {@description.open}
+     * An element in a stack trace, as returned by {@link
  * Throwable#getStackTrace()}.  Each element represents a single stack frame.
  * All stack frames except for the one at the top of the stack represent
  * a method invocation.  The frame at the top of the stack represents the
  * execution point at which the stack trace was generated.  Typically,
  * this is the point at which the throwable corresponding to the stack trace
  * was created.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @since  1.4
  * @author Josh Bloch
  */
@@ -47,67 +50,65 @@ public final class StackTraceElement implements java.io.Serializable {
     private int    lineNumber;
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Creates a stack trace element representing the specified execution
      * point.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param declaringClass the fully qualified name of the class containing
      *        the execution point represented by the stack trace element
      * @param methodName the name of the method containing the execution point
      *        represented by the stack trace element
      * @param fileName the name of the file containing the execution point
-     *         represented by the stack trace element, or <tt>null</tt> if
+     *         represented by the stack trace element, or {@code null} if
      *         this information is unavailable
      * @param lineNumber the line number of the source line containing the
      *         execution point represented by this stack trace element, or
      *         a negative number if this information is unavailable. A value
      *         of -2 indicates that the method containing the execution point
      *         is a native method
-     * @throws NullPointerException if <tt>declaringClass</tt> or
-     *         <tt>methodName</tt> is null
+     * @throws NullPointerException if {@code declaringClass} or
+     *         {@code methodName} is null
      * @since 1.5
      */
     public StackTraceElement(String declaringClass, String methodName,
                              String fileName, int lineNumber) {
-        if (declaringClass == null)
-            throw new NullPointerException("Declaring class is null");
-        if (methodName == null)
-            throw new NullPointerException("Method name is null");
-
-        this.declaringClass = declaringClass;
-        this.methodName     = methodName;
+        this.declaringClass = Objects.requireNonNull(declaringClass, "Declaring class is null");
+        this.methodName     = Objects.requireNonNull(methodName, "Method name is null");
         this.fileName       = fileName;
         this.lineNumber     = lineNumber;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the name of the source file containing the execution point
      * represented by this stack trace element.  Generally, this corresponds
-     * to the <tt>SourceFile</tt> attribute of the relevant <tt>class</tt>
+     * to the {@code SourceFile} attribute of the relevant {@code class}
      * file (as per <i>The Java Virtual Machine Specification</i>, Section
      * 4.7.7).  In some systems, the name may refer to some source code unit
      * other than a file, such as an entry in source repository.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the name of the file containing the execution point
-     *         represented by this stack trace element, or <tt>null</tt> if
+     *         represented by this stack trace element, or {@code null} if
      *         this information is unavailable.
      */
     public String getFileName() {
         return fileName;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the line number of the source line containing the execution
      * point represented by this stack trace element.  Generally, this is
-     * derived from the <tt>LineNumberTable</tt> attribute of the relevant
-     * <tt>class</tt> file (as per <i>The Java Virtual Machine
+     * derived from the {@code LineNumberTable} attribute of the relevant
+     * {@code class} file (as per <i>The Java Virtual Machine
      * Specification</i>, Section 4.7.8).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the line number of the source line containing the execution
      *         point represented by this stack trace element, or a negative
      *         number if this information is unavailable.
@@ -116,28 +117,27 @@ public final class StackTraceElement implements java.io.Serializable {
         return lineNumber;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the fully qualified name of the class containing the
      * execution point represented by this stack trace element.
-     * {@description.close}
-     *
-     * @return the fully qualified name of the <tt>Class</tt> containing
+
+     * {@description.close}     *
+     * @return the fully qualified name of the {@code Class} containing
      *         the execution point represented by this stack trace element.
      */
     public String getClassName() {
         return declaringClass;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the name of the method containing the execution point
      * represented by this stack trace element.  If the execution point is
      * contained in an instance or class initializer, this method will return
-     * the appropriate <i>special method name</i>, <tt>&lt;init&gt;</tt> or
-     * <tt>&lt;clinit&gt;</tt>, as per Section 3.9 of <i>The Java Virtual
+     * the appropriate <i>special method name</i>, {@code <init>} or
+     * {@code <clinit>}, as per Section 3.9 of <i>The Java Virtual
      * Machine Specification</i>.
-     * {@description.close}
      *
      * @return the name of the method containing the execution point
      *         represented by this stack trace element.
@@ -146,46 +146,47 @@ public final class StackTraceElement implements java.io.Serializable {
         return methodName;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns true if the method containing the execution point
      * represented by this stack trace element is a native method.
-     * {@description.close}
-     *
-     * @return <tt>true</tt> if the method containing the execution point
+
+     * {@description.close}     *
+     * @return {@code true} if the method containing the execution point
      *         represented by this stack trace element is a native method.
      */
     public boolean isNativeMethod() {
         return lineNumber == -2;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a string representation of this stack trace element.  The
      * format of this string depends on the implementation, but the following
      * examples may be regarded as typical:
      * <ul>
      * <li>
-     *   <tt>"MyClass.mash(MyClass.java:9)"</tt> - Here, <tt>"MyClass"</tt>
+     *   {@code "MyClass.mash(MyClass.java:9)"} - Here, {@code "MyClass"}
      *   is the <i>fully-qualified name</i> of the class containing the
      *   execution point represented by this stack trace element,
-     *   <tt>"mash"</tt> is the name of the method containing the execution
-     *   point, <tt>"MyClass.java"</tt> is the source file containing the
-     *   execution point, and <tt>"9"</tt> is the line number of the source
+     *   {@code "mash"} is the name of the method containing the execution
+     *   point, {@code "MyClass.java"} is the source file containing the
+     *   execution point, and {@code "9"} is the line number of the source
      *   line containing the execution point.
      * <li>
-     *   <tt>"MyClass.mash(MyClass.java)"</tt> - As above, but the line
+     *   {@code "MyClass.mash(MyClass.java)"} - As above, but the line
      *   number is unavailable.
      * <li>
-     *   <tt>"MyClass.mash(Unknown Source)"</tt> - As above, but neither
+     *   {@code "MyClass.mash(Unknown Source)"} - As above, but neither
      *   the file name nor the line  number are available.
      * <li>
-     *   <tt>"MyClass.mash(Native Method)"</tt> - As above, but neither
+     *   {@code "MyClass.mash(Native Method)"} - As above, but neither
      *   the file name nor the line  number are available, and the method
      *   containing the execution point is known to be a native method.
-     * </ul>
-     * {@description.close}
-     * 
+
+     * {@description.close}     * </ul>
      * @see    Throwable#printStackTrace()
      */
     public String toString() {
@@ -196,29 +197,23 @@ public final class StackTraceElement implements java.io.Serializable {
               (fileName != null ?  "("+fileName+")" : "(Unknown Source)")));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns true if the specified object is another
-     * <tt>StackTraceElement</tt> instance representing the same execution
-     * point as this instance.  Two stack trace elements <tt>a</tt> and
-     * <tt>b</tt> are equal if and only if:
-     * <pre>
+     * {@code StackTraceElement} instance representing the same execution
+     * point as this instance.  Two stack trace elements {@code a} and
+     * {@code b} are equal if and only if:
+     * <pre>{@code
      *     equals(a.getFileName(), b.getFileName()) &&
      *     a.getLineNumber() == b.getLineNumber()) &&
      *     equals(a.getClassName(), b.getClassName()) &&
      *     equals(a.getMethodName(), b.getMethodName())
-     * </pre>
-     * where <tt>equals</tt> is defined as:
-     * <pre>
-     *     static boolean equals(Object a, Object b) {
-     *         return a==b || (a != null && a.equals(b));
-     *     }
-     * </pre>
-     * {@description.close}
+     * }</pre>
+     * where {@code equals} has the semantics of {@link
+     * java.util.Objects#equals(Object, Object) Objects.equals}.
      *
      * @param  obj the object to be compared with this stack trace element.
      * @return true if the specified object is another
-     *         <tt>StackTraceElement</tt> instance representing the same
+     *         {@code StackTraceElement} instance representing the same
      *         execution point as this instance.
      */
     public boolean equals(Object obj) {
@@ -227,22 +222,21 @@ public final class StackTraceElement implements java.io.Serializable {
         if (!(obj instanceof StackTraceElement))
             return false;
         StackTraceElement e = (StackTraceElement)obj;
-        return e.declaringClass.equals(declaringClass) && e.lineNumber == lineNumber
-            && eq(methodName, e.methodName) && eq(fileName, e.fileName);
+        return e.declaringClass.equals(declaringClass) &&
+            e.lineNumber == lineNumber &&
+            Objects.equals(methodName, e.methodName) &&
+            Objects.equals(fileName, e.fileName);
     }
 
-    private static boolean eq(Object a, Object b) {
-        return a==b || (a != null && a.equals(b));
-    }
-
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a hash code value for this stack trace element.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public int hashCode() {
         int result = 31*declaringClass.hashCode() + methodName.hashCode();
-        result = 31*result + (fileName == null ?   0 : fileName.hashCode());
+        result = 31*result + Objects.hashCode(fileName);
         result = 31*result + lineNumber;
         return result;
     }

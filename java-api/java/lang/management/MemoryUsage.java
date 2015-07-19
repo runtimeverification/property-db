@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
@@ -28,7 +28,7 @@ package java.lang.management;
 import javax.management.openmbean.CompositeData;
 import sun.management.MemoryUsageCompositeData;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * A <tt>MemoryUsage</tt> object represents a snapshot of memory usage.
  * Instances of the <tt>MemoryUsage</tt> class are usually constructed
  * by methods that are used to obtain memory usage
@@ -36,8 +36,7 @@ import sun.management.MemoryUsageCompositeData;
  * the heap or non-heap memory of the Java virtual machine as a whole.
  *
  * <p> A <tt>MemoryUsage</tt> object contains four values:
- * <ul>
- * <table>
+ * <table summary="Describes the MemoryUsage object content">
  * <tr>
  * <td valign=top> <tt>init</tt> </td>
  * <td valign=top> represents the initial amount of memory (in bytes) that
@@ -72,16 +71,15 @@ import sun.management.MemoryUsageCompositeData;
  *      The amount of used and committed memory will always be less than
  *      or equal to <tt>max</tt> if <tt>max</tt> is defined.
  *      A memory allocation may fail if it attempts to increase the
- *      used memory such that <tt>used &gt committed</tt> even
- *      if <tt>used &lt= max</tt> would still be true (for example,
+ *      used memory such that <tt>used &gt; committed</tt> even
+ *      if <tt>used &lt;= max</tt> would still be true (for example,
  *      when the system is low on virtual memory).
  * </td>
  * </tr>
  * </table>
- * </ul>
  *
  * Below is a picture showing an example of a memory pool:
- * <p>
+ *
  * <pre>
  *        +----------------------------------------------+
  *        +////////////////           |                  +
@@ -98,7 +96,7 @@ import sun.management.MemoryUsageCompositeData;
  *                            max
  * </pre>
  *
- * <h4>MXBean Mapping</h4>
+ * <h3>MXBean Mapping</h3>
  * <tt>MemoryUsage</tt> is mapped to a {@link CompositeData CompositeData}
  * with attributes as specified in the {@link #from from} method.
  *
@@ -111,7 +109,7 @@ public class MemoryUsage {
     private final long committed;
     private final long max;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Constructs a <tt>MemoryUsage</tt> object.
      *
      * @param init      the initial amount of memory in bytes that
@@ -169,7 +167,7 @@ public class MemoryUsage {
         this.max = max;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Constructs a <tt>MemoryUsage</tt> object from a
      * {@link CompositeData CompositeData}.
      */
@@ -183,7 +181,7 @@ public class MemoryUsage {
         this.max = MemoryUsageCompositeData.getMax(cd);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the amount of memory in bytes that the Java virtual machine
      * initially requests from the operating system for memory management.
      * This method returns <tt>-1</tt> if the initial memory size is undefined.
@@ -195,7 +193,7 @@ public class MemoryUsage {
         return init;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the amount of used memory in bytes.
      *
      * @return the amount of used memory in bytes.
@@ -205,7 +203,7 @@ public class MemoryUsage {
         return used;
     };
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the amount of memory in bytes that is committed for
      * the Java virtual machine to use.  This amount of memory is
      * guaranteed for the Java virtual machine to use.
@@ -217,7 +215,7 @@ public class MemoryUsage {
         return committed;
     };
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the maximum amount of memory in bytes that can be
      * used for memory management.  This method returns <tt>-1</tt>
      * if the maximum memory size is undefined.
@@ -235,7 +233,7 @@ public class MemoryUsage {
         return max;
     };
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns a descriptive representation of this memory usage.
      */
     public String toString() {
@@ -248,13 +246,13 @@ public class MemoryUsage {
         return buf.toString();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns a <tt>MemoryUsage</tt> object represented by the
      * given <tt>CompositeData</tt>. The given <tt>CompositeData</tt>
      * must contain the following attributes:
-     * <p>
+     *
      * <blockquote>
-     * <table border>
+     * <table border summary="The attributes and the types the given CompositeData contains">
      * <tr>
      *   <th align=left>Attribute Name</th>
      *   <th align=left>Type</th>

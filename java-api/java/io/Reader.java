@@ -1,39 +1,40 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2012, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 
 /** {@collect.stats}
- * {@description.open}
- * Abstract class for reading character streams.  The only methods that a
+ *      
+* {@description.open}
+     * Abstract class for reading character streams.  The only methods that a
  * subclass must implement are read(char[], int, int) and close().  Most
  * subclasses, however, will override some of the methods defined here in order
  * to provide higher efficiency, additional functionality, or both.
- * {@description.close}
- *
+
+     * {@description.close} *
  *
  * @see BufferedReader
  * @see   LineNumberReader
@@ -53,32 +54,35 @@ package java.io;
 public abstract class Reader implements Readable, Closeable {
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The object used to synchronize operations on this stream.  For
      * efficiency, a character-stream object may use an object other than
      * itself to protect critical sections.  A subclass should therefore use
      * the object in this field rather than <tt>this</tt> or a synchronized
      * method.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected Object lock;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a new character-stream reader whose critical sections will
      * synchronize on the reader itself.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected Reader() {
         this.lock = this;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a new character-stream reader whose critical sections will
      * synchronize on the given object.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param lock  The Object to synchronize on.
      */
     protected Reader(Object lock) {
@@ -89,19 +93,20 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Attempts to read characters into the specified character buffer.
      * The buffer is used as a repository of characters as-is: the only
      * changes made are the results of a put operation. No flipping or
      * rewinding of the buffer is performed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param target the buffer to read characters into
      * @return The number of characters added to the buffer, or
      *         -1 if this source of characters is at its end
      * @throws IOException if an I/O error occurs
      * @throws NullPointerException if target is null
-     * @throws ReadOnlyBufferException if target is a read only buffer
+     * @throws java.nio.ReadOnlyBufferException if target is a read only buffer
      * @since 1.5
      */
     public int read(java.nio.CharBuffer target) throws IOException {
@@ -113,19 +118,12 @@ public abstract class Reader implements Readable, Closeable {
         return n;
     }
 
-    /** {@collect.stats}
-     * {@description.open}
-     * Reads a single character.
-     * {@description.close}
-     * {@description.open blocking}
-     * This method will block until a character is
+    /**
+     * Reads a single character.  This method will block until a character is
      * available, an I/O error occurs, or the end of the stream is reached.
-     * {@description.close}
      *
-     * {@description.open}
      * <p> Subclasses that intend to support efficient single-character input
      * should override this method.
-     * {@description.close}
      *
      * @return     The character read, as an integer in the range 0 to 65535
      *             (<tt>0x00-0xffff</tt>), or -1 if the end of the stream has
@@ -141,14 +139,9 @@ public abstract class Reader implements Readable, Closeable {
             return cb[0];
     }
 
-    /** {@collect.stats}
-     * {@description.open}
-     * Reads characters into an array.
-     * {@description.close}
-     * {@description.open blocking}
-     * This method will block until some input
+    /**
+     * Reads characters into an array.  This method will block until some input
      * is available, an I/O error occurs, or the end of the stream is reached.
-     * {@description.close}
      *
      * @param       cbuf  Destination buffer
      *
@@ -162,15 +155,10 @@ public abstract class Reader implements Readable, Closeable {
         return read(cbuf, 0, cbuf.length);
     }
 
-    /** {@collect.stats}
-     * {@description.open}
-     * Reads characters into a portion of an array.
-     * {@description.close}
-     * {@description.open blocking}
-     * This method will block
+    /**
+     * Reads characters into a portion of an array.  This method will block
      * until some input is available, an I/O error occurs, or the end of the
      * stream is reached.
-     * {@description.close}
      *
      * @param      cbuf  Destination buffer
      * @param      off   Offset at which to start storing characters
@@ -183,28 +171,21 @@ public abstract class Reader implements Readable, Closeable {
      */
     abstract public int read(char cbuf[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Maximum skip-buffer size
-     * {@description.close}
-     */
+     * {@description.close} */
     private static final int maxSkipBufferSize = 8192;
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Skip buffer, null until allocated
-     * {@description.close}
-     */
+     * {@description.close} */
     private char skipBuffer[] = null;
 
-    /** {@collect.stats}
-     * {@description.open}
-     * Skips characters.
-     * {@description.close}
-     * {@description.open blocking}
-     * This method will block until some characters are
+    /**
+     * Skips characters.  This method will block until some characters are
      * available, an I/O error occurs, or the end of the stream is reached.
-     * {@description.close}
      *
      * @param  n  The number of characters to skip
      *
@@ -232,10 +213,11 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Tells whether this stream is ready to be read.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return True if the next read() is guaranteed not to block for input,
      * false otherwise.  Note that returning false does not guarantee that the
      * next read will block.
@@ -247,12 +229,13 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Tells whether this stream supports the mark() operation. The default
      * implementation always returns false. Subclasses should override this
      * method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return true if and only if this stream supports the mark operation.
      */
     public boolean markSupported() {
@@ -260,15 +243,16 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     * {@description.close}       
+* {@property.open runtime formal:java.io.Reader_MarkReset}
      * Not all
      * character-input streams support the mark() operation.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param  readAheadLimit  Limit on the number of characters that may be
      *                         read while still preserving the mark.  After
      *                         reading this many characters, attempting to
@@ -282,18 +266,19 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Resets the stream.  If the stream has been marked, then attempt to
      * reposition it at the mark.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_UnmarkedReset}
+     * {@description.close}       
+* {@property.open runtime formal:java.io.Reader_UnmarkedReset}
      * If the stream has not been marked, then
      * attempt to reset it in some way appropriate to the particular stream,
      * for example by repositioning it to its starting point.  Not all
      * character-input streams support the reset() operation, and some support
      * reset() without supporting mark().
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @exception  IOException  If the stream has not been marked,
      *                          or if the mark has been invalidated,
      *                          or if the stream does not support reset(),
@@ -304,18 +289,20 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Closes the stream and releases any system resources associated with
      * it.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_ManipulateAfterClose}
+     * {@description.close}       
+* {@property.open runtime formal:java.io.Reader_ManipulateAfterClose}
      * Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.
-     * {@property.close}
-     * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+
+     * {@property.close}     *      
+* {@property.open runtime formal:java.io.Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @exception  IOException  If an I/O error occurs
      */
      abstract public void close() throws IOException;

@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
- * A collection that contains no duplicate elements.  More formally, sets
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * A collection that contains no duplicate elements.  More formally, sets
  * contain no pair of elements <code>e1</code> and <code>e2</code> such that
  * <code>e1.equals(e2)</code>, and at most one null element.  As implied by
  * its name, this interface models the mathematical <i>set</i> abstraction.
@@ -43,18 +44,20 @@ package java.util;
  * <p>The additional stipulation on constructors is, not surprisingly,
  * that all constructors must create a set that contains no duplicate elements
  * (as defined above).
- * {@description.close}
- *
- * {@property.open formal:java.util.Set_ItselfAsElement}
- * <p>Note: Great care must be exercised if mutable objects are used as set
+
+     * {@description.close} *
+ *      
+* {@property.open formal:java.util.Set_ItselfAsElement}
+     * <p>Note: Great care must be exercised if mutable objects are used as set
  * elements.  The behavior of a set is not specified if the value of an object
  * is changed in a manner that affects <tt>equals</tt> comparisons while the
  * object is an element in the set.  A special case of this prohibition is
  * that it is not permissible for a set to contain itself as an element.
- * {@property.close}
- *
- * {@description.open}
- * <p>Some set implementations have restrictions on the elements that
+
+     * {@property.close} *
+ *      
+* {@description.open}
+     * <p>Some set implementations have restrictions on the elements that
  * they may contain.  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
  * add an ineligible element throws an unchecked exception, typically
@@ -71,8 +74,8 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @param <E> the type of elements maintained by this set
  *
  * @author  Josh Bloch
@@ -91,56 +94,49 @@ package java.util;
 public interface Set<E> extends Collection<E> {
     // Query Operations
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of elements in this set (its cardinality).  If this
      * set contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
-     * {@description.close}
      *
      * @return the number of elements in this set (its cardinality)
      */
     int size();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains no elements.
-     * {@description.close}
      *
      * @return <tt>true</tt> if this set contains no elements
      */
     boolean isEmpty();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     * {@description.close}
      *
      * @param o element whose presence in this set is to be tested
      * @return <tt>true</tt> if this set contains the specified element
      * @throws ClassCastException if the type of the specified element
-     *         is incompatible with this set (optional)
+     *         is incompatible with this set
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified element is null and this
-     *         set does not permit null elements (optional)
+     *         set does not permit null elements
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
     boolean contains(Object o);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set.  The elements are
      * returned in no particular order (unless this set is an instance of some
      * class that provides a guarantee).
-     * {@description.close}
      *
      * @return an iterator over the elements in this set
      */
     Iterator<E> iterator();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this set.
      * If this set makes any guarantees as to what order its elements
      * are returned by its iterator, this method must return the
@@ -153,14 +149,12 @@ public interface Set<E> extends Collection<E> {
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
-     * {@description.close}
      *
      * @return an array containing all the elements in this set
      */
     Object[] toArray();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this set; the
      * runtime type of the returned array is that of the specified array.
      * If the set fits in the specified array, it is returned therein.
@@ -192,7 +186,6 @@ public interface Set<E> extends Collection<E> {
      *
      * Note that <tt>toArray(new Object[0])</tt> is identical in function to
      * <tt>toArray()</tt>.
-     * {@description.close}
      *
      * @param a the array into which the elements of this set are to be
      *        stored, if it is big enough; otherwise, a new array of the same
@@ -208,8 +201,7 @@ public interface Set<E> extends Collection<E> {
 
     // Modification Operations
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds the specified element to this set if it is not already present
      * (optional operation).  More formally, adds the specified element
      * <tt>e</tt> to this set if the set contains no element <tt>e2</tt>
@@ -226,7 +218,6 @@ public interface Set<E> extends Collection<E> {
      * specification for {@link Collection#add Collection.add}.
      * Individual set implementations should clearly document any
      * restrictions on the elements that they may contain.
-     * {@description.close}
      *
      * @param e element to be added to this set
      * @return <tt>true</tt> if this set did not already contain the specified
@@ -243,8 +234,7 @@ public interface Set<E> extends Collection<E> {
     boolean add(E e);
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes the specified element from this set if it is present
      * (optional operation).  More formally, removes an element <tt>e</tt>
      * such that
@@ -253,14 +243,15 @@ public interface Set<E> extends Collection<E> {
      * contained the element (or equivalently, if this set changed as a
      * result of the call).  (This set will not contain the element once the
      * call returns.)
-     * {@description.close}
      *
      * @param o object to be removed from this set, if present
      * @return <tt>true</tt> if this set contained the specified element
      * @throws ClassCastException if the type of the specified element
-     *         is incompatible with this set (optional)
+     *         is incompatible with this set
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified element is null and this
-     *         set does not permit null elements (optional)
+     *         set does not permit null elements
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws UnsupportedOperationException if the <tt>remove</tt> operation
      *         is not supported by this set
      */
@@ -269,38 +260,34 @@ public interface Set<E> extends Collection<E> {
 
     // Bulk Operations
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains all of the elements of the
      * specified collection.  If the specified collection is also a set, this
      * method returns <tt>true</tt> if it is a <i>subset</i> of this set.
-     * {@description.close}
      *
      * @param  c collection to be checked for containment in this set
      * @return <tt>true</tt> if this set contains all of the elements of the
      *         specified collection
      * @throws ClassCastException if the types of one or more elements
      *         in the specified collection are incompatible with this
-     *         set (optional)
+     *         set
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified collection contains one
      *         or more null elements and this set does not permit null
-     *         elements (optional), or if the specified collection is null
+     *         elements
+     * (<a href="Collection.html#optional-restrictions">optional</a>),
+     *         or if the specified collection is null
      * @see    #contains(Object)
      */
     boolean containsAll(Collection<?> c);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds all of the elements in the specified collection to this set if
      * they're not already present (optional operation).  If the specified
      * collection is also a set, the <tt>addAll</tt> operation effectively
      * modifies this set so that its value is the <i>union</i> of the two
-     * sets.
-     * {@description.close}
-     * {@property.open formal:java.util.Collection_UnsynchronizedAddAll}
-     * The behavior of this operation is undefined if the specified
+     * sets.  The behavior of this operation is undefined if the specified
      * collection is modified while the operation is in progress.
-     * {@property.close}
      *
      * @param  c collection containing elements to be added to this set
      * @return <tt>true</tt> if this set changed as a result of the call
@@ -318,57 +305,55 @@ public interface Set<E> extends Collection<E> {
      */
     boolean addAll(Collection<? extends E> c);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Retains only the elements in this set that are contained in the
      * specified collection (optional operation).  In other words, removes
      * from this set all of its elements that are not contained in the
      * specified collection.  If the specified collection is also a set, this
      * operation effectively modifies this set so that its value is the
      * <i>intersection</i> of the two sets.
-     * {@description.close}
      *
      * @param  c collection containing elements to be retained in this set
      * @return <tt>true</tt> if this set changed as a result of the call
      * @throws UnsupportedOperationException if the <tt>retainAll</tt> operation
      *         is not supported by this set
      * @throws ClassCastException if the class of an element of this set
-     *         is incompatible with the specified collection (optional)
+     *         is incompatible with the specified collection
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws NullPointerException if this set contains a null element and the
-     *         specified collection does not permit null elements (optional),
+     *         specified collection does not permit null elements
+     *         (<a href="Collection.html#optional-restrictions">optional</a>),
      *         or if the specified collection is null
      * @see #remove(Object)
      */
     boolean retainAll(Collection<?> c);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes from this set all of its elements that are contained in the
      * specified collection (optional operation).  If the specified
      * collection is also a set, this operation effectively modifies this
      * set so that its value is the <i>asymmetric set difference</i> of
      * the two sets.
-     * {@description.close}
      *
      * @param  c collection containing elements to be removed from this set
      * @return <tt>true</tt> if this set changed as a result of the call
      * @throws UnsupportedOperationException if the <tt>removeAll</tt> operation
      *         is not supported by this set
      * @throws ClassCastException if the class of an element of this set
-     *         is incompatible with the specified collection (optional)
+     *         is incompatible with the specified collection
+     * (<a href="Collection.html#optional-restrictions">optional</a>)
      * @throws NullPointerException if this set contains a null element and the
-     *         specified collection does not permit null elements (optional),
+     *         specified collection does not permit null elements
+     *         (<a href="Collection.html#optional-restrictions">optional</a>),
      *         or if the specified collection is null
      * @see #remove(Object)
      * @see #contains(Object)
      */
     boolean removeAll(Collection<?> c);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes all of the elements from this set (optional operation).
      * The set will be empty after this call returns.
-     * {@description.close}
      *
      * @throws UnsupportedOperationException if the <tt>clear</tt> method
      *         is not supported by this set
@@ -378,8 +363,7 @@ public interface Set<E> extends Collection<E> {
 
     // Comparison and hashing
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the specified object is also a set, the two sets
      * have the same size, and every member of the specified set is
@@ -387,15 +371,13 @@ public interface Set<E> extends Collection<E> {
      * contained in the specified set).  This definition ensures that the
      * equals method works properly across different implementations of the
      * set interface.
-     * {@description.close}
      *
      * @param o object to be compared for equality with this set
      * @return <tt>true</tt> if the specified object is equal to this set
      */
     boolean equals(Object o);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the hash code value for this set.  The hash code of a set is
      * defined to be the sum of the hash codes of the elements in the set,
      * where the hash code of a <tt>null</tt> element is defined to be zero.
@@ -403,11 +385,38 @@ public interface Set<E> extends Collection<E> {
      * <tt>s1.hashCode()==s2.hashCode()</tt> for any two sets <tt>s1</tt>
      * and <tt>s2</tt>, as required by the general contract of
      * {@link Object#hashCode}.
-     * {@description.close}
      *
      * @return the hash code value for this set
      * @see Object#equals(Object)
      * @see Set#equals(Object)
      */
     int hashCode();
+
+    /** {@collect.stats}
+     * Creates a {@code Spliterator} over the elements in this set.
+     *
+     * <p>The {@code Spliterator} reports {@link Spliterator#DISTINCT}.
+     * Implementations should document the reporting of additional
+     * characteristic values.
+     *
+     * @implSpec
+     * The default implementation creates a
+     * <em><a href="Spliterator.html#binding">late-binding</a></em> spliterator
+     * from the set's {@code Iterator}.  The spliterator inherits the
+     * <em>fail-fast</em> properties of the set's iterator.
+     * <p>
+     * The created {@code Spliterator} additionally reports
+     * {@link Spliterator#SIZED}.
+     *
+     * @implNote
+     * The created {@code Spliterator} additionally reports
+     * {@link Spliterator#SUBSIZED}.
+     *
+     * @return a {@code Spliterator} over the elements in this set
+     * @since 1.8
+     */
+    @Override
+    default Spliterator<E> spliterator() {
+        return Spliterators.spliterator(this, Spliterator.DISTINCT);
+    }
 }

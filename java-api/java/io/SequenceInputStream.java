@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1994, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2011, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
@@ -30,8 +30,9 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /** {@collect.stats}
- * {@description.open}
- * A <code>SequenceInputStream</code> represents
+ *      
+* {@description.open}
+     * A <code>SequenceInputStream</code> represents
  * the logical concatenation of other input
  * streams. It starts out with an ordered
  * collection of input streams and reads from
@@ -39,18 +40,17 @@ import java.util.Vector;
  * whereupon it reads from the second one,
  * and so on, until end of file is reached
  * on the last of the contained input streams.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Author van Hoff
  * @since   JDK1.0
  */
 public
 class SequenceInputStream extends InputStream {
-    Enumeration e;
+    Enumeration<? extends InputStream> e;
     InputStream in;
 
     /** {@collect.stats}
-     * {@description.open}
      * Initializes a newly created <code>SequenceInputStream</code>
      * by remembering the argument, which must
      * be an <code>Enumeration</code>  that produces
@@ -62,7 +62,6 @@ class SequenceInputStream extends InputStream {
      * each input stream from the enumeration
      * is exhausted, it is closed by calling its
      * <code>close</code> method.
-     * {@description.close}
      *
      * @param   e   an enumeration of input streams.
      * @see     java.util.Enumeration
@@ -78,20 +77,18 @@ class SequenceInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Initializes a newly
      * created <code>SequenceInputStream</code>
      * by remembering the two arguments, which
      * will be read in order, first <code>s1</code>
      * and then <code>s2</code>, to provide the
      * bytes to be read from this <code>SequenceInputStream</code>.
-     * {@description.close}
      *
      * @param   s1   the first input stream to read.
      * @param   s2   the second input stream to read.
      */
     public SequenceInputStream(InputStream s1, InputStream s2) {
-        Vector  v = new Vector(2);
+        Vector<InputStream> v = new Vector<>(2);
 
         v.addElement(s1);
         v.addElement(s2);
@@ -105,9 +102,7 @@ class SequenceInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
      *  Continues reading in the next stream if an EOF is reached.
-     * {@description.close}
      */
     final void nextStream() throws IOException {
         if (in != null) {
@@ -124,7 +119,6 @@ class SequenceInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from the current underlying input stream without
      * blocking by the next invocation of a method for the current
@@ -134,7 +128,6 @@ class SequenceInputStream extends InputStream {
      * <p>
      * This method simply calls {@code available} of the current underlying
      * input stream and returns the result.
-     * {@description.close}
      *
      * @return an estimate of the number of bytes that can be read (or
      *         skipped over) from the current underlying input stream
@@ -145,66 +138,52 @@ class SequenceInputStream extends InputStream {
      * @since   JDK1.1
      */
     public int available() throws IOException {
-        if(in == null) {
+        if (in == null) {
             return 0; // no way to signal EOF from available()
         }
         return in.available();
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Reads the next byte of data from this input stream. The byte is
      * returned as an <code>int</code> in the range <code>0</code> to
      * <code>255</code>. If no byte is available because the end of the
      * stream has been reached, the value <code>-1</code> is returned.
-     * {@description.close}
-     * {@description.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
-     * {@description.close}
-     * {@description.open}
      * <p>
      * This method
      * tries to read one character from the current substream. If it
      * reaches the end of the stream, it calls the <code>close</code>
      * method of the current substream and begins reading from the next
      * substream.
-     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
      * @exception  IOException  if an I/O error occurs.
      */
     public int read() throws IOException {
-        if (in == null) {
-            return -1;
-        }
-        int c = in.read();
-        if (c == -1) {
+        while (in != null) {
+            int c = in.read();
+            if (c != -1) {
+                return c;
+            }
             nextStream();
-            return read();
         }
-        return c;
+        return -1;
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
-     * into an array of bytes.
-     * {@description.close}
-     * {@description.open blocking}
-     * If <code>len</code> is not zero, the method
+     * into an array of bytes.  If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
-     * {@description.close}
-     * {@description.open}
      * <p>
      * The <code>read</code> method of <code>SequenceInputStream</code>
      * tries to read the data from the current substream. If it fails to
      * read any characters because the substream has reached the end of
      * the stream, it calls the <code>close</code> method of the current
      * substream and begins reading from the next substream.
-     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in array <code>b</code>
@@ -227,32 +206,27 @@ class SequenceInputStream extends InputStream {
         } else if (len == 0) {
             return 0;
         }
-
-        int n = in.read(b, off, len);
-        if (n <= 0) {
+        do {
+            int n = in.read(b, off, len);
+            if (n > 0) {
+                return n;
+            }
             nextStream();
-            return read(b, off, len);
-        }
-        return n;
+        } while (in != null);
+        return -1;
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_ManipulateAfterClose}
      * A closed <code>SequenceInputStream</code>
      * cannot  perform input operations and cannot
      * be reopened.
      * <p>
-     * {@property.close}
-     * {@description.open}
      * If this stream was created
      * from an enumeration, all remaining elements
      * are requested from the enumeration and closed
      * before the <code>close</code> method returns.
-     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

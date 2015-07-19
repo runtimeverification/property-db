@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util.zip;
@@ -30,48 +30,53 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.io.EOFException;
 
-/** {@collect.stats} 
- * {@description.open}
- * This class implements a stream filter for uncompressing data in the
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This class implements a stream filter for uncompressing data in the
  * "deflate" compression format. It is also used as the basis for other
  * decompression filters, such as GZIPInputStream.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @see         Inflater
  * @author      David Connelly
  */
 public
 class InflaterInputStream extends FilterInputStream {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Decompressor for this stream.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected Inflater inf;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Input buffer for decompression.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected byte[] buf;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Length of input buffer.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected int len;
 
     private boolean closed = false;
     // this flag is set to true after EOF has reached
     private boolean reachEOF = false;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Check to make sure that this stream has not been closed
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private void ensureOpen() throws IOException {
         if (closed) {
             throw new IOException("Stream closed");
@@ -79,15 +84,16 @@ class InflaterInputStream extends FilterInputStream {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new input stream with the specified decompressor and
      * buffer size.
-     * {@description.close}
-     * @param in the input stream
+
+     * {@description.close}     * @param in the input stream
      * @param inf the decompressor ("inflater")
      * @param size the input buffer size
-     * @exception IllegalArgumentException if size is <= 0
+     * @exception IllegalArgumentException if {@code size <= 0}
      */
     public InflaterInputStream(InputStream in, Inflater inf, int size) {
         super(in);
@@ -100,12 +106,13 @@ class InflaterInputStream extends FilterInputStream {
         buf = new byte[size];
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new input stream with the specified decompressor and a
      * default buffer size.
-     * {@description.close}
-     * @param in the input stream
+
+     * {@description.close}     * @param in the input stream
      * @param inf the decompressor ("inflater")
      */
     public InflaterInputStream(InputStream in, Inflater inf) {
@@ -114,11 +121,12 @@ class InflaterInputStream extends FilterInputStream {
 
     boolean usesDefaultInflater = false;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new input stream with a default decompressor and buffer size.
-     * {@description.close}
-     * @param in the input stream
+
+     * {@description.close}     * @param in the input stream
      */
     public InflaterInputStream(InputStream in) {
         this(in, new Inflater());
@@ -127,26 +135,28 @@ class InflaterInputStream extends FilterInputStream {
 
     private byte[] singleByteBuf = new byte[1];
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Reads a byte of uncompressed data. This method will block until
      * enough input is available for decompression.
-     * {@description.close}
-     * @return the byte read, or -1 if end of compressed input is reached
+
+     * {@description.close}     * @return the byte read, or -1 if end of compressed input is reached
      * @exception IOException if an I/O error has occurred
      */
     public int read() throws IOException {
         ensureOpen();
-        return read(singleByteBuf, 0, 1) == -1 ? -1 : singleByteBuf[0] & 0xff;
+        return read(singleByteBuf, 0, 1) == -1 ? -1 : Byte.toUnsignedInt(singleByteBuf[0]);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Reads uncompressed data into an array of bytes. If <code>len</code> is not
      * zero, the method will block until some input can be decompressed; otherwise,
      * no bytes are read and <code>0</code> is returned.
-     * {@description.close}
-     * @param b the buffer into which the data is read
+
+     * {@description.close}     * @param b the buffer into which the data is read
      * @param off the start offset in the destination array <code>b</code>
      * @param len the maximum number of bytes read
      * @return the actual number of bytes read, or -1 if the end of the
@@ -185,14 +195,15 @@ class InflaterInputStream extends FilterInputStream {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns 0 after EOF has been reached, otherwise always return 1.
      * <p>
      * Programs should not count on this method to return the actual number
      * of bytes that could be read without blocking.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return     1 before EOF and 0 after EOF.
      * @exception  IOException  if an I/O error occurs.
      *
@@ -208,14 +219,15 @@ class InflaterInputStream extends FilterInputStream {
 
     private byte[] b = new byte[512];
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Skips specified number of bytes of uncompressed data.
-     * {@description.close}
-     * @param n the number of bytes to skip
+
+     * {@description.close}     * @param n the number of bytes to skip
      * @return the actual number of bytes skipped.
      * @exception IOException if an I/O error has occurred
-     * @exception IllegalArgumentException if n < 0
+     * @exception IllegalArgumentException if {@code n < 0}
      */
     public long skip(long n) throws IOException {
         if (n < 0) {
@@ -239,12 +251,13 @@ class InflaterInputStream extends FilterInputStream {
         return total;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Closes this input stream and releases any system resources associated
      * with the stream.
-     * {@description.close}
-     * @exception IOException if an I/O error has occurred
+
+     * {@description.close}     * @exception IOException if an I/O error has occurred
      */
     public void close() throws IOException {
         if (!closed) {
@@ -255,11 +268,12 @@ class InflaterInputStream extends FilterInputStream {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Fills input buffer with more data to decompress.
-     * {@description.close}
-     * @exception IOException if an I/O error has occurred
+
+     * {@description.close}     * @exception IOException if an I/O error has occurred
      */
     protected void fill() throws IOException {
         ensureOpen();
@@ -270,14 +284,15 @@ class InflaterInputStream extends FilterInputStream {
         inf.setInput(buf, 0, len);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods. The <code>markSupported</code>
      * method of <code>InflaterInputStream</code> returns
      * <code>false</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  a <code>boolean</code> indicating if this stream type supports
      *          the <code>mark</code> and <code>reset</code> methods.
      * @see     java.io.InputStream#mark(int)
@@ -287,16 +302,18 @@ class InflaterInputStream extends FilterInputStream {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Marks the current position in this input stream.
-     * {@description.close}
-     *
-     * {@property.open}
-     * <p> The <code>mark</code> method of <code>InflaterInputStream</code>
+
+     * {@description.close}     *
+     * <p>      
+* {@property.open}
+     * The <code>mark</code> method of <code>InflaterInputStream</code>
      * does nothing.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
      * @see     java.io.InputStream#reset()
@@ -304,18 +321,20 @@ class InflaterInputStream extends FilterInputStream {
     public synchronized void mark(int readlimit) {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
-     * {@description.close}
-     *
-     * {@property.open}
-     * <p> The method <code>reset</code> for class
+
+     * {@description.close}     *
+     * <p>      
+* {@property.open}
+     * The method <code>reset</code> for class
      * <code>InflaterInputStream</code> does nothing except throw an
      * <code>IOException</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @exception  IOException  if this method is invoked.
      * @see     java.io.InputStream#mark(int)
      * @see     java.io.IOException

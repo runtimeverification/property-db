@@ -1,49 +1,46 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * A small toolkit of classes that support lock-free thread-safe
  * programming on single variables.  In essence, the classes in this
  * package extend the notion of {@code volatile} values, fields, and
  * array elements to those that also provide an atomic conditional update
  * operation of the form:
  *
- * <pre>
- *   boolean compareAndSet(expectedValue, updateValue);
- * </pre>
+ *  <pre> {@code boolean compareAndSet(expectedValue, updateValue);}</pre>
  *
  * <p>This method (which varies in argument types across different
  * classes) atomically sets a variable to the {@code updateValue} if it
@@ -70,20 +67,35 @@
  * {@code AtomicInteger} provide atomic increment methods.  One
  * application is to generate sequence numbers, as in:
  *
- * <pre>
+ *  <pre> {@code
  * class Sequencer {
  *   private final AtomicLong sequenceNumber
  *     = new AtomicLong(0);
  *   public long next() {
  *     return sequenceNumber.getAndIncrement();
  *   }
- * }
- * </pre>
+ * }}</pre>
+ *
+ * <p>It is straightforward to define new utility functions that, like
+ * {@code getAndIncrement}, apply a function to a value atomically.
+ * For example, given some transformation
+ * <pre> {@code long transform(long input)}</pre>
+ *
+ * write your utility method as follows:
+ *  <pre> {@code
+ * long getAndTransform(AtomicLong var) {
+ *   long prev, next;
+ *   do {
+ *     prev = var.get();
+ *     next = transform(prev);
+ *   } while (!var.compareAndSet(prev, next));
+ *   return prev; // return next; for transformAndGet
+ * }}</pre>
  *
  * <p>The memory effects for accesses and updates of atomics generally
  * follow the rules for volatiles, as stated in
- * <a href="http://java.sun.com/docs/books/jls/"> The Java Language
- * Specification, Third Edition (17.4 Memory Model)</a>:
+ * <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4">
+ * The Java Language Specification (17.4 Memory Model)</a>:
  *
  * <ul>
  *
@@ -139,13 +151,12 @@
  * semantics for their array elements, which is not supported for
  * ordinary arrays.
  *
- * <a name="Spurious">
- * <p>The atomic classes also support method {@code weakCompareAndSet},
- * which has limited applicability.  On some platforms, the weak version
- * may be more efficient than {@code compareAndSet} in the normal case,
- * but differs in that any given invocation of the
- * {@code weakCompareAndSet} method may return {@code false}
- * <em>spuriously</em> (that is, for no apparent reason)</a>.  A
+ * <p id="weakCompareAndSet">The atomic classes also support method
+ * {@code weakCompareAndSet}, which has limited applicability.  On some
+ * platforms, the weak version may be more efficient than {@code
+ * compareAndSet} in the normal case, but differs in that any given
+ * invocation of the {@code weakCompareAndSet} method may return {@code
+ * false} <em>spuriously</em> (that is, for no apparent reason).  A
  * {@code false} return means only that the operation may be retried if
  * desired, relying on the guarantee that repeated invocation when the
  * variable holds {@code expectedValue} and no other thread is also
@@ -181,7 +192,7 @@
  *
  * <p>Atomic classes are not general purpose replacements for
  * {@code java.lang.Integer} and related classes.  They do <em>not</em>
- * define methods such as {@code hashCode} and
+ * define methods such as {@code equals}, {@code hashCode} and
  * {@code compareTo}.  (Because atomic variables are expected to be
  * mutated, they are poor choices for hash table keys.)  Additionally,
  * classes are provided only for those types that are commonly useful in
@@ -191,11 +202,10 @@
  * {@code byte} values, and cast appropriately.
  *
  * You can also hold floats using
- * {@link java.lang.Float#floatToIntBits} and
+ * {@link java.lang.Float#floatToRawIntBits} and
  * {@link java.lang.Float#intBitsToFloat} conversions, and doubles using
- * {@link java.lang.Double#doubleToLongBits} and
+ * {@link java.lang.Double#doubleToRawLongBits} and
  * {@link java.lang.Double#longBitsToDouble} conversions.
- * {@description.close}
  *
  * @since 1.5
  */

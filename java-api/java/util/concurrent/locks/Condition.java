@@ -1,44 +1,43 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
 package java.util.concurrent.locks;
-import java.util.concurrent.*;
+import java.util.concurrent.TimeUnit;
 import java.util.Date;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * {@code Condition} factors out the {@code Object} monitor
  * methods ({@link Object#wait() wait}, {@link Object#notify notify}
  * and {@link Object#notifyAll notifyAll}) into distinct objects to
@@ -47,9 +46,7 @@ import java.util.Date;
  * Where a {@code Lock} replaces the use of {@code synchronized} methods
  * and statements, a {@code Condition} replaces the use of the Object
  * monitor methods.
- * {@description.close}
  *
- * {@property.open}
  * <p>Conditions (also known as <em>condition queues</em> or
  * <em>condition variables</em>) provide a means for one thread to
  * suspend execution (to &quot;wait&quot;) until notified by another
@@ -59,9 +56,7 @@ import java.util.Date;
  * condition. The key property that waiting for a condition provides
  * is that it <em>atomically</em> releases the associated lock and
  * suspends the current thread, just like {@code Object.wait}.
- * {@property.close}
  *
- * {@description.open}
  * <p>A {@code Condition} instance is intrinsically bound to a lock.
  * To obtain a {@code Condition} instance for a particular {@link Lock}
  * instance use its {@link Lock#newCondition newCondition()} method.
@@ -143,9 +138,7 @@ import java.util.Date;
  * will result in a {@link NullPointerException} being thrown.
  *
  * <h3>Implementation Considerations</h3>
- * {@description.close}
  *
- * {@property.open}
  * <p>When waiting upon a {@code Condition}, a &quot;<em>spurious
  * wakeup</em>&quot; is permitted to occur, in
  * general, as a concession to the underlying platform semantics.
@@ -155,9 +148,7 @@ import java.util.Date;
  * free to remove the possibility of spurious wakeups but it is
  * recommended that applications programmers always assume that they can
  * occur and so always wait in a loop.
- * {@property.close}
  *
- * {@description.open}
  * <p>The three forms of condition waiting
  * (interruptible, non-interruptible, and timed) may differ in their ease of
  * implementation on some platforms and in their performance characteristics.
@@ -179,17 +170,17 @@ import java.util.Date;
  * <p>As interruption generally implies cancellation, and checks for
  * interruption are often infrequent, an implementation can favor responding
  * to an interrupt over normal method return. This is true even if it can be
- * shown that the interrupt occurred after another action may have unblocked
- * the thread. An implementation should document this behavior.
- * {@description.close}
+ * shown that the interrupt occurred after another action that may have
+ * unblocked the thread. An implementation should document this behavior.
  *
  * @since 1.5
  * @author Doug Lea
  */
 public interface Condition {
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Causes the current thread to wait until it is signalled or
      * {@linkplain Thread#interrupt interrupted}.
      *
@@ -223,31 +214,34 @@ public interface Condition {
      * is released.
      *
      * <p><b>Implementation Considerations</b>
-     * {@description.close}
-     *
-     * {@property.open}
+
+     * {@description.close}     *
+     *      
+* {@property.open}
      * <p>The current thread is assumed to hold the lock associated with this
      * {@code Condition} when this method is called.
      * It is up to the implementation to determine if this is
      * the case and if not, how to respond. Typically, an exception will be
      * thrown (such as {@link IllegalMonitorStateException}) and the
      * implementation must document that fact.
-     * {@property.close}
-     *
-     * {@description.open}
+
+     * {@property.close}     *
+     *      
+* {@description.open}
      * <p>An implementation can favor responding to an interrupt over normal
      * method return in response to a signal. In that case the implementation
      * must ensure that the signal is redirected to another waiting thread, if
      * there is one.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws InterruptedException if the current thread is interrupted
      *         (and interruption of thread suspension is supported)
      */
     void await() throws InterruptedException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Causes the current thread to wait until it is signalled.
      *
      * <p>The lock associated with this condition is atomically
@@ -260,16 +254,18 @@ public interface Condition {
      * <li>Some other thread invokes the {@link #signalAll} method for this
      * {@code Condition}; or
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
-     * </ul>
-     * {@description.close}
+
+     * {@description.close}     * </ul>
      *
-     * {@property.open internal}
+     *      
+* {@property.open internal}
      * <p>In all cases, before this method can return the current thread must
      * re-acquire the lock associated with this condition. When the
      * thread returns it is <em>guaranteed</em> to hold this lock.
-     * {@property.close}
-     *
-     * {@description.open}
+
+     * {@property.close}     *
+     *      
+* {@description.open}
      * <p>If the current thread's interrupted status is set when it enters
      * this method, or it is {@linkplain Thread#interrupt interrupted}
      * while waiting, it will continue to wait until signalled. When it finally
@@ -277,21 +273,21 @@ public interface Condition {
      * be set.
      *
      * <p><b>Implementation Considerations</b>
-     * {@description.close}
-     *
-     * {@property.open}
+
+     * {@description.close}     *
+     *      
+* {@property.open}
      * <p>The current thread is assumed to hold the lock associated with this
      * {@code Condition} when this method is called.
      * It is up to the implementation to determine if this is
      * the case and if not, how to respond. Typically, an exception will be
      * thrown (such as {@link IllegalMonitorStateException}) and the
      * implementation must document that fact.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     void awaitUninterruptibly();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified waiting time elapses.
      *
@@ -309,15 +305,11 @@ public interface Condition {
      * <li>The specified waiting time elapses; or
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open internal}
      * <p>In all cases, before this method can return the current thread must
      * re-acquire the lock associated with this condition. When the
      * thread returns it is <em>guaranteed</em> to hold this lock.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>If the current thread:
      * <ul>
      * <li>has its interrupted status set on entry to this method; or
@@ -337,44 +329,42 @@ public interface Condition {
      * condition still does not hold. Typical uses of this method take
      * the following form:
      *
-     * <pre>
-     * synchronized boolean aMethod(long timeout, TimeUnit unit) {
-     *   long nanosTimeout = unit.toNanos(timeout);
-     *   while (!conditionBeingWaitedFor) {
-     *     if (nanosTimeout &gt; 0)
-     *         nanosTimeout = theCondition.awaitNanos(nanosTimeout);
-     *      else
-     *        return false;
+     *  <pre> {@code
+     * boolean aMethod(long timeout, TimeUnit unit) {
+     *   long nanos = unit.toNanos(timeout);
+     *   lock.lock();
+     *   try {
+     *     while (!conditionBeingWaitedFor()) {
+     *       if (nanos <= 0L)
+     *         return false;
+     *       nanos = theCondition.awaitNanos(nanos);
+     *     }
+     *     // ...
+     *   } finally {
+     *     lock.unlock();
      *   }
-     *   // ...
-     * }
-     * </pre>
+     * }}</pre>
      *
-     * <p> Design note: This method requires a nanosecond argument so
+     * <p>Design note: This method requires a nanosecond argument so
      * as to avoid truncation errors in reporting remaining times.
      * Such precision loss would make it difficult for programmers to
      * ensure that total waiting times are not systematically shorter
      * than specified when re-waits occur.
      *
      * <p><b>Implementation Considerations</b>
-     * {@description.close}
      *
-     * {@property.open}
      * <p>The current thread is assumed to hold the lock associated with this
      * {@code Condition} when this method is called.
      * It is up to the implementation to determine if this is
      * the case and if not, how to respond. Typically, an exception will be
      * thrown (such as {@link IllegalMonitorStateException}) and the
      * implementation must document that fact.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>An implementation can favor responding to an interrupt over normal
      * method return in response to a signal, or over indicating the elapse
      * of the specified waiting time. In either case the implementation
      * must ensure that the signal is redirected to another waiting thread, if
      * there is one.
-     * {@description.close}
      *
      * @param nanosTimeout the maximum time to wait, in nanoseconds
      * @return an estimate of the {@code nanosTimeout} value minus
@@ -388,15 +378,15 @@ public interface Condition {
      */
     long awaitNanos(long nanosTimeout) throws InterruptedException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified waiting time elapses. This method is behaviorally
-     * equivalent to:<br>
-     * <pre>
-     *   awaitNanos(unit.toNanos(time)) &gt; 0
-     * </pre>
-     * {@description.close}
+     * equivalent to:
+     *  <pre> {@code awaitNanos(unit.toNanos(time)) > 0}</pre>
+
+     * {@description.close}     *
      * @param time the maximum time to wait
      * @param unit the time unit of the {@code time} argument
      * @return {@code false} if the waiting time detectably elapsed
@@ -406,8 +396,7 @@ public interface Condition {
      */
     boolean await(long time, TimeUnit unit) throws InterruptedException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified deadline elapses.
      *
@@ -425,15 +414,12 @@ public interface Condition {
      * <li>The specified deadline elapses; or
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
      * </ul>
-     * {@description.close}
      *
-     * {@property.open internal}
      * <p>In all cases, before this method can return the current thread must
      * re-acquire the lock associated with this condition. When the
      * thread returns it is <em>guaranteed</em> to hold this lock.
-     * {@property.close}
      *
-     * {@description.open}
+     *
      * <p>If the current thread:
      * <ul>
      * <li>has its interrupted status set on entry to this method; or
@@ -448,38 +434,36 @@ public interface Condition {
      *
      * <p>The return value indicates whether the deadline has elapsed,
      * which can be used as follows:
-     * <pre>
-     * synchronized boolean aMethod(Date deadline) {
+     *  <pre> {@code
+     * boolean aMethod(Date deadline) {
      *   boolean stillWaiting = true;
-     *   while (!conditionBeingWaitedFor) {
-     *     if (stillWaiting)
-     *         stillWaiting = theCondition.awaitUntil(deadline);
-     *      else
-     *        return false;
+     *   lock.lock();
+     *   try {
+     *     while (!conditionBeingWaitedFor()) {
+     *       if (!stillWaiting)
+     *         return false;
+     *       stillWaiting = theCondition.awaitUntil(deadline);
+     *     }
+     *     // ...
+     *   } finally {
+     *     lock.unlock();
      *   }
-     *   // ...
-     * }
-     * </pre>
+     * }}</pre>
      *
      * <p><b>Implementation Considerations</b>
-     * {@description.close}
      *
-     * {@property.open}
      * <p>The current thread is assumed to hold the lock associated with this
      * {@code Condition} when this method is called.
      * It is up to the implementation to determine if this is
      * the case and if not, how to respond. Typically, an exception will be
      * thrown (such as {@link IllegalMonitorStateException}) and the
      * implementation must document that fact.
-     * {@property.close}
      *
-     * {@description.open}
      * <p>An implementation can favor responding to an interrupt over normal
      * method return in response to a signal, or over indicating the passing
      * of the specified deadline. In either case the implementation
      * must ensure that the signal is redirected to another waiting thread, if
      * there is one.
-     * {@description.close}
      *
      * @param deadline the absolute time to wait until
      * @return {@code false} if the deadline has elapsed upon return, else
@@ -489,25 +473,39 @@ public interface Condition {
      */
     boolean awaitUntil(Date deadline) throws InterruptedException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Wakes up one waiting thread.
      *
      * <p>If any threads are waiting on this condition then one
      * is selected for waking up. That thread must then re-acquire the
      * lock before returning from {@code await}.
-     * {@description.close}
+     *
+     * <p><b>Implementation Considerations</b>
+     *
+     * <p>An implementation may (and typically does) require that the
+     * current thread hold the lock associated with this {@code
+     * Condition} when this method is called. Implementations must
+     * document this precondition and any actions taken if the lock is
+     * not held. Typically, an exception such as {@link
+     * IllegalMonitorStateException} will be thrown.
      */
     void signal();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Wakes up all waiting threads.
      *
      * <p>If any threads are waiting on this condition then they are
      * all woken up. Each thread must re-acquire the lock before it can
      * return from {@code await}.
-     * {@description.close}
+     *
+     * <p><b>Implementation Considerations</b>
+     *
+     * <p>An implementation may (and typically does) require that the
+     * current thread hold the lock associated with this {@code
+     * Condition} when this method is called. Implementations must
+     * document this precondition and any actions taken if the lock is
+     * not held. Typically, an exception such as {@link
+     * IllegalMonitorStateException} will be thrown.
      */
     void signalAll();
 }

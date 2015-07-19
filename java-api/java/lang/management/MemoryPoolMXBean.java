@@ -1,31 +1,31 @@
 /*
- * Copyright (c) 2003, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
 
-/** {@collect.stats} 
+/**
  * The management interface for a memory pool.  A memory pool
  * represents the memory resource managed by the Java virtual machine
  * and is managed by one or more {@link MemoryManagerMXBean memory managers}.
@@ -46,7 +46,10 @@ package java.lang.management;
  *    <tt>java.lang:type=MemoryPool</tt>}<tt>,name=</tt><i>pool's name</i>
  * </blockquote>
  *
- * <h4>Memory Type</h4>
+ * It can be obtained by calling the
+ * {@link PlatformManagedObject#getObjectName} method.
+ *
+ * <h3>Memory Type</h3>
  * <p>The Java virtual machine has a heap for object allocation and also
  * maintains non-heap memory for the method area and the Java virtual
  * machine execution.  The Java virtual machine can have one or more
@@ -57,7 +60,7 @@ package java.lang.management;
  *   <li>{@link MemoryType#NON_HEAP non-heap}</li>
  * </ul>
  *
- * <h4>Memory Usage Monitoring</h4>
+ * <h3>Memory Usage Monitoring</h3>
  *
  * A memory pool has the following attributes:
  * <ul>
@@ -68,7 +71,7 @@ package java.lang.management;
  *       (only supported by some <em>garbage-collected</em> memory pools)</li>
  * </ul>
  *
- * <h4><a name="Usage">1. Memory Usage</a></h4>
+ * <h3><a name="Usage">1. Memory Usage</a></h3>
  *
  * The {@link #getUsage} method provides an estimate
  * of the current usage of a memory pool.
@@ -83,14 +86,14 @@ package java.lang.management;
  * the current memory usage.  An implementation should document when
  * this is the case.
  *
- * <h4><a name="PeakUsage">2. Peak Memory Usage</a></h4>
+ * <h3><a name="PeakUsage">2. Peak Memory Usage</a></h3>
  *
  * The Java virtual machine maintains the peak memory usage of a memory
  * pool since the virtual machine was started or the peak was reset.
  * The peak memory usage is returned by the {@link #getPeakUsage} method
  * and reset by calling the {@link #resetPeakUsage} method.
  *
- * <h4><a name="UsageThreshold">3. Usage Threshold</a></h4>
+ * <h3><a name="UsageThreshold">3. Usage Threshold</a></h3>
  *
  * Each memory pool has a manageable attribute
  * called the <i>usage threshold</i> which has a default value supplied
@@ -144,7 +147,7 @@ package java.lang.management;
  *       by calling either the {@link #getUsage} method for all
  *       memory pools or the {@link #isUsageThresholdExceeded} method
  *       for those memory pools that support a usage threshold.
- *       Below is example code that has a thread delicated for
+ *       Below is example code that has a thread dedicated for
  *       task distribution and processing.  At every interval,
  *       it will determine if it should receive and process new tasks based
  *       on its memory usage.  If the memory usage exceeds its usage threshold,
@@ -188,7 +191,7 @@ package java.lang.management;
  * <hr>
  *       The above example does not differentiate the case where
  *       the memory usage has temporarily dropped below the usage threshold
- *       from the case where the memory usage remains above the threshould
+ *       from the case where the memory usage remains above the threshold
  *       between two iterations.  The usage threshold count returned by
  *       the {@link #getUsageThresholdCount} method
  *       can be used to determine
@@ -301,7 +304,7 @@ package java.lang.management;
  *   </li>
  * </ol>
  *
- * <h4><a name="CollectionThreshold">4. Collection Usage Threshold</a></h4>
+ * <h3><a name="CollectionThreshold">4. Collection Usage Threshold</a></h3>
  *
  * Collection usage threshold is a manageable attribute only applicable
  * to some garbage-collected memory pools.
@@ -349,6 +352,7 @@ package java.lang.management;
  * described above for the <a href="#UsageThreshold">usage threshold</a>
  * in a similar fashion.
  *
+ * @see ManagementFactory#getPlatformMXBeans(Class)
  * @see <a href="../../../javax/management/package-summary.html">
  *      JMX Specification.</a>
  * @see <a href="package-summary.html#examples">
@@ -357,15 +361,15 @@ package java.lang.management;
  * @author  Mandy Chung
  * @since   1.5
  */
-public interface MemoryPoolMXBean {
-    /** {@collect.stats} 
+public interface MemoryPoolMXBean extends PlatformManagedObject {
+    /** {@collect.stats}
      * Returns the name representing this memory pool.
      *
      * @return the name of this memory pool.
      */
     public String getName();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the type of this memory pool.
      *
      * <p>
@@ -377,7 +381,7 @@ public interface MemoryPoolMXBean {
      */
     public MemoryType getType();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns an estimate of the memory usage of this memory pool.
      * This method returns <tt>null</tt>
      * if this memory pool is not valid (i.e. no longer exists).
@@ -404,7 +408,7 @@ public interface MemoryPoolMXBean {
      */
     public MemoryUsage getUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the peak memory usage of this memory pool since the
      * Java virtual machine was started or since the peak was reset.
      * This method returns <tt>null</tt>
@@ -422,7 +426,7 @@ public interface MemoryPoolMXBean {
      */
     public MemoryUsage getPeakUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Resets the peak memory usage statistic of this memory pool
      * to the current memory usage.
      *
@@ -432,7 +436,7 @@ public interface MemoryPoolMXBean {
      */
     public void resetPeakUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if this memory pool is valid in the Java virtual
      * machine.  A memory pool becomes invalid once the Java virtual
      * machine removes it from the memory system.
@@ -443,7 +447,7 @@ public interface MemoryPoolMXBean {
      */
     public boolean isValid();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the name of memory managers that manages this memory pool.
      * Each memory pool will be managed by at least one memory manager.
      *
@@ -452,7 +456,7 @@ public interface MemoryPoolMXBean {
      */
     public String[] getMemoryManagerNames();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the usage threshold value of this memory pool in bytes.
      * Each memory pool has a platform-dependent default threshold value.
      * The current usage threshold can be changed via the
@@ -467,7 +471,7 @@ public interface MemoryPoolMXBean {
      */
     public long getUsageThreshold();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Sets the threshold of this memory pool to the given <tt>threshold</tt>
      * value if this memory pool supports the usage threshold.
      * The usage threshold crossing checking is enabled in this memory pool
@@ -493,7 +497,7 @@ public interface MemoryPoolMXBean {
      */
     public void setUsageThreshold(long threshold);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if the memory usage of this memory pool
      * reaches or exceeds its usage threshold value.
      *
@@ -506,7 +510,7 @@ public interface MemoryPoolMXBean {
      */
     public boolean isUsageThresholdExceeded();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the number of times that the memory usage has crossed
      * the usage threshold.
      *
@@ -518,7 +522,7 @@ public interface MemoryPoolMXBean {
      */
     public long getUsageThresholdCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if this memory pool supports usage threshold.
      *
      * @return <tt>true</tt> if this memory pool supports usage threshold;
@@ -526,7 +530,7 @@ public interface MemoryPoolMXBean {
      */
     public boolean isUsageThresholdSupported();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the collection usage threshold value of this memory pool
      * in bytes.  The default value is zero. The collection usage
      * threshold can be changed via the
@@ -541,7 +545,7 @@ public interface MemoryPoolMXBean {
      */
     public long getCollectionUsageThreshold();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Sets the collection usage threshold of this memory pool to
      * the given <tt>threshold</tt> value.
      * When this threshold is set to positive, the Java virtual machine
@@ -572,7 +576,7 @@ public interface MemoryPoolMXBean {
      */
     public void setCollectionUsageThreshold(long threshold);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if the memory usage of this memory pool after
      * the most recent collection on which the Java virtual
      * machine has expended effort has reached or
@@ -591,7 +595,7 @@ public interface MemoryPoolMXBean {
      */
     public boolean isCollectionUsageThresholdExceeded();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the number of times that the Java virtual machine
      * has detected that the memory usage has reached or
      * exceeded the collection usage threshold.
@@ -606,7 +610,7 @@ public interface MemoryPoolMXBean {
      */
     public long getCollectionUsageThresholdCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the memory usage after the Java virtual machine
      * most recently expended effort in recycling unused objects
      * in this memory pool.
@@ -629,7 +633,7 @@ public interface MemoryPoolMXBean {
      */
     public MemoryUsage getCollectionUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if this memory pool supports a collection usage threshold.
      *
      * @return <tt>true</tt> if this memory pool supports the

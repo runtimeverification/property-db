@@ -1,34 +1,33 @@
 /*
- * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.ref;
 
 import sun.misc.Cleaner;
 
-
-/** {@collect.stats} 
+/** {@collect.stats}
  * Abstract base class for reference objects.  This class defines the
  * operations common to all reference objects.  Because reference objects are
  * implemented in close cooperation with the garbage collector, this class may
@@ -69,7 +68,7 @@ public abstract class Reference<T> {
      *     null.
      *
      *     Pending: queue = ReferenceQueue with which instance is registered;
-     *     next = Following instance in queue, or this if at end of list.
+     *     next = this
      *
      *     Enqueued: queue = ReferenceQueue.ENQUEUED; next = Following instance
      *     in queue, or this if at end of list.
@@ -81,17 +80,29 @@ public abstract class Reference<T> {
      * the next field is null then the instance is active; if it is non-null,
      * then the collector should treat the instance normally.
      *
-     * To ensure that concurrent collector can discover active Reference
+     * To ensure that a concurrent collector can discover active Reference
      * objects without interfering with application threads that may apply
      * the enqueue() method to those objects, collectors should link
-     * discovered objects through the discovered field.
+     * discovered objects through the discovered field. The discovered
+     * field is also used for linking Reference objects in the pending list.
      */
 
     private T referent;         /* Treated specially by GC */
 
-    ReferenceQueue<? super T> queue;
+    volatile ReferenceQueue<? super T> queue;
 
+    /* When active:   NULL
+     *     pending:   this
+     *    Enqueued:   next reference in queue (or this if last)
+     *    Inactive:   this
+     */
+    @SuppressWarnings("rawtypes")
     Reference next;
+
+    /* When active:   next element in a discovered reference list maintained by GC (or this if last)
+     *     pending:   next element in the pending list (or null if last)
+     *   otherwise:   NULL
+     */
     transient private Reference<T> discovered;  /* used by VM */
 
 
@@ -106,9 +117,10 @@ public abstract class Reference<T> {
 
     /* List of References waiting to be enqueued.  The collector adds
      * References to this list, while the Reference-handler thread removes
-     * them.  This list is protected by the above lock object.
+     * them.  This list is protected by the above lock object. The
+     * list uses the discovered field to link its elements.
      */
-    private static Reference pending = null;
+    private static Reference<Object> pending = null;
 
     /* High-priority thread to enqueue pending References
      */
@@ -120,17 +132,30 @@ public abstract class Reference<T> {
 
         public void run() {
             for (;;) {
-
-                Reference r;
+                Reference<Object> r;
                 synchronized (lock) {
                     if (pending != null) {
                         r = pending;
-                        Reference rn = r.next;
-                        pending = (rn == r) ? null : rn;
-                        r.next = r;
+                        pending = r.discovered;
+                        r.discovered = null;
                     } else {
+                        // The waiting on the lock may cause an OOME because it may try to allocate
+                        // exception objects, so also catch OOME here to avoid silent exit of the
+                        // reference handler thread.
+                        //
+                        // Explicitly define the order of the two exceptions we catch here
+                        // when waiting for the lock.
+                        //
+                        // We do not want to try to potentially load the InterruptedException class
+                        // (which would be done if this was its first use, and InterruptedException
+                        // were checked first) in this situation.
+                        //
+                        // This may lead to the VM not ever trying to load the InterruptedException
+                        // class again.
                         try {
-                            lock.wait();
+                            try {
+                                lock.wait();
+                            } catch (OutOfMemoryError x) { }
                         } catch (InterruptedException x) { }
                         continue;
                     }
@@ -142,7 +167,7 @@ public abstract class Reference<T> {
                     continue;
                 }
 
-                ReferenceQueue q = r.queue;
+                ReferenceQueue<Object> q = r.queue;
                 if (q != ReferenceQueue.NULL) q.enqueue(r);
             }
         }
@@ -165,7 +190,7 @@ public abstract class Reference<T> {
 
     /* -- Referent accessor and setters -- */
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns this reference object's referent.  If this reference object has
      * been cleared, either by the program or by the garbage collector, then
      * this method returns <code>null</code>.
@@ -177,7 +202,7 @@ public abstract class Reference<T> {
         return this.referent;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Clears this reference object.  Invoking this method will not cause this
      * object to be enqueued.
      *
@@ -191,7 +216,7 @@ public abstract class Reference<T> {
 
     /* -- Queue operations -- */
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tells whether or not this reference object has been enqueued, either by
      * the program or by the garbage collector.  If this reference object was
      * not registered with a queue when it was created, then this method will
@@ -201,14 +226,10 @@ public abstract class Reference<T> {
      *           been enqueued
      */
     public boolean isEnqueued() {
-        /* In terms of the internal states, this predicate actually tests
-           whether the instance is either Pending or Enqueued */
-        synchronized (this) {
-            return (this.queue != ReferenceQueue.NULL) && (this.next != null);
-        }
+        return (this.queue == ReferenceQueue.ENQUEUED);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Adds this reference object to the queue with which it is registered,
      * if any.
      *

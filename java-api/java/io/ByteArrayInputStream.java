@@ -1,45 +1,47 @@
 /*
- * Copyright (c) 1994, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 /** {@collect.stats}
- * {@description.open}
- * A <code>ByteArrayInputStream</code> contains
+ *      
+* {@description.open}
+     * A <code>ByteArrayInputStream</code> contains
  * an internal buffer that contains bytes that
  * may be read from the stream. An internal
  * counter keeps track of the next byte to
  * be supplied by the <code>read</code> method.
- * {@description.close}
- * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
- * <p>
- * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
+
+     * {@description.close} * <p>
+ *      
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
- * {@property.close}
- *
+
+     * {@property.close} *
  * @author  Arthur van Hoff
  * @see     java.io.StringBufferInputStream
  * @since   JDK1.0
@@ -48,66 +50,74 @@ public
 class ByteArrayInputStream extends InputStream {
 
     /** {@collect.stats}
-     * {@property.open internal}
+     *      
+* {@property.open internal}
      * An array of bytes that was provided
      * by the creator of the stream. Elements <code>buf[0]</code>
      * through <code>buf[count-1]</code> are the
      * only bytes that can ever be read from the
      * stream;  element <code>buf[pos]</code> is
      * the next byte to be read.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     protected byte buf[];
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The index of the next character to read from the input stream buffer.
      * This value should always be nonnegative
      * and not larger than the value of <code>count</code>.
      * The next byte to be read from the input stream buffer
      * will be <code>buf[pos]</code>.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected int pos;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The currently marked position in the stream.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_MarkReset}
+
+     * {@description.close}     *      
+* {@property.open runtime formal:java.io.InputStream_MarkReset}
      * ByteArrayInputStream objects are marked at position zero by
      * default when constructed.  They may be marked at another
      * position within the buffer by the <code>mark()</code> method.
      * The current buffer position is set to this point by the
      * <code>reset()</code> method.
-     * {@property.close}
-     * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
-     * <p>
+
+     * {@property.close}     * <p>
+     *      
+* {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
      * If no mark has been set, then the value of mark is the offset
      * passed to the constructor (or 0 if the offset was not supplied).
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @since   JDK1.1
      */
     protected int mark = 0;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The index one greater than the last valid character in the input
      * stream buffer.
-     * {@description.close}
-     * {@property.open internal}
+
+     * {@description.close}     *      
+* {@property.open internal}
      * This value should always be nonnegative
      * and not larger than the length of <code>buf</code>.
      * It  is one greater than the position of
      * the last byte within <code>buf</code> that
      * can ever be read  from the input stream buffer.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     protected int count;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a <code>ByteArrayInputStream</code>
      * so that it  uses <code>buf</code> as its
      * buffer array.
@@ -116,8 +126,8 @@ class ByteArrayInputStream extends InputStream {
      * is <code>0</code> and the initial value
      * of  <code>count</code> is the length of
      * <code>buf</code>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   buf   the input buffer.
      */
     public ByteArrayInputStream(byte buf[]) {
@@ -127,7 +137,8 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates <code>ByteArrayInputStream</code>
      * that uses <code>buf</code> as its
      * buffer array. The initial value of <code>pos</code>
@@ -136,8 +147,8 @@ class ByteArrayInputStream extends InputStream {
      * and <code>buf.length</code>.
      * The buffer array is not copied. The buffer's mark is
      * set to the specified offset.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   buf      the input buffer.
      * @param   offset   the offset in the buffer of the first byte to read.
      * @param   length   the maximum number of bytes to read from the buffer.
@@ -149,19 +160,15 @@ class ByteArrayInputStream extends InputStream {
         this.mark = offset;
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /**
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
-     * {@description.close}
-     * {@description.open blocking}
      * <p>
      * This <code>read</code> method
      * cannot block.
-     * {@description.close}
      *
      * @return  the next byte of data, or <code>-1</code> if the end of the
      *          stream has been reached.
@@ -170,8 +177,7 @@ class ByteArrayInputStream extends InputStream {
         return (pos < count) ? (buf[pos++] & 0xff) : -1;
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /**
      * Reads up to <code>len</code> bytes of data into an array of bytes
      * from this input stream.
      * If <code>pos</code> equals <code>count</code>,
@@ -186,11 +192,8 @@ class ByteArrayInputStream extends InputStream {
      * by <code>System.arraycopy</code>. The
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
-     * {@description.close}
-     * {@description.open blocking}
      * <p>
      * This <code>read</code> method cannot block.
-     * {@description.close}
      *
      * @param   b     the buffer into which the data is read.
      * @param   off   the start offset in the destination array <code>b</code>
@@ -209,11 +212,14 @@ class ByteArrayInputStream extends InputStream {
         } else if (off < 0 || len < 0 || len > b.length - off) {
             throw new IndexOutOfBoundsException();
         }
+
         if (pos >= count) {
             return -1;
         }
-        if (pos + len > count) {
-            len = count - pos;
+
+        int avail = count - pos;
+        if (len > avail) {
+            len = avail;
         }
         if (len <= 0) {
             return 0;
@@ -224,7 +230,8 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Skips <code>n</code> bytes of input from this input stream. Fewer
      * bytes might be skipped if the end of the input stream is reached.
      * The actual number <code>k</code>
@@ -232,31 +239,31 @@ class ByteArrayInputStream extends InputStream {
      * of <code>n</code> and  <code>count-pos</code>.
      * The value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   n   the number of bytes to be skipped.
      * @return  the actual number of bytes skipped.
      */
     public synchronized long skip(long n) {
-        if (pos + n > count) {
-            n = count - pos;
+        long k = count - pos;
+        if (n < k) {
+            k = n < 0 ? 0 : n;
         }
-        if (n < 0) {
-            return 0;
-        }
-        pos += n;
-        return n;
+
+        pos += k;
+        return k;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Returns the number of remaining bytes that can be read (or skipped over)
      * from this input stream.
      * <p>
      * The value returned is <code>count&nbsp;- pos</code>,
      * which is the number of bytes remaining to be read from the input buffer.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the number of remaining bytes that can be read (or skipped
      *          over) from this input stream without blocking.
      */
@@ -265,15 +272,16 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Tests if this <code>InputStream</code> supports mark/reset.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_MarkReset}
+     * {@description.close}      
+* {@property.open runtime formal:java.io.InputStream_MarkReset}
      * The
      * <code>markSupported</code> method of <code>ByteArrayInputStream</code>
      * always returns <code>true</code>.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @since   JDK1.1
      */
     public boolean markSupported() {
@@ -281,24 +289,27 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Set the current marked position in the stream.
      * ByteArrayInputStream objects are marked at position zero by
-     * default when constructed. They may be marked at another
+     * default when constructed.  They may be marked at another
      * position within the buffer by this method.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
-     * <p>
+
+     * {@description.close}     * <p>
+     *      
+* {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
      * If no mark has been set, then the value of the mark is the
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
-     * {@property.close}
-     *
-     * {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
-     * <p> Note: The <code>readAheadLimit</code> for this class
+
+     * {@property.close}     *
+     * <p>      
+* {@property.open runtime formal:java.io.InputStream_ReadAheadLimit}
+     * Note: The <code>readAheadLimit</code> for this class
      *  has no meaning.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @since   JDK1.1
      */
     public void mark(int readAheadLimit) {
@@ -306,30 +317,31 @@ class ByteArrayInputStream extends InputStream {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Resets the buffer to the marked position.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
+     * {@description.close}       
+* {@property.open runtime formal:java.io.InputStream_UnmarkedReset}
      * The marked position
      * is 0 unless another position was marked or an offset was specified
      * in the constructor.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public synchronized void reset() {
         pos = mark;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Closing a <tt>ByteArrayInputStream</tt> has no effect.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     * {@description.close}      
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
      * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
-     * <p>
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public void close() throws IOException {
     }
 

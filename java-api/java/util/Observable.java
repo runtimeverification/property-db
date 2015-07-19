@@ -1,32 +1,31 @@
 /*
- * Copyright (c) 1994, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2012, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * This class represents an observable object, or "data"
  * in the model-view paradigm. It can be subclassed to represent an
  * object that the application wants to have observed.
@@ -45,14 +44,13 @@ package java.util;
  * notifications on separate threads, or may guarantee that their
  * subclass follows this order, as they choose.
  * <p>
- * Note that this notification mechanism is has nothing to do with threads
+ * Note that this notification mechanism has nothing to do with threads
  * and is completely separate from the <tt>wait</tt> and <tt>notify</tt>
  * mechanism of class <tt>Object</tt>.
  * <p>
  * When an observable object is newly created, its set of observers is
  * empty. Two observers are considered the same if and only if the
  * <tt>equals</tt> method returns true for them.
- * {@description.close}
  *
  * @author  Chris Warth
  * @see     java.util.Observable#notifyObservers()
@@ -63,25 +61,22 @@ package java.util;
  */
 public class Observable {
     private boolean changed = false;
-    private Vector obs;
+    private Vector<Observer> obs;
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Construct an Observable with zero Observers.
-     * {@description.close}
-     */
+     * {@description.close} */
 
     public Observable() {
-        obs = new Vector();
+        obs = new Vector<>();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Adds an observer to the set of observers for this object, provided
      * that it is not the same as some observer already in the set.
      * The order in which notifications will be delivered to multiple
      * observers is not specified. See the class comment.
-     * {@description.close}
      *
      * @param   o   an observer to be added.
      * @throws NullPointerException   if the parameter o is null.
@@ -94,19 +89,16 @@ public class Observable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Deletes an observer from the set of observers of this object.
      * Passing <CODE>null</CODE> to this method will have no effect.
-     * {@description.close}
      * @param   o   the observer to be deleted.
      */
     public synchronized void deleteObserver(Observer o) {
         obs.removeElement(o);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * If this object has changed, as indicated by the
      * <code>hasChanged</code> method, then notify all of its observers
      * and then call the <code>clearChanged</code> method to
@@ -117,7 +109,6 @@ public class Observable {
      * words, this method is equivalent to:
      * <blockquote><tt>
      * notifyObservers(null)</tt></blockquote>
-     * {@description.close}
      *
      * @see     java.util.Observable#clearChanged()
      * @see     java.util.Observable#hasChanged()
@@ -127,8 +118,7 @@ public class Observable {
         notifyObservers(null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * If this object has changed, as indicated by the
      * <code>hasChanged</code> method, then notify all of its observers
      * and then call the <code>clearChanged</code> method to indicate
@@ -136,7 +126,6 @@ public class Observable {
      * <p>
      * Each observer has its <code>update</code> method called with two
      * arguments: this observable object and the <code>arg</code> argument.
-     * {@description.close}
      *
      * @param   arg   any object.
      * @see     java.util.Observable#clearChanged()
@@ -173,33 +162,27 @@ public class Observable {
             ((Observer)arrLocal[i]).update(this, arg);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Clears the observer list so that this object no longer has any observers.
-     * {@description.close}
      */
     public synchronized void deleteObservers() {
         obs.removeAllElements();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Marks this <tt>Observable</tt> object as having been changed; the
      * <tt>hasChanged</tt> method will now return <tt>true</tt>.
-     * {@description.close}
      */
     protected synchronized void setChanged() {
         changed = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Indicates that this object has no longer changed, or that it has
      * already notified all of its observers of its most recent change,
      * so that the <tt>hasChanged</tt> method will now return <tt>false</tt>.
      * This method is called automatically by the
      * <code>notifyObservers</code> methods.
-     * {@description.close}
      *
      * @see     java.util.Observable#notifyObservers()
      * @see     java.util.Observable#notifyObservers(java.lang.Object)
@@ -208,10 +191,8 @@ public class Observable {
         changed = false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Tests if this object has changed.
-     * {@description.close}
      *
      * @return  <code>true</code> if and only if the <code>setChanged</code>
      *          method has been called more recently than the
@@ -224,10 +205,8 @@ public class Observable {
         return changed;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of observers of this <tt>Observable</tt> object.
-     * {@description.close}
      *
      * @return  the number of observers of this object.
      */

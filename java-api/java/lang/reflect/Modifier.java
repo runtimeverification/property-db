@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.reflect;
@@ -29,19 +29,13 @@ import java.security.AccessController;
 import sun.reflect.LangReflectAccess;
 import sun.reflect.ReflectionFactory;
 
-/** {@collect.stats} 
+/**
  * The Modifier class provides {@code static} methods and
  * constants to decode class and member access modifiers.  The sets of
  * modifiers are represented as integers with distinct bit positions
  * representing different modifiers.  The values for the constants
- * representing the modifiers are taken from <a
- * href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/VMSpecTOC.doc.html"><i>The
- * Java</i><sup><small>TM</small></sup> <i>Virtual Machine Specification, Second
- * edition</i></a> tables
- * <a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#75734">4.1</a>,
- * <a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#88358">4.4</a>,
- * <a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#75568">4.5</a>, and
- * <a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#88478">4.7</a>.
+ * representing the modifiers are taken from the tables in sections 4.1, 4.4, 4.5, and 4.7 of
+ * <cite>The Java&trade; Virtual Machine Specification</cite>.
  *
  * @see Class#getModifiers()
  * @see Member#getModifiers()
@@ -49,8 +43,7 @@ import sun.reflect.ReflectionFactory;
  * @author Nakul Saraiya
  * @author Kenneth Russell
  */
-public
-class Modifier {
+public class Modifier {
 
     /*
      * Bootstrapping protocol between java.lang and java.lang.reflect
@@ -58,13 +51,12 @@ class Modifier {
      */
     static {
         sun.reflect.ReflectionFactory factory =
-            (sun.reflect.ReflectionFactory) AccessController.doPrivileged(
-                new ReflectionFactory.GetReflectionFactoryAction()
-            );
+            AccessController.doPrivileged(
+                new ReflectionFactory.GetReflectionFactoryAction());
         factory.setLangReflectAccess(new java.lang.reflect.ReflectAccess());
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code public} modifier, {@code false} otherwise.
      *
@@ -76,7 +68,7 @@ class Modifier {
         return (mod & PUBLIC) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code private} modifier, {@code false} otherwise.
      *
@@ -88,7 +80,7 @@ class Modifier {
         return (mod & PRIVATE) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code protected} modifier, {@code false} otherwise.
      *
@@ -100,7 +92,7 @@ class Modifier {
         return (mod & PROTECTED) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code static} modifier, {@code false} otherwise.
      *
@@ -112,7 +104,7 @@ class Modifier {
         return (mod & STATIC) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code final} modifier, {@code false} otherwise.
      *
@@ -124,7 +116,7 @@ class Modifier {
         return (mod & FINAL) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code synchronized} modifier, {@code false} otherwise.
      *
@@ -136,7 +128,7 @@ class Modifier {
         return (mod & SYNCHRONIZED) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code volatile} modifier, {@code false} otherwise.
      *
@@ -148,7 +140,7 @@ class Modifier {
         return (mod & VOLATILE) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code transient} modifier, {@code false} otherwise.
      *
@@ -160,7 +152,7 @@ class Modifier {
         return (mod & TRANSIENT) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code native} modifier, {@code false} otherwise.
      *
@@ -172,7 +164,7 @@ class Modifier {
         return (mod & NATIVE) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code interface} modifier, {@code false} otherwise.
      *
@@ -184,7 +176,7 @@ class Modifier {
         return (mod & INTERFACE) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code abstract} modifier, {@code false} otherwise.
      *
@@ -196,7 +188,7 @@ class Modifier {
         return (mod & ABSTRACT) != 0;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Return {@code true} if the integer argument includes the
      * {@code strictfp} modifier, {@code false} otherwise.
      *
@@ -208,21 +200,15 @@ class Modifier {
         return (mod & STRICT) != 0;
     }
 
-    /** {@collect.stats} 
+    /**
      * Return a string describing the access modifier flags in
      * the specified modifier. For example:
      * <blockquote><pre>
      *    public final synchronized strictfp
      * </pre></blockquote>
      * The modifier names are returned in an order consistent with the
-     * suggested modifier orderings given in <a
-     * href="http://java.sun.com/docs/books/jls/second_edition/html/j.title.doc.html"><em>The
-     * Java Language Specification, Second Edition</em></a> sections
-     * <a href="http://java.sun.com/docs/books/jls/second_edition/html/classes.doc.html#21613">&sect;8.1.1</a>,
-     * <a href="http://java.sun.com/docs/books/jls/second_edition/html/classes.doc.html#78091">&sect;8.3.1</a>,
-     * <a href="http://java.sun.com/docs/books/jls/second_edition/html/classes.doc.html#78188">&sect;8.4.3</a>,
-     * <a href="http://java.sun.com/docs/books/jls/second_edition/html/classes.doc.html#42018">&sect;8.8.3</a>, and
-     * <a href="http://java.sun.com/docs/books/jls/second_edition/html/interfaces.doc.html#235947">&sect;9.1.1</a>.
+     * suggested modifier orderings given in sections 8.1.1, 8.3.1, 8.4.3, 8.8.3, and 9.1.1 of
+     * <cite>The Java&trade; Language Specification</cite>.
      * The full modifier ordering used by this method is:
      * <blockquote> {@code
      * public protected private abstract static final transient
@@ -236,12 +222,17 @@ class Modifier {
      * possible validity of the combination of modifiers represented
      * by the input.
      *
+     * Note that to perform such checking for a known kind of entity,
+     * such as a constructor or method, first AND the argument of
+     * {@code toString} with the appropriate mask from a method like
+     * {@link #constructorModifiers} or {@link #methodModifiers}.
+     *
      * @param   mod a set of modifiers
      * @return  a string representation of the set of modifiers
      * represented by {@code mod}
      */
     public static String toString(int mod) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         int len;
 
         if ((mod & PUBLIC) != 0)        sb.append("public ");
@@ -265,78 +256,77 @@ class Modifier {
     }
 
     /*
-     * Access modifier flag constants from <em>The Java Virtual
-     * Machine Specification, Second Edition</em>, tables 4.1, 4.4,
-     * 4.5, and 4.7.
+     * Access modifier flag constants from tables 4.1, 4.4, 4.5, and 4.7 of
+     * <cite>The Java&trade; Virtual Machine Specification</cite>
      */
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code public}
      * modifier.
      */
     public static final int PUBLIC           = 0x00000001;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code private}
      * modifier.
      */
     public static final int PRIVATE          = 0x00000002;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code protected}
      * modifier.
      */
     public static final int PROTECTED        = 0x00000004;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code static}
      * modifier.
      */
     public static final int STATIC           = 0x00000008;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code final}
      * modifier.
      */
     public static final int FINAL            = 0x00000010;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code synchronized}
      * modifier.
      */
     public static final int SYNCHRONIZED     = 0x00000020;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code volatile}
      * modifier.
      */
     public static final int VOLATILE         = 0x00000040;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code transient}
      * modifier.
      */
     public static final int TRANSIENT        = 0x00000080;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code native}
      * modifier.
      */
     public static final int NATIVE           = 0x00000100;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code interface}
      * modifier.
      */
     public static final int INTERFACE        = 0x00000200;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code abstract}
      * modifier.
      */
     public static final int ABSTRACT         = 0x00000400;
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * The {@code int} value representing the {@code strictfp}
      * modifier.
      */
@@ -349,9 +339,158 @@ class Modifier {
     static final int BRIDGE    = 0x00000040;
     static final int VARARGS   = 0x00000080;
     static final int SYNTHETIC = 0x00001000;
-    static final int ANNOTATION= 0x00002000;
+    static final int ANNOTATION  = 0x00002000;
     static final int ENUM      = 0x00004000;
+    static final int MANDATED  = 0x00008000;
     static boolean isSynthetic(int mod) {
       return (mod & SYNTHETIC) != 0;
+    }
+
+    static boolean isMandated(int mod) {
+      return (mod & MANDATED) != 0;
+    }
+
+    // Note on the FOO_MODIFIERS fields and fooModifiers() methods:
+    // the sets of modifiers are not guaranteed to be constants
+    // across time and Java SE releases. Therefore, it would not be
+    // appropriate to expose an external interface to this information
+    // that would allow the values to be treated as Java-level
+    // constants since the values could be constant folded and updates
+    // to the sets of modifiers missed. Thus, the fooModifiers()
+    // methods return an unchanging values for a given release, but a
+    // value that can potentially change over time.
+
+    /**
+     * The Java source modifiers that can be applied to a class.
+     * @jls 8.1.1 Class Modifiers
+     */
+    private static final int CLASS_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE |
+        Modifier.ABSTRACT       | Modifier.STATIC       | Modifier.FINAL   |
+        Modifier.STRICT;
+
+    /**
+     * The Java source modifiers that can be applied to an interface.
+     * @jls 9.1.1 Interface Modifiers
+     */
+    private static final int INTERFACE_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE |
+        Modifier.ABSTRACT       | Modifier.STATIC       | Modifier.STRICT;
+
+
+    /**
+     * The Java source modifiers that can be applied to a constructor.
+     * @jls 8.8.3 Constructor Modifiers
+     */
+    private static final int CONSTRUCTOR_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE;
+
+    /**
+     * The Java source modifiers that can be applied to a method.
+     * @jls8.4.3  Method Modifiers
+     */
+    private static final int METHOD_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE |
+        Modifier.ABSTRACT       | Modifier.STATIC       | Modifier.FINAL   |
+        Modifier.SYNCHRONIZED   | Modifier.NATIVE       | Modifier.STRICT;
+
+    /**
+     * The Java source modifiers that can be applied to a field.
+     * @jls 8.3.1  Field Modifiers
+     */
+    private static final int FIELD_MODIFIERS =
+        Modifier.PUBLIC         | Modifier.PROTECTED    | Modifier.PRIVATE |
+        Modifier.STATIC         | Modifier.FINAL        | Modifier.TRANSIENT |
+        Modifier.VOLATILE;
+
+    /**
+     * The Java source modifiers that can be applied to a method or constructor parameter.
+     * @jls 8.4.1 Formal Parameters
+     */
+    private static final int PARAMETER_MODIFIERS =
+        Modifier.FINAL;
+
+    /** {@collect.stats}
+     *
+     */
+    static final int ACCESS_MODIFIERS =
+        Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE;
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a class.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a class.
+     *
+     * @jls 8.1.1 Class Modifiers
+     * @since 1.7
+     */
+    public static int classModifiers() {
+        return CLASS_MODIFIERS;
+    }
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to an interface.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to an interface.
+     *
+     * @jls 9.1.1 Interface Modifiers
+     * @since 1.7
+     */
+    public static int interfaceModifiers() {
+        return INTERFACE_MODIFIERS;
+    }
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a constructor.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a constructor.
+     *
+     * @jls 8.8.3 Constructor Modifiers
+     * @since 1.7
+     */
+    public static int constructorModifiers() {
+        return CONSTRUCTOR_MODIFIERS;
+    }
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a method.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a method.
+     *
+     * @jls 8.4.3 Method Modifiers
+     * @since 1.7
+     */
+    public static int methodModifiers() {
+        return METHOD_MODIFIERS;
+    }
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a field.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a field.
+     *
+     * @jls 8.3.1 Field Modifiers
+     * @since 1.7
+     */
+    public static int fieldModifiers() {
+        return FIELD_MODIFIERS;
+    }
+
+    /**
+     * Return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a parameter.
+     * @return an {@code int} value OR-ing together the source language
+     * modifiers that can be applied to a parameter.
+     *
+     * @jls 8.4.1 Formal Parameters
+     * @since 1.8
+     */
+    public static int parameterModifiers() {
+        return PARAMETER_MODIFIERS;
     }
 }

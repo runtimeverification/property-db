@@ -1,41 +1,38 @@
 /*
- * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
-/** {@collect.stats}
- * {@description.open}
+/**
  * Serializability of a class is enabled by the class implementing the
  * java.io.Serializable interface. Classes that do not implement this
  * interface will not have any of their state serialized or
  * deserialized.  All subtypes of a serializable class are themselves
  * serializable.  The serialization interface has no methods or fields
  * and serves only to identify the semantics of being serializable. <p>
- * {@description.close}
  *
- * {@property.open runtime formal:java.io.Serializable_NoArgConstructor}
  * To allow subtypes of non-serializable classes to be serialized, the
  * subtype may assume responsibility for saving and restoring the
  * state of the supertype's public, protected, and (if accessible)
@@ -50,9 +47,7 @@ package java.io;
  * the class.  A no-arg constructor must be accessible to the subclass
  * that is serializable.  The fields of serializable subclasses will
  * be restored from the stream. <p>
- * {@property.close}
  *
- * {@description.open}
  * When traversing a graph, an object may be encountered that does not
  * support the Serializable interface. In this case the
  * NotSerializableException will be thrown and will identify the class
@@ -60,7 +55,7 @@ package java.io;
  *
  * Classes that require special handling during the serialization and
  * deserialization process must implement special methods with these exact
- * signatures: <p>
+ * signatures:
  *
  * <PRE>
  * private void writeObject(java.io.ObjectOutputStream out)
@@ -106,7 +101,7 @@ package java.io;
  *
  * <p>Serializable classes that need to designate an alternative object to be
  * used when writing an object to the stream should implement this
- * special method with the exact signature: <p>
+ * special method with the exact signature:
  *
  * <PRE>
  * ANY-ACCESS-MODIFIER Object writeReplace() throws ObjectStreamException;
@@ -120,7 +115,7 @@ package java.io;
  *
  * Classes that need to designate a replacement when an instance of it
  * is read from the stream should implement this special method with the
- * exact signature.<p>
+ * exact signature.
  *
  * <PRE>
  * ANY-ACCESS-MODIFIER Object readResolve() throws ObjectStreamException;
@@ -138,14 +133,12 @@ package java.io;
  * deserialization will result in an {@link InvalidClassException}.  A
  * serializable class can declare its own serialVersionUID explicitly by
  * declaring a field named <code>"serialVersionUID"</code> that must be static,
- * final, and of type <code>long</code>:<p>
+ * final, and of type <code>long</code>:
  *
  * <PRE>
  * ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
  * </PRE>
- * {@description.close}
  *
- * {@property.open runtime formal:java.io.Serializable_UID}
  * If a serializable class does not explicitly declare a serialVersionUID, then
  * the serialization runtime will calculate a default serialVersionUID value
  * for that class based on various aspects of the class, as described in the
@@ -164,11 +157,6 @@ package java.io;
  * classes cannot declare an explicit serialVersionUID, so they always have
  * the default computed value, but the requirement for matching
  * serialVersionUID values is waived for array classes.
- * {@new.open}
- * A serializable class should declare a private serialVersionUID explicitly
- * for compatibility.
- * {@new.close}
- * {@property.close}
  *
  * @author  unascribed
  * @see java.io.ObjectOutputStream

@@ -1,35 +1,37 @@
 /*
- * Copyright (c) 1994, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.lang.ref.SoftReference;
+import java.time.Instant;
 import sun.util.calendar.BaseCalendar;
 import sun.util.calendar.CalendarDate;
 import sun.util.calendar.CalendarSystem;
@@ -38,8 +40,7 @@ import sun.util.calendar.Era;
 import sun.util.calendar.Gregorian;
 import sun.util.calendar.ZoneInfo;
 
-/** {@collect.stats} 
- * {@description.open}
+/** {@collect.stats}
  * The class <code>Date</code> represents a specific instant
  * in time, with millisecond precision.
  * <p>
@@ -118,7 +119,6 @@ import sun.util.calendar.ZoneInfo;
  * In all cases, arguments given to methods for these purposes need
  * not fall within the indicated ranges; for example, a date may be
  * specified as January 32 and is interpreted as meaning February 1.
- * {@description.close}
  *
  * @author  James Gosling
  * @author  Arthur van Hoff
@@ -154,12 +154,10 @@ public class Date
      */
     private static final long serialVersionUID = 7523967970034938905L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it so that
      * it represents the time at which it was allocated, measured to the
      * nearest millisecond.
-     * {@description.close}
      *
      * @see     java.lang.System#currentTimeMillis()
      */
@@ -167,13 +165,11 @@ public class Date
         this(System.currentTimeMillis());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it to
      * represent the specified number of milliseconds since the
      * standard base time known as "the epoch", namely January 1,
      * 1970, 00:00:00 GMT.
-     * {@description.close}
      *
      * @param   date   the milliseconds since January 1, 1970, 00:00:00 GMT.
      * @see     java.lang.System#currentTimeMillis()
@@ -182,13 +178,11 @@ public class Date
         fastTime = date;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it so that
      * it represents midnight, local time, at the beginning of the day
      * specified by the <code>year</code>, <code>month</code>, and
      * <code>date</code> arguments.
-     * {@description.close}
      *
      * @param   year    the year minus 1900.
      * @param   month   the month between 0-11.
@@ -203,14 +197,12 @@ public class Date
         this(year, month, date, 0, 0, 0);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it so that
      * it represents the instant at the start of the minute specified by
      * the <code>year</code>, <code>month</code>, <code>date</code>,
      * <code>hrs</code>, and <code>min</code> arguments, in the local
      * time zone.
-     * {@description.close}
      *
      * @param   year    the year minus 1900.
      * @param   month   the month between 0-11.
@@ -228,14 +220,12 @@ public class Date
         this(year, month, date, hrs, min, 0);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it so that
      * it represents the instant at the start of the second specified
      * by the <code>year</code>, <code>month</code>, <code>date</code>,
      * <code>hrs</code>, <code>min</code>, and <code>sec</code> arguments,
      * in the local time zone.
-     * {@description.close}
      *
      * @param   year    the year minus 1900.
      * @param   month   the month between 0-11.
@@ -267,13 +257,11 @@ public class Date
         cdate = null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Allocates a <code>Date</code> object and initializes it so that
      * it represents the date and time indicated by the string
      * <code>s</code>, which is interpreted as if by the
      * {@link Date#parse} method.
-     * {@description.close}
      *
      * @param   s   a string representation of the date.
      * @see     java.text.DateFormat
@@ -286,10 +274,8 @@ public class Date
         this(parse(s));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Return a copy of this object.
-     * {@description.close}
      */
     public Object clone() {
         Date d = null;
@@ -302,8 +288,7 @@ public class Date
         return d;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Determines the date and time based on the arguments. The
      * arguments are interpreted as a year, month, day of the month,
      * hour of the day, minute within the hour, and second within the
@@ -312,7 +297,6 @@ public class Date
      * to UTC rather than to the local time zone. The time indicated is
      * returned represented as the distance, measured in milliseconds,
      * of that time from the epoch (00:00:00 GMT on January 1, 1970).
-     * {@description.close}
      *
      * @param   year    the year minus 1900.
      * @param   month   the month between 0-11.
@@ -353,8 +337,7 @@ public class Date
         return d.fastTime;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Attempts to interpret the string <tt>s</tt> as a representation
      * of a date and time. If the attempt is successful, the time
      * indicated is returned represented as the distance, measured in
@@ -459,7 +442,6 @@ public class Date
      * second are interpreted in UTC and then the time-zone offset is
      * applied. Otherwise, the year, month, day of month, hour, minute, and
      * second are interpreted in the local time zone.
-     * {@description.close}
      *
      * @param   s   a string to be parsed as a date.
      * @return  the number of milliseconds since January 1, 1970, 00:00:00 GMT
@@ -653,13 +635,11 @@ public class Date
         10000 + 8 * 60, 10000 + 7 * 60      // PST/PDT
     };
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a value that is the result of subtracting 1900 from the
      * year that contains or begins with the instant in time represented
      * by this <code>Date</code> object, as interpreted in the local
      * time zone.
-     * {@description.close}
      *
      * @return  the year represented by this date, minus 1900.
      * @see     java.util.Calendar
@@ -671,8 +651,7 @@ public class Date
         return normalize().getYear() - 1900;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the year of this <tt>Date</tt> object to be the specified
      * value plus 1900. This <code>Date</code> object is modified so
      * that it represents a point in time within the specified year,
@@ -681,7 +660,6 @@ public class Date
      * the date was February 29, for example, and the year is set to a
      * non-leap year, then the new date will be treated as if it were
      * on March 1.)
-     * {@description.close}
      *
      * @param   year    the year value.
      * @see     java.util.Calendar
@@ -693,13 +671,11 @@ public class Date
         getCalendarDate().setNormalizedYear(year + 1900);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a number representing the month that contains or begins
      * with the instant in time represented by this <tt>Date</tt> object.
      * The value returned is between <code>0</code> and <code>11</code>,
      * with the value <code>0</code> representing January.
-     * {@description.close}
      *
      * @return  the month represented by this date.
      * @see     java.util.Calendar
@@ -711,8 +687,7 @@ public class Date
         return normalize().getMonth() - 1; // adjust 1-based to 0-based
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the month of this date to the specified value. This
      * <tt>Date</tt> object is modified so that it represents a point
      * in time within the specified month, with the year, date, hour,
@@ -720,7 +695,6 @@ public class Date
      * local time zone. If the date was October 31, for example, and
      * the month is set to June, then the new date will be treated as
      * if it were on July 1, because June has only 30 days.
-     * {@description.close}
      *
      * @param   month   the month value between 0-11.
      * @see     java.util.Calendar
@@ -744,14 +718,12 @@ public class Date
         d.setMonth(month + 1); // adjust 0-based to 1-based month numbering
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the day of the month represented by this <tt>Date</tt> object.
      * The value returned is between <code>1</code> and <code>31</code>
      * representing the day of the month that contains or begins with the
      * instant in time represented by this <tt>Date</tt> object, as
      * interpreted in the local time zone.
-     * {@description.close}
      *
      * @return  the day of the month represented by this date.
      * @see     java.util.Calendar
@@ -764,8 +736,7 @@ public class Date
         return normalize().getDayOfMonth();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the day of the month of this <tt>Date</tt> object to the
      * specified value. This <tt>Date</tt> object is modified so that
      * it represents a point in time within the specified day of the
@@ -774,7 +745,6 @@ public class Date
      * was April 30, for example, and the date is set to 31, then it
      * will be treated as if it were on May 1, because April has only
      * 30 days.
-     * {@description.close}
      *
      * @param   date   the day of the month value between 1-31.
      * @see     java.util.Calendar
@@ -786,8 +756,7 @@ public class Date
         getCalendarDate().setDayOfMonth(date);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the day of the week represented by this date. The
      * returned value (<tt>0</tt> = Sunday, <tt>1</tt> = Monday,
      * <tt>2</tt> = Tuesday, <tt>3</tt> = Wednesday, <tt>4</tt> =
@@ -795,7 +764,6 @@ public class Date
      * represents the day of the week that contains or begins with
      * the instant in time represented by this <tt>Date</tt> object,
      * as interpreted in the local time zone.
-     * {@description.close}
      *
      * @return  the day of the week represented by this date.
      * @see     java.util.Calendar
@@ -804,17 +772,15 @@ public class Date
      */
     @Deprecated
     public int getDay() {
-        return normalize().getDayOfWeek() - gcal.SUNDAY;
+        return normalize().getDayOfWeek() - BaseCalendar.SUNDAY;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the hour represented by this <tt>Date</tt> object. The
      * returned value is a number (<tt>0</tt> through <tt>23</tt>)
      * representing the hour within the day that contains or begins
      * with the instant in time represented by this <tt>Date</tt>
      * object, as interpreted in the local time zone.
-     * {@description.close}
      *
      * @return  the hour represented by this date.
      * @see     java.util.Calendar
@@ -826,14 +792,12 @@ public class Date
         return normalize().getHours();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the hour of this <tt>Date</tt> object to the specified value.
      * This <tt>Date</tt> object is modified so that it represents a point
      * in time within the specified hour of the day, with the year, month,
      * date, minute, and second the same as before, as interpreted in the
      * local time zone.
-     * {@description.close}
      *
      * @param   hours   the hour value.
      * @see     java.util.Calendar
@@ -845,12 +809,10 @@ public class Date
         getCalendarDate().setHours(hours);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of minutes past the hour represented by this date,
      * as interpreted in the local time zone.
      * The value returned is between <code>0</code> and <code>59</code>.
-     * {@description.close}
      *
      * @return  the number of minutes past the hour represented by this date.
      * @see     java.util.Calendar
@@ -862,14 +824,12 @@ public class Date
         return normalize().getMinutes();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the minutes of this <tt>Date</tt> object to the specified value.
      * This <tt>Date</tt> object is modified so that it represents a point
      * in time within the specified minute of the hour, with the year, month,
      * date, hour, and second the same as before, as interpreted in the
      * local time zone.
-     * {@description.close}
      *
      * @param   minutes   the value of the minutes.
      * @see     java.util.Calendar
@@ -881,13 +841,11 @@ public class Date
         getCalendarDate().setMinutes(minutes);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of seconds past the minute represented by this date.
      * The value returned is between <code>0</code> and <code>61</code>. The
      * values <code>60</code> and <code>61</code> can only occur on those
      * Java Virtual Machines that take leap seconds into account.
-     * {@description.close}
      *
      * @return  the number of seconds past the minute represented by this date.
      * @see     java.util.Calendar
@@ -899,14 +857,12 @@ public class Date
         return normalize().getSeconds();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the seconds of this <tt>Date</tt> to the specified value.
      * This <tt>Date</tt> object is modified so that it represents a
      * point in time within the specified second of the minute, with
      * the year, month, date, hour, and minute the same as before, as
      * interpreted in the local time zone.
-     * {@description.close}
      *
      * @param   seconds   the seconds value.
      * @see     java.util.Calendar
@@ -918,11 +874,9 @@ public class Date
         getCalendarDate().setSeconds(seconds);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT
      * represented by this <tt>Date</tt> object.
-     * {@description.close}
      *
      * @return  the number of milliseconds since January 1, 1970, 00:00:00 GMT
      *          represented by this date.
@@ -938,11 +892,9 @@ public class Date
         return fastTime;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets this <code>Date</code> object to represent a point in time that is
      * <code>time</code> milliseconds after January 1, 1970 00:00:00 GMT.
-     * {@description.close}
      *
      * @param   time   the number of milliseconds.
      */
@@ -951,10 +903,8 @@ public class Date
         cdate = null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Tests if this date is before the specified date.
-     * {@description.close}
      *
      * @param   when   a date.
      * @return  <code>true</code> if and only if the instant of time
@@ -967,10 +917,8 @@ public class Date
         return getMillisOf(this) < getMillisOf(when);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Tests if this date is after the specified date.
-     * {@description.close}
      *
      * @param   when   a date.
      * @return  <code>true</code> if and only if the instant represented
@@ -983,8 +931,7 @@ public class Date
         return getMillisOf(this) > getMillisOf(when);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares two dates for equality.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and is a <code>Date</code> object that
@@ -993,7 +940,6 @@ public class Date
      * Thus, two <code>Date</code> objects are equal if and only if the
      * <code>getTime</code> method returns the same <code>long</code>
      * value for both.
-     * {@description.close}
      *
      * @param   obj   the object to compare with.
      * @return  <code>true</code> if the objects are the same;
@@ -1004,24 +950,20 @@ public class Date
         return obj instanceof Date && getTime() == ((Date) obj).getTime();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the millisecond value of this <code>Date</code> object
      * without affecting its internal state.
-     * {@description.close}
      */
     static final long getMillisOf(Date date) {
-        if (date.cdate == null) {
+        if (date.cdate == null || date.cdate.isNormalized()) {
             return date.fastTime;
         }
         BaseCalendar.Date d = (BaseCalendar.Date) date.cdate.clone();
         return gcal.getTime(d);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares two Dates for ordering.
-     * {@description.close}
      *
      * @param   anotherDate   the <code>Date</code> to be compared.
      * @return  the value <code>0</code> if the argument Date is equal to
@@ -1037,15 +979,14 @@ public class Date
         return (thisTime<anotherTime ? -1 : (thisTime==anotherTime ? 0 : 1));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a hash code value for this object. The result is the
      * exclusive OR of the two halves of the primitive <tt>long</tt>
      * value returned by the {@link Date#getTime}
      * method. That is, the hash code is the value of the expression:
-     * <blockquote><pre>
-     * (int)(this.getTime()^(this.getTime() >>> 32))</pre></blockquote>
-     * {@description.close}
+     * <blockquote><pre>{@code
+     * (int)(this.getTime()^(this.getTime() >>> 32))
+     * }</pre></blockquote>
      *
      * @return  a hash code value for this object.
      */
@@ -1054,8 +995,7 @@ public class Date
         return (int) ht ^ (int) (ht >> 32);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Converts this <code>Date</code> object to a <code>String</code>
      * of the form:
      * <blockquote><pre>
@@ -1080,7 +1020,6 @@ public class Date
      *     that is, it consists of no characters at all.
      * <li><tt>yyyy</tt> is the year, as four decimal digits.
      * </ul>
-     * {@description.close}
      *
      * @return  a string representation of this date.
      * @see     java.util.Date#toLocaleString()
@@ -1091,7 +1030,7 @@ public class Date
         BaseCalendar.Date date = normalize();
         StringBuilder sb = new StringBuilder(28);
         int index = date.getDayOfWeek();
-        if (index == gcal.SUNDAY) {
+        if (index == BaseCalendar.SUNDAY) {
             index = 8;
         }
         convertToAbbr(sb, wtb[index]).append(' ');                        // EEE
@@ -1103,7 +1042,7 @@ public class Date
         CalendarUtils.sprintf0d(sb, date.getSeconds(), 2).append(' '); // ss
         TimeZone zi = date.getZone();
         if (zi != null) {
-            sb.append(zi.getDisplayName(date.isDaylightTime(), zi.SHORT, Locale.US)); // zzz
+            sb.append(zi.getDisplayName(date.isDaylightTime(), TimeZone.SHORT, Locale.US)); // zzz
         } else {
             sb.append("GMT");
         }
@@ -1111,12 +1050,10 @@ public class Date
         return sb.toString();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Converts the given name to its 3-letter abbreviation (e.g.,
      * "monday" -> "Mon") and stored the abbreviation in the given
      * <code>StringBuilder</code>.
-     * {@description.close}
      */
     private static final StringBuilder convertToAbbr(StringBuilder sb, String name) {
         sb.append(Character.toUpperCase(name.charAt(0)));
@@ -1124,15 +1061,13 @@ public class Date
         return sb;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates a string representation of this <tt>Date</tt> object in an
      * implementation-dependent form. The intent is that the form should
      * be familiar to the user of the Java application, wherever it may
      * happen to be running. The intent is comparable to that of the
      * "<code>%c</code>" format supported by the <code>strftime()</code>
      * function of ISO&nbsp;C.
-     * {@description.close}
      *
      * @return  a string representation of this date, using the locale
      *          conventions.
@@ -1148,11 +1083,10 @@ public class Date
         return formatter.format(this);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates a string representation of this <tt>Date</tt> object of
      * the form:
-     * <blockquote<pre>
+     * <blockquote><pre>
      * d mon yyyy hh:mm:ss GMT</pre></blockquote>
      * where:<ul>
      * <li><i>d</i> is the day of the month (<tt>1</tt> through <tt>31</tt>),
@@ -1170,7 +1104,6 @@ public class Date
      *     Greenwich Mean Time.
      * </ul><p>
      * The result does not depend on the local time zone.
-     * {@description.close}
      *
      * @return  a string representation of this date, using the Internet GMT
      *          conventions.
@@ -1199,8 +1132,7 @@ public class Date
         return sb.toString();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the offset, measured in minutes, for the local time zone
      * relative to UTC that is appropriate for the time represented by
      * this <code>Date</code> object.
@@ -1223,7 +1155,6 @@ public class Date
      *                       this.getMinutes(),
      *                       this.getSeconds())) / (60 * 1000)
      * </pre></blockquote>
-     * {@description.close}
      *
      * @return  the time-zone offset, in minutes, for the current time zone.
      * @see     java.util.Calendar#ZONE_OFFSET
@@ -1309,7 +1240,7 @@ public class Date
             }
             GregorianCalendar gc = new GregorianCalendar(tz);
             gc.clear();
-            gc.set(gc.MILLISECOND, ms);
+            gc.set(GregorianCalendar.MILLISECOND, ms);
             gc.set(y, m-1, d, hh, mm, ss);
             fastTime = gc.getTimeInMillis();
             BaseCalendar cal = getCalendarSystem(fastTime);
@@ -1336,11 +1267,9 @@ public class Date
         return date;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the Gregorian or Julian calendar system to use with the
      * given date. Use Gregorian from October 15, 1582.
-     * {@description.close}
      *
      * @param year normalized calendar year (not -1900)
      * @return the CalendarSystem to use for the specified date
@@ -1381,10 +1310,8 @@ public class Date
         return jcal;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Save the state of this object to a stream (i.e., serialize it).
-     * {@description.close}
      *
      * @serialData The value returned by <code>getTime()</code>
      *             is emitted (long).  This represents the offset from
@@ -1396,14 +1323,54 @@ public class Date
         s.writeLong(getTimeImpl());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Reconstitute this object from a stream (i.e., deserialize it).
-     * {@description.close}
      */
     private void readObject(ObjectInputStream s)
          throws IOException, ClassNotFoundException
     {
         fastTime = s.readLong();
+    }
+
+    /** {@collect.stats}
+     * Obtains an instance of {@code Date} from an {@code Instant} object.
+     * <p>
+     * {@code Instant} uses a precision of nanoseconds, whereas {@code Date}
+     * uses a precision of milliseconds.  The conversion will trancate any
+     * excess precision information as though the amount in nanoseconds was
+     * subject to integer division by one million.
+     * <p>
+     * {@code Instant} can store points on the time-line further in the future
+     * and further in the past than {@code Date}. In this scenario, this method
+     * will throw an exception.
+     *
+     * @param instant  the instant to convert
+     * @return a {@code Date} representing the same point on the time-line as
+     *  the provided instant
+     * @exception NullPointerException if {@code instant} is null.
+     * @exception IllegalArgumentException if the instant is too large to
+     *  represent as a {@code Date}
+     * @since 1.8
+     */
+    public static Date from(Instant instant) {
+        try {
+            return new Date(instant.toEpochMilli());
+        } catch (ArithmeticException ex) {
+            throw new IllegalArgumentException(ex);
+        }
+    }
+
+    /** {@collect.stats}
+     * Converts this {@code Date} object to an {@code Instant}.
+     * <p>
+     * The conversion creates an {@code Instant} that represents the same
+     * point on the time-line as this {@code Date}.
+     *
+     * @return an instant representing the same point on the time-line as
+     *  this {@code Date} object
+     * @since 1.8
+     */
+    public Instant toInstant() {
+        return Instant.ofEpochMilli(getTime());
     }
 }

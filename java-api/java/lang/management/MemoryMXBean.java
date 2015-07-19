@@ -1,33 +1,33 @@
 /*
- * Copyright (c) 2003, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.management;
 
 import javax.management.openmbean.CompositeData;
 
-/** {@collect.stats} 
+/**
  * The management interface for the memory system of
  * the Java virtual machine.
  *
@@ -46,11 +46,14 @@ import javax.management.openmbean.CompositeData;
  *           <tt>java.lang:type=Memory</tt>}
  * </blockquote>
  *
- * <h4> Memory </h4>
+ * It can be obtained by calling the
+ * {@link PlatformManagedObject#getObjectName} method.
+ *
+ * <h3> Memory </h3>
  * The memory system of the Java virtual machine manages
  * the following kinds of memory:
  *
- * <h4> 1. Heap </h4>
+ * <h3> 1. Heap </h3>
  * The Java virtual machine has a <i>heap</i> that is the runtime
  * data area from which memory for all class instances and arrays
  * are allocated.  It is created at the Java virtual machine start-up.
@@ -60,7 +63,7 @@ import javax.management.openmbean.CompositeData;
  * <p>The heap may be of a fixed size or may be expanded and shrunk.
  * The memory for the heap does not need to be contiguous.
  *
- * <h4> 2. Non-Heap Memory</h4>
+ * <h3> 2. Non-Heap Memory</h3>
  * The Java virtual machine manages memory other than the heap
  * (referred as <i>non-heap memory</i>).
  *
@@ -84,7 +87,7 @@ import javax.management.openmbean.CompositeData;
  * machine code translated from the Java virtual machine code for
  * high performance.
  *
- * <h4>Memory Pools and Memory Managers</h4>
+ * <h3>Memory Pools and Memory Managers</h3>
  * {@link MemoryPoolMXBean Memory pools} and
  * {@link MemoryManagerMXBean memory managers} are the abstract entities
  * that monitor and manage the memory system
@@ -102,7 +105,7 @@ import javax.management.openmbean.CompositeData;
  * add or remove memory managers during execution.
  * A memory pool can be managed by more than one memory manager.
  *
- * <h4>Memory Usage Monitoring</h4>
+ * <h3>Memory Usage Monitoring</h3>
  *
  * Memory usage is a very important monitoring attribute for the memory system.
  * The memory usage, for example, could indicate:
@@ -128,7 +131,7 @@ import javax.management.openmbean.CompositeData;
  * certain threshold. It is not intended for an application to detect
  * and recover from a low memory condition.
  *
- * <h4>Notifications</h4>
+ * <h3>Notifications</h3>
  *
  * <p>This <tt>MemoryMXBean</tt> is a
  * {@link javax.management.NotificationEmitter NotificationEmitter}
@@ -166,7 +169,7 @@ import javax.management.openmbean.CompositeData;
  * MemoryNotificationInfo}.
  *
  * <hr>
- * <h4>NotificationEmitter</h4>
+ * <h3>NotificationEmitter</h3>
  * The <tt>MemoryMXBean</tt> object returned by
  * {@link ManagementFactory#getMemoryMXBean} implements
  * the {@link javax.management.NotificationEmitter NotificationEmitter}
@@ -190,6 +193,7 @@ import javax.management.openmbean.CompositeData;
  * emitter.addNotificationListener(listener, null, null);
  * </pre></blockquote>
  *
+ * @see ManagementFactory#getPlatformMXBeans(Class)
  * @see <a href="../../../javax/management/package-summary.html">
  *      JMX Specification.</a>
  * @see <a href="package-summary.html#examples">
@@ -198,8 +202,8 @@ import javax.management.openmbean.CompositeData;
  * @author  Mandy Chung
  * @since   1.5
  */
-public interface MemoryMXBean {
-    /** {@collect.stats} 
+public interface MemoryMXBean extends PlatformManagedObject {
+    /** {@collect.stats}
      * Returns the approximate number of objects for which
      * finalization is pending.
      *
@@ -208,7 +212,7 @@ public interface MemoryMXBean {
      */
     public int getObjectPendingFinalizationCount();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the current memory usage of the heap that
      * is used for object allocation.  The heap consists
      * of one or more memory pools.  The <tt>used</tt>
@@ -234,7 +238,7 @@ public interface MemoryMXBean {
      */
     public MemoryUsage getHeapMemoryUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the current memory usage of non-heap memory that
      * is used by the Java virtual machine.
      * The non-heap memory consists of one or more memory pools.
@@ -257,7 +261,7 @@ public interface MemoryMXBean {
      */
     public MemoryUsage getNonHeapMemoryUsage();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Tests if verbose output for the memory system is enabled.
      *
      * @return <tt>true</tt> if verbose output for the memory
@@ -265,7 +269,7 @@ public interface MemoryMXBean {
      */
     public boolean isVerbose();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Enables or disables verbose output for the memory
      * system.  The verbose output information and the output stream
      * to which the verbose information is emitted are implementation
@@ -285,7 +289,7 @@ public interface MemoryMXBean {
      */
     public void setVerbose(boolean value);
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Runs the garbage collector.
      * The call <code>gc()</code> is effectively equivalent to the
      * call:

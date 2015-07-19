@@ -1,32 +1,31 @@
 /*
  * Copyright (c) 1994, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
+/** {@collect.stats}
  * An object that implements the Enumeration interface generates a
  * series of elements, one at a time. Successive calls to the
  * <code>nextElement</code> method return successive elements of the
@@ -41,14 +40,11 @@ package java.util;
  * vector, the keys of a hashtable, and the values in a hashtable.
  * Enumerations are also used to specify the input streams to a
  * <code>SequenceInputStream</code>.
- * {@description.close}
- * {@property.open formal:java.util.Enumeration_Obsolete}
  * <p>
  * NOTE: The functionality of this interface is duplicated by the Iterator
  * interface.  In addition, Iterator adds an optional remove operation, and
  * has shorter method names.  New implementations should consider using
  * Iterator in preference to Enumeration.
- * {@property.close}
  *
  * @see     java.util.Iterator
  * @see     java.io.SequenceInputStream
@@ -63,23 +59,25 @@ package java.util;
  * @since   JDK1.0
  */
 public interface Enumeration<E> {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Tests if this enumeration contains more elements.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  <code>true</code> if and only if this enumeration object
      *           contains at least one more element to provide;
      *          <code>false</code> otherwise.
      */
     boolean hasMoreElements();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the next element of this enumeration if this enumeration
      * object has at least one more element to provide.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return     the next element of this enumeration.
      * @exception  NoSuchElementException  if no more elements exist.
      */

@@ -1,32 +1,33 @@
 /*
  * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 package java.io;
 
 /** {@collect.stats}
- * {@description.open}
- * Exception indicating the failure of an object read operation due to
+ *      
+* {@description.open}
+     * Exception indicating the failure of an object read operation due to
  * unread primitive data, or the end of data belonging to a serialized
  * object in the stream.  This exception may be thrown in two cases:
  *
@@ -41,8 +42,8 @@ package java.io;
  *       class-defined readObject or readExternal method.  In this case, the
  *       OptionalDataException's eof field is set to true, and the length field
  *       is set to 0.
- * </ul>
- * {@description.close}
+
+     * {@description.close} * </ul>
  *
  * @author  unascribed
  * @since   JDK1.1
@@ -69,20 +70,22 @@ public class OptionalDataException extends ObjectStreamException {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The number of bytes of primitive data available to be read
      * in the current buffer.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @serial
      */
     public int length;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * True if there is no more data in the buffered part of the stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @serial
      */
     public boolean eof;

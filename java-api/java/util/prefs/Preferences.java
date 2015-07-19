@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2000, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util.prefs;
@@ -32,9 +32,8 @@ import java.security.AccessController;
 import java.security.Permission;
 import java.security.PrivilegedAction;
 import java.util.Iterator;
-import sun.misc.Service;
-import sun.misc.ServiceConfigurationError;
-
+import java.util.ServiceLoader;
+import java.util.ServiceConfigurationError;
 
 // These imports needed only as a workaround for a JavaDoc bug
 import java.lang.RuntimePermission;
@@ -43,8 +42,7 @@ import java.lang.Long;
 import java.lang.Float;
 import java.lang.Double;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * A node in a hierarchical collection of preference data.  This class
  * allows applications to store and retrieve user and system
  * preference and configuration data.  This data is stored
@@ -136,52 +134,52 @@ import java.lang.Double;
  * subsequently restore from the backup.
  *
  * <p>The XML document has the following DOCTYPE declaration:
- * <pre>
- * &lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
- * </pre>
+ * <pre>{@code
+ * <!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+ * }</pre>
  * Note that the system URI (http://java.sun.com/dtd/preferences.dtd) is
  * <i>not</i> accessed when exporting or importing preferences; it merely
  * serves as a string to uniquely identify the DTD, which is:
- * <pre>
- *    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ * <pre>{@code
+ *    <?xml version="1.0" encoding="UTF-8"?>
  *
- *    &lt;!-- DTD for a Preferences tree. --&gt;
+ *    <!-- DTD for a Preferences tree. -->
  *
- *    &lt;!-- The preferences element is at the root of an XML document
- *         representing a Preferences tree. --&gt;
- *    &lt;!ELEMENT preferences (root)&gt;
+ *    <!-- The preferences element is at the root of an XML document
+ *         representing a Preferences tree. -->
+ *    <!ELEMENT preferences (root)>
  *
- *    &lt;!-- The preferences element contains an optional version attribute,
- *          which specifies version of DTD. --&gt;
- *    &lt;!ATTLIST preferences EXTERNAL_XML_VERSION CDATA "0.0" &gt
+ *    <!-- The preferences element contains an optional version attribute,
+ *          which specifies version of DTD. -->
+ *    <!ATTLIST preferences EXTERNAL_XML_VERSION CDATA "0.0" >
  *
- *    &lt;!-- The root element has a map representing the root's preferences
- *         (if any), and one node for each child of the root (if any). --&gt;
- *    &lt;!ELEMENT root (map, node*) &gt;
+ *    <!-- The root element has a map representing the root's preferences
+ *         (if any), and one node for each child of the root (if any). -->
+ *    <!ELEMENT root (map, node*) >
  *
- *    &lt;!-- Additionally, the root contains a type attribute, which
- *         specifies whether it's the system or user root. --&gt;
- *    &lt;!ATTLIST root
- *              type (system|user) #REQUIRED &gt;
+ *    <!-- Additionally, the root contains a type attribute, which
+ *         specifies whether it's the system or user root. -->
+ *    <!ATTLIST root
+ *              type (system|user) #REQUIRED >
  *
- *    &lt;!-- Each node has a map representing its preferences (if any),
- *         and one node for each child (if any). --&gt;
- *    &lt;!ELEMENT node (map, node*) &gt;
+ *    <!-- Each node has a map representing its preferences (if any),
+ *         and one node for each child (if any). -->
+ *    <!ELEMENT node (map, node*) >
  *
- *    &lt;!-- Additionally, each node has a name attribute --&gt;
- *    &lt;!ATTLIST node
- *              name CDATA #REQUIRED &gt;
+ *    <!-- Additionally, each node has a name attribute -->
+ *    <!ATTLIST node
+ *              name CDATA #REQUIRED >
  *
- *    &lt;!-- A map represents the preferences stored at a node (if any). --&gt;
- *    &lt;!ELEMENT map (entry*) &gt;
+ *    <!-- A map represents the preferences stored at a node (if any). -->
+ *    <!ELEMENT map (entry*) >
  *
- *    &lt;!-- An entry represents a single preference, which is simply
- *          a key-value pair. --&gt;
- *    &lt;!ELEMENT entry EMPTY &gt;
- *    &lt;!ATTLIST entry
+ *    <!-- An entry represents a single preference, which is simply
+ *          a key-value pair. -->
+ *    <!ELEMENT entry EMPTY >
+ *    <!ATTLIST entry
  *              key   CDATA #REQUIRED
- *              value CDATA #REQUIRED &gt;
- * </pre>
+ *              value CDATA #REQUIRED >
+ * }</pre>
  *
  * Every <tt>Preferences</tt> implementation must have an associated {@link
  * PreferencesFactory} implementation.  Every Java(TM) SE implementation must provide
@@ -219,7 +217,6 @@ import java.lang.Double;
  * platform is loaded and instantiated.</p></li>
  *
  * </ol>
- * {@description.close}
  *
  * @author  Josh Bloch
  * @since   1.4
@@ -259,11 +256,9 @@ public abstract class Preferences {
                                       .getContextClassLoader())
                         .newInstance();
                 } catch (Exception e) {
-                    InternalError error = new InternalError(
+                    throw new InternalError(
                         "Can't instantiate Preferences factory "
-                        + factoryName);
-                    error.initCause(e);
-                    throw error;
+                        + factoryName, e);
                 }
             }
         }
@@ -276,12 +271,14 @@ public abstract class Preferences {
 
     private static PreferencesFactory factory1() {
         // 2. Try service provider interface
-        Iterator i = Service.providers(PreferencesFactory.class,
-                                       ClassLoader.getSystemClassLoader());
+        Iterator<PreferencesFactory> itr = ServiceLoader
+            .load(PreferencesFactory.class, ClassLoader.getSystemClassLoader())
+            .iterator();
+
         // choose first provider instance
-        while (i.hasNext()) {
+        while (itr.hasNext()) {
             try {
-                return (PreferencesFactory) i.next();
+                return itr.next();
             } catch (ServiceConfigurationError sce) {
                 if (sce.getCause() instanceof SecurityException) {
                     // Ignore the security exception, try the next provider
@@ -292,45 +289,53 @@ public abstract class Preferences {
         }
 
         // 3. Use platform-specific system-wide default
-        String platformFactory =
-            System.getProperty("os.name").startsWith("Windows")
-            ? "java.util.prefs.WindowsPreferencesFactory"
-            : "java.util.prefs.FileSystemPreferencesFactory";
+        String osName = System.getProperty("os.name");
+        String platformFactory;
+        if (osName.startsWith("Windows")) {
+            platformFactory = "java.util.prefs.WindowsPreferencesFactory";
+        } else if (osName.contains("OS X")) {
+            platformFactory = "java.util.prefs.MacOSXPreferencesFactory";
+        } else {
+            platformFactory = "java.util.prefs.FileSystemPreferencesFactory";
+        }
         try {
             return (PreferencesFactory)
-                Class.forName(platformFactory, false, null).newInstance();
+                Class.forName(platformFactory, false,
+                              Preferences.class.getClassLoader()).newInstance();
         } catch (Exception e) {
-            InternalError error = new InternalError(
+            throw new InternalError(
                 "Can't instantiate platform default Preferences factory "
-                + platformFactory);
-            error.initCause(e);
-            throw error;
+                + platformFactory, e);
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Maximum length of string allowed as a key (80 characters).
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public static final int MAX_KEY_LENGTH = 80;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Maximum length of string allowed as a value (8192 characters).
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public static final int MAX_VALUE_LENGTH = 8*1024;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Maximum length of a node name (80 characters).
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public static final int MAX_NAME_LENGTH = 80;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the preference node from the calling user's preference tree
      * that is associated (by convention) with the specified class's package.
      * The convention is as follows: the absolute path name of the node is the
@@ -361,8 +366,8 @@ public abstract class Preferences {
      * were created by this call are not guaranteed to become permanent until
      * the <tt>flush</tt> method is called on the returned node (or one of its
      * ancestors or descendants).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param c the class for whose package a user preference node is desired.
      * @return the user preference node associated with the package of which
      *         <tt>c</tt> is a member.
@@ -375,8 +380,9 @@ public abstract class Preferences {
         return userRoot().node(nodeName(c));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the preference node from the system preference tree that is
      * associated (by convention) with the specified class's package.  The
      * convention is as follows: the absolute path name of the node is the
@@ -407,8 +413,8 @@ public abstract class Preferences {
      * were created by this call are not guaranteed to become permanent until
      * the <tt>flush</tt> method is called on the returned node (or one of its
      * ancestors or descendants).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param c the class for whose package a system preference node is desired.
      * @return the system preference node associated with the package of which
      *         <tt>c</tt> is a member.
@@ -421,16 +427,17 @@ public abstract class Preferences {
         return systemRoot().node(nodeName(c));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the absolute path name of the node corresponding to the package
      * of the specified object.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws IllegalArgumentException if the package has node preferences
      *         node associated with it.
      */
-    private static String nodeName(Class c) {
+    private static String nodeName(Class<?> c) {
         if (c.isArray())
             throw new IllegalArgumentException(
                 "Arrays have no associated preferences node.");
@@ -442,20 +449,22 @@ public abstract class Preferences {
         return "/" + packageName.replace('.', '/');
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * This permission object represents the permission required to get
      * access to the user or system root (which in turn allows for all
      * other operations).
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static Permission prefsPerm = new RuntimePermission("preferences");
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the root preference node for the calling user.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the root preference node for the calling user.
      * @throws SecurityException If a security manager is present and
      *         it denies <tt>RuntimePermission("preferences")</tt>.
@@ -469,11 +478,12 @@ public abstract class Preferences {
         return factory.userRoot();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the root preference node for the system.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the root preference node for the system.
      * @throws SecurityException If a security manager is present and
      *         it denies <tt>RuntimePermission("preferences")</tt>.
@@ -487,21 +497,23 @@ public abstract class Preferences {
         return factory.systemRoot();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sole constructor. (For invocation by subclass constructors, typically
      * implicit.)
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected Preferences() {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates the specified value with the specified key in this
      * preference node.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the specified value is to be associated.
      * @param value value to be associated with the specified key.
      * @throws NullPointerException if key or value is <tt>null</tt>.
@@ -513,17 +525,18 @@ public abstract class Preferences {
      */
     public abstract void put(String key, String value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the value associated with the specified key in this preference
-     * node.  Returns the specified default if there is no value associated
+     * node.  Returns the specified default
+     * {@description.close} if there is no value associated
      * with the key, or the backing store is inaccessible.
      *
      * <p>Some implementations may store default values in their backing
      * stores.  If there is no value associated with the specified key
      * but there is such a <i>stored default</i>, it is returned in
      * preference to the specified default.
-     * {@description.close}
      *
      * @param key key whose associated value is to be returned.
      * @param def the value to be returned in the event that this
@@ -538,8 +551,9 @@ public abstract class Preferences {
      */
     public abstract String get(String key, String def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Removes the value associated with the specified key in this preference
      * node, if any.
      *
@@ -547,8 +561,8 @@ public abstract class Preferences {
      * such a default for the specified preference, the stored default will be
      * "exposed" by this call, in the sense that it will be returned
      * by a succeeding call to <tt>get</tt>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key whose mapping is to be removed from the preference node.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
      * @throws IllegalStateException if this node (or an ancestor) has been
@@ -556,8 +570,9 @@ public abstract class Preferences {
      */
     public abstract void remove(String key);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Removes all of the preferences (key-value associations) in this
      * preference node.  This call has no effect on any descendants
      * of this node.
@@ -566,8 +581,8 @@ public abstract class Preferences {
      * node in the preferences hierarchy contains any such defaults,
      * the stored defaults will be "exposed" by this call, in the sense that
      * they will be returned by succeeding calls to <tt>get</tt>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
      *         communicate with it.
@@ -577,15 +592,16 @@ public abstract class Preferences {
      */
     public abstract void clear() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified int value with the
      * specified key in this preference node.  The associated string is the
      * one that would be returned if the int value were passed to
      * {@link Integer#toString(int)}.  This method is intended for use in
      * conjunction with {@link #getInt}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
@@ -597,8 +613,7 @@ public abstract class Preferences {
      */
     public abstract void putInt(String key, int value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the int value represented by the string associated with the
      * specified key in this preference node.  The string is converted to
      * an integer as by {@link Integer#parseInt(String)}.  Returns the
@@ -612,7 +627,6 @@ public abstract class Preferences {
      * default exists, is accessible, and could be converted to an int
      * with <tt>Integer.parseInt</tt>, this int is returned in preference to
      * the specified default.
-     * {@description.close}
      *
      * @param key key whose associated value is to be returned as an int.
      * @param def the value to be returned in the event that this
@@ -631,15 +645,16 @@ public abstract class Preferences {
      */
     public abstract int getInt(String key, int def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified long value with the
      * specified key in this preference node.  The associated string is the
      * one that would be returned if the long value were passed to
      * {@link Long#toString(long)}.  This method is intended for use in
      * conjunction with {@link #getLong}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
@@ -651,8 +666,7 @@ public abstract class Preferences {
      */
     public abstract void putLong(String key, long value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the long value represented by the string associated with the
      * specified key in this preference node.  The string is converted to
      * a long as by {@link Long#parseLong(String)}.  Returns the
@@ -666,7 +680,6 @@ public abstract class Preferences {
      * default exists, is accessible, and could be converted to a long
      * with <tt>Long.parseLong</tt>, this long is returned in preference to
      * the specified default.
-     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a long.
      * @param def the value to be returned in the event that this
@@ -685,15 +698,16 @@ public abstract class Preferences {
      */
     public abstract long getLong(String key, long def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified boolean value with the
      * specified key in this preference node.  The associated string is
      * <tt>"true"</tt> if the value is true, and <tt>"false"</tt> if it is
      * false.  This method is intended for use in conjunction with
      * {@link #getBoolean}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
@@ -706,8 +720,9 @@ public abstract class Preferences {
      */
     public abstract void putBoolean(String key, boolean value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the boolean value represented by the string associated with the
      * specified key in this preference node.  Valid strings
      * are <tt>"true"</tt>, which represents true, and <tt>"false"</tt>, which
@@ -725,8 +740,8 @@ public abstract class Preferences {
      * specified default, unless the stored default is something other than
      * <tt>"true"</tt> or <tt>"false"</tt>, ignoring case, in which case the
      * specified default is used.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key whose associated value is to be returned as a boolean.
      * @param def the value to be returned in the event that this
      *        preference node has no value associated with <tt>key</tt>
@@ -744,15 +759,16 @@ public abstract class Preferences {
      */
     public abstract boolean getBoolean(String key, boolean def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified float value with the
      * specified key in this preference node.  The associated string is the
      * one that would be returned if the float value were passed to
      * {@link Float#toString(float)}.  This method is intended for use in
      * conjunction with {@link #getFloat}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
@@ -764,12 +780,14 @@ public abstract class Preferences {
      */
     public abstract void putFloat(String key, float value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the float value represented by the string associated with the
      * specified key in this preference node.  The string is converted to an
      * integer as by {@link Float#parseFloat(String)}.  Returns the specified
-     * default if there is no value associated with the key, the backing store
+     * default
+     * {@description.close} if there is no value associated with the key, the backing store
      * is inaccessible, or if <tt>Float.parseFloat(String)</tt> would throw a
      * {@link NumberFormatException} if the associated value were passed.
      * This method is intended for use in conjunction with {@link #putFloat}.
@@ -778,7 +796,6 @@ public abstract class Preferences {
      * default exists, is accessible, and could be converted to a float
      * with <tt>Float.parseFloat</tt>, this float is returned in preference to
      * the specified default.
-     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a float.
      * @param def the value to be returned in the event that this
@@ -797,15 +814,16 @@ public abstract class Preferences {
      */
     public abstract float getFloat(String key, float def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified double value with the
      * specified key in this preference node.  The associated string is the
      * one that would be returned if the double value were passed to
      * {@link Double#toString(double)}.  This method is intended for use in
      * conjunction with {@link #getDouble}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>.
@@ -817,12 +835,14 @@ public abstract class Preferences {
      */
     public abstract void putDouble(String key, double value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the double value represented by the string associated with the
      * specified key in this preference node.  The string is converted to an
      * integer as by {@link Double#parseDouble(String)}.  Returns the specified
-     * default if there is no value associated with the key, the backing store
+     * default
+     * {@description.close} if there is no value associated with the key, the backing store
      * is inaccessible, or if <tt>Double.parseDouble(String)</tt> would throw a
      * {@link NumberFormatException} if the associated value were passed.
      * This method is intended for use in conjunction with {@link #putDouble}.
@@ -831,7 +851,6 @@ public abstract class Preferences {
      * default exists, is accessible, and could be converted to a double
      * with <tt>Double.parseDouble</tt>, this double is returned in preference
      * to the specified default.
-     * {@description.close}
      *
      * @param key key whose associated value is to be returned as a double.
      * @param def the value to be returned in the event that this
@@ -850,8 +869,9 @@ public abstract class Preferences {
      */
     public abstract double getDouble(String key, double def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Associates a string representing the specified byte array with the
      * specified key in this preference node.  The associated string is
      * the <i>Base64</i> encoding of the byte array, as defined in <a
@@ -863,8 +883,8 @@ public abstract class Preferences {
      * of the Base64 encoded String does not exceed <tt>MAX_VALUE_LENGTH</tt>.
      * This method is intended for use in conjunction with
      * {@link #getByteArray}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key with which the string form of value is to be associated.
      * @param value value whose string form is to be associated with key.
      * @throws NullPointerException if key or value is <tt>null</tt>.
@@ -877,8 +897,9 @@ public abstract class Preferences {
      */
     public abstract void putByteArray(String key, byte[] value);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the byte array value represented by the string associated with
      * the specified key in this preference node.  Valid strings are
      * <i>Base64</i> encoded binary data, as defined in <a
@@ -898,8 +919,8 @@ public abstract class Preferences {
      * specified default, unless the stored default is not a valid Base64
      * encoded byte array (as defined above), in which case the
      * specified default is used.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param key key whose associated value is to be returned as a byte array.
      * @param def the value to be returned in the event that this
      *        preference node has no value associated with <tt>key</tt>
@@ -918,8 +939,9 @@ public abstract class Preferences {
      */
     public abstract byte[] getByteArray(String key, byte[] def);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns all of the keys that have an associated value in this
      * preference node.  (The returned array will be of size zero if
      * this node has no preferences.)
@@ -928,8 +950,8 @@ public abstract class Preferences {
      * are any such defaults at this node that have not been overridden,
      * by explicit preferences, the defaults are returned in the array in
      * addition to any explicit preferences.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return an array of the keys that have an associated value in this
      *         preference node.
      * @throws BackingStoreException if this operation cannot be completed
@@ -940,13 +962,14 @@ public abstract class Preferences {
      */
     public abstract String[] keys() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the names of the children of this preference node, relative to
      * this node.  (The returned array will be of size zero if this node has
      * no children.)
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the names of the children of this preference node.
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
@@ -956,20 +979,22 @@ public abstract class Preferences {
      */
     public abstract String[] childrenNames() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the parent of this preference node, or <tt>null</tt> if this is
      * the root.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the parent of this preference node.
      * @throws IllegalStateException if this node (or an ancestor) has been
      *         removed with the {@link #removeNode()} method.
      */
     public abstract Preferences parent();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the named preference node in the same tree as this node,
      * creating it and any of its ancestors if they do not already exist.
      * Accepts a relative or absolute path name.  Relative path names
@@ -980,8 +1005,8 @@ public abstract class Preferences {
      * any ancestors that were created by this call are not guaranteed
      * to become permanent until the <tt>flush</tt> method is called on
      * the returned node (or one of its ancestors or descendants).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param pathName the path name of the preference node to return.
      * @return the specified preference node.
      * @throws IllegalArgumentException if the path name is invalid (i.e.,
@@ -994,8 +1019,9 @@ public abstract class Preferences {
      */
     public abstract Preferences node(String pathName);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns true if the named preference node exists in the same tree
      * as this node.  Relative path names (which do not begin with the slash
      * character <tt>('/')</tt>) are interpreted relative to this preference
@@ -1006,8 +1032,8 @@ public abstract class Preferences {
      * but only with the path name <tt>""</tt>; the invocation will return
      * <tt>false</tt>.  Thus, the idiom <tt>p.nodeExists("")</tt> may be
      * used to test whether <tt>p</tt> has been removed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param pathName the path name of the node whose existence
      *        is to be checked.
      * @return true if the specified node exists.
@@ -1025,8 +1051,9 @@ public abstract class Preferences {
     public abstract boolean nodeExists(String pathName)
         throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Removes this preference node and all of its descendants, invalidating
      * any preferences contained in the removed nodes.  Once a node has been
      * removed, attempting any method other than {@link #name()},
@@ -1046,8 +1073,8 @@ public abstract class Preferences {
      * return <tt>true</tt>, and a subsequent call to <tt>node</tt> on this
      * path name may return a (different) <tt>Preferences</tt> instance
      * representing a non-empty collection of preferences and/or children.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
      *         communicate with it.
@@ -1059,47 +1086,49 @@ public abstract class Preferences {
      */
     public abstract void removeNode() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns this preference node's name, relative to its parent.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return this preference node's name, relative to its parent.
      */
     public abstract String name();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns this preference node's absolute path name.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return this preference node's absolute path name.
      */
     public abstract String absolutePath();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns <tt>true</tt> if this preference node is in the user
      * preference tree, <tt>false</tt> if it's in the system preference tree.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return <tt>true</tt> if this preference node is in the user
      *         preference tree, <tt>false</tt> if it's in the system
      *         preference tree.
      */
     public abstract boolean isUserNode();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a string representation of this preferences node,
      * as if computed by the expression:<tt>(this.isUserNode() ? "User" :
      * "System") + " Preference Node: " + this.absolutePath()</tt>.
-     * {@description.close}
      */
     public abstract String toString();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Forces any changes in the contents of this preference node and its
      * descendants to the persistent store.  Once this method returns
      * successfully, it is safe to assume that all changes made in the
@@ -1117,8 +1146,8 @@ public abstract class Preferences {
      * <p> If this method is invoked on a node that has been removed with
      * the {@link #removeNode()} method, flushSpi() is invoked on this node,
      * but not on others.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
      *         communicate with it.
@@ -1126,16 +1155,17 @@ public abstract class Preferences {
      */
     public abstract void flush() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Ensures that future reads from this preference node and its
      * descendants reflect any changes that were committed to the persistent
      * store (from any VM) prior to the <tt>sync</tt> invocation.  As a
      * side-effect, forces any changes in the contents of this preference node
      * and its descendants to the persistent store, as if the <tt>flush</tt>
      * method had been invoked on this node.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @throws BackingStoreException if this operation cannot be completed
      *         due to a failure in the backing store, or inability to
      *         communicate with it.
@@ -1145,8 +1175,7 @@ public abstract class Preferences {
      */
     public abstract void sync() throws BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Registers the specified listener to receive <i>preference change
      * events</i> for this preference node.  A preference change event is
      * generated when a preference is added to this node, removed from this
@@ -1162,7 +1191,6 @@ public abstract class Preferences {
      * before the changes have been made persistent.  Events are not generated
      * when preferences are modified in descendants of this node; a caller
      * desiring such events must register with each descendant.
-     * {@description.close}
      *
      * @param pcl The preference change listener to add.
      * @throws NullPointerException if <tt>pcl</tt> is null.
@@ -1174,12 +1202,13 @@ public abstract class Preferences {
     public abstract void addPreferenceChangeListener(
         PreferenceChangeListener pcl);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Removes the specified preference change listener, so it no longer
      * receives preference change events.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param pcl The preference change listener to remove.
      * @throws IllegalArgumentException if <tt>pcl</tt> was not a registered
      *         preference change listener on this node.
@@ -1190,8 +1219,9 @@ public abstract class Preferences {
     public abstract void removePreferenceChangeListener(
         PreferenceChangeListener pcl);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Registers the specified listener to receive <i>node change events</i>
      * for this node.  A node change event is generated when a child node is
      * added to or removed from this node.  (A single {@link #removeNode()}
@@ -1212,8 +1242,8 @@ public abstract class Preferences {
      * unreachable or cached information is out of date).  Under these
      * circumstances, implementations are neither required to generate node
      * change events nor prohibited from doing so.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param ncl The <tt>NodeChangeListener</tt> to add.
      * @throws NullPointerException if <tt>ncl</tt> is null.
      * @throws IllegalStateException if this node (or an ancestor) has been
@@ -1223,12 +1253,13 @@ public abstract class Preferences {
      */
     public abstract void addNodeChangeListener(NodeChangeListener ncl);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Removes the specified <tt>NodeChangeListener</tt>, so it no longer
      * receives change events.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param ncl The <tt>NodeChangeListener</tt> to remove.
      * @throws IllegalArgumentException if <tt>ncl</tt> was not a registered
      *         <tt>NodeChangeListener</tt> on this node.
@@ -1238,16 +1269,15 @@ public abstract class Preferences {
      */
     public abstract void removeNodeChangeListener(NodeChangeListener ncl);
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Emits on the specified output stream an XML document representing all
      * of the preferences contained in this node (but not its descendants).
      * This XML document is, in effect, an offline backup of the node.
      *
      * <p>The XML document will have the following DOCTYPE declaration:
-     * <pre>
-     * &lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
-     * </pre>
+     * <pre>{@code
+     * <!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+     * }</pre>
      * The UTF-8 character encoding will be used.
      *
      * <p>This method is an exception to the general rule that the results of
@@ -1257,7 +1287,6 @@ public abstract class Preferences {
      * method, the exported preferences comprise a "fuzzy snapshot" of the
      * preferences contained in the node; some of the concurrent modifications
      * may be reflected in the exported data while others may not.
-     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @throws IOException if writing to the specified output stream
@@ -1271,16 +1300,15 @@ public abstract class Preferences {
     public abstract void exportNode(OutputStream os)
         throws IOException, BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Emits an XML document representing all of the preferences contained
      * in this node and all of its descendants.  This XML document is, in
      * effect, an offline backup of the subtree rooted at the node.
      *
      * <p>The XML document will have the following DOCTYPE declaration:
-     * <pre>
-     * &lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
-     * </pre>
+     * <pre>{@code
+     * <!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+     * }</pre>
      * The UTF-8 character encoding will be used.
      *
      * <p>This method is an exception to the general rule that the results of
@@ -1290,7 +1318,6 @@ public abstract class Preferences {
      * with an invocation of this method, the exported preferences comprise a
      * "fuzzy snapshot" of the subtree; some of the concurrent modifications
      * may be reflected in the exported data while others may not.
-     * {@description.close}
      *
      * @param os the output stream on which to emit the XML document.
      * @throws IOException if writing to the specified output stream
@@ -1305,8 +1332,7 @@ public abstract class Preferences {
     public abstract void exportSubtree(OutputStream os)
         throws IOException, BackingStoreException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Imports all of the preferences represented by the XML document on the
      * specified input stream.  The document may represent user preferences or
      * system preferences.  If it represents user preferences, the preferences
@@ -1316,9 +1342,9 @@ public abstract class Preferences {
      * do not exist, the nodes will be created.
      *
      * <p>The XML document must have the following DOCTYPE declaration:
-     * <pre>
-     * &lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
-     * </pre>
+     * <pre>{@code
+     * <!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+     * }</pre>
      * (This method is designed for use in conjunction with
      * {@link #exportNode(OutputStream)} and
      * {@link #exportSubtree(OutputStream)}.
@@ -1328,7 +1354,6 @@ public abstract class Preferences {
      * results equivalent to some serial execution.  The method behaves
      * as if implemented on top of the other public methods in this class,
      * notably {@link #node(String)} and {@link #put(String, String)}.
-     * {@description.close}
      *
      * @param is the input stream from which to read the XML document.
      * @throws IOException if reading from the specified input stream

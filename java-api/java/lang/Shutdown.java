@@ -1,39 +1,38 @@
 /*
  * Copyright (c) 1999, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
 
-import java.util.ArrayList;
 
-
-/** {@collect.stats} 
- * {@description.open}
- * Package-private utility class containing data structures and logic
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Package-private utility class containing data structures and logic
  * governing the virtual-machine shutdown sequence.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author   Mark Reinhold
  * @since    1.3
  */
@@ -49,8 +48,16 @@ class Shutdown {
     /* Should we run all finalizers upon exit? */
     private static boolean runFinalizersOnExit = false;
 
-    /* The set of registered, wrapped hooks, or null if there aren't any */
-    private static ArrayList<Runnable> hooks = new ArrayList<Runnable>();
+    // The system shutdown hooks are registered with a predefined slot.
+    // The list of shutdown hooks is as follows:
+    // (0) Console restore hook
+    // (1) Application hooks
+    // (2) DeleteOnExit hook
+    private static final int MAX_SYSTEM_HOOKS = 10;
+    private static final Runnable[] hooks = new Runnable[MAX_SYSTEM_HOOKS];
+
+    // the index of the currently running shutdown hook to the hooks array
+    private static int currentRunningHook = 0;
 
     /* The preceding static fields are protected by this lock */
     private static class Lock { };
@@ -67,45 +74,56 @@ class Shutdown {
     }
 
 
-    /* Add a new shutdown hook.  Checks the shutdown state and the hook itself,
+    /**
+     * Add a new shutdown hook.  Checks the shutdown state and the hook itself,
      * but does not do any security checks.
+     *
+     * The registerShutdownInProgress parameter should be false except
+     * registering the DeleteOnExitHook since the first file may
+     * be added to the delete on exit list by the application shutdown
+     * hooks.
+     *
+     * @params slot  the slot in the shutdown hook array, whose element
+     *               will be invoked in order during shutdown
+     * @params registerShutdownInProgress true to allow the hook
+     *               to be registered even if the shutdown is in progress.
+     * @params hook  the hook to be registered
+     *
+     * @throw IllegalStateException
+     *        if registerShutdownInProgress is false and shutdown is in progress; or
+     *        if registerShutdownInProgress is true and the shutdown process
+     *           already passes the given slot
      */
-    static void add(Runnable hook) {
+    static void add(int slot, boolean registerShutdownInProgress, Runnable hook) {
         synchronized (lock) {
-            if (state > RUNNING)
-                throw new IllegalStateException("Shutdown in progress");
+            if (hooks[slot] != null)
+                throw new InternalError("Shutdown hook at slot " + slot + " already registered");
 
-            hooks.add(hook);
-        }
-    }
-
-
-    /* Remove a previously-registered hook.  Like the add method, this method
-     * does not do any security checks.
-     */
-    static boolean remove(Runnable hook) {
-        synchronized (lock) {
-            if (state > RUNNING)
-                throw new IllegalStateException("Shutdown in progress");
-            if (hook == null) throw new NullPointerException();
-            if (hooks == null) {
-                return false;
+            if (!registerShutdownInProgress) {
+                if (state > RUNNING)
+                    throw new IllegalStateException("Shutdown in progress");
             } else {
-                return hooks.remove(hook);
+                if (state > HOOKS || (state == HOOKS && slot <= currentRunningHook))
+                    throw new IllegalStateException("Shutdown in progress");
             }
+
+            hooks[slot] = hook;
         }
     }
-
 
     /* Run all registered shutdown hooks
      */
     private static void runHooks() {
-        /* We needn't bother acquiring the lock just to read the hooks field,
-         * since the hooks can't be modified once shutdown is in progress
-         */
-        for (Runnable hook : hooks) {
+        for (int i=0; i < MAX_SYSTEM_HOOKS; i++) {
             try {
-                hook.run();
+                Runnable hook;
+                synchronized (lock) {
+                    // acquire the lock to make sure the hook registered during
+                    // shutdown is visible here.
+                    currentRunningHook = i;
+                    hook = hooks[i];
+                }
+                if (hook != null) hook.run();
             } catch(Throwable t) {
                 if (t instanceof ThreadDeath) {
                     ThreadDeath td = (ThreadDeath)t;

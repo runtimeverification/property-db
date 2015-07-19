@@ -1,32 +1,31 @@
 /*
- * Copyright (c) 1994, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1994, 2010, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * The <code>Stack</code> class represents a last-in-first-out
  * (LIFO) stack of objects. It extends class <tt>Vector</tt> with five
  * operations that allow a vector to be treated as a stack. The usual
@@ -42,28 +41,23 @@ package java.util;
  * should be used in preference to this class.  For example:
  * <pre>   {@code
  *   Deque<Integer> stack = new ArrayDeque<Integer>();}</pre>
- * {@description.close}
  *
  * @author  Jonathan Payne
  * @since   JDK1.0
  */
 public
 class Stack<E> extends Vector<E> {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates an empty Stack.
-     * {@description.close}
      */
     public Stack() {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Pushes an item onto the top of this stack. This has exactly
      * the same effect as:
      * <blockquote><pre>
      * addElement(item)</pre></blockquote>
-     * {@description.close}
      *
      * @param   item   the item to be pushed onto this stack.
      * @return  the <code>item</code> argument.
@@ -75,15 +69,13 @@ class Stack<E> extends Vector<E> {
         return item;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Removes the object at the top of this stack and returns that
      * object as the value of this function.
-     * {@description.close}
      *
-     * @return     The object at the top of this stack (the last item
-     *             of the <tt>Vector</tt> object).
-     * @exception  EmptyStackException  if this stack is empty.
+     * @return  The object at the top of this stack (the last item
+     *          of the <tt>Vector</tt> object).
+     * @throws  EmptyStackException  if this stack is empty.
      */
     public synchronized E pop() {
         E       obj;
@@ -95,15 +87,13 @@ class Stack<E> extends Vector<E> {
         return obj;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Looks at the object at the top of this stack without removing it
      * from the stack.
-     * {@description.close}
      *
-     * @return     the object at the top of this stack (the last item
-     *             of the <tt>Vector</tt> object).
-     * @exception  EmptyStackException  if this stack is empty.
+     * @return  the object at the top of this stack (the last item
+     *          of the <tt>Vector</tt> object).
+     * @throws  EmptyStackException  if this stack is empty.
      */
     public synchronized E peek() {
         int     len = size();
@@ -113,10 +103,8 @@ class Stack<E> extends Vector<E> {
         return elementAt(len - 1);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Tests if this stack is empty.
-     * {@description.close}
      *
      * @return  <code>true</code> if and only if this stack contains
      *          no items; <code>false</code> otherwise.
@@ -125,8 +113,7 @@ class Stack<E> extends Vector<E> {
         return size() == 0;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the 1-based position where an object is on this stack.
      * If the object <tt>o</tt> occurs as an item in this stack, this
      * method returns the distance from the top of the stack of the
@@ -134,7 +121,6 @@ class Stack<E> extends Vector<E> {
      * stack is considered to be at distance <tt>1</tt>. The <tt>equals</tt>
      * method is used to compare <tt>o</tt> to the
      * items in this stack.
-     * {@description.close}
      *
      * @param   o   the desired object.
      * @return  the 1-based position from the top of the stack where
@@ -150,10 +136,9 @@ class Stack<E> extends Vector<E> {
         return -1;
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * use serialVersionUID from JDK 1.0.2 for interoperability
-     * {@description.close}
-     */
+     * {@description.close} */
     private static final long serialVersionUID = 1224463164541339165L;
 }

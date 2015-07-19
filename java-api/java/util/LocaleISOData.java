@@ -1,36 +1,37 @@
 /*
- * Copyright (c) 2005, 2007, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2005, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util;
 
 class LocaleISOData {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The 2- and 3-letter ISO 639 language codes.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static final String isoLanguageTable =
           "aa" + "aar"  // Afar
         + "ab" + "abk"  // Abkhazian
@@ -222,11 +223,12 @@ class LocaleISOData {
         + "zu" + "zul"  // Zulu
         ;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The 2- and 3-letter ISO 3166 country codes.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static final String isoCountryTable =
           "AD" + "AND"  // Andorra, Principality of
         + "AE" + "ARE"  // United Arab Emirates
@@ -254,9 +256,11 @@ class LocaleISOData {
         + "BH" + "BHR"  // Bahrain, Kingdom of
         + "BI" + "BDI"  // Burundi, Republic of
         + "BJ" + "BEN"  // Benin, People's Republic of
+        + "BL" + "BLM"  // Saint Barth\u00e9lemy
         + "BM" + "BMU"  // Bermuda
         + "BN" + "BRN"  // Brunei Darussalam
         + "BO" + "BOL"  // Bolivia, Republic of
+        + "BQ" + "BES"  // Bonaire, Sint Eustatius and Saba
         + "BR" + "BRA"  // Brazil, Federative Republic of
         + "BS" + "BHS"  // Bahamas, Commonwealth of the
         + "BT" + "BTN"  // Bhutan, Kingdom of
@@ -277,9 +281,10 @@ class LocaleISOData {
         + "CN" + "CHN"  // China, People's Republic of
         + "CO" + "COL"  // Colombia, Republic of
         + "CR" + "CRI"  // Costa Rica, Republic of
-        + "CS" + "SCG"  // Serbia and Montenegro
+//      + "CS" + "SCG"  // Serbia and Montenegro
         + "CU" + "CUB"  // Cuba, Republic of
         + "CV" + "CPV"  // Cape Verde, Republic of
+        + "CW" + "CUW"  // Cura\u00e7ao
         + "CX" + "CXR"  // Christmas Island
         + "CY" + "CYP"  // Cyprus, Republic of
         + "CZ" + "CZE"  // Czech Republic
@@ -367,6 +372,7 @@ class LocaleISOData {
         + "MC" + "MCO"  // Monaco, Principality of
         + "MD" + "MDA"  // Moldova, Republic of
         + "ME" + "MNE"  // Montenegro, Republic of
+        + "MF" + "MAF"  // Saint Martin
         + "MG" + "MDG"  // Madagascar, Republic of
         + "MH" + "MHL"  // Marshall Islands
         + "MK" + "MKD"  // Macedonia, the former Yugoslav Republic of
@@ -404,7 +410,7 @@ class LocaleISOData {
         + "PG" + "PNG"  // Papua New Guinea
         + "PH" + "PHL"  // Philippines, Republic of the
         + "PK" + "PAK"  // Pakistan, Islamic Republic of
-        + "PL" + "POL"  // Poland, Polish People's Republic
+        + "PL" + "POL"  // Poland, Republic of Poland
         + "PM" + "SPM"  // St. Pierre and Miquelon
         + "PN" + "PCN"  // Pitcairn Island
         + "PR" + "PRI"  // Puerto Rico
@@ -433,8 +439,10 @@ class LocaleISOData {
         + "SN" + "SEN"  // Senegal, Republic of
         + "SO" + "SOM"  // Somalia, Somali Republic
         + "SR" + "SUR"  // Suriname, Republic of
+        + "SS" + "SSD"  // South Sudan
         + "ST" + "STP"  // Sao Tome and Principe, Democratic Republic of
         + "SV" + "SLV"  // El Salvador, Republic of
+        + "SX" + "SXM"  // Sint Maarten (Dutch part)
         + "SY" + "SYR"  // Syrian Arab Republic
         + "SZ" + "SWZ"  // Swaziland, Kingdom of
         + "TC" + "TCA"  // Turks and Caicos Islands

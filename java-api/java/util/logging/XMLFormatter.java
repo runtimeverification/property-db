@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2000, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 
@@ -30,9 +30,10 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.util.*;
 
-/** {@collect.stats} 
- * {@description.open}
- * Format a LogRecord into a standard XML format.
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Format a LogRecord into a standard XML format.
  * <p>
  * The DTD specification is provided as Appendix A to the
  * Java Logging APIs specification.
@@ -40,8 +41,8 @@ import java.util.*;
  * The XMLFormatter can be used with arbitrary character encodings,
  * but it is recommended that it normally be used with UTF-8.  The
  * character encoding can be set on the output Handler.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @since 1.4
  */
 
@@ -49,7 +50,7 @@ public class XMLFormatter extends Formatter {
     private LogManager manager = LogManager.getLogManager();
 
     // Append a two digit number.
-    private void a2(StringBuffer sb, int x) {
+    private void a2(StringBuilder sb, int x) {
         if (x < 10) {
             sb.append('0');
         }
@@ -57,25 +58,26 @@ public class XMLFormatter extends Formatter {
     }
 
     // Append the time and date in ISO 8601 format
-    private void appendISO8601(StringBuffer sb, long millis) {
-        Date date = new Date(millis);
-        sb.append(date.getYear() + 1900);
+    private void appendISO8601(StringBuilder sb, long millis) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTimeInMillis(millis);
+        sb.append(cal.get(Calendar.YEAR));
         sb.append('-');
-        a2(sb, date.getMonth() + 1);
+        a2(sb, cal.get(Calendar.MONTH) + 1);
         sb.append('-');
-        a2(sb, date.getDate());
+        a2(sb, cal.get(Calendar.DAY_OF_MONTH));
         sb.append('T');
-        a2(sb, date.getHours());
+        a2(sb, cal.get(Calendar.HOUR_OF_DAY));
         sb.append(':');
-        a2(sb, date.getMinutes());
+        a2(sb, cal.get(Calendar.MINUTE));
         sb.append(':');
-        a2(sb, date.getSeconds());
+        a2(sb, cal.get(Calendar.SECOND));
     }
 
-    // Append to the given StringBuffer an escaped version of the
+    // Append to the given StringBuilder an escaped version of the
     // given text string where XML special characters have been escaped.
     // For a null string we append "<null>"
-    private void escape(StringBuffer sb, String text) {
+    private void escape(StringBuilder sb, String text) {
         if (text == null) {
             text = "<null>";
         }
@@ -93,20 +95,21 @@ public class XMLFormatter extends Formatter {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Format the given message to XML.
      * <p>
      * This method can be overridden in a subclass.
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param record the log record to be formatted.
      * @return a formatted log record
      */
     public String format(LogRecord record) {
-        StringBuffer sb = new StringBuffer(500);
+        StringBuilder sb = new StringBuilder(500);
         sb.append("<record>\n");
 
         sb.append("  <date>");
@@ -221,16 +224,17 @@ public class XMLFormatter extends Formatter {
         return sb.toString();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Return the header string for a set of XML formatted records.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   h  The target handler (can be null)
      * @return  a valid XML string
      */
     public String getHead(Handler h) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         String encoding;
         sb.append("<?xml version=\"1.0\"");
 
@@ -262,11 +266,12 @@ public class XMLFormatter extends Formatter {
         return sb.toString();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Return the tail string for a set of XML formatted records.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   h  The target handler (can be null)
      * @return  a valid XML string
      */

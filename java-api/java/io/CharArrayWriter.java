@@ -1,26 +1,26 @@
 /*
  * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
@@ -28,51 +28,57 @@ package java.io;
 import java.util.Arrays;
 
 /** {@collect.stats}
- * {@description.open}
- * This class implements a character buffer that can be used as an Writer.
+ *      
+* {@description.open}
+     * This class implements a character buffer that can be used as an Writer.
  * The buffer automatically grows when data is written to the stream.  The data
  * can be retrieved using toCharArray() and toString().
- * {@description.close}
- * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
- * <P>
- * Note: Invoking close() on this class has no effect, and methods
+
+     * {@description.close} * <P>
+ *      
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     * Note: Invoking close() on this class has no effect, and methods
  * of this class can be called after the stream has closed
  * without generating an IOException.
- * {@property.close}
- *
+
+     * {@property.close} *
  * @author      Herb Jellinek
  * @since       JDK1.1
  */
 public
 class CharArrayWriter extends Writer {
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The buffer where data is stored.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected char buf[];
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * The number of chars in the buffer.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected int count;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a new CharArrayWriter.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public CharArrayWriter() {
         this(32);
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a new CharArrayWriter with the specified initial size.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param initialSize  an int specifying the initial buffer size.
      * @exception IllegalArgumentException if initialSize is negative
      */
@@ -85,10 +91,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes a character to the buffer.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void write(int c) {
         synchronized (lock) {
             int newcount = count + 1;
@@ -101,10 +108,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes characters to the buffer.
-     * {@description.close}
-     * @param c the data to be written
+
+     * {@description.close}     * @param c the data to be written
      * @param off       the start offset in the data
      * @param len       the number of chars that are written
      */
@@ -126,10 +134,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Write a portion of a string to the buffer.
-     * {@description.close}
-     * @param  str  String to be written from
+
+     * {@description.close}     * @param  str  String to be written from
      * @param  off  Offset from which to start reading characters
      * @param  len  Number of characters to be written
      */
@@ -145,10 +154,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes the contents of the buffer to another character stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param out       the output stream to write to
      * @throws IOException If an I/O error occurs.
      */
@@ -159,7 +169,8 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq)</tt>
@@ -173,8 +184,8 @@ class CharArrayWriter extends Writer {
      * appended. For instance, invoking the <tt>toString</tt> method of a
      * character buffer will return a subsequence whose content depends upon
      * the buffer's position and limit.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  csq
      *         The character sequence to append.  If <tt>csq</tt> is
      *         <tt>null</tt>, then the four characters <tt>"null"</tt> are
@@ -191,7 +202,8 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends a subsequence of the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq, start,
@@ -199,8 +211,8 @@ class CharArrayWriter extends Writer {
      * exactly the same way as the invocation
      *
      * <pre>
-     *     out.write(csq.subSequence(start, end).toString()) </pre>
-     * {@description.close}
+     *     out.write(csq.subSequence(start, end).toString())
+     * {@description.close} </pre>
      *
      * @param  csq
      *         The character sequence from which a subsequence will be
@@ -231,15 +243,16 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends the specified character to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(c)</tt>
      * behaves in exactly the same way as the invocation
      *
      * <pre>
-     *     out.write(c) </pre>
-     * {@description.close}
+     *     out.write(c)
+     * {@description.close} </pre>
      *
      * @param  c
      *         The 16-bit character to append
@@ -254,20 +267,22 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Resets the buffer so that you can use it again without
      * throwing away the already allocated buffer.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void reset() {
         count = 0;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Returns a copy of the input data.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return an array of chars copied from the input data.
      */
     public char toCharArray()[] {
@@ -277,10 +292,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Returns the current size of the buffer.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return an int representing the current size of the buffer.
      */
     public int size() {
@@ -288,10 +304,11 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Converts input data to a string.
-     * {@description.close}
-     * @return the string.
+
+     * {@description.close}     * @return the string.
      */
     public String toString() {
         synchronized (lock) {
@@ -300,22 +317,24 @@ class CharArrayWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flush the stream.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void flush() { }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Close the stream.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     * {@description.close}       
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
      * This method does not release the buffer, since its
      * contents might still be required. Note: Invoking this method in this class
      * will have no effect.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public void close() { }
 
 }

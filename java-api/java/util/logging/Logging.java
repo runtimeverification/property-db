@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util.logging;
@@ -29,42 +29,40 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.ArrayList;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * Logging is the implementation class of LoggingMXBean.
  *
  * The <tt>LoggingMXBean</tt> interface provides a standard
  * method for management access to the individual
- * java.util.Logger objects available at runtime.
- * {@description.close}
+ * {@code Logger} objects available at runtime.
  *
  * @author Ron Mann
  * @author Mandy Chung
  * @since 1.5
  *
  * @see javax.management
- * @see java.util.Logger
- * @see java.util.LogManager
+ * @see Logger
+ * @see LogManager
  */
 class Logging implements LoggingMXBean {
 
     private static LogManager logManager = LogManager.getLogManager();
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Constructor of Logging which is the implementation class
      *  of LoggingMXBean.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     Logging() {
     }
 
     public List<String> getLoggerNames() {
-        Enumeration loggers = logManager.getLoggerNames();
-        ArrayList<String> array = new ArrayList<String>();
+        Enumeration<String> loggers = logManager.getLoggerNames();
+        ArrayList<String> array = new ArrayList<>();
 
         for (; loggers.hasMoreElements();) {
-            array.add((String) loggers.nextElement());
+            array.add(loggers.nextElement());
         }
         return array;
     }
@@ -80,7 +78,7 @@ class Logging implements LoggingMXBean {
         if (level == null) {
             return EMPTY_STRING;
         } else {
-            return level.getName();
+            return level.getLevelName();
         }
     }
 
@@ -90,7 +88,6 @@ class Logging implements LoggingMXBean {
         }
 
         Logger logger = logManager.getLogger(loggerName);
-
         if (logger == null) {
             throw new IllegalArgumentException("Logger " + loggerName +
                 "does not exist");
@@ -99,7 +96,10 @@ class Logging implements LoggingMXBean {
         Level level = null;
         if (levelName != null) {
             // parse will throw IAE if logLevel is invalid
-            level = Level.parse(levelName);
+            level = Level.findLevel(levelName);
+            if (level == null) {
+                throw new IllegalArgumentException("Unknown level \"" + levelName + "\"");
+            }
         }
 
         logger.setLevel(level);
@@ -119,5 +119,4 @@ class Logging implements LoggingMXBean {
             return p.getName();
         }
     }
-
 }

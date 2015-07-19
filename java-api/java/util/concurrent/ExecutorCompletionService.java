@@ -1,42 +1,41 @@
 /*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
- * This file is available under and governed by the GNU General Public
- * License version 2 only, as published by the Free Software Foundation.
- * However, the following notice accompanied the original version of this
- * file:
+ *
+ *
+ *
+ *
  *
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/licenses/publicdomain
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
 package java.util.concurrent;
 
-/** {@collect.stats} 
- * {@description.open}
+/** {@collect.stats}
  * A {@link CompletionService} that uses a supplied {@link Executor}
  * to execute tasks.  This class arranges that submitted tasks are,
  * upon completion, placed on a queue accessible using {@code take}.
@@ -104,18 +103,18 @@ package java.util.concurrent;
  *     if (result != null)
  *         use(result);
  * }}</pre>
- * {@description.close}
  */
 public class ExecutorCompletionService<V> implements CompletionService<V> {
     private final Executor executor;
     private final AbstractExecutorService aes;
     private final BlockingQueue<Future<V>> completionQueue;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * FutureTask extension to enqueue upon completion
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private class QueueingFuture extends FutureTask<Void> {
         QueueingFuture(RunnableFuture<V> task) {
             super(task, null);
@@ -139,13 +138,14 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
             return aes.newTaskFor(task, result);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and a
      * {@link LinkedBlockingQueue} as a completion queue.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param executor the executor to use
      * @throws NullPointerException if executor is {@code null}
      */
@@ -158,18 +158,19 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
         this.completionQueue = new LinkedBlockingQueue<Future<V>>();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and the supplied queue as its
      * completion queue.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param executor the executor to use
      * @param completionQueue the queue to use as the completion queue
      *        normally one dedicated for use by this service. This
      *        queue is treated as unbounded -- failed attempted
-     *        {@code Queue.add} operations for completed taskes cause
+     *        {@code Queue.add} operations for completed tasks cause
      *        them not to be retrievable.
      * @throws NullPointerException if executor or completionQueue are {@code null}
      */
@@ -205,7 +206,8 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
         return completionQueue.poll();
     }
 
-    public Future<V> poll(long timeout, TimeUnit unit) throws InterruptedException {
+    public Future<V> poll(long timeout, TimeUnit unit)
+            throws InterruptedException {
         return completionQueue.poll(timeout, unit);
     }
 

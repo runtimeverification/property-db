@@ -1,34 +1,42 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 /** {@collect.stats}
- * {@description.open}
- * Reads text from a character-input stream, buffering characters so as to
+ *      
+* {@description.open}
+     * Reads text from a character-input stream, buffering characters so as to
  * provide for the efficient reading of characters, arrays, and lines.
  *
  * <p> The buffer size may be specified, or the default size may be used.  The
@@ -52,10 +60,11 @@ package java.io;
  *
  * <p> Programs that use DataInputStreams for textual input can be localized by
  * replacing each DataInputStream with an appropriate BufferedReader.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @see FileReader
  * @see InputStreamReader
+ * @see java.nio.file.Files#newBufferedReader
  *
  * @author      Mark Reinhold
  * @since       JDK1.1
@@ -73,33 +82,32 @@ public class BufferedReader extends Reader {
     private int markedChar = UNMARKED;
     private int readAheadLimit = 0; /* Valid only when markedChar > 0 */
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * If the next character is a line feed, skip it
-     * {@description.close}
-     */
+     * {@description.close} */
     private boolean skipLF = false;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * The skipLF flag when the mark was set
-     * {@description.close}
-     */
+     * {@description.close} */
     private boolean markedSkipLF = false;
 
     private static int defaultCharBufferSize = 8192;
     private static int defaultExpectedLineLength = 80;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a buffering character-input stream that uses an input buffer of
      * the specified size.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  in   A Reader
      * @param  sz   Input-buffer size
      *
-     * @exception  IllegalArgumentException  If sz is <= 0
+     * @exception  IllegalArgumentException  If {@code sz <= 0}
      */
     public BufferedReader(Reader in, int sz) {
         super(in);
@@ -111,32 +119,33 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates a buffering character-input stream that uses a default-sized
      * input buffer.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  in   A Reader
      */
     public BufferedReader(Reader in) {
         this(in, defaultCharBufferSize);
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Checks to make sure that the stream has not been closed
-     * {@description.close}
-     */
+     * {@description.close} */
     private void ensureOpen() throws IOException {
         if (in == null)
             throw new IOException("Stream closed");
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Fills the input buffer, taking the mark into account if it is valid.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private void fill() throws IOException {
         int dst;
         if (markedChar <= UNMARKED) {
@@ -179,10 +188,11 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads a single character.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return The character read, as an integer in the range
      *         0 to 65535 (<tt>0x00-0xffff</tt>), or -1 if the
      *         end of the stream has been reached
@@ -210,11 +220,12 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads characters into a portion of an array, reading from the underlying
      * stream if necessary.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private int read1(char[] cbuf, int off, int len) throws IOException {
         if (nextChar >= nChars) {
             /* If the requested length is at least as large as the buffer, and
@@ -245,7 +256,6 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
      * Reads characters into a portion of an array.
      *
      * <p> This method implements the general contract of the corresponding
@@ -280,7 +290,6 @@ public class BufferedReader extends Reader {
      * characters directly from the underlying stream into the given array.
      * Thus redundant <code>BufferedReader</code>s will not copy data
      * unnecessarily.
-     * {@description.close}
      *
      * @param      cbuf  Destination buffer
      * @param      off   Offset at which to start storing characters
@@ -313,12 +322,14 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads a line of text.  A line is considered to be terminated by any one
-     * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
+     * of a line feed ('
+'), a carriage return (''), or a carriage return
      * followed immediately by a linefeed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      ignoreLF  If true, the next '\n' will be skipped
      *
      * @return     A String containing the contents of the line, not including
@@ -393,27 +404,32 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Reads a line of text.  A line is considered to be terminated by any one
-     * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
+     * of a line feed ('
+'), a carriage return (''), or a carriage return
      * followed immediately by a linefeed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return     A String containing the contents of the line, not including
      *             any line-termination characters, or null if the end of the
      *             stream has been reached
      *
      * @exception  IOException  If an I/O error occurs
+     *
+     * @see java.nio.file.Files#readAllLines
      */
     public String readLine() throws IOException {
         return readLine(false);
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Skips characters.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  n  The number of characters to skip
      *
      * @return    The number of characters actually skipped
@@ -455,11 +471,12 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
-     * Tells whether this stream is ready to be read.  A buffered character
+     *      
+* {@description.open}
+     * Tells whether this stream is ready
+     * {@description.close} to be read.  A buffered character
      * stream is ready if the buffer is not empty, or if the underlying
      * character stream is ready.
-     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */
@@ -489,22 +506,22 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime formal:java.io.Reader_MarkReset}
+     *      
+* {@property.open runtime formal:java.io.Reader_MarkReset}
      * Tells whether this stream supports the mark() operation, which it does.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public boolean markSupported() {
         return true;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
-     * {@property.close}
-     *
+
+     * {@description.close}     *
      * @param readAheadLimit   Limit on the number of characters that may be
      *                         read while still preserving the mark. An attempt
      *                         to reset the stream after reading characters
@@ -514,7 +531,7 @@ public class BufferedReader extends Reader {
      *                         whose size is no smaller than limit.
      *                         Therefore large values should be used with care.
      *
-     * @exception  IllegalArgumentException  If readAheadLimit is < 0
+     * @exception  IllegalArgumentException  If {@code readAheadLimit < 0}
      * @exception  IOException  If an I/O error occurs
      */
     public void mark(int readAheadLimit) throws IOException {
@@ -530,12 +547,11 @@ public class BufferedReader extends Reader {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Resets the stream to the most recent mark.
-     * {@description.close}
-     * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
-     * {@property.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  If the stream has never been marked,
      *                          or if the mark has been invalidated
      */
@@ -555,9 +571,73 @@ public class BufferedReader extends Reader {
         synchronized (lock) {
             if (in == null)
                 return;
-            in.close();
-            in = null;
-            cb = null;
+            try {
+                in.close();
+            } finally {
+                in = null;
+                cb = null;
+            }
         }
+    }
+
+    /**
+     * Returns a {@code Stream}, the elements of which are lines read from
+     * this {@code BufferedReader}.  The {@link Stream} is lazily populated,
+     * i.e., read only occurs during the
+     * <a href="../util/stream/package-summary.html#StreamOps">terminal
+     * stream operation</a>.
+     *
+     * <p> The reader must not be operated on during the execution of the
+     * terminal stream operation. Otherwise, the result of the terminal stream
+     * operation is undefined.
+     *
+     * <p> After execution of the terminal stream operation there are no
+     * guarantees that the reader will be at a specific position from which to
+     * read the next character or line.
+     *
+     * <p> If an {@link IOException} is thrown when accessing the underlying
+     * {@code BufferedReader}, it is wrapped in an {@link
+     * UncheckedIOException} which will be thrown from the {@code Stream}
+     * method that caused the read to take place. This method will return a
+     * Stream if invoked on a BufferedReader that is closed. Any operation on
+     * that stream that requires reading from the BufferedReader after it is
+     * closed, will cause an UncheckedIOException to be thrown.
+     *
+     * @return a {@code Stream<String>} providing the lines of text
+     *         described by this {@code BufferedReader}
+     *
+     * @since 1.8
+     */
+    public Stream<String> lines() {
+        Iterator<String> iter = new Iterator<String>() {
+            String nextLine = null;
+
+            @Override
+            public boolean hasNext() {
+                if (nextLine != null) {
+                    return true;
+                } else {
+                    try {
+                        nextLine = readLine();
+                        return (nextLine != null);
+                    } catch (IOException e) {
+                        throw new UncheckedIOException(e);
+                    }
+                }
+            }
+
+            @Override
+            public String next() {
+                if (nextLine != null || hasNext()) {
+                    String line = nextLine;
+                    nextLine = null;
+                    return line;
+                } else {
+                    throw new NoSuchElementException();
+                }
+            }
+        };
+        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(
+                iter, Spliterator.ORDERED | Spliterator.NONNULL), false);
     }
 }

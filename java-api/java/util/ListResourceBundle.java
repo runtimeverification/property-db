@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
@@ -42,24 +42,19 @@ package java.util;
 
 import sun.util.ResourceBundleEnumeration;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * <code>ListResourceBundle</code> is an abstract subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * in a convenient and easy to use list. See <code>ResourceBundle</code> for
  * more information about resource bundles in general.
- * {@description.close}
  *
- * {@property.open enforced}
  * <P>
  * Subclasses must override <code>getContents</code> and provide an array,
  * where each item in the array is a pair of objects.
  * The first element of each pair is the key, which must be a
  * <code>String</code>, and the second element is the value associated with
  * that key.
- * {@property.close}
  *
- * {@description.open}
  * <p>
  * The following <a name="sample">example</a> shows two members of a resource
  * bundle family with the base name "MyResources".
@@ -77,7 +72,7 @@ import sun.util.ResourceBundleEnumeration;
  *
  * public class MyResources extends ListResourceBundle {
  *     protected Object[][] getContents() {
- *         return new Object[][] = {
+ *         return new Object[][] {
  *         // LOCALIZE THIS
  *             {"s1", "The disk \"{1}\" contains {0}."},  // MessageFormat pattern
  *             {"s2", "1"},                               // location of {0} in pattern
@@ -94,7 +89,7 @@ import sun.util.ResourceBundleEnumeration;
  *
  * public class MyResources_fr extends ListResourceBundle {
  *     protected Object[][] getContents() {
- *         return new Object[][] = {
+ *         return new Object[][] {
  *         // LOCALIZE THIS
  *             {"s1", "Le disque \"{1}\" {0}."},          // MessageFormat pattern
  *             {"s2", "1"},                               // location of {0} in pattern
@@ -110,17 +105,20 @@ import sun.util.ResourceBundleEnumeration;
  * }
  * </pre>
  * </blockquote>
- * {@description.close}
+ *
+ * <p>
+ * The implementation of a {@code ListResourceBundle} subclass must be thread-safe
+ * if it's simultaneously used by multiple threads. The default implementations
+ * of the methods in this class are thread-safe.
+ *
  * @see ResourceBundle
  * @see PropertyResourceBundle
  * @since JDK1.1
  */
 public abstract class ListResourceBundle extends ResourceBundle {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
-     * {@description.close}
      */
     public ListResourceBundle() {
     }
@@ -137,11 +135,9 @@ public abstract class ListResourceBundle extends ResourceBundle {
         return lookup.get(key); // this class ignores locales
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
-     * {@description.close}
      *
      * @return an <code>Enumeration</code> of the keys contained in
      *         this <code>ResourceBundle</code> and its parent bundles.
@@ -158,11 +154,9 @@ public abstract class ListResourceBundle extends ResourceBundle {
                 (parent != null) ? parent.getKeys() : null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
-     * {@description.close}
      *
      * @return a <code>Set</code> of the keys contained only in this
      *         <code>ResourceBundle</code>
@@ -176,14 +170,12 @@ public abstract class ListResourceBundle extends ResourceBundle {
         return lookup.keySet();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an array in which each item is a pair of objects in an
      * <code>Object</code> array. The first element of each pair is
      * the key, which must be a <code>String</code>, and the second
      * element is the value associated with that key.  See the class
      * description for details.
-     * {@description.close}
      *
      * @return an array of an <code>Object</code> array representing a
      * key-value pair.
@@ -192,18 +184,16 @@ public abstract class ListResourceBundle extends ResourceBundle {
 
     // ==================privates====================
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * We lazily load the lookup hashtable.  This function does the
      * loading.
-     * {@description.close}
      */
     private synchronized void loadLookup() {
         if (lookup != null)
             return;
 
         Object[][] contents = getContents();
-        HashMap<String,Object> temp = new HashMap<String,Object>(contents.length);
+        HashMap<String,Object> temp = new HashMap<>(contents.length);
         for (int i = 0; i < contents.length; ++i) {
             // key must be non-null String, value must be non-null
             String key = (String) contents[i][0];

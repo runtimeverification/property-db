@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 1996, 2009, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.util.zip;
 
-/** {@collect.stats} 
- * {@description.open}
- * This class provides support for general purpose decompression using the
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This class provides support for general purpose decompression using the
  * popular ZLIB compression library. The ZLIB compression library was
  * initially developed as part of the PNG graphics standard and is not
  * protected by patents. It is fully described in the specifications at
@@ -64,9 +65,9 @@ package java.util.zip;
  *     // handle
  * } catch (java.util.zip.DataFormatException ex) {
  *     // handle
- * }
+
+     * {@description.close} * }
  * </pre></blockquote>
- * {@description.close}
  *
  * @see         Deflater
  * @author      David Connelly
@@ -74,21 +75,25 @@ package java.util.zip;
  */
 public
 class Inflater {
+
     private final ZStreamRef zsRef;
-    private byte[] buf = emptyBuf;
+    private byte[] buf = defaultBuf;
     private int off, len;
     private boolean finished;
     private boolean needDict;
+    private long bytesRead;
+    private long bytesWritten;
 
-    private static byte[] emptyBuf = new byte[0];
+    private static final byte[] defaultBuf = new byte[0];
 
     static {
         /* Zip library is loaded from System.initializeSystemClass */
         initIDs();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new decompressor. If the parameter 'nowrap' is true then
      * the ZLIB header and checksum fields will not be used. This provides
      * compatibility with the compression format used by both GZIP and PKZIP.
@@ -96,33 +101,35 @@ class Inflater {
      * Note: When using the 'nowrap' option it is also necessary to provide
      * an extra "dummy" byte as input. This is required by the ZLIB native
      * library in order to support certain optimizations.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param nowrap if true then support GZIP compatible compression
      */
     public Inflater(boolean nowrap) {
         zsRef = new ZStreamRef(init(nowrap));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new decompressor.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public Inflater() {
         this(false);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets input data for decompression.
-     * {@description.close}
-     * {@property.open}
+     * {@description.close}      
+* {@property.open}
      * Should be called whenever
      * needsInput() returns true indicating that more input data is
      * required.
-     * {@property.close}
-     * @param b the input data bytes
+
+     * {@property.close}     * @param b the input data bytes
      * @param off the start offset of the input data
      * @param len the length of the input data
      * @see Inflater#needsInput
@@ -141,36 +148,38 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets input data for decompression.
-     * {@description.close}
-     * {@property.open}
+     * {@description.close}      
+* {@property.open}
      * Should be called whenever
      * needsInput() returns true indicating that more input data is
      * required.
-     * {@property.close}
-     * @param b the input data bytes
+
+     * {@property.close}     * @param b the input data bytes
      * @see Inflater#needsInput
      */
     public void setInput(byte[] b) {
         setInput(b, 0, b.length);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the preset dictionary to the given array of bytes.
-     * {@description.close}
-     * {@property.open}
+     * {@description.close}      
+* {@property.open}
      * Should be
      * called when inflate() returns 0 and needsDictionary() returns true
      * indicating that a preset dictionary is required.
-     * {@property.close}
-     * {@description.open}
+     * {@property.close}      
+* {@description.open}
      * The method getAdler()
      * can be used to get the Adler-32 value of the dictionary needed.
-     * {@description.close}
-     * @param b the dictionary data bytes
+
+     * {@description.close}     * @param b the dictionary data bytes
      * @param off the start offset of the data
      * @param len the length of the data
      * @see Inflater#needsDictionary
@@ -190,20 +199,21 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the preset dictionary to the given array of bytes.
-     * {@description.close}
-     * {@property.open}
+     * {@description.close}      
+* {@property.open}
      * Should be
      * called when inflate() returns 0 and needsDictionary() returns true
      * indicating that a preset dictionary is required.
-     * {@property.close}
-     * {@description.open}
+     * {@property.close}      
+* {@description.open}
      * The method getAdler()
      * can be used to get the Adler-32 value of the dictionary needed.
-     * {@description.close}
-     * @param b the dictionary data bytes
+
+     * {@description.close}     * @param b the dictionary data bytes
      * @see Inflater#needsDictionary
      * @see Inflater#getAdler
      */
@@ -211,13 +221,14 @@ class Inflater {
         setDictionary(b, 0, b.length);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the total number of bytes remaining in the input buffer.
      * This can be used to find out what bytes still remain in the input
      * buffer after decompression has finished.
-     * {@description.close}
-     * @return the total number of bytes remaining in the input buffer
+
+     * {@description.close}     * @return the total number of bytes remaining in the input buffer
      */
     public int getRemaining() {
         synchronized (zsRef) {
@@ -225,13 +236,14 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns true if no data remains in the input buffer. This can
      * be used to determine if #setInput should be called in order
      * to provide more input.
-     * {@description.close}
-     * @return true if no data remains in the input buffer
+
+     * {@description.close}     * @return true if no data remains in the input buffer
      */
     public boolean needsInput() {
         synchronized (zsRef) {
@@ -239,11 +251,12 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns true if a preset dictionary is needed for decompression.
-     * {@description.close}
-     * @return true if a preset dictionary is needed for decompression
+
+     * {@description.close}     * @return true if a preset dictionary is needed for decompression
      * @see Inflater#setDictionary
      */
     public boolean needsDictionary() {
@@ -252,12 +265,13 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns true if the end of the compressed data stream has been
      * reached.
-     * {@description.close}
-     * @return true if the end of the compressed data stream has been
+
+     * {@description.close}     * @return true if the end of the compressed data stream has been
      * reached
      */
     public boolean finished() {
@@ -266,16 +280,17 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Uncompresses bytes into specified buffer. Returns actual number
      * of bytes uncompressed. A return value of 0 indicates that
      * needsInput() or needsDictionary() should be called in order to
      * determine if more input data or a preset dictionary is required.
      * In the latter case, getAdler() can be used to get the Adler-32
      * value of the dictionary required.
-     * {@description.close}
-     * @param b the buffer for the uncompressed data
+
+     * {@description.close}     * @param b the buffer for the uncompressed data
      * @param off the start offset of the data
      * @param len the maximum number of uncompressed bytes
      * @return the actual number of uncompressed bytes
@@ -294,20 +309,25 @@ class Inflater {
         }
         synchronized (zsRef) {
             ensureOpen();
-            return inflateBytes(zsRef.address(), b, off, len);
+            int thisLen = this.len;
+            int n = inflateBytes(zsRef.address(), b, off, len);
+            bytesWritten += n;
+            bytesRead += (thisLen - this.len);
+            return n;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Uncompresses bytes into specified buffer. Returns actual number
      * of bytes uncompressed. A return value of 0 indicates that
      * needsInput() or needsDictionary() should be called in order to
      * determine if more input data or a preset dictionary is required.
      * In the latter case, getAdler() can be used to get the Adler-32
      * value of the dictionary required.
-     * {@description.close}
-     * @param b the buffer for the uncompressed data
+
+     * {@description.close}     * @param b the buffer for the uncompressed data
      * @return the actual number of uncompressed bytes
      * @exception DataFormatException if the compressed data format is invalid
      * @see Inflater#needsInput
@@ -317,11 +337,12 @@ class Inflater {
         return inflate(b, 0, b.length);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the ADLER-32 value of the uncompressed data.
-     * {@description.close}
-     * @return the ADLER-32 value of the uncompressed data
+
+     * {@description.close}     * @return the ADLER-32 value of the uncompressed data
      */
     public int getAdler() {
         synchronized (zsRef) {
@@ -330,95 +351,101 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the total number of compressed bytes input so far.
      *
      * <p>Since the number of bytes may be greater than
      * Integer.MAX_VALUE, the {@link #getBytesRead()} method is now
      * the preferred means of obtaining this information.</p>
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the total number of compressed bytes input so far
      */
     public int getTotalIn() {
         return (int) getBytesRead();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the total number of compressed bytes input so far.</p>
-     * {@description.close}
-     *
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Returns the total number of compressed bytes input so far.
+
+     * {@description.close}     *
      * @return the total (non-negative) number of compressed bytes input so far
      * @since 1.5
      */
     public long getBytesRead() {
         synchronized (zsRef) {
             ensureOpen();
-            return getBytesRead(zsRef.address());
+            return bytesRead;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the total number of uncompressed bytes output so far.
      *
      * <p>Since the number of bytes may be greater than
      * Integer.MAX_VALUE, the {@link #getBytesWritten()} method is now
      * the preferred means of obtaining this information.</p>
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the total number of uncompressed bytes output so far
      */
     public int getTotalOut() {
         return (int) getBytesWritten();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the total number of uncompressed bytes output so far.</p>
-     * {@description.close}
-     *
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Returns the total number of uncompressed bytes output so far.
+
+     * {@description.close}     *
      * @return the total (non-negative) number of uncompressed bytes output so far
      * @since 1.5
      */
     public long getBytesWritten() {
         synchronized (zsRef) {
             ensureOpen();
-            return getBytesWritten(zsRef.address());
+            return bytesWritten;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Resets inflater so that a new set of input data can be processed.
-     * {@description.close}
-     * {@property.open}
-     * {@property.close}
-     */
+
+     * {@description.close}     */
     public void reset() {
         synchronized (zsRef) {
             ensureOpen();
             reset(zsRef.address());
-            buf = emptyBuf;
+            buf = defaultBuf;
             finished = false;
             needDict = false;
             off = len = 0;
+            bytesRead = bytesWritten = 0;
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Closes the decompressor and discards any unprocessed input.
-     * {@description.close}
-     * {@property.open}
+
+     * {@description.close}     *      
+* {@property.open}
      * This method should be called when the decompressor is no longer
      * being used, but will also be called automatically by the finalize()
      * method. Once this method is called, the behavior of the Inflater
      * object is undefined.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public void end() {
         synchronized (zsRef) {
             long addr = zsRef.address();
@@ -430,11 +457,12 @@ class Inflater {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Closes the decompressor when garbage is collected.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected void finalize() {
         end();
     }
@@ -445,8 +473,10 @@ class Inflater {
             throw new NullPointerException("Inflater has been closed");
     }
 
-    private static class NativeStrm {
-        long strm;
+    boolean ended() {
+        synchronized (zsRef) {
+            return zsRef.address() == 0;
+        }
     }
 
     private native static void initIDs();
@@ -456,8 +486,6 @@ class Inflater {
     private native int inflateBytes(long addr, byte[] b, int off, int len)
             throws DataFormatException;
     private native static int getAdler(long addr);
-    private native static long getBytesRead(long addr);
-    private native static long getBytesWritten(long addr);
     private native static void reset(long addr);
     private native static void end(long addr);
 }

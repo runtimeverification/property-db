@@ -1,43 +1,45 @@
 /*
  * Copyright (c) 1996, 2004, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
 
 
 /** {@collect.stats}
- * {@description.open}
- * A character stream that collects its output in a string buffer, which can
+ *      
+* {@description.open}
+     * A character stream that collects its output in a string buffer, which can
  * then be used to construct a string.
- * <p>
- * {@description.close}
- * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
- * Closing a <tt>StringWriter</tt> has no effect. The methods in this class
+
+     * {@description.close} * <p>
+ *      
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     * Closing a <tt>StringWriter</tt> has no effect. The methods in this class
  * can be called after the stream has been closed without generating an
  * <tt>IOException</tt>.
- * {@property.close}
- *
+
+     * {@property.close} *
  * @author      Mark Reinhold
  * @since       JDK1.1
  */
@@ -47,22 +49,24 @@ public class StringWriter extends Writer {
     private StringBuffer buf;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Create a new string writer using the default initial string-buffer
      * size.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public StringWriter() {
         buf = new StringBuffer();
         lock = buf;
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Create a new string writer using the specified initial string-buffer
      * size.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param initialSize
      *        The number of <tt>char</tt> values that will fit into this buffer
      *        before it is automatically expanded
@@ -79,19 +83,21 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Write a single character.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void write(int c) {
         buf.append((char) c);
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Write a portion of an array of characters.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  cbuf  Array of characters
      * @param  off   Offset from which to start writing characters
      * @param  len   Number of characters to write
@@ -107,19 +113,21 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Write a string.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void write(String str) {
         buf.append(str);
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Write a portion of a string.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  str  String to be written
      * @param  off  Offset from which to start writing characters
      * @param  len  Number of characters to write
@@ -129,7 +137,8 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq)</tt>
@@ -143,8 +152,8 @@ public class StringWriter extends Writer {
      * appended. For instance, invoking the <tt>toString</tt> method of a
      * character buffer will return a subsequence whose content depends upon
      * the buffer's position and limit.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  csq
      *         The character sequence to append.  If <tt>csq</tt> is
      *         <tt>null</tt>, then the four characters <tt>"null"</tt> are
@@ -163,7 +172,8 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends a subsequence of the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq, start,
@@ -171,8 +181,8 @@ public class StringWriter extends Writer {
      * exactly the same way as the invocation
      *
      * <pre>
-     *     out.write(csq.subSequence(start, end).toString()) </pre>
-     * {@description.close}
+     *     out.write(csq.subSequence(start, end).toString())
+     * {@description.close} </pre>
      *
      * @param  csq
      *         The character sequence from which a subsequence will be
@@ -203,15 +213,16 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Appends the specified character to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(c)</tt>
      * behaves in exactly the same way as the invocation
      *
      * <pre>
-     *     out.write(c) </pre>
-     * {@description.close}
+     *     out.write(c)
+     * {@description.close} </pre>
      *
      * @param  c
      *         The 16-bit character to append
@@ -226,19 +237,21 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Return the buffer's current value as a string.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public String toString() {
         return buf.toString();
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Return the string buffer itself.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return StringBuffer holding the current buffer value.
      */
     public StringBuffer getBuffer() {
@@ -246,20 +259,22 @@ public class StringWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flush the stream.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public void flush() {
     }
 
     /** {@collect.stats}
-     * {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
+     *      
+* {@property.open runtime formal:java.io.Closeable_MeaninglessClose}
      * Closing a <tt>StringWriter</tt> has no effect. The methods in this
      * class can be called after the stream has been closed without generating
      * an <tt>IOException</tt>.
-     * {@property.close}
-     */
+
+     * {@property.close}     */
     public void close() throws IOException {
     }
 

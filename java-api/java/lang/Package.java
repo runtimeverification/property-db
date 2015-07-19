@@ -1,30 +1,31 @@
 /*
- * Copyright (c) 1997, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
 
+import java.lang.reflect.AnnotatedElement;
 import java.io.InputStream;
 import java.util.Enumeration;
 
@@ -48,11 +49,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import sun.net.www.ParseUtil;
+import sun.reflect.CallerSensitive;
+import sun.reflect.Reflection;
 
 import java.lang.annotation.Annotation;
 
-/** {@collect.stats} 
- * {@description.open}
+/** {@collect.stats}
  * {@code Package} objects contain version information
  * about the implementation and specification of a Java package.
  * This versioning information is retrieved and made available
@@ -75,18 +77,18 @@ import java.lang.annotation.Annotation;
  * by the following formal grammar:
  * <blockquote>
  * <dl>
- * <dt><i>SpecificationVersion:
- * <dd>Digits RefinedVersion<sub>opt</sub></i>
+ * <dt><i>SpecificationVersion:</i>
+ * <dd><i>Digits RefinedVersion<sub>opt</sub></i>
 
- * <p><dt><i>RefinedVersion:</i>
+ * <dt><i>RefinedVersion:</i>
  * <dd>{@code .} <i>Digits</i>
  * <dd>{@code .} <i>Digits RefinedVersion</i>
  *
- * <p><dt><i>Digits:
- * <dd>Digit
- * <dd>Digits</i>
+ * <dt><i>Digits:</i>
+ * <dd><i>Digit</i>
+ * <dd><i>Digits</i>
  *
- * <p><dt><i>Digit:</i>
+ * <dt><i>Digit:</i>
  * <dd>any character for which {@link Character#isDigit} returns {@code true},
  * e.g. 0, 1, 2, ...
  * </dl>
@@ -103,20 +105,19 @@ import java.lang.annotation.Annotation;
  * java package have the same Package object.  The static methods allow a package
  * to be found by name or the set of all packages known to the current class
  * loader to be found.
- * {@description.close}
  *
  * @see ClassLoader#definePackage
  */
 public class Package implements java.lang.reflect.AnnotatedElement {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Return the name of this package.
-     * {@description.close}
-     *
-     * @return  The fully-qualified name of this package as defined in the
-     *          <em>Java Language Specification, Third Edition</em>
-     *          <a href="http://java.sun.com/docs/books/jls/third_edition/html/names.html#6.5.3">
-     *          &sect;6.5.3</a>, for example, {@code java.lang}
+
+     * {@description.close}     *
+     * @return  The fully-qualified name of this package as defined in section 6.5.3 of
+     *          <cite>The Java&trade; Language Specification</cite>,
+     *          for example, {@code java.lang}
      */
     public String getName() {
         return pkgName;
@@ -124,26 +125,20 @@ public class Package implements java.lang.reflect.AnnotatedElement {
 
 
     /** {@collect.stats}
-     * {@description.open} 
      * Return the title of the specification that this package implements.
-     * {@description.close}
-     * 
      * @return the specification title, null is returned if it is not known.
      */
     public String getSpecificationTitle() {
         return specTitle;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the version number of the specification
      * that this package implements.
      * This version string must be a sequence of nonnegative decimal
      * integers separated by "."'s and may have leading zeros.
      * When version strings are compared the most significant
      * numbers are compared.
-     * {@description.close}
-     * 
      * @return the specification version, null is returned if it is not known.
      */
     public String getSpecificationVersion() {
@@ -151,50 +146,39 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
      * Return the name of the organization, vendor,
      * or company that owns and maintains the specification
      * of the classes that implement this package.
-     * {@description.close}
-     * 
      * @return the specification vendor, null is returned if it is not known.
      */
     public String getSpecificationVendor() {
         return specVendor;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Return the title of this package.
-     * {@description.close}
      * @return the title of the implementation, null is returned if it is not known.
      */
     public String getImplementationTitle() {
         return implTitle;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Return the version of this implementation. It consists of any string
      * assigned by the vendor of this implementation and does
      * not have any particular syntax specified or expected by the Java
      * runtime. It may be compared for equality with other
      * package version strings used for this implementation
      * by this vendor for this package.
-     * {@description.close}
-     * 
      * @return the version of the implementation, null is returned if it is not known.
      */
     public String getImplementationVersion() {
         return implVersion;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the name of the organization,
      * vendor or company that provided this implementation.
-     * {@description.close}
-     * 
      * @return the vendor that implemented this package..
      */
     public String getImplementationVendor() {
@@ -202,9 +186,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
      * Returns true if this package is sealed.
-     * {@description.close}
      *
      * @return true if the package is sealed, false otherwise
      */
@@ -212,11 +194,9 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return sealBase != null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns true if this package is sealed with respect to the specified
      * code source url.
-     * {@description.close}
      *
      * @param url the code source url
      * @return true if this package is sealed with respect to url
@@ -225,8 +205,9 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return url.equals(sealBase);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Compare this package's specification version with a
      * desired version. It returns true if
      * this packages specification version number is greater than or equal
@@ -240,8 +221,8 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * value true is returned. If the value is less false is returned.
      * If the values are equal the period is skipped and the next pair of
      * components is compared.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param desired the version string of the desired version.
      * @return true if this package's version number is greater
      *          than or equal to the desired version number
@@ -285,7 +266,6 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
      * Find a package by name in the callers {@code ClassLoader} instance.
      * The callers {@code ClassLoader} instance is used to find the package
      * instance corresponding to the named class. If the callers
@@ -296,14 +276,14 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * Packages have attributes for versions and specifications only if the class
      * loader created the package instance with the appropriate attributes. Typically,
      * those attributes are defined in the manifests that accompany the classes.
-     * {@description.close}
      *
      * @param name a package name, for example, java.lang.
      * @return the package of the requested name. It may be null if no package
      *          information is available from the archive or codebase.
      */
+    @CallerSensitive
     public static Package getPackage(String name) {
-        ClassLoader l = ClassLoader.getCallerClassLoader();
+        ClassLoader l = ClassLoader.getClassLoader(Reflection.getCallerClass());
         if (l != null) {
             return l.getPackage(name);
         } else {
@@ -311,8 +291,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get all the packages currently known for the caller's {@code ClassLoader}
      * instance.  Those packages correspond to classes loaded via or accessible by
      * name to that {@code ClassLoader} instance.  If the caller's
@@ -320,13 +299,13 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * instance, which may be represented by {@code null} in some implementations,
      * only packages corresponding to classes loaded by the bootstrap
      * {@code ClassLoader} instance will be returned.
-     * {@description.close}
      *
      * @return a new array of packages known to the callers {@code ClassLoader}
      * instance.  An zero length array is returned if none are known.
      */
+    @CallerSensitive
     public static Package[] getPackages() {
-        ClassLoader l = ClassLoader.getCallerClassLoader();
+        ClassLoader l = ClassLoader.getClassLoader(Reflection.getCallerClass());
         if (l != null) {
             return l.getPackages();
         } else {
@@ -334,8 +313,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get the package for the specified class.
      * The class's class loader is used to find the package instance
      * corresponding to the specified class. If the class loader
@@ -348,12 +326,11 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * instance with the appropriate attributes. Typically those
      * attributes are defined in the manifests that accompany
      * the classes.
-     * {@description.close}
      *
-     * @param class the class to get the package of.
+     * @param c the class to get the package of.
      * @return the package of the class. It may be null if no package
      *          information is available from the archive or codebase.  */
-    static Package getPackage(Class c) {
+    static Package getPackage(Class<?> c) {
         String name = c.getName();
         int i = name.lastIndexOf('.');
         if (i != -1) {
@@ -369,25 +346,22 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Return the hash code computed from the package name.
-     * {@description.close}
-     * 
-     * @return the hash code computed from the package name.
+
+     * {@description.close}     * @return the hash code computed from the package name.
      */
     public int hashCode(){
         return pkgName.hashCode();
     }
 
     /** {@collect.stats}
-     * {@description.open} 
      * Returns the string representation of this Package.
      * Its value is the string "package " and the package name.
      * If the package title is defined it is appended.
      * If the package version is defined it is appended.
-     * {@description.close}
-     * 
      * @return the string representation of the package.
      */
     public String toString() {
@@ -417,7 +391,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return packageInfo;
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -425,23 +399,51 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return getPackageInfo().getAnnotation(annotationClass);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
-    public boolean isAnnotationPresent(
-        Class<? extends Annotation> annotationClass) {
-        return getPackageInfo().isAnnotationPresent(annotationClass);
+    @Override
+    public boolean isAnnotationPresent(Class<? extends Annotation> annotationClass) {
+        return AnnotatedElement.super.isAnnotationPresent(annotationClass);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.8
+     */
+    @Override
+    public  <A extends Annotation> A[] getAnnotationsByType(Class<A> annotationClass) {
+        return getPackageInfo().getAnnotationsByType(annotationClass);
+    }
+
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getAnnotations() {
         return getPackageInfo().getAnnotations();
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.8
+     */
+    @Override
+    public <A extends Annotation> A getDeclaredAnnotation(Class<A> annotationClass) {
+        return getPackageInfo().getDeclaredAnnotation(annotationClass);
+    }
+
+    /** {@collect.stats}
+     * @throws NullPointerException {@inheritDoc}
+     * @since 1.8
+     */
+    @Override
+    public <A extends Annotation> A[] getDeclaredAnnotationsByType(Class<A> annotationClass) {
+        return getPackageInfo().getDeclaredAnnotationsByType(annotationClass);
+    }
+
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {
@@ -449,18 +451,18 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Construct a package instance with the specified version
      * information.
-     * {@description.close}
-     * @param pkgName the name of the package
+
+     * {@description.close}     * @param name the name of the package
      * @param spectitle the title of the specification
      * @param specversion the version of the specification
      * @param specvendor the organization that maintains the specification
      * @param impltitle the title of the implementation
      * @param implversion the version of the implementation
      * @param implvendor the organization that maintains the implementation
-     * @return a new package for containing the specified information.
      */
     Package(String name,
             String spectitle, String specversion, String specvendor,
@@ -478,11 +480,12 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         this.loader = loader;
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /*
+     *      
+* {@description.open}
      * Construct a package using the attributes from the specified manifest.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param name the package name
      * @param man the optional manifest for the package
      * @param url the optional code source url for the package
@@ -550,7 +553,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      */
     static Package getSystemPackage(String name) {
         synchronized (pkgs) {
-            Package pkg = (Package)pkgs.get(name);
+            Package pkg = pkgs.get(name);
             if (pkg == null) {
                 name = name.replace('.', '/').concat("/");
                 String fn = getSystemPackage0(name);
@@ -572,18 +575,18 @@ public class Package implements java.lang.reflect.AnnotatedElement {
             for (int i = 0; i < names.length; i++) {
                 defineSystemPackage(names[i], getSystemPackage0(names[i]));
             }
-            return (Package[])pkgs.values().toArray(new Package[pkgs.size()]);
+            return pkgs.values().toArray(new Package[pkgs.size()]);
         }
     }
 
     private static Package defineSystemPackage(final String iname,
                                                final String fn)
     {
-        return (Package) AccessController.doPrivileged(new PrivilegedAction() {
-            public Object run() {
+        return AccessController.doPrivileged(new PrivilegedAction<Package>() {
+            public Package run() {
                 String name = iname;
                 // Get the cached code source url for the file name
-                URL url = (URL)urls.get(fn);
+                URL url = urls.get(fn);
                 if (url == null) {
                     // URL not found, so create one
                     File file = new File(fn);
@@ -602,7 +605,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
                 // Convert to "."-separated package name
                 name = name.substring(0, name.length() - 1).replace('/', '.');
                 Package pkg;
-                Manifest man = (Manifest)mans.get(fn);
+                Manifest man = mans.get(fn);
                 if (man != null) {
                     pkg = new Package(name, man, url, null);
                 } else {
@@ -619,25 +622,23 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * Returns the Manifest for the specified JAR file name.
      */
     private static Manifest loadManifest(String fn) {
-        try {
-            FileInputStream fis = new FileInputStream(fn);
-            JarInputStream jis = new JarInputStream(fis, false);
-            Manifest man = jis.getManifest();
-            jis.close();
-            return man;
+        try (FileInputStream fis = new FileInputStream(fn);
+             JarInputStream jis = new JarInputStream(fis, false))
+        {
+            return jis.getManifest();
         } catch (IOException e) {
             return null;
         }
     }
 
     // The map of loaded system packages
-    private static Map pkgs = new HashMap(31);
+    private static Map<String, Package> pkgs = new HashMap<>(31);
 
     // Maps each directory or zip file name to its corresponding url
-    private static Map urls = new HashMap(10);
+    private static Map<String, URL> urls = new HashMap<>(10);
 
     // Maps each code source url for a jar file to its manifest
-    private static Map mans = new HashMap(10);
+    private static Map<String, Manifest> mans = new HashMap<>(10);
 
     private static native String getSystemPackage0(String name);
     private static native String[] getSystemPackages0();
@@ -654,5 +655,5 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     private final String implVendor;
     private final URL sealBase;
     private transient final ClassLoader loader;
-    private transient Class packageInfo;
+    private transient Class<?> packageInfo;
 }

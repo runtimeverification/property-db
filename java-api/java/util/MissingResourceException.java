@@ -1,26 +1,26 @@
 /*
  * Copyright (c) 1996, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 /*
@@ -40,11 +40,12 @@
 
 package java.util;
 
-/** {@collect.stats} 
- * {@description.open}
- * Signals that a resource is missing.
- * {@description.close}
- * @see java.lang.Exception
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Signals that a resource is missing.
+
+     * {@description.close} * @see java.lang.Exception
  * @see ResourceBundle
  * @author      Mark Davis
  * @since       JDK1.1
@@ -52,11 +53,9 @@ package java.util;
 public
 class MissingResourceException extends RuntimeException {
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a MissingResourceException with the specified information.
      * A detail message is a String that describes this particular exception.
-     * {@description.close}
      * @param s the detail message
      * @param className the name of the resource class
      * @param key the key for the missing resource.
@@ -67,13 +66,11 @@ class MissingResourceException extends RuntimeException {
         this.key = key;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a <code>MissingResourceException</code> with
      * <code>message</code>, <code>className</code>, <code>key</code>,
      * and <code>cause</code>. This constructor is package private for
      * use by <code>ResourceBundle.getBundle</code>.
-     * {@description.close}
      *
      * @param message
      *        the detail message
@@ -93,10 +90,8 @@ class MissingResourceException extends RuntimeException {
         this.key = key;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets parameter passed by constructor.
-     * {@description.close}
      *
      * @return the name of the resource class
      */
@@ -104,10 +99,8 @@ class MissingResourceException extends RuntimeException {
         return className;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets parameter passed by constructor.
-     * {@description.close}
      *
      * @return the key for the missing resource
      */
@@ -120,18 +113,14 @@ class MissingResourceException extends RuntimeException {
     // serialization compatibility with JDK1.1
     private static final long serialVersionUID = -4876345176062000401L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The class name of the resource bundle requested by the user.
-     * {@description.close}
      * @serial
      */
     private String className;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The name of the specific resource requested by the user.
-     * {@description.close}
      * @serial
      */
     private String key;

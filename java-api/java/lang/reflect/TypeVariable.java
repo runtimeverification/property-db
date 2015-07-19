@@ -1,31 +1,31 @@
 /*
- * Copyright (c) 2003, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang.reflect;
 
-/** {@collect.stats} 
+/** {@collect.stats}
  * TypeVariable is the common superinterface for type variables of kinds.
  * A type variable is created the first time it is needed by a reflective
  * method, as specified in this package.  If a type variable t is referenced
@@ -48,8 +48,8 @@ package java.lang.reflect;
  *
  * @since 1.5
  */
-public interface TypeVariable<D extends GenericDeclaration> extends Type {
-    /** {@collect.stats} 
+public interface TypeVariable<D extends GenericDeclaration> extends Type, AnnotatedElement {
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects representing the
      * upper bound(s) of this type variable.  Note that if no upper bound is
      * explicitly declared, the upper bound is {@code Object}.
@@ -70,7 +70,7 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type {
     */
     Type[] getBounds();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the {@code GenericDeclaration} object representing the
      * generic declaration declared this type variable.
      *
@@ -80,10 +80,23 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type {
      */
     D getGenericDeclaration();
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
      * Returns the name of this type variable, as it occurs in the source code.
      *
      * @return the name of this type variable, as it appears in the source code
      */
     String getName();
+
+    /** {@collect.stats}
+     * Returns an array of AnnotatedType objects that represent the use of
+     * types to denote the upper bounds of the type parameter represented by
+     * this TypeVariable. The order of the objects in the array corresponds to
+     * the order of the bounds in the declaration of the type parameter.
+     *
+     * Returns an array of length 0 if the type parameter declares no bounds.
+     *
+     * @return an array of objects representing the upper bounds of the type variable
+     * @since 1.8
+     */
+     AnnotatedType[] getAnnotatedBounds();
 }

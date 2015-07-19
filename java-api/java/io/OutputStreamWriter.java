@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 1996, 2006, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.io;
@@ -31,10 +31,11 @@ import sun.nio.cs.StreamEncoder;
 
 
 /** {@collect.stats}
- * {@description.open}
- * An OutputStreamWriter is a bridge from character streams to byte streams:
+ *      
+* {@description.open}
+     * An OutputStreamWriter is a bridge from character streams to byte streams:
  * Characters written to it are encoded into bytes using a specified {@link
- * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
+ * java.nio.charset.Charset charset}.  The charset that it uses
  * may be specified by name or may be given explicitly, or the platform's
  * default charset may be accepted.
  *
@@ -66,8 +67,8 @@ import sun.nio.cs.StreamEncoder;
  * character sequences with the charset's default <i>substitution sequence</i>.
  * The {@linkplain java.nio.charset.CharsetEncoder} class should be used when more
  * control over the encoding process is required.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @see BufferedWriter
  * @see OutputStream
  * @see java.nio.charset.Charset
@@ -81,16 +82,17 @@ public class OutputStreamWriter extends Writer {
     private final StreamEncoder se;
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates an OutputStreamWriter that uses the named charset.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  out
      *         An OutputStream
      *
      * @param  charsetName
      *         The name of a supported
-     *         {@link java.nio.charset.Charset </code>charset<code>}
+     *         {@link java.nio.charset.Charset charset}
      *
      * @exception  UnsupportedEncodingException
      *             If the named encoding is not supported
@@ -105,10 +107,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Creates an OutputStreamWriter that uses the default character encoding.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  out  An OutputStream
      */
     public OutputStreamWriter(OutputStream out) {
@@ -121,10 +124,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
-     * Creates an OutputStreamWriter that uses the given charset. </p>
-     * {@description.close}
-     *
+     *      
+* {@description.open}
+     * Creates an OutputStreamWriter that uses the given charset.
+
+     * {@description.close}     *
      * @param  out
      *         An OutputStream
      *
@@ -142,10 +146,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
-     * Creates an OutputStreamWriter that uses the given charset encoder.  </p>
-     * {@description.close}
-     *
+     *      
+* {@description.open}
+     * Creates an OutputStreamWriter that uses the given charset encoder.
+
+     * {@description.close}     *
      * @param  out
      *         An OutputStream
      *
@@ -163,7 +168,8 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Returns the name of the character encoding being used by this stream.
      *
      * <p> If the encoding has an historical name then that name is returned;
@@ -173,8 +179,8 @@ public class OutputStreamWriter extends Writer {
      * #OutputStreamWriter(OutputStream, String)} constructor then the returned
      * name, being unique for the encoding, may differ from the name passed to
      * the constructor.  This method may return <tt>null</tt> if the stream has
-     * been closed. </p>
-     * {@description.close}
+     * been closed.
+     * {@description.close} </p>
      *
      * @return The historical name of this encoding, or possibly
      *         <code>null</code> if the stream has been closed
@@ -189,21 +195,23 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flushes the output buffer to the underlying byte stream, without flushing
      * the byte stream itself.  This method is non-private only so that it may
      * be invoked by PrintStream.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     void flushBuffer() throws IOException {
         se.flushBuffer();
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes a single character.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  If an I/O error occurs
      */
     public void write(int c) throws IOException {
@@ -211,10 +219,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes a portion of an array of characters.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  cbuf  Buffer of characters
      * @param  off   Offset from which to start writing characters
      * @param  len   Number of characters to write
@@ -226,10 +235,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Writes a portion of a string.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  str  A String
      * @param  off  Offset from which to start writing characters
      * @param  len  Number of characters to write
@@ -241,10 +251,11 @@ public class OutputStreamWriter extends Writer {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Flushes the stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  IOException  If an I/O error occurs
      */
     public void flush() throws IOException {

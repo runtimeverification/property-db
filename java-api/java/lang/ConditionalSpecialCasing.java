@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2003, 2005, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 package java.lang;
@@ -33,9 +33,10 @@ import java.util.Locale;
 import sun.text.Normalizer;
 
 
-/** {@collect.stats} 
- * {@description.open}
- * This is a utility class for <code>String.toLowerCase()</code> and
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This is a utility class for <code>String.toLowerCase()</code> and
  * <code>String.toUpperCase()</code>, that handles special casing with
  * conditions.  In other words, it handles the mappings with conditions
  * that are defined in
@@ -44,8 +45,8 @@ import sun.text.Normalizer;
  * <p>
  * Note that the unconditional case mappings (including 1:M mappings)
  * are handled in <code>Character.toLower/UpperCase()</code>.
- * {@description.close}
- */
+
+     * {@description.close} */
 final class ConditionalSpecialCasing {
 
     // context conditions.
@@ -64,6 +65,7 @@ final class ConditionalSpecialCasing {
         //# Conditional mappings
         //# ================================================================================
         new Entry(0x03A3, new char[]{0x03C2}, new char[]{0x03A3}, null, FINAL_CASED), // # GREEK CAPITAL LETTER SIGMA
+        new Entry(0x0130, new char[]{0x0069, 0x0307}, new char[]{0x0130}, null, 0), // # LATIN CAPITAL LETTER I WITH DOT ABOVE
 
         //# ================================================================================
         //# Locale-sensitive mappings
@@ -79,8 +81,8 @@ final class ConditionalSpecialCasing {
 
         //# ================================================================================
         //# Turkish and Azeri
-//      new Entry(0x0130, new char[]{0x0069}, new char[]{0x0130}, "tr", 0), // # LATIN CAPITAL LETTER I WITH DOT ABOVE
-//      new Entry(0x0130, new char[]{0x0069}, new char[]{0x0130}, "az", 0), // # LATIN CAPITAL LETTER I WITH DOT ABOVE
+        new Entry(0x0130, new char[]{0x0069}, new char[]{0x0130}, "tr", 0), // # LATIN CAPITAL LETTER I WITH DOT ABOVE
+        new Entry(0x0130, new char[]{0x0069}, new char[]{0x0130}, "az", 0), // # LATIN CAPITAL LETTER I WITH DOT ABOVE
         new Entry(0x0307, new char[]{}, new char[]{0x0307}, "tr", AFTER_I), // # COMBINING DOT ABOVE
         new Entry(0x0307, new char[]{}, new char[]{0x0307}, "az", AFTER_I), // # COMBINING DOT ABOVE
         new Entry(0x0049, new char[]{0x0131}, new char[]{0x0049}, "tr", NOT_BEFORE_DOT), // # LATIN CAPITAL LETTER I
@@ -90,15 +92,15 @@ final class ConditionalSpecialCasing {
     };
 
     // A hash table that contains the above entries
-    static Hashtable entryTable = new Hashtable();
+    static Hashtable<Integer, HashSet<Entry>> entryTable = new Hashtable<>();
     static {
         // create hashtable from the entry
         for (int i = 0; i < entry.length; i ++) {
             Entry cur = entry[i];
             Integer cp = new Integer(cur.getCodePoint());
-            HashSet set = (HashSet)entryTable.get(cp);
+            HashSet<Entry> set = entryTable.get(cp);
             if (set == null) {
-                set = new HashSet();
+                set = new HashSet<Entry>();
             }
             set.add(cur);
             entryTable.put(cp, set);
@@ -149,22 +151,26 @@ final class ConditionalSpecialCasing {
     }
 
     private static char[] lookUpTable(String src, int index, Locale locale, boolean bLowerCasing) {
-        HashSet set = (HashSet)entryTable.get(new Integer(src.codePointAt(index)));
+        HashSet<Entry> set = entryTable.get(new Integer(src.codePointAt(index)));
+        char[] ret = null;
 
         if (set != null) {
-            Iterator iter = set.iterator();
+            Iterator<Entry> iter = set.iterator();
             String currentLang = locale.getLanguage();
             while (iter.hasNext()) {
-                Entry entry = (Entry)iter.next();
-                String conditionLang= entry.getLanguage();
+                Entry entry = iter.next();
+                String conditionLang = entry.getLanguage();
                 if (((conditionLang == null) || (conditionLang.equals(currentLang))) &&
                         isConditionMet(src, index, locale, entry.getCondition())) {
-                    return (bLowerCasing ? entry.getLowerCase() : entry.getUpperCase());
+                    ret = bLowerCasing ? entry.getLowerCase() : entry.getUpperCase();
+                    if (conditionLang != null) {
+                        break;
+                    }
                 }
             }
         }
 
-        return null;
+        return ret;
     }
 
     private static boolean isConditionMet(String src, int index, Locale locale, int condition) {
@@ -189,8 +195,9 @@ final class ConditionalSpecialCasing {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Implements the "Final_Cased" condition
      *
      * Specification: Within the closest word boundaries containing C, there is a cased
@@ -199,8 +206,8 @@ final class ConditionalSpecialCasing {
      * Regular Expression:
      *   Before C: [{cased==true}][{wordBoundary!=true}]*
      *   After C: !([{wordBoundary!=true}]*[{cased}])
-     *   {@description.close}
-     */
+
+     * {@description.close}     */
     private static boolean isFinalCased(String src, int index, Locale locale) {
         BreakIterator wordBoundary = BreakIterator.getWordInstance(locale);
         wordBoundary.setText(src);
@@ -232,8 +239,9 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Implements the "After_I" condition
      *
      * Specification: The last preceding base character was an uppercase I,
@@ -241,8 +249,8 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   Before C: [I]([{cc!=230}&{cc!=0}])*
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static boolean isAfterI(String src, int index) {
         int ch;
         int cc;
@@ -266,7 +274,6 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
      * Implements the "After_Soft_Dotted" condition
      *
      * Specification: The last preceding character with combining class
@@ -275,7 +282,6 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   Before C: [{Soft_Dotted==true}]([{cc!=230}&{cc!=0}])*
-     * {@description.open}
      */
     private static boolean isAfterSoftDotted(String src, int index) {
         int ch;
@@ -300,7 +306,8 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats}
-     * {@description.open} 
+     *      
+* {@description.open}
      * Implements the "More_Above" condition
      *
      * Specification: C is followed by one or more characters of combining
@@ -308,8 +315,8 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   After C: [{cc!=0}]*[{cc==230}]
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static boolean isMoreAbove(String src, int index) {
         int ch;
         int cc;
@@ -332,8 +339,9 @@ final class ConditionalSpecialCasing {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Implements the "Before_Dot" condition
      *
      * Specification: C is followed by <code>U+0307 COMBINING DOT ABOVE</code>.
@@ -343,8 +351,8 @@ final class ConditionalSpecialCasing {
      *
      * Regular Expression:
      *   After C: ([{cc!=230}&{cc!=0}])*[\u0307]
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static boolean isBeforeDot(String src, int index) {
         int ch;
         int cc;
@@ -370,7 +378,8 @@ final class ConditionalSpecialCasing {
     }
 
     /** {@collect.stats}
-     * {@description.open}
+     *      
+* {@description.open}
      * Examines whether a character is 'cased'.
      *
      * A character C is defined to be 'cased' if and only if at least one of
@@ -379,8 +388,8 @@ final class ConditionalSpecialCasing {
      *
      * The uppercase and lowercase property values are specified in the data
      * file DerivedCoreProperties.txt in the Unicode Character Database.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static boolean isCased(int ch) {
         int type = Character.getType(ch);
         if (type == Character.LOWERCASE_LETTER ||
@@ -440,11 +449,12 @@ final class ConditionalSpecialCasing {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * An internal class that represents an entry in the Special Casing Properties.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static class Entry {
         int ch;
         char [] lower;

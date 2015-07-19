@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2000, 2003, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
  *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
  *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 
@@ -29,8 +29,7 @@ package java.util.logging;
 import java.io.*;
 import java.net.*;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * Simple network logging <tt>Handler</tt>.
  * <p>
  * <tt>LogRecords</tt> are published to a network stream connection.  By default
@@ -38,30 +37,43 @@ import java.net.*;
  * <p>
  * <b>Configuration:</b>
  * By default each <tt>SocketHandler</tt> is initialized using the following
- * <tt>LogManager</tt> configuration properties.  If properties are not defined
+ * <tt>LogManager</tt> configuration properties where <tt>&lt;handler-name&gt;</tt>
+ * refers to the fully-qualified class name of the handler.
+ * If properties are not defined
  * (or have invalid values) then the specified default values are used.
  * <ul>
- * <li>   java.util.logging.SocketHandler.level
+ * <li>   &lt;handler-name&gt;.level
  *        specifies the default level for the <tt>Handler</tt>
- *        (defaults to <tt>Level.ALL</tt>).
- * <li>   java.util.logging.SocketHandler.filter
+ *        (defaults to <tt>Level.ALL</tt>). </li>
+ * <li>   &lt;handler-name&gt;.filter
  *        specifies the name of a <tt>Filter</tt> class to use
- *        (defaults to no <tt>Filter</tt>).
- * <li>   java.util.logging.SocketHandler.formatter
+ *        (defaults to no <tt>Filter</tt>). </li>
+ * <li>   &lt;handler-name&gt;.formatter
  *        specifies the name of a <tt>Formatter</tt> class to use
- *        (defaults to <tt>java.util.logging.XMLFormatter</tt>).
- * <li>   java.util.logging.SocketHandler.encoding
+ *        (defaults to <tt>java.util.logging.XMLFormatter</tt>). </li>
+ * <li>   &lt;handler-name&gt;.encoding
  *        the name of the character set encoding to use (defaults to
- *        the default platform encoding).
- * <li>   java.util.logging.SocketHandler.host
- *        specifies the target host name to connect to (no default).
- * <li>   java.util.logging.SocketHandler.port
- *        specifies the target TCP port to use (no default).
+ *        the default platform encoding). </li>
+ * <li>   &lt;handler-name&gt;.host
+ *        specifies the target host name to connect to (no default). </li>
+ * <li>   &lt;handler-name&gt;.port
+ *        specifies the target TCP port to use (no default). </li>
+ * </ul>
+ * <p>
+ * For example, the properties for {@code SocketHandler} would be:
+ * <ul>
+ * <li>   java.util.logging.SocketHandler.level=INFO </li>
+ * <li>   java.util.logging.SocketHandler.formatter=java.util.logging.SimpleFormatter </li>
+ * </ul>
+ * <p>
+ * For a custom handler, e.g. com.foo.MyHandler, the properties would be:
+ * <ul>
+ * <li>   com.foo.MyHandler.level=INFO </li>
+ * <li>   com.foo.MyHandler.formatter=java.util.logging.SimpleFormatter </li>
  * </ul>
  * <p>
  * The output IO stream is buffered, but is flushed after each
  * <tt>LogRecord</tt> is written.
- * {@description.close}
  *
  * @since 1.4
  */
@@ -70,7 +82,6 @@ public class SocketHandler extends StreamHandler {
     private Socket sock;
     private String host;
     private int port;
-    private String portProperty;
 
     // Private method to configure a SocketHandler from LogManager
     // properties and/or default values as specified in the class
@@ -97,12 +108,13 @@ public class SocketHandler extends StreamHandler {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Create a <tt>SocketHandler</tt>, using only <tt>LogManager</tt> properties
      * (or their defaults).
-     * {@description.close}
-     * @throws IllegalArgumentException if the host or port are invalid or
+
+     * {@description.close}     * @throws IllegalArgumentException if the host or port are invalid or
      *          are not specified as LogManager properties.
      * @throws IOException if we are unable to connect to the target
      *         host and port.
@@ -121,16 +133,17 @@ public class SocketHandler extends StreamHandler {
         sealed = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Construct a <tt>SocketHandler</tt> using a specified host and port.
      *
      * The <tt>SocketHandler</tt> is configured based on <tt>LogManager</tt>
      * properties (or their default values) except that the given target host
      * and port arguments are used. If the host argument is empty, but not
      * null String then the localhost is used.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param host target host.
      * @param port target port.
      *
@@ -163,14 +176,16 @@ public class SocketHandler extends StreamHandler {
         setOutputStream(bout);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Close this output stream.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  SecurityException  if a security manager exists and if
      *             the caller does not have <tt>LoggingPermission("control")</tt>.
      */
+    @Override
     public synchronized void close() throws SecurityException {
         super.close();
         if (sock != null) {
@@ -183,14 +198,16 @@ public class SocketHandler extends StreamHandler {
         sock = null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Format and publish a <tt>LogRecord</tt>.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param  record  description of the log event. A null record is
      *                 silently ignored and is not published
      */
+    @Override
     public synchronized void publish(LogRecord record) {
         if (!isLoggable(record)) {
             return;
