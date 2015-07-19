@@ -32,9 +32,10 @@ import java.util.Comparator;
 import java.io.IOException;
 import sun.util.logging.PlatformLogger;
 
-/** {@collect.stats} 
- * {@description.open}
- * CookieManager provides a concrete implementation of {@link CookieHandler},
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * CookieManager provides a concrete implementation of {@link CookieHandler},
  * which separates the storage of cookies from the policy surrounding accepting
  * and rejecting cookies. A CookieManager is initialized with a {@link CookieStore}
  * which manages storage, and a {@link CookiePolicy} object, which makes
@@ -110,7 +111,8 @@ import sun.util.logging.PlatformLogger;
  * </blockquote>
  *
  * <p>The implementation conforms to <a href="http://www.ietf.org/rfc/rfc2965.txt">RFC 2965</a>, section 3.3.
- * {@description.close}
+
+     * {@description.close} *
  * @see CookiePolicy
  * @author Edward Wang
  * @since 1.6
@@ -127,25 +129,27 @@ public class CookieManager extends CookieHandler
 
     /* ---------------- Ctors -------------- */
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Create a new cookie manager.
      *
      * <p>This constructor will create new cookie manager with default
      * cookie store and accept policy. The effect is same as
      * {@code CookieManager(null, null)}.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     public CookieManager() {
         this(null, null);
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Create a new cookie manager with specified cookie store and cookie policy.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param store     a {@code CookieStore} to be used by cookie manager.
      *                  if {@code null}, cookie manager will use a default one,
      *                  which is an in-memory CookieStore implementation.
@@ -172,14 +176,16 @@ public class CookieManager extends CookieHandler
 
     /* ---------------- Public operations -------------- */
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * To set the cookie policy of this cookie manager.
      *
      * <p> A instance of {@code CookieManager} will have
      * cookie policy ACCEPT_ORIGINAL_SERVER by default. Users always
      * can call this method to set another cookie policy.
-     * {@description.close}
+
+     * {@description.close}     *
      * @param cookiePolicy      the cookie policy. Can be {@code null}, which
      *                          has no effects on current cookie policy.
      */
@@ -188,11 +194,12 @@ public class CookieManager extends CookieHandler
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * To retrieve current cookie store.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the cookie store currently used by cookie manager.
      */
     public CookieStore getCookieStore() {

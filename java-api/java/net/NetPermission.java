@@ -30,14 +30,11 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * This class is for various network permissions.
  * A NetPermission contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
  * or you don't.
- * {@description.close}
- * {@property.open runtime formal:java.net.NetPermission_Name}
  * <P>
  * The target name is the name of the network permission (see below). The naming
  * convention follows the  hierarchical property naming convention.
@@ -45,8 +42,6 @@ import java.util.StringTokenizer;
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "foo.*" and "*" signify a wildcard
  * match, while "*foo" and "a*b" do not.
- * {@property.close}
- * {@description.open}
  * <P>
  * The following table lists all the possible NetPermission target names,
  * and for each provides a description of what the permission allows
@@ -157,7 +152,6 @@ creating a ProtectionDomain/CodeSource for a class even though
 that class really didn't come from that location.</td>
  * </tr>
  * </table>
- * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -173,18 +167,19 @@ that class really didn't come from that location.</td>
 public final class NetPermission extends BasicPermission {
     private static final long serialVersionUID = -8343910153355041693L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new NetPermission with the specified name.
      * The name is the symbolic name of the NetPermission, such as
      * "setDefaultAuthenticator", etc.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.NetPermission_Name}
+     * {@description.close}      
+* {@property.open runtime formal:java.net.NetPermission_Name}
      * An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param name the name of the NetPermission.
      *
      * @throws NullPointerException if {@code name} is {@code null}.
@@ -196,16 +191,17 @@ public final class NetPermission extends BasicPermission {
         super(name);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new NetPermission object with the specified name.
      * The name is the symbolic name of the NetPermission, and
-     * {@description.close}
-     * {@property.open runtime formal:java.net.NetPermission_Actions}
+     * {@description.close}      
+* {@property.open runtime formal:java.net.NetPermission_Actions}
      * the
      * actions String is currently unused and should be null.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param name the name of the NetPermission.
      * @param actions should be null.
      *

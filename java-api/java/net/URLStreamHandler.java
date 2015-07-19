@@ -33,9 +33,8 @@ import java.util.Hashtable;
 import sun.net.util.IPAddressUtil;
 import sun.net.www.ParseUtil;
 
-/** {@collect.stats} 
- * {@description.open}
- * The abstract class <code>URLStreamHandler</code> is the common
+/**
+ * The abstract class {@code URLStreamHandler} is the common
  * superclass for all stream protocol handlers. A stream protocol
  * handler knows how to make a connection for a particular protocol
  * type, such as {@code http} or {@code https}.
@@ -45,15 +44,13 @@ import sun.net.www.ParseUtil;
  * first time a protocol name is encountered when constructing a
  * {@code URL}, the appropriate stream protocol handler is
  * automatically loaded.
- * {@description.close}
  *
  * @author  James Gosling
  * @see     java.net.URL#URL(java.lang.String, java.lang.String, int, java.lang.String)
  * @since   JDK1.0
  */
 public abstract class URLStreamHandler {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Opens a connection to the object referenced by the
      * {@code URL} argument.
      * This method should be overridden by a subclass.
@@ -65,7 +62,6 @@ public abstract class URLStreamHandler {
      * returned will be of that subclass. For example, for HTTP an
      * HttpURLConnection will be returned, and for JAR a
      * JarURLConnection will be returned.
-     * {@description.close}
      *
      * @param      u   the URL that this connects to.
      * @return     a {@code URLConnection} object for the {@code URL}.
@@ -74,8 +70,7 @@ public abstract class URLStreamHandler {
      */
     abstract protected URLConnection openConnection(URL u) throws IOException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Same as openConnection(URL), except that the connection will be
      * made through the specified proxy; Protocol handlers that do not
      * support proxying will ignore the proxy parameter and make a
@@ -83,7 +78,6 @@ public abstract class URLStreamHandler {
      *
      * Calling this method preempts the system's default ProxySelector
      * settings.
-     * {@description.close}
      *
      * @param      u   the URL that this connects to.
      * @param      p   the proxy through which the connection will be made.
@@ -102,10 +96,9 @@ public abstract class URLStreamHandler {
         throw new UnsupportedOperationException("Method not implemented.");
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Parses the string representation of a <code>URL</code> into a
-     * <code>URL</code> object.
+    /** {@collect.stats}
+     * Parses the string representation of a {@code URL} into a
+     * {@code URL} object.
      * <p>
      * If there is any inherited context, then it has already been
      * copied into the {@code URL} argument.
@@ -115,9 +108,8 @@ public abstract class URLStreamHandler {
      * {@code http} specification. Most URL protocol families have a
      * similar parsing. A stream protocol handler for a protocol that has
      * a different syntax must override this routine.
-     * {@description.close}
      *
-     * @param   u       the <code>URL</code> to receive the result of parsing
+     * @param   u       the {@code URL} to receive the result of parsing
      *                  the spec.
      * @param   spec    the {@code String} representing the URL that
      *                  must be parsed.
@@ -312,25 +304,21 @@ public abstract class URLStreamHandler {
         setURL(u, protocol, host, port, authority, userInfo, path, query, ref);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the default port for a URL parsed by this handler. This method
      * is meant to be overidden by handlers with default port numbers.
-     * {@description.close}
-     * @return the default port for a <code>URL</code> parsed by this handler.
+     * @return the default port for a {@code URL} parsed by this handler.
      * @since 1.3
      */
     protected int getDefaultPort() {
         return -1;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Provides the default equals calculation. May be overidden by handlers
      * for other protocols that have different requirements for equals().
      * This method requires that none of its arguments is null. This is
      * guaranteed by the fact that it is only called by java.net.URL class.
-     * {@description.close}
      * @param u1 a URL object
      * @param u2 a URL object
      * @return {@code true} if the two urls are
@@ -345,12 +333,10 @@ public abstract class URLStreamHandler {
                sameFile(u1, u2);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Provides the default hash calculation. May be overidden by handlers for
      * other protocols that have different requirements for hashCode
      * calculation.
-     * {@description.close}
      * @param u a URL object
      * @return an {@code int} suitable for hash table indexing
      * @since 1.3
@@ -392,16 +378,12 @@ public abstract class URLStreamHandler {
         return h;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compare two urls to see whether they refer to the same file,
      * i.e., having the same protocol, host, port, and path.
-     * {@description.close}
-     * {@property.open internal}
      * This method requires that none of its arguments is null. This is
      * guaranteed by the fact that it is only called indirectly
      * by java.net.URL class.
-     * {@property.close}
      * @param u1 a URL object
      * @param u2 a URL object
      * @return true if u1 and u2 refer to the same file
@@ -433,11 +415,9 @@ public abstract class URLStreamHandler {
         return true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get the IP address of our host. An empty host field or a DNS failure
      * will result in a null return.
-     * {@description.close}
      *
      * @param u a URL object
      * @return an {@code InetAddress} representing the host
@@ -463,10 +443,8 @@ public abstract class URLStreamHandler {
         return u.hostAddress;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares the host components of two URLs.
-     * {@description.close}
      * @param u1 the URL of the first host to compare
      * @param u2 the URL of the second host to compare
      * @return  {@code true} if and only if they
@@ -486,11 +464,9 @@ public abstract class URLStreamHandler {
             return u1.getHost() == null && u2.getHost() == null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Converts a <code>URL</code> of a specific protocol to a
-     * <code>String</code>.
-     * {@description.close}
+    /** {@collect.stats}
+     * Converts a {@code URL} of a specific protocol to a
+     * {@code String}.
      *
      * @param   u   the URL.
      * @return  a string representation of the {@code URL} argument.
@@ -531,12 +507,10 @@ public abstract class URLStreamHandler {
         return result.toString();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the fields of the {@code URL} argument to the indicated values.
      * Only classes derived from URLStreamHandler are able
      * to use this method to set the values of the URL fields.
-     * {@description.close}
      *
      * @param   u         the URL to modify.
      * @param   protocol  the protocol name.
@@ -563,12 +537,10 @@ public abstract class URLStreamHandler {
         u.set(u.getProtocol(), host, port, authority, userInfo, path, query, ref);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the fields of the {@code URL} argument to the indicated values.
      * Only classes derived from URLStreamHandler are able
      * to use this method to set the values of the URL fields.
-     * {@description.close}
      *
      * @param   u         the URL to modify.
      * @param   protocol  the protocol name. This value is ignored since 1.2.

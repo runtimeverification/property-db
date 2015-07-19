@@ -24,11 +24,12 @@
  */
 package java.net;
 
-/** {@collect.stats} 
- * {@description.open}
- * Constants used by the SOCKS protocol implementation.
- * {@description.close}
- */
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Constants used by the SOCKS protocol implementation.
+
+     * {@description.close} */
 
 interface SocksConsts {
     static final int PROTO_VERS4                = 4;

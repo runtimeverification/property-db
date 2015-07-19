@@ -34,15 +34,17 @@ import sun.net.ConnectionResetException;
 import sun.net.NetHooks;
 import sun.net.ResourceManager;
 
-/** {@collect.stats} 
- * {@description.open}
- * Default Socket Implementation. This implementation does
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Default Socket Implementation. This implementation does
  * not implement any security checks.
- * {@description.close}
- * {@property.open static internal}
- * Note this class should <b>NOT</b> be public.
- * {@property.close}
- *
+
+     * {@description.close} *      
+* {@property.open static internal}
+     * Note this class should <b>NOT</b> be public.
+
+     * {@property.close} *
  * @author  Steven B. Byrne
  */
 abstract class AbstractPlainSocketImpl extends SocketImpl
@@ -78,11 +80,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     */
     protected boolean stream;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Load net library into runtime.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static {
         java.security.AccessController.doPrivileged(
             new java.security.PrivilegedAction<Void>() {
@@ -93,12 +96,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
             });
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a socket with a boolean that specifies whether this
      * is a stream socket (true) or an unconnected UDP socket (false).
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected synchronized void create(boolean stream) throws IOException {
         this.stream = stream;
         if (!stream) {
@@ -122,12 +126,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
             serverSocket.setCreated();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a socket and connects it to the specified port on
      * the specified host.
-     * {@description.close}
-     * @param host the specified host
+
+     * {@description.close}     * @param host the specified host
      * @param port the specified port
      */
     protected void connect(String host, int port)
@@ -153,12 +158,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a socket and connects it to the specified address on
      * the specified port.
-     * {@description.close}    
-     * @param address the address
+
+     * {@description.close}     * @param address the address
      * @param port the specified port
      */
     protected void connect(InetAddress address, int port) throws IOException {
@@ -175,12 +181,13 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a socket and connects it to the specified address on
      * the specified port.
-     * {@description.close}     
-     * @param address the address
+
+     * {@description.close}     * @param address the address
      * @param timeout the timeout value in milliseconds, or zero for no timeout.
      * @throws IOException if connection fails
      * @throws  IllegalArgumentException if address is null or is a
@@ -341,13 +348,14 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The workhorse of the connection operation.  Tries several times to
      * establish a connection to the given <host, port>.  If unsuccessful,
      * throws an IOException indicating what went wrong.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
 
     synchronized void doConnect(InetAddress address, int port, int timeout) throws IOException {
         synchronized (fdLock) {
@@ -382,11 +390,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Binds the socket to the specified address of the specified local port.
-     * {@description.close}
-     * @param address the address
+
+     * {@description.close}     * @param address the address
      * @param lport the port
      */
     protected synchronized void bind(InetAddress address, int lport)
@@ -404,21 +413,23 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
             serverSocket.setBound();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Listens, for a specified amount of time, for connections.
-     * {@description.close}
-     * @param count the amount of time to listen for connections
+
+     * {@description.close}     * @param count the amount of time to listen for connections
      */
     protected synchronized void listen(int count) throws IOException {
         socketListen(count);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Accepts connections.
-     * {@description.close}
-     * @param s the connection
+
+     * {@description.close}     * @param s the connection
      */
     protected void accept(SocketImpl s) throws IOException {
         acquireFD();
@@ -429,11 +440,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets an InputStream for this socket.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected synchronized InputStream getInputStream() throws IOException {
         synchronized (fdLock) {
             if (isClosedOrPending())
@@ -450,11 +462,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         socketInputStream = in;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets an OutputStream for this socket.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected synchronized OutputStream getOutputStream() throws IOException {
         synchronized (fdLock) {
             if (isClosedOrPending())
@@ -483,11 +496,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         this.localport = localport;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the number of bytes that can be read without blocking.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected synchronized int available() throws IOException {
         if (isClosedOrPending()) {
             throw new IOException("Stream closed.");
@@ -527,11 +541,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         return n;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Closes the socket.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected void close() throws IOException {
         synchronized(fdLock) {
             if (fd != null) {
@@ -584,11 +599,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Shutdown read-half of the socket connection;
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected void shutdownInput() throws IOException {
       if (fd != null) {
           socketShutdown(SHUT_RD);
@@ -599,11 +615,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
       }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Shutdown write-half of the socket connection;
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected void shutdownOutput() throws IOException {
       if (fd != null) {
           socketShutdown(SHUT_WR);
@@ -622,11 +639,12 @@ abstract class AbstractPlainSocketImpl extends SocketImpl
         socketSendUrgentData (data);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Cleans up if the user forgets to close it.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     protected void finalize() throws IOException {
         close();
     }

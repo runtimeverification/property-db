@@ -33,39 +33,6 @@ public class FinishUp {
         File newStats    = new File(propertiesDir + File.separator + "new.stats");
         File propertyStats      = new File(propertiesDir + File.separator + "property.stats");
         
-        try {
-            (new PrintStream(new FileOutputStream(new File(args[0] + File.separator + "stylesheet.css"), true)))
-            .println( ".Red { background-color:#EE0000; color:#FFFFFF }"
-                     //+ "\n.HLon  { color:#0000E2 }"
-                     //+ "\n.HLoff { color:#450082 }"
-                     + "\np { color:inherit;background-color:inherit }"
-                     + "\nul { color:inherit;background-color:inherit }"
-                     + "\nol { color:inherit;background-color:inherit }"
-                     + "\ndl { color:inherit;background-color:inherit }"
-                     + "\npre { color:inherit;background-color:inherit }"
-                     + "\nh1 { color:inherit;background-color:inherit }"
-                     + "\nh2 { color:inherit;background-color:inherit }"
-                     + "\nh3 { color:inherit;background-color:inherit }"
-                     + "\nh4 { color:inherit;background-color:inherit }"
-                     + "\ncode { color:inherit;background-color:inherit }"
-                     + "\ntable { color:inherit;background-color:inherit }"
-                     + "\ntr { color:inherit;background-color:inherit }"
-                     + "\ntd { color:inherit;background-color:inherit }"
-                     + "\nth { color:inherit;background-color:inherit }"
-                     + "\n.TableHeadingColor     { background: #CCCCFF; color:#000000 } /* Dark mauve */"
-                     + "\n.TableRowColor         { background: #FFFFFF; color:#000000 } /* White */"
-                     + "\n.TableSubHeadingColor  { background: #EEEEFF; color:#000000 } /* Light mauve */"
-                     + "\n.NavBarCell1    { background-color:#EEEEFF; color:#000000} /* Light mauve */"
-                     + "\n.NavBarCell1Rev { background-color:#00008B; color:#FFFFFF} /* Dark Blue */"
-                     //background-color:#4D7A97;margin-top:11px;margin-right:5px
-                     + "\n .navBarRV { background-color:#000000; color:#FFFFFF; float:left; list-style:none; padding:6px; clear:right; height:2.8em;font-size:12px; margin: 0 auto;}"
-                     + "\n.selectionColor { background-color:#777778; }"
-                     + "\ntable#globalstat {color:#F80303;}"
-                     + "\n.navBarCell1RevNR {background-color:#F8981D;color:#253441;}"
-                     );
-        } catch (java.io.IOException e){
-            throw new RuntimeException(e);
-        }
         
         undecidedDB = getDB(undecidedStats);
         descriptionDB = getDB(descriptionStats);
@@ -253,7 +220,7 @@ public class FinishUp {
     }
     
     private static void generatePropertiesList(StringBuilder table, final String dir, String prefix){
-        // System.out.println("------------" + dir + "-------------" + prefix);
+         System.out.println("------------" + dir + "-------------" + prefix);
         String linkPrefix = prefix.replaceAll("[.]", "/");
         File dirFile = new File(dir);
         //find all html files at this level
@@ -333,20 +300,26 @@ public class FinishUp {
     
     private static StringBuilder generateZipped(){
         //TODO
-        ;
+        return new StringBuilder();
     }
     
     private static StringBuilder generateFormsList(){
         StringBuilder ret = new StringBuilder();
         int count=0;
         File dirFile = new File(destDirName + File.separator + "java");
+
+        System.out.println(dirFile);
+        // if (dirFile.isDirectory()) {
         for(String fn :
             dirFile.list(new FilenameFilter() {
-            public boolean accept(File f, String name){
-                return f.isDirectory();
+                public boolean accept(File f, String name){
+                    return dirFile.isDirectory();
             }
         })){
             count++;
+
+        //     for (String fn : dirFile.list()) { count++;
+        //     }
         }
         for(int i=1;i<=count;i++){//////////////TO CHANGE
             ret.append(" document.forms[\"form");

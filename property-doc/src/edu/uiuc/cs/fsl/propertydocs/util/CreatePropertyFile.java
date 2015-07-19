@@ -15,11 +15,11 @@ public class CreatePropertyFile {
     //ensure that we delete the files on a fresh run
     
     public static final String PROPDIR = "propertypath";
-	//private static final String propDir = System.getProperty(PROPDIR);////F
+    //private static final String propDir = System.getProperty(PROPDIR);////F
     //TO CHANGE
-    private static final String propDir = "/Users/KIKKO/RuntimeVerification/property-db/annotated-java-api";
+    private static final String propDir = "/home/will/property-db/annotated-java-api";
     
-	static {
+    static {
         File propertyDir = new File(dir + "/" + "__properties");
         if(!propertyDir.exists()) propertyDir.mkdir();
             File htmlDir = new File(dir + "/" + "__properties" + "/" + "html");
@@ -31,7 +31,7 @@ public class CreatePropertyFile {
                     }
     
     /* call this method to force this class to be initialized */
-	public static void forceInit() {}
+    public static void forceInit() {}
     //Name is the name of the property
     //tag is the PropertyOpen Tag referencing the property
     //depth is the depth of the Property File, e.g., the depth of java.io.UnsafeIterator.rvm

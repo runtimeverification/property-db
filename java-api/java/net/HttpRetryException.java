@@ -27,13 +27,14 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats} 
- * {@description.open}
- * Thrown to indicate that a HTTP request needs to be retried
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Thrown to indicate that a HTTP request needs to be retried
  * but cannot be retried automatically, due to streaming mode
  * being enabled.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Michael McMahon
  * @since   1.5
  */
@@ -44,11 +45,13 @@ class HttpRetryException extends IOException {
     private int responseCode;
     private String location;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a new {@code HttpRetryException} from the
      * specified response code and exception detail message
-     *
+
+     * {@description.close}     *
      * @param   detail   the detail message.
      * @param   code   the HTTP response code from server.
      */
@@ -57,11 +60,13 @@ class HttpRetryException extends IOException {
         responseCode = code;
     }
 
-    /**
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a new {@code HttpRetryException} with detail message
      * responseCode and the contents of the Location response header field.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   detail   the detail message.
      * @param   code   the HTTP response code from server.
      * @param   location   the URL to be redirected to
@@ -72,35 +77,38 @@ class HttpRetryException extends IOException {
         this.location = location;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the http response code
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  The http response code.
      */
     public int responseCode() {
         return responseCode;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a string explaining why the http request could
      * not be retried.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  The reason string
      */
     public String getReason() {
         return super.getMessage();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the value of the Location header field if the
      * error resulted from redirection.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return The location string
      */
     public String getLocation() {

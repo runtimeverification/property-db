@@ -26,12 +26,13 @@
 package java.net;
 
 
-/** {@collect.stats} 
- * {@description.open}
- * The class PasswordAuthentication is a data holder that is used by
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * The class PasswordAuthentication is a data holder that is used by
  * Authenticator.  It is simply a repository for a user name and a password.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @see java.net.Authenticator
  * @see java.net.Authenticator#getPasswordAuthentication()
  *
@@ -44,14 +45,12 @@ public final class PasswordAuthentication {
     private String userName;
     private char[] password;
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Creates a new <code>PasswordAuthentication</code> object from the given
+    /** {@collect.stats}
+     * Creates a new {@code PasswordAuthentication} object from the given
      * user name and password.
      *
      * <p> Note that the given user password is cloned before it is stored in
-     * the new <code>PasswordAuthentication</code> object.
-     * {@description.close}
+     * the new {@code PasswordAuthentication} object.
      *
      * @param userName the user name
      * @param password the user's password
@@ -61,10 +60,8 @@ public final class PasswordAuthentication {
         this.password = password.clone();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the user name.
-     * {@description.close}
      *
      * @return the user name
      */
@@ -72,16 +69,12 @@ public final class PasswordAuthentication {
         return userName;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the user password.
-     * {@description.close}
      *
-     * {@property.open runtime formal:java.net.PasswordAuthentication_FillZeroPassword}
      * <p> Note that this method returns a reference to the password. It is
      * the caller's responsibility to zero out the password information after
      * it is no longer needed.
-     * {@property.close}
      *
      * @return the password
      */

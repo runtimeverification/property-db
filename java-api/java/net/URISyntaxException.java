@@ -26,12 +26,13 @@
 package java.net;
 
 
-/** {@collect.stats} 
- * {@description.open}
- * Checked exception thrown to indicate that a string could not be parsed as a
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Checked exception thrown to indicate that a string could not be parsed as a
  * URI reference.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author Mark Reinhold
  * @see URI
  * @since 1.4
@@ -45,11 +46,9 @@ public class URISyntaxException
     private String input;
     private int index;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs an instance from the given input string, reason, and error
      * index.
-     * {@description.close}
      *
      * @param  input   The input string
      * @param  reason  A string explaining why the input could not be parsed
@@ -72,11 +71,9 @@ public class URISyntaxException
         this.index = index;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs an instance from the given input string and reason.  The
-     * resulting object will have an error index of <tt>-1</tt>.
-     * {@description.close}
+     * resulting object will have an error index of {@code -1}.
      *
      * @param  input   The input string
      * @param  reason  A string explaining why the input could not be parsed
@@ -88,10 +85,8 @@ public class URISyntaxException
         this(input, reason, -1);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the input string.
-     * {@description.close}
      *
      * @return  The input string
      */
@@ -99,10 +94,8 @@ public class URISyntaxException
         return input;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a string explaining why the input string could not be parsed.
-     * {@description.close}
      *
      * @return  The reason string
      */
@@ -110,11 +103,9 @@ public class URISyntaxException
         return super.getMessage();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an index into the input string of the position at which the
-     * parse error occurred, or <tt>-1</tt> if this position is not known.
-     * {@description.close}
+     * parse error occurred, or {@code -1} if this position is not known.
      *
      * @return  The error index
      */
@@ -122,15 +113,13 @@ public class URISyntaxException
         return index;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns a string describing the parse error.  The resulting string
      * consists of the reason string followed by a colon character
      * ({@code ':'}), a space, and the input string.  If the error index is
      * defined then the string {@code " at index "} followed by the index, in
      * decimal, is inserted after the reason string and before the colon
      * character.
-     * {@description.close}
      *
      * @return  A string describing the parse error
      */

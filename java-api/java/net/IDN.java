@@ -33,9 +33,11 @@ import sun.net.idn.StringPrep;
 import sun.net.idn.Punycode;
 import sun.text.normalizer.UCharacterIterator;
 
-/** {@collect.stats} 
- * {@description.open}
- * Provides methods to convert internationalized domain names (IDNs) between
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Provides methods to convert internationalized domain names
+     * {@description.close} (IDNs) between
  * a normal Unicode representation and an ASCII Compatible Encoding (ACE) representation.
  * Internationalized domain names can use characters from the entire range of
  * Unicode, while traditional domain names are restricted to ASCII characters.
@@ -68,41 +70,31 @@ import sun.text.normalizer.UCharacterIterator;
  * discusses security issues of IDN support as well as possible solutions.
  * Applications are responsible for taking adequate security measures when using
  * international domain names.
- * {@description.close}
  *
  * @author Edward Wang
  * @since 1.6
  *
  */
 public final class IDN {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Flag to allow processing of unassigned code points
-     * {@description.close}
      */
     public static final int ALLOW_UNASSIGNED = 0x01;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Flag to turn on the check against STD-3 ASCII rules
-     * {@description.close}
      */
     public static final int USE_STD3_ASCII_RULES = 0x02;
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Translates a string from Unicode to ASCII Compatible Encoding (ACE),
      * as defined by the ToASCII operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
-     * {@description.close}
      *
-     * {@property.open runtime formal:java.net.IDN_ToAscii}
      * <p>ToASCII operation can fail. ToASCII fails if any step of it fails.
      * If ToASCII operation fails, an IllegalArgumentException will be thrown.
      * In this case, the input string should not be used in an internationalized domain name.
-     * {@property.close}
      *
-     * {@description.open}
      * <p> A label is an individual part of a domain name. The original ToASCII operation,
      * as defined in RFC 3490, only operates on a single label. This method can handle
      * both label and entire domain name, by assuming that labels in a domain name are
@@ -111,7 +103,6 @@ public final class IDN {
      * and &#0092;uFF61 (halfwidth ideographic full stop). if dots are
      * used as label separators, this method also changes all of them to &#0092;u002E (full stop)
      * in output translated string.
-     * {@description.close}
      *
      * @param input     the string to be processed
      * @param flag      process flag; can be 0 or any logical OR of possible flags
@@ -143,8 +134,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Translates a string from Unicode to ASCII Compatible Encoding (ACE),
      * as defined by the ToASCII operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -152,13 +142,7 @@ public final class IDN {
      * two-argument counterpart as follows:
      * <blockquote>
      * {@link #toASCII(String, int) toASCII}(input,&nbsp;0);
-     * </tt></blockquote>
-     * {@description.close}
-     * {@property.open runtime formal:java.net.IDN_ToAscii}
-     * {@new.open}
-     * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
-     * {@new.close}
-     * {@property.close}
+     * </blockquote>
      *
      * @param input     the string to be processed
      *
@@ -171,8 +155,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Translates a string from ASCII Compatible Encoding (ACE) to Unicode,
      * as defined by the ToUnicode operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -184,7 +167,6 @@ public final class IDN {
      * always separated by dots. The following characters are recognized as dots:
      * &#0092;u002E (full stop), &#0092;u3002 (ideographic full stop), &#0092;uFF0E (fullwidth full stop),
      * and &#0092;uFF61 (halfwidth ideographic full stop).
-     * {@description.close}
      *
      * @param input     the string to be processed
      * @param flag      process flag; can be 0 or any logical OR of possible flags
@@ -213,8 +195,7 @@ public final class IDN {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Translates a string from ASCII Compatible Encoding (ACE) to Unicode,
      * as defined by the ToUnicode operation of <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
      *
@@ -222,8 +203,7 @@ public final class IDN {
      * two-argument counterpart as follows:
      * <blockquote>
      * {@link #toUnicode(String, int) toUnicode}(input,&nbsp;0);
-     * </tt></blockquote>
-     * {@description.close}
+     * </blockquote>
      *
      * @param input     the string to be processed
      *

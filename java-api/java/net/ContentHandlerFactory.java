@@ -25,15 +25,16 @@
 
 package java.net;
 
-/** {@collect.stats} 
- * {@description.open}
- * This interface defines a factory for content handlers. An
- * implementation of this interface should map a MIME type into an
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This interface defines a factory for content handlers. An
+ * implementation of this interface should map a MIME type
+     * {@description.close} into an
  * instance of {@code ContentHandler}.
  * <p>
  * This interface is used by the {@code URLStreamHandler} class
  * to create a {@code ContentHandler} for a MIME type.
- * {@description.close}
  *
  * @author  James Gosling
  * @see     java.net.ContentHandler
@@ -41,12 +42,13 @@ package java.net;
  * @since   JDK1.0
  */
 public interface ContentHandlerFactory {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a new {@code ContentHandler} to read an object from
      * a {@code URLStreamHandler}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   mimetype   the MIME type for which a content handler is desired.
 
      * @return  a new {@code ContentHandler} to read an object from a

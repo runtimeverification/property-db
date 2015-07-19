@@ -31,9 +31,8 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats} 
- * {@description.open}
- * Class <code>URL</code> represents a Uniform Resource
+/**
+ * Class {@code URL} represents a Uniform Resource
  * Locator, a pointer to a "resource" on the World
  * Wide Web. A resource can be something as simple as a file or a
  * directory, or it can be a reference to a more complicated object,
@@ -130,7 +129,6 @@ import sun.security.util.SecurityConstants;
  * The {@link URLEncoder} and {@link URLDecoder} classes can also be
  * used, but only for HTML form encoding, which is not the same
  * as the encoding scheme defined in RFC2396.
- * {@description.close}
  *
  * @author  James Gosling
  * @since JDK1.0
@@ -139,8 +137,9 @@ public final class URL implements java.io.Serializable {
 
     static final long serialVersionUID = -7627629688361524110L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The property which specifies the package prefix list to be scanned
      * for protocol handlers.  The value of this property (if any) should
      * be a vertical bar delimited list of package names to search through
@@ -151,93 +150,104 @@ public final class URL implements java.io.Serializable {
      * default package prefix, sun.net.www.protocol, is used.  The search
      * proceeds from the first package in the list to the last and stops
      * when a match is found.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private static final String protocolPathProp = "java.protocol.handler.pkgs";
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * The protocol to use (ftp, http, nntp, ... etc.) .
-     * {@description.close}
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * The protocol to use (ftp, http, nntp, ... etc.)
+     * {@description.close} .
      * @serial
      */
     private String protocol;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The host name to connect to.
-     * {@description.close}
-     * @serial
+
+     * {@description.close}     * @serial
      */
     private String host;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The protocol port to connect to.
-     * {@description.close}
-     * @serial
+
+     * {@description.close}     * @serial
      */
     private int port = -1;
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * The specified file name on that host. <code>file</code> is
-     * defined as <code>path[?query]</code>
-     * {@description.close}
-     * @serial
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * The specified file name on that host. {@code file} is
+     * defined as {@code path[?query]}
+
+     * {@description.close}     * @serial
      */
     private String file;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The query part of this URL.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private transient String query;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The authority part of this URL.
-     * {@description.close}
-     * @serial
+
+     * {@description.close}     * @serial
      */
     private String authority;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The path part of this URL.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private transient String path;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The userinfo part of this URL.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private transient String userInfo;
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * # reference.
-     * {@description.close}
-     * @serial
+    /** {@collect.stats}
+     * #      
+* {@description.open}
+     * reference.
+
+     * {@description.close}     * @serial
      */
     private String ref;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The host's IP address, used in equals and hashCode.
      * Computed on demand. An uninitialized or unknown hostAddress is null.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     transient InetAddress hostAddress;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The URLStreamHandler for this URL.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     transient URLStreamHandler handler;
 
     /* Our hash code.
@@ -245,13 +255,12 @@ public final class URL implements java.io.Serializable {
      */
     private int hashCode = -1;
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Creates a <code>URL</code> object from the specified
-     * <code>protocol</code>, <code>host</code>, <code>port</code>
-     * number, and <code>file</code>.<p>
+    /**
+     * Creates a {@code URL} object from the specified
+     * {@code protocol}, {@code host}, {@code port}
+     * number, and {@code file}.<p>
      *
-     * <code>host</code> can be expressed as a host name or a literal
+     * {@code host} can be expressed as a host name or a literal
      * IP address. If IPv6 literal address is used, it should be
      * enclosed in square brackets ({@code '['} and {@code ']'}), as
      * specified by <a
@@ -311,7 +320,6 @@ public final class URL implements java.io.Serializable {
      * available.
      *
      * <p>No validation of the inputs is performed by this constructor.
-     * {@description.close}
      *
      * @param      protocol   the name of the protocol to use.
      * @param      host       the name of the host.
@@ -331,10 +339,11 @@ public final class URL implements java.io.Serializable {
         this(protocol, host, port, file, null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Creates a URL from the specified <code>protocol</code>
-     * name, <code>host</code> name, and <code>file</code> name. The
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Creates a URL from the specified {@code protocol}
+     * name, {@code host} name, and {@code file} name. The
      * default port for the specified protocol is used.
      * <p>
      * This method is equivalent to calling the four-argument
@@ -342,8 +351,8 @@ public final class URL implements java.io.Serializable {
      * {@code host}, {@code -1}, and {@code file}.
      *
      * No validation of the inputs is performed by this constructor.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      protocol   the name of the protocol to use.
      * @param      host       the name of the host.
      * @param      file       the file on the host.
@@ -356,12 +365,13 @@ public final class URL implements java.io.Serializable {
         this(protocol, host, -1, file);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Creates a <code>URL</code> object from the specified
-     * <code>protocol</code>, <code>host</code>, <code>port</code>
-     * number, <code>file</code>, and <code>handler</code>. Specifying
-     * a <code>port</code> number of <code>-1</code> indicates that
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Creates a {@code URL} object from the specified
+     * {@code protocol}, {@code host}, {@code port}
+     * number, {@code file}, and {@code handler}. Specifying
+     * a {@code port} number of {@code -1} indicates that
      * the URL should use the default port for the protocol. Specifying
      * a {@code handler} of {@code null} indicates that the URL
      * should use a default stream handler for the protocol, as outlined
@@ -376,8 +386,8 @@ public final class URL implements java.io.Serializable {
      * This may result in a SecurityException.
      *
      * No validation of the inputs is performed by this constructor.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      protocol   the name of the protocol to use.
      * @param      host       the name of the host.
      * @param      port       the port number on the host.
@@ -411,12 +421,13 @@ public final class URL implements java.io.Serializable {
         this.protocol = protocol;
         if (host != null) {
 
-            /** {@collect.stats} 
-             * {@description.open}
-             * if host is a literal IPv6 address,
+            /** {@collect.stats}
+             *      
+* {@description.open}
+     * if host is a literal IPv6 address,
              * we will make it conform to RFC 2732
-             * {@description.close}
-             */
+
+     * {@description.close}             */
             if (host.indexOf(':') >= 0 && !host.startsWith("[")) {
                 host = "["+host+"]";
             }
@@ -450,15 +461,16 @@ public final class URL implements java.io.Serializable {
         this.handler = handler;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Creates a <code>URL</code> object from the <code>String</code>
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Creates a {@code URL} object from the {@code String}
      * representation.
      * <p>
      * This constructor is equivalent to a call to the two-argument
      * constructor with a {@code null} first argument.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      spec   the {@code String} to parse as a URL.
      * @exception  MalformedURLException  if no protocol is specified, or an
      *               unknown protocol is found, or {@code spec} is {@code null}.
@@ -468,8 +480,7 @@ public final class URL implements java.io.Serializable {
         this(null, spec);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Creates a URL by parsing the given spec within a specified context.
      *
      * The new URL is created from the given context URL and the spec
@@ -505,7 +516,6 @@ public final class URL implements java.io.Serializable {
      * changes made by occurrences of &quot;..&quot; and &quot;.&quot;.
      * <p>
      * For a more detailed description of URL parsing, refer to RFC2396.
-     * {@description.close}
      *
      * @param      context   the context in which to parse the specification.
      * @param      spec      the {@code String} to parse as a URL.
@@ -521,13 +531,14 @@ public final class URL implements java.io.Serializable {
         this(context, spec, null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a URL by parsing the given spec with the specified handler
      * within a specified context. If the handler is null, the parsing
      * occurs as with the two argument constructor.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      context   the context in which to parse the specification.
      * @param      spec      the {@code String} to parse as a URL.
      * @param      handler   the stream handler for the URL.
@@ -690,13 +701,14 @@ public final class URL implements java.io.Serializable {
         sm.checkPermission(SecurityConstants.SPECIFY_HANDLER_PERMISSION);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the fields of the URL. This is not a public method so that
      * only URLStreamHandlers can modify URL fields. URLs are
      * otherwise constant.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param protocol the name of the protocol to use
      * @param host the name of the host
        @param port the port number on the host
@@ -725,13 +737,14 @@ public final class URL implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the specified 8 fields of the URL. This is not a public method so
      * that only URLStreamHandlers can modify URL fields. URLs are otherwise
      * constant.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param protocol the name of the protocol to use
      * @param host the name of the host
      * @param port the port number on the host
@@ -762,11 +775,12 @@ public final class URL implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the query part of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the query part of this {@code URL},
      * or <CODE>null</CODE> if one does not exist
      * @since 1.3
@@ -775,11 +789,12 @@ public final class URL implements java.io.Serializable {
         return query;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the path part of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the path part of this {@code URL}, or an
      * empty string if one does not exist
      * @since 1.3
@@ -788,11 +803,12 @@ public final class URL implements java.io.Serializable {
         return path;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the userInfo part of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the userInfo part of this {@code URL}, or
      * <CODE>null</CODE> if one does not exist
      * @since 1.3
@@ -801,11 +817,12 @@ public final class URL implements java.io.Serializable {
         return userInfo;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the authority part of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the authority part of this {@code URL}
      * @since 1.3
      */
@@ -813,25 +830,27 @@ public final class URL implements java.io.Serializable {
         return authority;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the port number of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the port number, or -1 if the port is not set
      */
     public int getPort() {
         return port;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the default port number of the protocol associated
      * with this {@code URL}. If the URL scheme or the URLStreamHandler
      * for the URL do not define a default port number,
      * then -1 is returned.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the port number
      * @since 1.4
      */
@@ -839,24 +858,26 @@ public final class URL implements java.io.Serializable {
         return handler.getDefaultPort();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the protocol name of this {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the protocol of this {@code URL}.
      */
     public String getProtocol() {
         return protocol;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the host name of this {@code URL}, if applicable.
      * The format of the host conforms to RFC 2732, i.e. for a
      * literal IPv6 address, this method will return the IPv6 address
-     * enclosed in square brackets ({@code '['} and {@code ']'}).
-     * {@description.close}
+     * enclosed in square brackets ({@code '['} and
+     * {@description.close} {@code ']'}).
      *
      * @return  the host name of this {@code URL}.
      */
@@ -864,16 +885,17 @@ public final class URL implements java.io.Serializable {
         return host;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the file name of this {@code URL}.
      * The returned file portion will be
      * the same as <CODE>getPath()</CODE>, plus the concatenation of
      * the value of <CODE>getQuery()</CODE>, if any. If there is
      * no query portion, this method and <CODE>getPath()</CODE> will
      * return identical results.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the file name of this {@code URL},
      * or an empty string if one does not exist
      */
@@ -881,12 +903,13 @@ public final class URL implements java.io.Serializable {
         return file;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the anchor (also known as the "reference") of this
      * {@code URL}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the anchor (also known as the "reference") of this
      *          {@code URL}, or <CODE>null</CODE> if one does not exist
      */
@@ -894,8 +917,9 @@ public final class URL implements java.io.Serializable {
         return ref;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Compares this URL for equality with another object.<p>
      *
      * If the given object is not a URL then this method immediately returns
@@ -915,8 +939,8 @@ public final class URL implements java.io.Serializable {
      *
      * Note: The defined behavior for {@code equals} is known to
      * be inconsistent with virtual hosting in HTTP.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   obj   the URL to compare against.
      * @return  {@code true} if the objects are the same;
      *          {@code false} otherwise.
@@ -929,14 +953,15 @@ public final class URL implements java.io.Serializable {
         return handler.equals(this, u2);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an integer suitable for hash table indexing.<p>
      *
      * The hash code is based upon all the URL components relevant for URL
      * comparison. As such, this operation is a blocking operation.<p>
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  a hash code for this {@code URL}.
      */
     public synchronized int hashCode() {
@@ -947,15 +972,16 @@ public final class URL implements java.io.Serializable {
         return hashCode;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Compares two URLs, excluding the fragment component.<p>
      *
      * Returns {@code true} if this {@code URL} and the
      * {@code other} argument are equal without taking the
      * fragment component into consideration.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   other   the {@code URL} to compare against.
      * @return  {@code true} if they reference the same remote object;
      *          {@code false} otherwise.
@@ -964,13 +990,14 @@ public final class URL implements java.io.Serializable {
         return handler.sameFile(this, other);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a string representation of this {@code URL}. The
      * string is created by calling the {@code toExternalForm}
      * method of the stream protocol handler for this object.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  a string representation of this object.
      * @see     java.net.URL#URL(java.lang.String, java.lang.String, int,
      *                  java.lang.String)
@@ -980,13 +1007,14 @@ public final class URL implements java.io.Serializable {
         return toExternalForm();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a string representation of this {@code URL}. The
      * string is created by calling the {@code toExternalForm}
      * method of the stream protocol handler for this object.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  a string representation of this object.
      * @see     java.net.URL#URL(java.lang.String, java.lang.String,
      *                  int, java.lang.String)
@@ -996,14 +1024,15 @@ public final class URL implements java.io.Serializable {
         return handler.toExternalForm(this);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns a {@link java.net.URI} equivalent to this URL.
      * This method functions in the same way as {@code new URI (this.toString())}.
      * <p>Note, any URL instance that complies with RFC 2396 can be converted
-     * to a URI. However, some URLs that are not strictly in compliance
+     * to a URI.
+     * {@description.close} However, some URLs that are not strictly in compliance
      * can not be converted to a URI.
-     * {@description.close}
      *
      * @exception URISyntaxException if this URL is not formatted strictly according to
      *            to RFC2396 and cannot be converted to a URI.
@@ -1015,8 +1044,7 @@ public final class URL implements java.io.Serializable {
         return new URI (toString());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns a {@link java.net.URLConnection URLConnection} instance that
      * represents a connection to the remote object referred to by the
      * {@code URL}.
@@ -1038,7 +1066,6 @@ public final class URL implements java.io.Serializable {
      * returned will be of that subclass. For example, for HTTP an
      * HttpURLConnection will be returned, and for JAR a
      * JarURLConnection will be returned.</P>
-     * {@description.close}
      *
      * @return     a {@link java.net.URLConnection URLConnection} linking
      *             to the URL.
@@ -1050,8 +1077,7 @@ public final class URL implements java.io.Serializable {
         return handler.openConnection(this);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Same as {@link #openConnection()}, except that the connection will be
      * made through the specified proxy; Protocol handlers that do not
      * support proxing will ignore the proxy parameter and make a
@@ -1059,7 +1085,6 @@ public final class URL implements java.io.Serializable {
      *
      * Invoking this method preempts the system's default ProxySelector
      * settings.
-     * {@description.close}
      *
      * @param      proxy the Proxy through which this connection
      *             will be made. If direct connection is desired,
@@ -1101,15 +1126,16 @@ public final class URL implements java.io.Serializable {
         return handler.openConnection(this, p);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Opens a connection to this <code>URL</code> and returns an
-     * <code>InputStream</code> for reading from that connection. This
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Opens a connection to this {@code URL} and returns an
+     * {@code InputStream} for reading from that connection. This
      * method is a shorthand for:
      * <blockquote><pre>
      *     openConnection().getInputStream()
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @return     an input stream for reading from the URL connection.
      * @exception  IOException  if an I/O exception occurs.
@@ -1120,13 +1146,14 @@ public final class URL implements java.io.Serializable {
         return openConnection().getInputStream();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the contents of this URL. This method is a shorthand for:
      * <blockquote><pre>
      *     openConnection().getContent()
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @return     the contents of this URL.
      * @exception  IOException  if an I/O exception occurs.
@@ -1136,13 +1163,14 @@ public final class URL implements java.io.Serializable {
         return openConnection().getContent();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the contents of this URL. This method is a shorthand for:
      * <blockquote><pre>
      *     openConnection().getContent(Class[])
-     * </pre></blockquote>
-     * {@description.close}
+
+     * {@description.close}     * </pre></blockquote>
      *
      * @param classes an array of Java types
      * @return     the content object of this URL that is the first match of
@@ -1157,32 +1185,36 @@ public final class URL implements java.io.Serializable {
         return openConnection().getContent(classes);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The URLStreamHandler factory.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static URLStreamHandlerFactory factory;
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Sets an application's <code>URLStreamHandlerFactory</code>.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.URL_SetURLStreamHandlerFactory}
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Sets an application's {@code URLStreamHandlerFactory}.
+
+     * {@description.close}     *      
+* {@property.open runtime formal:java.net.URL_SetURLStreamHandlerFactory}
      * This method can be called at most once in a given Java Virtual
      * Machine.
-     * {@property.close}
-     *
-     * {@description.open}
-     *<p> The <code>URLStreamHandlerFactory</code> instance is used to
+
+     * {@property.close}     *
+     *<p>      
+* {@description.open}
+     * The {@code URLStreamHandlerFactory} instance is used to
      *construct a stream protocol handler from a protocol name.
      *
      * <p> If there is a security manager, this method first calls
      * the security manager's {@code checkSetFactory} method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      fac   the desired factory.
      * @exception  Error  if the application has already set a factory.
      * @exception  SecurityException  if a security manager exists and its
@@ -1207,19 +1239,21 @@ public final class URL implements java.io.Serializable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * A table of protocol handlers.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static Hashtable<String,URLStreamHandler> handlers = new Hashtable<>();
     private static Object streamHandlerLock = new Object();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the Stream Handler.
-     * {@description.close}
-     * @param protocol the protocol to use
+
+     * {@description.close}     * @param protocol the protocol to use
      */
     static URLStreamHandler getURLStreamHandler(String protocol) {
 
@@ -1317,13 +1351,14 @@ public final class URL implements java.io.Serializable {
 
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * WriteObject is called to save the state of the URL to an
      * ObjectOutputStream. The handler is not saved since it is
      * specific to this system.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @serialData the default write object value. When read back in,
      * the reader must ensure that calling getURLStreamHandler with
      * the protocol variable returns a valid URLStreamHandler and
@@ -1335,13 +1370,14 @@ public final class URL implements java.io.Serializable {
         s.defaultWriteObject(); // write the fields
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * readObject is called to restore the state of the URL from the
      * stream.  It reads the components of the URL and finds the local
      * stream handler.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private synchronized void readObject(java.io.ObjectInputStream s)
          throws IOException, ClassNotFoundException
     {

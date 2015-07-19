@@ -25,13 +25,10 @@
 
 package java.net;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * The class Authenticator represents an object that knows how to obtain
  * authentication for a network connection.  Usually, it will do this
  * by prompting the user for information.
- * {@description.close}
- * {@property.open runtime formal:java.net.Authenticator_OverrideGetPasswordAuthentication}
  * <p>
  * Applications use this class by overriding {@link
  * #getPasswordAuthentication()} in a sub-class. This method will
@@ -40,8 +37,6 @@ package java.net;
  * username and password either by interacting with the user or through
  * some other non-interactive means. The credentials are then returned
  * as a {@link PasswordAuthentication} return value.
- * {@property.close}
- * {@description.open}
  * <p>
  * An instance of this concrete sub-class is then registered
  * with the system by calling {@link #setDefault(Authenticator)}.
@@ -51,7 +46,6 @@ package java.net;
  * <p>
  * All methods that request authentication have a default implementation
  * that fails.
- * {@description.close}
  *
  * @see java.net.Authenticator#setDefault(java.net.Authenticator)
  * @see java.net.Authenticator#getPasswordAuthentication()
@@ -77,24 +71,18 @@ class Authenticator {
     private URL requestingURL;
     private RequestorType requestingAuthType;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The type of the entity requesting authentication.
-     * {@description.close}
      *
      * @since 1.5
      */
     public enum RequestorType {
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Entity requesting authentication is a HTTP proxy server.
-         * {@description.close}
          */
         PROXY,
-        /** {@collect.stats} 
-         * {@description.open}
+        /** {@collect.stats}
          * Entity requesting authentication is a HTTP origin server.
-         * {@description.close}
          */
         SERVER
     }
@@ -111,8 +99,7 @@ class Authenticator {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the authenticator that will be used by the networking code
      * when a proxy or an HTTP server asks for authentication.
      * <p>
@@ -120,9 +107,10 @@ class Authenticator {
      * method is called with a
      * {@code NetPermission("setDefaultAuthenticator")} permission.
      * This may result in a java.lang.SecurityException.
-     * {@description.close}
+     *
      * @param   a       The authenticator to be set. If a is {@code null} then
      *                  any previously set authenticator is removed.
+     *
      * @throws SecurityException
      *        if a security manager exists and its
      *        {@code checkPermission} method doesn't allow
@@ -142,8 +130,7 @@ class Authenticator {
         theAuthenticator = a;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Ask the authenticator that has been registered with the system
      * for a password.
      * <p>
@@ -151,7 +138,6 @@ class Authenticator {
      * method is called with a
      * {@code NetPermission("requestPasswordAuthentication")} permission.
      * This may result in a java.lang.SecurityException.
-     * {@description.close}
      *
      * @param addr The InetAddress of the site requesting authorization,
      *             or null if not known.
@@ -201,8 +187,7 @@ class Authenticator {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Ask the authenticator that has been registered with the system
      * for a password. This is the preferred method for requesting a password
      * because the hostname can be provided in cases where the InetAddress
@@ -212,7 +197,6 @@ class Authenticator {
      * method is called with a
      * {@code NetPermission("requestPasswordAuthentication")} permission.
      * This may result in a java.lang.SecurityException.
-     * {@description.close}
      *
      * @param host The hostname of the site requesting authentication.
      * @param addr The InetAddress of the site requesting authentication,
@@ -266,8 +250,7 @@ class Authenticator {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Ask the authenticator that has been registered with the system
      * for a password.
      * <p>
@@ -275,7 +258,6 @@ class Authenticator {
      * method is called with a
      * {@code NetPermission("requestPasswordAuthentication")} permission.
      * This may result in a java.lang.SecurityException.
-     * {@description.close}
      *
      * @param host The hostname of the site requesting authentication.
      * @param addr The InetAddress of the site requesting authorization,
@@ -337,12 +319,10 @@ class Authenticator {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the {@code hostname} of the
      * site or proxy requesting authentication, or {@code null}
      * if not available.
-     * {@description.close}
      *
      * @return the hostname of the connection requiring authentication, or null
      *          if it's not available.
@@ -352,12 +332,10 @@ class Authenticator {
         return requestingHost;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the {@code InetAddress} of the
      * site requesting authorization, or {@code null}
      * if not available.
-     * {@description.close}
      *
      * @return the InetAddress of the site requesting authorization, or null
      *          if it's not available.
@@ -366,10 +344,8 @@ class Authenticator {
         return requestingSite;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the port number for the requested connection.
-     * {@description.close}
      * @return an {@code int} indicating the
      * port for the requested connection.
      */
@@ -377,14 +353,12 @@ class Authenticator {
         return requestingPort;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Give the protocol that's requesting the connection.  Often this
      * will be based on a URL, but in a future JDK it could be, for
      * example, "SOCKS" for a password-protected SOCKS5 firewall.
-     * {@description.close}
      *
-     * @return the protcol, optionally followed by "/version", where
+     * @return the protocol, optionally followed by "/version", where
      *          version is a version number.
      *
      * @see java.net.URL#getProtocol()
@@ -393,10 +367,8 @@ class Authenticator {
         return requestingProtocol;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the prompt string given by the requestor.
-     * {@description.close}
      *
      * @return the prompt string given by the requestor (realm for
      *          http requests)
@@ -405,11 +377,9 @@ class Authenticator {
         return requestingPrompt;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the scheme of the requestor (the HTTP scheme
      * for an HTTP firewall, for example).
-     * {@description.close}
      *
      * @return the scheme of the requestor
      *
@@ -418,14 +388,9 @@ class Authenticator {
         return requestingScheme;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Called when password authorization is needed.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.Authenticator_OverrideGetPasswordAuthentication}
-     * Subclasses should
+    /** {@collect.stats}
+     * Called when password authorization is needed.  Subclasses should
      * override the default implementation, which returns null.
-     * {@property.close}
      * @return The PasswordAuthentication collected from the
      *          user, or null if none is provided.
      */
@@ -433,11 +398,9 @@ class Authenticator {
         return null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the URL that resulted in this
      * request for authentication.
-     * {@description.close}
      *
      * @since 1.5
      *
@@ -448,10 +411,8 @@ class Authenticator {
         return requestingURL;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether the requestor is a Proxy or a Server.
-     * {@description.close}
      *
      * @since 1.5
      *

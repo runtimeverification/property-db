@@ -30,8 +30,7 @@ import java.nio.channels.DatagramChannel;
 import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 
-/** {@collect.stats} 
- * {@description.open}
+/**
  * This class represents a socket for sending and receiving datagram packets.
  *
  * <p>A datagram socket is the sending or receiving point for a packet
@@ -58,7 +57,6 @@ import java.security.PrivilegedExceptionAction;
  * }
  * Both cases will create a DatagramSocket able to receive broadcasts on
  * UDP port 8888.
- * {@description.close}
  *
  * @author  Pavani Diwanji
  * @see     java.net.DatagramPacket
@@ -67,11 +65,12 @@ import java.security.PrivilegedExceptionAction;
  */
 public
 class DatagramSocket implements java.io.Closeable {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Various states of this socket.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private boolean created = false;
     private boolean bound = false;
     private boolean closed = false;
@@ -82,11 +81,12 @@ class DatagramSocket implements java.io.Closeable {
      */
     DatagramSocketImpl impl;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Are we using an older DatagramSocketImpl?
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     boolean oldImpl = false;
 
     /**
@@ -118,12 +118,13 @@ class DatagramSocket implements java.io.Closeable {
     InetAddress connectedAddress = null;
     int connectedPort = -1;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Connects this socket to a remote socket address (IP address + port number).
      * Binds socket if not already bound.
-     * <p>
-     * {@description.close}
+
+     * {@description.close}     * <p>
      * @param   address The remote address.
      * @param   port    The remote port
      * @throws  SocketException if binding the socket fails.
@@ -182,8 +183,9 @@ class DatagramSocket implements java.io.Closeable {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Constructs a datagram socket and binds it to any available port
      * on the local host machine.  The socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
@@ -193,8 +195,8 @@ class DatagramSocket implements java.io.Closeable {
      * its {@code checkListen} method is first called
      * with 0 as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
      * @exception  SecurityException  if a security manager exists and its
@@ -206,12 +208,13 @@ class DatagramSocket implements java.io.Closeable {
         this(new InetSocketAddress(0));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates an unbound datagram socket with the specified
      * DatagramSocketImpl.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param impl an instance of a <B>DatagramSocketImpl</B>
      *        the subclass wishes to use on the DatagramSocket.
      * @since   1.4
@@ -223,8 +226,9 @@ class DatagramSocket implements java.io.Closeable {
         checkOldImpl();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a datagram socket, bound to the specified local
      * socket address.
      * <p>
@@ -235,8 +239,8 @@ class DatagramSocket implements java.io.Closeable {
      * with the port from the socket address
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param bindaddr local socket address to bind, or {@code null}
      *                 for an unbound socket.
      *
@@ -261,8 +265,7 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Constructs a datagram socket and binds it to the specified port
      * on the local host machine.  The socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
@@ -273,7 +276,7 @@ class DatagramSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
+     *
      * @param      port port to use.
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
@@ -286,15 +289,17 @@ class DatagramSocket implements java.io.Closeable {
         this(port, null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Creates a datagram socket, bound to the specified local
-     * address.  
-     * {@description.close}
-     * {@property.open runtime formal:java.net.DatagramSocket_Port}
+     * address.
+     * {@description.close}       
+* {@property.open runtime formal:java.net.DatagramSocket_Port}
      * The local port must be between 0 and 65535 inclusive.
-     * {@property.close}
-     * {@description.open}
+
+     * {@property.close}     *      
+* {@description.open}
      * If the IP address is 0.0.0.0, the socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
      * an IP address chosen by the kernel.
@@ -304,8 +309,8 @@ class DatagramSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param port local port to use
      * @param laddr local address to bind
      *
@@ -361,12 +366,13 @@ class DatagramSocket implements java.io.Closeable {
         created = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Get the {@code DatagramSocketImpl} attached to this socket,
      * creating it if necessary.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the {@code DatagramSocketImpl} attached to that
      *          DatagramSocket
      * @throws SocketException if creation fails.
@@ -378,14 +384,12 @@ class DatagramSocket implements java.io.Closeable {
         return impl;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Binds this DatagramSocket to a specific address and port.
      * <p>
      * If the address is {@code null}, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      *<p>
-     * {@description.close}
      * @param   addr The address and port to bind to.
      * @throws  SocketException if any error happens during the bind, or if the
      *          socket is already bound.
@@ -432,8 +436,7 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Connects the socket to a remote address for this socket. When a
      * socket is connected to a remote address, packets may only be
      * sent to or received from that address. By default a datagram
@@ -466,7 +469,7 @@ class DatagramSocket implements java.io.Closeable {
      * address do not match, an {@code IllegalArgumentException} will be
      * thrown. A socket connected to a multicast address may only be used
      * to send packets.
-     * {@description.close}
+     *
      * @param address the remote address for the socket
      *
      * @param port the remote port for the socket.
@@ -488,14 +491,13 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Connects this socket to a remote socket address (IP address + port number).
      *
      * <p> If given an {@link InetSocketAddress InetSocketAddress}, this method
      * behaves as if invoking {@link #connect(InetAddress,int) connect(InetAddress,int)}
      * with the the given socket addresses IP address and port number.
-     * {@description.close}
+     *
      * @param   addr    The remote address.
      *
      * @throws  SocketException
@@ -522,11 +524,9 @@ class DatagramSocket implements java.io.Closeable {
         connectInternal(epoint.getAddress(), epoint.getPort());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Disconnects the socket. If the socket is closed or not connected,
      * then this method has no effect.
-     * {@description.close}
      *
      * @see #connect
      */
@@ -544,11 +544,8 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the binding state of the socket.
-     * {@description.close}
-     *     
      * <p>
      * If the socket was bound prior to being {@link #close closed},
      * then this method will continue to return {@code true}
@@ -561,14 +558,12 @@ class DatagramSocket implements java.io.Closeable {
         return bound;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the connection state of the socket.
      * <p>
      * If the socket was connected prior to being {@link #close closed},
      * then this method will continue to return {@code true}
      * after the socket is closed.
-     * {@description.close}
      *
      * @return true if the socket successfully connected to a server
      * @since 1.4
@@ -577,15 +572,13 @@ class DatagramSocket implements java.io.Closeable {
         return connectState != ST_NOT_CONNECTED;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the address to which this socket is connected. Returns
      * {@code null} if the socket is not connected.
      * <p>
      * If the socket was connected prior to being {@link #close closed},
      * then this method will continue to return the connected address
      * after the socket is closed.
-     * {@description.close}
      *
      * @return the address to which this socket is connected.
      */
@@ -593,15 +586,13 @@ class DatagramSocket implements java.io.Closeable {
         return connectedAddress;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the port number to which this socket is connected.
      * Returns {@code -1} if the socket is not connected.
      * <p>
      * If the socket was connected prior to being {@link #close closed},
      * then this method will continue to return the connected port number
      * after the socket is closed.
-     * {@description.close}
      *
      * @return the port number to which this socket is connected.
      */
@@ -609,15 +600,13 @@ class DatagramSocket implements java.io.Closeable {
         return connectedPort;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the address of the endpoint this socket is connected to, or
      * {@code null} if it is unconnected.
      * <p>
      * If the socket was connected prior to being {@link #close closed},
      * then this method will continue to return the connected address
      * after the socket is closed.
-     * {@description.close}
      *
      * @return a {@code SocketAddress} representing the remote
      *         endpoint of this socket, or {@code null} if it is
@@ -633,10 +622,8 @@ class DatagramSocket implements java.io.Closeable {
         return new InetSocketAddress(getInetAddress(), getPort());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Returns the address of the endpoint this socket is bound to.
-     * {@description.close}
      *
      * @return a {@code SocketAddress} representing the local endpoint of this
      *         socket, or {@code null} if it is closed or not bound yet.
@@ -654,8 +641,9 @@ class DatagramSocket implements java.io.Closeable {
         return new InetSocketAddress(getLocalAddress(), getLocalPort());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sends a datagram packet from this socket. The
      * {@code DatagramPacket} includes information indicating the
      * data to be sent, its length, the IP address of the remote host,
@@ -673,8 +661,8 @@ class DatagramSocket implements java.io.Closeable {
      * {@code p.getAddress().getHostAddress()} and
      * {@code p.getPort()}. Each call to a security manager method
      * could result in a SecurityException if the operation is not allowed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      p   the {@code DatagramPacket} to be sent.
      *
      * @exception  IOException  if an I/O error occurs.
@@ -739,8 +727,9 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Receives a datagram packet from this socket. When this method
      * returns, the {@code DatagramPacket}'s buffer is filled with
      * the data received. The datagram packet also contains the sender's
@@ -754,8 +743,8 @@ class DatagramSocket implements java.io.Closeable {
      * If there is a security manager, a packet cannot be received if the
      * security manager's {@code checkAccept} method
      * does not allow it.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      p   the {@code DatagramPacket} into which to place
      *                 the incoming data.
      * @exception  IOException  if an I/O error occurs.
@@ -873,16 +862,17 @@ class DatagramSocket implements java.io.Closeable {
         return false;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the local address to which the socket is bound.
      *
      * <p>If there is a security manager, its
      * {@code checkConnect} method is first called
      * with the host address and {@code -1}
      * as its arguments to see if the operation is allowed.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @see SecurityManager#checkConnect
      * @return  the local address to which the socket is bound,
      *          {@code null} if the socket is closed, or
@@ -912,12 +902,13 @@ class DatagramSocket implements java.io.Closeable {
         return in;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the port number on the local host to which this socket
      * is bound.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the port number on the local host to which this socket is bound,
                 {@code -1} if the socket is closed, or
                 {@code 0} if it is not bound yet.
@@ -932,8 +923,8 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats}
-     * {@description.open}
+    /** {@collect.stats}      
+* {@description.open}
      * Enable/disable SO_TIMEOUT with the specified timeout, in
      *  milliseconds. With this option set to a non-zero timeout,
      *  a call to receive() for this DatagramSocket
@@ -941,13 +932,13 @@ class DatagramSocket implements java.io.Closeable {
      *  a <B>java.net.SocketTimeoutException</B> is raised, though the
      *  DatagramSocket is still valid.  The option <B>must</B> be enabled
      *  prior to entering the blocking operation to have effect.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.DatagramSocket_SoTimeout}
-     *  The
-     *  timeout must be > 0.
+     * {@description.close}       
+* {@property.open runtime formal:java.net.DatagramSocket_SoTimeout}
+     * The
+     *  timeout must be {@code > 0}.
      *  A timeout of zero is interpreted as an infinite timeout.
-     * {@property.close}
-     *
+
+     * {@property.close}     *
      * @param timeout the specified timeout in milliseconds.
      * @throws SocketException if there is an error in the underlying protocol, such as an UDP error.
      * @since   JDK1.1
@@ -959,12 +950,13 @@ class DatagramSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_TIMEOUT, new Integer(timeout));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Retrieve setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the setting for SO_TIMEOUT
      * @throws SocketException if there is an error in the underlying protocol, such as an UDP error.
      * @since   JDK1.1
@@ -984,8 +976,9 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the SO_SNDBUF option to the specified value for this
      * {@code DatagramSocket}. The SO_SNDBUF option is used by the
      * network implementation as a hint to size the underlying
@@ -1004,8 +997,8 @@ class DatagramSocket implements java.io.Closeable {
      * {@code DatagramPacket} that is larger than the setting
      * of SO_SNDBUF then it is implementation specific if the
      * packet is sent or discarded.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param size the size to which to set the send buffer
      * size. This value must be greater than 0.
      *
@@ -1025,12 +1018,13 @@ class DatagramSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_SNDBUF, new Integer(size));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Get value of the SO_SNDBUF option for this {@code DatagramSocket}, that is the
      * buffer size used by the platform for output on this {@code DatagramSocket}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the value of the SO_SNDBUF option for this {@code DatagramSocket}
      * @exception SocketException if there is an error in
      * the underlying protocol, such as an UDP error.
@@ -1047,14 +1041,16 @@ class DatagramSocket implements java.io.Closeable {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the SO_RCVBUF option to the specified value for this
      * {@code DatagramSocket}. The SO_RCVBUF option is used by the
      * the network implementation as a hint to size the underlying
      * network I/O buffers. The SO_RCVBUF setting may also be used
      * by the network implementation to determine the maximum size
-     * of the packet that can be received on this socket.
+     * of the packet that can be received
+     * {@description.close} on this socket.
      * <p>
      * Because SO_RCVBUF is a hint, applications that want to
      * verify what size the buffers were set to should call
@@ -1066,7 +1062,6 @@ class DatagramSocket implements java.io.Closeable {
      * <p>
      * Note: It is implementation specific if a packet larger
      * than SO_RCVBUF can be received.
-     * {@description.close}
      *
      * @param size the size to which to set the receive buffer
      * size. This value must be greater than 0.
@@ -1087,12 +1082,13 @@ class DatagramSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_RCVBUF, new Integer(size));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Get value of the SO_RCVBUF option for this {@code DatagramSocket}, that is the
      * buffer size used by the platform for input on this {@code DatagramSocket}.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the value of the SO_RCVBUF option for this {@code DatagramSocket}
      * @exception SocketException if there is an error in the underlying protocol, such as an UDP error.
      * @see #setReceiveBufferSize(int)
@@ -1109,8 +1105,9 @@ class DatagramSocket implements java.io.Closeable {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * For UDP sockets it may be necessary to bind more than one
@@ -1133,8 +1130,8 @@ class DatagramSocket implements java.io.Closeable {
      * The behaviour when {@code SO_REUSEADDR} is enabled or
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param on  whether to enable or disable the
      * @exception SocketException if an error occurs enabling or
      *            disabling the {@code SO_RESUEADDR} socket option,
@@ -1155,11 +1152,12 @@ class DatagramSocket implements java.io.Closeable {
             getImpl().setOption(SocketOptions.SO_REUSEADDR, Boolean.valueOf(on));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Tests if SO_REUSEADDR is enabled.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return a {@code boolean} indicating whether or not SO_REUSEADDR is enabled.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as an UDP error.
@@ -1173,10 +1171,9 @@ class DatagramSocket implements java.io.Closeable {
         return ((Boolean)o).booleanValue();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Enable/disable SO_BROADCAST.
-     * {@description.close}
+     *
      * <p> Some operating systems may require that the Java virtual machine be
      * started with implementation specific privileges to enable this option or
      * send broadcast datagrams.
@@ -1197,11 +1194,12 @@ class DatagramSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_BROADCAST, Boolean.valueOf(on));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Tests if SO_BROADCAST is enabled.
-     * {@description.close}
-     * @return a {@code boolean} indicating whether or not SO_BROADCAST is enabled.
+
+     * {@description.close}     * @return a {@code boolean} indicating whether or not SO_BROADCAST is enabled.
      * @exception SocketException if there is an error
      * in the underlying protocol, such as an UDP error.
      * @since 1.4
@@ -1213,18 +1211,14 @@ class DatagramSocket implements java.io.Closeable {
         return ((Boolean)(getImpl().getOption(SocketOptions.SO_BROADCAST))).booleanValue();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Sets traffic class or type-of-service octet in the IP
      * datagram header for datagrams sent from this DatagramSocket.
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
-     * {@description.close}
      *
      * <P> The tc <B>must</B> be in the range {@code 0 <= tc <=
      * 255} or an IllegalArgumentException will be thrown.
-     * {@property.close}
-     * {@description.open}
      * <p>Notes:
      * <p>For Internet Protocol v4 the value consists of an
      * {@code integer}, the least significant 8 bits of which
@@ -1238,20 +1232,15 @@ class DatagramSocket implements java.io.Closeable {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
-     * {@description.close}
-     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.
      * <p>
      * Setting bits in the precedence field may result in a
      * SocketException indicating that the operation is not
      * permitted.
-     * {@property.close}
-     * {@description.open}
      * <p>
      * for Internet Protocol v6 {@code tc} is the value that
      * would be placed into the sin6_flowinfo field of the IP header.
-     * {@description.close}
      *
      * @param tc        an {@code int} value for the bitset.
      * @throws SocketException if there is an error setting the
@@ -1268,8 +1257,9 @@ class DatagramSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.IP_TOS, new Integer(tc));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets traffic class or type-of-service in the IP datagram
      * header for packets sent from this DatagramSocket.
      * <p>
@@ -1278,8 +1268,8 @@ class DatagramSocket implements java.io.Closeable {
      * this method may return a different value than was previously
      * set using the {@link #setTrafficClass(int)} method on this
      * DatagramSocket.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the traffic class or type-of-service already set
      * @throws SocketException if there is an error obtaining the
      * traffic class or type-of-service value.
@@ -1292,8 +1282,9 @@ class DatagramSocket implements java.io.Closeable {
         return ((Integer)(getImpl().getOption(SocketOptions.IP_TOS))).intValue();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Closes this datagram socket.
      * <p>
      * Any thread currently blocked in {@link #receive} upon this socket
@@ -1301,8 +1292,8 @@ class DatagramSocket implements java.io.Closeable {
      *
      * <p> If this socket has an associated channel then the channel is closed
      * as well.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @revised 1.4
      * @spec JSR-51
      */
@@ -1315,11 +1306,12 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns whether the socket is closed or not.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return true if the socket has been closed
      * @since 1.4
      */
@@ -1329,16 +1321,17 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Returns the unique {@link java.nio.channels.DatagramChannel} object
      * associated with this datagram socket, if any.
      *
      * <p> A datagram socket will have a channel if, and only if, the channel
      * itself was created via the {@link java.nio.channels.DatagramChannel#open
      * DatagramChannel.open} method.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return  the datagram channel associated with this datagram socket,
      *          or {@code null} if this socket was not created for a channel
      *
@@ -1349,15 +1342,17 @@ class DatagramSocket implements java.io.Closeable {
         return null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * User defined factory for all datagram sockets.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     static DatagramSocketImplFactory factory;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets the datagram socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -1372,8 +1367,8 @@ class DatagramSocket implements java.io.Closeable {
      * the security manager's {@code checkSetFactory} method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      fac   the desired factory.
      * @exception  IOException  if an I/O error occurs when setting the
      *              datagram socket factory.

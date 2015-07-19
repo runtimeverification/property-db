@@ -27,21 +27,24 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats} 
- * {@description.open}
- * The abstract class {@code ContentHandler} is the superclass
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * The abstract class {@code ContentHandler} is the superclass
  * of all classes that read an {@code Object} from a
  * {@code URLConnection}.
- * {@description.close}
- * {@property.open runtime formal:java.net.ContentHandler_GetContent}
- * <p>
- * An application does not generally call the
+
+     * {@description.close} * <p>
+ *      
+* {@property.open runtime formal:java.net.ContentHandler_GetContent}
+     * An application does not generally call the
  * {@code getContent} method in this class directly. Instead, an
  * application calls the {@code getContent} method in class
  * {@code URL} or in {@code URLConnection}.
- * {@property.close}
- * {@description.open}
- * The application's content handler factory (an instance of a class that
+
+     * {@property.close} *      
+* {@description.open}
+     * The application's content handler factory (an instance of a class that
  * implements the interface {@code ContentHandlerFactory} set
  * up by a call to {@code setContentHandler}) is
  * called with a {@code String} giving the MIME type of the
@@ -63,8 +66,8 @@ import java.io.IOException;
  * If the loading of the content handler class would be performed by
  * a classloader that is outside of the delegation chain of the caller,
  * the JVM will need the RuntimePermission "getClassLoader".
- * {@description.close}
- * 
+
+     * {@description.close} *
  * @author  James Gosling
  * @see     java.net.ContentHandler#getContent(java.net.URLConnection)
  * @see     java.net.ContentHandlerFactory
@@ -75,12 +78,10 @@ import java.io.IOException;
  * @since   JDK1.0
  */
 abstract public class ContentHandler {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object from it.
-     * {@description.close}
      *
      * @param      urlc   a URL connection.
      * @return     the object read by the {@code ContentHandler}.
@@ -88,15 +89,13 @@ abstract public class ContentHandler {
      */
     abstract public Object getContent(URLConnection urlc) throws IOException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object that matches one of the types specified.
      *
      * The default implementation of this method should call getContent()
      * and screen the return type for a match of the suggested types.
-     * {@description.close}
      *
      * @param      urlc   a URL connection.
      * @param      classes      an array of types requested

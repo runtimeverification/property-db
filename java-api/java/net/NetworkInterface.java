@@ -30,16 +30,17 @@ import java.util.NoSuchElementException;
 import sun.security.action.*;
 import java.security.AccessController;
 
-/** {@collect.stats} 
- * {@description.open}
- * This class represents a Network Interface made up of a name,
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This class represents a Network Interface made up of a name,
  * and a list of IP addresses assigned to this interface.
  * It is used to identify the local interface on which a multicast group
  * is joined.
  *
  * Interfaces are normally known by names such as "le0".
- * {@description.close}
- *
+
+     * {@description.close} *
  * @since 1.4
  */
 public final class NetworkInterface {
@@ -72,14 +73,11 @@ public final class NetworkInterface {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns an NetworkInterface object with index set to 0 and name to null.
      * Setting such an interface on a MulticastSocket will cause the
      * kernel to choose one interface for sending multicast packets.
      *
-     *
-     * {@description.close}
      */
     NetworkInterface() {
     }
@@ -90,10 +88,8 @@ public final class NetworkInterface {
         this.addrs = addrs;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get the name of this network interface.
-     * {@description.close}
      *
      * @return the name of this network interface
      */
@@ -101,8 +97,7 @@ public final class NetworkInterface {
             return name;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Convenience method to return an Enumeration with all or a
      * subset of the InetAddresses bound to this network interface.
      * <p>
@@ -112,7 +107,6 @@ public final class NetworkInterface {
      * will be returned in the Enumeration. However, if the caller has the
      * {@link NetPermission}("getNetworkInformation") permission, then all
      * InetAddresses are returned.
-     * {@description.close}
      * @return an Enumeration object with all or a subset of the InetAddresses
      * bound to this network interface
      */
@@ -162,18 +156,16 @@ public final class NetworkInterface {
 
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Get a List of all or a subset of the <code>InterfaceAddresses</code>
+    /** {@collect.stats}
+     * Get a List of all or a subset of the {@code InterfaceAddresses}
      * of this network interface.
      * <p>
      * If there is a security manager, its {@code checkConnect}
      * method is called with the InetAddress for each InterfaceAddress.
      * Only InterfaceAddresses where the {@code checkConnect} doesn't throw
      * a SecurityException will be returned in the List.
-     * {@description.close}
      *
-     * @return a <code>List</code> object with all or a subset of the
+     * @return a {@code List} object with all or a subset of the
      *         InterfaceAddresss of this network interface
      * @since 1.6
      */
@@ -191,13 +183,11 @@ public final class NetworkInterface {
         return lst;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get an Enumeration with all the subinterfaces (also known as virtual
      * interfaces) attached to this network interface.
      * <p>
      * For instance eth0:1 will be a subinterface to eth0.
-     * {@description.close}
      *
      * @return an Enumeration object with all of the subinterfaces
      * of this network interface
@@ -227,27 +217,23 @@ public final class NetworkInterface {
 
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the parent NetworkInterface of this interface if this is
      * a subinterface, or {@code null} if it is a physical
      * (non virtual) interface or has no parent.
-     * {@description.close}
      *
-     * @return The <code>NetworkInterface</code> this interface is attached to.
+     * @return The {@code NetworkInterface} this interface is attached to.
      * @since 1.6
      */
     public NetworkInterface getParent() {
         return parent;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the index of this network interface. The index is an integer greater
      * or equal to zero, or {@code -1} for unknown. This is a system specific value
      * and interfaces with the same name can have different indexes on different
      * machines.
-     * {@description.close}
      *
      * @return the index of this network interface or {@code -1} if the index is
      *         unknown
@@ -258,12 +244,10 @@ public final class NetworkInterface {
         return index;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get the display name of this network interface.
      * A display name is a human readable String describing the network
      * device.
-     * {@description.close}
      *
      * @return a non-empty string representing the display name of this network
      *         interface, or null if no display name is available.
@@ -273,10 +257,8 @@ public final class NetworkInterface {
         return "".equals(displayName) ? null : displayName;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Searches for the network interface with the specified name.
-     * {@description.close}
      *
      * @param   name
      *          The name of the network interface.
@@ -297,10 +279,8 @@ public final class NetworkInterface {
         return getByName0(name);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Get a network interface given its index.
-     * {@description.close}
      *
      * @param index an integer, the index of the interface
      * @return the NetworkInterface obtained from its index, or {@code null} if
@@ -316,8 +296,7 @@ public final class NetworkInterface {
         return getByIndex0(index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Convenience method to search for a network interface that
      * has the specified Internet Protocol (IP) address bound to
      * it.
@@ -325,7 +304,6 @@ public final class NetworkInterface {
      * If the specified IP address is bound to multiple network
      * interfaces it is not defined which network interface is
      * returned.
-     * {@description.close}
      *
      * @param   addr
      *          The {@code InetAddress} to search with.
@@ -350,8 +328,7 @@ public final class NetworkInterface {
         return getByInetAddress0(addr);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns all the interfaces on this machine. The {@code Enumeration}
      * contains at least one element, possibly representing a loopback
      * interface that only supports communication between entities on
@@ -359,7 +336,6 @@ public final class NetworkInterface {
      *
      * NOTE: can use getNetworkInterfaces()+getInetAddresses()
      *       to obtain all IP addresses for this node
-     * {@description.close}
      *
      * @return an Enumeration of NetworkInterfaces found on this machine
      * @exception  SocketException  if an I/O error occurs.
@@ -402,12 +378,10 @@ public final class NetworkInterface {
     private native static NetworkInterface getByInetAddress0(InetAddress addr)
         throws SocketException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether a network interface is up and running.
-     * {@description.close}
      *
-     * @return  <code>true</code> if the interface is up and running.
+     * @return  {@code true} if the interface is up and running.
      * @exception       SocketException if an I/O error occurs.
      * @since 1.6
      */
@@ -416,12 +390,10 @@ public final class NetworkInterface {
         return isUp0(name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether a network interface is a loopback interface.
-     * {@description.close}
      *
-     * @return  <code>true</code> if the interface is a loopback interface.
+     * @return  {@code true} if the interface is a loopback interface.
      * @exception       SocketException if an I/O error occurs.
      * @since 1.6
      */
@@ -430,14 +402,12 @@ public final class NetworkInterface {
         return isLoopback0(name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether a network interface is a point to point interface.
      * A typical point to point interface would be a PPP connection through
      * a modem.
-     * {@description.close}
      *
-     * @return  <code>true</code> if the interface is a point to point
+     * @return  {@code true} if the interface is a point to point
      *          interface.
      * @exception       SocketException if an I/O error occurs.
      * @since 1.6
@@ -447,12 +417,10 @@ public final class NetworkInterface {
         return isP2P0(name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether a network interface supports multicasting or not.
-     * {@description.close}
      *
-     * @return  <code>true</code> if the interface supports Multicasting.
+     * @return  {@code true} if the interface supports Multicasting.
      * @exception       SocketException if an I/O error occurs.
      * @since 1.6
      */
@@ -461,13 +429,11 @@ public final class NetworkInterface {
         return supportsMulticast0(name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the hardware address (usually MAC) of the interface if it
      * has one and if it can be accessed given the current privileges.
      * If a security manager is set, then the caller must have
      * the permission {@link NetPermission}("getNetworkInformation").
-     * {@description.close}
      *
      * @return  a byte array containing the address, or {@code null} if
      *          the address doesn't exist, is not accessible or a security
@@ -497,10 +463,8 @@ public final class NetworkInterface {
         return getMacAddr0(null, name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the Maximum Transmission Unit (MTU) of this interface.
-     * {@description.close}
      *
      * @return the value of the MTU for that interface.
      * @exception       SocketException if an I/O error occurs.
@@ -510,8 +474,7 @@ public final class NetworkInterface {
         return getMTU0(name, index);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns whether this interface is a virtual interface (also called
      * subinterface).
      * Virtual interfaces are, on some systems, interfaces created as a child
@@ -520,9 +483,8 @@ public final class NetworkInterface {
      * followed by a colon (:) and a number identifying the child since there
      * can be several virtual interfaces attached to a single physical
      * interface.
-     * {@description.close}
      *
-     * @return <code>true</code> if this interface is a virtual interface.
+     * @return {@code true} if this interface is a virtual interface.
      * @since 1.6
      */
     public boolean isVirtual() {
@@ -536,8 +498,7 @@ public final class NetworkInterface {
     private native static byte[] getMacAddr0(byte[] inAddr, String name, int ind) throws SocketException;
     private native static int getMTU0(String name, int ind) throws SocketException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Compares this object against the specified object.
      * The result is {@code true} if and only if the argument is
      * not {@code null} and it represents the same NetworkInterface
@@ -545,7 +506,6 @@ public final class NetworkInterface {
      * <p>
      * Two instances of {@code NetworkInterface} represent the same
      * NetworkInterface if both name and addrs are the same for both.
-     * {@description.close}
      *
      * @param   obj   the object to compare against.
      * @return  {@code true} if the objects are the same;
@@ -612,10 +572,8 @@ public final class NetworkInterface {
 
     private static native void init();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the default network interface of this system
-     * {@description.close}
      *
      * @return the default interface
      */

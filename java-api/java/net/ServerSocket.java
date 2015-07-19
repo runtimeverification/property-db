@@ -31,9 +31,10 @@ import java.nio.channels.ServerSocketChannel;
 import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 
-/** {@collect.stats} 
- * {@description.open}
- * This class implements server sockets. A server socket waits for
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * This class implements server sockets. A server socket waits for
  * requests to come in over the network. It performs some operation
  * based on that request, and then possibly returns a result to the requester.
  * <p>
@@ -42,8 +43,8 @@ import java.security.PrivilegedExceptionAction;
  * change the socket factory that creates the socket
  * implementation to configure itself to create sockets
  * appropriate to the local firewall.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  unascribed
  * @see     java.net.SocketImpl
  * @see     java.net.ServerSocket#setSocketFactory(java.net.SocketImplFactory)
@@ -52,31 +53,25 @@ import java.security.PrivilegedExceptionAction;
  */
 public
 class ServerSocket implements java.io.Closeable {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Various states of this socket.
-     * {@description.close}
      */
     private boolean created = false;
     private boolean bound = false;
     private boolean closed = false;
     private Object closeLock = new Object();
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The implementation of this Socket.
-     * {@description.close}
      */
     private SocketImpl impl;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Are we using an older SocketImpl?
-     * {@description.close}
      */
     private boolean oldImpl = false;
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor to create a ServerSocket associated with
      * the given SocketImpl.
      */
@@ -85,10 +80,8 @@ class ServerSocket implements java.io.Closeable {
         impl.setServerSocket(this);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates an unbound server socket.
-     * {@description.close}
      *
      * @exception IOException IO error when opening the socket.
      * @revised 1.4
@@ -97,8 +90,7 @@ class ServerSocket implements java.io.Closeable {
         setImpl();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates a server socket, bound to the specified port. A port number
      * of {@code 0} means that the port number is automatically
      * allocated, typically from an ephemeral port range. This port
@@ -117,7 +109,7 @@ class ServerSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
+     *
      *
      * @param      port  the port number, or {@code 0} to use a port
      *                   number that is automatically allocated.
@@ -139,8 +131,7 @@ class ServerSocket implements java.io.Closeable {
         this(port, 50, null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates a server socket and binds it to the specified local port
      * number, with the specified backlog.
      * A port number of {@code 0} means that the port number is
@@ -162,9 +153,7 @@ class ServerSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
      *
-     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
      * specific. In particular, an implementation may impose a maximum length
@@ -172,7 +161,6 @@ class ServerSocket implements java.io.Closeable {
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
      * <P>
-     * {@property.close}
      *
      * @param      port     the port number, or {@code 0} to use a port
      *                      number that is automatically allocated.
@@ -196,32 +184,25 @@ class ServerSocket implements java.io.Closeable {
         this(port, backlog, null);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Create a server with the specified port, listen backlog, and
      * local IP address to bind to.  The <i>bindAddr</i> argument
      * can be used on a multi-homed host for a ServerSocket that
      * will only accept connect requests to one of its addresses.
      * If <i>bindAddr</i> is null, it will default accepting
      * connections on any/all local addresses.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.ServerSocket_Port}
      * The port must be between 0 and 65535, inclusive.
      * A port number of {@code 0} means that the port number is
      * automatically allocated, typically from an ephemeral port range.
      * This port number can then be retrieved by calling
      * {@link #getLocalPort getLocalPort}.
-     * {@property.close}
      *
-     * {@description.open}
      * <P>If there is a security manager, this method
      * calls its {@code checkListen} method
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
      *
-     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
      * specific. In particular, an implementation may impose a maximum length
@@ -229,7 +210,6 @@ class ServerSocket implements java.io.Closeable {
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
      * <P>
-     * {@property.close}
      * @param port  the port number, or {@code 0} to use a port
      *              number that is automatically allocated.
      * @param backlog requested maximum length of the queue of incoming
@@ -267,13 +247,11 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Get the <code>SocketImpl</code> attached to this socket, creating
+    /** {@collect.stats}
+     * Get the {@code SocketImpl} attached to this socket, creating
      * it if necessary.
-     * {@description.close}
      *
-     * @return  the <code>SocketImpl</code> attached to that ServerSocket.
+     * @return  the {@code SocketImpl} attached to that ServerSocket.
      * @throws SocketException if creation fails.
      * @since 1.4
      */
@@ -316,10 +294,8 @@ class ServerSocket implements java.io.Closeable {
             impl.setServerSocket(this);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Creates the socket implementation.
-     * {@description.close}
      *
      * @throws IOException if creation fails
      * @since 1.4
@@ -335,17 +311,15 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      *
-     * Binds the <code>ServerSocket</code> to a specific address
+     * Binds the {@code ServerSocket} to a specific address
      * (IP address and port number).
      * <p>
      * If the address is {@code null}, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      * <p>
-     * {@description.close}
-     * @param   endpoint        The IP address & port number to bind to.
+     * @param   endpoint        The IP address and port number to bind to.
      * @throws  IOException if the bind operation fails, or if the socket
      *                     is already bound.
      * @throws  SecurityException       if a {@code SecurityManager} is present and
@@ -358,16 +332,13 @@ class ServerSocket implements java.io.Closeable {
         bind(endpoint, 50);
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      *
-     * Binds the <code>ServerSocket</code> to a specific address
+     * Binds the {@code ServerSocket} to a specific address
      * (IP address and port number).
      * <p>
      * If the address is {@code null}, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
@@ -375,7 +346,6 @@ class ServerSocket implements java.io.Closeable {
      * or may choose to ignore the parameter altogther. The value provided
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
-     * {@property.close}
      * @param   endpoint        The IP address and port number to bind to.
      * @param   backlog         requested maximum length of the queue of
      *                          incoming connections.
@@ -417,8 +387,7 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the local address of this server socket.
      * <p>
      * If the socket was bound prior to being {@link #close closed},
@@ -429,7 +398,6 @@ class ServerSocket implements java.io.Closeable {
      * called with the local address and {@code -1} as its arguments to see
      * if the operation is allowed. If the operation is not allowed,
      * the {@link InetAddress#getLoopbackAddress loopback} address is returned.
-     * {@description.close}
      *
      * @return  the address to which this socket is bound,
      *          or the loopback address if denied by the security manager,
@@ -456,14 +424,12 @@ class ServerSocket implements java.io.Closeable {
         return null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the port number on which this socket is listening.
      * <p>
      * If the socket was bound prior to being {@link #close closed},
      * then this method will continue to return the port number
      * after the socket is closed.
-     * {@description.close}
      *
      * @return  the port number to which this socket is listening or
      *          -1 if the socket is not bound yet.
@@ -481,8 +447,7 @@ class ServerSocket implements java.io.Closeable {
         return -1;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is bound to.
      * <p>
      * If the socket was bound prior to being {@link #close closed},
@@ -495,7 +460,6 @@ class ServerSocket implements java.io.Closeable {
      * a {@code SocketAddress} representing the
      * {@link InetAddress#getLoopbackAddress loopback} address and the local
      * port to which the socket is bound is returned.
-     * {@description.close}
      *
      * @return a {@code SocketAddress} representing the local endpoint of
      *         this socket, or a {@code SocketAddress} representing the
@@ -515,8 +479,7 @@ class ServerSocket implements java.io.Closeable {
         return new InetSocketAddress(getInetAddress(), getLocalPort());
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Listens for a connection to be made to this socket and accepts
      * it. The method blocks until a connection is made.
      *
@@ -527,7 +490,6 @@ class ServerSocket implements java.io.Closeable {
      * {@code s.getPort()}
      * as its arguments to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs when waiting for a
      *               connection.
@@ -555,13 +517,11 @@ class ServerSocket implements java.io.Closeable {
         return s;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Subclasses of ServerSocket use this method to override accept()
      * to return their own subclass of socket.  So a FooServerSocket
      * will typically hand this method an <i>empty</i> FooSocket.  On
      * return from implAccept the FooSocket will be connected to a client.
-     * {@description.close}
      *
      * @param s the Socket
      * @throws java.nio.channels.IllegalBlockingModeException
@@ -607,8 +567,7 @@ class ServerSocket implements java.io.Closeable {
         s.postAccept();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Closes this socket.
      *
      * Any thread currently blocked in {@link #accept()} will throw
@@ -616,7 +575,6 @@ class ServerSocket implements java.io.Closeable {
      *
      * <p> If this socket has an associated channel then the channel is closed
      * as well.
-     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs when closing the socket.
      * @revised 1.4
@@ -632,8 +590,7 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.ServerSocketChannel} object
      * associated with this socket, if any.
      *
@@ -641,7 +598,6 @@ class ServerSocket implements java.io.Closeable {
      * itself was created via the {@link
      * java.nio.channels.ServerSocketChannel#open ServerSocketChannel.open}
      * method.
-     * {@description.close}
      *
      * @return  the server-socket channel associated with this socket,
      *          or {@code null} if this socket was not created
@@ -654,12 +610,10 @@ class ServerSocket implements java.io.Closeable {
         return null;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the binding state of the ServerSocket.
-     * {@description.close}
      *
-     * @return true if the ServerSocket succesfuly bound to an address
+     * @return true if the ServerSocket successfully bound to an address
      * @since 1.4
      */
     public boolean isBound() {
@@ -667,10 +621,8 @@ class ServerSocket implements java.io.Closeable {
         return bound || oldImpl;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the closed state of the ServerSocket.
-     * {@description.close}
      *
      * @return true if the socket has been closed
      * @since 1.4
@@ -681,26 +633,16 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Enable/disable SO_TIMEOUT with the specified timeout, in
-     * milliseconds.  With this option set to a non-zero timeout,
-     * a call to accept() for this ServerSocket
+    /** {@collect.stats}
+     * Enable/disable {@link SocketOptions#SO_TIMEOUT SO_TIMEOUT} with the
+     * specified timeout, in milliseconds.  With this option set to a non-zero
+     * timeout, a call to accept() for this ServerSocket
      * will block for only this amount of time.  If the timeout expires,
      * a <B>java.net.SocketTimeoutException</B> is raised, though the
-     * ServerSocket is still valid.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.ServerSocket_SetTimeoutBeforeBlocking}
-     * The option <B>must</B> be enabled
-     * prior to entering the blocking operation to have effect.
-     * {@property.close}
-     * {@property.open runtime formal:java.net.ServerSocket_Timeout}
-     * The
-     * timeout must be > 0.
-     * {@property.close}
-     * {@description.open}
+     * ServerSocket is still valid.  The option <B>must</B> be enabled
+     * prior to entering the blocking operation to have effect.  The
+     * timeout must be {@code > 0}.
      * A timeout of zero is interpreted as an infinite timeout.
-     * {@description.close}
      * @param timeout the specified timeout, in milliseconds
      * @exception SocketException if there is an error in
      * the underlying protocol, such as a TCP error.
@@ -713,11 +655,9 @@ class ServerSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_TIMEOUT, new Integer(timeout));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Retrieve setting for {@link SocketOptions#SO_TIMEOUT SO_TIMEOUT}.
      * 0 returns implies that the option is disabled (i.e., timeout of infinity).
-     * {@description.close}
      * @return the {@link SocketOptions#SO_TIMEOUT SO_TIMEOUT} value
      * @exception IOException if an I/O error occurs
      * @since   JDK1.1
@@ -735,8 +675,7 @@ class ServerSocket implements java.io.Closeable {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Enable/disable the {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}
      * socket option.
      * <p>
@@ -757,13 +696,10 @@ class ServerSocket implements java.io.Closeable {
      * of {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is not defined.
      * Applications can use {@link #getReuseAddress()} to determine the initial
      * setting of {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}.
-     * {@description.close}
-     * {@property.open runtime formal:java.net.ServerSocket_ReuseAddress}
      * <p>
      * The behaviour when {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is
      * enabled or disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
-     * {@property.close}
      *
      * @param on  whether to enable or disable the socket option
      * @exception SocketException if an error occurs enabling or
@@ -781,10 +717,8 @@ class ServerSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_REUSEADDR, Boolean.valueOf(on));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Tests if {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is enabled.
-     * {@description.close}
      *
      * @return a {@code boolean} indicating whether or not
      *         {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is enabled.
@@ -799,8 +733,7 @@ class ServerSocket implements java.io.Closeable {
         return ((Boolean) (getImpl().getOption(SocketOptions.SO_REUSEADDR))).booleanValue();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Returns the implementation address and implementation port of
      * this socket as a {@code String}.
      * <p>
@@ -810,7 +743,6 @@ class ServerSocket implements java.io.Closeable {
      * an {@code InetAddress} representing the
      * {@link InetAddress#getLoopbackAddress loopback} address is returned as
      * the implementation address.
-     * {@description.close}
      *
      * @return  a string representation of this socket.
      */
@@ -834,15 +766,12 @@ class ServerSocket implements java.io.Closeable {
         created = true;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * The factory for all server sockets.
-     * {@description.close}
      */
     private static SocketImplFactory factory = null;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets the server socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -857,7 +786,6 @@ class ServerSocket implements java.io.Closeable {
      * the security manager's {@code checkSetFactory} method
      * to ensure the operation is allowed.
      * This could result in a SecurityException.
-     * {@description.close}
      *
      * @param      fac   the desired factory.
      * @exception  IOException  if an I/O error occurs when setting the
@@ -879,8 +807,7 @@ class ServerSocket implements java.io.Closeable {
         factory = fac;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets a default proposed value for the
      * {@link SocketOptions#SO_RCVBUF SO_RCVBUF} option for sockets
      * accepted from this {@code ServerSocket}. The value actually set
@@ -893,10 +820,7 @@ class ServerSocket implements java.io.Closeable {
      * of the TCP receive window that is advertized to the remote peer.
      * <p>
      * It is possible to change the value subsequently, by calling
-     * {@link Socket#setReceiveBufferSize(int)}. 
-     * {@description.close}
-     * {@property.open runtime formal:java.net.ServerSocket_LargeReceiveBuffer}
-     * However, if the application
+     * {@link Socket#setReceiveBufferSize(int)}. However, if the application
      * wishes to allow a receive window larger than 64K bytes, as defined by RFC1323
      * then the proposed value must be set in the ServerSocket <B>before</B>
      * it is bound to a local address. This implies, that the ServerSocket must be
@@ -906,7 +830,6 @@ class ServerSocket implements java.io.Closeable {
      * Failure to do this will not cause an error, and the buffer size may be set to the
      * requested value but the TCP receive window in sockets accepted from
      * this ServerSocket will be no larger than 64K bytes.
-     * {@property.close}
      *
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
@@ -929,15 +852,13 @@ class ServerSocket implements java.io.Closeable {
         getImpl().setOption(SocketOptions.SO_RCVBUF, new Integer(size));
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Gets the value of the {@link SocketOptions#SO_RCVBUF SO_RCVBUF} option
      * for this {@code ServerSocket}, that is the proposed buffer size that
      * will be used for Sockets accepted from this {@code ServerSocket}.
      *
      * <p>Note, the value actually set in the accepted socket is determined by
      * calling {@link Socket#getReceiveBufferSize()}.
-     * {@description.close}
      * @return the value of the {@link SocketOptions#SO_RCVBUF SO_RCVBUF}
      *         option for this {@code Socket}.
      * @exception SocketException if there is an error
@@ -957,8 +878,7 @@ class ServerSocket implements java.io.Closeable {
         return result;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Sets performance preferences for this ServerSocket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations
@@ -977,13 +897,10 @@ class ServerSocket implements java.io.Closeable {
      * {@code (1, 0, 0)}.  If the application prefers high bandwidth above low
      * latency, and low latency above short connection time, then it could
      * invoke this method with the values {@code (0, 1, 2)}.
-     * {@description.close}
      *
-     * {@property.open runtime formal:java.net.ServerSocket_PerformancePreferences}
      * <p> Invoking this method after this socket has been bound
      * will have no effect. This implies that in order to use this capability
      * requires the socket to be created with the no-argument constructor.
-     * {@property.close}
      *
      * @param  connectionTime
      *         An {@code int} expressing the relative importance of a short

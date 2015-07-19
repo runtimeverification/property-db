@@ -30,8 +30,7 @@ import java.util.List;
 import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats} 
- * {@description.open}
+/** {@collect.stats}
  * A CookieHandler object provides a callback mechanism to hook up a
  * HTTP state management policy implementation into the HTTP protocol
  * handler. The HTTP state management mechanism specifies a way to
@@ -46,28 +45,29 @@ import sun.security.util.SecurityConstants;
  * For more information on HTTP state management, see <a
  * href="http://www.ietf.org/rfc/rfc2965.txt"><i>RFC&nbsp;2965: HTTP
  * State Management Mechanism</i></a>
- * {@description.close}
  *
  * @author Yingxian Wang
  * @since 1.5
  */
 public abstract class CookieHandler {
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * The system-wide cookie handler that will apply cookies to the
      * request headers and manage cookies from the response headers.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @see setDefault(CookieHandler)
      * @see getDefault()
      */
     private static CookieHandler cookieHandler;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Gets the system-wide cookie handler.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @return the system-wide cookie handler; A null return means
      *        there is no system-wide cookie handler currently set.
      * @throws SecurityException
@@ -83,13 +83,14 @@ public abstract class CookieHandler {
         return cookieHandler;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets (or unsets) the system-wide cookie handler.
      *
      * Note: non-standard http protocol handlers may ignore this setting.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param cHandler The HTTP cookie handler, or
      *       {@code null} to unset.
      * @throws SecurityException
@@ -105,11 +106,9 @@ public abstract class CookieHandler {
         cookieHandler = cHandler;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /**
      * Gets all the applicable cookies from a cookie cache for the
      * specified uri in the request header.
-     * {@description.close}
      *
      * <P>The {@code URI} passed as an argument specifies the intended use for
      * the cookies. In particular the scheme should reflect whether the cookies
@@ -120,11 +119,10 @@ public abstract class CookieHandler {
      * the cookies attributes and security settings to determine which ones
      * should be returned.</P>
      *
-     * {@property.open unchecked}
      * <P>HTTP protocol implementers should make sure that this method is
      * called after all request headers related to choosing cookies
      * are added, and before the request is sent.</P>
-     * {@property.close}
+     *
      * @param uri a {@code URI} representing the intended use for the
      *            cookies
      * @param requestHeaders - a Map from request header
@@ -142,13 +140,14 @@ public abstract class CookieHandler {
         get(URI uri, Map<String, List<String>> requestHeaders)
         throws IOException;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sets all the applicable cookies, examples are response header
      * fields that are named Set-Cookie2, present in the response
      * headers into a cookie cache.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param uri a {@code URI} where the cookies come from
      * @param responseHeaders an immutable map from field names to
      *            lists of field values representing the response

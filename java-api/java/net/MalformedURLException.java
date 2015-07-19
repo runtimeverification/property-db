@@ -27,32 +27,29 @@ package java.net;
 
 import java.io.IOException;
 
-/** {@collect.stats} 
- * {@description.open}
- * Thrown to indicate that a malformed URL has occurred. Either no
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * Thrown to indicate that a malformed URL has occurred. Either no
  * legal protocol could be found in a specification string or the
  * string could not be parsed.
- * {@description.close}
- *
+
+     * {@description.close} *
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
 public class MalformedURLException extends IOException {
     private static final long serialVersionUID = -182787522200415866L;
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a {@code MalformedURLException} with no detail message.
-     * {@description.close}
      */
     public MalformedURLException() {
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
      * Constructs a {@code MalformedURLException} with the
      * specified detail message.
-     * {@description.close}
      *
      * @param   msg   the detail message.
      */

@@ -34,13 +34,14 @@ import sun.net.SocksProxy;
 import sun.net.www.ParseUtil;
 /* import org.ietf.jgss.*; */
 
-/** {@collect.stats} 
- * {@description.open}
- * SOCKS (V4 & V5) TCP socket implementation (RFC 1928).
+/** {@collect.stats}
+ *      
+* {@description.open}
+     * SOCKS (V4 & V5) TCP socket implementation (RFC 1928).
  * This is a subclass of PlainSocketImpl.
  * Note this class should <b>NOT</b> be public.
- * {@description.close}
- */
+
+     * {@description.close} */
 
 class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
     private String server = null;
@@ -134,11 +135,12 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
         return received;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Provides the authentication machanism required by the proxy.
-     * {@description.close}
-     */
+
+     * {@description.close}     */
     private boolean authenticate(byte method, InputStream in,
                                  BufferedOutputStream out) throws IOException {
         return authenticate(method, in, out, 0L);
@@ -150,12 +152,10 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
         // No Authentication required. We're done then!
         if (method == NO_AUTH)
             return true;
-        /** {@collect.stats} 
-         * {@description.open}
+        /**
          * User/Password authentication. Try, in that order :
          * - The application provided Authenticator, if any
          * - the user.name & no password (backward compatibility behavior).
-         * {@description.close}
          */
         if (method == USER_PASSW) {
             String userName;
@@ -207,13 +207,14 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
             /* Authentication succeeded */
             return true;
         }
-        /** {@collect.stats} 
-         * {@description.open}
-         * GSSAPI authentication mechanism.
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * GSSAPI authentication mechanism.
          * Unfortunately the RFC seems out of sync with the Reference
          * implementation. I'll leave this in for future completion.
-         * {@description.close}
-         */
+
+     * {@description.close}         */
 //      if (method == GSSAPI) {
 //          try {
 //              GSSManager manager = GSSManager.getInstance();
@@ -317,14 +318,15 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
         }
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Connects the Socks Socket to the specified endpoint. It will first
      * connect to the SOCKS proxy and negotiate the access. If the proxy
      * grants the connections, then the connect is successful and all
      * further traffic will go to the "real" endpoint.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param   endpoint        the {@code SocketAddress} to connect to.
      * @param   timeout         the timeout value in milliseconds
      * @throws  IOException     if the connection can't be established.
@@ -655,13 +657,14 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
 
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Sends the Bind request to the SOCKS proxy. In the SOCKS protocol, bind
      * means "accept incoming connection from", so the SocketAddress is the
      * the one of the host we do accept connection from.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      saddr   the Socket address of the remote host.
      * @exception  IOException  if an I/O error occurs when binding this socket.
      */
@@ -923,11 +926,12 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
         cmdOut = out;
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
+    /** {@collect.stats}
+     *      
+* {@description.open}
      * Accepts a connection from a specific host.
-     * {@description.close}
-     *
+
+     * {@description.close}     *
      * @param      s   the accepted connection.
      * @param      saddr the socket address of the host we do accept
      *               connection from
@@ -1013,13 +1017,14 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
             throw ex;
         }
 
-        /** {@collect.stats} 
-         * {@description.open}
-         * This is where we have to do some fancy stuff.
+        /** {@collect.stats}
+         *      
+* {@description.open}
+     * This is where we have to do some fancy stuff.
          * The datastream from the socket "accepted" by the proxy will
          * come through the cmdSocket. So we have to swap the socketImpls
-         * {@description.close}
-         */
+
+     * {@description.close}         */
         if (s instanceof SocksSocketImpl) {
             ((SocksSocketImpl)s).external_address = real_end;
         }
@@ -1045,11 +1050,12 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
     }
 
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this socket's <code>address</code> field.
-     * {@description.close}
-     *
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Returns the value of this socket's {@code address} field.
+
+     * {@description.close}     *
      * @return  the value of this socket's {@code address} field.
      * @see     java.net.SocketImpl#address
      */
@@ -1061,11 +1067,12 @@ class SocksSocketImpl extends PlainSocketImpl implements SocksConsts {
             return super.getInetAddress();
     }
 
-    /** {@collect.stats} 
-     * {@description.open}
-     * Returns the value of this socket's <code>port</code> field.
-     * {@description.close}
-     *
+    /** {@collect.stats}
+     *      
+* {@description.open}
+     * Returns the value of this socket's {@code port} field.
+
+     * {@description.close}     *
      * @return  the value of this socket's {@code port} field.
      * @see     java.net.SocketImpl#port
      */
