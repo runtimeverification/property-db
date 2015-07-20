@@ -1,0 +1,190 @@
+***
+ Comparing old directory util_old/ to new directory util_new/.
+ Merged results will be output to directory java/util.
+***
+DIRECTORY: java/util
+Old files or subdirectories not seen in new package:
+package.html
+CurrencyData.properties
+XMLUtils.java
+DIRECTORY: java/util
+New files or subdirectories not seen in old package:
+IllformedLocaleException.java
+DualPivotQuicksort.java
+ArraysParallelSortHelpers.java
+Objects.java
+ComparableTimSort.java
+PrimitiveIterator.java
+OptionalDouble.java
+TimSort.java
+Comparators.java
+Spliterators.java
+Base64.java
+Spliterator.java
+OptionalInt.java
+LongSummaryStatistics.java
+SplittableRandom.java
+DoubleSummaryStatistics.java
+IntSummaryStatistics.java
+stream
+ArrayPrefixHelpers.java
+function
+Optional.java
+StringJoiner.java
+Tripwire.java
+OptionalLong.java
+------
+SUBDIRECTORY: regex
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: regex
+Old version does not contain these new files:
+UnicodeProp.java
+------
+SUBDIRECTORY: concurrent
+New version does not contain these old files:
+
+SUBDIRECTORY: concurrent
+Old version does not contain these new files:
+LinkedTransferQueue.java
+CountedCompleter.java
+CompletionStage.java
+TransferQueue.java
+RecursiveAction.java
+Phaser.java
+ThreadLocalRandom.java
+RecursiveTask.java
+ConcurrentLinkedDeque.java
+ForkJoinWorkerThread.java
+ForkJoinPool.java
+CompletableFuture.java
+CompletionException.java
+ForkJoinTask.java
+------
+SUBDIRECTORY: jar
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: jar
+Old version does not contain these new files:
+
+------
+SUBDIRECTORY: logging
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: logging
+Old version does not contain these new files:
+LoggingProxyImpl.java
+------
+SUBDIRECTORY: zip
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: zip
+Old version does not contain these new files:
+ZipConstants64.java
+ZipCoder.java
+ZipUtils.java
+------
+SUBDIRECTORY: prefs
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: prefs
+Old version does not contain these new files:
+FileSystemPreferencesFactory.java
+FileSystemPreferences.java
+------
+SUBDIRECTORY: spi
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: spi
+Old version does not contain these new files:
+CalendarNameProvider.java
+ResourceBundleControlProvider.java
+CalendarDataProvider.java
+------
+SUBDIRECTORY: regex
+New version does not contain these old directories:
+
+SUBDIRECTORY: regex
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: concurrent
+New version does not contain these old directories:
+
+SUBDIRECTORY: concurrent
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: jar
+New version does not contain these old directories:
+
+SUBDIRECTORY: jar
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: logging
+New version does not contain these old directories:
+
+SUBDIRECTORY: logging
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: zip
+New version does not contain these old directories:
+
+SUBDIRECTORY: zip
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: prefs
+New version does not contain these old directories:
+
+SUBDIRECTORY: prefs
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: spi
+New version does not contain these old directories:
+
+SUBDIRECTORY: spi
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: concurrent/locks
+New version does not contain these old directories:
+
+SUBDIRECTORY: concurrent/locks
+Old version does not contain these new directories:
+
+------
+***
+ Comparing old directory util_old/concurrent/locks to new directory util_new/concurrent/locks.
+ Merged results will be output to directory java/util/concurrent/locks.
+***
+DIRECTORY: java/util/concurrent/locks
+Old files or subdirectories not seen in new package:
+DIRECTORY: java/util/concurrent/locks
+New files or subdirectories not seen in old package:
+StampedLock.java
+------
+SUBDIRECTORY: concurrent/atomic
+New version does not contain these old directories:
+
+SUBDIRECTORY: concurrent/atomic
+Old version does not contain these new directories:
+
+------
+***
+ Comparing old directory util_old/concurrent/atomic to new directory util_new/concurrent/atomic.
+ Merged results will be output to directory java/util/concurrent/atomic.
+***
+DIRECTORY: java/util/concurrent/atomic
+Old files or subdirectories not seen in new package:
+DIRECTORY: java/util/concurrent/atomic
+New files or subdirectories not seen in old package:
+LongAccumulator.java
+Striped64.java
+LongAdder.java
+DoubleAccumulator.java
+DoubleAdder.java
+------

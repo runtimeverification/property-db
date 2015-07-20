@@ -43,7 +43,8 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * This class contains various methods for manipulating arrays (such as
  * sorting and searching). This class also contains a static factory
  * that allows arrays to be viewed as lists.
@@ -62,7 +63,7 @@ import java.util.stream.StreamSupport;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @author Josh Bloch
  * @author Neal Gafter
  * @author John Rose
@@ -105,8 +106,10 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Checks that {@code fromIndex} and {@code toIndex} are in
      * the range and throws an exception if they aren't.
+     * {@description.close}
      */
     private static void rangeCheck(int arrayLength, int fromIndex, int toIndex) {
         if (fromIndex > toIndex) {
@@ -145,6 +148,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified range of the array into ascending order. The range
      * to be sorted extends from the index {@code fromIndex}, inclusive, to
      * the index {@code toIndex}, exclusive. If {@code fromIndex == toIndex},
@@ -155,7 +159,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      * @param fromIndex the index of the first element, inclusive, to be sorted
      * @param toIndex the index of the last element, exclusive, to be sorted
@@ -170,6 +174,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
@@ -177,7 +182,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(long[] a) {
@@ -185,6 +190,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified range of the array into ascending order. The range
      * to be sorted extends from the index {@code fromIndex}, inclusive, to
      * the index {@code toIndex}, exclusive. If {@code fromIndex == toIndex},
@@ -195,7 +201,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      * @param fromIndex the index of the first element, inclusive, to be sorted
      * @param toIndex the index of the last element, exclusive, to be sorted
@@ -210,6 +216,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
@@ -217,7 +224,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(short[] a) {
@@ -250,6 +257,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
@@ -257,7 +265,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(char[] a) {
@@ -290,6 +298,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
@@ -297,7 +306,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(byte[] a) {
@@ -330,6 +339,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>The {@code <} relation does not provide a total order on all float
@@ -345,7 +355,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(float[] a) {
@@ -386,6 +396,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
      *
      * <p>The {@code <} relation does not provide a total order on all double
@@ -401,7 +412,7 @@ public class Arrays {
      * offers O(n log(n)) performance on many data sets that cause other
      * quicksorts to degrade to quadratic performance, and is typically
      * faster than traditional (one-pivot) Quicksort implementations.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      */
     public static void sort(double[] a) {
@@ -652,7 +663,9 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array into ascending numerical order.
+     * {@description.close}
      *
      * @implNote The sorting algorithm is a parallel sort-merge that breaks the
      * array into sub-arrays that are themselves sorted and then merged. When
@@ -964,17 +977,21 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array of objects into ascending order, according
      * to the {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All elements in the array must implement the {@link Comparable}
      * interface.  Furthermore, all elements in the array must be
      * <i>mutually comparable</i> (that is, {@code e1.compareTo(e2)} must
      * not throw a {@code ClassCastException} for any elements {@code e1}
      * and {@code e2} in the array).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
-     *
+     * {@description.close}
      * @implNote The sorting algorithm is a parallel sort-merge that breaks the
      * array into sub-arrays that are themselves sorted and then merged. When
      * the sub-array length reaches a minimum granularity, the sub-array is
@@ -1012,6 +1029,7 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified range of the specified array of objects into
      * ascending order, according to the
      * {@linkplain Comparable natural ordering} of its
@@ -1026,7 +1044,7 @@ public class Arrays {
      *
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
-     *
+     * {@description.close}
      * @implNote The sorting algorithm is a parallel sort-merge that breaks the
      * array into sub-arrays that are themselves sorted and then merged. When
      * the sub-array length reaches a minimum granularity, the sub-array is
@@ -1198,14 +1216,18 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array of objects into ascending order, according
      * to the {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
+     * {@property.open formal:java.util.Arrays_Comparable}
      * All elements in the array must implement the {@link Comparable}
      * interface.  Furthermore, all elements in the array must be
      * <i>mutually comparable</i> (that is, {@code e1.compareTo(e2)} must
      * not throw a {@code ClassCastException} for any elements {@code e1}
      * and {@code e2} in the array).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
      *
@@ -1231,7 +1253,7 @@ public class Arrays {
      * Sorting and Information Theoretic Complexity", in Proceedings of the
      * Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474,
      * January 1993.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      * @throws ClassCastException if the array contains elements that are not
      *         <i>mutually comparable</i> (for example, strings and integers)
@@ -1253,18 +1275,23 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified range of the specified array of objects into
      * ascending order, according to the
      * {@linkplain Comparable natural ordering} of its
      * elements.  The range to be sorted extends from index
      * {@code fromIndex}, inclusive, to index {@code toIndex}, exclusive.
-     * (If {@code fromIndex==toIndex}, the range to be sorted is empty.)  All
+     * (If {@code fromIndex==toIndex}, the range to be sorted is empty.) 
+     * {@description.close} 
+     * {@property.open formal:java.util.Arrays_Comparable}
+     * All
      * elements in this range must implement the {@link Comparable}
      * interface.  Furthermore, all elements in this range must be <i>mutually
      * comparable</i> (that is, {@code e1.compareTo(e2)} must not throw a
      * {@code ClassCastException} for any elements {@code e1} and
      * {@code e2} in the array).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
      *
@@ -1290,7 +1317,7 @@ public class Arrays {
      * Sorting and Information Theoretic Complexity", in Proceedings of the
      * Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474,
      * January 1993.
-     *
+     * {@description.close}
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
      *        sorted
@@ -1320,19 +1347,23 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Tuning parameter: list size at or below which insertion sort will be
      * used in preference to mergesort.
      * To be removed in a future release.
+     * {@description.close}
      */
     private static final int INSERTIONSORT_THRESHOLD = 7;
 
     /** {@collect.stats}
+     * {@description.open}
      * Src is the source array that starts at index 0
      * Dest is the (possibly larger) array destination with a possible offset
      * low is the index in dest to start sorting
      * high is the end index in dest to end sorting
      * off is the offset to generate corresponding low, high in src
      * To be removed in a future release.
+     * {@description.close}
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static void mergeSort(Object[] src,
@@ -1377,7 +1408,9 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Swaps x[a] with x[b].
+     * {@description.close}
      */
     private static void swap(Object[] x, int a, int b) {
         Object t = x[a];
@@ -1386,12 +1419,17 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified array of objects according to the order induced by
-     * the specified comparator.  All elements in the array must be
+     * the specified comparator.  
+     * {@property.open formal:java.util.Arrays_MutuallyComparable}
+     * All elements in the array must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
      * for any elements {@code e1} and {@code e2} in the array).
-     *
+     * {@description.open}
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
      *
@@ -1417,7 +1455,7 @@ public class Arrays {
      * Sorting and Information Theoretic Complexity", in Proceedings of the
      * Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474,
      * January 1993.
-     *
+     * {@description.close}
      * @param <T> the class of the objects to be sorted
      * @param a the array to be sorted
      * @param c the comparator to determine the order of the array.  A
@@ -1449,15 +1487,20 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified range of the specified array of objects according
      * to the order induced by the specified comparator.  The range to be
      * sorted extends from index {@code fromIndex}, inclusive, to index
      * {@code toIndex}, exclusive.  (If {@code fromIndex==toIndex}, the
-     * range to be sorted is empty.)  All elements in the range must be
+     * range to be sorted is empty.) 
+     * {@description.close} 
+     * {@property.open formal:java.util.Arrays_MutuallyComparable}
+     * All elements in the range must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
      * for any elements {@code e1} and {@code e2} in the range).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
      *
@@ -1483,7 +1526,7 @@ public class Arrays {
      * Sorting and Information Theoretic Complexity", in Proceedings of the
      * Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474,
      * January 1993.
-     *
+     * {@description.close}
      * @param <T> the class of the objects to be sorted
      * @param a the array to be sorted
      * @param fromIndex the index of the first element (inclusive) to be
@@ -1524,12 +1567,14 @@ public class Arrays {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Src is the source array that starts at index 0
      * Dest is the (possibly larger) array destination with a possible offset
      * low is the index in dest to start sorting
      * high is the end index in dest to end sorting
      * off is the offset into src corresponding to low in dest
      * To be removed in a future release.
+     * {@description.close}
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
     private static void mergeSort(Object[] src,
@@ -3778,6 +3823,7 @@ public class Arrays {
     // Misc
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a fixed-size list backed by the specified array.  (Changes to
      * the returned list "write through" to the array.)  This method acts
      * as bridge between array-based and collection-based APIs, in
@@ -3789,7 +3835,7 @@ public class Arrays {
      * <pre>
      *     List&lt;String&gt; stooges = Arrays.asList("Larry", "Moe", "Curly");
      * </pre>
-     *
+     * {@description.close}
      * @param <T> the class of the objects in the array
      * @param a the array by which the list will be backed
      * @return a list view of the specified array

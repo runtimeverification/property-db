@@ -1,0 +1,113 @@
+***
+ Comparing old directory lang_old/ to new directory lang_new/.
+ Merged results will be output to directory java/lang.
+***
+DIRECTORY: java/lang
+Old files or subdirectories not seen in new package:
+doc-files
+DIRECTORY: java/lang
+New files or subdirectories not seen in old package:
+ProcessEnvironment.java
+ClassValue.java
+CharacterData0E.java
+CharacterName.java
+BootstrapMethodError.java
+ProcessImpl.java
+ClassLoaderHelper.java
+SafeVarargs.java
+CharacterData01.java
+FunctionalInterface.java
+CharacterDataLatin1.java
+CharacterDataUndefined.java
+Terminator.java
+lang
+ReflectiveOperationException.java
+invoke
+CharacterData02.java
+AutoCloseable.java
+CharacterDataPrivateUse.java
+UNIXProcess.java
+CharacterData00.java
+------
+SUBDIRECTORY: annotation
+New version does not contain these old files:
+
+SUBDIRECTORY: annotation
+Old version does not contain these new files:
+Native.java
+Repeatable.java
+------
+SUBDIRECTORY: reflect
+New version does not contain these old files:
+
+SUBDIRECTORY: reflect
+Old version does not contain these new files:
+Executable.java
+AnnotatedWildcardType.java
+AnnotatedTypeVariable.java
+AnnotatedType.java
+MalformedParametersException.java
+AnnotatedArrayType.java
+Parameter.java
+WeakCache.java
+AnnotatedParameterizedType.java
+------
+SUBDIRECTORY: instrument
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: instrument
+Old version does not contain these new files:
+
+------
+SUBDIRECTORY: ref
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: ref
+Old version does not contain these new files:
+
+------
+SUBDIRECTORY: management
+New version does not contain these old files:
+package.html
+SUBDIRECTORY: management
+Old version does not contain these new files:
+BufferPoolMXBean.java
+PlatformComponent.java
+PlatformManagedObject.java
+PlatformLoggingMXBean.java
+------
+SUBDIRECTORY: annotation
+New version does not contain these old directories:
+
+SUBDIRECTORY: annotation
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: reflect
+New version does not contain these old directories:
+
+SUBDIRECTORY: reflect
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: instrument
+New version does not contain these old directories:
+
+SUBDIRECTORY: instrument
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: ref
+New version does not contain these old directories:
+
+SUBDIRECTORY: ref
+Old version does not contain these new directories:
+
+------
+SUBDIRECTORY: management
+New version does not contain these old directories:
+
+SUBDIRECTORY: management
+Old version does not contain these new directories:
+
+------

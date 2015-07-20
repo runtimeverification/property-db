@@ -111,19 +111,24 @@ public class Collections {
     private static final int INDEXOFSUBLIST_THRESHOLD =   35;
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified list into ascending order, according to the
      * {@linkplain Comparable natural ordering} of its elements.
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_ImplementComparable}
      * All elements in the list must implement the {@link Comparable}
      * interface.  Furthermore, all elements in the list must be
      * <i>mutually comparable</i> (that is, {@code e1.compareTo(e2)}
      * must not throw a {@code ClassCastException} for any elements
      * {@code e1} and {@code e2} in the list).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
-     *
+     * {@description.close}
+     * {@property.open uncheckable}
      * <p>The specified list must be modifiable, but need not be resizable.
-     *
+     * {@property.close}
      * @implNote
      * This implementation defers to the {@link List#sort(Comparator)}
      * method using the specified list and a {@code null} comparator.
@@ -145,17 +150,23 @@ public class Collections {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sorts the specified list according to the order induced by the
-     * specified comparator.  All elements in the list must be <i>mutually
+     * specified comparator. 
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_Comparable} 
+     * All elements in the list must be <i>mutually
      * comparable</i> using the specified comparator (that is,
      * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
      * for any elements {@code e1} and {@code e2} in the list).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
      * not be reordered as a result of the sort.
-     *
+     * {@description.close}
+     * {@property.open uncheckable}
      * <p>The specified list must be modifiable, but need not be resizable.
-     *
+     * {@property.close}
      * @implNote
      * This implementation defers to the {@link List#sort(Comparator)}
      * method using the specified list and comparator.
@@ -991,6 +1002,7 @@ public class Collections {
     // Unmodifiable Wrappers
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an unmodifiable view of the specified collection.  This method
      * allows modules to provide users with "read-only" access to internal
      * collections.  Query operations on the returned collection "read through"
@@ -1006,7 +1018,7 @@ public class Collections {
      *
      * The returned collection will be serializable if the specified collection
      * is serializable.
-     *
+     * {@description.close}
      * @param  <T> the class of the objects in the collection
      * @param  c the collection for which an unmodifiable view is to be
      *         returned.
@@ -1955,11 +1967,13 @@ public class Collections {
     // Synch Wrappers
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a synchronized (thread-safe) collection backed by the specified
      * collection.  In order to guarantee serial access, it is critical that
      * <strong>all</strong> access to the backing collection is accomplished
      * through the returned collection.<p>
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_SynchronizedCollection}
      * It is imperative that the user manually synchronize on the returned
      * collection when traversing it via {@link Iterator}, {@link Spliterator}
      * or {@link Stream}:
@@ -1973,16 +1987,16 @@ public class Collections {
      *  }
      * </pre>
      * Failure to follow this advice may result in non-deterministic behavior.
-     *
+     * {@property.close}
      * <p>The returned collection does <i>not</i> pass the {@code hashCode}
      * and {@code equals} operations through to the backing collection, but
      * relies on {@code Object}'s equals and hashCode methods.  This is
      * necessary to preserve the contracts of these operations in the case
      * that the backing collection is a set or a list.<p>
-     *
+     * {@description.open}
      * The returned collection will be serializable if the specified collection
      * is serializable.
-     *
+     * {@description.close}
      * @param  <T> the class of the objects in the collection
      * @param  c the collection to be "wrapped" in a synchronized collection.
      * @return a synchronized view of the specified collection.
@@ -4282,6 +4296,7 @@ public class Collections {
     public static final Set EMPTY_SET = new EmptySet<>();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an empty set (immutable).  This set is serializable.
      * Unlike the like-named field, this method is parameterized.
      *
@@ -4293,7 +4308,7 @@ public class Collections {
      * {@code Set} object for each call.  Using this method is likely to have
      * comparable cost to using the like-named field.  (Unlike this method, the
      * field does not provide type safety.)
-     *
+     * {@description.close}
      * @param  <T> the class of the objects in the set
      * @return the empty set
      *
@@ -4400,6 +4415,7 @@ public class Collections {
     public static final List EMPTY_LIST = new EmptyList<>();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an empty list (immutable).  This list is serializable.
      *
      * <p>This example illustrates the type-safe way to obtain an empty list:
@@ -4412,7 +4428,7 @@ public class Collections {
      * object for each call.   Using this method is likely to have comparable
      * cost to using the like-named field.  (Unlike this method, the field does
      * not provide type safety.)
-     *
+     * {@description.close}
      * @param <T> type of elements, if there were any, in the list
      * @return an empty immutable list
      *
@@ -4501,6 +4517,7 @@ public class Collections {
     public static final Map EMPTY_MAP = new EmptyMap<>();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an empty map (immutable).  This map is serializable.
      *
      * <p>This example illustrates the type-safe way to obtain an empty map:
@@ -4511,6 +4528,7 @@ public class Collections {
      * {@code Map} object for each call.  Using this method is likely to have
      * comparable cost to using the like-named field.  (Unlike this method, the
      * field does not provide type safety.)
+     * {@description.close}
      *
      * @param <K> the class of the map keys
      * @param <V> the class of the map values
@@ -5245,8 +5263,9 @@ public class Collections {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns true if the specified arguments are equal, or both null.
-     *
+     * {@description.close}
      * NB: Do not replace with Object.equals until JDK-8015417 is resolved.
      */
     static boolean eq(Object o1, Object o2) {
@@ -5254,11 +5273,12 @@ public class Collections {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the number of elements in the specified collection equal to the
      * specified object.  More formally, returns the number of elements
      * <tt>e</tt> in the collection such that
      * <tt>(o == null ? e == null : o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param c the collection in which to determine the frequency
      *     of <tt>o</tt>
      * @param o the object whose frequency is to be determined
@@ -5281,6 +5301,7 @@ public class Collections {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns {@code true} if the two specified collections have no
      * elements in common.
      *
@@ -5304,7 +5325,7 @@ public class Collections {
      * <p>Note that it is permissible to pass the same collection in both
      * parameters, in which case the method will return {@code true} if and
      * only if the collection is empty.
-     *
+     * {@description.close}
      * @param c1 a collection
      * @param c2 a collection
      * @return {@code true} if the two specified collections have no
@@ -5406,19 +5427,25 @@ public class Collections {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a set backed by the specified map.  The resulting set displays
      * the same ordering, concurrency, and performance characteristics as the
      * backing map.  In essence, this factory method provides a {@link Set}
-     * implementation corresponding to any {@link Map} implementation.  There
+     * implementation corresponding to any {@link Map} implementation.  
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_UnnecessaryNewSetFromMap}
+     * There
      * is no need to use this method on a {@link Map} implementation that
      * already has a corresponding {@link Set} implementation (such as {@link
      * HashMap} or {@link TreeMap}).
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>Each method invocation on the set returned by this method results in
      * exactly one method invocation on the backing map or its <tt>keySet</tt>
      * view, with one exception.  The <tt>addAll</tt> method is implemented
      * as a sequence of <tt>put</tt> invocations on the backing map.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.Collections_NewSetFromMap}
      * <p>The specified map must be empty at the time this method is invoked,
      * and should not be accessed directly after this method returns.  These
      * conditions are ensured if the map is created empty, passed directly
@@ -5428,7 +5455,7 @@ public class Collections {
      *    Set&lt;Object&gt; weakHashSet = Collections.newSetFromMap(
      *        new WeakHashMap&lt;Object, Boolean&gt;());
      * </pre>
-     *
+     * {@property.close}
      * @param <E> the class of the map keys and of the objects in the
      *        returned set
      * @param map the backing map

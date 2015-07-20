@@ -46,7 +46,8 @@ import sun.util.calendar.CalendarUtils;
 import sun.util.calendar.BaseCalendar;
 import sun.util.calendar.Gregorian;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * <code>SimpleTimeZone</code> is a concrete subclass of <code>TimeZone</code>
  * that represents a time zone for use with a Gregorian calendar.
  * The class holds an offset from GMT, called <em>raw offset</em>, and start
@@ -139,7 +140,7 @@ import sun.util.calendar.Gregorian;
  * </code></pre>
  * These parameter rules are also applicable to the set rule methods, such as
  * <code>setStartRule</code>.
- *
+ * {@description.close}
  * @since 1.1
  * @see      Calendar
  * @see      GregorianCalendar
@@ -163,6 +164,7 @@ public class SimpleTimeZone extends TimeZone {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a SimpleTimeZone with the given base time zone offset from
      * GMT, time zone ID, and rules for starting and ending the daylight
      * time.
@@ -185,7 +187,7 @@ public class SimpleTimeZone extends TimeZone {
      *                    SimpleTimeZone.{@link #WALL_TIME},
      *                    3600000)
      * </code></pre>
-     *
+     * {@description.close}
      * @param rawOffset       The given base time zone offset from GMT.
      * @param ID              The time zone ID which is given to this object.
      * @param startMonth      The daylight saving time starting month. Month is
@@ -222,6 +224,7 @@ public class SimpleTimeZone extends TimeZone {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a SimpleTimeZone with the given base time zone offset from
      * GMT, time zone ID, and rules for starting and ending the daylight
      * time.
@@ -242,7 +245,7 @@ public class SimpleTimeZone extends TimeZone {
      *                    SimpleTimeZone.{@link #WALL_TIME},
      *                    dstSavings)
      * </code></pre>
-     *
+     * {@description.close}
      * @param rawOffset       The given base time zone offset from GMT.
      * @param ID              The time zone ID which is given to this object.
      * @param startMonth      The daylight saving time starting month. Month is

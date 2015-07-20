@@ -229,11 +229,12 @@ public class TreeSet<E> extends AbstractSet<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns {@code true} if this set contains the specified element.
      * More formally, returns {@code true} if and only if this set
      * contains an element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param o object to be checked for containment in this set
      * @return {@code true} if this set contains the specified element
      * @throws ClassCastException if the specified object cannot be compared
@@ -247,13 +248,14 @@ public class TreeSet<E> extends AbstractSet<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element {@code e} to this set if
      * the set contains no element {@code e2} such that
      * <tt>(e==null&nbsp;?&nbsp;e2==null&nbsp;:&nbsp;e.equals(e2))</tt>.
      * If this set already contains the element, the call leaves the set
      * unchanged and returns {@code false}.
-     *
+     * {@description.close}
      * @param e element to be added to this set
      * @return {@code true} if this set did not already contain the specified
      *         element
@@ -268,6 +270,7 @@ public class TreeSet<E> extends AbstractSet<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the specified element from this set if it is present.
      * More formally, removes an element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -275,7 +278,7 @@ public class TreeSet<E> extends AbstractSet<E>
      * this set contained the element (or equivalently, if this set
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
-     *
+     * {@description.close}
      * @param o object to be removed from this set, if present
      * @return {@code true} if this set contained the specified element
      * @throws ClassCastException if the specified object cannot be compared
@@ -523,8 +526,10 @@ public class TreeSet<E> extends AbstractSet<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitute the {@code TreeSet} instance from a stream (that is,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

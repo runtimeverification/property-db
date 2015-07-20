@@ -30,7 +30,8 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.io.IOException;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * <p>Hash table and linked list implementation of the <tt>Map</tt> interface,
  * with predictable iteration order.  This implementation differs from
  * <tt>HashMap</tt> in that it maintains a doubly-linked list running through
@@ -96,7 +97,8 @@ import java.io.IOException;
  * excessively high value for initial capacity is less severe for this class
  * than for <tt>HashMap</tt>, as iteration times for this class are unaffected
  * by capacity.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Collections_SynchronizedMap}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a linked hash map concurrently, and at least
  * one of the threads modifies the map structurally, it <em>must</em> be
@@ -116,7 +118,8 @@ import java.io.IOException;
  * a structural modification.  <strong>In access-ordered linked hash maps,
  * merely querying the map with <tt>get</tt> is a structural modification.
  * </strong>)
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's collection view methods are
  * <em>fail-fast</em>: if the map is structurally modified at any time after
@@ -133,16 +136,16 @@ import java.io.IOException;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:   <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@property.close}
  * <p>The spliterators returned by the spliterator method of the collections
  * returned by all of this class's collection view methods are
  * <em><a href="Spliterator.html#binding">late-binding</a></em>,
  * <em>fail-fast</em>, and additionally report {@link Spliterator#ORDERED}.
- *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @implNote
  * The spliterators returned by the spliterator method of the collections
  * returned by all of this class's collection view methods are created from
@@ -199,7 +202,9 @@ public class LinkedHashMap<K,V>
     private static final long serialVersionUID = 3801124242820219131L;
 
     /** {@collect.stats}
+     * {@description.open}
      * The head (eldest) of the doubly linked list.
+     * {@description.close}
      */
     transient LinkedHashMap.Entry<K,V> head;
 
@@ -404,9 +409,10 @@ public class LinkedHashMap<K,V>
 
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
-     *
+     * {@description.close}
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the
      *         specified value
@@ -465,6 +471,7 @@ public class LinkedHashMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if this map should remove its eldest entry.
      * This method is invoked by <tt>put</tt> and <tt>putAll</tt> after
      * inserting a new entry into the map.  It provides the implementor
@@ -490,7 +497,7 @@ public class LinkedHashMap<K,V>
      * <tt>false</tt> (indicating that the map should not attempt any
      * further modification).  The effects of returning <tt>true</tt>
      * after modifying the map from within this method are unspecified.
-     *
+     * {@description.close}
      * <p>This implementation merely returns <tt>false</tt> (so that this
      * map acts like a normal map - the eldest element is never removed).
      *

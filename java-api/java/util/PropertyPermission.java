@@ -39,7 +39,8 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * This class is for property permissions.
  *
  * <P>
@@ -74,7 +75,7 @@ import sun.security.util.SecurityConstants;
  * the "user.name" and "user.home" system properties gives potentially
  * malevolent code sensitive information about the user environment
  * (the user's account name and home directory).
- *
+ * {@description.close}
  * @see java.security.BasicPermission
  * @see java.security.Permission
  * @see java.security.Permissions
@@ -162,6 +163,7 @@ public final class PropertyPermission extends BasicPermission {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Checks if this PropertyPermission object "implies" the specified
      * permission.
      * <P>
@@ -173,6 +175,7 @@ public final class PropertyPermission extends BasicPermission {
      * <li> <i>p</i>'s name is implied by this object's
      *      name. For example, "java.*" implies "java.home".
      * </ul>
+     * {@description.close}
      * @param p the permission to check against.
      *
      * @return true if the specified permission is implied by this object,
@@ -444,7 +447,9 @@ final class PropertyPermissionCollection extends PermissionCollection
     private boolean all_allowed;
 
     /** {@collect.stats}
+     * {@description.open}
      * Create an empty PropertyPermissionCollection object.
+     * {@description.close}
      */
     public PropertyPermissionCollection() {
         perms = new HashMap<>(32);     // Capacity for default policy
@@ -452,9 +457,10 @@ final class PropertyPermissionCollection extends PermissionCollection
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Adds a permission to the PropertyPermissions. The key for the hash is
      * the name.
-     *
+     * {@description.close}
      * @param permission the Permission object to add.
      *
      * @exception IllegalArgumentException - if the permission is not a

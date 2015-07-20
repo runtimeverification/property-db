@@ -25,13 +25,14 @@
 
 package java.util;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * Unchecked exception thrown when a conversion and flag are incompatible.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
- *
+ * {@description.close}
  * @since 1.5
  */
 public class FormatFlagsConversionMismatchException

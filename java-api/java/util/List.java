@@ -137,11 +137,12 @@ public interface List<E> extends Collection<E> {
     boolean isEmpty();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param o element whose presence in this list is to be tested
      * @return <tt>true</tt> if this list contains the specified element
      * @throws ClassCastException if the type of the specified element
@@ -259,6 +260,7 @@ public interface List<E> extends Collection<E> {
     boolean add(E e);
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the first occurrence of the specified element from this list,
      * if it is present (optional operation).  If this list does not contain
      * the element, it is unchanged.  More formally, removes the element with
@@ -267,7 +269,7 @@ public interface List<E> extends Collection<E> {
      * (if such an element exists).  Returns <tt>true</tt> if this list
      * contained the specified element (or equivalently, if this list changed
      * as a result of the call).
-     *
+     * {@description.close}
      * @param o element to be removed from this list, if present
      * @return <tt>true</tt> if this list contained the specified element
      * @throws ClassCastException if the type of the specified element
@@ -666,12 +668,13 @@ public interface List<E> extends Collection<E> {
     // Search Operations
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element
@@ -685,12 +688,13 @@ public interface List<E> extends Collection<E> {
     int indexOf(Object o);
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element

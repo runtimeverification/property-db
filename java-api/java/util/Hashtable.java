@@ -31,7 +31,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.BiFunction;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * This class implements a hash table, which maps keys to values. Any
  * non-<code>null</code> object can be used as a key or as a value. <p>
  *
@@ -83,7 +84,8 @@ import java.util.function.BiFunction;
  *   if (n != null) {
  *     System.out.println("two = " + n);
  *   }}</pre>
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's "collection view methods" are
  * <em>fail-fast</em>: if the Hashtable is structurally modified at any time
@@ -102,7 +104,8 @@ import java.util.function.BiFunction;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@property.close}
+ * {@description.open}
  * <p>As of the Java 2 platform v1.2, this class was retrofitted to
  * implement the {@link Map} interface, making it a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
@@ -114,7 +117,7 @@ import java.util.function.BiFunction;
  * highly-concurrent implementation is desired, then it is recommended
  * to use {@link java.util.concurrent.ConcurrentHashMap} in place of
  * {@code Hashtable}.
- *
+ * {@description.close}
  * @author  Arthur van Hoff
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -305,11 +308,12 @@ public class Hashtable<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns true if this hashtable maps one or more keys to this value.
      *
      * <p>Note that this method is identical in functionality to {@link
      * #contains contains} (which predates the {@link Map} interface).
-     *
+     * {@description.close}
      * @param value value whose presence in this hashtable is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the
      *         specified value
@@ -1160,7 +1164,9 @@ public class Hashtable<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitute the Hashtable from a stream (i.e., deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
          throws IOException, ClassNotFoundException
@@ -1230,7 +1236,9 @@ public class Hashtable<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Hashtable bucket collision list entry
+     * {@description.close}
      */
     private static class Entry<K,V> implements Map.Entry<K,V> {
         final int hash;

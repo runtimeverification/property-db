@@ -899,6 +899,7 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Gets a resource bundle using the specified base name, locale, and class
      * loader.
      *
@@ -1068,6 +1069,7 @@ public abstract class ResourceBundle {
      * <p>The file MyResources_fr_CH.properties is never used because it is
      * hidden by the MyResources_fr_CH.class. Likewise, MyResources.properties
      * is also hidden by MyResources.class.
+     * {@description.close}
      *
      * @param baseName the base name of the resource bundle, a fully qualified class name
      * @param locale the locale for which a resource bundle is desired
@@ -1872,6 +1874,7 @@ public abstract class ResourceBundle {
 
 
     /** {@collect.stats}
+     * {@description.open}
      * <code>ResourceBundle.Control</code> defines a set of callback methods
      * that are invoked by the {@link ResourceBundle#getBundle(String,
      * Locale, ClassLoader, Control) ResourceBundle.getBundle} factory
@@ -2015,7 +2018,7 @@ public abstract class ResourceBundle {
      *     }
      * }
      * </pre>
-     *
+     * {@description.close}
      * @since 1.6
      */
     public static class Control {
@@ -2032,9 +2035,11 @@ public abstract class ResourceBundle {
                                                          "java.properties"));
 
         /** {@collect.stats}
+         * {@description.open}
          * The class-only format <code>List</code> containing
          * <code>"java.class"</code>. This <code>List</code> is {@linkplain
          * Collections#unmodifiableList(List) unmodifiable}.
+         * {@description.close}
          *
          * @see #getFormats(String)
          */
@@ -2495,6 +2500,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns a <code>Locale</code> to be used as a fallback locale for
          * further resource bundle searches by the
          * <code>ResourceBundle.getBundle</code> factory method. This method
@@ -2511,7 +2517,7 @@ public abstract class ResourceBundle {
          * Locale#getDefault() default <code>Locale</code>} if the given
          * <code>locale</code> isn't the default one.  Otherwise,
          * <code>null</code> is returned.
-         *
+         * {@description.close}
          * @param baseName
          *        the base name of the resource bundle, a fully
          *        qualified class name for which

@@ -33,7 +33,8 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Hash table based implementation of the <tt>Map</tt> interface, with
  * <em>weak keys</em>.
  * An entry in a <tt>WeakHashMap</tt> will automatically be removed when
@@ -48,12 +49,14 @@ import java.util.function.Consumer;
  * performance characteristics similar to those of the <tt>HashMap</tt>
  * class, and has the same efficiency parameters of <em>initial capacity</em>
  * and <em>load factor</em>.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Collections_SynchronizedMap}
  * <p> Like most collection classes, this class is not synchronized.
  * A synchronized <tt>WeakHashMap</tt> may be constructed using the
  * {@link Collections#synchronizedMap Collections.synchronizedMap}
  * method.
- *
+ * {@property.close}
+ * {@description.open}
  * <p> This class is intended primarily for use with key objects whose
  * <tt>equals</tt> methods test for object identity using the
  * <tt>==</tt> operator.  Once such a key is discarded it can never be
@@ -87,7 +90,8 @@ import java.util.function.Consumer;
  * the referent of a weak reference.  Therefore a key will automatically be
  * removed only after the weak references to it, both inside and outside of the
  * map, have been cleared by the garbage collector.
- *
+ * {@description.close}
+ * {@property.open uncheckable} 
  * <p> <strong>Implementation note:</strong> The value objects in a
  * <tt>WeakHashMap</tt> are held by ordinary strong references.  Thus care
  * should be taken to ensure that value objects do not strongly refer to their
@@ -101,7 +105,8 @@ import java.util.function.Consumer;
  * <tt>WeakReferences</tt> before
  * inserting, as in: <tt>m.put(key, new WeakReference(value))</tt>,
  * and then unwrapping upon each <tt>get</tt>.
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the collections
  * returned by all of this class's "collection view methods" are
  * <i>fail-fast</i>: if the map is structurally modified at any time after the
@@ -110,7 +115,7 @@ import java.util.function.Consumer;
  * ConcurrentModificationException}.  Thus, in the face of concurrent
  * modification, the iterator fails quickly and cleanly, rather than risking
  * arbitrary, non-deterministic behavior at an undetermined time in the future.
- *
+ * {@property.close} 
  * <p>Note that the fail-fast behavior of an iterator cannot be guaranteed
  * as it is, generally speaking, impossible to make any hard guarantees in the
  * presence of unsynchronized concurrent modification.  Fail-fast iterators
@@ -118,11 +123,11 @@ import java.util.function.Consumer;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:  <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  *

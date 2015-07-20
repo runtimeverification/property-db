@@ -111,11 +111,12 @@ public interface Set<E> extends Collection<E> {
     boolean isEmpty();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param o element whose presence in this set is to be tested
      * @return <tt>true</tt> if this set contains the specified element
      * @throws ClassCastException if the type of the specified element
@@ -202,6 +203,7 @@ public interface Set<E> extends Collection<E> {
     // Modification Operations
 
     /** {@collect.stats}
+     * {@description.open}
      * Adds the specified element to this set if it is not already present
      * (optional operation).  More formally, adds the specified element
      * <tt>e</tt> to this set if the set contains no element <tt>e2</tt>
@@ -218,6 +220,7 @@ public interface Set<E> extends Collection<E> {
      * specification for {@link Collection#add Collection.add}.
      * Individual set implementations should clearly document any
      * restrictions on the elements that they may contain.
+     * {@description.close}
      *
      * @param e element to be added to this set
      * @return <tt>true</tt> if this set did not already contain the specified
@@ -235,6 +238,7 @@ public interface Set<E> extends Collection<E> {
 
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the specified element from this set if it is present
      * (optional operation).  More formally, removes an element <tt>e</tt>
      * such that
@@ -243,7 +247,7 @@ public interface Set<E> extends Collection<E> {
      * contained the element (or equivalently, if this set changed as a
      * result of the call).  (This set will not contain the element once the
      * call returns.)
-     *
+     * {@description.close}
      * @param o object to be removed from this set, if present
      * @return <tt>true</tt> if this set contained the specified element
      * @throws ClassCastException if the type of the specified element

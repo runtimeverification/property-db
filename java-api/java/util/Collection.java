@@ -29,7 +29,8 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * The root interface in the <i>collection hierarchy</i>.  A collection
  * represents a group of objects, known as its <i>elements</i>.  Some
  * collections allow duplicate elements and others do not.  Some are ordered
@@ -41,7 +42,8 @@ import java.util.stream.StreamSupport;
  *
  * <p><i>Bags</i> or <i>multisets</i> (unordered collections that may contain
  * duplicate elements) should implement this interface directly.
- *
+ * {@description.close}
+ * {@property.open Property:java.util.Collection_StandardConstructors}
  * <p>All general-purpose <tt>Collection</tt> implementation classes (which
  * typically implement <tt>Collection</tt> indirectly through one of its
  * subinterfaces) should provide two "standard" constructors: a void (no
@@ -53,7 +55,8 @@ import java.util.stream.StreamSupport;
  * There is no way to enforce this convention (as interfaces cannot contain
  * constructors) but all of the general-purpose <tt>Collection</tt>
  * implementations in the Java platform libraries comply.
- *
+ * {@property.close}
+ * {@property.open uncheckable}
  * <p>The "destructive" methods contained in this interface, that is, the
  * methods that modify the collection on which they operate, are specified to
  * throw <tt>UnsupportedOperationException</tt> if this collection does not
@@ -63,8 +66,9 @@ import java.util.stream.StreamSupport;
  * the {@link #addAll(Collection)} method on an unmodifiable collection may,
  * but is not required to, throw the exception if the collection to be added
  * is empty.
- *
+ * {@property.close}
  * <p><a name="optional-restrictions">
+ * {@property.open uncheckable}
  * Some collection implementations have restrictions on the elements that
  * they may contain.</a>  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
@@ -78,7 +82,8 @@ import java.util.stream.StreamSupport;
  * exception or it may succeed, at the option of the implementation.
  * Such exceptions are marked as "optional" in the specification for this
  * interface.
- *
+ * {@property.close}
+ * {@property.open uncheckable}
  * <p>It is up to each collection to determine its own synchronization
  * policy.  In the absence of a stronger guarantee by the
  * implementation, undefined behavior may result from the invocation
@@ -86,7 +91,8 @@ import java.util.stream.StreamSupport;
  * thread; this includes direct invocations, passing the collection to
  * a method that might perform invocations, and using an existing
  * iterator to examine the collection.
- *
+ * {@property.close}
+ * {@description.open}
  * <p>Many methods in Collections Framework interfaces are defined in
  * terms of the {@link Object#equals(Object) equals} method.  For example,
  * the specification for the {@link #contains(Object) contains(Object o)}
@@ -114,7 +120,7 @@ import java.util.stream.StreamSupport;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @implSpec
  * The default method implementations (inherited or otherwise) do not apply any
  * synchronization protocol.  If a {@code Collection} implementation has a
@@ -161,11 +167,12 @@ public interface Collection<E> extends Iterable<E> {
     boolean isEmpty();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns <tt>true</tt> if this collection contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this collection
      * contains at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param o element whose presence in this collection is to be tested
      * @return <tt>true</tt> if this collection contains the specified
      *         element
@@ -289,6 +296,7 @@ public interface Collection<E> extends Iterable<E> {
     boolean add(E e);
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes a single instance of the specified element from this
      * collection, if it is present (optional operation).  More formally,
      * removes an element <tt>e</tt> such that
@@ -296,7 +304,7 @@ public interface Collection<E> extends Iterable<E> {
      * this collection contains one or more such elements.  Returns
      * <tt>true</tt> if this collection contained the specified element (or
      * equivalently, if this collection changed as a result of the call).
-     *
+     * {@description.close}
      * @param o element to be removed from this collection, if present
      * @return <tt>true</tt> if an element was removed as a result of this call
      * @throws ClassCastException if the type of the specified element
@@ -456,6 +464,7 @@ public interface Collection<E> extends Iterable<E> {
     // Comparison and hashing
 
     /** {@collect.stats}
+     * {@description.open}
      * Compares the specified object with this collection for equality. <p>
      *
      * While the <tt>Collection</tt> interface adds no stipulations to the
@@ -468,7 +477,8 @@ public interface Collection<E> extends Iterable<E> {
      * the implementor may wish to implement a "value comparison" in place of
      * the default "reference comparison."  (The <tt>List</tt> and
      * <tt>Set</tt> interfaces mandate such value comparisons.)<p>
-     *
+     * {@description.close}
+     * {@property.open uncheckable}
      * The general contract for the <tt>Object.equals</tt> method states that
      * equals must be symmetric (in other words, <tt>a.equals(b)</tt> if and
      * only if <tt>b.equals(a)</tt>).  The contracts for <tt>List.equals</tt>
@@ -479,7 +489,7 @@ public interface Collection<E> extends Iterable<E> {
      * is compared to any list or set.  (By the same logic, it is not possible
      * to write a class that correctly implements both the <tt>Set</tt> and
      * <tt>List</tt> interfaces.)
-     *
+     * {@property.close}
      * @param o object to be compared for equality with this collection
      * @return <tt>true</tt> if the specified object is equal to this
      * collection

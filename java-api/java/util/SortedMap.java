@@ -25,7 +25,8 @@
 
 package java.util;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A {@link Map} that further provides a <em>total ordering</em> on its keys.
  * The map is ordered according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} typically
@@ -56,7 +57,8 @@ package java.util;
  * equal.  The behavior of a tree map <em>is</em> well-defined even if its
  * ordering is inconsistent with equals; it just fails to obey the general
  * contract of the {@code Map} interface.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.SortedMap_StandardConstructors}
  * <p>All general-purpose sorted map implementation classes should provide four
  * "standard" constructors. It is not possible to enforce this recommendation
  * though as required constructors cannot be specified by interfaces. The
@@ -73,7 +75,8 @@ package java.util;
  *   creates a new sorted map with the same key-value mappings and the same
  *   ordering as the input sorted map.</li>
  * </ol>
- *
+ * {@property.close}
+ * {@description.open}
  * <p><strong>Note</strong>: several methods return submaps with restricted key
  * ranges. Such ranges are <em>half-open</em>, that is, they include their low
  * endpoint but not their high endpoint (where applicable).  If you need a
@@ -95,7 +98,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  *

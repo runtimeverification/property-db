@@ -65,12 +65,17 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns an iterator over the elements contained in this set.  The
      * iterator traverses the elements in their <i>natural order</i> (which is
-     * the order in which the enum constants are declared). The returned
+     * the order in which the enum constants are declared). 
+     * {@description.close}
+     * {@property.open formal:java.util.Collection_UnsafeIterator}
+     * The returned
      * Iterator is a "snapshot" iterator that will never throw {@link
      * ConcurrentModificationException}; the elements are traversed as they
      * existed when this call was invoked.
+     * {@property.close}
      *
      * @return an iterator over the elements contained in this set
      */

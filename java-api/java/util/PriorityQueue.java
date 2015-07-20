@@ -27,16 +27,23 @@ package java.util;
 
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * An unbounded priority {@linkplain Queue queue} based on a priority heap.
  * The elements of the priority queue are ordered according to their
  * {@linkplain Comparable natural ordering}, or by a {@link Comparator}
  * provided at queue construction time, depending on which constructor is
- * used.  A priority queue does not permit {@code null} elements.
+ * used.  
+ * {@description.close}
+ * {@property.open formal:java.util.PriorityQueue_NonNull}
+ * A priority queue does not permit {@code null} elements.
+ * {@property.close}
+ * {@property.open formal:java.util.PriorityQueue_NonComparable}
  * A priority queue relying on natural ordering also does not permit
  * insertion of non-comparable objects (doing so may result in
  * {@code ClassCastException}).
- *
+ * {@property.close}
+ * {@description.open}
  * <p>The <em>head</em> of this queue is the <em>least</em> element
  * with respect to the specified ordering.  If multiple elements are
  * tied for least value, the head is one of those elements -- ties are
@@ -57,13 +64,15 @@ import java.util.function.Consumer;
  * #iterator()} is <em>not</em> guaranteed to traverse the elements of
  * the priority queue in any particular order. If you need ordered
  * traversal, consider using {@code Arrays.sort(pq.toArray())}.
- *
+ * {@description.close}
+ * {@description.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * Multiple threads should not access a {@code PriorityQueue}
  * instance concurrently if any of the threads modifies the queue.
  * Instead, use the thread-safe {@link
  * java.util.concurrent.PriorityBlockingQueue} class.
- *
+ * {@description.close}
+ * {@description.open}
  * <p>Implementation note: this implementation provides
  * O(log(n)) time for the enqueuing and dequeuing methods
  * ({@code offer}, {@code poll}, {@code remove()} and {@code add});
@@ -74,7 +83,7 @@ import java.util.function.Consumer;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @since 1.5
  * @author Josh Bloch, Doug Lea
  * @param <E> the type of elements held in this collection
@@ -750,8 +759,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Saves this queue to a stream (that is, serializes it).
-     *
+     * {@description.close}
      * @serialData The length of the array backing the instance is
      *             emitted (int), followed by all of its elements
      *             (each an {@code Object}) in the proper order.
@@ -771,8 +781,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitutes the {@code PriorityQueue} instance from a stream
      * (that is, deserializes it).
+     * {@description.close}
      *
      * @param s the stream
      */

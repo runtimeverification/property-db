@@ -27,7 +27,8 @@ package java.util;
 
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * Doubly-linked list implementation of the {@code List} and {@code Deque}
  * interfaces.  Implements all optional list operations, and permits all
  * elements (including {@code null}).
@@ -35,7 +36,8 @@ import java.util.function.Consumer;
  * <p>All of the operations perform as could be expected for a doubly-linked
  * list.  Operations that index into the list will traverse the list from
  * the beginning or the end, whichever is closer to the specified index.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Collections_SynchronizedCollection}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a linked list concurrently, and at least
  * one of the threads modifies the list structurally, it <i>must</i> be
@@ -50,7 +52,8 @@ import java.util.function.Consumer;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the list:<pre>
  *   List list = Collections.synchronizedList(new LinkedList(...));</pre>
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p>The iterators returned by this class's {@code iterator} and
  * {@code listIterator} methods are <i>fail-fast</i>: if the list is
  * structurally modified at any time after the iterator is created, in
@@ -60,7 +63,9 @@ import java.util.function.Consumer;
  * modification, the iterator fails quickly and cleanly, rather than
  * risking arbitrary, non-deterministic behavior at an undetermined
  * time in the future.
+ * 
  *
+ * 
  * <p>Note that the fail-fast behavior of an iterator cannot be guaranteed
  * as it is, generally speaking, impossible to make any hard guarantees in the
  * presence of unsynchronized concurrent modification.  Fail-fast iterators
@@ -68,10 +73,13 @@ import java.util.function.Consumer;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:   <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
+ * {@property.close}
  *
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * {@description.close}
  *
  * @author  Josh Bloch
  * @see     List
@@ -305,10 +313,12 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns {@code true} if this list contains the specified element.
      * More formally, returns {@code true} if and only if this list contains
      * at least one element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this list is to be tested
      * @return {@code true} if this list contains the specified element
@@ -340,6 +350,7 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the first occurrence of the specified element from this list,
      * if it is present.  If this list does not contain the element, it is
      * unchanged.  More formally, removes the element with the lowest index
@@ -348,7 +359,7 @@ public class LinkedList<E>
      * (if such an element exists).  Returns {@code true} if this list
      * contained the specified element (or equivalently, if this list
      * changed as a result of the call).
-     *
+     * {@description.close}
      * @param o element to be removed from this list, if present
      * @return {@code true} if this list contained the specified element
      */
@@ -442,8 +453,10 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes all of the elements from this list.
      * The list will be empty after this call returns.
+     * {@description.close}
      */
     public void clear() {
         // Clearing all of the links between nodes is "unnecessary", but:
@@ -466,8 +479,9 @@ public class LinkedList<E>
     // Positional Access Operations
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the element at the specified position in this list.
-     *
+     * {@description.close}
      * @param index index of the element to return
      * @return the element at the specified position in this list
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -582,12 +596,13 @@ public class LinkedList<E>
     // Search Operations
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element
@@ -611,12 +626,13 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element
@@ -1111,9 +1127,10 @@ public class LinkedList<E>
     private static final long serialVersionUID = 876323262645176354L;
 
     /** {@collect.stats}
+     * {@description.open}
      * Saves the state of this {@code LinkedList} instance to a stream
      * (that is, serializes it).
-     *
+     * {@description.close}
      * @serialData The size of the list (the number of elements it
      *             contains) is emitted (int), followed by all of its
      *             elements (each an Object) in the proper order.
@@ -1132,8 +1149,10 @@ public class LinkedList<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitutes this {@code LinkedList} instance from a stream
      * (that is, deserializes it).
+     * {@description.close}
      */
     @SuppressWarnings("unchecked")
     private void readObject(java.io.ObjectInputStream s)

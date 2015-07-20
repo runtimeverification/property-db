@@ -37,7 +37,8 @@ import sun.util.calendar.Gregorian;
 import sun.util.calendar.LocalGregorianCalendar;
 import sun.util.calendar.ZoneInfo;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * <code>JapaneseImperialCalendar</code> implements a Japanese
  * calendar system in which the imperial era-based year numbering is
  * supported from the Meiji era. The following are the eras supported
@@ -62,6 +63,7 @@ import sun.util.calendar.ZoneInfo;
  * Imperial rescripts and government decrees don't specify how to deal
  * with time differences for applying the era transitions. This
  * calendar implementation assumes local time for all transitions.
+ * {@description.close}
  *
  * @author Masayoshi Okutsu
  * @since 1.6
@@ -1026,6 +1028,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the minimum value for the given calendar field of this
      * <code>Calendar</code> instance. The minimum value is
      * defined as the smallest value returned by the {@link
@@ -1034,7 +1037,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
-     *
+     * {@description.close}
      * @param field the calendar field.
      * @return the minimum value for the given calendar field.
      * @see #getMaximum(int)
@@ -1048,6 +1051,7 @@ class JapaneseImperialCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the maximum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The maximum value is
      * defined as the largest value returned by the {@link
@@ -1056,7 +1060,7 @@ class JapaneseImperialCalendar extends Calendar {
      * {@link Calendar#getFirstDayOfWeek() getFirstDayOfWeek},
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * and {@link Calendar#getTimeZone() getTimeZone} methods.
-     *
+     * {@description.close}
      * @param field the calendar field.
      * @return the maximum value for the given calendar field.
      * @see #getMinimum(int)

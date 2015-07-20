@@ -35,7 +35,8 @@
 
 package java.util;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A linear collection that supports element insertion and removal at
  * both ends.  The name <i>deque</i> is short for "double ended queue"
  * and is usually pronounced "deck".  Most {@code Deque}
@@ -184,7 +185,7 @@ package java.util;
  * <p>This interface is a member of the <a
  * href="{@docRoot}/../technotes/guides/collections/index.html"> Java Collections
  * Framework</a>.
- *
+ * {@description.close}
  * @author Doug Lea
  * @author Josh Bloch
  * @since  1.6
@@ -192,12 +193,16 @@ package java.util;
  */
 public interface Deque<E> extends Queue<E> {
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the front of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * throwing an {@code IllegalStateException} if no space is currently
-     * available.  When using a capacity-restricted deque, it is generally
+     * available. 
+     * {@description.close} 
+     * {@property.open formal:java.util.Deque_OfferRatherThanAdd}
+     * When using a capacity-restricted deque, it is generally
      * preferable to use method {@link #offerFirst}.
-     *
+     * {@property.close}
      * @param e the element to add
      * @throws IllegalStateException if the element cannot be added at this
      *         time due to capacity restrictions
@@ -211,14 +216,19 @@ public interface Deque<E> extends Queue<E> {
     void addFirst(E e);
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the end of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * throwing an {@code IllegalStateException} if no space is currently
-     * available.  When using a capacity-restricted deque, it is generally
+     * available.  
+     * {@description.close}
+     * {@property.open formal:java.util.Deque_OfferRatherThanAdd}
+     * When using a capacity-restricted deque, it is generally
      * preferable to use method {@link #offerLast}.
-     *
+     * {@property.close}
+     * {@description.open}
      * <p>This method is equivalent to {@link #add}.
-     *
+     * {@description.close}
      * @param e the element to add
      * @throws IllegalStateException if the element cannot be added at this
      *         time due to capacity restrictions
@@ -341,6 +351,7 @@ public interface Deque<E> extends Queue<E> {
     E peekLast();
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element {@code e} such that
@@ -348,7 +359,7 @@ public interface Deque<E> extends Queue<E> {
      * (if such an element exists).
      * Returns {@code true} if this deque contained the specified element
      * (or equivalently, if this deque changed as a result of the call).
-     *
+     * {@description.close}
      * @param o element to be removed from this deque, if present
      * @return {@code true} if an element was removed as a result of this call
      * @throws ClassCastException if the class of the specified element
@@ -361,6 +372,7 @@ public interface Deque<E> extends Queue<E> {
     boolean removeFirstOccurrence(Object o);
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the last occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the last element {@code e} such that
@@ -368,6 +380,7 @@ public interface Deque<E> extends Queue<E> {
      * (if such an element exists).
      * Returns {@code true} if this deque contained the specified element
      * (or equivalently, if this deque changed as a result of the call).
+     * {@description.close}
      *
      * @param o element to be removed from this deque, if present
      * @return {@code true} if an element was removed as a result of this call
@@ -483,13 +496,20 @@ public interface Deque<E> extends Queue<E> {
     // *** Stack methods ***
 
     /** {@collect.stats}
+     * {@description.open}
      * Pushes an element onto the stack represented by this deque (in other
      * words, at the head of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, throwing an
      * {@code IllegalStateException} if no space is currently available.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.Deque_OfferRatherThanAdd}
      * <p>This method is equivalent to {@link #addFirst}.
-     *
+     * {@new.open}
+     * As {@link #offerFirst} is generally preferable to the {@link #addFirst}
+     * method, this method is not preferable, when using a capacity-restricted
+     * deque.
+     * {@new.close}
+     * {@property.close}
      * @param e the element to push
      * @throws IllegalStateException if the element cannot be added at this
      *         time due to capacity restrictions
@@ -518,6 +538,7 @@ public interface Deque<E> extends Queue<E> {
     // *** Collection methods ***
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element {@code e} such that
@@ -527,7 +548,7 @@ public interface Deque<E> extends Queue<E> {
      * (or equivalently, if this deque changed as a result of the call).
      *
      * <p>This method is equivalent to {@link #removeFirstOccurrence(Object)}.
-     *
+     * {@description.close}
      * @param o element to be removed from this deque, if present
      * @return {@code true} if an element was removed as a result of this call
      * @throws ClassCastException if the class of the specified element
@@ -540,10 +561,12 @@ public interface Deque<E> extends Queue<E> {
     boolean remove(Object o);
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns {@code true} if this deque contains the specified element.
      * More formally, returns {@code true} if and only if this deque contains
      * at least one element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     * {@description.close}
      *
      * @param o element whose presence in this deque is to be tested
      * @return {@code true} if this deque contains the specified element

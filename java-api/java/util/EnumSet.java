@@ -27,7 +27,8 @@ package java.util;
 
 import sun.misc.SharedSecrets;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * A specialized {@link Set} implementation for use with enum types.  All of
  * the elements in an enum set must come from a single enum type that is
  * specified, explicitly or implicitly, when the set is created.  Enum sets
@@ -40,16 +41,21 @@ import sun.misc.SharedSecrets;
  *
  * <p>The iterator returned by the <tt>iterator</tt> method traverses the
  * elements in their <i>natural order</i> (the order in which the enum
- * constants are declared).  The returned iterator is <i>weakly
+ * constants are declared).  
+ * {@description.close}
+ * {@description.open synchronization}
+ * The returned iterator is <i>weakly
  * consistent</i>: it will never throw {@link ConcurrentModificationException}
  * and it may or may not show the effects of any modifications to the set that
  * occur while the iteration is in progress.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.EnumSet_NonNull}
  * <p>Null elements are not permitted.  Attempts to insert a null element
  * will throw {@link NullPointerException}.  Attempts to test for the
  * presence of a null element or to remove one will, however, function
  * properly.
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Collections_SynchronizedCollection}
  * <P>Like most collection implementations, <tt>EnumSet</tt> is not
  * synchronized.  If multiple threads access an enum set concurrently, and at
  * least one of the threads modifies the set, it should be synchronized
@@ -62,7 +68,8 @@ import sun.misc.SharedSecrets;
  * <pre>
  * Set&lt;MyEnum&gt; s = Collections.synchronizedSet(EnumSet.noneOf(MyEnum.class));
  * </pre>
- *
+ * {@property.close} 
+ * {@description.open} 
  * <p>Implementation note: All basic operations execute in constant time.
  * They are likely (though not guaranteed) to be much faster than their
  * {@link HashSet} counterparts.  Even bulk operations execute in
@@ -71,7 +78,7 @@ import sun.misc.SharedSecrets;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @author Josh Bloch
  * @since 1.5
  * @see EnumMap

@@ -25,7 +25,8 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * This class represents an observable object, or "data"
  * in the model-view paradigm. It can be subclassed to represent an
  * object that the application wants to have observed.
@@ -51,7 +52,7 @@ package java.util;
  * When an observable object is newly created, its set of observers is
  * empty. Two observers are considered the same if and only if the
  * <tt>equals</tt> method returns true for them.
- *
+ * {@description.close}
  * @author  Chris Warth
  * @see     java.util.Observable#notifyObservers()
  * @see     java.util.Observable#notifyObservers(java.lang.Object)

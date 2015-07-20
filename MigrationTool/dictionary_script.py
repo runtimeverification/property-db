@@ -189,7 +189,7 @@ class dictionary_script:
 				self.working_output = self.f_out
 
 
-			# self.fucked = open('report', 'a')
+			# self.food = open('report', 'a')
 			self.darn = open('check_rough_merge', 'a')
 
 			pattern = re.finditer('/\*+([^*]|(\*+([^*/])))*\*+/', self.f_old)
@@ -272,8 +272,8 @@ class dictionary_script:
 			time = datetime.datetime.now().time()
 			print time 
 
-			# self.fucked.write("FILE: " + output_file + '\n')
-			# self.fucked.write("DIRECTORY: " + self.output_dir[1] + '\n')
+			# self.food.write("FILE: " + output_file + '\n')
+			# self.food.write("DIRECTORY: " + self.output_dir[1] + '\n')
 			self.darn.write("FILE: " + output_file + '\n')
 			self.darn.write("DIRECTORY: " + self.output_dir[1] + '\n')
 
@@ -368,19 +368,19 @@ class dictionary_script:
 			# 	if self.old_file_flag_dict[key] is not 1 and "collect.stats" in self.old_file_translation[key]:
 			# 		old_text_desc_blocks = re.finditer('(?<={@description[.]open})(.|\n)*?(?={@description[.]close})', self.old_file_translation[key])
 			# 		for l in old_text_desc_blocks:
-			# 			self.fucked.write("DESC BLOCK::: " + l.group(0) + "\n")
+			# 			self.food.write("DESC BLOCK::: " + l.group(0) + "\n")
 						
 			# 		## property can have name
 			# 		old_text_prop_blocks = re.finditer('(?<={@property[.]open)(.|\n)*?(?={@property[.]close})', self.old_file_translation[key])
 			# 		for a in old_text_prop_blocks:
-			# 			self.fucked.write("PROP BLOCK:::" + a.group(0) + "\n")
+			# 			self.food.write("PROP BLOCK:::" + a.group(0) + "\n")
 
 			# 		old_text_new_blocks = re.finditer('(?<={@new[.]open})(.|\n)*?(?={@new[.]close})', self.old_file_translation[key])
 			# 		for a in old_text_new_blocks:
-			# 			self.fucked.write("NEW BLOCK:::" + a.group(0) + "\n")
+			# 			self.food.write("NEW BLOCK:::" + a.group(0) + "\n")
 
 
-			# self.fucked.close()
+			# self.food.close()
 
 			f = open(self.out_path, 'w')
 			f.write(self.working_output)

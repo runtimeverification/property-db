@@ -30,7 +30,8 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * This class implements the <tt>Map</tt> interface with a hash table, using
  * reference-equality in place of object-equality when comparing keys (and
  * values).  In other words, in an <tt>IdentityHashMap</tt>, two keys
@@ -80,7 +81,8 @@ import java.util.function.Consumer;
  * time proportional to the number of buckets in the hash table, so it
  * pays not to set the expected maximum size too high if you are especially
  * concerned with iteration performance or memory usage.
- *
+ * {@description.close}
+ * {@description.open synchronized}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access an identity hash map concurrently, and at
  * least one of the threads modifies the map structurally, it <i>must</i>
@@ -95,7 +97,8 @@ import java.util.function.Consumer;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map:<pre>
  *   Map m = Collections.synchronizedMap(new IdentityHashMap(...));</pre>
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the <tt>iterator</tt> method of the
  * collections returned by all of this class's "collection view
  * methods" are <i>fail-fast</i>: if the map is structurally modified
@@ -113,7 +116,8 @@ import java.util.function.Consumer;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>fail-fast iterators should be used only
  * to detect bugs.</i>
- *
+ * {@property.close}
+ * {@description.open} 
  * <p>Implementation note: This is a simple <i>linear-probe</i> hash table,
  * as described for example in texts by Sedgewick and Knuth.  The array
  * alternates holding keys and values.  (This has better locality for large
@@ -124,7 +128,7 @@ import java.util.function.Consumer;
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @see     System#identityHashCode(Object)
  * @see     Object#hashCode()
  * @see     Collection
@@ -156,6 +160,7 @@ public class IdentityHashMap<K,V>
     private static final int MINIMUM_CAPACITY = 4;
 
     /** {@collect.stats}
+     * {@description.open}
      * The maximum capacity, used if a higher value is implicitly specified
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<29.
@@ -163,6 +168,7 @@ public class IdentityHashMap<K,V>
      * In fact, the map can hold no more than MAXIMUM_CAPACITY-1 items
      * because it has to have at least one slot with the key == null
      * in order to avoid infinite loops in get(), put(), remove()
+     * {@description.close}
      */
     private static final int MAXIMUM_CAPACITY = 1 << 29;
 
@@ -227,11 +233,13 @@ public class IdentityHashMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the appropriate capacity for the given expected maximum size.
      * Returns the smallest power of two between MINIMUM_CAPACITY and
      * MAXIMUM_CAPACITY, inclusive, that is greater than (3 *
      * expectedMaxSize)/2, if such a number exists.  Otherwise returns
      * MAXIMUM_CAPACITY.
+     * {@description.close}
      */
     private static int capacity(int expectedMaxSize) {
         // assert expectedMaxSize >= 0;
@@ -449,8 +457,9 @@ public class IdentityHashMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Resizes the table if necessary to hold given capacity.
-     *
+     * {@description.close}
      * @param newCapacity the new capacity, must be a power of two.
      * @return whether a resize did in fact take place
      */
@@ -918,9 +927,11 @@ public class IdentityHashMap<K,V>
     // Views
 
     /** {@collect.stats}
+     * {@description.open}
      * This field is initialized to contain an instance of the entry set
      * view the first time this view is requested.  The view is stateless,
      * so there's no reason to create more than one.
+     * {@description.close}
      */
     private transient Set<Map.Entry<K,V>> entrySet;
 
@@ -1260,8 +1271,10 @@ public class IdentityHashMap<K,V>
     private static final long serialVersionUID = 8188218128353913216L;
 
     /** {@collect.stats}
+     * {@description.open}
      * Saves the state of the <tt>IdentityHashMap</tt> instance to a stream
      * (i.e., serializes it).
+     * {@description.close}
      *
      * @serialData The <i>size</i> of the HashMap (the number of key-value
      *          mappings) (<tt>int</tt>), followed by the key (Object) and
@@ -1289,8 +1302,10 @@ public class IdentityHashMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitutes the <tt>IdentityHashMap</tt> instance from a stream (i.e.,
      * deserializes it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException  {

@@ -52,7 +52,8 @@ import sun.util.calendar.Gregorian;
 import sun.util.calendar.JulianCalendar;
 import sun.util.calendar.ZoneInfo;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * <code>GregorianCalendar</code> is a concrete subclass of
  * <code>Calendar</code> and provides the standard calendar system
  * used by most of the world.
@@ -322,7 +323,7 @@ import sun.util.calendar.ZoneInfo;
  *        + (calendar.get(Calendar.DST_OFFSET)/(60*60*1000))); // in hours
  * </pre>
  * </blockquote>
- *
+ * {@description.close}
  * @see          TimeZone
  * @author David Goldsmith, Mark Davis, Chen-Lieh Huang, Alan Liu
  * @since JDK1.1
@@ -583,8 +584,10 @@ public class GregorianCalendar extends Calendar {
 ///////////////
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a default <code>GregorianCalendar</code> using the current time
      * in the default time zone with the default
+     * {@description.close}
      * {@link Locale.Category#FORMAT FORMAT} locale.
      */
     public GregorianCalendar() {
@@ -593,9 +596,11 @@ public class GregorianCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a <code>GregorianCalendar</code> based on the current time
      * in the given time zone with the default
      * {@link Locale.Category#FORMAT FORMAT} locale.
+     * {@description.close}
      *
      * @param zone the given time zone.
      */
@@ -1513,6 +1518,7 @@ public class GregorianCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the minimum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The minimum value is
      * defined as the smallest value returned by the {@link
@@ -1522,7 +1528,7 @@ public class GregorianCalendar extends Calendar {
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * {@link #getGregorianChange() getGregorianChange} and
      * {@link Calendar#getTimeZone() getTimeZone} methods.
-     *
+     * {@description.close}
      * @param field the calendar field.
      * @return the minimum value for the given calendar field.
      * @see #getMaximum(int)
@@ -1537,6 +1543,7 @@ public class GregorianCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the maximum value for the given calendar field of this
      * <code>GregorianCalendar</code> instance. The maximum value is
      * defined as the largest value returned by the {@link
@@ -1546,7 +1553,7 @@ public class GregorianCalendar extends Calendar {
      * {@link Calendar#getMinimalDaysInFirstWeek() getMinimalDaysInFirstWeek},
      * {@link #getGregorianChange() getGregorianChange} and
      * {@link Calendar#getTimeZone() getTimeZone} methods.
-     *
+     * {@description.close}
      * @param field the calendar field.
      * @return the maximum value for the given calendar field.
      * @see #getMinimum(int)
@@ -1699,6 +1706,7 @@ public class GregorianCalendar extends Calendar {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the maximum value that this calendar field could have,
      * taking into consideration the given time value and the current
      * values of the
@@ -1717,7 +1725,7 @@ public class GregorianCalendar extends Calendar {
      * href="#week_year">week year</a>. Call {@link
      * #getWeeksInWeekYear()} to get the maximum value of {@code
      * WEEK_OF_YEAR} in the week year of this {@code GregorianCalendar}.
-     *
+     * {@description.close}
      * @param field the calendar field
      * @return the maximum of the given field for the time value of
      * this <code>GregorianCalendar</code>

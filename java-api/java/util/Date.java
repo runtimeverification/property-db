@@ -41,6 +41,7 @@ import sun.util.calendar.Gregorian;
 import sun.util.calendar.ZoneInfo;
 
 /** {@collect.stats}
+ * {@description.open}
  * The class <code>Date</code> represents a specific instant
  * in time, with millisecond precision.
  * <p>
@@ -119,7 +120,7 @@ import sun.util.calendar.ZoneInfo;
  * In all cases, arguments given to methods for these purposes need
  * not fall within the indicated ranges; for example, a date may be
  * specified as January 32 and is interpreted as meaning February 1.
- *
+ * {@description.close}
  * @author  James Gosling
  * @author  Arthur van Hoff
  * @author  Alan Liu
@@ -1062,13 +1063,14 @@ public class Date
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Creates a string representation of this <tt>Date</tt> object in an
      * implementation-dependent form. The intent is that the form should
      * be familiar to the user of the Java application, wherever it may
      * happen to be running. The intent is comparable to that of the
      * "<code>%c</code>" format supported by the <code>strftime()</code>
      * function of ISO&nbsp;C.
-     *
+     * {@description.close}
      * @return  a string representation of this date, using the locale
      *          conventions.
      * @see     java.text.DateFormat
@@ -1084,6 +1086,7 @@ public class Date
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Creates a string representation of this <tt>Date</tt> object of
      * the form:
      * <blockquote><pre>
@@ -1104,7 +1107,7 @@ public class Date
      *     Greenwich Mean Time.
      * </ul><p>
      * The result does not depend on the local time zone.
-     *
+     * {@description.close}
      * @return  a string representation of this date, using the Internet GMT
      *          conventions.
      * @see     java.text.DateFormat
@@ -1324,7 +1327,9 @@ public class Date
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitute this object from a stream (i.e., deserialize it).
+     * {@description.close}
      */
     private void readObject(ObjectInputStream s)
          throws IOException, ClassNotFoundException

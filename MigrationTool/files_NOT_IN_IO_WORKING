@@ -1,0 +1,14 @@
+***
+ Comparing old directory io_old/ to new directory io_new.
+ Merged results will be output to directory java/io.
+***
+DIRECTORY: java/io
+Old files or subdirectories not seen in new package:
+package.html
+DIRECTORY: java/io
+New files or subdirectories not seen in old package:
+UncheckedIOException.java
+FileDescriptor.java
+DefaultFileSystem.java
+UnixFileSystem.java
+------

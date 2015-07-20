@@ -126,7 +126,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     /** {@collect.stats}
      * {@inheritDoc}
-     *
+     * {@description.open}
      * <p>This implementation returns an array containing all the elements
      * returned by this collection's iterator, in the same order, stored in
      * consecutive elements of the array, starting with index {@code 0}.
@@ -145,6 +145,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *     list.add(e);
      * return list.toArray();
      * }</pre>
+     * {@description.close}
      */
     public Object[] toArray() {
         // Estimate size of array; be prepared to see more or fewer elements
@@ -160,7 +161,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     /** {@collect.stats}
      * {@inheritDoc}
-     *
+     * {@description.open}
      * <p>This implementation returns an array containing all the elements
      * returned by this collection's iterator in the same order, stored in
      * consecutive elements of the array, starting with index {@code 0}.
@@ -181,7 +182,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *     list.add(e);
      * return list.toArray(a);
      * }</pre>
-     *
+     * {@description.close}
      * @throws ArrayStoreException  {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */

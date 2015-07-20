@@ -210,7 +210,7 @@ class dictionary_script:
 				self.working_output = self.f_out
 
 
-			self.fucked = open('report', 'a')
+			self.food = open('report', 'a')
 
 
 			pattern = re.finditer('/\*+([^*]|(\*+([^*/])))*\*+/', self.f_old)
@@ -405,8 +405,8 @@ class dictionary_script:
 			time = datetime.datetime.now().time()
 			print time 
 			
-			self.fucked.write("FILE: " + output_file + '\n')
-			self.fucked.write("DIRECTORY: " + self.output_dir[1] + '\n')
+			self.food.write("FILE: " + output_file + '\n')
+			self.food.write("DIRECTORY: " + self.output_dir[1] + '\n')
 			""" developments were made on rough merges below, but rough merges always need to be inspected, so they add an extra complication
 			to the migration process; decided not to use them"""
 
@@ -483,15 +483,15 @@ class dictionary_script:
 									text = self.f_old[start_loc:]
 									find_sig = re.search('(?<=[*]/)(.|\n)*?(?={)', text)
 									if find_sig is not None and find_sig.group(0) is not None:
-										self.fucked.write("NEAREST SIGNATURE::: " + find_sig.group(0) + "\n")
-								self.fucked.write("ORIG COMMENT::: " + self.old_file_translation[key] + "\n" + "~" + "\n")
+										self.food.write("NEAREST SIGNATURE::: " + find_sig.group(0) + "\n")
+								self.food.write("ORIG COMMENT::: " + self.old_file_translation[key] + "\n" + "~" + "\n")
 								found_pattern = 1
 
 							out_text = print_suite[pattern][0] + out_text + print_suite[pattern][1]
-							self.fucked.write(print_suite[pattern][2] + out_text + "\n")
-							self.fucked.write(print_suite[pattern][3])
+							self.food.write(print_suite[pattern][2] + out_text + "\n")
+							self.food.write(print_suite[pattern][3])
 
-							self.fucked.write("---------\n")
+							self.food.write("---------\n")
 						
 		return
 

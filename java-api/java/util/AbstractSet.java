@@ -75,6 +75,7 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
     // Comparison and hashing
 
     /** {@collect.stats}
+     * {@description.open}
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the given object is also a set, the two sets have
      * the same size, and every member of the given set is contained in
@@ -87,7 +88,7 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
      * specified object is a set whose size is identical to the size of
      * this set; if not, it returns false.  If so, it returns
      * <tt>containsAll((Collection) o)</tt>.
-     *
+     * {@description.close}
      * @param o object to be compared for equality with this set
      * @return <tt>true</tt> if the specified object is equal to this set
      */

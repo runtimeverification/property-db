@@ -225,13 +225,14 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a string tokenizer for the specified string. The
      * tokenizer uses the default delimiter set, which is
      * <code>"&nbsp;&#92;t&#92;n&#92;r&#92;f"</code>: the space character,
      * the tab character, the newline character, the carriage-return character,
      * and the form-feed character. Delimiter characters themselves will
      * not be treated as tokens.
-     *
+     * {@description.close}
      * @param   str   a string to be parsed.
      * @exception NullPointerException if str is <CODE>null</CODE>
      */
@@ -356,6 +357,7 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the next token in this string tokenizer's string. First,
      * the set of characters considered to be delimiters by this
      * <tt>StringTokenizer</tt> object is changed to be the characters in
@@ -363,7 +365,13 @@ class StringTokenizer implements Enumeration<Object> {
      * after the current position is returned. The current position is
      * advanced beyond the recognized token.  The new delimiter set
      * remains the default after this call.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.StringTokenizer_HasMoreElements}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
+     * {@property.close}
      * @param      delim   the new delimiters.
      * @return     the next token, after switching to the new delimiter set.
      * @exception  NoSuchElementException  if there are no more tokens in this
@@ -395,11 +403,18 @@ class StringTokenizer implements Enumeration<Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the same value as the <code>nextToken</code> method,
      * except that its declared return value is <code>Object</code> rather than
      * <code>String</code>. It exists so that this class can implement the
      * <code>Enumeration</code> interface.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.StringTokenizer_HasMoreElements}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
+     * {@property.close}
      * @return     the next token in the string.
      * @exception  NoSuchElementException  if there are no more tokens in this
      *               tokenizer's string.

@@ -37,22 +37,33 @@ package java.util;
 import java.io.Serializable;
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Resizable-array implementation of the {@link Deque} interface.  Array
  * deques have no capacity restrictions; they grow as necessary to support
- * usage.  They are not thread-safe; in the absence of external
+ * usage.
+ * {@description.close} 
+ * {@description.open synchronization} 
+ * They are not thread-safe; in the absence of external
  * synchronization, they do not support concurrent access by multiple threads.
- * Null elements are prohibited.  This class is likely to be faster than
+ * {@description.close}
+ * {@property.open Property:java.util.ArrayDeque_NonNull}
+ * Null elements are prohibited.  
+ * {@property.close}
+ * {@description.open}
+ * This class is likely to be faster than
  * {@link Stack} when used as a stack, and faster than {@link LinkedList}
  * when used as a queue.
- *
+ * {@description.close}
+ * {@description.open}
  * <p>Most {@code ArrayDeque} operations run in amortized constant time.
  * Exceptions include {@link #remove(Object) remove}, {@link
  * #removeFirstOccurrence removeFirstOccurrence}, {@link #removeLastOccurrence
  * removeLastOccurrence}, {@link #contains contains}, {@link #iterator
  * iterator.remove()}, and the bulk operations, all of which run in linear
  * time.
- *
+ * {@description.close}
+ * {@property.open runtime formal:java.util.ArrayDeque_UnsafeIterator} 
  * <p>The iterators returned by this class's {@code iterator} method are
  * <i>fail-fast</i>: If the deque is modified at any time after the iterator
  * is created, in any way except through the iterator's own {@code remove}
@@ -69,15 +80,17 @@ import java.util.function.Consumer;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@property.close} 
+ * {@description.open}
  * <p>This class and its iterator implement all of the
  * <em>optional</em> methods of the {@link Collection} and {@link
  * Iterator} interfaces.
- *
+ * 
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
+ * 
  * @author  Josh Bloch and Doug Lea
  * @since   1.6
  * @param <E> the type of elements held in this collection
@@ -119,8 +132,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     // ******  Array allocation and resizing utilities ******
 
     /** {@collect.stats}
+     * {@description.open}
      * Allocates empty array to hold the given number of elements.
-     *
+     * {@description.close}
      * @param numElements  the number of elements to hold
      */
     private void allocateElements(int numElements) {
@@ -143,8 +157,10 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Doubles the capacity of this deque.  Call only when full, i.e.,
      * when head and tail have wrapped around to become equal.
+     * {@description.close}
      */
     private void doubleCapacity() {
         assert head == tail;
@@ -218,8 +234,13 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     // terms of these.
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the front of this deque.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
+
      * @param e the element to add
      * @throws NullPointerException if the specified element is null
      */
@@ -232,10 +253,11 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the end of this deque.
      *
      * <p>This method is equivalent to {@link #add}.
-     *
+     * {@description.close}
      * @param e the element to add
      * @throws NullPointerException if the specified element is null
      */
@@ -260,8 +282,13 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the end of this deque.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
+
      * @param e the element to add
      * @return {@code true} (as specified by {@link Deque#offerLast})
      * @throws NullPointerException if the specified element is null
@@ -406,10 +433,14 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     // *** Queue methods ***
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the end of this deque.
-     *
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
+
      * <p>This method is equivalent to {@link #addLast}.
-     *
+     * {@description.close}
      * @param e the element to add
      * @return {@code true} (as specified by {@link Collection#add})
      * @throws NullPointerException if the specified element is null
@@ -420,10 +451,14 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Inserts the specified element at the end of this deque.
-     *
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
+
      * <p>This method is equivalent to {@link #offerLast}.
-     *
+     * {@description.close}
      * @param e the element to add
      * @return {@code true} (as specified by {@link Queue#offer})
      * @throws NullPointerException if the specified element is null
@@ -491,11 +526,14 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     // *** Stack methods ***
 
     /** {@collect.stats}
+     * {@description.open}
      * Pushes an element onto the stack represented by this deque.  In other
      * words, inserts the element at the front of this deque.
-     *
+     * {@property.open formal:java.util.ArrayDeque_NonNull}
+     * Inserting <tt>null</tt> is not allowed.
+     * {@property.close}
      * <p>This method is equivalent to {@link #addFirst}.
-     *
+     * {@description.close}
      * @param e the element to push
      * @throws NullPointerException if the specified element is null
      */
@@ -731,6 +769,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes a single instance of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element {@code e} such that
@@ -739,7 +778,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * (or equivalently, if this deque changed as a result of the call).
      *
      * <p>This method is equivalent to {@link #removeFirstOccurrence(Object)}.
-     *
+     * {@description.close}
      * @param o element to be removed from this deque, if present
      * @return {@code true} if this deque contained the specified element
      */
@@ -851,8 +890,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     private static final long serialVersionUID = 2340985798034038923L;
 
     /** {@collect.stats}
+     * {@description.open}
      * Saves this deque to a stream (that is, serializes it).
-     *
+     * {@description.close}
      * @serialData The current size ({@code int}) of the deque,
      * followed by all of its elements (each an object reference) in
      * first-to-last order.
@@ -871,7 +911,9 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitutes this deque from a stream (that is, deserializes it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
             throws java.io.IOException, ClassNotFoundException {

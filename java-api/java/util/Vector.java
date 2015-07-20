@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.
  * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
@@ -29,7 +29,8 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * The {@code Vector} class implements a growable array of
  * objects. Like an array, it contains components that can be
  * accessed using an integer index. However, the size of a
@@ -44,7 +45,8 @@ import java.util.function.UnaryOperator;
  * {@code capacityIncrement}. An application can increase the
  * capacity of a vector before inserting a large number of
  * components; this reduces the amount of incremental reallocation.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Collection_UnsafeIterator}
  * <p><a name="fail-fast">
  * The iterators returned by this class's {@link #iterator() iterator} and
  * {@link #listIterator(int) listIterator} methods are <em>fail-fast</em></a>:
@@ -65,12 +67,15 @@ import java.util.function.UnaryOperator;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:  <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@property.close}
+ * {@description.open}
  * <p>As of the Java 2 platform v1.2, this class was retrofitted to
  * implement the {@link List} interface, making it a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.  Unlike the new collection
- * implementations, {@code Vector} is synchronized.  If a thread-safe
+ * implementations, {@code Vector} is synchronized.  
+ * {@description.close}
+ * If a thread-safe
  * implementation is not needed, it is recommended to use {@link
  * ArrayList} in place of {@code Vector}.
  *
@@ -358,11 +363,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns {@code true} if this vector contains the specified element.
      * More formally, returns {@code true} if and only if this vector
      * contains at least one element {@code e} such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * {@description.close}
      * @param o element whose presence in this vector is to be tested
      * @return {@code true} if this vector contains the specified element
      */
@@ -371,12 +377,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the first occurrence of the specified element
      * in this vector, or -1 if this vector does not contain the element.
      * More formally, returns the lowest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
      *         this vector, or -1 if this vector does not contain the element
@@ -415,12 +422,13 @@ public class Vector<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element
      * in this vector, or -1 if this vector does not contain the element.
      * More formally, returns the highest index {@code i} such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
      *         this vector, or -1 if this vector does not contain the element
@@ -430,13 +438,14 @@ public class Vector<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the index of the last occurrence of the specified element in
      * this vector, searching backwards from {@code index}, or returns -1 if
      * the element is not found.
      * More formally, returns the highest index {@code i} such that
      * <tt>(i&nbsp;&lt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i))))</tt>,
      * or -1 if there is no such index.
-     *
+     * {@description.close}
      * @param o element to search for
      * @param index index to start searching backwards from
      * @return the index of the last occurrence of the element at position
@@ -1062,10 +1071,12 @@ public class Vector<E>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Save the state of the {@code Vector} instance to a stream (that
      * is, serialize it).
      * This method performs synchronization to ensure the consistency
      * of the serialized data.
+     * {@description.close}
      */
     private void writeObject(java.io.ObjectOutputStream s)
             throws java.io.IOException {

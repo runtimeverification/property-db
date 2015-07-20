@@ -1,0 +1,28 @@
+***
+ Comparing old directory net_old to new directory net_new/.
+ Merged results will be output to directory yikes.
+***
+DIRECTORY: yikes
+Old files or subdirectories not seen in new package:
+package.html
+tmp22.txt
+temp23.txt
+DIRECTORY: yikes
+New files or subdirectories not seen in old package:
+PlainSocketImpl.java
+StandardSocketOptions.java
+SocketSecrets.java
+DefaultDatagramSocketImplFactory.java
+InMemoryCookieStore.java
+InetAddressContainer.java
+URLPermission.java
+HttpConnectSocketImpl.java
+DefaultInterface.java
+StandardProtocolFamily.java
+package-info.java
+HostPortrange.java
+SdpSocketImpl.java
+ProtocolFamily.java
+SocketOption.java
+PlainDatagramSocketImpl.java
+------

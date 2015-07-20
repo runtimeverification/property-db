@@ -39,7 +39,8 @@ import java.security.PrivilegedAction;
 
 import sun.util.spi.XmlPropertiesProvider;
 
-/**
+/** {@collect.stats}
+ * {@description.open} 
  * The {@code Properties} class represents a persistent set of
  * properties. The {@code Properties} can be saved to a stream
  * or loaded from a stream. Each key and its corresponding value in
@@ -109,7 +110,7 @@ import sun.util.spi.XmlPropertiesProvider;
  *
  * <p>This class is thread-safe: multiple threads can share a single
  * <tt>Properties</tt> object without the need for external synchronization.
- *
+ * {@description.close}
  * @see <a href="../../../technotes/tools/solaris/native2ascii.html">native2ascii tool for Solaris</a>
  * @see <a href="../../../technotes/tools/windows/native2ascii.html">native2ascii tool for Windows</a>
  *
@@ -168,6 +169,7 @@ class Properties extends Hashtable<Object,Object> {
 
 
     /** {@collect.stats}
+     * {@description.open}
      * Reads a property list (key and element pairs) from the input
      * character stream in a simple line-oriented format.
      * <p>
@@ -305,7 +307,7 @@ class Properties extends Hashtable<Object,Object> {
      * </ul>
      * <p>
      * The specified stream remains open after this method returns.
-     *
+     * {@description.close}
      * @param   reader   the input character stream.
      * @throws  IOException  if an error occurred when reading from the
      *          input stream.
@@ -318,6 +320,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reads a property list (key and element pairs) from the input
      * byte stream. The input stream is in a simple line-oriented
      * format as specified in
@@ -329,7 +332,7 @@ class Properties extends Hashtable<Object,Object> {
      * <cite>The Java&trade; Language Specification</cite>.
      * <p>
      * The specified stream remains open after this method returns.
-     *
+     * {@description.close}
      * @param      inStream   the input stream.
      * @exception  IOException  if an error occurred when reading from the
      *             input stream.
@@ -775,6 +778,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Writes this property list (key and element pairs) in this
      * {@code Properties} table to the output stream in a format suitable
      * for loading into a {@code Properties} table using the
@@ -803,6 +807,7 @@ class Properties extends Hashtable<Object,Object> {
      * After the entries have been written, the output stream is flushed.
      * The output stream remains open after this method returns.
      * <p>
+     * {@description.close}
      * @param   out      an output stream.
      * @param   comments   a description of the property list.
      * @exception  IOException if writing this property list to the specified
@@ -845,6 +850,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Loads all of the properties represented by the XML document on the
      * specified input stream into this properties table.
      *
@@ -854,13 +860,13 @@ class Properties extends Hashtable<Object,Object> {
      * </pre>
      * Furthermore, the document must satisfy the properties DTD described
      * above.
-     *
+     * {@description.close}
      * <p> An implementation is required to read XML documents that use the
      * "{@code UTF-8}" or "{@code UTF-16}" encoding. An implementation may
      * support additional encodings.
-     *
+     * {@property.open formal:java.util.Properties_ManipulateAfterLoad}
      * <p>The specified stream is closed after this method returns.
-     *
+     * {@property.close}
      * @param in the input stream from which to read the XML document.
      * @throws IOException if reading from the specified input stream
      *         results in an <tt>IOException</tt>.
@@ -883,13 +889,14 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Emits an XML document representing all of the properties contained
      * in this table.
      *
      * <p> An invocation of this method of the form <tt>props.storeToXML(os,
      * comment)</tt> behaves in exactly the same way as the invocation
      * <tt>props.storeToXML(os, comment, "UTF-8");</tt>.
-     *
+     * {@description.close}
      * @param os the output stream on which to emit the XML document.
      * @param comment a description of the property list, or {@code null}
      *        if no comment is desired.
@@ -909,6 +916,7 @@ class Properties extends Hashtable<Object,Object> {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Emits an XML document representing all of the properties contained
      * in this table, using the specified encoding.
      *
@@ -925,6 +933,7 @@ class Properties extends Hashtable<Object,Object> {
      * implementation may support additional encodings.
      *
      * <p>The specified stream remains open after this method returns.
+     * {@description.close}
      *
      * @param os        the output stream on which to emit the XML document.
      * @param comment   a description of the property list, or {@code null}
