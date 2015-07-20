@@ -251,12 +251,14 @@ public abstract class Enum<E extends Enum<E>>
         return (zuper == Enum.class) ? (Class<E>)clazz : (Class<E>)zuper;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enum constant of the specified enum type with the
      * specified name.  The name must match exactly an identifier used
-     * to declare an enum constant in this type.  (Extraneous whitespace
+     * to declare an enum constant in this type.  
+     * {@property.open runtime formal:java.lang.Enum_NoExtraWhiteSpace}
+	 * (Extraneous whitespace
      * characters are not permitted.)
-     *
+     * {@property.close}
      * <p>Note that for a particular enum type {@code T}, the
      * implicitly declared {@code public static T valueOf(String)}
      * method on that enum may be used instead of this method to map

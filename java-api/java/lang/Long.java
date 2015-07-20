@@ -496,17 +496,21 @@ public final class Long extends Number implements Comparable<Long> {
         return 19;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed {@code long} in the
-     * radix specified by the second argument. The characters in the
+     * radix specified by the second argument. 
+	 * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
+	 * The characters in the
      * string must all be digits of the specified radix (as determined
      * by whether {@link java.lang.Character#digit(char, int)} returns
      * a nonnegative value), except that the first character may be an
      * ASCII minus sign {@code '-'} ({@code '\u005Cu002D'}) to
      * indicate a negative value or an ASCII plus sign {@code '+'}
-     * ({@code '\u005Cu002B'}) to indicate a positive value. The
+     * ({@code '\u005Cu002B'}) to indicate a positive value. 
+	 * {@property.close}
+	 * The
      * resulting {@code long} value is returned.
-     *
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
      * <p>Note that neither the character {@code L}
      * ({@code '\u005Cu004C'}) nor {@code l}
      * ({@code '\u005Cu006C'}) is permitted to appear at the end
@@ -535,7 +539,7 @@ public final class Long extends Number implements Comparable<Long> {
      * <li>The value represented by the string is not a value of type
      *      {@code long}.
      * </ul>
-     *
+     * {@property.close}
      * <p>Examples:
      * <blockquote><pre>
      * parseLong("0", 10) returns 0L
@@ -615,23 +619,26 @@ public final class Long extends Number implements Comparable<Long> {
         return negative ? result : -result;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed decimal {@code long}.
-     * The characters in the string must all be decimal digits, except
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
+	 * The characters in the string must all be decimal digits, except
      * that the first character may be an ASCII minus sign {@code '-'}
      * ({@code \u005Cu002D'}) to indicate a negative value or an
      * ASCII plus sign {@code '+'} ({@code '\u005Cu002B'}) to
-     * indicate a positive value. The resulting {@code long} value is
+     * indicate a positive value.
+	 * {@property.close} 
+ 	 * The resulting {@code long} value is
      * returned, exactly as if the argument and the radix {@code 10}
      * were given as arguments to the {@link
      * #parseLong(java.lang.String, int)} method.
-     *
+     * {@property.open runtime formal:java.lang.Long_BadParsingArgs}
      * <p>Note that neither the character {@code L}
      * ({@code '\u005Cu004C'}) nor {@code l}
      * ({@code '\u005Cu006C'}) is permitted to appear at the end
      * of the string as a type indicator, as would be permitted in
      * Java programming language source code.
-     *
+     * {@property.close}
      * @param      s   a {@code String} containing the {@code long}
      *             representation to be parsed
      * @return     the {@code long} represented by the argument in
@@ -832,15 +839,16 @@ public final class Long extends Number implements Comparable<Long> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Long} instance representing the specified
      * {@code long} value.
+	 * {@property.open runtime performance formal:java.lang.Long_StaticFactory}
      * If a new {@code Long} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Long(long)}, as this method is likely to yield
      * significantly better space and time performance by caching
      * frequently requested values.
-     *
+     * {@property.close}
      * Note that unlike the {@linkplain Integer#valueOf(int)
      * corresponding method} in the {@code Integer} class, this method
      * is <em>not</em> required to cache values within a particular
@@ -858,7 +866,7 @@ public final class Long extends Number implements Comparable<Long> {
         return new Long(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code String} into a {@code Long}.
      * Accepts decimal, hexadecimal, and octal numbers given by the
      * following grammar:
@@ -890,9 +898,11 @@ public final class Long extends Number implements Comparable<Long> {
      * This sequence of characters must represent a positive value or
      * a {@link NumberFormatException} will be thrown.  The result is
      * negated if first character of the specified {@code String} is
-     * the minus sign.  No whitespace characters are permitted in the
+     * the minus sign.
+ 	 * {@property.open runtime formal:java.lang.Long_BadDecodeArg}  
+	 * No whitespace characters are permitted in the
      * {@code String}.
-     *
+     * {@property.close}
      * @param     nm the {@code String} to decode.
      * @return    a {@code Long} object holding the {@code long}
      *            value represented by {@code nm}

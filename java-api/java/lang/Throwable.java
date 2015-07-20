@@ -448,17 +448,21 @@ public class Throwable implements Serializable {
         return (cause==this ? null : cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes the <i>cause</i> of this throwable to the specified value.
      * (The cause is the throwable that caused this throwable to get thrown.)
-     *
-     * <p>This method can be called at most once.  It is generally called from
+     * {@property.open runtime formal:java.lang.Throwable_InitCauseOnce}
+     * <p>This method can be called at most once.  
+	 * {@property.close}
+	 * It is generally called from
      * within the constructor, or immediately after creating the
-     * throwable.  If this throwable was created
+     * throwable.  
+	 * {@property.open runtime formal:java.lang.Throwable_InitCauseOnce}
+	 * If this throwable was created
      * with {@link #Throwable(Throwable)} or
      * {@link #Throwable(String,Throwable)}, this method cannot be called
      * even once.
-     *
+     * {@property.close}
      * <p>An example of using this method on a legacy throwable type
      * without other support for setting the cause is:
      *

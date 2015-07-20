@@ -26,15 +26,17 @@
 package java.lang;
 
 
-/**
- * A mutable sequence of characters.  This class provides an API compatible
+/** {@collect.stats}
+ * A mutable sequence of characters.  
+ * {@property.open runtime performance formal:java.lang.StringBuffer_SingleThreadUsage}
+ * This class provides an API compatible
  * with {@code StringBuffer}, but with no guarantee of synchronization.
  * This class is designed for use as a drop-in replacement for
  * {@code StringBuffer} in places where the string buffer was being
  * used by a single thread (as is generally the case).   Where possible,
  * it is recommended that this class be used in preference to
  * {@code StringBuffer} as it will be faster under most implementations.
- *
+ * {@property.close}
  * <p>The principal operations on a {@code StringBuilder} are the
  * {@code append} and {@code insert} methods, which are
  * overloaded so as to accept data of any type. Each effectively
@@ -59,11 +61,11 @@ package java.lang;
  * character sequence contained in the string builder does not exceed
  * the capacity, it is not necessary to allocate a new internal
  * buffer. If the internal buffer overflows, it is automatically made larger.
- *
+ * {@property.open runtime formal:java.lang.StringBuilder_ThreadSafe}
  * <p>Instances of {@code StringBuilder} are not safe for
  * use by multiple threads. If such synchronization is required then it is
  * recommended that {@link java.lang.StringBuffer} be used.
- *
+ * {@property.close}
  * <p>Unless otherwise noted, passing a {@code null} argument to a constructor
  * or method in this class will cause a {@link NullPointerException} to be
  * thrown.

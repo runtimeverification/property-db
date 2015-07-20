@@ -68,11 +68,12 @@ public class Object {
      */
     public final native Class<?> getClass();
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for the object. This method is
      * supported for the benefit of hash tables such as those provided by
      * {@link java.util.HashMap}.
      * <p>
+	 * {@property.open static}
      * The general contract of {@code hashCode} is:
      * <ul>
      * <li>Whenever it is invoked on the same object more than once during
@@ -91,6 +92,7 @@ public class Object {
      *     programmer should be aware that producing distinct integer results
      *     for unequal objects may improve the performance of hash tables.
      * </ul>
+	 * {@property.close}
      * <p>
      * As much as is reasonably practical, the hashCode method defined by
      * class {@code Object} does return distinct integers for distinct
@@ -167,7 +169,7 @@ public class Object {
         return (this == obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a copy of this object.  The precise meaning
      * of "copy" may depend on the class of the object. The general
      * intent is that, for any object {@code x}, the expression:
@@ -185,8 +187,11 @@ public class Object {
      * x.clone().equals(x)</pre></blockquote>
      * will be {@code true}, this is not an absolute requirement.
      * <p>
+	 * {@property.open static}
      * By convention, the returned object should be obtained by calling
-     * {@code super.clone}.  If a class and all of its superclasses (except
+     * {@code super.clone}.
+	 * {@property.close}  
+	 * If a class and all of its superclasses (except
      * {@code Object}) obey this convention, it will be the case that
      * {@code x.clone().getClass() == x.getClass()}.
      * <p>
@@ -213,12 +218,13 @@ public class Object {
      * the corresponding fields of this object, as if by assignment; the
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
-     * <p>
+     * {@property.open runtime formal:java.lang.Object_NoClone}
+	 * <p>
      * The class {@code Object} does not itself implement the interface
      * {@code Cloneable}, so calling the {@code clone} method on an object
      * whose class is {@code Object} will result in throwing an
      * exception at run time.
-     *
+     * {@property.close}
      * @return     a clone of this instance.
      * @throws  CloneNotSupportedException  if the object's class does not
      *               support the {@code Cloneable} interface. Subclasses

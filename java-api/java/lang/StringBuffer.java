@@ -83,12 +83,13 @@ import java.util.Arrays;
  * or method in this class will cause a {@link NullPointerException} to be
  * thrown.
  * <p>
+ * {@property.open runtime performance formal:java.lang.StringBuffer_SingleThreadUsage}
  * As of  release JDK 5, this class has been supplemented with an equivalent
  * class designed for use by a single thread, {@link StringBuilder}.  The
  * {@code StringBuilder} class should generally be used in preference to
  * this one, as it supports all of the same operations but it is faster, as
  * it performs no synchronization.
- *
+ * {@property.close}
  * @author      Arthur van Hoff
  * @see     java.lang.StringBuilder
  * @see     java.lang.String

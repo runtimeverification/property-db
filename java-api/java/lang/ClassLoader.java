@@ -369,8 +369,11 @@ public abstract class ClassLoader {
         return loadClass(name, false);
     }
 
-    /**
-     * Loads the class with the specified <a href="#name">binary name</a>.  The
+    /** {@collect.stats}
+	 * {@property.open unknown}
+     * Loads the class with the specified <a href="#name">binary name</a>.  
+	 * {@property.close}
+	 * The
      * default implementation of this method searches for classes in the
      * following order:
      *
@@ -710,7 +713,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts an array of bytes into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
      * <tt>null</tt>, then a default domain will be assigned to the class as
@@ -725,17 +728,19 @@ public abstract class ClassLoader {
      * package must contain the same set of certificates or a
      * <tt>SecurityException</tt> will be thrown.  Note that if
      * <tt>name</tt> is <tt>null</tt>, this check is not performed.
+	 * {@property.open unknown}
      * You should always pass in the <a href="#name">binary name</a> of the
      * class you are defining as well as the bytes.  This ensures that the
      * class you are defining is indeed the class you think it is.
-     *
+     * {@property.close}
+	 * {@property.open runtime formal:java.lang.ClassLoader_UnsafeClassDefinition}
      * <p> The specified <tt>name</tt> cannot begin with "<tt>java.</tt>", since
      * all classes in the "<tt>java.*</tt> packages can only be defined by the
      * bootstrap class loader.  If <tt>name</tt> is not <tt>null</tt>, it
      * must be equal to the <a href="#name">binary name</a> of the class
      * specified by the byte array "<tt>b</tt>", otherwise a {@link
      * NoClassDefFoundError <tt>NoClassDefFoundError</tt>} will be thrown. </p>
-     *
+     * {@property.close}
      * @param  name
      *         The expected <a href="#name">binary name</a> of the class, or
      *         <tt>null</tt> if not known

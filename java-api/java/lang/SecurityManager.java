@@ -848,12 +848,13 @@ class SecurityManager {
      * if cmd is an absolute path, otherwise it calls
      * <code>checkPermission</code> with
      * <code>FilePermission("&lt;&lt;ALL FILES&gt;&gt;","execute")</code>.
+	 * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkExec</code>
      * at the point the overridden method would normally throw an
      * exception.
-     *
+     * {@property.close}
      * @param      cmd   the specified system command.
      * @exception  SecurityException if the calling thread does not have
      *             permission to create a subprocess.
@@ -1196,12 +1197,13 @@ class SecurityManager {
      * the <code>context</code>'s <code>checkPermission</code> method
      * is called with a
      * <code>SocketPermission(host,"resolve")</code> permission.
+	 * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkConnect</code>
      * at the point the overridden method would normally throw an
      * exception.
-     *
+     * {@property.close}
      * @param      host      the host name port to connect to.
      * @param      port      the protocol port to connect to.
      * @param      context   a system-dependent security context.
@@ -1232,19 +1234,20 @@ class SecurityManager {
                 context);
     }
 
-    /**
+    /** {@collect.stats}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to wait for a connection request on
      * the specified local port number.
      * <p>
      * This method calls <code>checkPermission</code> with the
      * <code>SocketPermission("localhost:"+port,"listen")</code>.
+	 * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkListen</code>
      * at the point the overridden method would normally throw an
      * exception.
-     *
+     * {@property.close}
      * @param      port   the local port.
      * @exception  SecurityException  if the calling thread does not have
      *             permission to listen on the specified port.
@@ -1448,7 +1451,7 @@ class SecurityManager {
             SecurityConstants.PROPERTY_READ_ACTION));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> if the calling
      * thread is not trusted to bring up the top-level window indicated
      * by the <code>window</code> argument. In this case, the caller can
@@ -1469,13 +1472,14 @@ class SecurityManager {
      * {@code java.awt} package, {@code checkPermission} is instead called
      * to check the permission {@code java.security.AllPermission}.
      * <p>
+	 * {@property.open static}
      * If you override this method, then you should make a call to
      * <code>super.checkTopLevelWindow</code>
      * at the point the overridden method would normally return
      * <code>false</code>, and the value of
      * <code>super.checkTopLevelWindow</code> should
      * be returned.
-     *
+     * {@property.close}
      * @param      window   the new window that is being created.
      * @return     <code>true</code> if the calling thread is trusted to put up
      *             top-level windows; <code>false</code> otherwise.
@@ -1537,7 +1541,7 @@ class SecurityManager {
         checkPermission(new RuntimePermission("queuePrintJob"));
     }
 
-    /**
+    /** {@collect.stats}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the system clipboard.
      * <p>
@@ -1548,11 +1552,12 @@ class SecurityManager {
      * {@code java.awt} package, {@code checkPermission} is instead called
      * to check the permission {@code java.security.AllPermission}.
      * <p>
+	 * {@property.open static}
      * If you override this method, then you should make a call to
      * <code>super.checkSystemClipboardAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
-     *
+     * {@property.close}
      * @since   JDK1.1
      * @exception  SecurityException  if the calling thread does not have
      *             permission to access the system clipboard.
@@ -1573,7 +1578,7 @@ class SecurityManager {
         checkPermission(perm);
     }
 
-    /**
+    /** {@collect.stats}
      * Throws a <code>SecurityException</code> if the
      * calling thread is not allowed to access the AWT event queue.
      * <p>
@@ -1582,13 +1587,13 @@ class SecurityManager {
      * In the case of subset Profiles of Java SE that do not include the
      * {@code java.awt} package, {@code checkPermission} is instead called
      * to check the permission {@code java.security.AllPermission}.
-     *
+     * {@property.open static}
      * <p>
      * If you override this method, then you should make a call to
      * <code>super.checkAwtEventQueueAccess</code>
      * at the point the overridden method would normally throw an
      * exception.
-     *
+     * {@property.close}
      * @since   JDK1.1
      * @exception  SecurityException  if the calling thread does not have
      *             permission to access the AWT event queue.

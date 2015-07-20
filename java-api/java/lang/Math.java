@@ -29,7 +29,7 @@ import java.util.Random;
 import sun.misc.FloatConsts;
 import sun.misc.DoubleConsts;
 
-/**
+/** {@collect.stats}
  * The class {@code Math} contains methods for performing basic
  * numeric operations such as the elementary exponential, logarithm,
  * square root, and trigonometric functions.
@@ -43,13 +43,15 @@ import sun.misc.DoubleConsts;
  *
  * <p>By default many of the {@code Math} methods simply call
  * the equivalent method in {@code StrictMath} for their
- * implementation.  Code generators are encouraged to use
+ * implementation.
+ * {@property.open static performance}  
+ * Code generators are encouraged to use
  * platform-specific native libraries or microprocessor instructions,
  * where available, to provide higher-performance implementations of
  * {@code Math} methods.  Such higher-performance
  * implementations still must conform to the specification for
  * {@code Math}.
- *
+ * {@property.close}
  * <p>The quality of implementation specifications concern two
  * properties, accuracy of the returned result and monotonicity of the
  * method.  Accuracy of the floating-point {@code Math} methods is
@@ -205,10 +207,10 @@ public final class Math {
      * than 1, then the result is NaN.
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
-     *
+     * {@property.close}
      * @param   a   the value whose arc sine is to be returned.
      * @return  the arc sine of the argument.
      */
@@ -245,9 +247,10 @@ public final class Math {
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
      *
+	 * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
-     *
+     * {@property.close}
      * @param   a   the value whose arc tangent is to be returned.
      * @return  the arc tangent of the argument.
      */
@@ -357,10 +360,10 @@ public final class Math {
      * <li> If the argument is equal to 10<sup><i>n</i></sup> for
      * integer <i>n</i>, then the result is <i>n</i>.
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
-     *
+     * {@property.close}
      * @param   a   a value
      * @return  the base 10 logarithm of  {@code a}.
      * @since 1.5
@@ -571,10 +574,10 @@ public final class Math {
      * closest to -<i>pi</i>/4.
      * <li>If both arguments are negative infinity, then the result is the
      * {@code double} value closest to -3*<i>pi</i>/4.</ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 2 ulps of the exact result.
      * Results must be semi-monotonic.
-     *
+     * {@property.close}
      * @param   y   the ordinate coordinate
      * @param   x   the abscissa coordinate
      * @return  the <i>theta</i> component of the point
@@ -1687,9 +1690,9 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
-     *
+     * {@property.close}
      * @param   x The number whose hyperbolic sine is to be returned.
      * @return  The hyperbolic sine of {@code x}.
      * @since 1.5
@@ -1715,9 +1718,9 @@ public final class Math {
      * <li>If the argument is zero, then the result is {@code 1.0}.
      *
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
-     *
+     * {@property.close}
      * @param   x The number whose hyperbolic cosine is to be returned.
      * @return  The hyperbolic cosine of {@code x}.
      * @since 1.5
@@ -1750,14 +1753,14 @@ public final class Math {
      * {@code -1.0}.
      *
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 2.5 ulps of the exact result.
      * The result of {@code tanh} for any finite input must have
      * an absolute value less than or equal to 1.  Note that once the
      * exact result of tanh is within 1/2 of an ulp of the limit value
      * of &plusmn;1, correctly signed &plusmn;{@code 1.0} should
      * be returned.
-     *
+     * {@property.close}
      * @param   x The number whose hyperbolic tangent is to be returned.
      * @return  The hyperbolic tangent of {@code x}.
      * @since 1.5
@@ -1780,11 +1783,11 @@ public final class Math {
      * then the result is NaN.
      *
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact
      * result.  If one parameter is held constant, the results must be
      * semi-monotonic in the other parameter.
-     *
+     * {@property.close}
      * @param x a value
      * @param y a value
      * @return sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
@@ -1815,7 +1818,7 @@ public final class Math {
      * same sign as the argument.
      *
      * </ul>
-     *
+     * {@property.open accuracy}
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.  The result of
      * {@code expm1} for any finite input must be greater than or
@@ -1823,7 +1826,7 @@ public final class Math {
      * <i>e</i><sup>{@code x}</sup>&nbsp;-&nbsp;1 is within 1/2
      * ulp of the limit value -1, {@code -1.0} should be
      * returned.
-     *
+     * {@property.close}
      * @param   x   the exponent to raise <i>e</i> to in the computation of
      *              <i>e</i><sup>{@code x}</sup>&nbsp;-1.
      * @return  the value <i>e</i><sup>{@code x}</sup>&nbsp;-&nbsp;1.

@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * This class is for runtime permissions. A RuntimePermission
  * contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -39,10 +39,12 @@ import java.util.StringTokenizer;
  * <P>
  * The target name is the name of the runtime permission (see below). The
  * naming convention follows the  hierarchical property naming convention.
+ * {@property.open runtime formal:java.lang.RuntimePermission_PermName}
  * Also, an asterisk
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "loadLibrary.*" and "*" signify a
  * wildcard match, while "*loadLibrary" and "a*b" do not.
+ * {@property.close}
  * <P>
  * The following table lists all the possible RuntimePermission target names,
  * and for each provides a description of what the permission allows

@@ -443,7 +443,7 @@ public final class System {
      * Copies an array from the specified source array, beginning at the
      * specified position, to the specified position of the destination array.
 
-     * {@description.close}     * A subsequence of array components are copied from the source
+     * A subsequence of array components are copied from the source
      * array referenced by <code>src</code> to the destination array
      * referenced by <code>dest</code>. The number of components copied is
      * equal to the <code>length</code> argument. The components at
@@ -461,6 +461,8 @@ public final class System {
      * the temporary array were copied into positions
      * <code>destPos</code> through <code>destPos+length-1</code> of the
      * destination array.
+	 * {@description.close}    
+	 * {@property.open runtime formal:java.lang.System_NullArrayCopy} 
      * <p>
      * If <code>dest</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown.
@@ -468,6 +470,7 @@ public final class System {
      * If <code>src</code> is <code>null</code>, then a
      * <code>NullPointerException</code> is thrown and the destination
      * array is not modified.
+	 * {@property.close}
      * <p>
      * Otherwise, if any of the following is true, an
      * <code>ArrayStoreException</code> is thrown and the destination is

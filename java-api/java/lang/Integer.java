@@ -747,8 +747,8 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <blockquote>
      *  {@code new Integer(Integer.parseInt(s, radix))}
 
-     * {@description.close}     * </blockquote>
-     *
+     *  </blockquote>
+     *  {@description.close} 
      * @param      s   the string to be parsed.
      * @param      radix the radix to be used in interpreting {@code s}
      * @return     an {@code Integer} object holding the value
@@ -835,14 +835,16 @@ public final class Integer extends Number implements Comparable<Integer> {
         private IntegerCache() {}
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an {@code Integer} instance representing the specified
-     * {@code int} value.  If a new {@code Integer} instance is not
+     * {@code int} value.  
+	 * {@property.open runtime performance formal:java.lang.Integer_StaticFactory}
+ 	 * If a new {@code Integer} instance is not
      * required, this method should generally be used in preference to
      * the constructor {@link #Integer(int)}, as this method is likely
      * to yield significantly better space and time performance by
      * caching frequently requested values.
-     *
+     * {@property.close}
      * This method will always cache values in the range -128 to 127,
      * inclusive, and may cache other values outside of this range.
      *
@@ -1155,7 +1157,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         return val;
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code String} into an {@code Integer}.
      * Accepts decimal, hexadecimal, and octal numbers given
      * by the following grammar:
@@ -1184,12 +1186,18 @@ public final class Integer extends Number implements Comparable<Integer> {
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Integer.parseInt} method with the indicated radix (10, 16, or
-     * 8).  This sequence of characters must represent a positive
-     * value or a {@link NumberFormatException} will be thrown.  The
+     * 8).  
+	 * {@property.open runtime formal:java.lang.Integer_BadDecodeArg}
+	 * This sequence of characters must represent a positive
+     * value or a {@link NumberFormatException} will be thrown.  
+	 * {@property.close}
+	 * The
      * result is negated if first character of the specified {@code
-     * String} is the minus sign.  No whitespace characters are
+     * String} is the minus sign.  
+	 * {@property.open runtime formal:java.lang.Integer_BadDecodeArg}
+	 * No whitespace characters are
      * permitted in the {@code String}.
-     *
+     * {@property.close}
      * @param     nm the {@code String} to decode.
      * @return    an {@code Integer} object holding the {@code int}
      *             value represented by {@code nm}

@@ -82,18 +82,22 @@ public final class Short extends Number implements Comparable<Short> {
         return Integer.toString((int)s, 10);
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed {@code short} in the
-     * radix specified by the second argument. The characters in the
+     * radix specified by the second argument. 
+	 * {@property.open runtime formal:java.lang.Short_BadParsingArgs}
+	 * The characters in the
      * string must all be digits, of the specified radix (as
      * determined by whether {@link java.lang.Character#digit(char,
      * int)} returns a nonnegative value) except that the first
      * character may be an ASCII minus sign {@code '-'}
      * ({@code '\u005Cu002D'}) to indicate a negative value or an
      * ASCII plus sign {@code '+'} ({@code '\u005Cu002B'}) to
-     * indicate a positive value.  The resulting {@code short} value
+     * indicate a positive value.  
+	 * {@property.close}
+	 * The resulting {@code short} value
      * is returned.
-     *
+     * {@property.open runtime formal:java.lang.Short_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
      * thrown if any of the following situations occurs:
      * <ul>
@@ -113,7 +117,7 @@ public final class Short extends Number implements Comparable<Short> {
      * <li> The value represented by the string is not a value of type
      * {@code short}.
      * </ul>
-     *
+     * {@property.close}
      * @param s         the {@code String} containing the
      *                  {@code short} representation to be parsed
      * @param radix     the radix to be used while parsing {@code s}
@@ -131,13 +135,17 @@ public final class Short extends Number implements Comparable<Short> {
         return (short)i;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed decimal {@code
-     * short}. The characters in the string must all be decimal
+     * short}.
+	 * {@property.open runtime formal:java.lang.Short_BadParsingArgs} 
+	 * The characters in the string must all be decimal
      * digits, except that the first character may be an ASCII minus
      * sign {@code '-'} ({@code '\u005Cu002D'}) to indicate a
      * negative value or an ASCII plus sign {@code '+'}
-     * ({@code '\u005Cu002B'}) to indicate a positive value.  The
+     * ({@code '\u005Cu002B'}) to indicate a positive value.  
+	 * {@property.close}
+	 * The
      * resulting {@code short} value is returned, exactly as if the
      * argument and the radix 10 were given as arguments to the {@link
      * #parseShort(java.lang.String, int)} method.
@@ -226,15 +234,18 @@ public final class Short extends Number implements Comparable<Short> {
         }
     }
 
-    /**
+    /** {@collect.stats}
+	 * {@description.open}
      * Returns a {@code Short} instance representing the specified
      * {@code short} value.
+	 * {@description.close}
+	 * {@property.open runtime performance formal:java.lang.Short_StaticFactory}
      * If a new {@code Short} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Short(short)}, as this method is likely to yield
      * significantly better space and time performance by caching
      * frequently requested values.
-     *
+     * {@property.close}
      * This method will always cache values in the range -128 to 127,
      * inclusive, and may cache other values outside of this range.
      *
@@ -251,7 +262,7 @@ public final class Short extends Number implements Comparable<Short> {
         return new Short(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code String} into a {@code Short}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -280,12 +291,19 @@ public final class Short extends Number implements Comparable<Short> {
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Short.parseShort} method with the indicated radix (10, 16, or
-     * 8).  This sequence of characters must represent a positive
-     * value or a {@link NumberFormatException} will be thrown.  The
+     * 8).
+	 * {@property.open runtime formal:java.lang.Short_BadDecodeArg}  
+	 * This sequence of characters must represent a positive
+     * value or a {@link NumberFormatException} will be thrown.  
+	 * {@property.close}
+	 * The
      * result is negated if first character of the specified {@code
-     * String} is the minus sign.  No whitespace characters are
+     * String} is the minus sign.  
+	 * {@property.open runtime formal:java.lang.Short_BadDecodeArg}
+	 * No whitespace characters are
      * permitted in the {@code String}.
-     *
+     * {@property.close}
+
      * @param     nm the {@code String} to decode.
      * @return    a {@code Short} object holding the {@code short}
      *            value represented by {@code nm}

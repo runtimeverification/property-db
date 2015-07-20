@@ -1419,13 +1419,13 @@ class Thread implements Runnable {
         new Exception("Stack trace").printStackTrace();
     }
 
-    /**
+    /** {@collect.stats}
      * Marks this thread as either a {@linkplain #isDaemon daemon} thread
      * or a user thread. The Java Virtual Machine exits when the only
      * threads running are all daemon threads.
-     *
+     * {@property.open runtime formal:java.lang.Thread_SetDaemonBeforeStart}
      * <p> This method must be invoked before the thread is started.
-     *
+     * {@property.close}
      * @param  on
      *         if {@code true}, marks this thread as a daemon thread
      *

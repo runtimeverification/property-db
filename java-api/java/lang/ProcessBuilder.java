@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * This class is used to create operating system processes.
  *
  * <p>Each {@code ProcessBuilder} instance manages a collection
@@ -133,12 +133,12 @@ import java.util.Map;
  * #start()} will fail.  For example, setting the command attribute to
  * an empty list will not throw an exception unless {@link #start()}
  * is invoked.
- *
+ * {@property.open runtime formal:java.lang.ProcessBuilder_ThreadSafe}
  * <p><strong>Note that this class is not synchronized.</strong>
  * If multiple threads access a {@code ProcessBuilder} instance
  * concurrently, and at least one of the threads modifies one of the
  * attributes structurally, it <i>must</i> be synchronized externally.
- *
+ * {@property.close}
  * <p>Starting a new process which uses the default working directory
  * and environment is easy:
  *

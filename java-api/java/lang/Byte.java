@@ -94,15 +94,16 @@ public final class Byte extends Number implements Comparable<Byte> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
+	 * {@property.open runtime performance formal:java.lang.Byte_StaticFactory}
      * If a new {@code Byte} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Byte(byte)}, as this method is likely to yield
      * significantly better space and time performance since
      * all byte values are cached.
-     *
+     * {@property.close}
      * @param  b a byte value.
      * @return a {@code Byte} instance representing {@code b}.
      * @since  1.5
@@ -112,18 +113,22 @@ public final class Byte extends Number implements Comparable<Byte> {
         return ByteCache.cache[(int)b + offset];
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed {@code byte} in the
-     * radix specified by the second argument. The characters in the
+     * radix specified by the second argument. 
+	 * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
+	 * The characters in the
      * string must all be digits, of the specified radix (as
      * determined by whether {@link java.lang.Character#digit(char,
      * int)} returns a nonnegative value) except that the first
      * character may be an ASCII minus sign {@code '-'}
      * ({@code '\u005Cu002D'}) to indicate a negative value or an
      * ASCII plus sign {@code '+'} ({@code '\u005Cu002B'}) to
-     * indicate a positive value.  The resulting {@code byte} value is
+     * indicate a positive value.  
+	 * {@property.close}
+	 * The resulting {@code byte} value is
      * returned.
-     *
+     * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
      * <p>An exception of type {@code NumberFormatException} is
      * thrown if any of the following situations occurs:
      * <ul>
@@ -143,7 +148,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * <li> The value represented by the string is not a value of type
      * {@code byte}.
      * </ul>
-     *
+     * {@property.close}}
      * @param s         the {@code String} containing the
      *                  {@code byte}
      *                  representation to be parsed
@@ -162,13 +167,17 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (byte)i;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed decimal {@code
-     * byte}. The characters in the string must all be decimal digits,
+     * byte}. 
+	 * {@property.open runtime formal:java.lang.Byte_BadParsingArgs}
+	 * The characters in the string must all be decimal digits,
      * except that the first character may be an ASCII minus sign
      * {@code '-'} ({@code '\u005Cu002D'}) to indicate a negative
      * value or an ASCII plus sign {@code '+'}
-     * ({@code '\u005Cu002B'}) to indicate a positive value. The
+     * ({@code '\u005Cu002B'}) to indicate a positive value. 
+	 * {@property.close}
+	 * The
      * resulting {@code byte} value is returned, exactly as if the
      * argument and the radix 10 were given as arguments to the {@link
      * #parseByte(java.lang.String, int)} method.
@@ -186,7 +195,7 @@ public final class Byte extends Number implements Comparable<Byte> {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Returns a {@code Byte} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -202,8 +211,8 @@ public final class Byte extends Number implements Comparable<Byte> {
      * <blockquote>
      * {@code new Byte(Byte.parseByte(s, radix))}
 
-     * {@description.close}     * </blockquote>
-     *
+     *  </blockquote>
+     * {@description.close}
      * @param s         the string to be parsed
      * @param radix     the radix to be used in interpreting {@code s}
      * @return          a {@code Byte} object holding the value
@@ -246,7 +255,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return valueOf(s, 10);
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code String} into a {@code Byte}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -270,17 +279,22 @@ public final class Byte extends Number implements Comparable<Byte> {
      * are as defined in section 3.10.1 of
      * <cite>The Java&trade; Language Specification</cite>,
      * except that underscores are not accepted between digits.
-     *
+     * {@property.open runtime formal:java.lang.Byte_BadDecodeArg}
      * <p>The sequence of characters following an optional
      * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Byte.parseByte} method with the indicated radix (10, 16, or 8).
-     * This sequence of characters must represent a positive value or
-     * a {@link NumberFormatException} will be thrown.  The result is
+     * {@property.open runtime formal:java.lang.Byte_BadDecodeArg}
+	 * This sequence of characters must represent a positive value or
+     * a {@link NumberFormatException} will be thrown.  
+	 * {@property.close}
+	 * The result is
      * negated if first character of the specified {@code String} is
-     * the minus sign.  No whitespace characters are permitted in the
+     * the minus sign.  
+	 * {@property.open runtime formal:java.lang.Byte_BadDecodeArg}
+	 * No whitespace characters are permitted in the
      * {@code String}.
-     *
+     * {@property.close}
      * @param     nm the {@code String} to decode.
      * @return   a {@code Byte} object holding the {@code byte}
      *          value represented by {@code nm}
