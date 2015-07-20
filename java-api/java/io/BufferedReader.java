@@ -517,11 +517,13 @@ public class BufferedReader extends Reader {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+	 * {@description.open}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
 
-     * {@description.close}     *
+     * {@description.close}  
+	 * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.close}
      * @param readAheadLimit   Limit on the number of characters that may be
      *                         read while still preserving the mark. An attempt
      *                         to reset the stream after reading characters
@@ -548,10 +550,13 @@ public class BufferedReader extends Reader {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+	 * {@description.open}
      * Resets the stream to the most recent mark.
 
-     * {@description.close}     *
+     * {@description.close}
+	 * {@property.open runtime formal:java.io.Reader_MarkReset formal:java.io.Reader_UnmarkedReset formal:java.io.Reader_ReadAheadLimit}
+     * {@property.close}
+     
      * @exception  IOException  If the stream has never been marked,
      *                          or if the mark has been invalidated
      */

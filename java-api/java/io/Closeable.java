@@ -39,11 +39,13 @@ import java.io.IOException;
  */
 public interface Closeable extends AutoCloseable {
 
-    /**
+    /** {@collect.stats}
      * Closes this stream and releases any system resources associated
-     * with it. If the stream is already closed then invoking this
+     * with it. 
+ 	 * {@property.open runtime formal:java.io.Closeable_MultipleClose}
+	 * If the stream is already closed then invoking this
      * method has no effect.
-     *
+     * {@property.close}
      * <p> As noted in {@link AutoCloseable#close()}, cases where the
      * close may fail require careful attention. It is strongly advised
      * to relinquish the underlying resources and to internally

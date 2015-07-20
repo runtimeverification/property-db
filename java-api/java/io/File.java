@@ -1012,10 +1012,11 @@ public class File
         return fs.getLastModifiedTime(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the file denoted by this abstract pathname.
+	 * {@property.open runtime formal:java.io.File_LengthOnDirectory}
      * The return value is unspecified if this pathname denotes a directory.
-     *
+     * {@property.close}
      * <p> Where it is required to distinguish an I/O exception from the case
      * that {@code 0L} is returned, or where several attributes of the same file
      * are required at the same time, then the {@link

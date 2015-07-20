@@ -67,7 +67,7 @@ class LineNumberInputStream extends FilterInputStream {
         super(in);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an {@code int} in the range
      * {@code 0} to {@code 255}. If no byte is available
@@ -235,6 +235,7 @@ class LineNumberInputStream extends FilterInputStream {
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
      * <p>
+	 * {@property.open}
      * Note that if the underlying input stream is able to supply
      * <i>k</i> input characters without blocking, the
      * {@code LineNumberInputStream} can guarantee only to provide
@@ -243,7 +244,7 @@ class LineNumberInputStream extends FilterInputStream {
      * consist of <i>k</i>/2 pairs of {@code '\u005Cr'} and
      * {@code '\u005Cn'}, which are converted to just
      * <i>k</i>/2 {@code '\u005Cn'} characters.
-     *
+     * {@property.close}
      * @return     the number of bytes that can be read from this input stream
      *             without blocking.
      * @exception  IOException  if an I/O error occurs.

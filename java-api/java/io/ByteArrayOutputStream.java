@@ -179,11 +179,16 @@ public class ByteArrayOutputStream extends OutputStream {
         count += len;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the complete contents of this byte array output stream to
      * the specified output stream argument, as if by calling the output
      * stream's write method using <code>out.write(buf, 0, count)</code>.
      *
+	 * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * When an OutputStream (or its subclass) instance is built on top of an
+     * underlying ByteArrayOutputStream instance, it should be flushed or closed
+     * before the contents of the ByteArrayOutputStream instance is retrieved.
+     * {@property.close}
      * @param      out   the output stream to which to write the data.
      * @exception  IOException  if an I/O error occurs.
      */
@@ -213,7 +218,9 @@ public class ByteArrayOutputStream extends OutputStream {
      * size of this output stream and the valid contents of the buffer
      * have been copied into it.
 
-     * {@description.close}     *
+     * {@description.close}     
+	 * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      * @return  the current contents of this output stream, as a byte array.
      * @see     java.io.ByteArrayOutputStream#size()
      */
@@ -249,7 +256,9 @@ public class ByteArrayOutputStream extends OutputStream {
      * class should be used when more control over the decoding process is
      * required.
 
-     * {@description.close}     *
+     * {@description.close}     
+	 * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      * @return String decoded from the buffer's contents.
      * @since  JDK1.1
      */
@@ -292,8 +301,10 @@ public class ByteArrayOutputStream extends OutputStream {
      * <blockquote><pre>
      *     c == (char)(((hibyte &amp; 0xff) &lt;&lt; 8) | (b &amp; 0xff))
 
-     * {@description.close}     * </pre></blockquote>
-     *
+     *  </pre></blockquote>
+     * {@description.close}
+ 	 * {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      * @deprecated This method does not properly convert bytes into characters.
      * As of JDK&nbsp;1.1, the preferred way to do this is via the
      * <code>toString(String enc)</code> method, which takes an encoding-name

@@ -30,7 +30,7 @@ import java.nio.charset.Charset;
 import sun.nio.cs.StreamDecoder;
 import sun.nio.cs.StreamEncoder;
 
-/**
+/** {@collect.stats}
  * Methods to access the character-based console device, if any, associated
  * with the current Java virtual machine.
  *
@@ -44,10 +44,12 @@ import sun.nio.cs.StreamEncoder;
  * example by a background job scheduler, then it will typically not
  * have a console.
  * <p>
+ * {@property.open}
  * If this virtual machine has a console then it is represented by a
  * unique instance of this class which can be obtained by invoking the
  * {@link java.lang.System#console()} method.  If no console device is
  * available then an invocation of that method will return <tt>null</tt>.
+ * {@property.close}
  * <p>
  * Read and write operations are synchronized to guarantee the atomic
  * completion of critical operations; therefore invoking methods
@@ -56,9 +58,11 @@ import sun.nio.cs.StreamEncoder;
  * on the objects returned by {@link #reader()} and {@link #writer()} may
  * block in multithreaded scenarios.
  * <p>
+ * {@property.open runtime formal:java.io.Console_CloseReader formal:java.io.Console_CloseWriter}
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}
  * and the {@link #writer()} will not close the underlying stream of those
  * objects.
+ * {@property.close}
  * <p>
  * The console-read methods return <tt>null</tt> when the end of the
  * console input stream is reached, for example by typing control-D on
@@ -68,13 +72,17 @@ import sun.nio.cs.StreamEncoder;
  * <p>
  * Unless otherwise specified, passing a <tt>null</tt> argument to any method
  * in this class will cause a {@link NullPointerException} to be thrown.
+ * {@property.open runtime formal:java.io.Console_CloseReader formal:java.io.Console_CloseWriter}
  * <p>
  * <b>Security note:</b>
  * If an application needs to read a password or other secure data, it should
- * use {@link #readPassword()} or {@link #readPassword(String, Object...)} and
+ * use {@link #readPassword()} or {@link #readPassword(String, Object...)} 
+ * {@property.close}
+ * {@property.open runtime formal:java.io.Console_FillZeroPassword}
+ * and
  * manually zero the returned character array after processing to minimize the
  * lifetime of sensitive data in memory.
- *
+ * 
  * <blockquote><pre>{@code
  * Console cons;
  * char[] passwd;
@@ -84,7 +92,7 @@ import sun.nio.cs.StreamEncoder;
  *     java.util.Arrays.fill(passwd, ' ');
  * }
  * }</pre></blockquote>
- *
+ * {@property.close}
  * @author  Xueming Shen
  * @since   1.6
  */
@@ -104,7 +112,7 @@ public final class Console implements Flushable
         return pw;
     }
 
-   /**
+   /** {@collect.stats}
     * Retrieves the unique {@link java.io.Reader Reader} object associated
     * with this console.
     * <p>
@@ -122,6 +130,7 @@ public final class Console implements Flushable
     * For simple applications requiring only line-oriented reading, use
     * <tt>{@link #readLine}</tt>.
     * <p>
+	* {@property.open}
     * The bulk read operations {@link java.io.Reader#read(char[]) read(char[]) },
     * {@link java.io.Reader#read(char[], int, int) read(char[], int, int) } and
     * {@link java.io.Reader#read(java.nio.CharBuffer) read(java.nio.CharBuffer)}
@@ -132,7 +141,7 @@ public final class Console implements Flushable
     * A line bound is considered to be any one of a line feed (<tt>'\n'</tt>),
     * a carriage return (<tt>'\r'</tt>), a carriage return followed immediately
     * by a linefeed, or an end of stream.
-    *
+    * {@property.close}
     * @return  The reader associated with this console
     */
     public Reader reader() {

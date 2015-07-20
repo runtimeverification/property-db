@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * The {@code DataInput} interface provides
  * for reading bytes from a binary stream and
  * reconstructing from them data in any of
@@ -47,7 +47,7 @@ package java.io;
  * thrown. In particular, an {@code IOException}
  * may be thrown if the input stream has been
  * closed.
- *
+ * {@property.open}
  * <h3><a name="modified-utf-8">Modified UTF-8</a></h3>
  * <p>
  * Implementations of the DataInput and DataOutput interfaces represent
@@ -140,6 +140,7 @@ package java.io;
  * <li><a href="../lang/Character.html#unicode">Supplementary characters</a>
  *     are represented in the form of surrogate pairs.
  * </ul>
+ * {@property.close}
  * @author  Frank Yellin
  * @see     java.io.DataInputStream
  * @see     java.io.DataOutput
@@ -147,7 +148,7 @@ package java.io;
  */
 public
 interface DataInput {
-    /**
+    /** {@collect.stats}
      * Reads some bytes from an input
      * stream and stores them into the buffer
      * array {@code b}. The number of bytes
@@ -169,6 +170,7 @@ interface DataInput {
      * which case an {@code IOException} other
      * than {@code EOFException} is thrown.
      * </ul>
+	 * {@property.open}
      * <p>
      * If {@code b} is {@code null},
      * a {@code NullPointerException} is thrown.
@@ -177,6 +179,7 @@ interface DataInput {
      * byte read is stored into element {@code b[0]},
      * the next one into {@code b[1]}, and
      * so on.
+	 * {@property.close}
      * If an exception is thrown from
      * this method, then it may be that some but
      * not all bytes of {@code b} have been
@@ -189,7 +192,7 @@ interface DataInput {
      */
     void readFully(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      *
      * Reads {@code len}
      * bytes from
@@ -211,6 +214,7 @@ interface DataInput {
      * which case an {@code IOException} other
      * than {@code EOFException} is thrown.
      * </ul>
+	 * {@property.open}
      * <p>
      * If {@code b} is {@code null},
      * a {@code NullPointerException} is thrown.
@@ -219,6 +223,7 @@ interface DataInput {
      * greater than the length of the array {@code b},
      * then an {@code IndexOutOfBoundsException}
      * is thrown.
+	 * {@property.close}
      * If {@code len} is zero,
      * then no bytes are read. Otherwise, the first
      * byte read is stored into element {@code b[off]},
@@ -489,18 +494,22 @@ interface DataInput {
      */
     double readDouble() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next line of text from the input stream.
      * It reads successive bytes, converting
      * each byte separately into a character,
      * until it encounters a line terminator or
      * end of
      * file; the characters read are then
-     * returned as a {@code String}. Note
+     * returned as a {@code String}. 
+	 * {@property.open}
+	 * Note
      * that because this
      * method processes bytes,
      * it does not support input of the full Unicode
      * character set.
+	 * {@property.close}
+	 * {@property.open}
      * <p>
      * If end of file is encountered
      * before even one byte can be read, then {@code null}
@@ -519,6 +528,7 @@ interface DataInput {
      * ceases. Once reading has ceased, a {@code String}
      * is returned that contains all the characters
      * read and not discarded, taken in order.
+ 	 * {@property.close}
      * Note that every character in this string
      * will have a value less than {@code \u005Cu0100},
      * that is, {@code (char)256}.

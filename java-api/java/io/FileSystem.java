@@ -77,9 +77,10 @@ abstract class FileSystem {
 * {@description.open}
      * Resolve the child pathname string against the parent.
      * Both strings must be in normal form,
-     * {@description.close} and the result
+     *  and the result
      * will be in normal form.
-     */
+    * {@description.close} 
+	*/
     public abstract String resolve(String parent, String child);
 
     /** {@collect.stats}
