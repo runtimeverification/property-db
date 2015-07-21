@@ -146,7 +146,7 @@ import java.util.stream.Stream;
  * <p>This class and its views and iterators implement all of the
  * <em>optional</em> methods of the {@link Map} and {@link Iterator}
  * interfaces.
- * {@property.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+ * {@property.open}
  * <p>Like {@link Hashtable} but unlike {@link HashMap}, this class
  * does <em>not</em> allow {@code null} to be used as a key or value.
  * {@property.close}

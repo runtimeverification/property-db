@@ -4304,11 +4304,12 @@ public class Collections {
      * <pre>
      *     Set&lt;String&gt; s = Collections.emptySet();
      * </pre>
+     * {@description.close}
      * @implNote Implementations of this method need not create a separate
      * {@code Set} object for each call.  Using this method is likely to have
      * comparable cost to using the like-named field.  (Unlike this method, the
      * field does not provide type safety.)
-     * {@description.close}
+     
      * @param  <T> the class of the objects in the set
      * @return the empty set
      *
@@ -4422,13 +4423,12 @@ public class Collections {
      * <pre>
      *     List&lt;String&gt; s = Collections.emptyList();
      * </pre>
-     *
+     * {@description.close}
      * @implNote
      * Implementations of this method need not create a separate <tt>List</tt>
      * object for each call.   Using this method is likely to have comparable
      * cost to using the like-named field.  (Unlike this method, the field does
      * not provide type safety.)
-     * {@description.close}
      * @param <T> type of elements, if there were any, in the list
      * @return an empty immutable list
      *
@@ -4524,11 +4524,12 @@ public class Collections {
      * <pre>
      *     Map&lt;String, Date&gt; s = Collections.emptyMap();
      * </pre>
+     * {@description.close}
      * @implNote Implementations of this method need not create a separate
      * {@code Map} object for each call.  Using this method is likely to have
      * comparable cost to using the like-named field.  (Unlike this method, the
      * field does not provide type safety.)
-     * {@description.close}
+     
      *
      * @param <K> the class of the map keys
      * @param <V> the class of the map values

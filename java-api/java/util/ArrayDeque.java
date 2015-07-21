@@ -435,6 +435,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     /** {@collect.stats}
      * {@description.open}
      * Inserts the specified element at the end of this deque.
+     * {@description.close}
      * {@property.open formal:java.util.ArrayDeque_NonNull}
      * Inserting <tt>null</tt> is not allowed.
      * {@property.close}
@@ -453,6 +454,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     /** {@collect.stats}
      * {@description.open}
      * Inserts the specified element at the end of this deque.
+     * {@description.close}
      * {@property.open formal:java.util.ArrayDeque_NonNull}
      * Inserting <tt>null</tt> is not allowed.
      * {@property.close}
@@ -529,9 +531,11 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * {@description.open}
      * Pushes an element onto the stack represented by this deque.  In other
      * words, inserts the element at the front of this deque.
+     * {@description.close}
      * {@property.open formal:java.util.ArrayDeque_NonNull}
      * Inserting <tt>null</tt> is not allowed.
      * {@property.close}
+     * {@description.open}
      * <p>This method is equivalent to {@link #addFirst}.
      * {@description.close}
      * @param e the element to push

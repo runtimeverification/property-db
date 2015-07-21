@@ -1421,13 +1421,13 @@ public class Arrays {
     /** {@collect.stats}
      * {@description.open}
      * Sorts the specified array of objects according to the order induced by
-     * the specified comparator.  
+     * the specified comparator. 
+     * {@description.close} 
      * {@property.open formal:java.util.Arrays_MutuallyComparable}
      * All elements in the array must be
      * <i>mutually comparable</i> by the specified comparator (that is,
      * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
      * for any elements {@code e1} and {@code e2} in the array).
-     * {@description.open}
      * {@property.close}
      * {@description.open}
      * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will

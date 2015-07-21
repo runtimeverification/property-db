@@ -180,7 +180,7 @@ public interface Condition {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Causes the current thread to wait until it is signalled or
      * {@linkplain Thread#interrupt interrupted}.
      *
@@ -197,6 +197,7 @@ public interface Condition {
      * current thread, and interruption of thread suspension is supported; or
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
      * </ul>
+     * {@description.close}
      * {@property.open internal}
      * <p>In all cases, before this method can return the current thread must
      * re-acquire the lock associated with this condition. When the
