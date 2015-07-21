@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats}
+ * {@description.open}
  * The <code>Dictionary</code> class is the abstract parent of any
  * class, such as <code>Hashtable</code>, which maps keys to values.
  * Every key and every value is an object. In any one <tt>Dictionary</tt>
@@ -36,9 +37,11 @@ package java.util;
  * As a rule, the <code>equals</code> method should be used by
  * implementations of this class to decide if two keys are the same.
  * <p>
+ * {@description.close}
+ * {@property.open formal:java.util.Dictionary_Obsolete}
  * <strong>NOTE: This class is obsolete.  New implementations should
  * implement the Map interface, rather than extending this class.</strong>
- *
+ * {@property.close}
  * @author  unascribed
  * @see     java.util.Map
  * @see     java.lang.Object#equals(java.lang.Object)

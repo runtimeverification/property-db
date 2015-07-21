@@ -75,11 +75,19 @@ public interface ListIterator<E> extends Iterator<E> {
     boolean hasNext();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the next element in the list and advances the cursor position.
      * This method may be called repeatedly to iterate through the list,
      * or intermixed with calls to {@link #previous} to go back and forth.
      * (Note that alternating calls to {@code next} and {@code previous}
      * will return the same element repeatedly.)
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@new.open}
+     * It is recommended to call hasNext() and check if the return value is
+     * true, before calling this method.
+     * {@new.close}
+     * {@property.close}
      *
      * @return the next element in the list
      * @throws NoSuchElementException if the iteration has no next element
@@ -98,13 +106,20 @@ public interface ListIterator<E> extends Iterator<E> {
     boolean hasPrevious();
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the previous element in the list and moves the cursor
      * position backwards.  This method may be called repeatedly to
      * iterate through the list backwards, or intermixed with calls to
      * {@link #next} to go back and forth.  (Note that alternating calls
      * to {@code next} and {@code previous} will return the same
      * element repeatedly.)
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_hasNextPrevious}
+     * {@new.open}
+     * It is recommended to call hasPrevious() and check if the return value is
+     * true, before calling this method.
+     * {@new.close}
+     * {@property.close}
      * @return the previous element in the list
      * @throws NoSuchElementException if the iteration has no previous
      *         element
@@ -137,12 +152,15 @@ public interface ListIterator<E> extends Iterator<E> {
     // Modification Operations
 
     /** {@collect.stats}
+     * {@description.open}
      * Removes from the list the last element that was returned by {@link
      * #next} or {@link #previous} (optional operation).  This call can
      * only be made once per call to {@code next} or {@code previous}.
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_RemoveOnce}
      * It can be made only if {@link #add} has not been
      * called after the last call to {@code next} or {@code previous}.
-     *
+     * {@property.close}
      * @throws UnsupportedOperationException if the {@code remove}
      *         operation is not supported by this list iterator
      * @throws IllegalStateException if neither {@code next} nor
@@ -153,12 +171,15 @@ public interface ListIterator<E> extends Iterator<E> {
     void remove();
 
     /** {@collect.stats}
+     * {@description.open}
      * Replaces the last element returned by {@link #next} or
      * {@link #previous} with the specified element (optional operation).
+     * {@description.close}
+     * {@property.open formal:java.util.ListIterator_Set}
      * This call can be made only if neither {@link #remove} nor {@link
      * #add} have been called after the last call to {@code next} or
      * {@code previous}.
-     *
+     * {@property.close}
      * @param e the element with which to replace the last element returned by
      *          {@code next} or {@code previous}
      * @throws UnsupportedOperationException if the {@code set} operation

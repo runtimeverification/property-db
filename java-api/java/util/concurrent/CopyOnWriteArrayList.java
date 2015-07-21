@@ -1330,16 +1330,16 @@ public class CopyOnWriteArrayList<E>
         }
     }
 
-    /**
+    /** {@collect.stats} 
      * Returns a view of the portion of this list between
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.
      * The returned list is backed by this list, so changes in the
      * returned list are reflected in this list.
-     *
+     * {@property.open}
      * <p>The semantics of the list returned by this method become
      * undefined if the backing list (i.e., this list) is modified in
      * any way other than via the returned list.
-     *
+     * {@property.close}
      * @param fromIndex low endpoint (inclusive) of the subList
      * @param toIndex high endpoint (exclusive) of the subList
      * @return a view of the specified range within this list

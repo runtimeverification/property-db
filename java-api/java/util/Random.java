@@ -36,7 +36,8 @@ import java.util.stream.StreamSupport;
 
 import sun.misc.Unsafe;
 
-/**
+ /** {@collect.stats}
+ * {@description.open}
  * An instance of this class is used to generate a stream of
  * pseudorandom numbers. The class uses a 48-bit seed, which is
  * modified using a linear congruential formula. (See Donald Knuth,
@@ -57,7 +58,7 @@ import sun.misc.Unsafe;
  * up to 32 pseudorandomly generated bits.
  * <p>
  * Many applications will find the method {@link Math#random} simpler to use.
- *
+ * {@description.close}
  * <p>Instances of {@code java.util.Random} are threadsafe.
  * However, the concurrent use of the same {@code java.util.Random}
  * instance across threads may encounter contention and consequent
@@ -128,7 +129,8 @@ class Random implements java.io.Serializable {
     private static final AtomicLong seedUniquifier
         = new AtomicLong(8682522807148012L);
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Creates a new random number generator using a single {@code long} seed.
      * The seed is the initial value of the internal state of the pseudorandom
      * number generator which is maintained by method {@link #next}.
@@ -137,6 +139,7 @@ class Random implements java.io.Serializable {
      *  <pre> {@code
      * Random rnd = new Random();
      * rnd.setSeed(seed);}</pre>
+     * {@description.close}
      *
      * @param seed the initial seed
      * @see   #setSeed(long)
@@ -155,7 +158,8 @@ class Random implements java.io.Serializable {
         return (seed ^ multiplier) & mask;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Sets the seed of this random number generator using a single
      * {@code long} seed. The general contract of {@code setSeed} is
      * that it alters the state of this random number generator object
@@ -171,7 +175,7 @@ class Random implements java.io.Serializable {
      * happens to use only 48 bits of the given seed. In general, however,
      * an overriding method may use all 64 bits of the {@code long}
      * argument as a seed value.
-     *
+     * {@description.close}
      * @param seed the initial seed
      */
     synchronized public void setSeed(long seed) {
@@ -223,7 +227,8 @@ class Random implements java.io.Serializable {
         return (int)(nextseed >>> (48 - bits));
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Generates random bytes and places them into a user-supplied
      * byte array.  The number of random bytes produced is equal to
      * the length of the byte array.
@@ -237,6 +242,7 @@ class Random implements java.io.Serializable {
      *          n-- > 0; rnd >>= 8)
      *       bytes[i++] = (byte)rnd;
      * }}</pre>
+     * {@description.close}
      *
      * @param  bytes the byte array to fill with random bytes
      * @throws NullPointerException if the byte array is null
@@ -326,7 +332,8 @@ class Random implements java.io.Serializable {
         return r;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the next pseudorandom, uniformly distributed {@code int}
      * value from this random number generator's sequence. The general
      * contract of {@code nextInt} is that one {@code int} value is
@@ -339,7 +346,7 @@ class Random implements java.io.Serializable {
      * public int nextInt() {
      *   return next(32);
      * }}</pre>
-     *
+     * {@description.close}
      * @return the next pseudorandom, uniformly distributed {@code int}
      *         value from this random number generator's sequence
      */
@@ -347,7 +354,8 @@ class Random implements java.io.Serializable {
         return next(32);
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Returns a pseudorandom, uniformly distributed {@code int} value
      * between 0 (inclusive) and the specified value (exclusive), drawn from
      * this random number generator's sequence.  The general contract of
@@ -393,7 +401,7 @@ class Random implements java.io.Serializable {
      * sequence of values of their low-order bits.  Thus, this special case
      * greatly increases the length of the sequence of values returned by
      * successive calls to this method if n is a small power of two.
-     *
+     * {@description.close}
      * @param bound the upper bound (exclusive).  Must be positive.
      * @return the next pseudorandom, uniformly distributed {@code int}
      *         value between zero (inclusive) and {@code bound} (exclusive)
@@ -418,7 +426,8 @@ class Random implements java.io.Serializable {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Returns the next pseudorandom, uniformly distributed {@code long}
      * value from this random number generator's sequence. The general
      * contract of {@code nextLong} is that one {@code long} value is
@@ -433,7 +442,7 @@ class Random implements java.io.Serializable {
      *
      * Because class {@code Random} uses a seed with only 48 bits,
      * this algorithm will not return all possible {@code long} values.
-     *
+     * {@description.close}
      * @return the next pseudorandom, uniformly distributed {@code long}
      *         value from this random number generator's sequence
      */
@@ -442,7 +451,8 @@ class Random implements java.io.Serializable {
         return ((long)(next(32)) << 32) + next(32);
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Returns the next pseudorandom, uniformly distributed
      * {@code boolean} value from this random number generator's
      * sequence. The general contract of {@code nextBoolean} is that one
@@ -456,6 +466,7 @@ class Random implements java.io.Serializable {
      * public boolean nextBoolean() {
      *   return next(1) != 0;
      * }}</pre>
+     * {@description.close}
      *
      * @return the next pseudorandom, uniformly distributed
      *         {@code boolean} value from this random number generator's
@@ -466,7 +477,8 @@ class Random implements java.io.Serializable {
         return next(1) != 0;
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Returns the next pseudorandom, uniformly distributed {@code float}
      * value between {@code 0.0} and {@code 1.0} from this random
      * number generator's sequence.
@@ -498,7 +510,7 @@ class Random implements java.io.Serializable {
      * introduced a slight nonuniformity because of the bias in the rounding
      * of floating-point numbers: it was slightly more likely that the
      * low-order bit of the significand would be 0 than that it would be 1.]
-     *
+     * {@description.close}
      * @return the next pseudorandom, uniformly distributed {@code float}
      *         value between {@code 0.0} and {@code 1.0} from this
      *         random number generator's sequence
@@ -507,7 +519,8 @@ class Random implements java.io.Serializable {
         return next(24) / ((float)(1 << 24));
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the next pseudorandom, uniformly distributed
      * {@code double} value between {@code 0.0} and
      * {@code 1.0} from this random number generator's sequence.
@@ -540,7 +553,7 @@ class Random implements java.io.Serializable {
      * low-order bit of the significand would be 0 than that it would be 1!
      * This nonuniformity probably doesn't matter much in practice, but we
      * strive for perfection.]
-     *
+     * {@description.close}
      * @return the next pseudorandom, uniformly distributed {@code double}
      *         value between {@code 0.0} and {@code 1.0} from this
      *         random number generator's sequence
@@ -553,7 +566,8 @@ class Random implements java.io.Serializable {
     private double nextNextGaussian;
     private boolean haveNextNextGaussian = false;
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the next pseudorandom, Gaussian ("normally") distributed
      * {@code double} value with mean {@code 0.0} and standard
      * deviation {@code 1.0} from this random number generator's sequence.
@@ -592,7 +606,7 @@ class Random implements java.io.Serializable {
      * section 3.4.1, subsection C, algorithm P. Note that it generates two
      * independent values at the cost of only one call to {@code StrictMath.log}
      * and one call to {@code StrictMath.sqrt}.
-     *
+     * {@description.close}
      * @return the next pseudorandom, Gaussian ("normally") distributed
      *         {@code double} value with mean {@code 0.0} and
      *         standard deviation {@code 1.0} from this random number
@@ -1196,8 +1210,10 @@ class Random implements java.io.Serializable {
     };
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitute the {@code Random} instance from a stream (that is,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {
@@ -1216,11 +1232,11 @@ class Random implements java.io.Serializable {
     }
 
     /** {@collect.stats}
-     *      
-* {@description.open}
+     * {@description.open}
      * Save the {@code Random} instance to a stream.
 
-     * {@description.close}     */
+     * {@description.close}     
+     */
     synchronized private void writeObject(ObjectOutputStream s)
         throws IOException {
 

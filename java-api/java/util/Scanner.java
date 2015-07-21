@@ -38,7 +38,8 @@ import java.util.Locale;
 
 import sun.misc.LRUCache;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A simple text scanner which can parse primitive types and strings using
  * regular expressions.
  *
@@ -100,7 +101,8 @@ import sun.misc.LRUCache;
  * java.lang.Character#isWhitespace(char) isWhitespace}. The {@link #reset}
  * method will reset the value of the scanner's delimiter to the default
  * whitespace delimiter regardless of whether it was previously changed.
- *
+ * {@description.close}
+ * {@description.open blocking}
  * <p>A scanning operation may block waiting for input.
  *
  * <p>The {@link #next} and {@link #hasNext} methods and their
@@ -110,7 +112,8 @@ import sun.misc.LRUCache;
  * and <tt>next</tt> methods may block waiting for further input.  Whether a
  * <tt>hasNext</tt> method blocks has no connection to whether or not its
  * associated <tt>next</tt> method will block.
- *
+ * {@description.close}
+ * {@description.open}
  * <p> The {@link #findInLine}, {@link #findWithinHorizon}, and {@link #skip}
  * methods operate independently of the delimiter pattern. These methods will
  * attempt to match the specified pattern with no regard to delimiters in the
@@ -133,13 +136,16 @@ import sun.misc.LRUCache;
  * java.io.IOException} then the scanner assumes that the end of the input
  * has been reached.  The most recent <tt>IOException</tt> thrown by the
  * underlying readable can be retrieved via the {@link #ioException} method.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Scanner_ManipulateAfterClose}
  * <p>When a <code>Scanner</code> is closed, it will close its input source
  * if the source implements the {@link java.io.Closeable} interface.
- *
+ * {@property.close}
+ * {@description.open synchronized}
  * <p>A <code>Scanner</code> is not safe for multithreaded use without
  * external synchronization.
- *
+ * {@description.close}
+ * {@description.open}
  * <p>Unless otherwise mentioned, passing a <code>null</code> parameter into
  * any method of a <code>Scanner</code> will cause a
  * <code>NullPointerException</code> to be thrown.
@@ -159,7 +165,7 @@ import sun.misc.LRUCache;
  * #useLocale} method. The {@link #reset} method will reset the value of the
  * scanner's locale to the initial locale regardless of whether it was
  * previously changed.
- *
+ * 
  * <p>The localized formats are defined in terms of the following parameters,
  * which for a particular locale are taken from that locale's {@link
  * java.text.DecimalFormat DecimalFormat} object, <tt>df</tt>, and its and
@@ -298,7 +304,7 @@ import sun.misc.LRUCache;
  *
  * </dl>
  * <p>Whitespace is not significant in the above regular expressions.
- *
+ * {@description.close}
  * @since   1.5
  */
 public final class Scanner implements Iterator<String>, Closeable {
@@ -1120,18 +1126,21 @@ public final class Scanner implements Iterator<String>, Closeable {
 
     // Public methods
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Closes this scanner.
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.Scanner_ManipulateAfterClose}
      * <p> If this scanner has not yet been closed then if its underlying
      * {@linkplain java.lang.Readable readable} also implements the {@link
      * java.io.Closeable} interface then the readable's <tt>close</tt> method
      * will be invoked.  If this scanner is already closed then invoking this
      * method will have no effect.
-     *
+     * {@property.close}
+     * {@property.open formal:java.util.Scanner_SearchAfterClose}
      * <p>Attempting to perform search operations after a scanner has
      * been closed will result in an {@link IllegalStateException}.
-     *
+     * {@property.close}
      */
     public void close() {
         if (closed)
@@ -1149,10 +1158,11 @@ public final class Scanner implements Iterator<String>, Closeable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the <code>IOException</code> last thrown by this
      * <code>Scanner</code>'s underlying <code>Readable</code>. This method
      * returns <code>null</code> if no such exception exists.
-     *
+     * {@description.close}
      * @return the last exception thrown by this scanner's readable
      */
     public IOException ioException() {
@@ -1161,11 +1171,11 @@ public final class Scanner implements Iterator<String>, Closeable {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Returns the <code>Pattern</code> this <code>Scanner</code> is currently
      * using to match delimiters.
 
-     * {@description.close}     *
+     * {@description.close}    
      * @return this scanner's delimiting pattern.
      */
     public Pattern delimiter() {
@@ -1499,12 +1509,16 @@ public final class Scanner implements Iterator<String>, Closeable {
         return next(patternCache.forName(pattern));
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns true if the next complete token matches the specified pattern.
      * A complete token is prefixed and postfixed by input that matches
-     * the delimiter pattern. This method may block while waiting for input.
+     * the delimiter pattern. 
+     * {@description.close}
+     * {@description.open blocking}
+     * This method may block while waiting for input.
      * The scanner does not advance past any input.
-     *
+     * {@description.close}
      * @param pattern the pattern to scan for
      * @return true if and only if this scanner has another token matching
      *         the specified pattern
@@ -1653,20 +1667,25 @@ public final class Scanner implements Iterator<String>, Closeable {
         return findInLine(patternCache.forName(pattern));
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Attempts to find the next occurrence of the specified pattern ignoring
      * delimiters. If the pattern is found before the next line separator, the
      * scanner advances past the input that matched and returns the string that
      * matched the pattern.
      * If no such pattern is detected in the input up to the next line
      * separator, then <code>null</code> is returned and the scanner's
-     * position is unchanged. This method may block waiting for input that
+     * position is unchanged. 
+     * {@description.close}
+     * {@description.open blocking}
+     * This method may block waiting for input that
      * matches the pattern.
-     *
+     * {@description.close}
+     * {@description.open}
      * <p>Since this method continues to search through the input looking
      * for the specified pattern, it may buffer all of the input searching for
      * the desired token if no line separators are present.
-     *
+     * {@description.close}
      * @param pattern the pattern to scan for
      * @return the text that matched the specified pattern
      * @throws IllegalStateException if this scanner is closed
@@ -2727,7 +2746,8 @@ public final class Scanner implements Iterator<String>, Closeable {
         return result;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Scans the next token of the input as a {@link java.math.BigDecimal
      * BigDecimal}.
      *
@@ -2739,6 +2759,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * resulting string to the {@link
      * java.math.BigDecimal#BigDecimal(java.lang.String) BigDecimal(String)}
      * constructor.
+     * {@description.close}
      *
      * @return the <tt>BigDecimal</tt> scanned from the input
      * @throws InputMismatchException
@@ -2766,7 +2787,8 @@ public final class Scanner implements Iterator<String>, Closeable {
         }
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Resets this scanner.
      *
      * <p> Resetting a scanner discards all of its explicit state
@@ -2782,7 +2804,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *          .useLocale(Locale.getDefault(Locale.Category.FORMAT))
      *          .useRadix(10);
      * }</pre></blockquote>
-     *
+     * {@description.close}
      * @return this scanner
      *
      * @since 1.6

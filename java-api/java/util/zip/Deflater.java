@@ -25,7 +25,7 @@
 
 package java.util.zip;
 
-/**
+/** {@collect.stats} 
  * This class provides support for general purpose compression using the
  * popular ZLIB compression library. The ZLIB compression library was
  * initially developed as part of the PNG graphics standard and is not
@@ -403,12 +403,14 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats} 
      * Compresses the input data and fills specified buffer with compressed
-     * data. Returns actual number of bytes of compressed data. A return value
+     * data. Returns actual number of bytes of compressed data. 
+     * {@property.open}
+     * A return value
      * of 0 indicates that {@link #needsInput() needsInput} should be called
      * in order to determine if more input data is required.
-     *
+     * {@property.close}
      * <p>This method uses {@link #NO_FLUSH} as its compression flush mode.
      * An invocation of this method of the form {@code deflater.deflate(b, off, len)}
      * yields the same result as the invocation of
@@ -424,12 +426,14 @@ class Deflater {
         return deflate(b, off, len, NO_FLUSH);
     }
 
-    /**
+    /** {@collect.stats}
      * Compresses the input data and fills specified buffer with compressed
-     * data. Returns actual number of bytes of compressed data. A return value
+     * data. Returns actual number of bytes of compressed data. 
+     * {@property.open}
+     * A return value
      * of 0 indicates that {@link #needsInput() needsInput} should be called
      * in order to determine if more input data is required.
-     *
+     * {@property.close}
      * <p>This method uses {@link #NO_FLUSH} as its compression flush mode.
      * An invocation of this method of the form {@code deflater.deflate(b)}
      * yields the same result as the invocation of
@@ -443,7 +447,7 @@ class Deflater {
         return deflate(b, 0, b.length, NO_FLUSH);
     }
 
-    /**
+    /** {@collect.stats}
      * Compresses the input data and fills the specified buffer with compressed
      * data. Returns actual number of bytes of data compressed.
      *
@@ -452,10 +456,12 @@ class Deflater {
      * <ul>
      * <li>{@link #NO_FLUSH}: allows the deflater to decide how much data
      * to accumulate, before producing output, in order to achieve the best
-     * compression (should be used in normal use scenario). A return value
+     * compression (should be used in normal use scenario). 
+     * {@property.open}
+     * A return value
      * of 0 in this flush mode indicates that {@link #needsInput()} should
      * be called in order to determine if more input data is required.
-     *
+     * {@property.close}
      * <li>{@link #SYNC_FLUSH}: all pending output in the deflater is flushed,
      * to the specified output buffer, so that an inflater that works on
      * compressed data can get all input data available so far (In particular
@@ -588,11 +594,14 @@ class Deflater {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Resets deflater so that a new set of input data can be processed.
      * Keeps current compression level and strategy settings.
 
-     * {@description.close}     */
+     * {@description.close} 
+     * {@property.open}
+     * {@property.close}    
+     */
     public void reset() {
         synchronized (zsRef) {
             ensureOpen();

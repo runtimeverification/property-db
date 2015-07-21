@@ -511,10 +511,10 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
      * Returns an iterator over all the elements (both expired and
      * unexpired) in this queue. The iterator does not return the
      * elements in any particular order.
-     *
+     * {@property.open synchronized}
      * <p>The returned iterator is
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * @return an iterator over the elements in this queue
      */
     public Iterator<E> iterator() {

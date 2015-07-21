@@ -27,7 +27,7 @@ package java.util.regex;
 
 import java.util.Objects;
 
-/**
+/** {@collect.stats}
  * An engine that performs match operations on a {@linkplain java.lang.CharSequence
  * character sequence} by interpreting a {@link Pattern}.
  *
@@ -90,11 +90,11 @@ import java.util.Objects;
  * #reset(java.lang.CharSequence) reset(CharSequence)} method.  Resetting a
  * matcher discards its explicit state information and sets the append position
  * to zero.
- *
+ * {@property.open}
  * <p> Instances of this class are not safe for use by multiple concurrent
  * threads. </p>
  *
- *
+ * {@property.close}
  * @author      Mike McCloskey
  * @author      Mark Reinhold
  * @author      JSR-51 Expert Group
@@ -807,7 +807,7 @@ public final class Matcher implements MatchResult {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats} 
      * Implements a non-terminal append-and-replace step.
      *
      * <p> This method performs the following actions: </p>
@@ -851,9 +851,11 @@ public final class Matcher implements MatchResult {
      * treated as references to captured subsequences as described above, and
      * backslashes are used to escape literal characters in the replacement
      * string.
-     *
+     * {@property.open}
      * <p> This method is intended to be used in a loop together with the
-     * {@link #appendTail appendTail} and {@link #find find} methods.  The
+     * {@link #appendTail appendTail} and {@link #find find} methods.  
+     * {@property.close}
+     * The
      * following code, for example, writes <tt>one dog two dogs in the
      * yard</tt> to the standard-output stream: </p>
      *

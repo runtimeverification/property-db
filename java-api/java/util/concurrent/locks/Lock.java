@@ -36,7 +36,7 @@
 package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 
-/**
+/** {@collect.stats}
  * {@code Lock} implementations provide more extensive locking
  * operations than can be obtained using {@code synchronized} methods
  * and statements.  They allow more flexible structuring, may have
@@ -49,14 +49,14 @@ import java.util.concurrent.TimeUnit;
  * all access to the shared resource requires that the lock be
  * acquired first. However, some locks may allow concurrent access to
  * a shared resource, such as the read lock of a {@link ReadWriteLock}.
- *
+ * {@property.open}
  * <p>The use of {@code synchronized} methods or statements provides
  * access to the implicit monitor lock associated with every object, but
  * forces all lock acquisition and release to occur in a block-structured way:
  * when multiple locks are acquired they must be released in the opposite
  * order, and all locks must be released in the same lexical scope in which
  * they were acquired.
- *
+ * {@property.close}
  * <p>While the scoping mechanism for {@code synchronized} methods
  * and statements makes it much easier to program with monitor locks,
  * and helps avoid many common programming errors involving locks,

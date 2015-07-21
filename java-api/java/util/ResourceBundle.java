@@ -63,8 +63,8 @@ import sun.util.locale.BaseLocale;
 import sun.util.locale.LocaleObjectCache;
 
 
-/**
- *
+/** {@collect.stats}
+ * {@description.open}
  * Resource bundles contain locale-specific objects.  When your program needs a
  * locale-specific resource, a <code>String</code> for example, your program can
  * load it from the resource bundle that is appropriate for the current user's
@@ -278,7 +278,7 @@ import sun.util.locale.LocaleObjectCache;
  * (<code>ExceptionResources_fr</code>, <code>ExceptionResources_de</code>, ...),
  * and one for widgets, <code>WidgetResource</code> (<code>WidgetResources_fr</code>,
  * <code>WidgetResources_de</code>, ...); breaking up the resources however you like.
- *
+ * {@description.close}
  * @see ListResourceBundle
  * @see PropertyResourceBundle
  * @see MissingResourceException
@@ -782,6 +782,7 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a resource bundle using the specified base name, the
      * default locale and the specified control. Calling this method
      * is equivalent to calling
@@ -794,7 +795,7 @@ public abstract class ResourceBundle {
      * #getBundle(String, Locale, ClassLoader, Control) getBundle} for the
      * complete description of the resource bundle loading process with a
      * <code>ResourceBundle.Control</code>.
-     *
+     * {@description.close}
      * @param baseName
      *        the base name of the resource bundle, a fully qualified class
      *        name
@@ -854,6 +855,7 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a resource bundle using the specified base name, target
      * locale and control, and the caller's class loader. Calling this
      * method is equivalent to calling
@@ -866,7 +868,7 @@ public abstract class ResourceBundle {
      * #getBundle(String, Locale, ClassLoader, Control) getBundle} for the
      * complete description of the resource bundle loading process with a
      * <code>ResourceBundle.Control</code>.
-     *
+     * {@description.close}
      * @param baseName
      *        the base name of the resource bundle, a fully qualified
      *        class name
@@ -1091,6 +1093,7 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a resource bundle using the specified base name, target
      * locale, class loader and control. Unlike the {@linkplain
      * #getBundle(String, Locale, ClassLoader) <code>getBundle</code>
@@ -1274,7 +1277,7 @@ public abstract class ResourceBundle {
      * <code>getBundle</code> creates a <code>ResourceBundle</code> instance
      * that becomes the parent of the instance for
      * <code>foo/bar/Messages_fr.properties</code>.
-     *
+     * {@description.close}
      * @param baseName
      *        the base name of the resource bundle, a fully qualified
      *        class name
@@ -1559,7 +1562,9 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Throw a MissingResourceException with proper message
+      * {@description.close}
      */
     private static void throwMissingResourceException(String baseName,
                                                       Locale locale,
@@ -1685,8 +1690,9 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Put a new bundle in the cache.
-     *
+     * {@description.close}
      * @param cacheKey the key for the resource bundle
      * @param bundle the resource bundle to be put in the cache
      * @return the ResourceBundle for the cacheKey; if someone has put
@@ -1836,6 +1842,7 @@ public abstract class ResourceBundle {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a <code>Set</code> of the keys contained <em>only</em>
      * in this <code>ResourceBundle</code>.
      *
@@ -1847,7 +1854,7 @@ public abstract class ResourceBundle {
      * <code>ResourceBundle</code> in order to avoid producing the
      * same <code>Set</code> in subsequent calls. Subclasses can
      * override this method for faster handling.
-     *
+     * {@description.close}
      * @return a <code>Set</code> of the keys contained only in this
      *        <code>ResourceBundle</code>
      * @since 1.6
@@ -2023,10 +2030,12 @@ public abstract class ResourceBundle {
      */
     public static class Control {
         /** {@collect.stats}
+         * {@description.open}
          * The default format <code>List</code>, which contains the strings
          * <code>"java.class"</code> and <code>"java.properties"</code>, in
          * this order. This <code>List</code> is {@linkplain
          * Collections#unmodifiableList(List) unmodifiable}.
+         * {@description.close}
          *
          * @see #getFormats(String)
          */
@@ -2082,6 +2091,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code>. The <code>formats</code> must be equal to
@@ -2093,6 +2103,7 @@ public abstract class ResourceBundle {
          * <p>Specifying {@link Control#FORMAT_DEFAULT} is equivalent to
          * instantiating the <code>ResourceBundle.Control</code> class,
          * except that this method returns a singleton.
+         * {@description.close}
          *
          * @param formats
          *        the formats to be returned by the
@@ -2118,6 +2129,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns a <code>ResourceBundle.Control</code> in which the {@link
          * #getFormats(String) getFormats} method returns the specified
          * <code>formats</code> and the {@link
@@ -2127,7 +2139,7 @@ public abstract class ResourceBundle {
          * Control#FORMAT_CLASS} or {@link Control#FORMAT_DEFAULT}.
          * <code>ResourceBundle.Control</code> instances returned by this
          * method are singletons and thread-safe.
-         *
+         * {@description.close}
          * @param formats
          *        the formats to be returned by the
          *        <code>ResourceBundle.Control.getFormats</code> method
@@ -2153,6 +2165,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns a <code>List</code> of <code>String</code>s containing
          * formats to be used to load resource bundles for the given
          * <code>baseName</code>. The <code>ResourceBundle.getBundle</code>
@@ -2164,17 +2177,19 @@ public abstract class ResourceBundle {
          * PropertyResourceBundle properties-based} ones. Strings starting
          * with <code>"java."</code> are reserved for future extensions and
          * must not be used by application-defined formats.
-         *
+         * {@description.close}
+         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
          * <p>It is not a requirement to return an immutable (unmodifiable)
          * <code>List</code>.  However, the returned <code>List</code> must
          * not be mutated after it has been returned by
          * <code>getFormats</code>.
-         *
+         * {@property.close}
+         * {@description.open}
          * <p>The default implementation returns {@link #FORMAT_DEFAULT} so
          * that the <code>ResourceBundle.getBundle</code> factory method
          * looks up first class-based resource bundles, then
          * properties-based ones.
-         *
+         * {@description.close}
          * @param baseName
          *        the base name of the resource bundle, a fully qualified class
          *        name
@@ -2194,6 +2209,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns a <code>List</code> of <code>Locale</code>s as candidate
          * locales for <code>baseName</code> and <code>locale</code>. This
          * method is called by the <code>ResourceBundle.getBundle</code>
@@ -2213,12 +2229,14 @@ public abstract class ResourceBundle {
          * <code>Locale</code> must be returned. In this case, the
          * <code>ResourceBundle.getBundle</code> factory method loads only
          * the base bundle as the resulting resource bundle.
-         *
+         * {@description.close}
+         * {@property.open formal:java.util.ResourceBundleControl_MutateFormatList}
          * <p>It is not a requirement to return an immutable (unmodifiable)
          * <code>List</code>. However, the returned <code>List</code> must not
          * be mutated after it has been returned by
          * <code>getCandidateLocales</code>.
-         *
+         * {@property.close}
+         * {@description.open}
          * <p>The default implementation returns a <code>List</code> containing
          * <code>Locale</code>s using the rules described below.  In the
          * description below, <em>L</em>, <em>S</em>, <em>C</em> and <em>V</em>
@@ -2359,7 +2377,7 @@ public abstract class ResourceBundle {
          * <pre>{@code
          *     Messages_ja -> Messages
          * }</pre>
-         *
+         * {@description.close}
          * @param baseName
          *        the base name of the resource bundle, a fully
          *        qualified class name
@@ -2545,6 +2563,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Instantiates a resource bundle for the given bundle name of the
          * given format and locale, using the given class loader if
          * necessary. This method returns <code>null</code> if there is no
@@ -2597,7 +2616,7 @@ public abstract class ResourceBundle {
          * <code>IllegalArgumentException</code> is thrown.</li>
          *
          * </ul>
-         *
+         * {@description.close}
          * @param baseName
          *        the base bundle name of the resource bundle, a fully
          *        qualified class name
@@ -2708,6 +2727,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Returns the time-to-live (TTL) value for resource bundles that
          * are loaded under this
          * <code>ResourceBundle.Control</code>. Positive time-to-live values
@@ -2737,7 +2757,7 @@ public abstract class ResourceBundle {
          * resource bundles in the cache.
          *
          * <p>The default implementation returns {@link #TTL_NO_EXPIRATION_CONTROL}.
-         *
+         * {@description.close}
          * @param baseName
          *        the base name of the resource bundle for which the
          *        expiration value is specified.
@@ -2853,6 +2873,7 @@ public abstract class ResourceBundle {
         }
 
         /** {@collect.stats}
+         * {@description.open}
          * Converts the given <code>baseName</code> and <code>locale</code>
          * to the bundle name. This method is called from the default
          * implementation of the {@link #newBundle(String, Locale, String,
@@ -2882,7 +2903,7 @@ public abstract class ResourceBundle {
          * <p>Overriding this method allows applications to use different
          * conventions in the organization and packaging of localized
          * resources.
-         *
+         * {@description.close}
          * @param baseName
          *        the base name of the resource bundle, a fully
          *        qualified class name

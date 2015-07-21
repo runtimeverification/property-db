@@ -122,10 +122,10 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * @return a navigable set view of the keys in this map
      */
     public NavigableSet<K> navigableKeySet();
@@ -140,12 +140,12 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
      *
      * <p>This method is equivalent to method {@code navigableKeySet}.
-     *
+     * {@property.close}
      * @return a navigable set view of the keys in this map
      */
     NavigableSet<K> keySet();
@@ -160,10 +160,10 @@ public interface ConcurrentNavigableMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * @return a reverse order navigable set view of the keys in this map
      */
     public NavigableSet<K> descendingKeySet();

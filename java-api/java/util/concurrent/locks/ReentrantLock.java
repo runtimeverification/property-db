@@ -37,12 +37,12 @@ package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 import java.util.Collection;
 
-/**
+/** {@collect.stats} 
  * A reentrant mutual exclusion {@link Lock} with the same basic
  * behavior and semantics as the implicit monitor lock accessed using
  * {@code synchronized} methods and statements, but with extended
  * capabilities.
- *
+ * {@property.open}
  * <p>A {@code ReentrantLock} is <em>owned</em> by the thread last
  * successfully locking, but not yet unlocking it. A thread invoking
  * {@code lock} will return, successfully acquiring the lock, when
@@ -50,7 +50,7 @@ import java.util.Collection;
  * immediately if the current thread already owns the lock. This can
  * be checked using methods {@link #isHeldByCurrentThread}, and {@link
  * #getHoldCount}.
- *
+ * {@property.close}
  * <p>The constructor for this class accepts an optional
  * <em>fairness</em> parameter.  When set {@code true}, under
  * contention, locks favor granting access to the longest-waiting
@@ -67,7 +67,7 @@ import java.util.Collection;
  * Also note that the untimed {@link #tryLock()} method does not
  * honor the fairness setting. It will succeed if the lock
  * is available even if other threads are waiting.
- *
+ * {@property.open}
  * <p>It is recommended practice to <em>always</em> immediately
  * follow a call to {@code lock} with a {@code try} block, most
  * typically in a before/after construction such as:
@@ -86,7 +86,7 @@ import java.util.Collection;
  *     }
  *   }
  * }}</pre>
- *
+ * {@property.close}
  * <p>In addition to implementing the {@link Lock} interface, this
  * class defines a number of {@code public} and {@code protected}
  * methods for inspecting the state of the lock.  Some of these

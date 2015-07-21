@@ -1384,8 +1384,9 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
     /** {@collect.stats}
      * Initiates an orderly shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.
+     * {@property.open formal:java.util.concurrent.ThreadPoolExecutor_MultipleShutdown}
      * Invocation has no additional effect if already shut down.
-     *
+     * {@property.close}
      * <p>This method does not wait for previously submitted tasks to
      * complete execution.  Use {@link #awaitTermination awaitTermination}
      * to do that.

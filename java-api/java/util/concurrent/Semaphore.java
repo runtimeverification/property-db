@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.Collection;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
-/**
+/** {@collect.stats} 
  * A counting semaphore.  Conceptually, a semaphore maintains a set of
  * permits.  Each {@link #acquire} blocks if necessary until a permit is
  * available, and then takes it.  Each {@link #release} adds a permit,
@@ -96,9 +96,13 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  * the semaphore, guaranteeing that an item is available for use. When
  * the thread has finished with the item it is returned back to the
  * pool and a permit is returned to the semaphore, allowing another
- * thread to acquire that item.  Note that no synchronization lock is
+ * thread to acquire that item.  
+ * {@property.open}
+ * Note that no synchronization lock is
  * held when {@link #acquire} is called as that would prevent an item
- * from being returned to the pool.  The semaphore encapsulates the
+ * from being returned to the pool.  
+ * {@property.close}
+ * The semaphore encapsulates the
  * synchronization needed to restrict access to the pool, separately
  * from any synchronization needed to maintain the consistency of the
  * pool itself.

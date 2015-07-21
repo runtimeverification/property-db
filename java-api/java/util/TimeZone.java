@@ -299,6 +299,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a long standard time name of this {@code TimeZone} suitable for
      * presentation to the user in the default locale.
      *
@@ -307,7 +308,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * getDisplayName(false, {@link #LONG},
      *                Locale.getDefault({@link Locale.Category#DISPLAY}))
      * </pre></blockquote>
-     *
+     * {@description.close}
      * @return the human-readable name of this time zone in the default locale.
      * @since 1.2
      * @see #getDisplayName(boolean, int, Locale)
@@ -320,6 +321,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a long standard time name of this {@code TimeZone} suitable for
      * presentation to the user in the specified {@code locale}.
      *
@@ -327,7 +329,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * <blockquote><pre>
      * getDisplayName(false, {@link #LONG}, locale)
      * </pre></blockquote>
-     *
+     * {@description.close}
      * @param locale the locale in which to supply the display name.
      * @return the human-readable name of this time zone in the given locale.
      * @exception NullPointerException if {@code locale} is {@code null}.
@@ -339,6 +341,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a name in the specified {@code style} of this {@code TimeZone}
      * suitable for presentation to the user in the default locale. If the
      * specified {@code daylight} is {@code true}, a Daylight Saving Time name
@@ -350,7 +353,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * getDisplayName(daylight, style,
      *                Locale.getDefault({@link Locale.Category#DISPLAY}))
      * </pre></blockquote>
-     *
+     * {@description.close}
      * @param daylight {@code true} specifying a Daylight Saving Time name, or
      *                 {@code false} specifying a Standard Time name
      * @param style either {@link #LONG} or {@link #SHORT}
@@ -368,6 +371,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns a name in the specified {@code style} of this {@code TimeZone}
      * suitable for presentation to the user in the specified {@code
      * locale}. If the specified {@code daylight} is {@code true}, a Daylight
@@ -384,7 +388,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * {@code Locale} of the search path, including {@link Locale#ROOT}, is
      * found, the name is returned. Otherwise, a string in the
      * <a href="#NormalizedCustomID">normalized custom ID format</a> is returned.
-     *
+     * {@description.close}
      * @param daylight {@code true} specifying a Daylight Saving Time name, or
      *                 {@code false} specifying a Standard Time name
      * @param style either {@link #LONG} or {@link #SHORT}
@@ -423,6 +427,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Returns the amount of time to be added to local standard time
      * to get local wall clock time.
      *
@@ -440,7 +445,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * required, construct a {@link Calendar} with this {@code
      * TimeZone} and the time stamp, and call {@link Calendar#get(int)
      * Calendar.get}{@code (}{@link Calendar#DST_OFFSET}{@code )}.
-     *
+     * {@description.close}
      * @return the amount of saving time in milliseconds
      * @since 1.4
      * @see #inDaylightTime(Date)
@@ -456,6 +461,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Queries if this {@code TimeZone} uses Daylight Saving Time.
      *
      * <p>If an underlying {@code TimeZone} implementation subclass
@@ -464,7 +470,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * rule that can be a future prediction and may not be the same as
      * the current rule. Consider calling {@link #observesDaylightTime()}
      * if the current rule should also be taken into account.
-     *
+     * {@description.close}
      * @return {@code true} if this {@code TimeZone} uses Daylight Saving Time,
      *         {@code false}, otherwise.
      * @see #inDaylightTime(Date)
@@ -495,9 +501,10 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Queries if the given {@code date} is in Daylight Saving Time in
      * this time zone.
-     *
+     * {@description.close}
      * @param date the given Date.
      * @return {@code true} if the given date is in Daylight Saving Time,
      *         {@code false}, otherwise.
@@ -603,6 +610,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
     private static native String getSystemGMTOffsetID();
 
     /** {@collect.stats}
+     * {@description.open}
      * Gets the default {@code TimeZone} of the Java virtual machine. If the
      * cached default {@code TimeZone} is available, its clone is returned.
      * Otherwise, the method takes the following steps to determine the default
@@ -620,7 +628,7 @@ abstract public class TimeZone implements Serializable, Cloneable {
      * <p>The default {@code TimeZone} created from the ID is cached,
      * and its clone is returned. The {@code user.timezone} property
      * value is set to the ID upon return.
-     *
+     * {@description.close}
      * @return the default {@code TimeZone}
      * @see #setDefault(TimeZone)
      */
@@ -694,11 +702,12 @@ abstract public class TimeZone implements Serializable, Cloneable {
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Sets the {@code TimeZone} that is returned by the {@code getDefault}
      * method. {@code zone} is cached. If {@code zone} is null, the cached
      * default {@code TimeZone} is cleared. This method doesn't change the value
      * of the {@code user.timezone} property.
-     *
+     * {@description.close}
      * @param zone the new default {@code TimeZone}, or null
      * @throws SecurityException if the security manager's {@code checkPermission}
      *                           denies {@code PropertyPermission("user.timezone",

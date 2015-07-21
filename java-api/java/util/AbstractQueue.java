@@ -35,7 +35,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This class provides skeletal implementations of some {@link Queue}
  * operations. The implementations in this class are appropriate when
  * the base implementation does <em>not</em> allow <tt>null</tt>
@@ -44,7 +44,7 @@ package java.util;
  * #poll poll}, and {@link #peek peek}, respectively, but throw
  * exceptions instead of indicating failure via <tt>false</tt> or
  * <tt>null</tt> returns.
- *
+ * {@property.open static enforced}
  * <p>A <tt>Queue</tt> implementation that extends this class must
  * minimally define a method {@link Queue#offer} which does not permit
  * insertion of <tt>null</tt> elements, along with methods {@link
@@ -52,7 +52,7 @@ package java.util;
  * {@link Collection#iterator}.  Typically, additional methods will be
  * overridden as well.  If these requirements cannot be met, consider
  * instead subclassing {@link AbstractCollection}.
- *
+ * {@property.close}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.

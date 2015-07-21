@@ -44,7 +44,8 @@ import java.io.Reader;
 import java.io.IOException;
 import sun.util.ResourceBundleEnumeration;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * <code>PropertyResourceBundle</code> is a concrete subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * using a set of static strings from a property file. See
@@ -98,12 +99,12 @@ import sun.util.ResourceBundleEnumeration;
  * s7=3. M&auml;rz 1996
  * </pre>
  * </blockquote>
- *
+ * {@description.close}
  * <p>
  * The implementation of a {@code PropertyResourceBundle} subclass must be
  * thread-safe if it's simultaneously used by multiple threads. The default
  * implementations of the non-abstract methods in this class are thread-safe.
- *
+ * {@property.open uncheckable}
  * <p>
  * <strong>Note:</strong> PropertyResourceBundle can be constructed either
  * from an InputStream or a Reader, which represents a property file.
@@ -113,7 +114,7 @@ import sun.util.ResourceBundleEnumeration;
  * as defined in section 3.3 of
  * <cite>The Java&trade; Language Specification</cite>
  * whereas the other constructor which takes a Reader does not have that limitation.
- *
+ * {@property.close}
  * @see ResourceBundle
  * @see ListResourceBundle
  * @see Properties

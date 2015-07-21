@@ -30,7 +30,8 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * An object that maps keys to values.  A map cannot contain duplicate keys;
  * each key can map to at most one value.
  *
@@ -44,16 +45,21 @@ import java.io.Serializable;
  * elements.  Some map implementations, like the <tt>TreeMap</tt> class, make
  * specific guarantees as to their order; others, like the <tt>HashMap</tt>
  * class, do not.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Map_ItselfAsKey}
  * <p>Note: great care must be exercised if mutable objects are used as map
  * keys.  The behavior of a map is not specified if the value of an object is
  * changed in a manner that affects <tt>equals</tt> comparisons while the
  * object is a key in the map.  A special case of this prohibition is that it
- * is not permissible for a map to contain itself as a key.  While it is
+ * is not permissible for a map to contain itself as a key.
+ * {@property.close}  
+ * {@property.open formal:java.util.Map_ItselfAsValue}
+ * While it is
  * permissible for a map to contain itself as a value, extreme caution is
  * advised: the <tt>equals</tt> and <tt>hashCode</tt> methods are no longer
  * well defined on such a map.
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Map_StandardConstructors}
  * <p>All general-purpose map implementation classes should provide two
  * "standard" constructors: a void (no arguments) constructor which creates an
  * empty map, and a constructor with a single argument of type <tt>Map</tt>,
@@ -62,7 +68,8 @@ import java.io.Serializable;
  * producing an equivalent map of the desired class.  There is no way to
  * enforce this recommendation (as interfaces cannot contain constructors) but
  * all of the general-purpose map implementations in the JDK comply.
- *
+ * {@property.close}
+ * {@description.open}
  * <p>The "destructive" methods contained in this interface, that is, the
  * methods that modify the map on which they operate, are specified to throw
  * <tt>UnsupportedOperationException</tt> if this map does not support the
@@ -102,7 +109,7 @@ import java.io.Serializable;
  * the various Collections Framework interfaces are free to take advantage of
  * the specified behavior of underlying {@link Object} methods wherever the
  * implementor deems it appropriate.
- *
+ * {@description.close}
  * <p>Some map operations which perform recursive traversal of the map may fail
  * with an exception for self-referential instances where the map directly or
  * indirectly contains itself. This includes the {@code clone()},

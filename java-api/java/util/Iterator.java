@@ -67,22 +67,40 @@ public interface Iterator<E> {
      */
     boolean hasNext();
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Returns the next element in the iteration.
+     * {@description.close}
+     * {@property.open formal:java.util.Iterator_HasNext}
+     * {@new.open}
+     * In general, it is recommended to call hasNext() and check the return
+     * value before calling this method.
+     * {@new.close}
+     * {@property.close}
      *
      * @return the next element in the iteration
      * @throws NoSuchElementException if the iteration has no more elements
      */
     E next();
 
-    /**
+    /** {@collect.stats}
+     * {@description.open}
      * Removes from the underlying collection the last element returned
-     * by this iterator (optional operation).  This method can be called
-     * only once per call to {@link #next}.  The behavior of an iterator
+     * by this iterator (optional operation).
+     * {@description.close}
+     * {@property.open formal:java.util.Iterator_RemoveOnce}  
+     * This method can be called
+     * only once per call to {@link #next}.  
+     * {@new.open}
+     * If the {@link #next} method has not yet been called, this method cannot be called.
+     * {@new.close}
+     * {@property.close}
+     * {@property.open formal:java.util.Collection_UnsafeIterator formal:java.util.Map_UnsafeIterator}
+     * The behavior of an iterator
      * is unspecified if the underlying collection is modified while the
      * iteration is in progress in any way other than by calling this
      * method.
-     *
+     * {@property.close}
      * @implSpec
      * The default implementation throws an instance of
      * {@link UnsupportedOperationException} and performs no other action.

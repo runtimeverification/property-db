@@ -53,6 +53,7 @@ public class FormattableFlags {
     public static final int LEFT_JUSTIFY = 1<<0; // '-'
 
     /** {@collect.stats}
+     * {@description.open}
      * Converts the output to upper case according to the rules of the
      * {@linkplain java.util.Locale locale} given during creation of the
      * <tt>formatter</tt> argument of the {@link Formattable#formatTo
@@ -64,6 +65,7 @@ public class FormattableFlags {
      *
      * <p> This flag corresponds to <tt>'S'</tt> (<tt>'&#92;u0053'</tt>) in
      * the format specifier.
+     * {@description.close}
      */
     public static final int UPPERCASE = 1<<1;    // 'S'
 

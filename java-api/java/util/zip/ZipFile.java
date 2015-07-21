@@ -360,17 +360,18 @@ class ZipFile implements ZipConstants, Closeable {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Returns an input stream for reading the contents of the specified
      * zip file entry.
 
-     * {@description.close}     *
+     * {@description.close}    
      * <p>      
-* {@property.open}
+     * {@property.open}
+     * {@new.open}
      * Closing this ZIP file will, in turn, close all input
      * streams that have been returned by invocations of this method.
-
-     * {@property.close}     *
+     * {@new.close}
+     * {@property.close}     
      * @param entry the zip file entry
      * @return the input stream for reading the contents of the specified
      * zip file entry.

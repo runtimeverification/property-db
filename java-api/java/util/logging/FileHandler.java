@@ -47,7 +47,7 @@ import java.security.PrivilegedAction;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * Simple file logging <tt>Handler</tt>.
  * <p>
  * The <tt>FileHandler</tt> can either write to a specified file,
@@ -141,9 +141,10 @@ import java.util.Set;
  * they  might end up using fred0.0.txt, fred1.0.txt, fred2.0.txt as
  * the first file in their rotating sequences.
  * <p>
+ * {@property.open uncheckable}
  * Note that the use of unique ids to avoid conflicts is only guaranteed
  * to work reliably when using a local disk file system.
- *
+ * {@property.close}
  * @since 1.4
  */
 

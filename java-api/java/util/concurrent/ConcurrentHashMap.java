@@ -72,7 +72,7 @@ import java.util.function.ToLongBiFunction;
 import java.util.function.ToLongFunction;
 import java.util.stream.Stream;
 
-/**
+/** {@collect.stats}
  * A hash table supporting full concurrency of retrievals and
  * high expected concurrency for updates. This class obeys the
  * same functional specification as {@link java.util.Hashtable}, and
@@ -95,9 +95,12 @@ import java.util.stream.Stream;
  * reflect insertion or removal of only some entries.  Similarly,
  * Iterators, Spliterators and Enumerations return elements reflecting the
  * state of the hash table at some point at or since the creation of the
- * iterator/enumeration.  They do <em>not</em> throw {@link
+ * iterator/enumeration. 
+ * {@property.open synchronized} 
+ * They do <em>not</em> throw {@link
  * java.util.ConcurrentModificationException ConcurrentModificationException}.
  * However, iterators are designed to be used by only one thread at a time.
+ * {@property.close}
  * Bear in mind that the results of aggregate status methods including
  * {@code size}, {@code isEmpty}, and {@code containsValue} are typically
  * useful only when a map is not undergoing concurrent updates in other threads.
@@ -143,10 +146,10 @@ import java.util.stream.Stream;
  * <p>This class and its views and iterators implement all of the
  * <em>optional</em> methods of the {@link Map} and {@link Iterator}
  * interfaces.
- *
+ * {@property.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
  * <p>Like {@link Hashtable} but unlike {@link HashMap}, this class
  * does <em>not</em> allow {@code null} to be used as a key or value.
- *
+ * {@property.close}
  * <p>ConcurrentHashMaps support a set of sequential and parallel bulk
  * operations that, unlike most {@link Stream} methods, are designed
  * to be safely, and often sensibly, applied even with maps that are
@@ -954,8 +957,15 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats} 
+     * {@description.open}
      * Tests if the specified object is a key in this table.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified key is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      *
      * @param  key possible key
      * @return {@code true} if and only if the specified object
@@ -967,11 +977,15 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return get(key) != null;
     }
 
-    /**
+    /** {@collect.stats} 
      * Returns {@code true} if this map maps one or more keys to the
      * specified value. Note: This method may require a full traversal
      * of the map, and is much slower than method {@code containsKey}.
-     *
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified value is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      * @param value value whose presence in this map is to be tested
      * @return {@code true} if this map maps one or more keys to the
      *         specified value
@@ -992,13 +1006,17 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return false;
     }
 
-    /**
+    /** {@collect.stats} 
      * Maps the specified key to the specified value in this table.
      * Neither the key nor the value can be null.
      *
      * <p>The value can be retrieved by calling the {@code get} method
      * with a key that is equal to the original key.
-     *
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified key or value is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
      * @return the previous value associated with {@code key}, or
@@ -1090,9 +1108,16 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
             putVal(e.getKey(), e.getValue(), false);
     }
 
-    /**
+    /** {@collect.stats}
+     * {@description.open} 
      * Removes the key (and its corresponding value) from this map.
      * This method does nothing if the key is not in the map.
+     * {@description.close}
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified key is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      *
      * @param  key the key that needs to be removed
      * @return the previous value associated with {@code key}, or
@@ -1217,7 +1242,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
             addCount(delta, -1);
     }
 
-    /**
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa. The set supports element
@@ -1226,10 +1251,10 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or
      * {@code addAll} operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * <p>The view's {@code spliterator} reports {@link Spliterator#CONCURRENT},
      * {@link Spliterator#DISTINCT}, and {@link Spliterator#NONNULL}.
      *
@@ -1240,7 +1265,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return (ks = keySet) != null ? ks : (keySet = new KeySetView<K,V>(this, null));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  The collection
@@ -1249,10 +1274,10 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
      * {@code Collection.remove}, {@code removeAll},
      * {@code retainAll}, and {@code clear} operations.  It does not
      * support the {@code add} or {@code addAll} operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * <p>The view's {@code spliterator} reports {@link Spliterator#CONCURRENT}
      * and {@link Spliterator#NONNULL}.
      *
@@ -1263,7 +1288,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return (vs = values) != null ? vs : (values = new ValuesView<K,V>(this));
     }
 
-    /**
+    /** {@collect.stats} 
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  The set supports element
@@ -1271,10 +1296,10 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
      * via the {@code Iterator.remove}, {@code Set.remove},
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * <p>The view's {@code spliterator} reports {@link Spliterator#CONCURRENT},
      * {@link Spliterator#DISTINCT}, and {@link Spliterator#NONNULL}.
      *
@@ -1533,9 +1558,13 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
 
     // ConcurrentMap methods
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
-     *
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified key or value is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      * @return the previous value associated with the specified key,
      *         or {@code null} if there was no mapping for the key
      * @throws NullPointerException if the specified key or value is null
@@ -1544,8 +1573,13 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         return putVal(key, value, true);
     }
 
-    /**
+    /** {@collect.stats} 
      * {@inheritDoc}
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified key is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      *
      * @throws NullPointerException if the specified key is null
      */
@@ -2057,14 +2091,18 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
 
     // Hashtable legacy methods
 
-    /**
+    /** {@collect.stats} 
      * Legacy method testing if some key maps into the specified value
      * in this table.  This method is identical in functionality to
      * {@link #containsValue(Object)}, and exists solely to ensure
      * full compatibility with class {@link java.util.Hashtable},
      * which supported this method prior to introduction of the
      * Java Collections framework.
-     *
+     * {@property.open}
+     * {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
+     * If the specified value is null, a runtime exception is raised.
+     * {@new.close}
+     * {@property.close}
      * @param  value a value to search for
      * @return {@code true} if and only if some key maps to the
      *         {@code value} argument in this table as

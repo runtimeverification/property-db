@@ -46,7 +46,7 @@ import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats}
  * An optionally-bounded {@linkplain BlockingQueue blocking queue} based on
  * linked nodes.
  * This queue orders elements FIFO (first-in-first-out).
@@ -783,10 +783,10 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
     /** {@collect.stats}
      * Returns an iterator over the elements in this queue in proper sequence.
      * The elements will be returned in order from first (head) to last (tail).
-     *
+     * {@property.open}
      * <p>The returned iterator is
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * @return an iterator over the elements in this queue in proper sequence
      */
     public Iterator<E> iterator() {

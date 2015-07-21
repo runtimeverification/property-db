@@ -26,6 +26,7 @@
 package java.util;
 
 /** {@collect.stats}
+ * {@description.open}
  * An object that implements the Enumeration interface generates a
  * series of elements, one at a time. Successive calls to the
  * <code>nextElement</code> method return successive elements of the
@@ -40,12 +41,14 @@ package java.util;
  * vector, the keys of a hashtable, and the values in a hashtable.
  * Enumerations are also used to specify the input streams to a
  * <code>SequenceInputStream</code>.
+ * {@description.close}
+ * {@property.open formal:java.util.Enumeration_Obsolete}
  * <p>
  * NOTE: The functionality of this interface is duplicated by the Iterator
  * interface.  In addition, Iterator adds an optional remove operation, and
  * has shorter method names.  New implementations should consider using
  * Iterator in preference to Enumeration.
- *
+ * {@property.close}
  * @see     java.util.Iterator
  * @see     java.io.SequenceInputStream
  * @see     java.util.Enumeration#nextElement()

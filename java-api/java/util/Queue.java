@@ -35,7 +35,8 @@
 
 package java.util;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A collection designed for holding elements prior to processing.
  * Besides basic {@link java.util.Collection Collection} operations,
  * queues provide additional insertion, extraction, and inspection
@@ -128,7 +129,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @see java.util.Collection
  * @see LinkedList
  * @see PriorityQueue

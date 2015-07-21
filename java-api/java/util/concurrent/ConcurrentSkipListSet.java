@@ -46,7 +46,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.Spliterator;
 
-/**
+/** {@collect.stats}
  * A scalable concurrent {@link NavigableSet} implementation based on
  * a {@link ConcurrentSkipListMap}.  The elements of the set are kept
  * sorted according to their {@linkplain Comparable natural ordering},
@@ -57,10 +57,10 @@ import java.util.Spliterator;
  * cost for the {@code contains}, {@code add}, and {@code remove}
  * operations and their variants.  Insertion, removal, and access
  * operations safely execute concurrently by multiple threads.
- *
+ * {@property.open synchronized}
  * <p>Iterators and spliterators are
  * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
- *
+ * {@property.close}
  * <p>Ascending ordered views and their iterators are faster than
  * descending ones.
  *

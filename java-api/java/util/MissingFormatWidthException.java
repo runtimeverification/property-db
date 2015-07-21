@@ -25,13 +25,14 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
+ * {@description.open}
  * Unchecked exception thrown when the format width is required.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
- *
+ * {@description.close}
  * @since 1.5
  */
 public class MissingFormatWidthException extends IllegalFormatException {

@@ -90,7 +90,8 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
 
-     * {@description.close}     */
+     * {@description.close}     
+     */
     protected AbstractList() {
     }
 

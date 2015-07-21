@@ -40,7 +40,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * A simple service-provider loading facility.
  *
  * <p> A <i>service</i> is a well-known set of interfaces and (usually
@@ -99,10 +100,12 @@ import java.util.NoSuchElementException;
  * Trusted system code should typically invoke the methods in this class, and
  * the methods of the iterators which they return, from within a privileged
  * security context.
- *
+ * {@description.close}
+ * {@property.open formal:java.util.ServiceLoader_MultipleConcurrentThreads}
  * <p> Instances of this class are not safe for use by multiple concurrent
  * threads.
- *
+ * {@property.close}
+ * {@description.open}
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
  * method in this class will cause a {@link NullPointerException} to be thrown.
  *
@@ -174,7 +177,7 @@ import java.util.NoSuchElementException;
  * the HTML page as a provider-configuration file.  The best solution to this
  * problem is to fix the misconfigured web server to return the correct
  * response code (HTTP 404) along with the HTML error page.
- *
+ * {@description.close}
  * @param  <S>
  *         The type of the service to be loaded by this loader
  *
@@ -204,6 +207,7 @@ public final class ServiceLoader<S>
     private LazyIterator lookupIterator;
 
     /** {@collect.stats}
+     * {@description.open}
      * Clear this loader's provider cache so that all providers will be
      * reloaded.
      *
@@ -213,6 +217,7 @@ public final class ServiceLoader<S>
      *
      * <p> This method is intended for use in situations in which new providers
      * can be installed into a running Java virtual machine.
+     * {@description.close}
      */
     public void reload() {
         providers.clear();
@@ -417,6 +422,7 @@ public final class ServiceLoader<S>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Lazily loads the available providers of this loader's service.
      *
      * <p> The iterator returned by this method first yields all of the
@@ -448,11 +454,12 @@ public final class ServiceLoader<S>
      * virtual machine is configured or is being used.  As such it is
      * preferable to throw an error rather than try to recover or, even worse,
      * fail silently.</blockquote>
-     *
+     * {@description.close}
+     * {@property.open formal:java.util.ServiceLoaderIterator_Remove}
      * <p> The iterator returned by this method does not support removal.
      * Invoking its {@link java.util.Iterator#remove() remove} method will
      * cause an {@link UnsupportedOperationException} to be thrown.
-     *
+     * {@property.close}
      * @implNote When adding providers to the cache, the {@link #iterator
      * Iterator} processes resources in the order that the {@link
      * java.lang.ClassLoader#getResources(java.lang.String)
@@ -488,9 +495,10 @@ public final class ServiceLoader<S>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Creates a new service loader for the given service type and class
      * loader.
-     *
+     * {@description.close}
      * @param  <S> the class of the service type
      *
      * @param  service
@@ -511,6 +519,7 @@ public final class ServiceLoader<S>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Creates a new service loader for the given service type, using the
      * current thread's {@linkplain java.lang.Thread#getContextClassLoader
      * context class loader}.
@@ -525,7 +534,7 @@ public final class ServiceLoader<S>
      * <blockquote><pre>
      * ServiceLoader.load(<i>service</i>,
      *                    Thread.currentThread().getContextClassLoader())</pre></blockquote>
-     *
+     * {@description.close}
      * @param  <S> the class of the service type
      *
      * @param  service
@@ -539,6 +548,7 @@ public final class ServiceLoader<S>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Creates a new service loader for the given service type, using the
      * extension class loader.
      *
@@ -556,7 +566,7 @@ public final class ServiceLoader<S>
      * desired.  The resulting service will only find and load providers that
      * have been installed into the current Java virtual machine; providers on
      * the application's class path will be ignored.
-     *
+     * {@description.close}
      * @param  <S> the class of the service type
      *
      * @param  service

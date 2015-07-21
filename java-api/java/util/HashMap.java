@@ -35,7 +35,8 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * Hash table based implementation of the <tt>Map</tt> interface.  This
  * implementation provides all of the optional map operations, and permits
  * <tt>null</tt> values and the <tt>null</tt> key.  (The <tt>HashMap</tt>
@@ -78,7 +79,10 @@ import java.util.function.Function;
  * <p>If many mappings are to be stored in a <tt>HashMap</tt>
  * instance, creating it with a sufficiently large capacity will allow
  * the mappings to be stored more efficiently than letting it perform
- * automatic rehashing as needed to grow the table.  Note that using
+ * automatic rehashing as needed to grow the table.  
+ * {@description.close}
+ * {@description.open synchronization}
+ * Note that using
  * many keys with the same {@code hashCode()} is a sure way to slow
  * down performance of any hash table. To ameliorate impact, when keys
  * are {@link Comparable}, this class may use comparison order among
@@ -98,7 +102,8 @@ import java.util.function.Function;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map:<pre>
  *   Map m = Collections.synchronizedMap(new HashMap(...));</pre>
- *
+ * {@description.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by all of this class's "collection view methods"
  * are <i>fail-fast</i>: if the map is structurally modified at any time after
  * the iterator is created, in any way except through the iterator's own
@@ -115,11 +120,12 @@ import java.util.function.Function;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
- *
+ * {@property.close}
+ * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * {@description.close}
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  *
@@ -626,12 +632,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     }
 
     /** {@collect.stats}
-     *      
-* {@description.open}
+     * {@description.open}
      * Returns <tt>true</tt> if this map contains a mapping for the
      * specified key.
 
-     * {@description.close}     *
+     * {@description.close} 
      * @param   key   The key whose presence in this map is to be tested
      * @return <tt>true</tt> if this map contains a mapping for the specified
      * key.
@@ -824,10 +829,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      *      
 * {@description.open}
      * Copies all of the mappings from the specified map
-     * {@description.close} to this map.
+     *  to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
-     *
+     * {@description.close}
      * @param m mappings to be stored in this map
      * @throws NullPointerException if the specified map is null
      */
@@ -840,7 +845,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 * {@description.open}
      * Removes the mapping for the specified key from this map if present.
 
-     * {@description.close}     *
+     * {@description.close}   
      * @param  key key whose mapping is to be removed from the map
      * @return the previous value associated with <tt>key</tt>, or
      *         <tt>null</tt> if there was no mapping for <tt>key</tt>.
@@ -910,7 +915,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
 
-     * {@description.close}     */
+     * {@description.close}     
+     */
     public void clear() {
         Node<K,V>[] tab;
         modCount++;
@@ -1439,8 +1445,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Reconstitute the {@code HashMap} instance from a stream (i.e.,
      * deserialize it).
+     * {@description.close}
      */
     private void readObject(java.io.ObjectInputStream s)
         throws IOException, ClassNotFoundException {

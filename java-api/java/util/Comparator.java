@@ -32,7 +32,7 @@ import java.util.function.ToLongFunction;
 import java.util.function.ToDoubleFunction;
 import java.util.Comparators;
 
-/**
+/** {@collect.stats}
  * A comparison function, which imposes a <i>total ordering</i> on some
  * collection of objects.  Comparators can be passed to a sort method (such
  * as {@link Collections#sort(List,Comparator) Collections.sort} or {@link
@@ -47,7 +47,7 @@ import java.util.Comparators;
  * <tt>c.compare(e1, e2)==0</tt> has the same boolean value as
  * <tt>e1.equals(e2)</tt> for every <tt>e1</tt> and <tt>e2</tt> in
  * <tt>S</tt>.<p>
- *
+ * {@property.open uncheckable}
  * Caution should be exercised when using a comparator capable of imposing an
  * ordering inconsistent with equals to order a sorted set (or sorted map).
  * Suppose a sorted set (or sorted map) with an explicit comparator <tt>c</tt>
@@ -65,7 +65,7 @@ import java.util.Comparators;
  * {@code b} are not equivalent from the tree set's perspective, even though
  * this is contrary to the specification of the
  * {@link Set#add Set.add} method.<p>
- *
+ * {@property.close}
  * Note: It is generally a good idea for comparators to also implement
  * <tt>java.io.Serializable</tt>, as they may be used as ordering methods in
  * serializable data structures (like {@link TreeSet}, {@link TreeMap}).  In
@@ -117,20 +117,22 @@ public interface Comparator<T> {
      * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.<p>
-     *
+     * {@property.open static}
      * The implementor must ensure that <tt>sgn(compare(x, y)) ==
      * -sgn(compare(y, x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
      * implies that <tt>compare(x, y)</tt> must throw an exception if and only
      * if <tt>compare(y, x)</tt> throws an exception.)<p>
-     *
+     * {@property.close}
+     * {@property.open static}
      * The implementor must also ensure that the relation is transitive:
      * <tt>((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0))</tt> implies
      * <tt>compare(x, z)&gt;0</tt>.<p>
-     *
+     * {@property.close}
+     * {@property.open static}
      * Finally, the implementor must ensure that <tt>compare(x, y)==0</tt>
      * implies that <tt>sgn(compare(x, z))==sgn(compare(y, z))</tt> for all
      * <tt>z</tt>.<p>
-     *
+     * {@property.close}
      * It is generally the case, but <i>not</i> strictly required that
      * <tt>(compare(x, y)==0) == (x.equals(y))</tt>.  Generally speaking,
      * any comparator that violates this condition should clearly indicate

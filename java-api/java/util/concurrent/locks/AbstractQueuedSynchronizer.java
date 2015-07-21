@@ -40,7 +40,7 @@ import java.util.Collection;
 import java.util.Date;
 import sun.misc.Unsafe;
 
-/**
+/** {@collect.stats} 
  * Provides a framework for implementing blocking locks and related
  * synchronizers (semaphores, events, etc) that rely on
  * first-in-first-out (FIFO) wait queues.  This class is designed to
@@ -118,9 +118,13 @@ import sun.misc.Unsafe;
  * </ul>
  *
  * Each of these methods by default throws {@link
- * UnsupportedOperationException}.  Implementations of these methods
+ * UnsupportedOperationException}.  
+ * {@property.open internal}
+ * Implementations of these methods
  * must be internally thread-safe, and should in general be short and
- * not block. Defining these methods is the <em>only</em> supported
+ * not block. 
+ * {@property.close}
+ * Defining these methods is the <em>only</em> supported
  * means of using this class. All other methods are declared
  * {@code final} because they cannot be independently varied.
  *

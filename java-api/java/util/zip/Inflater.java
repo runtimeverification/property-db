@@ -420,7 +420,10 @@ class Inflater {
 * {@description.open}
      * Resets inflater so that a new set of input data can be processed.
 
-     * {@description.close}     */
+     * {@description.close}     
+     * {@property.open}
+     * {@property.close}
+     */
     public void reset() {
         synchronized (zsRef) {
             ensureOpen();

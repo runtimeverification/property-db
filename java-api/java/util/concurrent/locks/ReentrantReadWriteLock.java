@@ -37,7 +37,7 @@ package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 import java.util.Collection;
 
-/**
+/** {@collect.stats} 
  * An implementation of {@link ReadWriteLock} supporting similar
  * semantics to {@link ReentrantLock}.
  * <p>This class has the following properties:
@@ -84,18 +84,19 @@ import java.util.Collection;
  * </dl>
  *
  * <li><b>Reentrancy</b>
- *
+ * {@property.open}
  * <p>This lock allows both readers and writers to reacquire read or
  * write locks in the style of a {@link ReentrantLock}. Non-reentrant
  * readers are not allowed until all write locks held by the writing
  * thread have been released.
- *
+ * {@property.close}
+ * {@property.open}
  * <p>Additionally, a writer can acquire the read lock, but not
  * vice-versa.  Among other applications, reentrancy can be useful
  * when write locks are held during calls or callbacks to methods that
  * perform reads under read locks.  If a reader tries to acquire the
  * write lock it will never succeed.
- *
+ * {@property.close}
  * <li><b>Lock downgrading</b>
  * <p>Reentrancy also allows downgrading from the write lock to a read lock,
  * by acquiring the write lock, then the read lock and then releasing the

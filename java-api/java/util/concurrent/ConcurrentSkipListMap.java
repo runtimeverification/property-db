@@ -59,7 +59,7 @@ import java.util.function.Consumer;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-/**
+/** {@collect.stats}
  * A scalable concurrent {@link ConcurrentNavigableMap} implementation.
  * The map is sorted according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} provided at map
@@ -72,10 +72,10 @@ import java.util.function.Function;
  * {@code remove} operations and their variants.  Insertion, removal,
  * update, and access operations safely execute concurrently by
  * multiple threads.
- *
+ * {@property.open synchronized}
  * <p>Iterators and spliterators are
  * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
- *
+ * {@property.close}
  * <p>Ascending key ordered views and their iterators are faster than
  * descending ones.
  *
@@ -1835,10 +1835,10 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
      * {@code removeAll}, {@code retainAll}, and {@code clear}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
-     *
+     * {@property.close}
      * <p>This method is equivalent to method {@code navigableKeySet}.
      *
      * @return a navigable set view of the keys in this map
@@ -1868,9 +1868,10 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
      * {@code Collection.remove}, {@code removeAll},
      * {@code retainAll} and {@code clear} operations.  It does not
      * support the {@code add} or {@code addAll} operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
+     * {@property.close}
      */
     public Collection<V> values() {
         Values<V> vs = values;
@@ -1893,14 +1894,14 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
      * {@code removeAll}, {@code retainAll} and {@code clear}
      * operations.  It does not support the {@code add} or
      * {@code addAll} operations.
-     *
+     * {@property.open synchronized}
      * <p>The view's iterators and spliterators are
      * <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.
      *
      * <p>The {@code Map.Entry} elements traversed by the {@code iterator}
      * or {@code spliterator} do <em>not</em> support the {@code setValue}
      * operation.
-     *
+     * {@property.close}
      * @return a set view of the mappings contained in this map,
      *         sorted in ascending key order
      */

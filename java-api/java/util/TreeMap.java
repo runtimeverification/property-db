@@ -30,7 +30,7 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-/**
+/** {@collect.stats}
  * A Red-Black tree based {@link NavigableMap} implementation.
  * The map is sorted according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} provided at map
@@ -53,7 +53,7 @@ import java.util.function.Consumer;
  * of a sorted map <em>is</em> well-defined even if its ordering is
  * inconsistent with {@code equals}; it just fails to obey the general contract
  * of the {@code Map} interface.
- *
+ * {@property.open formal:java.util.Collections_SynchronizedMap}
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * If multiple threads access a map concurrently, and at least one of the
  * threads modifies the map structurally, it <em>must</em> be synchronized
@@ -67,7 +67,8 @@ import java.util.function.Consumer;
  * method.  This is best done at creation time, to prevent accidental
  * unsynchronized access to the map: <pre>
  *   SortedMap m = Collections.synchronizedSortedMap(new TreeMap(...));</pre>
- *
+ * {@property.close}
+ * {@property.open formal:java.util.Map_UnsafeIterator}
  * <p>The iterators returned by the {@code iterator} method of the collections
  * returned by all of this class's "collection view methods" are
  * <em>fail-fast</em>: if the map is structurally modified at any time after
@@ -84,7 +85,7 @@ import java.util.function.Consumer;
  * Therefore, it would be wrong to write a program that depended on this
  * exception for its correctness:   <em>the fail-fast behavior of iterators
  * should be used only to detect bugs.</em>
- *
+ * {@property.close}
  * <p>All {@code Map.Entry} pairs returned by methods in this class
  * and its views represent snapshots of mappings at the time they were
  * produced. They do <strong>not</strong> support the {@code Entry.setValue}
@@ -150,14 +151,16 @@ public class TreeMap<K,V>
 
     /** {@collect.stats}
      * Constructs a new, empty tree map, ordered according to the given
-     * comparator.  All keys inserted into the map must be <em>mutually
+     * comparator.
+     * {@property.open formal:java.util.TreeMap_Comparable}  
+     * All keys inserted into the map must be <em>mutually
      * comparable</em> by the given comparator: {@code comparator.compare(k1,
      * k2)} must not throw a {@code ClassCastException} for any keys
      * {@code k1} and {@code k2} in the map.  If the user attempts to put
      * a key into the map that violates this constraint, the {@code put(Object
      * key, Object value)} call will throw a
      * {@code ClassCastException}.
-     *
+     * {@property.close}
      * @param comparator the comparator that will be used to order this map.
      *        If {@code null}, the {@linkplain Comparable natural
      *        ordering} of the keys will be used.
@@ -167,14 +170,20 @@ public class TreeMap<K,V>
     }
 
     /** {@collect.stats}
+     * {@description.open}
      * Constructs a new tree map containing the same mappings as the given
      * map, ordered according to the <em>natural ordering</em> of its keys.
+     * {@description.close}
+     * {@property.open formal:java.util.TreeMap_Comparable}
      * All keys inserted into the new map must implement the {@link
      * Comparable} interface.  Furthermore, all such keys must be
      * <em>mutually comparable</em>: {@code k1.compareTo(k2)} must not throw
      * a {@code ClassCastException} for any keys {@code k1} and
-     * {@code k2} in the map.  This method runs in n*log(n) time.
-     *
+     * {@code k2} in the map.  
+     * {@property.close}
+     * {@description.open}
+     * This method runs in n*log(n) time.
+     * {@description.close}
      * @param  m the map whose mappings are to be placed in this map
      * @throws ClassCastException if the keys in m are not {@link Comparable},
      *         or are not mutually comparable
