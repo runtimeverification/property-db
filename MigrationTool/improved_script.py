@@ -511,7 +511,7 @@ class dictionary_script:
 								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
 								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
 								evolving_text = edit
-								self.pattern_flag[key + original_text] = 1
+								self.pattern_flag[old_key + original_text] = 1
 							elif pattern == description_pattern:
 								test = ["     \n* {@description.open" + prop + "}\n" + "     *"]
 								test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
@@ -519,7 +519,7 @@ class dictionary_script:
 								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
 								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
 								evolving_text = edit
-								self.pattern_flag[key + original_text] = 1
+								self.pattern_flag[old_key + original_text] = 1
 							else:
 								test = ["     \n* {@new.open" + prop + "}\n" + "     *"]
 								test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
@@ -527,15 +527,15 @@ class dictionary_script:
 								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
 								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
 								evolving_text = edit
-								self.pattern_flag[key + original_text] = 1
+								self.pattern_flag[old_key + original_text] = 1
 							break
 						except: # if there's an error matching text, move on
 							break
 		# add collect.stats header to new file comment
 		new_comment_with_collect = re.sub(re.escape("/**"), "/** {@collect.stats}", evolving_text)
 		self.working_output = re.sub(re.escape(evolving_text), new_comment_with_collect, self.working_output)
-		if old_key != new_key:
-			print new_comment_with_collect
+	#	if old_key != new_key:
+	#		print new_comment_with_collect
 		return
 
 	def run(self):

@@ -1,0 +1,16 @@
+java.lang
+java.lang.annotation
+java.lang.instrument
+java.lang.management
+java.lang.ref
+java.lang.reflect
+java.util
+java.util.concurrent
+java.util.concurrent.atomic
+java.util.concurrent.locks
+java.util.jar
+java.util.logging
+java.util.prefs
+java.util.regex
+java.util.spi
+java.util.zip
