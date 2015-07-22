@@ -269,135 +269,22 @@ class dictionary_script:
 			# find exact matches
 
 			for key in self.old_file_flag_dict.keys():	
-				if "collect.stats" in self.old_file_translation[key] and self.new_file_flag_dict.get(key) is not None:
-					self.match_num = self.match_num + 1
+				if "collect.stats" in self.old_file_translation[key]: 
+					if self.new_file_flag_dict.get(key) is not None:
+					# self.match_num = self.match_num + 1
 					# self.old_file_flag_dict[key] = 1
 					# self.new_file_flag_dict[key] = 1
 
-					# keep track of evolutions in output
-					evolving_text = self.new_file_translation[key]
+						self.make_merge(key, key)
 
-					# different patterns we will parse text for
-					property_pattern = '(?<={@property[.]open)(.|\n)*?(?={@property[.]close})'
-					description_pattern = '(?<={@description[.]open)(.|\n)*?(?={@description[.]close})'
-					new_pattern = '(?<={@new[.]open)(.|\n)*?(?={@new[.]close})'
+					else: # if the comment isn't an annotation, pass over it
+						if "collect.stats" in self.old_file_translation[key] and self.new_file_flag_dict.get(key) is None:
+							for k in self.new_file_flag_dict.keys(): # diffs between raw text
 
-					# list of pattern we will search iteratively for
-					pattern_list = [property_pattern, description_pattern, new_pattern]
-
-					for pattern in pattern_list:
-						old_text_prop_blocks = re.finditer(pattern, self.old_file_translation[key])
-						for desc in old_text_prop_blocks:
-							text = desc.group(0)
-							# grab orignal text body so we can mark that we've dealt with it at the proper time
-							original_text = text
-							# grab pattern name (if it exists --> description and new tags don't tend to have names, but properties do)
-							prop_name = re.search('(.|\n)*?(?=})', text)
-							prop = prop_name.group(0)
-							text_grab = re.finditer('(?<=})(.|\n)*', text)
-							text = [ i.group(0) for i in text_grab ]
-							text = ''.join(text)
-							soup = BeautifulSoup(text, 'html.parser')
-							text = soup.get_text() # take out html
-							javadoc_tags = re.finditer('{@[a-z]+[\n* ]+[^}]*}', text) # take out dang javadocs (had to parse prop body) --> could have other data structure -- function
-							for tag in javadoc_tags:
-								tag_text = re.search('(?<=[ ])[^}]*', tag.group(0))
-								try:
-									text = re.sub(re.escape(tag.group(0)), tag_text.group(0), text)
-								except: # backslash in tag_text
-									text = re.sub(re.escape(tag.group(0)), '', text)
-							text = re.sub('[^0-9a-zA-Z_ ]+', '', text)
-							text = text.split()
-
-							#initialize array to keep track of individual word counts in old comment
-							count_text = [ 0 for i in text ]
-
-							# grab ahold of new comment (before we process it to make it easier to handle)
-							pure_new = self.new_file_translation[key].split(' ')
-							pure_new_strip = dict([])
-							new_text = self.new_file_no_tags_html[key] # here we pull the new comment we stripped at top of this function
-							new_text = re.sub('[^0-9a-zA-Z_ ]+', '', new_text)
-							new_text = new_text.split()
-
-
-							# connect stripped text to actual text (for insertion)
-							""" it's worth noting that we use the stripped text to make meaningful matches with the old comment
-							 but we have to hold onto the nasty original version of the new comment to orient where we'll insert changes """
-							i = 0
-							j = 0
-							connect = [ 0 for n in new_text ] # connect array will connect stripped new comment text to indices of orginal new comment text
-							while i < len(new_text):
-								while j < len(pure_new):
-									soup = BeautifulSoup(pure_new[j], 'html.parser') # remove html
-									pure_new_no_tags = soup.get_text()
-									soup = BeautifulSoup(pure_new_no_tags, "xml") # remove the xml
-									pure_new_no_tags = soup.get_text()
-									pure_new_no_tags = re.sub('[^0-9a-zA-Z_ ]+', '', pure_new[j])
-
-									if new_text[i] in pure_new_no_tags:
-										connect[i] = j # store index where we have a match
-										pure_new_strip[i] = pure_new_no_tags # store text in comment which matches
-									
-										j = j + 1
-										break;
-									else:
-										j = j + 1
-								i = i + 1
-
-							for  t in text:
-								count_text[text.index(t)] += new_text.count(t) # now we actually find word counts
-								word_index = text.index(t)
-								
-								if count_text[word_index] == 1: # found a lodging point with which to survey new comment
-									located_match = new_text.index(t)
-									start_match = located_match
-									try: 
-										while start_match > 0:
-											if ((len(text) <= 3 and text[0] in pure_new_strip[start_match]) or (text[0] in pure_new_strip[start_match] and text[1] in pure_new_strip[start_match+1] and text[2] in pure_new_strip[start_match+2])):
-												break
-											else:
-												start_match = start_match - 1
-
-										end_match = located_match
-										while (end_match < len(connect)):
-											if ((len(text) <= 3 and text[len(text)-1] in pure_new_strip[end_match]) or (text[len(text)-1] in pure_new_strip[end_match]) and (text[len(text)-2] in pure_new_strip[end_match-1]) and (text[len(text)-3] in pure_new_strip[end_match-2])): # make sure last two words match
-												break;
-											else:
-												end_match = end_match + 1
-
-										if pattern == property_pattern:
-											test = ["     \n* {@property.open" + prop + "}\n" + "     *"]
-											test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
-											new_out = ' '.join(test) + "\n     * {@property.close}"	
-											edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
-											self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
-											evolving_text = edit
-											self.pattern_flag[key + original_text] = 1
-										elif pattern == description_pattern:
-											test = ["     \n* {@description.open" + prop + "}\n" + "     *"]
-											test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
-											new_out = ' '.join(test) + "\n     * {@description.close}"
-											edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
-											self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
-											evolving_text = edit
-											self.pattern_flag[key + original_text] = 1
-										else:
-											test = ["     \n* {@new.open" + prop + "}\n" + "     *"]
-											test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
-											new_out = ' '.join(test) + "\n     * {@new.close}"
-											edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
-											self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
-											evolving_text = edit
-											self.pattern_flag[key + original_text] = 1
-										break
-									except: # if there's an error matching text, move on
-										break
-					# add collect.stats header to new file comment
-					new_comment_with_collect = re.sub(re.escape("/**"), "/** {@collect.stats}", evolving_text)
-					self.working_output = re.sub(re.escape(evolving_text), new_comment_with_collect, self.working_output)
-
-				else: # if the comment isn't an annotation, pass over it
-					pass
+									if (k[:len(k)/6] in key or k[-len(k)/6:] in key) and self.new_file_flag_dict[k] is not 1 and len(k) > 0 and abs( (float) (len(key) - len(k)) / len(k) ) < .3:
+										differences = self.diff_tool.diff_main(key, k) 
+										if self.diff_tool.diff_levenshtein(differences) < len(k)/4:
+											self.make_merge(key, k)		
 			
 
 			# find near matches
@@ -407,30 +294,8 @@ class dictionary_script:
 			
 			self.food.write("FILE: " + output_file + '\n')
 			self.food.write("DIRECTORY: " + self.output_dir[1] + '\n')
-			""" developments were made on rough merges below, but rough merges always need to be inspected, so they add an extra complication
-			to the migration process; decided not to use them"""
 
-			# for key in self.old_file_flag_dict.keys():
-			# 	if "collect.stats" in self.old_file_translation[key] and self.old_file_flag_dict[key] is not 1:			
-			# 		for k in self.new_file_flag_dict.keys(): # diffs between raw text
 
-			# 			if (k[:len(k)/6] in key or k[-len(k)/6:] in key) and self.new_file_flag_dict[k] is not 1 and len(k) > 0 and abs( (float) (len(key) - len(k)) / len(k) ) < .3:
-			# 				differences = self.diff_tool.diff_main(key, k) 
-			# 				if self.diff_tool.diff_levenshtein(differences) < len(k)/4:
-	
-			# 					# self.old_file_flag_dict[key] = 1
-			# 					# self.new_file_flag_dict[k] = 1
-								
-			# 					old_text = self.old_file_translation[key]
-			# 					new_text = self.new_file_translation[k]
-
-			# 					# self.working_output = re.sub(re.escape(self.new_file_translation[k]), patched_output[0], self.working_output)
-
-			
-			# 			else:
-			# 				pass
-			# 	else:
-			# 		pass
 			time = datetime.datetime.now().time()					
 			print time
 
@@ -547,6 +412,131 @@ class dictionary_script:
 			new_d.create_dictionaries_merge()
 		return
 
+	def make_merge(self, old_key, new_key):
+		# keep track of evolutions in output
+		evolving_text = self.new_file_translation[new_key]
+
+		# different patterns we will parse text for
+		property_pattern = '(?<={@property[.]open)(.|\n)*?(?={@property[.]close})'
+		description_pattern = '(?<={@description[.]open)(.|\n)*?(?={@description[.]close})'
+		new_pattern = '(?<={@new[.]open)(.|\n)*?(?={@new[.]close})'
+
+		# list of pattern we will search iteratively for
+		pattern_list = [property_pattern, description_pattern, new_pattern]
+
+		for pattern in pattern_list:
+			old_text_prop_blocks = re.finditer(pattern, self.old_file_translation[old_key])
+			for desc in old_text_prop_blocks:
+				text = desc.group(0)
+				# grab orignal text body so we can mark that we've dealt with it at the proper time
+				original_text = text
+				# grab pattern name (if it exists --> description and new tags don't tend to have names, but properties do)
+				prop_name = re.search('(.|\n)*?(?=})', text)
+				prop = prop_name.group(0)
+				text_grab = re.finditer('(?<=})(.|\n)*', text)
+				text = [ i.group(0) for i in text_grab ]
+				text = ''.join(text)
+				soup = BeautifulSoup(text, 'html.parser')
+				text = soup.get_text() # take out html
+				javadoc_tags = re.finditer('{@[a-z]+[\n* ]+[^}]*}', text) # take out dang javadocs (had to parse prop body) --> could have other data structure -- function
+				for tag in javadoc_tags:
+					tag_text = re.search('(?<=[ ])[^}]*', tag.group(0))
+					try:
+						text = re.sub(re.escape(tag.group(0)), tag_text.group(0), text)
+					except: # backslash in tag_text
+						text = re.sub(re.escape(tag.group(0)), '', text)
+				text = re.sub('[^0-9a-zA-Z_ ]+', '', text)
+				text = text.split()
+
+				#initialize array to keep track of individual word counts in old comment
+				count_text = [ 0 for i in text ]
+
+				# grab ahold of new comment (before we process it to make it easier to handle)
+				pure_new = self.new_file_translation[new_key].split(' ')
+				pure_new_strip = dict([])
+				new_text = self.new_file_no_tags_html[new_key] # here we pull the new comment we stripped at top of this function
+				new_text = re.sub('[^0-9a-zA-Z_ ]+', '', new_text)
+				new_text = new_text.split()
+
+
+				# connect stripped text to actual text (for insertion)
+				""" it's worth noting that we use the stripped text to make meaningful matches with the old comment
+				 but we have to hold onto the nasty original version of the new comment to orient where we'll insert changes """
+				i = 0
+				j = 0
+				connect = [ 0 for n in new_text ] # connect array will connect stripped new comment text to indices of orginal new comment text
+				while i < len(new_text):
+					while j < len(pure_new):
+						soup = BeautifulSoup(pure_new[j], 'html.parser') # remove html
+						pure_new_no_tags = soup.get_text()
+						soup = BeautifulSoup(pure_new_no_tags, "xml") # remove the xml
+						pure_new_no_tags = soup.get_text()
+						pure_new_no_tags = re.sub('[^0-9a-zA-Z_ ]+', '', pure_new[j])
+
+						if new_text[i] in pure_new_no_tags:
+							connect[i] = j # store index where we have a match
+							pure_new_strip[i] = pure_new_no_tags # store text in comment which matches
+						
+							j = j + 1
+							break;
+						else:
+							j = j + 1
+					i = i + 1
+
+				for  t in text:
+					count_text[text.index(t)] += new_text.count(t) # now we actually find word counts
+					word_index = text.index(t)
+					
+					if count_text[word_index] == 1: # found a lodging point with which to survey new comment
+						located_match = new_text.index(t)
+						start_match = located_match
+						try: 
+							while start_match > 0:
+								if ((len(text) <= 3 and text[0] in pure_new_strip[start_match]) or (text[0] in pure_new_strip[start_match] and text[1] in pure_new_strip[start_match+1] and text[2] in pure_new_strip[start_match+2])):
+									break
+								else:
+									start_match = start_match - 1
+
+							end_match = located_match
+							while (end_match < len(connect)):
+								if ((len(text) <= 3 and text[len(text)-1] in pure_new_strip[end_match]) or (text[len(text)-1] in pure_new_strip[end_match]) and (text[len(text)-2] in pure_new_strip[end_match-1]) and (text[len(text)-3] in pure_new_strip[end_match-2])): # make sure last two words match
+									break;
+								else:
+									end_match = end_match + 1
+
+							if pattern == property_pattern:
+								test = ["     \n* {@property.open" + prop + "}\n" + "     *"]
+								test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
+								new_out = ' '.join(test) + "\n     * {@property.close}"	
+								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
+								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
+								evolving_text = edit
+								self.pattern_flag[key + original_text] = 1
+							elif pattern == description_pattern:
+								test = ["     \n* {@description.open" + prop + "}\n" + "     *"]
+								test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
+								new_out = ' '.join(test) + "\n     * {@description.close}"
+								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
+								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
+								evolving_text = edit
+								self.pattern_flag[key + original_text] = 1
+							else:
+								test = ["     \n* {@new.open" + prop + "}\n" + "     *"]
+								test.extend(pure_new[connect[start_match]:connect[end_match]+1]) 
+								new_out = ' '.join(test) + "\n     * {@new.close}"
+								edit = re.sub(re.escape(' '.join(pure_new[connect[start_match]:connect[end_match]+1])), new_out, evolving_text)
+								self.working_output = re.sub(re.escape(evolving_text), edit, self.working_output)
+								evolving_text = edit
+								self.pattern_flag[key + original_text] = 1
+							break
+						except: # if there's an error matching text, move on
+							break
+		# add collect.stats header to new file comment
+		new_comment_with_collect = re.sub(re.escape("/**"), "/** {@collect.stats}", evolving_text)
+		self.working_output = re.sub(re.escape(evolving_text), new_comment_with_collect, self.working_output)
+		if old_key != new_key:
+			print new_comment_with_collect
+		return
 
 	def run(self):
 		self.get_cmd_line_args()
