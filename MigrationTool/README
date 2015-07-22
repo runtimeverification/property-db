@@ -1,0 +1,11 @@
+improved_script.py:
+
+This script takes an old version of the annotated Java api and cautiously merges as many of those annotations as it can into an unannotated version of the Java API. 
+
+To run it,
+	python improved_script.py --old [old annotated Java package, like java6/net] --new [new, un-annotated Java package, like java8/net] --out [the name of the directory you want to create, annotated version of your new package argument]
+
+It will output a file "report," which tells you where you still need to perform manual edits. It's nice to do these with a mouse and a good text editor like Sublime.
+It will also output a file called files_not_in_both_packages.txt. This will tell you the disparity in files between your old and new java packages, including subpackages which are not present in both.
+
+
