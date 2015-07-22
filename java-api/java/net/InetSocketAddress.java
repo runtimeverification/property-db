@@ -47,7 +47,7 @@ import java.io.ObjectStreamField;
  * The <i>wildcard</i> is a special local IP address. It usually means "any"
  * and can only be used for {@code bind} operations.
 
-     * {@description.close} *
+     * {@description.close}
  * @see java.net.Socket
  * @see java.net.ServerSocket
  * @since 1.4
@@ -157,7 +157,9 @@ public class InetSocketAddress
      * Creates a socket address where the IP address is the wildcard address
      * and the port number a specified value.
      * <p>
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * A valid port value is between 0 and 65535.
+     * {@property.close}
      * A port number of {@code zero} will let the system pick up an
      * ephemeral port in a {@code bind} operation.
      * <p>
@@ -172,8 +174,10 @@ public class InetSocketAddress
     /** {@collect.stats}
      *
      * Creates a socket address from an IP address and a port number.
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <p>
      * A valid port value is between 0 and 65535.
+     * {@property.close}
      * A port number of {@code zero} will let the system pick up an
      * ephemeral port in a {@code bind} operation.
      * <P>
@@ -202,7 +206,9 @@ public class InetSocketAddress
      * is called with the host name as its argument to check the permission
      * to resolve it. This could result in a SecurityException.
      * <P>
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * A valid port value is between 0 and 65535.
+     * {@property.close}
      * A port number of {@code zero} will let the system pick up an
      * ephemeral port in a {@code bind} operation.
      * <P>
@@ -239,7 +245,9 @@ public class InetSocketAddress
      * No attempt will be made to resolve the hostname into an InetAddress.
      * The address will be flagged as <I>unresolved</I>.
      * <p>
+     * {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * A valid port value is between 0 and 65535.
+     * {@property.close}
      * A port number of {@code zero} will let the system pick up an
      * ephemeral port in a {@code bind} operation.
      * <P>

@@ -25,10 +25,13 @@
 
 package java.net;
 
-/**
+/** {@collect.stats} 
+ * {@description.open}
  * The class Authenticator represents an object that knows how to obtain
  * authentication for a network connection.  Usually, it will do this
  * by prompting the user for information.
+ * {@description.close}
+ * {@property.open runtime formal:java.net.Authenticator_OverrideGetPasswordAuthentication}
  * <p>
  * Applications use this class by overriding {@link
  * #getPasswordAuthentication()} in a sub-class. This method will
@@ -37,7 +40,9 @@ package java.net;
  * username and password either by interacting with the user or through
  * some other non-interactive means. The credentials are then returned
  * as a {@link PasswordAuthentication} return value.
+ * {@property.close}
  * <p>
+ * {@description.open}
  * An instance of this concrete sub-class is then registered
  * with the system by calling {@link #setDefault(Authenticator)}.
  * When authentication is required, the system will invoke one of the
@@ -46,7 +51,7 @@ package java.net;
  * <p>
  * All methods that request authentication have a default implementation
  * that fails.
- *
+ * {@description.close}
  * @see java.net.Authenticator#setDefault(java.net.Authenticator)
  * @see java.net.Authenticator#getPasswordAuthentication()
  *

@@ -153,7 +153,7 @@ class ServerSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     *
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
      * specific. In particular, an implementation may impose a maximum length
@@ -161,7 +161,7 @@ class ServerSocket implements java.io.Closeable {
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
      * <P>
-     *
+     * {@property.close}
      * @param      port     the port number, or {@code 0} to use a port
      *                      number that is automatically allocated.
      * @param      backlog  requested maximum length of the queue of incoming
@@ -191,7 +191,9 @@ class ServerSocket implements java.io.Closeable {
      * will only accept connect requests to one of its addresses.
      * If <i>bindAddr</i> is null, it will default accepting
      * connections on any/all local addresses.
+     * {@property.open runtime formal:java.net.ServerSocket_Port}
      * The port must be between 0 and 65535, inclusive.
+     * {@property.close}
      * A port number of {@code 0} means that the port number is
      * automatically allocated, typically from an ephemeral port range.
      * This port number can then be retrieved by calling
@@ -202,7 +204,7 @@ class ServerSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     *
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
      * specific. In particular, an implementation may impose a maximum length
@@ -210,6 +212,7 @@ class ServerSocket implements java.io.Closeable {
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
      * <P>
+     * {@property.close}
      * @param port  the port number, or {@code 0} to use a port
      *              number that is automatically allocated.
      * @param backlog requested maximum length of the queue of incoming
@@ -339,6 +342,7 @@ class ServerSocket implements java.io.Closeable {
      * <p>
      * If the address is {@code null}, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
+     * {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>
      * The {@code backlog} argument is the requested maximum number of
      * pending connections on the socket. Its exact semantics are implementation
@@ -346,6 +350,7 @@ class ServerSocket implements java.io.Closeable {
      * or may choose to ignore the parameter altogther. The value provided
      * should be greater than {@code 0}. If it is less than or equal to
      * {@code 0}, then an implementation specific default will be used.
+     * {@property.close}
      * @param   endpoint        The IP address and port number to bind to.
      * @param   backlog         requested maximum length of the queue of
      *                          incoming connections.
@@ -639,9 +644,15 @@ class ServerSocket implements java.io.Closeable {
      * timeout, a call to accept() for this ServerSocket
      * will block for only this amount of time.  If the timeout expires,
      * a <B>java.net.SocketTimeoutException</B> is raised, though the
-     * ServerSocket is still valid.  The option <B>must</B> be enabled
-     * prior to entering the blocking operation to have effect.  The
+     * ServerSocket is still valid.  
+     * {@property.open runtime formal:java.net.ServerSocket_SetTimeoutBeforeBlocking}
+     * The option <B>must</B> be enabled
+     * prior to entering the blocking operation to have effect.  
+     * {@property.close}
+     * {@property.open runtime formal:java.net.ServerSocket_Timeout}
+     * The
      * timeout must be {@code > 0}.
+     * {@property.close}
      * A timeout of zero is interpreted as an infinite timeout.
      * @param timeout the specified timeout, in milliseconds
      * @exception SocketException if there is an error in
@@ -696,11 +707,12 @@ class ServerSocket implements java.io.Closeable {
      * of {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is not defined.
      * Applications can use {@link #getReuseAddress()} to determine the initial
      * setting of {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}.
+     * {@property.open runtime formal:java.net.ServerSocket_ReuseAddress}
      * <p>
      * The behaviour when {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is
      * enabled or disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
-     *
+     * {@property.close}
      * @param on  whether to enable or disable the socket option
      * @exception SocketException if an error occurs enabling or
      *            disabling the {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}
@@ -820,7 +832,9 @@ class ServerSocket implements java.io.Closeable {
      * of the TCP receive window that is advertized to the remote peer.
      * <p>
      * It is possible to change the value subsequently, by calling
-     * {@link Socket#setReceiveBufferSize(int)}. However, if the application
+     * {@link Socket#setReceiveBufferSize(int)}. 
+     * {@property.open runtime formal:java.net.ServerSocket_LargeReceiveBuffer}
+     * However, if the application
      * wishes to allow a receive window larger than 64K bytes, as defined by RFC1323
      * then the proposed value must be set in the ServerSocket <B>before</B>
      * it is bound to a local address. This implies, that the ServerSocket must be
@@ -830,7 +844,7 @@ class ServerSocket implements java.io.Closeable {
      * Failure to do this will not cause an error, and the buffer size may be set to the
      * requested value but the TCP receive window in sockets accepted from
      * this ServerSocket will be no larger than 64K bytes.
-     *
+     * {@property.close}
      * @exception SocketException if there is an error
      * in the underlying protocol, such as a TCP error.
      *

@@ -265,7 +265,7 @@ class DatagramSocket implements java.io.Closeable {
         }
     }
 
-    /**
+    /** {@collect.stats} 
      * Constructs a datagram socket and binds it to the specified port
      * on the local host machine.  The socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
@@ -276,7 +276,11 @@ class DatagramSocket implements java.io.Closeable {
      * with the {@code port} argument
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
-     *
+     * {@property.open runtime formal:java.net.DatagramSocket_Port}
+     * {@new.open}
+     * The local port must be between 0 and 65535 inclusive.
+     * {@new.close}
+     * {@property.close}
      * @param      port port to use.
      * @exception  SocketException  if the socket could not be opened,
      *               or the socket could not bind to the specified local port.
@@ -600,7 +604,7 @@ class DatagramSocket implements java.io.Closeable {
         return connectedPort;
     }
 
-    /**
+    /** {@collect.stats} 
      * Returns the address of the endpoint this socket is connected to, or
      * {@code null} if it is unconnected.
      * <p>
@@ -1211,14 +1215,15 @@ class DatagramSocket implements java.io.Closeable {
         return ((Boolean)(getImpl().getOption(SocketOptions.SO_BROADCAST))).booleanValue();
     }
 
-    /**
+    /** {@collect.stats} 
      * Sets traffic class or type-of-service octet in the IP
      * datagram header for datagrams sent from this DatagramSocket.
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
-     *
+     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * <P> The tc <B>must</B> be in the range {@code 0 <= tc <=
      * 255} or an IllegalArgumentException will be thrown.
+     * {@property.close}
      * <p>Notes:
      * <p>For Internet Protocol v4 the value consists of an
      * {@code integer}, the least significant 8 bits of which
@@ -1232,12 +1237,14 @@ class DatagramSocket implements java.io.Closeable {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
+     * {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.
      * <p>
      * Setting bits in the precedence field may result in a
      * SocketException indicating that the operation is not
      * permitted.
+     * {@property.close}
      * <p>
      * for Internet Protocol v6 {@code tc} is the value that
      * would be placed into the sin6_flowinfo field of the IP header.

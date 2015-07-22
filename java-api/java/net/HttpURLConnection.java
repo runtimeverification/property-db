@@ -129,23 +129,27 @@ abstract public class HttpURLConnection extends URLConnection {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used to enable streaming of a HTTP request body
      * without internal buffering, when the content length is known in
      * advance.
+     * {@property.open unchecked}
      * <p>
      * An exception will be thrown if the application
      * attempts to write more data than the indicated
      * content-length, or if the application closes the OutputStream
      * before writing the indicated amount.
+     * {@property.close}
      * <p>
      * When output streaming is enabled, authentication
      * and redirection cannot be handled automatically.
      * A HttpRetryException will be thrown when reading
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
+     * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
      * <p>
      * This method must be called before the URLConnection is connected.
+     * {@property.close}
      * <p>
      * <B>NOTE:</B> {@link #setFixedLengthStreamingMode(long)} is recommended
      * instead of this method as it allows larger content lengths to be set.
@@ -437,7 +441,7 @@ abstract public class HttpURLConnection extends URLConnection {
          return instanceFollowRedirects;
      }
 
-    /**
+    /** {@collect.stats} 
      * Set the method for the URL request, one of:
      * <UL>
      *  <LI>GET
@@ -449,7 +453,12 @@ abstract public class HttpURLConnection extends URLConnection {
      *  <LI>TRACE
      * </UL> are legal, subject to protocol restrictions.  The default
      * method is GET.
-     *
+     * {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
+     * {@new.open}
+     * <p>
+     * This method must be called before the URLConnection is connected.
+     * {@new.close}
+     * {@property.close}
      * @param method the HTTP method
      * @exception ProtocolException if the method cannot be reset or if
      *              the requested method isn't valid for HTTP.

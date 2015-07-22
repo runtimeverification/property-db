@@ -227,9 +227,10 @@ class MulticastSocket extends DatagramSocket {
      * Set the default time-to-live for multicast packets sent out
      * on this {@code MulticastSocket} in order to control the
      * scope of the multicasts.
-     *
+     * {@property.open runtime formal:java.net.MulticastSocket_TTL}
      * <P> The ttl <B>must</B> be in the range {@code  0 <= ttl <=
      * 255} or an {@code IllegalArgumentException} will be thrown.
+     * {@property.close}
      * Multicast packets sent with a TTL of {@code 0} are not transmitted
      * on the network but may be delivered locally.
      *

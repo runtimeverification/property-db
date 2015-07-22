@@ -30,11 +30,12 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats} 
  * This class is for various network permissions.
  * A NetPermission contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
  * or you don't.
+ * {@property.open runtime formal:java.net.NetPermission_Name}
  * <P>
  * The target name is the name of the network permission (see below). The naming
  * convention follows the  hierarchical property naming convention.
@@ -42,6 +43,7 @@ import java.util.StringTokenizer;
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "foo.*" and "*" signify a wildcard
  * match, while "*foo" and "a*b" do not.
+ * {@property.close}
  * <P>
  * The following table lists all the possible NetPermission target names,
  * and for each provides a description of what the permission allows

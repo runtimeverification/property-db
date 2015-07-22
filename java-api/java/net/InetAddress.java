@@ -46,7 +46,7 @@ import sun.net.InetAddressCachePolicy;
 import sun.net.util.IPAddressUtil;
 import sun.net.spi.nameservice.*;
 
-/**
+/** {@collect.stats}
  * This class represents an Internet Protocol (IP) address.
  *
  * <p> An IP address is either a 32-bit or 128-bit unsigned number
@@ -496,7 +496,7 @@ class InetAddress implements java.io.Serializable {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Test whether that address is reachable. Best effort is made by the
      * implementation to try to reach the host, but firewalls and server
      * configuration may block requests resulting in a unreachable status
@@ -509,18 +509,20 @@ class InetAddress implements java.io.Serializable {
      * let the caller specify which network interface the test will go through
      * and the maximum number of hops the packets should go through.
 
-     * {@description.close}     *      
-* {@property.open runtime formal:java.net.InetAddress_IsReachable}
+     * {@description.close}       
+     * {@property.open runtime formal:java.net.InetAddress_IsReachable}
      * A negative value for the {@code ttl} will result in an
      * IllegalArgumentException being thrown.
 
-     * {@property.close}     * <p>
+     * {@property.close}    
+     *  <p>
      *      
-* {@description.open}
+     * {@description.open}
      * The timeout value, in milliseconds, indicates the maximum amount of time
      * the try should take. If the operation times out before getting an
      * answer, the host is deemed unreachable.
-     * {@description.close} A negative value will result
+     * {@description.close} 
+     * A negative value will result
      * in an IllegalArgumentException being thrown.
      *
      * @param   netif   the NetworkInterface through which the

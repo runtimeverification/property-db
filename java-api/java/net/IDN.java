@@ -103,7 +103,11 @@ public final class IDN {
      * and &#0092;uFF61 (halfwidth ideographic full stop). if dots are
      * used as label separators, this method also changes all of them to &#0092;u002E (full stop)
      * in output translated string.
-     *
+     * {@property.open runtime formal:java.net.IDN_ToAscii}
+     * {@new.open}
+     * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
+     * {@new.close}
+     * {@property.close}
      * @param input     the string to be processed
      * @param flag      process flag; can be 0 or any logical OR of possible flags
      *
@@ -143,7 +147,11 @@ public final class IDN {
      * <blockquote>
      * {@link #toASCII(String, int) toASCII}(input,&nbsp;0);
      * </blockquote>
-     *
+     * {@property.open runtime formal:java.net.IDN_ToAscii}
+     * {@new.open}
+     * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
+     * {@new.close}
+     * {@property.close}
      * @param input     the string to be processed
      *
      * @return          the translated {@code String}

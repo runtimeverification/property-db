@@ -106,7 +106,7 @@ public abstract class CookieHandler {
         cookieHandler = cHandler;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the applicable cookies from a cookie cache for the
      * specified uri in the request header.
      *
@@ -118,11 +118,11 @@ public abstract class CookieHandler {
      * <P>It is up to the implementation to take into account the {@code URI} and
      * the cookies attributes and security settings to determine which ones
      * should be returned.</P>
-     *
+     * {@property.open unchecked}
      * <P>HTTP protocol implementers should make sure that this method is
      * called after all request headers related to choosing cookies
      * are added, and before the request is sent.</P>
-     *
+     * {@property.close}
      * @param uri a {@code URI} representing the intended use for the
      *            cookies
      * @param requestHeaders - a Map from request header

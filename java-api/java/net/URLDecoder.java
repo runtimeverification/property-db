@@ -111,19 +111,20 @@ public class URLDecoder {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code application/x-www-form-urlencoded} string using a specific
      * encoding scheme.
      * The supplied encoding is used to determine
      * what characters are represented by any consecutive sequences of the
      * form "<i>{@code %xy}</i>".
+     * {@property.open runtime formal:java.net.URLDecoder_DecodeUTF8}
      * <p>
      * <em><strong>Note:</strong> The <a href=
      * "http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars">
      * World Wide Web Consortium Recommendation</a> states that
      * UTF-8 should be used. Not doing so may introduce
      * incompatibilities.</em>
-     *
+     * {@property.close}
      * @param s the {@code String} to decode
      * @param enc   The name of a supported
      *    <a href="../lang/package-summary.html#charenc">character

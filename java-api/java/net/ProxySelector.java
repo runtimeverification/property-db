@@ -29,18 +29,20 @@ import java.io.IOException;
 import java.util.List;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats} 
  * Selects the proxy server to use, if any, when connecting to the
  * network resource referenced by a URL. A proxy selector is a
  * concrete sub-class of this class and is registered by invoking the
  * {@link java.net.ProxySelector#setDefault setDefault} method. The
  * currently registered proxy selector can be retrieved by calling
  * {@link java.net.ProxySelector#getDefault getDefault} method.
- *
+ * {@property.open unchecked}
  * <p> When a proxy selector is registered, for instance, a subclass
  * of URLConnection class should call the {@link #select select}
  * method for each URL request so that the proxy selector can decide
- * if a direct, or proxied connection should be used. The {@link
+ * if a direct, or proxied connection should be used. 
+ * {@property.close}
+ * The {@link
  * #select select} method returns an iterator over a collection with
  * the preferred connection approach.
  *

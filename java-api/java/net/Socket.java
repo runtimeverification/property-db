@@ -375,9 +375,10 @@ class Socket implements java.io.Closeable {
      * {@code checkConnect} method is called
      * with the host address and {@code port}
      * as its arguments. This could result in a SecurityException.
+     * {@property.open unchecked}
      * <p>
      * If a UDP socket is used, TCP/IP related socket options will not apply.
-     *
+     * {@property.close}
      * @param      host     the host name, or {@code null} for the loopback address.
      * @param      port     the port number.
      * @param      stream   a {@code boolean} indicating whether this is
@@ -906,15 +907,17 @@ class Socket implements java.io.Closeable {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+     * {@description.open}
      * Returns an input stream for this socket.
 
-     * {@description.close}     *
+     * {@description.close}     
      * <p> If this socket has an associated channel then the resulting input
-     * stream delegates all of its operations to the channel.  If the channel
+     * stream delegates all of its operations to the channel.  
+     * {@property.open unchecked}
+     * If the channel
      * is in non-blocking mode then the input stream's {@code read} operations
      * will throw an {@link java.nio.channels.IllegalBlockingModeException}.
-     *
+     * {@property.close}
      * <p>Under abnormal conditions the underlying connection may be
      * broken by the remote host or the network software (for example
      * a connection reset in the case of TCP connections). When a
@@ -942,7 +945,12 @@ class Socket implements java.io.Closeable {
      *
      * <p> Closing the returned {@link java.io.InputStream InputStream}
      * will close the associated socket.
-     *
+     * {@property.open runtime formal:java.net.Socket_InputStreamUnavailable}
+     * {@new.open}
+     * An input stream is unavailable if the socket is closed, is not connected,
+     * or the socket input has been shutdown.
+     * {@new.close}
+     * {@property.close}
      * @return     an input stream for reading bytes from this socket.
      * @exception  IOException  if an I/O error occurs when creating the
      *             input stream, the socket is closed, the socket is
@@ -976,19 +984,26 @@ class Socket implements java.io.Closeable {
 
     /** {@collect.stats}
      *      
-* {@description.open}
+    * {@description.open}
      * Returns an output stream for this socket.
 
-     * {@description.close}     *
+     * {@description.close} 
      * <p> If this socket has an associated channel then the resulting output
-     * stream delegates all of its operations to the channel.  If the channel
+     * stream delegates all of its operations to the channel.  
+     * {@property.open unchecked}
+     * If the channel
      * is in non-blocking mode then the output stream's {@code write}
      * operations will throw an {@link
      * java.nio.channels.IllegalBlockingModeException}.
-     *
+     * {@property.close}
      * <p> Closing the returned {@link java.io.OutputStream OutputStream}
      * will close the associated socket.
-     *
+     * {@property.open runtime formal:java.net.Socket_OutputStreamUnavailable}
+     * {@new.open}
+     * An output stream is unavailable if the socket is closed, is not connected,
+     * or the socket output has been shutdown.
+     * {@new.close}
+     * {@property.close}
      * @return     an output stream for writing bytes to this socket.
      * @exception  IOException  if an I/O error occurs when creating the
      *               output stream or if the socket is not connected.
@@ -1175,15 +1190,21 @@ class Socket implements java.io.Closeable {
         return ((Boolean) getImpl().getOption(SocketOptions.SO_OOBINLINE)).booleanValue();
     }
 
-    /**
+    /** {@collect.stats} 
      *  Enable/disable {@link SocketOptions#SO_TIMEOUT SO_TIMEOUT}
      *  with the specified timeout, in milliseconds. With this option set
      *  to a non-zero timeout, a read() call on the InputStream associated with
      *  this Socket will block for only this amount of time.  If the timeout
      *  expires, a <B>java.net.SocketTimeoutException</B> is raised, though the
-     *  Socket is still valid. The option <B>must</B> be enabled
-     *  prior to entering the blocking operation to have effect. The
+     *  Socket is still valid. 
+     * {@property.open runtime formal:java.net.Socket_SetTimeoutBeforeBlockingInput formal:java.net.Socket_SetTimeoutBeforeBlockingOutput}
+     * The option <B>must</B> be enabled
+     *  prior to entering the blocking operation to have effect. 
+     * {@property.close}
+     * {@property.open runtime formal:java.net.Socket_Timeout}
+     * The
      *  timeout must be {@code > 0}.
+     * {@property.close}
      *  A timeout of zero is interpreted as an infinite timeout.
      *
      * @param timeout the specified timeout, in milliseconds.
@@ -1281,7 +1302,7 @@ class Socket implements java.io.Closeable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@link SocketOptions#SO_RCVBUF SO_RCVBUF} option to the
      * specified value for this {@code Socket}. The
      * {@link SocketOptions#SO_RCVBUF SO_RCVBUF} option is
@@ -1299,9 +1320,13 @@ class Socket implements java.io.Closeable {
      * <p>The value of {@link SocketOptions#SO_RCVBUF SO_RCVBUF} is also used
      * to set the TCP receive window that is advertized to the remote peer.
      * Generally, the window size can be modified at any time when a socket is
-     * connected. However, if a receive window larger than 64K is required then
+     * connected. 
+     * {@property.open runtime formal:java.net.Socket_LargeReceiveBuffer}
+     * However, if a receive window larger than 64K is required then
      * this must be requested <B>before</B> the socket is connected to the
-     * remote peer. There are two cases to be aware of:
+     * remote peer. 
+     * {@property.close}
+     * There are two cases to be aware of:
      * <ol>
      * <li>For sockets accepted from a ServerSocket, this must be done by calling
      * {@link ServerSocket#setReceiveBufferSize(int)} before the ServerSocket
@@ -1386,14 +1411,15 @@ class Socket implements java.io.Closeable {
         return ((Boolean) getImpl().getOption(SocketOptions.SO_KEEPALIVE)).booleanValue();
     }
 
-    /**
+    /** {@collect.stats} 
      * Sets traffic class or type-of-service octet in the IP
      * header for packets sent from this Socket.
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
-     *
+     * {@property.open runtime formal:java.net.Socket_TrafficClass}
      * <P> The tc <B>must</B> be in the range {@code 0 <= tc <=
      * 255} or an IllegalArgumentException will be thrown.
+     * {@property.close}
      * <p>Notes:
      * <p>For Internet Protocol v4 the value consists of an
      * {@code integer}, the least significant 8 bits of which
@@ -1407,12 +1433,14 @@ class Socket implements java.io.Closeable {
      * <LI><CODE>IPTOS_THROUGHPUT (0x08)</CODE></LI>
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
+     * {@property.open runtime formal:java.net.Socket_TrafficClass}
      * The last low order bit is always ignored as this
      * corresponds to the MBZ (must be zero) bit.
      * <p>
      * Setting bits in the precedence field may result in a
      * SocketException indicating that the operation is not
      * permitted.
+     * {@property.close}s
      * <p>
      * As RFC 1122 section 4.2.4.2 indicates, a compliant TCP
      * implementation should, but is not required to, let application
@@ -1464,7 +1492,7 @@ class Socket implements java.io.Closeable {
         return ((Integer) (getImpl().getOption(SocketOptions.IP_TOS))).intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable the {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}
      * socket option.
      * <p>
@@ -1484,11 +1512,12 @@ class Socket implements java.io.Closeable {
      * <p>
      * When a {@code Socket} is created the initial setting
      * of {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is disabled.
+     * {@property.open runtime formal:java.net.Socket_ReuseAddress}
      * <p>
      * The behaviour when {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR} is
      * enabled or disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
-     *
+     * {@property.close}
      * @param on  whether to enable or disable the socket option
      * @exception SocketException if an error occurs enabling or
      *            disabling the {@link SocketOptions#SO_REUSEADDR SO_REUSEADDR}
