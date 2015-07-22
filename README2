@@ -1,23 +1,17 @@
 1. Run make in property-doc
 
-2. run something like the following in one of the -api dirs
+2. run the property-doc perl script on java packages and subpackages
 
-../property-doc/bin/propertydocs.pl -subpackages $PACKAGES -d $OUTPATH -propertypath properties -outroot "$WEBSERVER_PATH"
-
-a possible instance is when 
-PACKAGES=java.io java.util
-OUTPATH=/var/www/annotated-api
-WEBSERVER_PATH=/annotated-api
-
-
-UPDATE *** better way to to run the script identifying the high level packages and also lower-level subpackages
-
-../property-doc/bin/propertydocs.pl -package java.lang java.util -subpackages java.lang.annotation java.lang.instrument java.lang.management java.lang.ref java.lang.reflect java.util.regex java.util.concurrent java.util.jar java.util.logging java.util.zip java.util.prefs java.util.spi java.util.concurrent.locks java.util.concurrent.atomic -d $OUTPATH
-
-../property-doc/bin/propertydocs.pl -package java.lang java.util -subpackages java.lang.annotation java.lang.instrument java.lang.management java.lang.ref java.lang.reflect java.util.regex java.util.concurrent java.util.logging java.util.zip java.util.prefs java.util.spi java.util.concurrent.locks java.util.concurrent.atomic -d $OUTPATH
+The following example run was done inside property_db/java-api:
 
 ../property-doc/bin/propertydocs.pl java/io/* java/net/* -package java.lang java.util -subpackages java.lang.annotation java.lang.instrument java.lang.management java.lang.ref java.lang.reflect java.util.regex java.util.concurrent java.util.logging java.util.zip java.util.prefs java.util.spi java.util.concurrent.locks java.util.concurrent.atomic -d $OUTPATH
 
+NOTE: don't forget to set an OUTPATH!
+This can be any directory you want. Just keep track of it for the eventual sftp to the server!
+
+
+
+____ Working Notes
 
 -- problem with java.util.jar
 JarEntry_GetCertificatesOnce

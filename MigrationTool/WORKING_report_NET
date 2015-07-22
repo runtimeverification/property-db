@@ -395,7 +395,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Authenticator_OverrideGet
  * some other non-interactive means. The credentials are then returned
  * as a {@link PasswordAuthentication} return value.
  * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * The class Authenticator represents an object that knows how to obtain
@@ -415,7 +415,7 @@ DESC BLOCK::: * {@description.open}
  * All methods that request authentication have a default implementation
  * that fails.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractPlainDatagramSocketImpl.java
 DIRECTORY: yikes
@@ -468,7 +468,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.InetSocketAddress_Port}
      * <P>
      * A valid port value is between 0 and 65535.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      *
@@ -1003,7 +1003,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.IDN_ToAscii}
      * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Translates a string from Unicode to ASCII Compatible Encoding (ACE),
@@ -1020,7 +1020,7 @@ ADDRESSED DESC::: []
 NEW BLOCK:::* {@new.open}
      * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toUnicode(String input) 
@@ -1133,7 +1133,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * value greater than 0. If the value passed is equal or less
      * than 0, then the default value will be assumed.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      *
@@ -1202,7 +1202,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_ReuseAddress
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Enable/disable the SO_REUSEADDR socket option.
@@ -1298,7 +1298,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * than 0, then the default value will be assumed.
      * <P>
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Creates a server socket and binds it to the specified local port
@@ -1351,13 +1351,13 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_SetTimeoutBe
      * The option <B>must</B> be enabled
      * prior to entering the blocking operation to have effect.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Timeout}
      * The
      * timeout must be > 0.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Enable/disable SO_TIMEOUT with the specified timeout, in
@@ -1454,7 +1454,7 @@ ORIG COMMENT::: /** {@collect.stats}
 PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Port}
      * The port must be between 0 and 65535, inclusive.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * <P>The <code>backlog</code> argument must be a positive
@@ -1462,7 +1462,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_Backlog}
      * than 0, then the default value will be assumed.
      * <P>
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Create a server with the specified port, listen backlog, and
@@ -1543,7 +1543,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.ServerSocket_LargeReceive
      * requested value but the TCP receive window in sockets accepted from
      * this ServerSocket will be no larger than 64K bytes.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Sets a default proposed value for the SO_RCVBUF option for sockets
@@ -1633,7 +1633,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.MulticastSocket_TTL}
      * <P> The ttl <B>must</B> be in the range {@code  0 <= ttl <=
      * 255} or an {@code IllegalArgumentException} will be thrown.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Set the default time-to-live for multicast packets sent out
@@ -1898,7 +1898,7 @@ PROP BLOCK:::* {@property.open unchecked}
  * method for each URL request so that the proxy selector can decide
  * if a direct, or proxied connection should be used.
  * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * Selects the proxy server to use, if any, when connecting to the
@@ -2341,7 +2341,7 @@ PROP BLOCK:::* {@property.open unchecked}
      * <p>
      * If a UDP socket is used, TCP/IP related socket options will not apply.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Creates a stream socket and connects it to the specified port
@@ -2475,13 +2475,13 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_SetTimeoutBeforeBl
      *  The option <B>must</B> be enabled
      *  prior to entering the blocking operation to have effect.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_Timeout}
      *  The
      *  timeout must be > 0.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      *  Enable/disable SO_TIMEOUT with the specified timeout, in
@@ -2631,7 +2631,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_TrafficClass}
      * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
      * 255</code> or an IllegalArgumentException will be thrown.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_TrafficClass}
      * The last low order bit is always ignored as this
@@ -2641,7 +2641,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_TrafficClass}
      * SocketException indicating that the operation is not
      * permitted.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Sets traffic class or type-of-service octet in the IP
@@ -2854,7 +2854,7 @@ PROP BLOCK:::* {@property.open unchecked}
      * operations will throw an {@link
      * java.nio.channels.IllegalBlockingModeException}.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_OutputStreamUnavailable}
      * {@new.open}
@@ -2862,7 +2862,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_OutputStreamUnavai
      * or the socket output has been shutdown.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Returns an output stream for this socket.
@@ -2882,7 +2882,7 @@ NEW BLOCK:::* {@new.open}
      * An output stream is unavailable if the socket is closed, is not connected,
      * or the socket output has been shutdown.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean getOOBInline() throws SocketException 
@@ -2946,7 +2946,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_LargeReceiveBuffer
      * <li>For client sockets, setReceiveBufferSize() must be called before
      * connecting the socket to its remote peer.<p></li></ol>
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Sets the SO_RCVBUF option to the specified value for this
@@ -3040,7 +3040,7 @@ PROP BLOCK:::* {@property.open unchecked}
      * is in non-blocking mode then the input stream's <tt>read</tt> operations
      * will throw an {@link java.nio.channels.IllegalBlockingModeException}.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_InputStreamUnavailable}
      * {@new.open}
@@ -3048,7 +3048,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_InputStreamUnavail
      * or the socket input has been shutdown.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Returns an input stream for this socket.
@@ -3089,7 +3089,7 @@ NEW BLOCK:::* {@new.open}
      * An input stream is unavailable if the socket is closed, is not connected,
      * or the socket input has been shutdown.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public SocketChannel getChannel() 
@@ -3196,7 +3196,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.Socket_ReuseAddress}
      * disabled after a socket is bound (See {@link #isBound()})
      * is not defined.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Enable/disable the SO_REUSEADDR socket option.
@@ -3331,7 +3331,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.DatagramSocket_Port}
      * The local port must be between 0 and 65535 inclusive.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Constructs a datagram socket and binds it to the specified port
@@ -3545,7 +3545,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.DatagramSocket_TrafficCla
      * <P> The tc <B>must</B> be in the range <code> 0 <= tc <=
      * 255</code> or an IllegalArgumentException will be thrown.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.DatagramSocket_TrafficClass}
      * The last low order bit is always ignored as this
@@ -3555,7 +3555,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.DatagramSocket_TrafficCla
      * SocketException indicating that the operation is not
      * permitted.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Sets traffic class or type-of-service octet in the IP
@@ -3808,7 +3808,7 @@ PROP BLOCK:::* {@property.open unchecked}
      * called after all request headers related to choosing cookies
      * are added, and before the request is sent.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Gets all the applicable cookies from a cookie cache for the
@@ -4106,7 +4106,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.InetAddress_IsReachable}
      * A negative value will result
      * in an IllegalArgumentException being thrown.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static InetAddress[] getAllByName(String host)
@@ -4275,7 +4275,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.URLEncoder_EncodeUTF8}
      * UTF-8 should be used. Not doing so may introduce
      * incompatibilites.</em>
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Translates a string into <code>application/x-www-form-urlencoded</code>
@@ -4483,7 +4483,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.NetPermission_Name}
  * signify a wildcard match. For example: "foo.*" or "*" is valid,
  * "*foo" or "a*b" is not valid.
  * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * This class is for various network permissions.
@@ -4789,7 +4789,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.URLDecoder_DecodeUTF8}
      * UTF-8 should be used. Not doing so may introduce
      * incompatibilites.</em>
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Decodes a <code>application/x-www-form-urlencoded</code> string using a specific
@@ -6471,7 +6471,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.net.HttpURLConnection_SetBefo
      * This method must be called before the URLConnection is connected.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Set the method for the URL request, one of:
@@ -6597,13 +6597,13 @@ PROP BLOCK:::* {@property.open unchecked}
      * content-length, or if the application closes the OutputStream
      * before writing the indicated amount.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 PROP BLOCK:::* {@property.open runtime formal:java.net.HttpURLConnection_SetBeforeConnect}
      * <p>
      * This method must be called before the URLConnection is connected.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * This method is used to enable streaming of a HTTP request body
