@@ -13,7 +13,7 @@ import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
  * such elements must be mutually comparable: e1.compareTo(e2) (or
  * comparator.compare(e1, e2)) must not throw a ClassCastException for any
  * elements e1 and e2 in the sorted set.
- * http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html
+ * http://docs.oracle.com/javase/6/docs/api/java/util/SortedSet.html
  *
  * This property verifies that each element implements the Comparable
  * interface, but does not verify if all elements are mutually comparable
