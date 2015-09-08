@@ -24,7 +24,7 @@ DESC BLOCK::: * {@description.open}
      * Return the FileSystem object representing this platform's local
      * filesystem.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: ObjectStreamException.java
 DIRECTORY: java/io
@@ -139,7 +139,7 @@ ADDRESSED DESC::: [x]
 NEW BLOCK:::* {@new.open}
      * This method does not mark the current position; the first sentence is incorrect.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read() throws IOException 
@@ -214,7 +214,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.io.PushbackInputStream_Unread
      * PushbackInputStream object is created.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Pushes back a portion of an array of bytes by copying it to the front
@@ -229,7 +229,7 @@ NEW BLOCK:::* {@new.open}
      * raises a runtime exception. The buffer size is specified when a
      * PushbackInputStream object is created.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void unread(int b) throws IOException 
@@ -256,7 +256,7 @@ PROP BLOCK:::* {@property.open runtime formal:java.io.PushbackInputStream_Unread
      * PushbackInputStream object is created.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Pushes back a byte by copying it to the front of the pushback buffer.
@@ -270,7 +270,7 @@ NEW BLOCK:::* {@new.open}
      * raises a runtime exception. The buffer size is specified when a
      * PushbackInputStream object is created.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public PushbackInputStream(InputStream in) 
@@ -305,7 +305,7 @@ ADDRESSED DESC::: [x]
 NEW BLOCK:::* {@new.open}
      * This constructor creates the pushback buffer that holds only one byte.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 FILE: PipedReader.java
 DIRECTORY: java/io
@@ -331,13 +331,13 @@ DESC BLOCK::: * {@description.open}
      * will be read if the end of the data stream is reached or if
      * <code>len</code> exceeds the pipe's buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method
      * blocks until at least one character of input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     synchronized void receivedLast() 
@@ -354,13 +354,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Receives data into an array of characters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will
      * block until some input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int read()  throws IOException 
@@ -382,13 +382,13 @@ DESC BLOCK::: * {@description.open}
      * If no character is available because the end of the stream
      * has been reached, the value <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data is available, the end of
      * the stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     int out = 0;
@@ -409,7 +409,7 @@ DESC BLOCK::: * {@description.open}
      * piped writer. <code>in&lt;0</code> implies the buffer is empty,
      * <code>in==out</code> implies the buffer is full
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
             notifyAll();
@@ -427,13 +427,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Receives a char of data.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block if no input is
      * available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Flushable.java
 DIRECTORY: java/io
@@ -465,7 +465,7 @@ DESC BLOCK::: * {@description.open blocking}
      * the same thread or another thread.  A single read or skip of this
      * many bytes will not block, but may read or skip fewer bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -473,7 +473,7 @@ DESC BLOCK::: * {@description.open}
      * the buffer (<code>count&nbsp;- pos</code>) and the result of calling the
      * {@link java.io.FilterInputStream#in in}.available().
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: OutputStream.java
 DIRECTORY: java/io
@@ -548,13 +548,13 @@ DESC BLOCK::: * {@description.open}
      * invocation of a method for this input stream. The next invocation
      * might be the same thread or another thread.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * A single read or skip of this
      * many bytes will not block, but may read or skip fewer bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> A subclass' implementation of this method may choose to throw an
@@ -564,13 +564,13 @@ DESC BLOCK::: * {@description.open}
      * <p> The {@code available} method for class {@code InputStream} always
      * returns {@code 0}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * Since JavaMOP does not monitor local variable manipulation, this
      * property is not checkable.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[], int off, int len) throws IOException 
@@ -648,7 +648,7 @@ DESC BLOCK::: * {@description.open}
      * <code>len</code> bytes, but a smaller number may be read.
      * The number of bytes actually read is returned as an integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p> This method blocks until input data is available, end of file is
@@ -660,7 +660,7 @@ DESC BLOCK::: * {@description.open blocking}
      * file, the value <code>-1</code> is returned; otherwise, at least one
      * byte is read and stored into <code>b</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[]) throws IOException 
@@ -716,13 +716,13 @@ DESC BLOCK::: * {@description.open}
      * the buffer array <code>b</code>. The number of bytes actually read is
      * returned as an integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data is
      * available, end of file is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> If the length of <code>b</code> is zero, then no bytes are read and
@@ -731,13 +731,13 @@ DESC BLOCK::: * {@description.open}
      * end of the file, the value <code>-1</code> is returned; otherwise, at
      * least one byte is read and stored into <code>b</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> The <code>read(b)</code> method for class <code>InputStream</code>
      * has the same effect as: <pre><code> read(b, 0, b.length) </code></pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract int read() throws IOException;
@@ -773,14 +773,14 @@ DESC BLOCK::: * {@description.open}
      * <code>255</code>. If no byte is available because the end of the stream
      * has been reached, the value <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method
      * blocks until input data is available, the end of the stream is detected,
      * or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long skip(long n) throws IOException 
@@ -818,7 +818,7 @@ DESC BLOCK::: * {@description.open}
      * encouraged to provide a more efficient implementation of this method.
      * For instance, the implementation may depend on the ability to seek.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: BufferedOutputStream.java
 DIRECTORY: java/io
@@ -850,7 +850,7 @@ DESC BLOCK::: * {@description.open}
      * bytes directly to the underlying output stream.  Thus redundant
      * <code>BufferedOutputStream</code>s will not copy data unnecessarily.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FilterInputStream.java
 DIRECTORY: java/io
@@ -878,21 +878,21 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
      * This method simply performs <code>in.read(b, off, len)</code>
      * and returns the result.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[]) throws IOException 
@@ -922,13 +922,13 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>byte.length</code> bytes of data from this
      * input stream into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until some
      * input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -940,7 +940,7 @@ DESC BLOCK::: * {@description.open}
      * depend on the implementation strategy actually
      * used.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int available() throws IOException 
@@ -956,7 +956,7 @@ DESC BLOCK::: * {@description.open}
      * <p>
      * This method simply performs <code>in.skip(n)</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read() throws IOException 
@@ -988,21 +988,21 @@ DESC BLOCK::: * {@description.open}
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
      * This method
      * simply performs <code>in.read()</code> and returns the result.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CharArrayWriter.java
 DIRECTORY: java/io
@@ -1024,13 +1024,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads characters into an array.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until some input
      * is available, an I/O error occurs, or the end of the stream is reached.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long skip(long n) throws IOException 
@@ -1048,13 +1048,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Skips characters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until some characters are
      * available, an I/O error occurs, or the end of the stream is reached.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read() throws IOException 
@@ -1077,19 +1077,19 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads a single character.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until a character is
      * available, an I/O error occurs, or the end of the stream is reached.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> Subclasses that intend to support efficient single-character input
      * should override this method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     abstract public int read(char cbuf[], int off, int len) throws IOException;
@@ -1110,14 +1110,14 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads characters into a portion of an array.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block
      * until some input is available, an I/O error occurs, or the end of the
      * stream is reached.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: File.java
 DIRECTORY: java/io
@@ -1141,7 +1141,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Returns the length of the file denoted by this abstract pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setWritable(boolean writable) 
@@ -1169,7 +1169,7 @@ DESC BLOCK::: * {@description.open}
      * <pre>
      *     file.setWritable(arg, true) </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String[] list(FilenameFilter filter) 
@@ -1201,7 +1201,7 @@ DESC BLOCK::: * {@description.open}
      * of the filter is invoked on this abstract pathname and the name of a
      * file or directory in the directory that it denotes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static File createTempFile(String prefix, String suffix)
@@ -1225,7 +1225,7 @@ DESC BLOCK::: * {@description.open}
      * java.lang.String, java.io.File)
      * createTempFile(prefix,&nbsp;suffix,&nbsp;null)}</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI toURI() 
@@ -1274,7 +1274,7 @@ as the original abstract pathname, the URI, and the new abstract
      * system is converted into an abstract pathname in a virtual machine on a
      * different operating system.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public File(URI uri) 
@@ -1326,7 +1326,7 @@ bsoluteFile}())
      * on one operating system is converted into an abstract pathname in a
      * virtual machine on a different operating system.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean renameTo(File dest) 
@@ -1354,7 +1354,7 @@ DESC BLOCK::: * {@description.open}
      * already exists.  The return value should always be checked to make sure
      * that the rename operation was successful.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setExecutable(boolean executable, boolean ownerOnly) 
@@ -1370,7 +1370,7 @@ DESC BLOCK::: * {@description.open}
      * Sets the owner's or everybody's execute permission for this abstract
      * pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean canWrite() 
@@ -1386,7 +1386,7 @@ DESC BLOCK::: * {@description.open}
      * Tests whether the application can modify the file denoted by this
      * abstract pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public File[] listFiles() 
@@ -1433,7 +1433,7 @@ e using the {@link #File(File,
      * will appear in any specific order; they are not, in particular,
      * guaranteed to appear in alphabetical order.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean canRead() 
@@ -1449,7 +1449,7 @@ DESC BLOCK::: * {@description.open}
      * Tests whether the application can read the file denoted by this
      * abstract pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean canExecute() 
@@ -1465,7 +1465,7 @@ DESC BLOCK::: * {@description.open}
      * Tests whether the application can execute the file denoted by this
      * abstract pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public File getCanonicalFile() throws IOException 
@@ -1481,7 +1481,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the canonical form of this abstract pathname.  Equivalent to
      * <code>new&nbsp;File(this.{@link #getCanonicalPath})</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setReadOnly() 
@@ -1503,7 +1503,7 @@ DESC BLOCK::: * {@description.open}
      * marked to allow write access.  Whether or not a read-only file or
      * directory may be deleted depends upon the underlying system.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setExecutable(boolean executable) 
@@ -1531,7 +1531,7 @@ DESC BLOCK::: * {@description.open}
      * <pre>
      *     file.setExecutable(arg, true) </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String[] list() 
@@ -1569,7 +1569,7 @@ DESC BLOCK::: * {@description.open}
      * will appear in any specific order; they are not, in particular,
      * guaranteed to appear in alphabetical order.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isFile() 
@@ -1589,7 +1589,7 @@ DESC BLOCK::: * {@description.open}
      * addition, satisfies other system-dependent criteria.  Any non-directory
      * file created by a Java application is guaranteed to be a normal file.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public File[] listFiles(FilenameFilter filter) 
@@ -1623,7 +1623,7 @@ DESC BLOCK::: * {@description.open}
      * invoked on this abstract pathname and the name of a file or directory in
      * the directory that it denotes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean delete() 
@@ -1641,7 +1641,7 @@ DESC BLOCK::: * {@description.open}
      * this pathname denotes a directory, then the directory must be empty in
      * order to be deleted.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setReadable(boolean readable, boolean ownerOnly) 
@@ -1657,7 +1657,7 @@ DESC BLOCK::: * {@description.open}
      * Sets the owner's or everybody's read permission for this abstract
      * pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public File getAbsoluteFile() 
@@ -1673,7 +1673,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the absolute form of this abstract pathname.  Equivalent to
      * <code>new&nbsp;File(this.{@link #getAbsolutePath})</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long lastModified() 
@@ -1689,7 +1689,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the time that the file denoted by this abstract pathname was
      * last modified.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setWritable(boolean writable, boolean ownerOnly) 
@@ -1705,7 +1705,7 @@ DESC BLOCK::: * {@description.open}
      * Sets the owner's or everybody's write permission for this abstract
      * pathname.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -1831,7 +1831,7 @@ y known as <i>access permissions</i>.  The file
  * created, the abstract pathname represented by a <code>File</code> object
  * will never change.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isDirectory() 
@@ -1847,7 +1847,7 @@ DESC BLOCK::: * {@description.open}
      * Tests whether the file denoted by this abstract pathname is a
      * directory.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean setReadable(boolean readable) 
@@ -1875,7 +1875,7 @@ DESC BLOCK::: * {@description.open}
      * <pre>
      *     file.setReadable(arg, true) </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: OutputStreamWriter.java
 DIRECTORY: java/io
@@ -1898,7 +1898,7 @@ DESC BLOCK::: * {@description.open}
      * <code>line.separator</code>, and is not necessarily a single newline
      * character (<code>'\n'</code>).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FilterReader.java
 DIRECTORY: java/io
@@ -1951,14 +1951,14 @@ DESC BLOCK::: * {@description.open}
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -1970,7 +1970,7 @@ DESC BLOCK::: * {@description.open}
      * a carriage return followed by a newline character are both
      * converted into a single newline character.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int available() throws IOException 
@@ -2010,7 +2010,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 @Deprecated
@@ -2046,7 +2046,7 @@ DESC BLOCK::: * {@description.open}
  * The line number begins at <code>0</code>, and is incremented by
  * <code>1</code> when a <code>read</code> returns a newline character.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[], int off, int len) throws IOException 
@@ -2071,12 +2071,12 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until some input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -2084,7 +2084,7 @@ DESC BLOCK::: * {@description.open}
      * <code>LineNumberInputStream</code> repeatedly calls the
      * <code>read</code> method of zero arguments to fill in the byte array.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CharConversionException.java
 DIRECTORY: java/io
@@ -2112,7 +2112,7 @@ DESC BLOCK::: * {@description.open}
      * Closes this stream and releases any system resources associated
      * with it.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Writer.java
 DIRECTORY: java/io
@@ -2133,13 +2133,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Receives data into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will
      * block until some input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int read()  throws IOException 
@@ -2161,13 +2161,13 @@ DESC BLOCK::: * {@description.open}
      * value byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected synchronized void receive(int b) throws IOException 
@@ -2184,13 +2184,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Receives a byte of data.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block if no input is
      * available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int read(byte b[], int off, int len)  throws IOException 
@@ -2216,7 +2216,7 @@ DESC BLOCK::: * {@description.open}
      * will be read if the end of the data stream is reached or if
      * <code>len</code> exceeds the pipe's buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * If <code>len </code> is zero, then no bytes are read and 0 is returned;
@@ -2224,7 +2224,7 @@ DESC BLOCK::: * {@description.open blocking}
      * available, end of the stream has been detected, or an exception is
      * thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected int in = -1;
@@ -2245,7 +2245,7 @@ DESC BLOCK::: * {@description.open}
      * piped output stream. <code>in&lt;0</code> implies the buffer is empty,
      * <code>in==out</code> implies the buffer is full
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ObjectStreamField.java
 DIRECTORY: java/io
@@ -2296,13 +2296,13 @@ DESC BLOCK::: * {@description.open}
      * possibly zero. The number of bytes actually read is returned as an
      * integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> If <code>len</code> is zero, then no bytes are read and
@@ -2324,7 +2324,7 @@ ode>. Let <i>k</i> be the number of
      * <code>b[off]</code> and elements <code>b[off+len]</code> through
      * <code>b[b.length-1]</code> are unaffected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: DeleteOnExitHook.java
 DIRECTORY: java/io
@@ -2354,19 +2354,19 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until some input
      * is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Consider using java.io.DataInputStream.readFully to read
      * exactly 'length' bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read() throws IOException 
@@ -2383,12 +2383,12 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads a byte of data.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block if no input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ObjectInputStream(InputStream in) throws IOException 
@@ -2416,13 +2416,13 @@ DESC BLOCK::: * {@description.open}
      * Creates an ObjectInputStream that reads from the specified InputStream.
      * A serialization stream header is read from the stream and verified.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This constructor will block until the corresponding ObjectOutputStream
      * has written and flushed the header.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>If a security manager is installed, this constructor will check for
@@ -2431,7 +2431,7 @@ DESC BLOCK::: * {@description.open}
      * the ObjectInputStream.readFields or ObjectInputStream.readUnshared
      * methods.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected Class<?> resolveProxyClass(String[] interfaces)
@@ -2503,7 +2503,7 @@ DESC BLOCK::: * {@description.open}
      * will throw a <code>ClassNotFoundException</code> containing the
      * <code>IllegalArgumentException</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void readFully(byte[] buf) throws IOException 
@@ -2520,12 +2520,12 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads bytes,
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * blocking until all bytes are read.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NotSerializableException.java
 DIRECTORY: java/io
@@ -2559,7 +2559,7 @@ DESC BLOCK::: * {@description.open}
      * directly to the underlying stream.  Thus redundant
      * <code>BufferedWriter</code>s will not copy data unnecessarily.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: DataOutput.java
 DIRECTORY: java/io
@@ -2641,7 +2641,7 @@ own. Otherwise, this length is written
      * <code>DataInput</code> , which will then
      * return a <code>String</code> equal to <code>s</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: BufferedReader.java
 DIRECTORY: java/io
@@ -2738,7 +2738,7 @@ DESC BLOCK::: * {@description.open}
      * Thus redundant <code>BufferedReader</code>s will not copy data
      * unnecessarily.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: UTFDataFormatException.java
 DIRECTORY: java/io
@@ -2761,13 +2761,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Writes a byte.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until the byte is actually
      * written.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void write(byte b[]) throws IOException;
@@ -2786,13 +2786,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Writes an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until the bytes
      * are actually written.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FileOutputStream.java
 DIRECTORY: java/io
@@ -2809,7 +2809,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Opens a file, with the specified name, for writing.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public FileOutputStream(FileDescriptor fdObj) 
@@ -2835,7 +2835,7 @@ DESC BLOCK::: * {@description.open}
      * method is called with the file descriptor <code>fdObj</code>
      * argument as its argument.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private native void openAppend(String name) throws FileNotFoundException;
@@ -2850,7 +2850,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Opens a file, with the specified name, for appending.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public FileOutputStream(String name, boolean append)
@@ -2888,7 +2888,7 @@ DESC BLOCK::: * {@description.open}
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public FileOutputStream(String name) throws FileNotFoundException 
@@ -2920,7 +2920,7 @@ DESC BLOCK::: * {@description.open}
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public FileOutputStream(String name) throws FileNotFoundException 
@@ -2937,7 +2937,7 @@ DESC BLOCK::: * {@description.open}
      * 1 more than actual file descriptor. This means that
      * the default value 0 indicates that the file is not open.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: PipedOutputStream.java
 DIRECTORY: java/io
@@ -2959,13 +2959,13 @@ DESC BLOCK::: * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this piped output stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until all the bytes are written to the output
      * stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: PipedWriter.java
 DIRECTORY: java/io
@@ -2992,20 +2992,20 @@ DESC BLOCK::: * {@description.open}
      * Writes <code>len</code> characters from the specified character array
      * starting at offset <code>off</code> to this piped output stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until all the characters are written to the output
      * stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * If a thread was reading data characters from the connected piped input
      * stream, but the thread is no longer alive, then an
      * <code>IOException</code> is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IOException.java
 DIRECTORY: java/io
@@ -3029,7 +3029,7 @@ DESC BLOCK::: * {@description.open}
      * are word constituents. A word token consists of a word constituent
      * followed by zero or more word constituents or number constituents.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void ordinaryChars(int low, int hi) 
@@ -3051,7 +3051,7 @@ DESC BLOCK::: * {@description.open}
      * <code>ordinaryChar</code> method for more information on a
      * character being ordinary.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void eolIsSignificant(boolean flag) 
@@ -3091,7 +3091,7 @@ DESC BLOCK::: * {@description.open}
      * If the <code>flag</code> is false, end-of-line characters are
      * treated as white space and serve only to separate tokens.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void whitespaceChars(int low, int hi) 
@@ -3117,7 +3117,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Any other attribute settings for the characters in the specified
      * range are cleared.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void quoteChar(int ch) 
@@ -3163,7 +3163,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p>Any other attribute settings for the specified character are cleared.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -3223,7 +3223,7 @@ ely separates tokens.
  * <code>nextToken</code> method in each iteration of the loop until
  * it returns the value <code>TT_EOF</code>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -3270,7 +3270,7 @@ DESC BLOCK::: * {@description.open}
      * <li>C-style and C++-style comments are not recognized.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FileInputStream.java
 DIRECTORY: java/io
@@ -3293,14 +3293,14 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public FileInputStream(FileDescriptor fdObj) 
@@ -3334,7 +3334,7 @@ DESC BLOCK::: * {@description.open}
      * If <code>fdObj</code> is null then a <code>NullPointerException</code>
      * is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[]) throws IOException 
@@ -3354,13 +3354,13 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>b.length</code> bytes of data from this input
      * stream into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until some input
      * is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public native int read() throws IOException;
@@ -3380,13 +3380,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads a byte of data from this input stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks
      * if no input is yet available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public native int available() throws IOException;
@@ -3415,7 +3415,7 @@ DESC BLOCK::: * {@description.open blocking}
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The next invocation might be
@@ -3426,7 +3426,7 @@ DESC BLOCK::: * {@description.open}
      * blocked when it is merely slow, for example when reading large
      * files over slow networks.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public native long skip(long n) throws IOException;
@@ -3470,7 +3470,7 @@ DESC BLOCK::: * {@description.open}
      * backing file. Attempting to read from the stream after skipping past
      * the end will result in -1 indicating the end of the file.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ByteArrayOutputStream.java
 DIRECTORY: java/io
@@ -3511,7 +3511,7 @@ DESC BLOCK::: * {@description.open}
      * java.nio.charset.CharsetDecoder} class should be used when more control
      * over the decoding process is required.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -3584,7 +3584,7 @@ DESC BLOCK::: * {@description.open}
      * the specified output stream argument, as if by calling the output
      * stream's write method using <code>out.write(buf, 0, count)</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized String toString() 
@@ -3609,7 +3609,7 @@ ORIG COMMENT::: /** {@collect.stats}
 ~
 PROP BLOCK:::* {@property.open runtime formal:java.io.ByteArrayOutputStream_FlushBeforeRetrieve}
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 FILE: ObjectStreamClass.java
 DIRECTORY: java/io
@@ -3631,12 +3631,12 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * unsafe fields keys for writing fields - no dupes 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
          * field data offsets
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: StreamCorruptedException.java
 DIRECTORY: java/io
@@ -3684,13 +3684,13 @@ DESC BLOCK::: * {@description.open}
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p>
      * This <code>read</code> method cannot block.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int read() 
@@ -3717,14 +3717,14 @@ DESC BLOCK::: * {@description.open}
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p>
      * This <code>read</code> method
      * cannot block.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: PrintWriter.java
 DIRECTORY: java/io
@@ -3745,7 +3745,7 @@ DESC BLOCK::: * {@description.open}
      * <code>line.separator</code>, and is not necessarily a single newline
      * character (<code>'\n'</code>).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: InputStreamReader.java
 DIRECTORY: java/io
@@ -3892,7 +3892,7 @@ DESC BLOCK::: * {@description.open}
  * example by a background job scheduler, then it will typically not
  * have a console.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
  * <p>
@@ -3903,7 +3903,7 @@ DESC BLOCK::: * {@description.open blocking}
  * on the objects returned by {@link #reader()} and {@link #writer()} may
  * block in multithreaded scenarios.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>
@@ -3916,7 +3916,7 @@ DESC BLOCK::: * {@description.open}
  * Unless otherwise specified, passing a <tt>null</tt> argument to any method
  * in this class will cause a {@link NullPointerException} to be thrown.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Reader reader() 
@@ -3984,7 +3984,7 @@ DESC BLOCK::: * {@description.open}
     * For simple applications requiring only line-oriented reading, use
     * <tt>{@link #readLine}</tt>.
     * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NotActiveException.java
 DIRECTORY: java/io
@@ -4012,7 +4012,7 @@ DESC BLOCK::: * {@description.open}
      * thrown, the counter <code>written</code> is incremented by the
      * length of <code>s</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void writeChars(String s) throws IOException 
@@ -4034,7 +4034,7 @@ DESC BLOCK::: * {@description.open}
      * thrown, the counter <code>written</code> is incremented by twice
      * the length of <code>s</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ObjectInput.java
 DIRECTORY: java/io
@@ -4055,13 +4055,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads a byte of data.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block if no input is
      * available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[]) throws IOException;
@@ -4080,13 +4080,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reads into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will
      * block until some input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ExpiringCache.java
 DIRECTORY: java/io
@@ -4130,7 +4130,7 @@ DESC BLOCK::: * {@description.open}
      * bytes written by the <code>writeDouble</code>
      * method of interface <code>DataOutput</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void readFully(byte b[], int off, int len) throws IOException;
@@ -4200,7 +4200,7 @@ DESC BLOCK::: * {@description.open}
      * bytes from
      * an input stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p>
@@ -4221,7 +4221,7 @@ DESC BLOCK::: * {@description.open blocking}
      * than <code>EOFException</code> is thrown.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * If <code>len</code> is zero,
@@ -4231,7 +4231,7 @@ DESC BLOCK::: * {@description.open}
      * and so on. The number of bytes read is,
      * at most, equal to <code>len</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void readFully(byte b[]) throws IOException;
@@ -4301,7 +4301,7 @@ DESC BLOCK::: * {@description.open}
      * read is equal
      * to the length of <code>b</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p>
@@ -4321,7 +4321,7 @@ DESC BLOCK::: * {@description.open blocking}
      * than <code>EOFException</code> is thrown.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * If an exception is thrown from
@@ -4329,7 +4329,7 @@ DESC BLOCK::: * {@description.open}
      * not all bytes of <code>b</code> have been
      * updated with data from the input stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     String readLine() throws IOException;
@@ -4420,14 +4420,14 @@ DESC BLOCK::: * {@description.open}
      * file; the characters read are then
      * returned as a <code>String</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Note that every character in this string
      * will have a value less than <code>&#92;u0100</code>,
      * that is, <code>(char)256</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public
@@ -4651,7 +4651,7 @@ DESC BLOCK::: * {@description.open}
  * may be thrown if the input stream has been
  * closed.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CharArrayReader.java
 DIRECTORY: java/io
@@ -4679,7 +4679,7 @@ DESC BLOCK::: * {@description.open}
      * written to the stream will not be refered to as already being in the
      * stream.  They will be written to the stream again.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void write(int val) throws IOException 
@@ -4697,13 +4697,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Writes a byte.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until the byte is actually
      * written.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void write(byte[] buf) throws IOException 
@@ -4721,13 +4721,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Writes an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until the bytes are
      * actually written.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FilePermission.java
 DIRECTORY: java/io
@@ -4783,7 +4783,7 @@ ontained in that directory. The special pathname
      *
      * <p>A pathname containing an empty string represents an empty path.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private final static int NONE    = 0x0;
@@ -4807,7 +4807,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * All actions (read,write,execute,delete)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -4823,7 +4823,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Create an empty FilePermissions object.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getActions()
@@ -4846,7 +4846,7 @@ DESC BLOCK::: * {@description.open}
      * allows both write and read actions, a call to <code>getActions</code>
      * will return the string "read,write".
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean implies(Permission p) 
@@ -4882,7 +4882,7 @@ DESC BLOCK::: * {@description.open}
      *      including the one named "foo".
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -4900,7 +4900,7 @@ DESC BLOCK::: * {@description.open}
      * Adds a permission to the FilePermissions. The key for the hash is
      * permission.path.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static String getActions(int mask)
@@ -4919,7 +4919,7 @@ DESC BLOCK::: * {@description.open}
      * Always returns present actions in the following order:
      * read, write, execute, delete.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -4995,7 +4995,7 @@ nd especially write access to various files and
  * directory it's in (or a subdirectory of that directory); it does not
  * need explicit permission to do so.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SequenceInputStream.java
 DIRECTORY: java/io
@@ -5026,14 +5026,14 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -5043,7 +5043,7 @@ DESC BLOCK::: * {@description.open}
      * the stream, it calls the <code>close</code> method of the current
      * substream and begins reading from the next substream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read() throws IOException 
@@ -5075,13 +5075,13 @@ DESC BLOCK::: * {@description.open}
      * <code>255</code>. If no byte is available because the end of the
      * stream has been reached, the value <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -5091,7 +5091,7 @@ DESC BLOCK::: * {@description.open}
      * method of the current substream and begins reading from the next
      * substream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FileFilter.java
 DIRECTORY: java/io
@@ -5293,7 +5293,7 @@ DESC BLOCK::: * {@description.open}
  * serializable.  The serialization interface has no methods or fields
  * and serves only to identify the semantics of being serializable. <p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * When traversing a graph, an object may be encountered that does not
@@ -5320,13 +5320,13 @@ DESC BLOCK::: * {@description.open}
  * ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
  * </PRE>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
  * A serializable class should declare a private serialVersionUID explicitly
  * for compatibility.
  * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 FILE: RandomAccessFile.java
 DIRECTORY: java/io
@@ -5364,13 +5364,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final long readLong() throws IOException 
@@ -5422,13 +5422,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the eight bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final double readDouble() throws IOException 
@@ -5458,13 +5458,13 @@ DESC BLOCK::: * {@description.open}
      * class <code>Double</code>.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the eight bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final short readShort() throws IOException 
@@ -5500,13 +5500,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public native int read() throws IOException;
@@ -5535,13 +5535,13 @@ DESC BLOCK::: * {@description.open}
      * Reads a byte of data from this file. The byte is returned as an
      * integer in the range 0 to 255 (<code>0x00-0x0ff</code>).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This
      * method blocks if no input is yet available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -5550,7 +5550,7 @@ DESC BLOCK::: * {@description.open}
      * way as the {@link InputStream#read()} method of
      * <code>InputStream</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void readFully(byte b[]) throws IOException 
@@ -5574,13 +5574,13 @@ DESC BLOCK::: * {@description.open}
      * repeatedly from the file until the requested number of bytes are
      * read.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the requested number of bytes are
      * read, the end of the stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final int readInt() throws IOException 
@@ -5616,13 +5616,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the four bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final int readUnsignedByte() throws IOException 
@@ -5646,13 +5646,13 @@ DESC BLOCK::: * {@description.open}
      * and returns that byte.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final char readChar() throws IOException 
@@ -5688,13 +5688,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the two bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -5739,14 +5739,14 @@ DESC BLOCK::: * {@description.open}
      * or the end of the file.  Line-terminating characters are discarded and
      * are not included as part of the string returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p> This method blocks until a newline character is read, a carriage
      * return and the byte following it are read (to see if it is a newline),
      * the end of the file is reached, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final float readFloat() throws IOException 
@@ -5776,13 +5776,13 @@ DESC BLOCK::: * {@description.open}
      * <code>Float</code>.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the four bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void readFully(byte b[], int off, int len) throws IOException 
@@ -5806,13 +5806,13 @@ DESC BLOCK::: * {@description.open}
      * repeatedly from the file until the requested number of bytes are
      * read.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the requested number of bytes are
      * read, the end of the stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[], int off, int len) throws IOException 
@@ -5839,13 +5839,13 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>len</code> bytes of data from this file into an
      * array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until at least one byte of input
      * is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -5854,7 +5854,7 @@ DESC BLOCK::: * {@description.open}
      * same way as the {@link InputStream#read(byte[], int, int)} method of
      * <code>InputStream</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final byte readByte() throws IOException 
@@ -5888,13 +5888,13 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final String readUTF() throws IOException 
@@ -5935,14 +5935,14 @@ DESC BLOCK::: * {@description.open}
      * interpreted as bytes encoding characters in the modified UTF-8 format
      * and are converted into characters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * <p>
      * This method blocks until all the bytes are read, the end of the
      * stream is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public RandomAccessFile(File file, String mode)
@@ -6026,7 +6026,7 @@ tten, which
      * also called with the path argument to see if write access to the file is
      * allowed.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final boolean readBoolean() throws IOException 
@@ -6050,13 +6050,13 @@ DESC BLOCK::: * {@description.open}
      * A value of <code>0</code> represents
      * <code>false</code>. Any other value represents <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until the byte is read, the end of the stream
      * is detected, or an exception is thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int read(byte b[]) throws IOException 
@@ -6083,13 +6083,13 @@ DESC BLOCK::: * {@description.open}
      * Reads up to <code>b.length</code> bytes of data from this file
      * into an array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method blocks until at least one byte
      * of input is available.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -6098,7 +6098,7 @@ DESC BLOCK::: * {@description.open}
      * same way as the {@link InputStream#read(byte[])} method of
      * <code>InputStream</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: PushbackReader.java
 DIRECTORY: java/io
@@ -6118,13 +6118,13 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Skips characters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method will block until some characters are
      * available, an I/O error occurs, or the end of the stream is reached.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: InterruptedIOException.java
 DIRECTORY: java/io

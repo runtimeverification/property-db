@@ -67,7 +67,7 @@ DESC BLOCK::: * {@description.open}
  * thread-local instances are subject to garbage collection (unless other
  * references to these copies exist).
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: InstantiationException.java
 DIRECTORY: java/lang
@@ -112,7 +112,7 @@ DESC BLOCK::: * {@description.open}
  * Applications should throw instances of this class to indicate
  * other illegal uses of the <code>null</code> object.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: StringCoding.java
 DIRECTORY: java/lang
@@ -150,7 +150,7 @@ DESC BLOCK::: * {@description.open}
  * during the execution of the method but not caught, since these
  * errors are abnormal conditions that should never occur.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Package.java
 DIRECTORY: java/lang
@@ -234,7 +234,7 @@ ved when a problem occurs. The contents
  * to be found by name or the set of all packages known to the current class
  * loader to be found.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: VerifyError.java
 DIRECTORY: java/lang
@@ -252,7 +252,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns an iterator over a set of elements of type T.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public interface Iterable<T> 
@@ -268,7 +268,7 @@ DESC BLOCK::: * {@description.open}
  * Implementing this interface allows an object to be the target of
  * the "foreach" statement.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Class.java
 DIRECTORY: java/lang
@@ -289,7 +289,7 @@ DESC BLOCK::: * {@description.open}
      * identical to getEnumConstantsShared except that
      * the result is uncloned, cached, and shared by all callers.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Method getDeclaredMethod(String name, Class<?>... parameterTypes)
@@ -326,7 +326,7 @@ DESC BLOCK::: * {@description.open}
      * name is "&lt;init&gt;"or "&lt;clinit&gt;" a {@code NoSuchMethodException}
      * is raised.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public <U> Class<? extends U> asSubclass(Class<U> clazz) 
@@ -360,7 +360,7 @@ DESC BLOCK::: * {@description.open}
      * could not be checked at runtime (because generic types are implemented
      * by erasure).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public native Class<?>[] getInterfaces();
@@ -430,7 +430,7 @@ DESC BLOCK::: * {@description.open}
      * <p> If this object represents a primitive type or void, the method
      * returns an array of length 0.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     static native Class getPrimitiveClass(String name);
@@ -459,7 +459,7 @@ DESC BLOCK::: * {@description.open}
      * Set the ProtectionDomain for this class. Called by
      * ClassLoader.defineClass.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public Field[] getDeclaredFields() throws SecurityException 
@@ -491,7 +491,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Method[] getDeclaredMethods() throws SecurityException 
@@ -531,7 +531,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> See <em>The Java Language Specification</em>, section 8.2.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public String getName() 
@@ -614,7 +614,7 @@ DESC BLOCK::: * {@description.open}
      *     returns "[[[[[[[I"
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Method getMethod(String name, Class<?>... parameterTypes)
@@ -686,7 +686,7 @@ he Java virtual machine does not.  This
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.4.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Field[] getFields() throws SecurityException 
@@ -735,7 +735,7 @@ ns the public fields of this class and of all its
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Method[] getMethods() throws SecurityException 
@@ -781,7 +781,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.4.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Field getDeclaredField(String name)
@@ -804,7 +804,7 @@ DESC BLOCK::: * {@description.open}
      * specifies the simple name of the desired field.  Note that this method
      * will not reflect the {@code length} field of an array class.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Field getField(String name)
@@ -856,7 +856,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final
@@ -929,7 +929,7 @@ ass of " + obj +
  *     {@code System.out.println("The name of class Foo is: "+Foo.class.getName());}
  * </blockquote>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ArrayIndexOutOfBoundsException.java
 DIRECTORY: java/lang
@@ -1026,7 +1026,7 @@ esentation produced by this method for a finite nonzero argument
      * <p>To create localized string representations of a floating-point
      * value, use subclasses of {@link java.text.NumberFormat}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toHexString(double d) 
@@ -1129,7 +1129,7 @@ d>{@code 0x1.0p-1}</td>
      *     <td>{@code 0x0.0000000000001p-1022}</td>
      * </table>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -1145,7 +1145,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Double} as a
      * {@code short} (by casting to a {@code short}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long longValue() 
@@ -1161,7 +1161,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Double} as a
      * {@code long} (by casting to type {@code long}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Double valueOf(String s) throws NumberFormatException 
@@ -1352,7 +1352,7 @@ exDigits BinaryExponent FloatTypeSuffix_opt
      * </pre>
      * </code>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MAX_EXPONENT = 1023;
@@ -1375,7 +1375,7 @@ DESC BLOCK::: * {@description.open}
      * {@code 0x0.0000000000001P-1022} and also equal to
      * {@code Double.longBitsToDouble(0x1L)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final double MIN_NORMAL = 0x1.0p-1022; // 2.2250738585072014E-308
@@ -1397,7 +1397,7 @@ DESC BLOCK::: * {@description.open}
      * hexadecimal floating-point literal {@code 0x1.0p-1022} and also
      * equal to {@code Double.longBitsToDouble(0x0010000000000000L)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double longBitsToDouble(long bits);
@@ -1489,7 +1489,7 @@ DESC BLOCK::: * {@description.open}
      * dependent; although all NaN bit patterns, quiet or signaling,
      * must be in the NaN range identified above.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public float floatValue() 
@@ -1505,7 +1505,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the {@code float} value of this
      * {@code Double} object.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public byte byteValue() 
@@ -1521,7 +1521,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Double} as a {@code byte} (by
      * casting to a {@code byte}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int intValue() 
@@ -1537,7 +1537,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Double} as an
      * {@code int} (by casting to type {@code int}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final double MIN_NORMAL = 0x1.0p-1022; // 2.2250738585072014E-308
@@ -1562,7 +1562,7 @@ DESC BLOCK::: * {@description.open}
      * {@code 0x1.fffffffffffffP+1023} and also equal to
      * {@code Double.longBitsToDouble(0x7fefffffffffffffL)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ThreadDeath.java
 DIRECTORY: java/lang
@@ -1582,7 +1582,7 @@ DESC BLOCK::: * {@description.open}
  * Thrown when an application tries to access an enum constant by name
  * and the enum type contains no constant with the specified name.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RuntimePermission.java
 DIRECTORY: java/lang
@@ -1905,7 +1905,7 @@ DESC BLOCK::: * {@description.open}
  * The target name is the name of the runtime permission (see below). The
  * naming convention follows the  hierarchical property naming convention.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <P>
@@ -1914,7 +1914,7 @@ DESC BLOCK::: * {@description.open}
  * and a discussion of the risks of granting code the permission.
  * <P>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <table border=1 cellpadding=5 summary="permission target name,
@@ -1943,7 +1943,7 @@ DESC BLOCK::: * {@description.open}
  * </tr>
  * </table>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ArithmeticException.java
 DIRECTORY: java/lang
@@ -1964,7 +1964,7 @@ DESC BLOCK::: * {@description.open}
  * example, an integer "divide by zero" throws an
  * instance of this class.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: UnknownError.java
 DIRECTORY: java/lang
@@ -2049,7 +2049,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
  * A mutable sequence of characters.  
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>The principal operations on a <code>StringBuilder</code> are the
@@ -2073,7 +2073,7 @@ DESC BLOCK::: * {@description.open}
  * the capacity, it is not necessary to allocate a new internal
  * buffer. If the internal buffer overflows, it is automatically made larger.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Object.java
 DIRECTORY: java/lang
@@ -2147,7 +2147,7 @@ DESC BLOCK::: * {@description.open}
      * supported for the benefit of hashtables such as those provided by
      * <code>java.util.Hashtable</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -2158,7 +2158,7 @@ DESC BLOCK::: * {@description.open}
      * technique is not required by the
      * Java<font size="-2"><sup>TM</sup></font> programming language.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected void finalize() throws Throwable 
@@ -2233,7 +2233,7 @@ cessed by any thread that has not yet died, including possible
      * the finalization of this object to be halted, but is otherwise
      * ignored.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected native Object clone() throws CloneNotSupportedException;
@@ -2334,7 +2334,7 @@ DESC BLOCK::: * {@description.open}
      * x.clone().equals(x)</pre></blockquote>
      * will be <tt>true</tt>, this is not an absolute requirement.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * If a class and all of its superclasses (except
@@ -2354,7 +2354,7 @@ edException</tt> is thrown. Note that all arrays
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractMethodError.java
 DIRECTORY: java/lang
@@ -2450,7 +2450,7 @@ peration occurs involving a source sequence (such as
  * buffer array. If the internal buffer overflows, it is
  * automatically made larger.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IllegalAccessError.java
 DIRECTORY: java/lang
@@ -2474,7 +2474,7 @@ DESC BLOCK::: * {@description.open}
  * <code>Throwable</code> that indicates conditions that a reasonable
  * application might want to catch.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: InstantiationError.java
 DIRECTORY: java/lang
@@ -2496,7 +2496,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the length of this character sequence.  The length is the number
      * of 16-bit <code>char</code>s in the sequence.</p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     CharSequence subSequence(int start, int end);
@@ -2522,7 +2522,7 @@ DESC BLOCK::: * {@description.open}
      * returned sequence is <tt>end - start</tt>, so if <tt>start == end</tt>
      * then an empty sequence is returned. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Enum.java
 DIRECTORY: java/lang
@@ -2539,7 +2539,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
  * This is the common base class of all Java language enumeration types.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static <T extends Enum<T>> T valueOf(Class<T> enumType,
@@ -2568,7 +2568,7 @@ DESC BLOCK::: * {@description.open}
      * specified name.  The name must match exactly an identifier used
      * to declare an enum constant in this type.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ClassNotFoundException.java
 DIRECTORY: java/lang
@@ -2600,7 +2600,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>&lt;clinit&gt;</tt>, as per Section 3.9 of <i>The Java Virtual
      * Machine Specification</i>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -2644,7 +2644,7 @@ DESC BLOCK::: * {@description.open}
      *     }
      * </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NegativeArraySizeException.java
 DIRECTORY: java/lang
@@ -2675,7 +2675,7 @@ DESC BLOCK::: * {@description.open}
          * This block represents codepoint values in the high surrogate
          * range: 0xDB80 through 0xDBFF
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isIdentifierIgnorable(char ch) 
@@ -2729,7 +2729,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isIdentifierIgnorable(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Character valueOf(char c) 
@@ -2761,7 +2761,7 @@ DESC BLOCK::: * {@description.open}
      * Returns a <tt>Character</tt> instance representing the specified
      * <tt>char</tt> value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isSupplementaryCodePoint(int codePoint) 
@@ -2785,7 +2785,7 @@ DESC BLOCK::: * {@description.open}
      * codePoint >= 0x10000 && codePoint <= 0x10FFFF
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isSpaceChar(char ch) 
@@ -2827,7 +2827,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isSpaceChar(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static char toUpperCase(char ch) 
@@ -2878,7 +2878,7 @@ e> case mapping methods.
      * all Unicode characters, including supplementary characters, use
      * the {@link #toUpperCase(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MAX_LOW_SURROGATE  = '\uDFFF';
@@ -2898,7 +2898,7 @@ DESC BLOCK::: * {@description.open}
      * UTF-16 encoding. A low-surrogate is also known as a
      * <i>trailing-surrogate</i>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MAX_HIGH_SURROGATE = '\uDBFF';
@@ -2918,7 +2918,7 @@ DESC BLOCK::: * {@description.open}
      * UTF-16 encoding. A high-surrogate is also known as a
      * <i>leading-surrogate</i>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MIN_CODE_POINT = 0x000000;
@@ -2934,7 +2934,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The minimum value of a Unicode code point.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public static final UnicodeBlock LOW_SURROGATES =
@@ -2953,7 +2953,7 @@ DESC BLOCK::: * {@description.open}
          * This block represents codepoint values in the high surrogate
          * range: 0xDC00 through 0xDFFF
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isSpaceChar(int codePoint) 
@@ -2987,7 +2987,7 @@ DESC BLOCK::: * {@description.open}
      * <li> {@link #PARAGRAPH_SEPARATOR}
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private UnicodeBlock(String idName, String alias) 
@@ -3002,7 +3002,7 @@ DESC BLOCK::: * {@description.open}
          * Create a UnicodeBlock with the given identifier name.
          * This name must be the same as the block identifier.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isLowerCase(char ch) 
@@ -3054,7 +3054,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isLowerCase(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -3097,7 +3097,7 @@ DESC BLOCK::: * {@description.open}
      *     <td><code>SPACE</code></td></tr>
      * </table>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isMirrored(char ch) 
@@ -3133,7 +3133,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isMirrored(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isValidCodePoint(int codePoint) 
@@ -3161,7 +3161,7 @@ DESC BLOCK::: * {@description.open}
      * codePoint >= 0x0000 && codePoint <= 0x10FFFF
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MIN_SUPPLEMENTARY_CODE_POINT = 0x010000;
@@ -3177,7 +3177,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The minimum value of a supplementary code point.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private UnicodeBlock(String idName, String[] aliasName) 
@@ -3192,7 +3192,7 @@ DESC BLOCK::: * {@description.open}
          * Create a UnicodeBlock with the given identifier name and
          * alias name.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isWhitespace(int codePoint) 
@@ -3244,7 +3244,7 @@ code>'&#92;u000A'</code>, LINE FEED.
      * </ul>
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static char forDigit(int digit, int radix) 
@@ -3284,7 +3284,7 @@ DESC BLOCK::: * {@description.open}
      * <code>'0'&nbsp;+ digit</code> is returned. Otherwise, the value
      * <code>'a'&nbsp;+ digit&nbsp;-&nbsp;10</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isHighSurrogate(char ch) 
@@ -3318,7 +3318,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * is <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public static final UnicodeBlock HIGH_SURROGATES =
@@ -3337,7 +3337,7 @@ DESC BLOCK::: * {@description.open}
          * This block represents codepoint values in the high surrogate
          * range: 0xD800 through 0xDB7F
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isISOControl(int codePoint) 
@@ -3359,7 +3359,7 @@ DESC BLOCK::: * {@description.open}
      * through <code>'&#92;u001F'</code> or in the range
      * <code>'&#92;u007F'</code> through <code>'&#92;u009F'</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MAX_SURROGATE = MAX_LOW_SURROGATE;
@@ -3375,7 +3375,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The maximum value of a Unicode surrogate code unit in the UTF-16 encoding.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int getNumericValue(int codePoint) 
@@ -3426,7 +3426,7 @@ DESC BLOCK::: * {@description.open}
      * nonnegative integer (for example, a fractional value), then -2
      * is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isISOControl(char ch) 
@@ -3458,7 +3458,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isISOControl(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MAX_CODE_POINT = 0x10ffff;
@@ -3475,7 +3475,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The maximum value of a Unicode code point.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int digit(int codePoint, int radix) 
@@ -3532,7 +3532,7 @@ ode>'Z'</code> and its code is less than
      *     is returned.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isSurrogatePair(char high, char low) 
@@ -3556,7 +3556,7 @@ DESC BLOCK::: * {@description.open}
      * isHighSurrogate(high) && isLowSurrogate(low)
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isDigit(int codePoint) 
@@ -3610,7 +3610,7 @@ DESC BLOCK::: * {@description.open}
      *
      * Many other character ranges contain digits as well.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char   MAX_VALUE = '\uffff';
@@ -3628,7 +3628,7 @@ DESC BLOCK::: * {@description.open}
      * The constant value of this field is the largest value of type
      * <code>char</code>, <code>'&#92;uFFFF'</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final
@@ -3743,7 +3743,7 @@ DESC BLOCK::: * {@description.open}
  * encoding. For more information on Unicode terminology, refer to the
  * <a href="http://www.unicode.org/glossary/">Unicode Glossary</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MIN_LOW_SURROGATE  = '\uDC00';
@@ -3763,7 +3763,7 @@ DESC BLOCK::: * {@description.open}
      * UTF-16 encoding. A low-surrogate is also known as a
      * <i>trailing-surrogate</i>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int getNumericValue(char ch) 
@@ -3818,7 +3818,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #getNumericValue(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int digit(char ch, int radix) 
@@ -3881,7 +3881,7 @@ etters
      * all Unicode characters, including supplementary characters, use
      * the {@link #digit(int, int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MIN_HIGH_SURROGATE = '\uD800';
@@ -3901,7 +3901,7 @@ DESC BLOCK::: * {@description.open}
      * UTF-16 encoding. A high-surrogate is also known as a
      * <i>leading-surrogate</i>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isMirrored(int codePoint) 
@@ -3929,7 +3929,7 @@ DESC BLOCK::: * {@description.open}
      * as a "(" in text that is left-to-right but as a ")" in text
      * that is right-to-left.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public static final UnicodeBlock  BASIC_LATIN =
@@ -3945,7 +3945,7 @@ DESC BLOCK::: * {@description.open}
          * Create a UnicodeBlock with the given identifier name and
          * alias names.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int toUpperCase(int codePoint) 
@@ -3987,7 +3987,7 @@ DESC BLOCK::: * {@description.open}
      * mappings, context-sensitive mappings, and 1:M character mappings, whereas
      * the <code>Character</code> case mapping methods cannot.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isUpperCase(int codePoint) 
@@ -4027,7 +4027,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p> Many other Unicode characters are uppercase too.<p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isIdentifierIgnorable(int codePoint) 
@@ -4071,7 +4071,7 @@ DESC BLOCK::: * {@description.open}
      * category value
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char   MIN_VALUE = '\u0000';
@@ -4089,7 +4089,7 @@ DESC BLOCK::: * {@description.open}
      * The constant value of this field is the smallest value of type
      * <code>char</code>, <code>'&#92;u0000'</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isLowerCase(int codePoint) 
@@ -4133,7 +4133,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * <p> Many other Unicode characters are lowercase too.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static char toLowerCase(char ch) 
@@ -4184,7 +4184,7 @@ e> case mapping methods.
      * all Unicode characters, including supplementary characters, use
      * the {@link #toLowerCase(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isUpperCase(char ch) 
@@ -4234,7 +4234,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isUpperCase(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int hashCode() 
@@ -4247,7 +4247,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns a hash code for this <code>Character</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isLowSurrogate(char ch) 
@@ -4277,7 +4277,7 @@ DESC BLOCK::: * {@description.open}
      * <blockquote><pre>ch >= '&#92;uDC00' && ch <= '&#92;uDFFF'
      * </pre></blockquote> is <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static class Subset  
@@ -4299,7 +4299,7 @@ DESC BLOCK::: * {@description.open}
      * UnicodeBlock}</code>.  Other portions of the Java API may define other
      * subsets for their own purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isWhitespace(char ch) 
@@ -4353,7 +4353,7 @@ is <code>'&#92;u001C'</code>, FILE SEPARATOR.
      * all Unicode characters, including supplementary characters, use
      * the {@link #isWhitespace(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static boolean isDigit(char ch) 
@@ -4415,7 +4415,7 @@ DESC BLOCK::: * {@description.open}
      * all Unicode characters, including supplementary characters, use
      * the {@link #isDigit(int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final char MIN_SURROGATE = MIN_HIGH_SURROGATE;
@@ -4431,7 +4431,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The minimum value of a Unicode surrogate code unit in the UTF-16 encoding.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int SIZE = 16;
@@ -4449,7 +4449,7 @@ DESC BLOCK::: * {@description.open}
      * The number of bits used to represent a <tt>char</tt> value in unsigned
      * binary form.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int toLowerCase(int codePoint) 
@@ -4491,7 +4491,7 @@ DESC BLOCK::: * {@description.open}
      * mappings, context-sensitive mappings, and 1:M character mappings, whereas
      * the <code>Character</code> case mapping methods cannot.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public static final UnicodeBlock forName(String blockName) 
@@ -4548,7 +4548,7 @@ name with underscores.
          * If the Unicode Standard changes block names, both the previous and
          * current names will be accepted.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: String.java
 DIRECTORY: java/lang
@@ -4594,7 +4594,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String</code> is searched backwards starting at the last
      * character.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(String str, int fromIndex) 
@@ -4620,7 +4620,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toLowerCase() 
@@ -4661,7 +4661,7 @@ DESC BLOCK::: * {@description.open}
      * <code>toLowerCase(Locale.ENGLISH)</code>.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String concat(String str) 
@@ -4699,7 +4699,7 @@ DESC BLOCK::: * {@description.open}
      * "to".concat("get").concat("her") returns "together"
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String replace(char oldChar, char newChar) 
@@ -4755,7 +4755,7 @@ n occurrence
      * "JonL".replace('q', 'x') returns "JonL" (no change)
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(int ch, int fromIndex) 
@@ -4818,7 +4818,7 @@ de>-1</code> is returned.
      * <p>All indices are specified in <code>char</code> values
      * (Unicode code units).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toUpperCase(Locale locale) 
@@ -4895,7 +4895,7 @@ d>tr (Turkish)</td>
      * </tr>
      * </table>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String replaceFirst(String regex, String replacement) 
@@ -4951,7 +4951,7 @@ eplaceFirst
      * Use {@link java.util.regex.Matcher#quoteReplacement} to suppress the special
      * meaning of these characters, if desired.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toUpperCase() 
@@ -4992,7 +4992,7 @@ DESC BLOCK::: * {@description.open}
      * <code>toUpperCase(Locale.ENGLISH)</code>.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean regionMatches(int toffset, String other, int ooffset,
@@ -5046,7 +5046,7 @@ wing
      * <tt>this.charAt(toffset+<i>k</i>)&nbsp;!=&nbsp;other.charAt(ooffset+<i>k</i>)</tt>
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean matches(String regex) 
@@ -5078,7 +5078,7 @@ DESC BLOCK::: * {@description.open}
      * java.util.regex.Pattern#matches(String,CharSequence)
      * matches}(</tt><i>regex</i><tt>,</tt> <i>str</i><tt>)</tt></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private int hash; // Default to 0
@@ -5093,7 +5093,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The count is the number of characters in the String.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public CharSequence subSequence(int beginIndex, int endIndex) 
@@ -5133,7 +5133,7 @@ DESC BLOCK::: * {@description.open}
      * This method is defined so that the <tt>String</tt> class can implement
      * the {@link CharSequence} interface. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String valueOf(char data[]) 
@@ -5153,7 +5153,7 @@ DESC BLOCK::: * {@description.open}
      * modification of the character array does not affect the newly
      * created string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String valueOf(char data[], int offset, int count) 
@@ -5181,7 +5181,7 @@ DESC BLOCK::: * {@description.open}
      * are copied; subsequent modification of the character array does not
      * affect the newly created string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String replaceAll(String regex, String replacement) 
@@ -5236,7 +5236,7 @@ DESC BLOCK::: * {@description.open}
      * Use {@link java.util.regex.Matcher#quoteReplacement} to suppress the special
      * meaning of these characters, if desired.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String() 
@@ -5267,7 +5267,7 @@ DESC BLOCK::: * {@description.open}
      * A new handle is generated to  refer to all future references to the
      * string instance within the stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(int ch) 
@@ -5313,7 +5313,7 @@ DESC BLOCK::: * {@description.open}
      * is true. In either case, if no such character occurs in this
      * string, then <code>-1</code> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contentEquals(StringBuffer sb) 
@@ -5331,7 +5331,7 @@ DESC BLOCK::: * {@description.open}
      * is {@code true} if and only if this {@code String} represents the same
      * sequence of characters as the specified {@code StringBuffer}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int lastIndexOf(String str) 
@@ -5359,7 +5359,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * is true.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String trim() 
@@ -5416,7 +5416,7 @@ DESC BLOCK::: * {@description.open}
      * This method may be used to trim whitespace (as defined above) from
      * the beginning and end of a string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -5447,7 +5447,7 @@ DESC BLOCK::: * {@description.open}
      *                         | (<b><i>b</i></b> &amp; 0xff))
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String substring(int beginIndex, int endIndex) 
@@ -5479,7 +5479,7 @@ DESC BLOCK::: * {@description.open}
      * "smiles".substring(1, 5) returns "mile"
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -5529,7 +5529,7 @@ s returned.
      * <a href="http://java.sun.com/docs/books/jls/html/">Java Language
      * Specification</a>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String[] split(String regex, int limit) 
@@ -5620,7 +5620,7 @@ DESC BLOCK::: * {@description.open}
      * split}<tt>(</tt><i>str</i><tt>,</tt>&nbsp;<i>n</i><tt>)</tt>
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int lastIndexOf(String str, int fromIndex) 
@@ -5646,7 +5646,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String copyValueOf(char data[], int offset, int count) 
@@ -5662,7 +5662,7 @@ DESC BLOCK::: * {@description.open}
      * Returns a String that represents the character sequence in the
      * array specified.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private final int count;
@@ -5677,7 +5677,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The offset is the first index of the storage that is used.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public int lastIndexOf(int ch, int fromIndex) 
@@ -5727,7 +5727,7 @@ DESC BLOCK::: * {@description.open}
      * <p>All indices are specified in <code>char</code> values
      * (Unicode code units).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contentEquals(CharSequence cs) 
@@ -5745,7 +5745,7 @@ DESC BLOCK::: * {@description.open}
      * is {@code true} if and only if this {@code String} represents the same
      * sequence of char values as the specified sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String substring(int beginIndex) 
@@ -5775,7 +5775,7 @@ DESC BLOCK::: * {@description.open}
      * "emptiness".substring(9) returns "" (an empty string)
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(String str) 
@@ -5801,7 +5801,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * is <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Byte.java
 DIRECTORY: java/lang
@@ -5818,7 +5818,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code double}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static byte parseByte(String s) throws NumberFormatException 
@@ -5853,14 +5853,14 @@ DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed decimal {@code
      * byte}. 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The resulting {@code byte} value is returned, exactly as
      * if the argument and the radix 10 were given as arguments to the
      * {@link #parseByte(java.lang.String, int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int intValue() 
@@ -5875,7 +5875,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code short}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public double doubleValue() 
@@ -5890,7 +5890,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code float}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static byte parseByte(String s, int radix)
@@ -5971,13 +5971,13 @@ DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed {@code byte} in the
      * radix specified by the second argument. 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The
      * resulting {@code byte} value is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final Class<Byte>     TYPE = (Class<Byte>) Class.getPrimitiveClass("byte");
@@ -5994,7 +5994,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the maximum value a {@code byte} can
      * have, 2<sup>7</sup>-1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final byte   MAX_VALUE = 127;
@@ -6012,7 +6012,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the minimum value a {@code byte} can
      * have, -2<sup>7</sup>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Byte decode(String nm) throws NumberFormatException 
@@ -6097,14 +6097,14 @@ ed in <a href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.do
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Byte.parseByte} method with the indicated radix (10, 16, or 8).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The result is
      * negated if first character of the specified {@code String} is
      * the minus sign.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public float floatValue() 
@@ -6119,7 +6119,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Byte} as a
      * {@code long}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long longValue() 
@@ -6134,7 +6134,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Byte} as an
      * {@code int}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -6147,7 +6147,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns a hash code for this {@code Byte}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Byte valueOf(byte b) 
@@ -6179,7 +6179,7 @@ DESC BLOCK::: * {@description.open}
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Comparable.java
 DIRECTORY: java/lang
@@ -6254,7 +6254,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NoSuchMethodException.java
 DIRECTORY: java/lang
@@ -6286,7 +6286,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Implementation note: It is a good idea for the returned
      * input stream to be buffered.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     abstract public InputStream getErrorStream();
@@ -6314,7 +6314,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Implementation note: It is a good idea for the returned
      * input stream to be buffered.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class Process 
@@ -6378,7 +6378,7 @@ te the input stream or read the output stream of
  * Process} object execute asynchronously or concurrently with respect
  * to the Java process that owns the {@code Process} object.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -6391,7 +6391,7 @@ DESC BLOCK::: * {@description.open}
      * Kills the subprocess. The subprocess represented by this
      * {@code Process} object is forcibly terminated.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     abstract public OutputStream getOutputStream();
@@ -6419,7 +6419,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Implementation note: It is a good idea for the returned
      * output stream to be buffered.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: OutOfMemoryError.java
 DIRECTORY: java/lang
@@ -6440,7 +6440,7 @@ DESC BLOCK::: * {@description.open}
  * because it is out of memory, and no more memory could be made
  * available by the garbage collector.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Runtime.java
 DIRECTORY: java/lang
@@ -6516,7 +6516,7 @@ DESC BLOCK::: * {@description.open}
      * of the exception is system-dependent, but it will always be a
      * subclass of {@link IOException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void loadLibrary(String libname) 
@@ -6573,7 +6573,7 @@ DESC BLOCK::: * {@description.open}
      * If this method is called more than once with the same library
      * name, the second and subsequent calls are ignored.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void load(String filename) 
@@ -6615,7 +6615,7 @@ DESC BLOCK::: * {@description.open}
      * The method {@link System#load(String)} is the conventional and
      * convenient means of invoking this method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Shutdown.java
 DIRECTORY: java/lang
@@ -6755,7 +6755,7 @@ rocess builder's attributes will affect processes
  * an empty list will not throw an exception unless {@link #start()}
  * is invoked.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>Starting a new process which uses the default working directory
@@ -6782,7 +6782,7 @@ DESC BLOCK::: * {@description.open}
  * variables, first call {@link java.util.Map#clear() Map.clear()}
  * before adding environment variables.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Map<String,String> environment() 
@@ -6877,7 +6877,7 @@ DESC BLOCK::: * {@description.open}
      * <a href=System.html#EnvironmentVSSystemProperties>system properties</a>
      * are generally preferred over environment variables.</p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Process start() throws IOException 
@@ -6944,7 +6944,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Subsequent modifications to this process builder will not
      * affect the returned {@link Process}.</p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Integer.java
 DIRECTORY: java/lang
@@ -7033,14 +7033,14 @@ ref="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#482
      * Integer.parseInt} method with the indicated radix (10, 16, or
      * 8).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The
      * result is negated if first character of the specified {@code
      * String} is the minus sign. 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Integer getInteger(String nm, Integer val) 
@@ -7100,7 +7100,7 @@ DESC BLOCK::: * {@description.open}
      * property does not have the correct numeric format, or if the
      * specified name is empty or {@code null}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int parseInt(String s, int radix)
@@ -7177,7 +7177,7 @@ DESC BLOCK::: * {@description.open}
      * parseInt("Kona", 27) returns 411787
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int parseInt(String s) throws NumberFormatException 
@@ -7203,7 +7203,7 @@ DESC BLOCK::: * {@description.open}
      * and the radix 10 were given as arguments to the {@link
      * #parseInt(java.lang.String, int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public double doubleValue() 
@@ -7218,7 +7218,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Integer} as a
      * {@code float}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final Class<Integer>  TYPE = (Class<Integer>) Class.getPrimitiveClass("int");
@@ -7235,7 +7235,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the maximum value an {@code int} can
      * have, 2<sup>31</sup>-1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toOctalString(int i) 
@@ -7289,7 +7289,7 @@ DESC BLOCK::: * {@description.open}
      * These are the characters <code>'&#92;u0030'</code> through
      * <code>'&#92;u0037'</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int intValue() 
@@ -7304,7 +7304,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Integer} as a
      * {@code short}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -7319,7 +7319,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Integer} as a
      * {@code double}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Integer valueOf(int i) 
@@ -7351,7 +7351,7 @@ DESC BLOCK::: * {@description.open}
      * Returns an {@code Integer} instance representing the specified
      * {@code int} value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toString(int i, int radix) 
@@ -7422,7 +7422,7 @@ DESC BLOCK::: * {@description.open}
      *  {@code Integer.toString(n, 16).toUpperCase()}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Integer getInteger(String nm, int val) 
@@ -7493,7 +7493,7 @@ ct
      * to avoid the unnecessary allocation of an {@code Integer}
      * object when the default value is not needed.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int   MAX_VALUE = 0x7fffffff;
@@ -7510,7 +7510,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the minimum value an {@code int} can
      * have, -2<sup>31</sup>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toBinaryString(int i) 
@@ -7550,7 +7550,7 @@ DESC BLOCK::: * {@description.open}
      * (<code>'&#92;u0030'</code>) and {@code '1'}
      * (<code>'&#92;u0031'</code>) are used as binary digits.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Integer getInteger(String nm) 
@@ -7604,7 +7604,7 @@ DESC BLOCK::: * {@description.open}
      *  {@code getInteger(nm, null)}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toHexString(int i) 
@@ -7668,7 +7668,7 @@ its:
      *  {@code Integer.toHexString(n).toUpperCase()}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public float floatValue() 
@@ -7683,7 +7683,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Integer} as a
      * {@code long}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -7698,7 +7698,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Integer} as a
      * {@code byte}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int numberOfLeadingZeros(int i) 
@@ -7734,7 +7734,7 @@ DESC BLOCK::: * {@description.open}
      * <li>ceil(log<sub>2</sub>(x)) = {@code 32 - numberOfLeadingZeros(x - 1)}
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LinkageError.java
 DIRECTORY: java/lang
@@ -7755,7 +7755,7 @@ DESC BLOCK::: * {@description.open}
  * some dependency on another class; however, the latter class has
  * incompatibly changed after the compilation of the former class.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Appendable.java
 DIRECTORY: java/lang
@@ -7789,7 +7789,7 @@ DESC BLOCK::: * {@description.open}
      * <pre>
      *     out.append(csq.subSequence(start, end)) </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Compiler.java
 DIRECTORY: java/lang
@@ -7824,7 +7824,7 @@ DESC BLOCK::: * {@description.open}
      * conjunction with this annotation type. They are encouraged to cooperate
      * to ensure that the same names work across multiple compilers.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Short.java
 DIRECTORY: java/lang
@@ -7843,7 +7843,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the minimum value a {@code short} can
      * have, -2<sup>15</sup>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static short parseShort(String s, int radix)
@@ -7924,12 +7924,12 @@ DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed {@code short} in the
      * radix specified by the second argument. 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The resulting {@code short} value is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Short decode(String nm) throws NumberFormatException 
@@ -8016,14 +8016,14 @@ href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#48
      * Short.parseShort} method with the indicated radix (10, 16, or
      * 8).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The
      * result is negated if first character of the specified {@code
      * String} is the minus sign.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -8038,7 +8038,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Short} as a
      * {@code double}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public double doubleValue() 
@@ -8053,7 +8053,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Short} as a
      * {@code float}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final Class<Short>    TYPE = (Class<Short>) Class.getPrimitiveClass("short");
@@ -8070,7 +8070,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the maximum value a {@code short} can
      * have, 2<sup>15</sup>-1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -8085,7 +8085,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Short} as a
      * {@code byte}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public float floatValue() 
@@ -8100,7 +8100,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Short} as a
      * {@code long}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long longValue() 
@@ -8115,7 +8115,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Short} as an
      * {@code int}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Short valueOf(short s) 
@@ -8183,7 +8183,7 @@ DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed decimal {@code
      * short}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The resulting {@code short} value is returned,
@@ -8191,7 +8191,7 @@ DESC BLOCK::: * {@description.open}
      * arguments to the {@link #parseShort(java.lang.String, int)}
      * method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -8204,7 +8204,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns a hash code for this {@code Short}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CharacterData.java
 DIRECTORY: java/lang
@@ -8232,7 +8232,7 @@ DESC BLOCK::: * {@description.open}
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(char detailMessage) 
@@ -8252,7 +8252,7 @@ DESC BLOCK::: * {@description.open}
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(double detailMessage) 
@@ -8272,7 +8272,7 @@ DESC BLOCK::: * {@description.open}
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(boolean detailMessage) 
@@ -8292,7 +8292,7 @@ DESC BLOCK::: * {@description.open}
      * a string as defined in <i>The Java Language Specification,
      * Second Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(long detailMessage) 
@@ -8312,7 +8312,7 @@ DESC BLOCK::: * {@description.open}
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(int detailMessage) 
@@ -8332,7 +8332,7 @@ DESC BLOCK::: * {@description.open}
      * string as defined in <i>The Java Language Specification, Second
      * Edition</i>, Section 15.18.1.1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AssertionError(Object detailMessage) 
@@ -8358,7 +8358,7 @@ DESC BLOCK::: * {@description.open}
      * If the specified object is an instance of <tt>Throwable</tt>, it
      * becomes the <i>cause</i> of the newly constructed assertion error.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class AssertionError extends Error 
@@ -8396,7 +8396,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="http://java.sun.com/docs/books/jls/second_edition/html/expressions.doc.html#40220">
  * Section  15.18.1.1</a>), regardless of the type of <i>expression</i>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Runnable.java
 DIRECTORY: java/lang
@@ -8422,7 +8422,7 @@ DESC BLOCK::: * {@description.open}
  * this annotation type but does not override a superclass method,
  * compilers are required to generate an error message.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ClassCircularityError.java
 DIRECTORY: java/lang
@@ -8438,7 +8438,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
  * Thrown when a circularity has been detected while initializing a class.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Long.java
 DIRECTORY: java/lang
@@ -8476,7 +8476,7 @@ DESC BLOCK::: * {@description.open}
      * <li>ceil(log<sub>2</sub>(x)) = {@code 64 - numberOfLeadingZeros(x - 1)}
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toOctalString(long i) 
@@ -8532,7 +8532,7 @@ DESC BLOCK::: * {@description.open}
      * These are the characters <code>'&#92;u0030'</code> through
      * <code>'&#92;u0037'</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toBinaryString(long i) 
@@ -8572,7 +8572,7 @@ DESC BLOCK::: * {@description.open}
      * (<code>'&#92;u0030'</code>) and {@code '1'}
      * (<code>'&#92;u0031'</code>) are used as binary digits.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Long getLong(String nm, long val) 
@@ -8644,7 +8644,7 @@ a {@code Long} object equal
      * to avoid the unnecessary allocation of a {@code Long} object when
      * the default value is not needed.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -8659,7 +8659,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code double}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Long decode(String nm) throws NumberFormatException 
@@ -8733,7 +8733,7 @@ DESC BLOCK::: * {@description.open}
      * negated if first character of the specified {@code String} is
      * the minus sign.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Long getLong(String nm) 
@@ -8791,7 +8791,7 @@ DESC BLOCK::: * {@description.open}
      *  {@code getLong(nm, null)}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public double doubleValue() 
@@ -8806,7 +8806,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code float}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static long parseLong(String s, int radix)
@@ -8915,13 +8915,13 @@ DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed {@code long} in the
      * radix specified by the second argument.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The resulting {@code long} value is
      * returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>Examples:
@@ -8936,7 +8936,7 @@ DESC BLOCK::: * {@description.open}
      * parseLong("Hazelnut", 36) returns 1356099454469L
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static long parseLong(String s) throws NumberFormatException 
@@ -8985,7 +8985,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Parses the string argument as a signed decimal {@code long}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The
@@ -8993,7 +8993,7 @@ DESC BLOCK::: * {@description.open}
      * argument and the radix {@code 10} were given as arguments to
      * the {@link #parseLong(java.lang.String, int)} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final long MAX_VALUE = 0x7fffffffffffffffL;
@@ -9010,7 +9010,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the minimum value a {@code long} can
      * have, -2<sup>63</sup>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long longValue() 
@@ -9025,7 +9025,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Long} as an
      * {@code int}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Long getLong(String nm, Long val) 
@@ -9091,7 +9091,7 @@ DESC BLOCK::: * {@description.open}
      * property does not have the correct numeric format, or if the
      * specified name is empty or {@code null}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final Class<Long>     TYPE = (Class<Long>) Class.getPrimitiveClass("long");
@@ -9108,7 +9108,7 @@ DESC BLOCK::: * {@description.open}
      * A constant holding the maximum value a {@code long} can
      * have, 2<sup>63</sup>-1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toHexString(long i) 
@@ -9172,7 +9172,7 @@ gits:
      *  {@code Long.toHexString(n).toUpperCase()}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Long valueOf(long l) 
@@ -9204,7 +9204,7 @@ DESC BLOCK::: * {@description.open}
      * Returns a {@code Long} instance representing the specified
      * {@code long} value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -9220,7 +9220,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code byte}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int intValue() 
@@ -9235,7 +9235,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Long} as a
      * {@code short}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toString(long i, int radix) 
@@ -9306,7 +9306,7 @@ de>'&#92;u007a'</code>. If {@code radix} is
      *  {@code Long.toString(n, 16).toUpperCase()}
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: System.java
 DIRECTORY: java/lang
@@ -9327,7 +9327,7 @@ DESC BLOCK::: * {@description.open}
      * inline access to them, since they are later set to more sensible values
      * by initializeSystemClass().
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public static native void arraycopy(Object src,  int  srcPos,
@@ -9456,7 +9456,7 @@ code> through
      * paragraph effectively applies only to the situation where both
      * arrays have component types that are reference types.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Properties getProperties() 
@@ -9570,7 +9570,7 @@ DESC BLOCK::: * {@description.open}
      * <code>getProperties</code> operation, it may choose to permit the
      * {@link #getProperty(String)} operation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static void load(String filename) 
@@ -9600,7 +9600,7 @@ DESC BLOCK::: * {@description.open}
      * Runtime.getRuntime().load(name)
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native long nanoTime();
@@ -9656,7 +9656,7 @@ t
      *   long estimatedTime = System.nanoTime() - startTime;
      * </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static void loadLibrary(String libname) 
@@ -9686,7 +9686,7 @@ DESC BLOCK::: * {@description.open}
      * Runtime.getRuntime().loadLibrary(name)
      * </pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IllegalArgumentException.java
 DIRECTORY: java/lang
@@ -9712,7 +9712,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as a <code>byte</code>.
      * This may involve rounding or truncation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class Number implements java.io.Serializable 
@@ -9742,7 +9742,7 @@ DESC BLOCK::: * {@description.open}
  * <code>float</code>, <code>int</code>, <code>long</code>, and
  * <code>short</code>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract float floatValue();
@@ -9760,7 +9760,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as a <code>float</code>.
      * This may involve rounding.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -9776,7 +9776,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as a <code>short</code>.
      * This may involve rounding or truncation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract double doubleValue();
@@ -9794,7 +9794,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as a <code>double</code>.
      * This may involve rounding.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract long longValue();
@@ -9812,7 +9812,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as a <code>long</code>.
      * This may involve rounding or truncation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract int intValue();
@@ -9829,7 +9829,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of the specified number as an <code>int</code>.
      * This may involve rounding or truncation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NoSuchMethodError.java
 DIRECTORY: java/lang
@@ -9855,7 +9855,7 @@ DESC BLOCK::: * {@description.open}
      * Due to the inherently imprecise nature of the result, it is
      * recommended that this method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void uncaughtException(Thread t, Throwable e) 
@@ -9918,7 +9918,7 @@ DESC BLOCK::: * {@description.open}
      * <code>ThreadGroup</code> to provide alternative handling of
      * uncaught exceptions.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void add(Thread t) 
@@ -9931,7 +9931,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Adds the specified Thread to this group.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int enumerate(ThreadGroup list[]) 
@@ -9975,7 +9975,7 @@ DESC BLOCK::: * {@description.open}
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int enumerate(ThreadGroup list[], boolean recurse) 
@@ -10024,7 +10024,7 @@ should be, however <i>if the
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int enumerate(Thread list[], boolean recurse) 
@@ -10072,7 +10072,7 @@ of how big the array should be, however <i>if the
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void remove(Thread t) 
@@ -10085,7 +10085,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open} 
      * Removes the specified Thread from this group.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int activeCount() 
@@ -10109,7 +10109,7 @@ DESC BLOCK::: * {@description.open}
      * Due to the inherently imprecise nature of the result, it is
      * recommended that this method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int enumerate(Thread list[]) 
@@ -10153,7 +10153,7 @@ DESC BLOCK::: * {@description.open}
      * Due to the inherent race condition in this method, it is recommended
      * that the method only be used for informational purposes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ApplicationShutdownHooks.java
 DIRECTORY: java/lang
@@ -10189,7 +10189,7 @@ DESC BLOCK::: * {@description.open}
      * If there is no property with the specified name, or if the specified
      * name is empty or null, then {@code false} is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AssertionStatusDirectives.java
 DIRECTORY: java/lang
@@ -10260,7 +10260,7 @@ DESC BLOCK::: * {@description.open}
      * </tt><i>cl</i><tt>.defineClass}(</tt><i>name</i><tt>, temp, 0, temp.length, </tt><i>pd</i><tt>);<br>
      * </tt></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class ClassLoader 
@@ -10391,7 +10391,7 @@ e">Binary names</a> </h4>
  *   "java.net.URLClassLoader$3$1"
  * </pre></blockquote>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected final void resolveClass(Class<?> c) 
@@ -10417,7 +10417,7 @@ DESC BLOCK::: * {@description.open}
      * Specification</a>.
      * </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected synchronized Class<?> loadClass(String name, boolean resolve)
@@ -10487,7 +10487,7 @@ DESC BLOCK::: * {@description.open}
      * <p> Subclasses of <tt>ClassLoader</tt> are encouraged to override {@link
      * #findClass(String)}, rather than this method.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected final Class<?> defineClass(String name, byte[] b, int off, int len,
@@ -10561,7 +10561,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>SecurityException</tt> will be thrown.  Note that if
      * <tt>name</tt> is <tt>null</tt>, this check is not performed.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: TypeNotPresentException.java
 DIRECTORY: java/lang
@@ -10593,7 +10593,7 @@ DESC BLOCK::: * {@description.open}
  * are accessed as well as when types (e.g., classes, interfaces or
  * annotation types) are loaded.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractStringBuilder.java
 DIRECTORY: java/lang
@@ -10619,7 +10619,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder append(float f) 
@@ -10643,7 +10643,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this string sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, long l) 
@@ -10677,7 +10677,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, String str) 
@@ -10734,7 +10734,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, int i) 
@@ -10768,7 +10768,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x
 ---------
 NEAREST SIGNATURE::: 
 abstract class AbstractStringBuilder implements Appendable, CharSequence 
@@ -10789,7 +10789,7 @@ DESC BLOCK::: * {@description.open}
  * particular sequence of characters, but the length and content of the
  * sequence can be changed through certain method calls.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder append(boolean b) 
@@ -10813,7 +10813,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public CharSequence subSequence(int start, int end) 
@@ -10853,7 +10853,7 @@ DESC BLOCK::: * {@description.open}
      * This method is provided so that this class can
      * implement the {@link CharSequence} interface. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, char str[]) 
@@ -10893,7 +10893,7 @@ DESC BLOCK::: * {@description.open}
      * character sequence at the position indicated by
      * <code>offset</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, Object obj) 
@@ -10927,7 +10927,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder append(Object obj) 
@@ -10951,7 +10951,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, double d) 
@@ -10985,7 +10985,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder append(double d) 
@@ -11009,7 +11009,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, char c) 
@@ -11053,7 +11053,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int dstOffset, CharSequence s) 
@@ -11089,7 +11089,7 @@ DESC BLOCK::: * {@description.open}
      * <p>If <code>s</code> is <code>null</code>, then the four characters
      * <code>"null"</code> are inserted into this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder append(int i) 
@@ -11113,7 +11113,7 @@ DESC BLOCK::: * {@description.open}
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void ensureCapacity(int minimumCapacity) 
@@ -11145,7 +11145,7 @@ DESC BLOCK::: * {@description.open}
      * If the <code>minimumCapacity</code> argument is nonpositive, this
      * method takes no action and simply returns.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder reverse() 
@@ -11193,7 +11193,7 @@ DESC BLOCK::: * {@description.open}
      * "&#92;uDC00&#92;uD800" produces "&#92;uD800&#92;uDC00" which is
      * a valid surrogate pair.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(String str, int fromIndex) 
@@ -11221,7 +11221,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setLength(int newLength) 
@@ -11271,7 +11271,7 @@ DESC BLOCK::: * {@description.open}
      * The <code>newLength</code> argument must be greater than or equal
      * to <code>0</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int lastIndexOf(String str, int fromIndex) 
@@ -11299,7 +11299,7 @@ DESC BLOCK::: * {@description.open}
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, float f) 
@@ -11333,7 +11333,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AbstractStringBuilder insert(int offset, boolean b) 
@@ -11367,7 +11367,7 @@ DESC BLOCK::: * {@description.open}
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
      public AbstractStringBuilder insert(int dstOffset, CharSequence s,
@@ -11432,7 +11432,7 @@ DESC BLOCK::: * {@description.open}
      * characters as if the s parameter was a sequence containing the four
      * characters <code>"null"</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IndexOutOfBoundsException.java
 DIRECTORY: java/lang
@@ -11529,7 +11529,7 @@ tion produced by this method for a finite nonzero
      * <p>To create localized string representations of a floating-point
      * value, use subclasses of {@link java.text.NumberFormat}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long longValue() 
@@ -11545,7 +11545,7 @@ DESC BLOCK::: * {@description.open}
      * Returns value of this {@code Float} as a {@code long} (by
      * casting to type {@code long}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public short shortValue() 
@@ -11561,7 +11561,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Float} as a {@code short} (by
      * casting to a {@code short}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final float MIN_NORMAL = 0x1.0p-126f; // 1.17549435E-38f
@@ -11584,7 +11584,7 @@ DESC BLOCK::: * {@description.open}
      * {@code 0x1.fffffeP+127f} and also equal to
      * {@code Float.intBitsToFloat(0x7f7fffff)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final float MIN_NORMAL = 0x1.0p-126f; // 1.17549435E-38f
@@ -11606,7 +11606,7 @@ DESC BLOCK::: * {@description.open}
      * hexadecimal floating-point literal {@code 0x1.0p-126f} and also
      * equal to {@code Float.intBitsToFloat(0x00800000)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public byte byteValue() 
@@ -11622,7 +11622,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Float} as a {@code byte} (by
      * casting to a {@code byte}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String toHexString(float f) 
@@ -11725,7 +11725,7 @@ DESC BLOCK::: * {@description.open}
      *     <td>{@code 0x0.000002p-126}</td>
      * </table>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public double doubleValue() 
@@ -11739,7 +11739,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the {@code double} value of this {@code Float} object.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Float valueOf(String s) throws NumberFormatException 
@@ -11877,7 +11877,7 @@ DESC BLOCK::: * {@description.open}
      * for {@link Double#valueOf Double.valueOf} lists a regular
      * expression which can be used to screen the input.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int intValue() 
@@ -11893,7 +11893,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the value of this {@code Float} as an {@code int} (by
      * casting to type {@code int}).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native float intBitsToFloat(int bits);
@@ -11982,7 +11982,7 @@ DESC BLOCK::: * {@description.open}
      * dependent; although all NaN bit patterns, quiet or signaling,
      * must be in the NaN range identified above.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MAX_EXPONENT = 127;
@@ -12003,7 +12003,7 @@ DESC BLOCK::: * {@description.open}
      * hexadecimal floating-point literal {@code 0x0.000002P-126f}
      * and also equal to {@code Float.intBitsToFloat(0x1)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IllegalAccessException.java
 DIRECTORY: java/lang
@@ -12045,7 +12045,7 @@ DESC BLOCK::: * {@description.open}
      * with the thread group as its argument. This may result
      * in throwing a <code>SecurityException</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ClassLoader getContextClassLoader() 
@@ -12087,7 +12087,7 @@ DESC BLOCK::: * {@description.open}
      * <code>RuntimePermission("getClassLoader")</code> permission
      *  to see if it's ok to get the context ClassLoader..
      *  {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final synchronized void join(long millis, int nanos)
@@ -12104,7 +12104,7 @@ DESC BLOCK::: * {@description.open}
      * Waits at most <code>millis</code> milliseconds plus
      * <code>nanos</code> nanoseconds for this thread to die.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void interrupt() 
@@ -12117,7 +12117,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Common impl for stop() and stop(Throwable).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public StackTraceElement[] getStackTrace() 
@@ -12167,7 +12167,7 @@ rity manager's
      * this thread is permitted to return a zero-length array from this
      * method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -12218,14 +12218,14 @@ PROP BLOCK:::* {@property.open deprecated}
      * If the argument <code>obj</code> is null, a
      * <code>NullPointerException</code> is thrown (in the current thread).
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [-]
 ---------
 PROP BLOCK:::* {@property.open deprecated}
      * This
      * is an unusual action to take; normally, the <code>stop</code> method
      * that takes no arguments should be used.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [-]
 ---------
 DESC BLOCK::: * {@description.open}
      * Forces the thread to stop executing.
@@ -12243,7 +12243,7 @@ DESC BLOCK::: * {@description.open}
      * Again, this may result in throwing a
      * <code>SecurityException</code> (in the current thread).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -12251,14 +12251,14 @@ DESC BLOCK::: * {@description.open}
      * whatever it is doing abnormally and to throw the
      * <code>Throwable</code> object <code>obj</code> as an exception.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
      * It is permitted to stop a thread that has not yet been started.
      * If the thread is eventually started, it immediately terminates.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(ThreadGroup group, Runnable target) 
@@ -12280,7 +12280,7 @@ DESC BLOCK::: * {@description.open}
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(String name) 
@@ -12296,7 +12296,7 @@ DESC BLOCK::: * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, null, name)</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(ThreadGroup group, Runnable target, String name) 
@@ -12366,7 +12366,7 @@ DESC BLOCK::: * {@description.open}
      * as a daemon thread. The method <code>setDaemon </code> may be used
      * to change whether or not a thread is a daemon.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static void sleep(long millis, int nanos)
@@ -12389,7 +12389,7 @@ DESC BLOCK::: * {@description.open}
      * timers and schedulers. The thread does not lose ownership of any
      * monitors.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(ThreadGroup group, String name) 
@@ -12405,7 +12405,7 @@ DESC BLOCK::: * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(group, null, name)</code>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public
@@ -12525,7 +12525,7 @@ er than minPrime
  * one thread may have the same name. If a name is not specified when
  * a thread is created, a new name is generated for it.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int activeCount() 
@@ -12541,7 +12541,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the number of active threads in the current thread's thread
      * group.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(Runnable target, String name) 
@@ -12557,7 +12557,7 @@ DESC BLOCK::: * {@description.open}
      * Allocates a new <code>Thread</code> object. This constructor has
      * the same effect as <code>Thread(null, target, name)</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void interrupt() 
@@ -12621,7 +12621,7 @@ a.nio.channels.Selector}
      *
      * <p> Interrupting a thread that is not alive need not have any effect.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native void sleep(long millis) throws InterruptedException;
@@ -12638,7 +12638,7 @@ DESC BLOCK::: * {@description.open}
      * Causes the currently executing thread object to temporarily pause
      * and allow other threads to execute.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(ThreadGroup group, Runnable target, String name,
@@ -12716,7 +12716,7 @@ orm a given computation will
      * document their implementation's behavior with respect to the
      * <tt>stackSize parameter</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread(Runnable target) 
@@ -12738,7 +12738,7 @@ DESC BLOCK::: * {@description.open}
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Thread() 
@@ -12760,7 +12760,7 @@ DESC BLOCK::: * {@description.open}
      * a newly generated name. Automatically generated names are of the
      * form <code>"Thread-"+</code><i>n</i>, where <i>n</i> is an integer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final synchronized void join(long millis)
@@ -12777,7 +12777,7 @@ DESC BLOCK::: * {@description.open}
      * Waits at most <code>millis</code> milliseconds for this thread to
      * die. A timeout of <code>0</code> means to wait forever.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setContextClassLoader(ClassLoader cl) 
@@ -12807,7 +12807,7 @@ DESC BLOCK::: * {@description.open}
      * <code>RuntimePermission("setContextClassLoader")</code> permission
      *  to see if it's ok to set the context ClassLoader..
      *  {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void setDaemon(boolean on) 
@@ -12842,7 +12842,7 @@ DESC BLOCK::: * {@description.open}
      * Java Virtual Machine exits when the only threads running are all
      * daemon threads.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
       * <p>
@@ -12851,7 +12851,7 @@ DESC BLOCK::: * {@description.open}
      * with no arguments. This may result in throwing a
      * <code>SecurityException </code>(in the current thread).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     @Override
@@ -12866,7 +12866,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns a clone if the class of this object is {@link Cloneable Cloneable}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public final void join() throws InterruptedException 
@@ -12880,7 +12880,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Waits for this thread to die.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NoSuchFieldError.java
 DIRECTORY: java/lang
@@ -12895,7 +12895,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open} 
      * Constructs a <code>NoSuchFieldException</code> with no detail  message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public NoSuchFieldError(String s) 
@@ -12911,7 +12911,7 @@ DESC BLOCK::: * {@description.open}
      * Constructs a <code>NoSuchFieldException</code> with the specified
      * detail message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RuntimeException.java
 DIRECTORY: java/lang
@@ -12939,7 +12939,7 @@ DESC BLOCK::: * {@description.open}
  * clause any subclasses of <code>RuntimeException</code> that might
  * be thrown during the execution of the method but not caught.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: UnsupportedOperationException.java
 DIRECTORY: java/lang
@@ -12987,7 +12987,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the first argument is finite and the second argument is
      * infinite, then the result is the same as the first argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int round(float a) 
@@ -13027,7 +13027,7 @@ DESC BLOCK::: * {@description.open}
      * equal to the value of {@code Integer.MAX_VALUE}, the result is
      * equal to the value of {@code Integer.MAX_VALUE}.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double hypot(double x, double y) 
@@ -13078,7 +13078,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double expm1(double x) 
@@ -13149,7 +13149,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static float ulp(float f) 
@@ -13193,7 +13193,7 @@ DESC BLOCK::: * {@description.open}
      * the result is equal to 2<sup>104</sup>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double ulp(double d) 
@@ -13237,7 +13237,7 @@ DESC BLOCK::: * {@description.open}
      * the result is equal to 2<sup>971</sup>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double scalb(double d, int scaleFactor) 
@@ -13295,7 +13295,7 @@ DESC BLOCK::: * {@description.open}
      * sign is returned.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double atan(double a) 
@@ -13328,7 +13328,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double sinh(double x) 
@@ -13383,7 +13383,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double atan2(double y, double x) 
@@ -13464,7 +13464,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If both arguments are negative infinity, then the result is the
      * {@code double} value closest to -3*<i>pi</i>/4.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static float scalb(float f, int scaleFactor) 
@@ -13522,7 +13522,7 @@ DESC BLOCK::: * {@description.open}
      * sign is returned.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double log10(double a) 
@@ -13569,7 +13569,7 @@ DESC BLOCK::: * {@description.open}
      * integer <i>n</i>, then the result is <i>n</i>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double asin(double a) 
@@ -13604,7 +13604,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 final class Math 
@@ -13695,7 +13695,7 @@ DESC BLOCK::: * {@description.open}
  * the equivalent method in {@code StrictMath} for their
  * implementation.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>The quality of implementation specifications concern two
@@ -13717,7 +13717,7 @@ r
  * have 1 ulp accuracy will automatically meet the monotonicity
  * requirements.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double cosh(double x) 
@@ -13770,7 +13770,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double tanh(double x) 
@@ -13847,7 +13847,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static long round(double a) 
@@ -13887,7 +13887,7 @@ DESC BLOCK::: * {@description.open}
      * equal to the value of {@code Long.MAX_VALUE}, the result is
      * equal to the value of {@code Long.MAX_VALUE}.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Throwable.java
 DIRECTORY: java/lang
@@ -13935,7 +13935,7 @@ DESC BLOCK::: * {@description.open}
      * contain one element for every frame that would be printed by
      * <tt>printStackTrace</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void printStackTrace(PrintStream s) 
@@ -14074,7 +14074,7 @@ DESC BLOCK::: * {@description.open}
      * }
      * </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class Throwable implements Serializable 
@@ -14216,7 +14216,7 @@ e).
  * and <tt>printStackTrace</tt> will operate properly on a throwable that
  * was obtained by deserialization.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setStackTrace(StackTraceElement[] stackTrace) 
@@ -14246,7 +14246,7 @@ DESC BLOCK::: * {@description.open}
      * when a throwable is constructed or deserialized when a throwable is
      * read from a serialization stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private native StackTraceElement getStackTraceElement(int index);
@@ -14265,7 +14265,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the number of elements in the stack trace (or 0 if the stack
      * trace is unavailable).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized Throwable initCause(Throwable cause) 
@@ -14308,14 +14308,14 @@ DESC BLOCK::: * {@description.open}
      * Initializes the <i>cause</i> of this throwable to the specified value.
      * (The cause is the throwable that caused this throwable to get thrown.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * It is generally called from
      * within the constructor, or immediately after creating the
      * throwable.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized native Throwable fillInStackTrace();
@@ -14335,7 +14335,7 @@ DESC BLOCK::: * {@description.open}
      * <code>Throwable</code> object information about the current state of
      * the stack frames for the current thread.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private native StackTraceElement getStackTraceElement(int index);
@@ -14353,7 +14353,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the specified element of the stack trace.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void printStackTrace(PrintWriter s) 
@@ -14366,7 +14366,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Print our stack trace as a cause for the specified stack trace.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private StackTraceElement[] stackTrace;
@@ -14386,7 +14386,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The stack trace, as returned by {@link #getStackTrace()}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: StrictMath.java
 DIRECTORY: java/lang
@@ -14465,7 +14465,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the first argument is finite and the second argument is
      * infinite, then the result is the same as the first argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static int round(float a) 
@@ -14505,7 +14505,7 @@ DESC BLOCK::: * {@description.open}
      * equal to the value of {@code Integer.MAX_VALUE}, the result is
      * equal to the value of {@code Integer.MAX_VALUE}.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static float ulp(float f) 
@@ -14549,7 +14549,7 @@ DESC BLOCK::: * {@description.open}
      * the result is equal to 2<sup>104</sup>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double ulp(double d) 
@@ -14593,7 +14593,7 @@ DESC BLOCK::: * {@description.open}
      * the result is equal to 2<sup>971</sup>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static double scalb(double d, int scaleFactor) 
@@ -14651,7 +14651,7 @@ DESC BLOCK::: * {@description.open}
      * sign is returned.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double sinh(double x);
@@ -14699,7 +14699,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double tanh(double x);
@@ -14759,7 +14759,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -14819,7 +14819,7 @@ DESC BLOCK::: * {@description.open}
  * {@code sinh}, {@code cosh}, {@code tanh},
  * {@code hypot}, {@code expm1}, and {@code log1p}.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double asin(double a);
@@ -14845,7 +14845,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double atan(double a);
@@ -14869,7 +14869,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If the argument is zero, then the result is a zero with the
      * same sign as the argument.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static float scalb(float f, int scaleFactor) 
@@ -14927,7 +14927,7 @@ DESC BLOCK::: * {@description.open}
      * sign is returned.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double expm1(double x);
@@ -14979,7 +14979,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double atan2(double y, double x);
@@ -15052,7 +15052,7 @@ DESC BLOCK::: * {@description.open}
      * <li>If both arguments are negative infinity, then the result is the
      * {@code double} value closest to -3*<i>pi</i>/4.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double log10(double a);
@@ -15090,7 +15090,7 @@ DESC BLOCK::: * {@description.open}
      * integer <i>n</i>, then the result is <i>n</i>.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double cosh(double x);
@@ -15136,7 +15136,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static long round(double a) 
@@ -15176,7 +15176,7 @@ DESC BLOCK::: * {@description.open}
      * equal to the value of {@code Long.MAX_VALUE}, the result is
      * equal to the value of {@code Long.MAX_VALUE}.</ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static native double hypot(double x, double y);
@@ -15216,7 +15216,7 @@ DESC BLOCK::: * {@description.open}
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SecurityManager.java
 DIRECTORY: java/lang
@@ -15258,7 +15258,7 @@ DESC BLOCK::: * {@description.open}
      * <code>AWTPermission("accessClipboard")</code>
      * permission.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void checkAwtEventQueueAccess() 
@@ -15296,7 +15296,7 @@ DESC BLOCK::: * {@description.open}
      * This method calls <code>checkPermission</code> with the
      * <code>AWTPermission("accessEventQueue")</code> permission.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void checkConnect(String host, int port, Object context) 
@@ -15362,7 +15362,7 @@ DESC BLOCK::: * {@description.open}
      * is called with a
      * <code>SocketPermission(host,"resolve")</code> permission.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean checkTopLevelWindow(Object window) 
@@ -15426,7 +15426,7 @@ DESC BLOCK::: * {@description.open}
      * and returns <code>true</code> if a SecurityException is not thrown,
      * otherwise it returns <code>false</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void checkExec(String cmd) 
@@ -15476,7 +15476,7 @@ DESC BLOCK::: * {@description.open}
      * <code>checkPermission</code> with
      * <code>FilePermission("&lt;&lt;ALL FILES&gt;&gt;","execute")</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void checkListen(int port) 
@@ -15522,7 +15522,7 @@ DESC BLOCK::: * {@description.open}
      * If port is zero, this method calls <code>checkPermission</code>
      * with <code>SocketPermission("localhost:1024-","listen").</code>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public
@@ -15645,7 +15645,7 @@ DESC BLOCK::: * {@description.open}
  * an annotation whose type has changed after the annotation was compiled
  * (or serialized).
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Inherited.java
 DIRECTORY: java/lang/annotation
@@ -15719,7 +15719,7 @@ ons.  It
  *    }
  * </pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Annotation.java
 DIRECTORY: java/lang/annotation
@@ -15787,7 +15787,7 @@ DESC BLOCK::: * {@description.open}
      *     type, and one for object reference types.)
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public interface Annotation 
@@ -15807,7 +15807,7 @@ DESC BLOCK::: * {@description.open}
  * an annotation type.  Also note that this interface does not itself
  * define an annotation type.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Retention.java
 DIRECTORY: java/lang/annotation
@@ -15833,7 +15833,7 @@ DESC BLOCK::: * {@description.open}
  * the annotation was compiled (or serialized).  This exception will not be
  * thrown if the new element has a default value.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: package-info.java
 DIRECTORY: java/lang/annotation
@@ -15846,7 +15846,7 @@ NEAREST SIGNATURE:::
 ORIG COMMENT::: /** {@collect.stats}  {@description.open}Parameter declaration {@description.close}*/
 ~
 DESC BLOCK::: * {@description.open}Parameter declaration {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public enum ElementType 
@@ -15870,7 +15870,7 @@ DESC BLOCK::: * {@description.open}
  * <p>These constants are used with the {@link Target} meta-annotation type
  * to specify where it is legal to use an annotation type.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AnnotationFormatError.java
 DIRECTORY: java/lang/annotation
@@ -15888,7 +15888,7 @@ DESC BLOCK::: * {@description.open}
  * Thrown when the annotation parser attempts to read an annotation
  * from a class file and determines that the annotation is malformed.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RetentionPolicy.java
 DIRECTORY: java/lang/annotation
@@ -16077,5 +16077,5 @@ ode> methods and the permission(s) the default
  * the JDK and advice regarding porting of 1.1-style security managers,
  * see the <a href="../../../technotes/guides/security/index.html">security documentation</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------

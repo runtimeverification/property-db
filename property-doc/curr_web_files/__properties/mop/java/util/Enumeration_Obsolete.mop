@@ -1,0 +1,31 @@
+package mop;
+
+import java.util.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Warns if the Enumeration class is used.
+ *
+ * The Iterator interface takes the place of the Enumeration interface.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Enumeration.html
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Iterator.html
+ *
+ * This property warns if any method of the Enumeration interface is invoked.
+ * To avoid too verbose messages, this property warns once per object.
+ *
+ * @severity suggestion
+ */
+
+Enumeration_Obsolete(Enumeration e) {
+	event use before(Enumeration e) :
+		call(* Enumeration+.*(..)) && target(e) {}
+
+	ere : use
+
+	@match {
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "The Enumeration interface is obsolete. New implementations should consider using the Interface interface.");
+	}
+}
+

@@ -11310,13 +11310,13 @@ DESC BLOCK::: * {@description.open}
      * that matched the pattern. If no such pattern is detected then the
      * null is returned and the scanner's position remains unchanged.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This
      * method may block waiting for input that matches the pattern.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>A scanner will never search more than <code>horizon</code> code
@@ -11334,7 +11334,7 @@ DESC BLOCK::: * {@description.open}
      * <p>If horizon is negative, then an IllegalArgumentException is
      * thrown.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean hasNextLine() 
@@ -11355,18 +11355,18 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns true if there is another line in the input of this scanner.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method may block while waiting for input.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The scanner does not
      * advance past any input.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String next(Pattern pattern) 
@@ -11389,20 +11389,20 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the next token if it matches the specified pattern.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This
      * method may block while waiting for input to scan, even if a previous
      * invocation of {@link #hasNext(Pattern)} returned <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * If the match is successful, the scanner advances past the input that
      * matched the pattern.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public MatchResult match() 
@@ -11442,7 +11442,7 @@ DESC BLOCK::: * {@description.open}
      * {@link #findWithinHorizon}, and {@link #skip} methods will make a
      * match available if they succeed.
      * {@description.close}
-ADDRESSED DESC::: [-]
+ADDRESSED DESC::: [-x]
 ---------
 NEAREST SIGNATURE::: 
 public final class Scanner implements Iterator<String> 
@@ -11901,7 +11901,7 @@ DESC BLOCK::: * {@description.open}
      * java.math.BigInteger#BigInteger(java.lang.String)
      * BigInteger(String, int)} constructor with the specified radix.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public IOException ioException() 
@@ -11962,17 +11962,17 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns true if this scanner has another token in its input.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method may block while waiting for input to scan.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The scanner does not advance past any input.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String next() 
@@ -11995,14 +11995,14 @@ DESC BLOCK::: * {@description.open}
      * A complete token is preceded and followed by input that matches
      * the delimiter pattern.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open blocking}
      * This method may block while waiting for input
      * to scan, even if a previous invocation of {@link #hasNext} returned
      * <code>true</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LocaleISOData.java
 DIRECTORY: java/util
@@ -12026,7 +12026,7 @@ DESC BLOCK::: * {@description.open}
      * represent the same mappings, as specified in the {@link
      * Map#equals(Object)} contract.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -12039,7 +12039,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the <tt>EnumMap</tt> instance from a stream (i.e.,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object o) 
@@ -12052,7 +12052,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Since we don't use Entry objects, we use the Iterator itself as entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
@@ -12129,7 +12129,7 @@ PROP BLOCK:::* {@property.open formal:java.util.Collections_SynchronizedMap}
  *         = Collections.synchronizedMap(new EnumMap&lt;EnumKey, V&gt;(...));
  * </pre>
  * {@property.close}
-ADDRESSED PROP::: [-]
+ADDRESSED PROP::: [-x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>Implementation note: All basic operations execute in constant time.
@@ -12140,7 +12140,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractMap.java
 DIRECTORY: java/util
@@ -12159,7 +12159,7 @@ DESC BLOCK::: * {@description.open}
      * Utility method for SimpleEntry and SimpleImmutableEntry.
      * Test for equality, checking for nulls.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void putAll(Map<? extends K, ? extends V> m) 
@@ -12187,7 +12187,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>UnsupportedOperationException</tt> if this map does not support
      * the <tt>put</tt> operation and the specified map is nonempty.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object o) 
@@ -12222,7 +12222,7 @@ DESC BLOCK::: * {@description.open}
      * performed, so there is a slight chance that multiple calls to this
      * method will not all return the same collection.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public V get(Object key) 
@@ -12248,7 +12248,7 @@ DESC BLOCK::: * {@description.open}
      * implementation requires linear time in the size of the map; many
      * implementations will override this method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public V remove(Object key) 
@@ -12288,7 +12288,7 @@ DESC BLOCK::: * {@description.open}
      * iterator does not support the <tt>remove</tt> method and this map
      * contains a mapping for the specified key.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean containsKey(Object key) 
@@ -12314,7 +12314,7 @@ DESC BLOCK::: * {@description.open}
      * implementation requires linear time in the size of the map; many
      * implementations will override this method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean containsValue(Object value) 
@@ -12338,7 +12338,7 @@ DESC BLOCK::: * {@description.open}
      * finding such an entry, <tt>false</tt> is returned.  Note that this
      * implementation requires linear time in the size of the map.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void clear() 
@@ -12362,7 +12362,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>UnsupportedOperationException</tt> if the <tt>entrySet</tt>
      * does not support the <tt>clear</tt> operation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int hashCode() 
@@ -12394,7 +12394,7 @@ DESC BLOCK::: * {@description.open}
      * {@link Map.Entry#hashCode hashCode()} on each element (entry) in the
      * set, and adding up the results.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object o) 
@@ -12439,7 +12439,7 @@ f so it returns <tt>true</tt>.  Then, it checks if the specified
      * fails to contain such a mapping, <tt>false</tt> is returned.  If the
      * iteration completes, <tt>true</tt> is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isEmpty() 
@@ -12454,7 +12454,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * <p>This implementation returns <tt>entrySet().size()</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Collection<V> values() 
@@ -12489,7 +12489,7 @@ DESC BLOCK::: * {@description.open}
      * is performed, so there is a slight chance that multiple calls to this
      * method will not all return the same set.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NavigableSet.java
 DIRECTORY: java/util
@@ -12563,7 +12563,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     NavigableSet<E> subSet(E fromElement, boolean fromInclusive,
@@ -12598,7 +12598,7 @@ DESC BLOCK::: * {@description.open}
      * <p>The returned set will throw an {@code IllegalArgumentException}
      * on an attempt to insert an element outside its range.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractList.java
 DIRECTORY: java/util
@@ -12723,7 +12723,7 @@ DESC BLOCK::: * {@description.open}
      *     // operate on index i here
      * }}</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int hashCode() 
@@ -12779,7 +12779,7 @@ code>hashCode</code>
      * Note that the hash code values change if the set of bits is altered.
      * <p>Overrides the <code>hashCode</code> method of <code>Object</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -12794,7 +12794,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the {@code BitSet} instance from a stream (i.e.,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Formatter.java
 DIRECTORY: java/util
@@ -12823,7 +12823,7 @@ DESC BLOCK::: * {@description.open}
      * Locale#getDefault() default locale} for this instance of the Java
      * virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void flush() 
@@ -12845,7 +12845,7 @@ DESC BLOCK::: * {@description.open}
      * <p> Flushing a formatter writes any buffered output in the destination
      * to the underlying stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public IOException ioException() 
@@ -12876,7 +12876,7 @@ DESC BLOCK::: * {@description.open}
      * this formatter after it has been closed will result in a {@link
      * FormatterClosedException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(File file) throws FileNotFoundException 
@@ -12904,7 +12904,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault() default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -12962,7 +12962,7 @@ DESC BLOCK::: * {@description.open}
      * their contents in <tt>toString()</tt>, but streams cannot since the
      * data is discarded.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(OutputStream os, String csn)
@@ -12986,7 +12986,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(Appendable a) 
@@ -13006,7 +13006,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault() default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final class Formatter implements Closeable, Flushable 
@@ -14796,7 +14796,7 @@ p://java.sun.com/docs/books/vmspec/">Java Virtual Machine
  * method or constructor in this class will cause a {@link
  * NullPointerException} to be thrown.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(String fileName) throws FileNotFoundException 
@@ -14824,7 +14824,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault() default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(String fileName, String csn)
@@ -14846,7 +14846,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(File file, String csn)
@@ -14868,7 +14868,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(PrintStream ps) 
@@ -14896,7 +14896,7 @@ DESC BLOCK::: * {@description.open}
      * PrintStream} object and are therefore encoded using that object's
      * charset.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Formatter(OutputStream os) 
@@ -14924,7 +14924,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The locale used is the {@linkplain Locale#getDefault() default
      * locale} for this instance of the Java virtual machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public IOException ioException() 
@@ -14946,7 +14946,7 @@ DESC BLOCK::: * {@description.open}
      * <p> If the destination's <tt>append()</tt> method never throws
      * <tt>IOException</tt>, then this method will always return <tt>null</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ListResourceBundle.java
 DIRECTORY: java/util
@@ -15145,7 +15145,7 @@ DESC BLOCK::: * {@description.open}
      * Constructs a new, empty tree map, using the natural ordering of its
      * keys.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -15282,7 +15282,7 @@ DESC BLOCK::: * {@description.open}
  * <i>is</i> well-defined even if its ordering is inconsistent with equals; it
  * just fails to obey the general contract of the <tt>Map</tt> interface.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>All <tt>Map.Entry</tt> pairs returned by methods in this class
@@ -15295,7 +15295,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void readTreeSet(int size, java.io.ObjectInputStream s, V defaultVal)
@@ -15311,7 +15311,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the <tt>TreeMap</tt> instance from a stream (i.e.,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Calendar.java
 DIRECTORY: java/util
@@ -15581,7 +15581,7 @@ DESC BLOCK::: * {@description.open}
  * fields should be affected, the user interface can behave as most users
  * will intuitively expect.</p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -15625,7 +15625,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Use the {@link #compareTo(Calendar) compareTo} method to
      * compare only the time values.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final int selectFields() 
@@ -15667,7 +15667,7 @@ DESC BLOCK::: * {@description.open}
      * used, which case means that the field has been selected because the
      * selected combination involves the field.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Calendar getInstance(TimeZone zone)
@@ -15686,7 +15686,7 @@ DESC BLOCK::: * {@description.open}
      * The <code>Calendar</code> returned is based on the current time
      * in the given time zone with the default locale.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -15697,7 +15697,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reconstitutes this object from a stream (i.e., deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void set(int year, int month, int date, int hourOfDay, int minute,
@@ -15721,7 +15721,7 @@ DESC BLOCK::: * {@description.open}
      * Previous values of other fields are retained.  If this is not desired,
      * call {@link #clear()} first.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected Calendar()
@@ -15737,7 +15737,7 @@ DESC BLOCK::: * {@description.open}
      * Constructs a Calendar with the default time zone
      * and locale.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int SHORT = 1;
@@ -15757,7 +15757,7 @@ DESC BLOCK::: * {@description.open}
      * getDisplayName} and {@link #getDisplayNames(int, int, Locale)
      * getDisplayNames} indicating a short name, such as "Jan".
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final Date getTime() 
@@ -15775,7 +15775,7 @@ DESC BLOCK::: * {@description.open}
      * <code>Calendar</code>'s time value (millisecond offset from the <a
      * href="#Epoch">Epoch</a>").
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int LONG = 2;
@@ -15806,7 +15806,7 @@ DESC BLOCK::: * {@description.open}
      * getDisplayName} and {@link #getDisplayNames(int, int, Locale)
      * getDisplayNames} indicating a long name, such as "January".
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final static int FIELD_COUNT = 17;
@@ -15833,7 +15833,7 @@ DESC BLOCK::: * {@description.open}
      * <code>TimeZone</code> implementation subclass supports
      * historical Daylight Saving Time schedule changes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Map<String, Integer> getDisplayNames(int field, int style, Locale locale) 
@@ -15886,7 +15886,7 @@ DESC BLOCK::: * {@description.open}
      * all strings returned by {@link DateFormatSymbols#getShortMonths()}
      * and {@link DateFormatSymbols#getMonths()}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Calendar getInstance()
@@ -15905,7 +15905,7 @@ DESC BLOCK::: * {@description.open}
      * <code>Calendar</code> returned is based on the current time
      * in the default time zone with the default locale.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Stack.java
 DIRECTORY: java/util
@@ -15950,7 +15950,7 @@ DESC BLOCK::: * {@description.open}
  * <pre>   {@code
  *   Deque<Integer> stack = new ArrayDeque<Integer>();}</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Observer.java
 DIRECTORY: java/util
@@ -16066,7 +16066,7 @@ DESC BLOCK::: * {@description.open}
  * <tt>e1.equals(e2)</tt> for every <tt>e1</tt> and <tt>e2</tt> in
  * <tt>S</tt>.<p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * Note: It is generally a good idea for comparators to also implement
@@ -16089,7 +16089,7 @@ order</i> on <tt>S</tt>.  When we say that
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     int compare(T o1, T o2);
@@ -16170,7 +16170,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.<p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * It is generally the case, but <i>not</i> strictly required that
@@ -16179,7 +16179,7 @@ DESC BLOCK::: * {@description.open}
      * this fact.  The recommended language is "Note: this comparator
      * imposes orderings that are inconsistent with equals."
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x
 ---------
 FILE: LinkedHashSet.java
 DIRECTORY: java/util
@@ -16239,7 +16239,7 @@ DESC BLOCK::: * {@description.open}
      *       | "A" | "B" | "C" | "D" | "E" | "F"
      * }</pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final class UUID implements java.io.Serializable, Comparable<UUID> 
@@ -16307,7 +16307,7 @@ DESC BLOCK::: * {@description.open}
  * Universally Unique IDentifier (UUID) URN Namespace</i></a>, section 4.2
  * &quot;Algorithms for Creating a Time-Based UUID&quot;.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -16322,7 +16322,7 @@ DESC BLOCK::: * {@description.open}
      * deserialize it).  This is necessary to set the transient fields to their
      * correct uninitialized value so they will be recomputed on demand.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -16342,7 +16342,7 @@ DESC BLOCK::: * {@description.open}
      * object, has the same variant, and contains the same value, bit for bit,
      * as this {@code UUID}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int variant() 
@@ -16374,7 +16374,7 @@ DESC BLOCK::: * {@description.open}
      * <li>7    Reserved for future definition
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public UUID(long mostSigBits, long leastSigBits) 
@@ -16394,7 +16394,7 @@ DESC BLOCK::: * {@description.open}
      * UUID} and {@code leastSigBits} becomes the least significant 64 bits of
      * the {@code UUID}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractQueue.java
 DIRECTORY: java/util
@@ -16457,14 +16457,14 @@ DESC BLOCK::: * {@description.open}
  * exceptions instead of indicating failure via <tt>false</tt> or
  * <tt>null</tt> returns.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NoSuchElementException.java
 DIRECTORY: java/util
@@ -16485,7 +16485,7 @@ DESC BLOCK::: * {@description.open}
  * <code>Enumeration</code> to indicate that there are no more
  * elements in the enumeration.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FormatterClosedException.java
 DIRECTORY: java/util
@@ -16504,7 +16504,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Placeholder for the object's hash code.  Always -1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public Locale(String language) 
@@ -16525,7 +16525,7 @@ DESC BLOCK::: * {@description.open}
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     static Locale getInstance(String language, String country, String variant) 
@@ -16546,7 +16546,7 @@ DESC BLOCK::: * {@description.open}
      * method must be called only when initializing the Locale
      * constants.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final String toString() 
@@ -16575,7 +16575,7 @@ DESC BLOCK::: * {@description.open}
      * a valid language or country code).
      * Examples: "en", "de_DE", "_GB", "en_US_WIN", "de__POSIX", "fr__MAC"
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getDisplayVariant(Locale inLocale) 
@@ -16592,7 +16592,7 @@ DESC BLOCK::: * {@description.open}
      * user.  If possible, the name will be localized for the default locale.  If the locale
      * doesn't specify a variant code, this function returns the empty string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getCountry() 
@@ -16607,7 +16607,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the country/region code for this locale, which will
      * either be the empty string or an uppercase ISO 3166 2-letter code.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getISO3Language() throws MissingResourceException 
@@ -16630,7 +16630,7 @@ DESC BLOCK::: * {@description.open}
      * <a href="http://www.loc.gov/standards/iso639-2/englangn.html">
      * <code>http://www.loc.gov/standards/iso639-2/englangn.html</code>.</a>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -16768,7 +16768,7 @@ DESC BLOCK::: * {@description.open}
  * <STRONG>just</STRONG> a mechanism for identifying objects,
  * <STRONG>not</STRONG> a container for the objects themselves.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static Locale createSingleton(String key, String language, String country) 
@@ -16789,7 +16789,7 @@ DESC BLOCK::: * {@description.open}
      * it is invoked by createSingleton only. (flag is just for
      * avoiding the conflict with the public constructors.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private String toLowerCase(String str) 
@@ -16808,7 +16808,7 @@ DESC BLOCK::: * {@description.open}
      * codes. The country and variant codes are replaced with internalized
      * String copies.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public Locale(String language, String country, String variant) 
@@ -16829,7 +16829,7 @@ DESC BLOCK::: * {@description.open}
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private String[] getDisplayVariantArray(OpenListResourceBundle bundle, Locale inLocale) 
@@ -16842,7 +16842,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Calculated hashcode to fix 4518797.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public String getLanguage() 
@@ -16863,7 +16863,7 @@ DESC BLOCK::: * {@description.open}
      * The list this function returns includes both the new and the old codes for the
      * languages whose codes have changed.]
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static String[] getISOLanguages() 
@@ -16878,7 +16878,7 @@ DESC BLOCK::: * {@description.open}
      * Returns a list of all 2-letter country codes defined in ISO 3166.
      * Can be used to create Locales.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getISO3Country() throws MissingResourceException 
@@ -16901,7 +16901,7 @@ DESC BLOCK::: * {@description.open}
      * <a href="http://www.davros.org/misc/iso3166.txt">
      * <code>http://www.davros.org/misc/iso3166.txt</code>.</a>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getLanguage() 
@@ -16934,7 +16934,7 @@ DESC BLOCK::: * {@description.open}
      * if (locale.getLanguage().equals(new Locale("he", "", "").getLanguage()))
      *    ...</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -16953,7 +16953,7 @@ DESC BLOCK::: * {@description.open}
      * deemed equal to another Locale with identical language, country,
      * and variant, and unequal to all other objects.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Locale(String language, String country) 
@@ -16974,7 +16974,7 @@ DESC BLOCK::: * {@description.open}
      * old codes (iw, ji, and in) and the new codes (he, yi, and id), but all other
      * API on Locale will return only the OLD codes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getDisplayCountry(Locale inLocale) 
@@ -17005,7 +17005,7 @@ DESC BLOCK::: * {@description.open}
      * this function falls back on the English name, and uses the ISO code as a last-resort
      * value.  If the locale doesn't specify a country, this function returns the empty string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static synchronized void setDefault(Locale newLocale) 
@@ -17047,7 +17047,7 @@ DESC BLOCK::: * {@description.open}
      * is prepared to reinitialize locale-sensitive code running
      * within the same Java Virtual Machine.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getDisplayName(Locale inLocale) 
@@ -17085,7 +17085,7 @@ DESC BLOCK::: * {@description.open}
      * depending on which fields are specified in the locale.  If the language, country,
      * and variant fields are all empty, this function returns the empty string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getDisplayLanguage(Locale inLocale) 
@@ -17116,7 +17116,7 @@ DESC BLOCK::: * {@description.open}
      * this function falls back on the English name, and uses the ISO code as a last-resort
      * value.  If the locale doesn't specify a language, this function returns the empty string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: MissingResourceException.java
 DIRECTORY: java/util
@@ -17138,7 +17138,7 @@ DESC BLOCK::: * {@description.open}
      * the default locale.  If there is no suitable display name found
      * for the default locale, the ISO 4217 currency code is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getSymbol() 
@@ -17158,7 +17158,7 @@ DESC BLOCK::: * {@description.open}
      * locale is the US, while for other locales it may be "US$". If no
      * symbol can be determined, the ISO 4217 currency code is returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final class Currency implements Serializable 
@@ -17188,7 +17188,7 @@ DESC BLOCK::: * {@description.open}
  * no public constructor. You obtain a <code>Currency</code> instance using
  * the <code>getInstance</code> methods.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: HashSet.java
 DIRECTORY: java/util
@@ -17203,7 +17203,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the <tt>HashSet</tt> instance from a stream (that is,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean remove(Object o) 
@@ -17229,7 +17229,7 @@ DESC BLOCK::: * {@description.open}
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contains(Object o) 
@@ -17249,7 +17249,7 @@ DESC BLOCK::: * {@description.open}
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -17331,7 +17331,7 @@ p>Note that the fail-fast behavior of an iterator cannot be guaranteed
  * exception for its correctness: <i>the fail-fast behavior of iterators
  * should be used only to detect bugs.</i>
  * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * This class implements the <tt>Set</tt> interface, backed by a hash table
@@ -17349,7 +17349,7 @@ DESC BLOCK::: * {@description.open}
  * buckets).  Thus, it's very important not to set the initial capacity too
  * high (or the load factor too low) if iteration performance is important.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open synchronization}
  * <p><strong>Note that this implementation is not synchronized.</strong>
@@ -17364,14 +17364,14 @@ DESC BLOCK::: * {@description.open synchronization}
  * unsynchronized access to the set:<pre>
  *   Set s = Collections.synchronizedSet(new HashSet(...));</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean add(E e) 
@@ -17395,7 +17395,7 @@ DESC BLOCK::: * {@description.open}
      * If this set already contains the element, the call leaves the set
      * unchanged and returns <tt>false</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: EventListenerProxy.java
 DIRECTORY: java/util
@@ -17454,7 +17454,7 @@ propertyName,
  * If the calling method is interested in retrieving the named property then it
  * would have to test the element to see if it is a proxy class.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ArrayList.java
 DIRECTORY: java/util
@@ -17471,7 +17471,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the <tt>ArrayList</tt> instance from a stream (that is,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int lastIndexOf(Object o) 
@@ -17492,7 +17492,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private int size;
@@ -17509,7 +17509,7 @@ DESC BLOCK::: * {@description.open}
      * The array buffer into which the elements of the ArrayList are stored.
      * The capacity of the ArrayList is the length of this array buffer.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contains(Object o) 
@@ -17529,7 +17529,7 @@ DESC BLOCK::: * {@description.open}
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Object clone() 
@@ -17550,7 +17550,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean remove(Object o) 
@@ -17578,7 +17578,7 @@ DESC BLOCK::: * {@description.open}
      * contained the specified element (or equivalently, if this list
      * changed as a result of the call).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ListIterator.java
 DIRECTORY: java/util
@@ -17760,7 +17760,7 @@ DESC BLOCK::: * {@description.open}
      * (This call increases by one the value that would be returned by a
      * call to {@code nextIndex} or {@code previousIndex}.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NavigableMap.java
 DIRECTORY: java/util
@@ -17884,7 +17884,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     NavigableMap<K,V> subMap(K fromKey, boolean fromInclusive,
@@ -17921,7 +17921,7 @@ DESC BLOCK::: * {@description.open}
      * on an attempt to insert a key outside of its range, or to construct a
      * submap either of whose endpoints lie outside its range.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     NavigableSet<K> navigableKeySet();
@@ -17996,7 +17996,7 @@ DESC BLOCK::: * {@description.open}
      * expression&nbsp;<tt>(?s)</tt>.  (The <tt>s</tt> is a mnemonic for
      * "single-line" mode, which is what this is called in Perl.)  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int CASE_INSENSITIVE = 0x02;
@@ -18023,7 +18023,7 @@ DESC BLOCK::: * {@description.open}
      * <p> Unix lines mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?d)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String[] split(CharSequence input) 
@@ -18075,7 +18075,7 @@ DESC BLOCK::: * {@description.open}
      * </table></blockquote>
      *
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int CANON_EQ = 0x80;
@@ -18117,7 +18117,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> Specifying this flag may impose a performance penalty.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int LITERAL = 0x10;
@@ -18148,7 +18148,7 @@ DESC BLOCK::: * {@description.open}
      * <p> Multiline mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?m)</tt>.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int COMMENTS = 0x04;
@@ -18183,7 +18183,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> Specifying this flag may impose a slight performance penalty.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -18787,7 +18787,7 @@ DESC BLOCK::: * {@description.open}
  * O'Reilly and Associates, 2006.</a>
  * </p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -18823,7 +18823,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p> Specifying this flag may impose a performance penalty.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String[] split(CharSequence input, int limit) 
@@ -18905,7 +18905,7 @@ DESC BLOCK::: * {@description.open}
      * </table></blockquote>
      *
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final int MULTILINE = 0x08;
@@ -18932,7 +18932,7 @@ DESC BLOCK::: * {@description.open}
      * <p> Comments mode can also be enabled via the embedded flag
      * expression&nbsp;<tt>(?x)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static final class BitClass extends BmpCharProperty 
@@ -18945,7 +18945,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests a surrogate value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: PatternSyntaxException.java
 DIRECTORY: java/util/regex
@@ -18977,7 +18977,7 @@ DESC BLOCK::: * {@description.open}
      * the expression <i>m.</i><tt>end(0)</tt> is equivalent to
      * <i>m.</i><tt>end()</tt>.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String group();
@@ -19011,7 +19011,7 @@ DESC BLOCK::: * {@description.open}
      * string.  This method will return the empty string when the pattern
      * successfully matches the empty string in the input.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String group(int group);
@@ -19062,7 +19062,7 @@ the entire pattern, so
      * This method will return the empty string when such a group successfully
      * matches the empty string in the input.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int start(int group);
@@ -19090,7 +19090,7 @@ DESC BLOCK::: * {@description.open}
      * the expression <i>m.</i><tt>start(0)</tt> is equivalent to
      * <i>m.</i><tt>start()</tt>.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Matcher.java
 DIRECTORY: java/util/regex
@@ -19149,7 +19149,7 @@ placement
      * is to be used in further matching operations then it should first be
      * reset.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String replaceFirst(String replacement) 
@@ -19206,7 +19206,7 @@ nt
      * is to be used in further matching operations then it should first be
      * reset.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -19313,7 +19313,7 @@ ncludes the input character sequence as
  * matcher discards its explicit state information and sets the append position
  * to zero.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public StringBuffer appendTail(StringBuffer sb) 
@@ -19339,7 +19339,7 @@ DESC BLOCK::: * {@description.open}
      * #appendReplacement appendReplacement} method in order to copy the
      * remainder of the input sequence.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int start(int group) 
@@ -19365,7 +19365,7 @@ DESC BLOCK::: * {@description.open}
      * the expression <i>m.</i><tt>start(0)</tt> is equivalent to
      * <i>m.</i><tt>start()</tt>.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String group() 
@@ -19397,7 +19397,7 @@ DESC BLOCK::: * {@description.open}
      * string.  This method will return the empty string when the pattern
      * successfully matches the empty string in the input.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Matcher appendReplacement(StringBuffer sb, String replacement) 
@@ -19497,7 +19497,7 @@ acement
      * backslashes are used to escape literal characters in the replacement
      * string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * The
@@ -19514,7 +19514,7 @@ DESC BLOCK::: * {@description.open}
      * m.appendTail(sb);
      * System.out.println(sb.toString());</pre></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String group(int group) 
@@ -19563,7 +19563,7 @@ the entire pattern, so
      * This method will return the empty string when such a group successfully
      * matches the empty string in the input.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int end(int group) 
@@ -19589,7 +19589,7 @@ DESC BLOCK::: * {@description.open}
      * the expression <i>m.</i><tt>end(0)</tt> is equivalent to
      * <i>m.</i><tt>end()</tt>.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ASCII.java
 DIRECTORY: java/util/regex
@@ -19617,7 +19617,7 @@ DESC BLOCK::: * {@description.open}
      * If this set already contains the element, the call leaves the set
      * unchanged and returns <tt>false</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object o) 
@@ -19651,7 +19651,7 @@ DESC BLOCK::: * {@description.open}
      * {@code e2} returned by the iterator over this set such that
      * {@code (e1==null ? e2==null : e1.equals(e2))}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contains(Object o) 
@@ -19671,7 +19671,7 @@ DESC BLOCK::: * {@description.open}
      * contains an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean remove(Object o) 
@@ -19697,7 +19697,7 @@ DESC BLOCK::: * {@description.open}
      * changed as a result of the call).  (This set will not contain the
      * element once the call returns.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class CopyOnWriteArraySet<E> extends AbstractSet<E>
@@ -19781,7 +19781,7 @@ OnWriteArraySet&lt;Handler&gt;();
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -19792,7 +19792,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Test for equality, coping with nulls.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CopyOnWriteArrayList.java
 DIRECTORY: java/util/concurrent
@@ -19818,7 +19818,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>(i&nbsp;&lt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(e==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;e.equals(get(i))))</tt>,
      * or -1 if there is no such index.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public List<E> subList(int fromIndex, int toIndex) 
@@ -19861,7 +19861,7 @@ DESC BLOCK::: * {@description.open}
      * While mutative operations are supported, they are probably not
      * very useful for CopyOnWriteArrayLists.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -19876,7 +19876,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state of the list to a stream (i.e., serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void readObject(java.io.ObjectInputStream s)
@@ -19890,7 +19890,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reconstitute the list from a stream (i.e., deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static int indexOf(Object o, Object[] elements,
@@ -19904,7 +19904,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Test for equality, coping with nulls.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int indexOf(E e, int index) 
@@ -19928,7 +19928,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>(i&nbsp;&gt;=&nbsp;index&nbsp;&amp;&amp;&nbsp;(e==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;e.equals(get(i))))</tt>,
      * or -1 if there is no such index.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean remove(Object o) 
@@ -19956,7 +19956,7 @@ DESC BLOCK::: * {@description.open}
      * contained the specified element (or equivalently, if this list
      * changed as a result of the call).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean addIfAbsent(E e) 
@@ -19970,7 +19970,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Append the element if not present.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contains(Object o) 
@@ -19990,7 +19990,7 @@ DESC BLOCK::: * {@description.open}
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ThreadFactory.java
 DIRECTORY: java/util/concurrent
@@ -20107,7 +20107,7 @@ DESC BLOCK::: * {@description.open}
  *         use(result);
  * }}</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FutureTask.java
 DIRECTORY: java/util/concurrent
@@ -20124,7 +20124,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The exception to throw from get() 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected void set(V v) 
@@ -20143,7 +20143,7 @@ DESC BLOCK::: * {@description.open}
      * This method is invoked internally by the <tt>run</tt> method
      * upon successful completion of the computation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected boolean runAndReset() 
@@ -20164,7 +20164,7 @@ DESC BLOCK::: * {@description.open}
      * designed for use with tasks that intrinsically execute more
      * than once.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private static final int READY     = 0;
@@ -20188,7 +20188,7 @@ DESC BLOCK::: * {@description.open}
      *
      * Uses AQS sync state to represent run status
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     protected boolean runAndReset() 
@@ -20203,7 +20203,7 @@ DESC BLOCK::: * {@description.open}
      * Sets this Future to the result of its computation
      * unless it has been cancelled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private static final int RUNNING   = 1;
@@ -20217,7 +20217,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * State value representing that task is ready to run 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public FutureTask(Callable<V> callable) 
@@ -20230,7 +20230,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Synchronization control for FutureTask 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         private Throwable exception;
@@ -20245,7 +20245,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The result to return from get() 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected void setException(Throwable t) 
@@ -20266,7 +20266,7 @@ DESC BLOCK::: * {@description.open}
      * This method is invoked internally by the <tt>run</tt> method
      * upon failure of the computation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private final Callable<V> callable;
@@ -20280,7 +20280,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * State value representing that task was cancelled 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         private static final int RAN       = 2;
@@ -20294,7 +20294,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * State value representing that task is running 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 public class FutureTask<V> implements RunnableFuture<V> 
@@ -20340,7 +20340,7 @@ DESC BLOCK::: * {@description.open}
  * <tt>protected</tt> functionality that may be useful when creating
  * customized task classes.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
          * {@description.open}
@@ -20353,7 +20353,7 @@ DESC BLOCK::: * {@description.open}
          * Implements AQS base release to always signal after setting
          * final done status by nulling runner thread.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         private V result;
@@ -20367,7 +20367,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The underlying callable 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private static final int CANCELLED = 4;
@@ -20382,7 +20382,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * State value representing that task ran 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         protected boolean tryReleaseShared(int ignore) 
@@ -20395,7 +20395,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Implements AQS base acquire to succeed if ran or cancelled
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         protected int tryAcquireShared(int ignore) 
@@ -20412,7 +20412,7 @@ DESC BLOCK::: * {@description.open}
          * indicates that the results are accessible.  Must be
          * volatile, to ensure visibility upon completion.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: ThreadPoolExecutor.java
 DIRECTORY: java/util/concurrent
@@ -20502,7 +20502,7 @@ pleted
      * that workerCount is 0 (which sometimes entails a recheck -- see
      * below).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private static final long serialVersionUID = 6138294804551838833L;
@@ -20535,7 +20535,7 @@ DESC BLOCK::: * {@description.open}
      * because we do not want worker tasks to be able to reacquire the
      * lock when they invoke pool control methods like setCorePoolSize.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final void runWorker(Worker w) 
@@ -20605,7 +20605,7 @@ DESC BLOCK::: * {@description.open}
      * information as we can provide about any problems encountered by
      * user code.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private volatile RejectedExecutionHandler handler;
@@ -20638,7 +20638,7 @@ DESC BLOCK::: * {@description.open}
      * create threads, since there is generally no recourse from
      * within this class.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected void afterExecute(Runnable r, Throwable t) 
@@ -20714,7 +20714,7 @@ ture<?>) {
      *   }
      * }}</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -20734,7 +20734,7 @@ DESC BLOCK::: * {@description.open}
      * of state in case the interrupt was cleared concurrently with a
      * shutdownNow -- if so, the interrupt is re-enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void decrementWorkerCount() 
@@ -20747,7 +20747,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Attempt to CAS-decrement the workerCount field of ctl.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class ThreadPoolExecutor extends AbstractExecutorService 
@@ -21064,7 +21064,7 @@ uptedException ie) {
  *   }
  * }}</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private boolean compareAndDecrementWorkerCount(int expect) 
@@ -21077,7 +21077,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Attempt to CAS-increment the workerCount field of ctl.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private Runnable getTask() 
@@ -21111,7 +21111,7 @@ DESC BLOCK::: * {@description.open}
      *    {@code allowCoreThreadTimeOut || workerCount > corePoolSize})
      *    both before and after the timed wait.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void shutdown() 
@@ -21129,13 +21129,13 @@ ORIG COMMENT::: /** {@collect.stats}
 PROP BLOCK:::* {@property.open formal:java.util.concurrent.ThreadPoolExecutor_MultipleShutdown}
      * Invocation has no additional effect if already shut down.
      * {@property.close}
-ADDRESSED PROP::: [?]
+ADDRESSED PROP::: [?x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Initiates an orderly shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public List<Runnable> shutdownNow() 
@@ -21165,7 +21165,7 @@ DESC BLOCK::: * {@description.open}
      * cancels tasks via {@link Thread#interrupt}, so any task that
      * fails to respond to interrupts may never terminate.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private boolean addWorker(Runnable firstTask, boolean core) 
@@ -21195,7 +21195,7 @@ DESC BLOCK::: * {@description.open}
      * backout of workerCount, and a recheck for termination, in case
      * the existence of this worker was holding up termination.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ScheduledFuture.java
 DIRECTORY: java/util/concurrent
@@ -21318,7 +21318,7 @@ DESC BLOCK::: * {@description.open}
  * <i>happen-before</i> actions following a successful return from the
  * corresponding {@code await()} in other threads.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: TimeoutException.java
 DIRECTORY: java/util/concurrent
@@ -21337,7 +21337,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>HOURS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long convert(long sourceDuration, TimeUnit sourceUnit) 
@@ -21371,7 +21371,7 @@ DESC BLOCK::: * {@description.open}
      * <p>For example, to convert 10 minutes to milliseconds, use:
      * <tt>TimeUnit.MILLISECONDS.convert(10L, TimeUnit.MINUTES)</tt>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toMicros(long duration) 
@@ -21384,7 +21384,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>MICROSECONDS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toDays(long duration) 
@@ -21397,7 +21397,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>DAYS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void timedJoin(Thread thread, long timeout)
@@ -21415,7 +21415,7 @@ DESC BLOCK::: * {@description.open}
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.join</tt> method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toMillis(long duration) 
@@ -21428,7 +21428,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>MILLISECONDS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toNanos(long duration) 
@@ -21441,7 +21441,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>NANOSECONDS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toMinutes(long duration) 
@@ -21454,7 +21454,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>MINUTES.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public enum TimeUnit 
@@ -21517,7 +21517,7 @@ ava.util.concurrent.locks.Lock lock} is not available:
  * implementation will be able to notice the passage of time at the
  * same granularity as the given <tt>TimeUnit</tt>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void sleep(long timeout) throws InterruptedException 
@@ -21534,7 +21534,7 @@ DESC BLOCK::: * {@description.open}
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.sleep</tt> method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void timedWait(Object obj, long timeout)
@@ -21575,7 +21575,7 @@ DESC BLOCK::: * {@description.open}
      *    }
      *  }</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long toSeconds(long duration) 
@@ -21588,7 +21588,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Equivalent to <tt>SECONDS.convert(duration, this)</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CancellationException.java
 DIRECTORY: java/util/concurrent
@@ -21760,7 +21760,7 @@ Memory consistency effects: As with other concurrent
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RunnableScheduledFuture.java
 DIRECTORY: java/util/concurrent
@@ -21778,7 +21778,7 @@ DESC BLOCK::: * {@description.open}
      * re-run according to some schedule. A non-periodic task can be
      * run only once.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RejectedExecutionException.java
 DIRECTORY: java/util/concurrent
@@ -21800,7 +21800,7 @@ DESC BLOCK::: * {@description.open}
      * subsequently be initialized by a call to {@link
      * #initCause(Throwable) initCause}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractExecutorService.java
 DIRECTORY: java/util/concurrent
@@ -21865,7 +21865,7 @@ DESC BLOCK::: * {@description.open}
  * }
  * </pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Exchanger.java
 DIRECTORY: java/util/concurrent
@@ -21888,7 +21888,7 @@ DESC BLOCK::: * {@description.open}
      * placed in holes on cancellation, and used as a return value
      * from waiting methods to indicate failure to set or get hole.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private Object doExchange(Object item, boolean timed, long nanos) 
@@ -21909,7 +21909,7 @@ DESC BLOCK::: * {@description.open}
      * are performed only via compareAndSet, to avoid stale values
      * when a thread happens to stall right before setting.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static boolean tryCancel(Node node, Slot slot) 
@@ -21927,7 +21927,7 @@ DESC BLOCK::: * {@description.open}
      * slot, if so, helping clear the node from its slot to avoid
      * garbage retention.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public Node(Object item) 
@@ -21940,7 +21940,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The Thread waiting to be signalled; null until waiting. 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private Object doExchange(Object item, boolean timed, long nanos) 
@@ -21960,7 +21960,7 @@ DESC BLOCK::: * {@description.open}
      * handling of sentinel values.  Callers from public methods decode
      * and cast accordingly.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private Object scanOnTimeout(Node node) 
@@ -21990,7 +21990,7 @@ DESC BLOCK::: * {@description.open}
      * exchangers in which earlier-arriving threads may still be
      * waiting on entry locks.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static final class Node extends AtomicReference<Object> 
@@ -22007,7 +22007,7 @@ DESC BLOCK::: * {@description.open}
      * methods.  This disambiguates from internal requirement that
      * holes start out as null to mean they are not yet set.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static final int TIMED_SPINS = SPINS / 20;
@@ -22042,7 +22042,7 @@ DESC BLOCK::: * {@description.open}
      * approximately the average of those across a range of tested
      * systems.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static final Object CANCEL = new Object();
@@ -22065,7 +22065,7 @@ DESC BLOCK::: * {@description.open}
      * System.nanoTime vs memory accesses.  The value is empirically
      * derived to work well across a variety of systems.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private Object awaitNanos(Node node, Slot slot, long nanos) 
@@ -22083,7 +22083,7 @@ DESC BLOCK::: * {@description.open}
      * thread.  Fails if timed out or interrupted before hole filled.
      * Same basic logic as untimed version, but a bit messier.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public final Object item;
@@ -22106,7 +22106,7 @@ DESC BLOCK::: * {@description.open}
      * into hole.  This class cannot be parameterized as "V" because
      * of the use of non-V CANCEL sentinels.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private volatile Slot[] arena = new Slot[CAPACITY];
@@ -22131,7 +22131,7 @@ DESC BLOCK::: * {@description.open}
      * would improve throughput more than enough to outweigh using
      * extra space.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public volatile Thread waiter;
@@ -22146,7 +22146,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The element offered by the Thread creating this node. 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private final AtomicInteger max = new AtomicInteger();
@@ -22163,7 +22163,7 @@ DESC BLOCK::: * {@description.open}
      * Slot array.  Elements are lazily initialized when needed.
      * Declared volatile to enable double-checked lazy construction.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void createSlot(int index) 
@@ -22183,7 +22183,7 @@ DESC BLOCK::: * {@description.open}
      * locks, since they rarely contend.  This in turn relies on the
      * arena array being declared volatile.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static Object spinWait(Node node, Slot slot) 
@@ -22201,7 +22201,7 @@ DESC BLOCK::: * {@description.open}
      * before hole filled.  Does not check interrupt, relying on check
      * in public exchange method to abort if interrupted on entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public Node(Object item) 
@@ -22214,7 +22214,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Creates node with given item and empty hole.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static final int SPINS = (NCPU == 1) ? 0 : 2000;
@@ -22233,7 +22233,7 @@ DESC BLOCK::: * {@description.open}
      * contention.  When this value is less than CAPACITY, some
      * otherwise wasted expansion can be avoided.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private static Object await(Node node, Slot slot) 
@@ -22269,7 +22269,7 @@ DESC BLOCK::: * {@description.open}
      * park.  The caller is assumed to have checked interrupt status
      * on entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private final int hashIndex() 
@@ -22317,7 +22317,7 @@ DESC BLOCK::: * {@description.open}
      * from perfectly uniform slot probabilities when applied to all
      * possible hash codes for sizes less than 32.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static final int FULL =
@@ -22349,7 +22349,7 @@ DESC BLOCK::: * {@description.open}
      * This constant cannot be changed without also modifying
      * indexing and hashing algorithms.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: BlockingDeque.java
 DIRECTORY: java/util/concurrent
@@ -22537,7 +22537,7 @@ Memory consistency effects: As with other concurrent
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -22557,7 +22557,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p>This method is equivalent to {@link #addFirst(Object) addFirst}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: RunnableFuture.java
 DIRECTORY: java/util/concurrent
@@ -22589,7 +22589,7 @@ DESC BLOCK::: * {@description.open}
      * asynchronous nature of these queues, determining the current
      * number of elements requires an O(n) traversal.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isEmpty() 
@@ -22608,7 +22608,7 @@ DESC BLOCK::: * {@description.open}
      * node, not element (so we cannot collapse with peek() without
      * introducing race.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ConcurrentLinkedQueue() 
@@ -22621,7 +22621,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Pointer to last node on list 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void readObject(java.io.ObjectInputStream s)
@@ -22637,7 +22637,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the Queue instance from a stream (that is,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -22667,7 +22667,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Returns an iterator over the elements in this queue in proper sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private transient volatile Node<E> tail = head;
@@ -22685,7 +22685,7 @@ DESC BLOCK::: * {@description.open}
      * Pointer to header node, initialized to a dummy node.  The first
      * actual node is at head.getNext().
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
@@ -22755,7 +22755,7 @@ stency effects: As with other concurrent
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -22770,7 +22770,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state to a stream (that is, serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean add(E e) 
@@ -22784,7 +22784,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Inserts the specified element at the tail of this queue.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConcurrentSkipListMap.java
 DIRECTORY: java/util/concurrent
@@ -22873,7 +22873,7 @@ DESC BLOCK::: * {@description.open}
  * update, and access operations safely execute concurrently by
  * multiple threads.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * Ascending key ordered views and their iterators
@@ -22897,7 +22897,7 @@ iews and iterators implement all of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -22912,7 +22912,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state of this map to a stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     static final class SubMap<K,V> extends AbstractMap<K,V>
@@ -22942,7 +22942,7 @@ DESC BLOCK::: * {@description.open}
      * constructed only using the <tt>subMap</tt>, <tt>headMap</tt>, and
      * <tt>tailMap</tt> methods of their underlying maps.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -22962,7 +22962,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reconstitute the map from a stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private V doGet(Object okey) 
@@ -22989,7 +22989,7 @@ DESC BLOCK::: * {@description.open}
      * comparisons (see Pugh Cookbook). Also folds uses of null checks
      * and node-skipping because markers have null keys.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Set<Map.Entry<K,V>> entrySet() 
@@ -23037,7 +23037,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private V getUsingFindNode(Comparable<? super K> key) 
@@ -23052,7 +23052,7 @@ DESC BLOCK::: * {@description.open}
      * Performs map.get via findNode.  Used as a backup if doGet
      * encounters an in-progress deletion.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void insertIndex(Node<K,V> z, int level) 
@@ -23077,7 +23077,7 @@ DESC BLOCK::: * {@description.open}
      * Marsaglia's "Xorshift RNGs" paper.  This is not a high-quality
      * generator but is acceptable here.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void insertIndex(Node<K,V> z, int level) 
@@ -23090,7 +23090,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates and adds index nodes for the given node.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
             Node<K,V> lastReturned;
@@ -23104,7 +23104,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Variant of main Iter class to traverse through submaps.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private Comparable<? super K> comparable(Object key) throws ClassCastException 
@@ -23141,7 +23141,7 @@ DESC BLOCK::: * {@description.open}
      * Comparators vs Comparables, which seems like the right
      * tradeoff.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     int compare(K k1, K k2) throws ClassCastException 
@@ -23158,7 +23158,7 @@ DESC BLOCK::: * {@description.open}
      * cast key as Comparable, which may cause ClassCastException,
      * which is propagated back to caller.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         final boolean casRight(Index<K,V> cmp, Index<K,V> val) 
@@ -23171,7 +23171,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Updater for casRight 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private boolean casHead(HeadIndex<K,V> cmp, HeadIndex<K,V> val) 
@@ -23184,7 +23184,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updater for casHead 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     boolean inOpenRange(K key, K least, K fence) 
@@ -23201,7 +23201,7 @@ DESC BLOCK::: * {@description.open}
      * strictly less than fence, bypassing either test if least or
      * fence are null. Needed mainly in submap operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private static final Object BASE_HEADER = new Object();
@@ -23218,7 +23218,7 @@ DESC BLOCK::: * {@description.open}
      * Generates the initial random seed for the cheaper per-instance
      * random number generators used in randomLevel.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public Set<Map.Entry<K,V>> entrySet() 
@@ -23271,14 +23271,14 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the <tt>add</tt> or
      * <tt>addAll</tt> operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>The <tt>Map.Entry</tt> elements returned by
      * <tt>iterator.next()</tt> do <em>not</em> support the
      * <tt>setValue</tt> operation.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private transient KeySet keySet;
@@ -23294,7 +23294,7 @@ DESC BLOCK::: * {@description.open}
      * Seed for simple random number generator.  Not volatile since it
      * doesn't matter too much if different threads don't see updates.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -23310,7 +23310,7 @@ DESC BLOCK::: * {@description.open}
      * Returns true if given key greater than or equal to least and less
      * or equal to fence. Needed mainly in submap operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
      public NavigableSet<K> keySet() 
@@ -23361,12 +23361,12 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>This method is equivalent to method {@code navigableKeySet}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     boolean inHalfOpenRange(K key, K least, K fence) 
@@ -23381,7 +23381,7 @@ DESC BLOCK::: * {@description.open}
      * Compares using comparator or natural ordering. Used when the
      * ComparableUsingComparator approach doesn't apply.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         boolean casValue(Object cmp, Object val) 
@@ -23394,7 +23394,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Updater for casValue 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private final Comparator<? super K> comparator;
@@ -23411,7 +23411,7 @@ DESC BLOCK::: * {@description.open}
      * The comparator used to maintain order in this map, or null
      * if using natural ordering.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         static final AtomicReferenceFieldUpdater<Node, Object>
@@ -23428,7 +23428,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Updater for casNext 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void addIndex(Index<K,V> idx, HeadIndex<K,V> h, int indexLevel) 
@@ -23441,7 +23441,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Adds given index nodes from given level down to 1.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public boolean containsValue(Object value) 
@@ -23459,7 +23459,7 @@ DESC BLOCK::: * {@description.open}
      * specified value.  This operation requires time linear in the
      * map size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConcurrentNavigableMap.java
 DIRECTORY: java/util/concurrent
@@ -23506,7 +23506,7 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public NavigableSet<K> navigableKeySet();
@@ -23555,7 +23555,7 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     NavigableSet<K> keySet();
@@ -23608,12 +23608,12 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the {@code add} or {@code addAll}
      * operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>This method is equivalent to method {@code navigableKeySet}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: PriorityBlockingQueue.java
 DIRECTORY: java/util/concurrent
@@ -23634,7 +23634,7 @@ DESC BLOCK::: * {@description.open}
      * Queue. Note that locking is not needed on deserialization, so
      * readObject is not defined, just relying on default.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class PriorityBlockingQueue<E> extends AbstractQueue<E>
@@ -23721,7 +23721,7 @@ dIncrement();
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -23749,13 +23749,13 @@ PROP BLOCK:::* {@property.open weak-consistent}
      * may (but is not guaranteed to) reflect any modifications
      * subsequent to construction.
      * {@property.close}
-ADDRESSED PROP::: []
+ADDRESSED PROP::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * Returns an iterator over the elements in this queue. The
      * iterator does not return the elements in any particular order.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LinkedBlockingDeque.java
 DIRECTORY: java/util/concurrent
@@ -23772,7 +23772,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state of this deque to a stream (that is, serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Object[] toArray() 
@@ -23787,7 +23787,7 @@ DESC BLOCK::: * {@description.open}
      * Variant of removeFirstOccurrence needed by iterator.remove.
      * Searches for the node, not its contents.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public void addFirst(E e) 
@@ -23800,7 +23800,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Unlink e
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void readObject(java.io.ObjectInputStream s)
@@ -23816,7 +23816,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute this deque from a stream (that is,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private E unlinkFirst() 
@@ -23829,7 +23829,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Links e as last element, or returns false if full.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private transient Node<E> last;
@@ -23843,7 +23843,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Pointer to first node 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private class Itr extends AbstractItr 
@@ -23858,7 +23858,7 @@ DESC BLOCK::: * {@description.open}
          * Advances next, or if not yet initialized, sets to first node.
          * Implemented to move forward vs backward in the two subclasses.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private transient int count;
@@ -23872,7 +23872,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Pointer to last node 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -23886,7 +23886,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Descending iterator for LinkedBlockingDeque
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private abstract class AbstractItr implements Iterator<E> 
@@ -23919,7 +23919,7 @@ DESC BLOCK::: * {@description.open}
      * sequential order.  The elements will be returned in order from
      * last (tail) to first (head).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class LinkedBlockingDeque<E>
@@ -23980,7 +23980,7 @@ rrence}, {@link
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private boolean linkLast(E e) 
@@ -23993,7 +23993,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Links e as first element, or returns false if full.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -24025,7 +24025,7 @@ DESC BLOCK::: * {@description.open}
      * Returns an iterator over the elements in this deque in proper sequence.
      * The elements will be returned in order from first (head) to last (tail).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Delayed.java
 DIRECTORY: java/util/concurrent
@@ -24115,7 +24115,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="package-summary.html#MemoryVisibility"> <i>happen-before</i></a>
  * actions following the corresponding {@code Future.get()} in another thread.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ExecutorService.java
 DIRECTORY: java/util/concurrent
@@ -24247,7 +24247,7 @@ pted
  * any actions taken by that task, which in turn <i>happen-before</i> the
  * result is retrieved via {@code Future.get()}.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     void shutdown();
@@ -24267,7 +24267,7 @@ DESC BLOCK::: * {@description.open}
      * tasks are executed, but no new tasks will be accepted.
      * Invocation has no additional effect if already shut down.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     List<Runnable> shutdownNow();
@@ -24297,7 +24297,7 @@ DESC BLOCK::: * {@description.open}
      * implementations will cancel via {@link Thread#interrupt}, so any
      * task that fails to respond to interrupts may never terminate.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Executor.java
 DIRECTORY: java/util/concurrent
@@ -24416,7 +24416,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
  * its execution begins, perhaps in another thread.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConcurrentSkipListSet.java
 DIRECTORY: java/util/concurrent
@@ -24493,7 +24493,7 @@ DESC BLOCK::: * {@description.open}
  * operations and their variants.  Insertion, removal, and access
  * operations safely execute concurrently by multiple threads.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * Ascending ordered views and their iterators are
@@ -24518,7 +24518,7 @@ iterators implement all of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public NavigableSet<E> descendingSet() 
@@ -24546,7 +24546,7 @@ DESC BLOCK::: * {@description.open}
      * The expression {@code s.descendingSet().descendingSet()} returns a
      * view of {@code s} essentially equivalent to {@code s}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SynchronousQueue.java
 DIRECTORY: java/util/concurrent
@@ -24561,7 +24561,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Return true if m has fulfilling bit set 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class SynchronousQueue<E> extends AbstractQueue<E>
@@ -24628,7 +24628,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -24643,7 +24643,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state to a stream (that is, serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         void advanceHead(QNode h, QNode nh) 
@@ -24660,7 +24660,7 @@ DESC BLOCK::: * {@description.open}
          * unlinked from queue because it was the last inserted node
          * when it cancelled.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ArrayBlockingQueue.java
 DIRECTORY: java/util/concurrent
@@ -24675,7 +24675,7 @@ DESC BLOCK::: * {@description.open}
          * Checks whether nextIndex is valid; if so setting nextItem.
          * Stops iterator when either hits putIndex or sees null item.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void insert(E x) 
@@ -24688,7 +24688,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Circularly increment i.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 public class ArrayBlockingQueue<E> extends AbstractQueue<E>
@@ -24752,7 +24752,7 @@ ver, a queue constructed with fairness set
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private int putIndex;
@@ -24766,7 +24766,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * items index for next take, poll or remove
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -24780,7 +24780,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Number of items in the queue
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -24810,7 +24810,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Returns an iterator over the elements in this queue in proper sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private E nextItem;
@@ -24827,7 +24827,7 @@ DESC BLOCK::: * {@description.open}
          * Index of element to be returned by next,
          * or a negative number if no such.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
             return nextIndex >= 0;
@@ -24845,7 +24845,7 @@ DESC BLOCK::: * {@description.open}
          * Index of element returned by most recent call to next.
          * Reset to -1 if this element is deleted by a call to remove.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public ArrayBlockingQueue(int capacity) 
@@ -24866,7 +24866,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Utility for remove and iterator.remove: Delete item at position i.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private int nextIndex;
@@ -24881,7 +24881,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Iterator for ArrayBlockingQueue
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConcurrentMap.java
 DIRECTORY: java/util/concurrent
@@ -24921,7 +24921,7 @@ DESC BLOCK::: * {@description.open}
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     boolean remove(Object key, Object value);
@@ -24951,7 +24951,7 @@ DESC BLOCK::: * {@description.open}
      *   } else return false;</pre>
      * except that the action is performed atomically.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     boolean replace(K key, V oldValue, V newValue);
@@ -24981,7 +24981,7 @@ DESC BLOCK::: * {@description.open}
      *   } else return false;</pre>
      * except that the action is performed atomically.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: DelayQueue.java
 DIRECTORY: java/util/concurrent
@@ -25038,7 +25038,7 @@ poll</tt>, they are otherwise
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -25074,7 +25074,7 @@ DESC BLOCK::: * {@description.open}
      * unexpired) in this queue. The iterator does not return the
      * elements in any particular order.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: package-info.java
 DIRECTORY: java/util/concurrent
@@ -25343,7 +25343,7 @@ DESC BLOCK::: * {@description.open}
  *
  * </ul>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ScheduledThreadPoolExecutor.java
 DIRECTORY: java/util/concurrent
@@ -25373,7 +25373,7 @@ DESC BLOCK::: * {@description.open}
      * cancels tasks via {@link Thread#interrupt}, so any task that
      * fails to respond to interrupts may never terminate.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -25386,7 +25386,7 @@ DESC BLOCK::: * {@description.open}
      * An annoying wrapper class to convince javac to use a
      * DelayQueue<RunnableScheduledFuture> as a BlockingQueue<Runnable>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 public class ScheduledThreadPoolExecutor
@@ -25479,7 +25479,7 @@ DESC BLOCK::: * {@description.open}
  *   // ... add constructors, etc.
  * }}</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public boolean isPeriodic() 
@@ -25492,7 +25492,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Creates a one-shot action with given nanoTime-based trigger.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public List<Runnable> shutdownNow() 
@@ -25519,7 +25519,7 @@ DESC BLOCK::: * {@description.open}
      * been set {@code true}, future executions of existing periodic
      * tasks will be cancelled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConcurrentHashMap.java
 DIRECTORY: java/util/concurrent
@@ -25540,7 +25540,7 @@ PROP BLOCK:::* {@property.open}
      * If the specified key is null, a runtime exception is raised.
      * {@new.close}
      * {@property.close}
-ADDRESSED PROP::: [?]
+ADDRESSED PROP::: [?x]
 ---------
 NEW BLOCK:::* {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
      * If the specified key is null, a runtime exception is raised.
@@ -25565,7 +25565,7 @@ DESC BLOCK::: * {@description.open}
      * of mappings in the given map or 16 (whichever is greater),
      * and a default load factor (0.75) and concurrencyLevel (16).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean contains(Object value) 
@@ -25601,7 +25601,7 @@ DESC BLOCK::: * {@description.open}
      * which supported this method prior to introduction of the
      * Java Collections framework.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
      * If the specified value is null, a runtime exception is raised.
@@ -25624,7 +25624,7 @@ DESC BLOCK::: * {@description.open}
      * map contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Set<Map.Entry<K,V>> entrySet() 
@@ -25668,7 +25668,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>retainAll</tt>, and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Collection<V> values() 
@@ -25712,7 +25712,7 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the <tt>add</tt> or
      * <tt>addAll</tt> operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -25732,7 +25732,7 @@ DESC BLOCK::: * {@description.open}
      * unbounded retries if tables undergo continuous modification
      * which would make it impossible to obtain an accurate result.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public V setValue(V value) 
@@ -25747,7 +25747,7 @@ DESC BLOCK::: * {@description.open}
      * Custom Entry class used by EntryIterator.next(), that relays
      * setValue changes to the underlying map.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public ConcurrentHashMap(int initialCapacity) 
@@ -25763,7 +25763,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new, empty map with the specified initial capacity,
      * and with default load factor (0.75) and concurrencyLevel (16).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     static final int MAX_SEGMENTS = 1 << 16; // slightly conservative
@@ -25784,7 +25784,7 @@ DESC BLOCK::: * {@description.open}
      * be a power of two <= 1<<30 to ensure that entries are indexable
      * using ints.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final int segmentShift;
@@ -25801,7 +25801,7 @@ DESC BLOCK::: * {@description.open}
      * Mask value for indexing into segments. The upper bits of a
      * key's hash code are used to choose the segment.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -25815,7 +25815,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Remove; match on key only if value null, else match both.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Enumeration<K> keys() 
@@ -25859,7 +25859,7 @@ DESC BLOCK::: * {@description.open}
      * operations.  It does not support the <tt>add</tt> or
      * <tt>addAll</tt> operations.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final Segment<K,V> segmentFor(int hash) 
@@ -25880,7 +25880,7 @@ DESC BLOCK::: * {@description.open}
      * that otherwise encounter collisions for hashCodes that do not
      * differ in lower or upper bits.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public boolean containsKey(Object key) 
@@ -25945,7 +25945,7 @@ DESC BLOCK::: * {@description.open}
      * <p> The value can be retrieved by calling the <tt>get</tt> method
      * with a key that is equal to the original key.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
      * If the specified key or value is null, a runtime exception is raised.
@@ -25967,7 +25967,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new, empty map with the specified initial
      * capacity, load factor and concurrency level.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -25981,7 +25981,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * The segments, each of which is a specialized hash table
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -26003,7 +26003,7 @@ DESC BLOCK::: * {@description.open}
          * its table assignment, which is legal under memory model
          * but is not known to ever occur.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     static final int MAXIMUM_CAPACITY = 1 << 30;
@@ -26020,7 +26020,7 @@ DESC BLOCK::: * {@description.open}
      * The default concurrency level for this table, used when not
      * otherwise specified in a constructor.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean containsValue(Object value) 
@@ -26052,7 +26052,7 @@ DESC BLOCK::: * {@description.open}
      * traversal of the hash table, and so is much slower than
      * method <tt>containsKey</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open formal:java.util.concurrent.ConcurrentHashMap_NonNull}
      * If the specified value is null, a runtime exception is raised.
@@ -26088,7 +26088,7 @@ DESC BLOCK::: * {@description.open}
      * backup in case a null (pre-initialized) value is ever seen in
      * an unsynchronized access method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -26114,7 +26114,7 @@ DESC BLOCK::: * {@description.open}
          * removed in which case the put will re-establish). We do not
          * and cannot guarantee more.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         V readValueUnderLock(HashEntry<K,V> e) 
@@ -26127,7 +26127,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Returns properly casted first entry of bin for given hash.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         transient int threshold;
@@ -26152,7 +26152,7 @@ DESC BLOCK::: * {@description.open}
          * we might have an inconsistent view of state so (usually)
          * must retry.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public V remove(Object key) 
@@ -26198,7 +26198,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the segment that should be used for key with given hash
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     public V putIfAbsent(K key, V value) 
@@ -26239,7 +26239,7 @@ DESC BLOCK::: * {@description.open}
      * The default load factor for this table, used when not
      * otherwise specified in a constructor.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s) throws IOException  
@@ -26254,7 +26254,7 @@ DESC BLOCK::: * {@description.open}
      * Save the state of the <tt>ConcurrentHashMap</tt> instance to a
      * stream (i.e., serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void readObject(java.io.ObjectInputStream s)
@@ -26270,7 +26270,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute the <tt>ConcurrentHashMap</tt> instance from a
      * stream (i.e., deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ConcurrentHashMap(Map<? extends K, ? extends V> m) 
@@ -26285,7 +26285,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new, empty map with a default initial capacity (16),
      * load factor (0.75) and concurrencyLevel (16).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ConcurrentHashMap(int initialCapacity, float loadFactor) 
@@ -26301,7 +26301,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new, empty map with the specified initial capacity
      * and load factor and with the default concurrencyLevel (16).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final Segment<K,V>[] segments;
@@ -26322,7 +26322,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Shift value for indexing within segments.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -26339,7 +26339,7 @@ DESC BLOCK::: * {@description.open}
      * The default initial capacity for this table,
      * used when not otherwise specified in a constructor.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -26359,7 +26359,7 @@ DESC BLOCK::: * {@description.open}
      * subclasses from ReentrantLock opportunistically, just to
      * simplify some locking and avoid separate construction.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
 public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
@@ -26460,7 +26460,7 @@ cluding
  * Enumerations return elements reflecting the state of the hash table
  * at some point at or since the creation of the iterator/enumeration.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p> The allowed concurrency among update operations is guided by
@@ -26483,14 +26483,14 @@ much noticeable impact. A value of one is
  * <em>optional</em> methods of the {@link Map} and {@link Iterator}
  * interfaces.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         final float loadFactor;
@@ -26505,7 +26505,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The per-segment table.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         transient int modCount;
@@ -26520,7 +26520,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The number of elements in this segment's region.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         final float loadFactor;
@@ -26539,7 +26539,7 @@ DESC BLOCK::: * {@description.open}
          * is same for all segments, it is replicated to avoid needing
          * links to outer object.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         transient volatile HashEntry<K,V>[] table;
@@ -26558,7 +26558,7 @@ DESC BLOCK::: * {@description.open}
          * (The value of this field is always <tt>(int)(capacity *
          * loadFactor)</tt>.)
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         HashEntry<K,V> getFirst(int hash) 
@@ -26573,7 +26573,7 @@ DESC BLOCK::: * {@description.open}
          * Sets table to new HashEntry array.
          * Call only while holding lock or in constructor.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     static final int RETRIES_BEFORE_LOCK = 2;
@@ -26592,7 +26592,7 @@ DESC BLOCK::: * {@description.open}
      * The maximum number of segments to allow; used to bound
      * constructor arguments.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: BrokenBarrierException.java
 DIRECTORY: java/util/concurrent
@@ -26623,7 +26623,7 @@ DESC BLOCK::: * {@description.open}
      * not possible, throw an associated {@link
      * AccessControlException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static <T> Callable<T> privilegedCallableUsingCurrentClassLoader(Callable<T> callable) 
@@ -26652,7 +26652,7 @@ DESC BLOCK::: * {@description.open}
      * not possible, throw an associated {@link
      * AccessControlException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static ThreadFactory privilegedThreadFactory() 
@@ -26707,7 +26707,7 @@ DESC BLOCK::: * {@description.open}
      * thread waits for and services requests to create others that
      * will inherit its values.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ExecutionException.java
 DIRECTORY: java/util/concurrent
@@ -26877,7 +26877,7 @@ DESC BLOCK::: * {@description.open}
  * pool and a permit is returned to the semaphore, allowing another
  * thread to acquire that item.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * The semaphore encapsulates the
@@ -26901,7 +26901,7 @@ DESC BLOCK::: * {@description.open}
  * actions following a successful "acquire" method such as {@code acquire()}
  * in another thread.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CountDownLatch.java
 DIRECTORY: java/util/concurrent
@@ -27058,7 +27058,7 @@ his.i = i;
  * actions following a successful return from a corresponding
  * {@code await()} in another thread.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LinkedBlockingQueue.java
 DIRECTORY: java/util/concurrent
@@ -27121,7 +27121,7 @@ nsion. The capacity, if unspecified,
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void fullyUnlock() 
@@ -27134,7 +27134,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Lock to prevent both puts and takes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private transient Node<E> last;
@@ -27149,7 +27149,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Head of linked list 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Iterator<E> iterator() 
@@ -27179,7 +27179,7 @@ ADDRESSED PROP::: [x]
 DESC BLOCK::: * {@description.open}
      * Returns an iterator over the elements in this queue in proper sequence.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public LinkedBlockingQueue() 
@@ -27192,7 +27192,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Unlock to allow both puts and takes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void writeObject(java.io.ObjectOutputStream s)
@@ -27207,7 +27207,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Save the state to a stream (that is, serialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private final int capacity;
@@ -27222,7 +27222,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * The item, volatile to ensure barrier separating write and read 
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
     private void insert(E x) 
@@ -27235,7 +27235,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a node and links it at end of queue.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private final ReentrantLock takeLock = new ReentrantLock();
@@ -27250,7 +27250,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tail of linked list 
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private void readObject(java.io.ObjectInputStream s)
@@ -27266,7 +27266,7 @@ DESC BLOCK::: * {@description.open}
      * Reconstitute this queue instance from a stream (that is,
      * deserialize it).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ScheduledExecutorService.java
 DIRECTORY: java/util/concurrent
@@ -27358,7 +27358,7 @@ Pool(1);
  * }
  * </pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: JarEntry.java
 DIRECTORY: java/util/jar
@@ -27401,7 +27401,7 @@ DESC BLOCK::: * {@description.open}
  * or method in this class will cause a {@link NullPointerException} to be
  * thrown.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: JarException.java
 DIRECTORY: java/util/jar
@@ -27451,7 +27451,7 @@ DESC BLOCK::: * {@description.open}
      * Note that this method does not return the manifest's main attributes;
      * see {@link #getMainAttributes}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Map<String,Attributes> getEntries() 
@@ -27473,7 +27473,7 @@ DESC BLOCK::: * {@description.open}
      * created by {@link #read}, nor is such an entry written by using {@link
      * #write}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: JarVerifier.java
 DIRECTORY: java/util/jar
@@ -27506,7 +27506,7 @@ DESC BLOCK::: * {@description.open}
          * at the beginning of a packing operation, and to 100
          * at the end.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         void addPropertyChangeListener(PropertyChangeListener listener) ;
@@ -27524,7 +27524,7 @@ DESC BLOCK::: * {@description.open}
          * Registers a listener for PropertyChange events on the properties map.
          * This is typically used by applications to update a progress bar.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         String KEEP_FILE_ORDER = "pack.keep.file.order";
@@ -27579,7 +27579,7 @@ other transmitted properties.
          * typically pack about 10% smaller, but the packer may require
          * a larger Java heap (about ten times the segment limit).
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public interface Packer 
@@ -27663,7 +27663,7 @@ erings produced by the first packing.
      * produced.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public interface Unpacker 
@@ -27692,7 +27692,7 @@ DESC BLOCK::: * {@description.open}
      * <p>
      * This version of the unpacker is compatible with all previous versions.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         void removePropertyChangeListener(PropertyChangeListener listener);
@@ -27712,7 +27712,7 @@ DESC BLOCK::: * {@description.open}
          * Remove a listener for PropertyChange events, added by
          * the {@link #addPropertyChangeListener}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Attributes.java
 DIRECTORY: java/util/jar
@@ -27731,7 +27731,7 @@ DESC BLOCK::: * {@description.open}
          * <code>Name</code> object for <code>Implementation-Vendor-URL</code>
          * manifest attribute used for package versioning.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: Handler.java
 DIRECTORY: java/util/logging
@@ -27760,7 +27760,7 @@ DESC BLOCK::: * {@description.open}
      * the <tt>LogRecord</tt> is Null.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -27799,7 +27799,7 @@ DESC BLOCK::: * {@description.open}
  * <tt>Handler</tt> class.
  *
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: MemoryHandler.java
 DIRECTORY: java/util/logging
@@ -27828,7 +27828,7 @@ DESC BLOCK::: * {@description.open}
      * buffer contents. It will return false if the <tt>LogRecord</tt> is Null.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -27905,7 +27905,7 @@ r
  *        (no default).
  * </ul>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: FileHandler.java
 DIRECTORY: java/util/logging
@@ -28032,7 +28032,7 @@ DESC BLOCK::: * {@description.open}
  * the first file in their rotating sequences.
  * <p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Logging.java
 DIRECTORY: java/util/logging
@@ -28056,7 +28056,7 @@ DESC BLOCK::: * {@description.open}
  * method for management access to the individual
  * java.util.Logger objects available at runtime.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocketHandler.java
 DIRECTORY: java/util/logging
@@ -28124,7 +28124,7 @@ DESC BLOCK::: * {@description.open}
  * The output IO stream is buffered, but is flushed after each
  * <tt>LogRecord</tt> is written.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Filter.java
 DIRECTORY: java/util/logging
@@ -28184,7 +28184,7 @@ dler.filter
  * </ul>
  * <p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LoggingPermission.java
 DIRECTORY: java/util/logging
@@ -28210,7 +28210,7 @@ DESC BLOCK::: * {@description.open}
      * the result is null, then the Logger will use a resource
      * bundle inherited from its parent.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static final String GLOBAL_LOGGER_NAME = "global";
@@ -28245,7 +28245,7 @@ DESC BLOCK::: * {@description.open}
      * The preferred way to get the global logger object is via the call
      * <code>Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static synchronized Logger getLogger(String name, String resourceBundleName) 
@@ -28301,7 +28301,7 @@ DESC BLOCK::: * {@description.open}
      * is thrown.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getResourceBundleName() 
@@ -28319,7 +28319,7 @@ DESC BLOCK::: * {@description.open}
      * logger.  Note that if the result is null, then the Logger
      * will use a resource bundle name inherited from its parent.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected Logger(String name, String resourceBundleName) 
@@ -28339,7 +28339,7 @@ DESC BLOCK::: * {@description.open}
      * The logger will be initially configured with a null Level
      * and with useParentHandlers true.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -28498,7 +28498,7 @@ Therefore, any subclasses of Logger (unless they
  * All the other logging methods are implemented as calls on this
  * log(LogRecord) method.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void logrb(Level level, String sourceClass, String sourceMethod,
@@ -28542,7 +28542,7 @@ DESC BLOCK::: * {@description.open}
      * as a formatting parameter to the LogRecord message property.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static synchronized Logger getLogger(String name) 
@@ -28590,7 +28590,7 @@ e to the newly
      * objects named "MyLogger" if there is no strong reference to the
      * Logger named "MyLogger" elsewhere in the program.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void throwing(String sourceClass, String sourceMethod, Throwable thrown) 
@@ -28633,7 +28633,7 @@ DESC BLOCK::: * {@description.open}
      * as a formatting parameter to the LogRecord message property.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void logp(Level level, String sourceClass, String sourceMethod,
@@ -28669,7 +28669,7 @@ DESC BLOCK::: * {@description.open}
      * as a formatting parameter to the LogRecord message property.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static Logger getAnonymousLogger() 
@@ -28712,7 +28712,7 @@ DESC BLOCK::: * {@description.open}
      * from the root logger.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void log(Level level, String msg, Throwable thrown) 
@@ -28745,7 +28745,7 @@ DESC BLOCK::: * {@description.open}
      * as a formatting parameter to the LogRecord message property.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Level.java
 DIRECTORY: java/util/logging
@@ -28774,7 +28774,7 @@ DESC BLOCK::: * {@description.open}
      * make sense to end users and system admins.
      * This level is initialized to <CODE>800</CODE>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SimpleFormatter.java
 DIRECTORY: java/util/logging
@@ -28793,7 +28793,7 @@ DESC BLOCK::: * {@description.open}
  * Print a brief summary of the LogRecord in a human readable
  * format.  The summary will typically be 1 or 2 lines.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized String format(LogRecord record) 
@@ -28815,7 +28815,7 @@ DESC BLOCK::: * {@description.open}
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LogRecord.java
 DIRECTORY: java/util/logging
@@ -28831,7 +28831,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Set the source Logger name.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getLoggerName() 
@@ -28845,7 +28845,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Get the source Logger name's
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Formatter.java
 DIRECTORY: java/util/logging
@@ -28874,7 +28874,7 @@ DESC BLOCK::: * {@description.open}
      * It is recommended to use the {@link Formatter#formatMessage}
      * convenience method to localize and format the message field.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getTail(Handler h) 
@@ -28894,7 +28894,7 @@ DESC BLOCK::: * {@description.open}
      * This base class returns an empty string, but this may be
      * overriden by subclasses.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHead(Handler h) 
@@ -28914,7 +28914,7 @@ DESC BLOCK::: * {@description.open}
      * This base class returns an empty string, but this may be
      * overriden by subclasses.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ErrorManager.java
 DIRECTORY: java/util/logging
@@ -28942,7 +28942,7 @@ DESC BLOCK::: * {@description.open}
  * the logging call (who is unlikely to be interested) the Handler
  * should call its associated ErrorManager.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void error(String msg, Exception ex, int code) 
@@ -28964,7 +28964,7 @@ DESC BLOCK::: * {@description.open}
      * behavior in this base class is that the first call is
      * reported to System.err, and subsequent calls are ignored.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LoggingMXBean.java
 DIRECTORY: java/util/logging
@@ -29006,7 +29006,7 @@ DESC BLOCK::: * {@description.open}
      * which means that this logger's effective level is inherited
      * from its parent, an empty string will be returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public java.util.List<String> getLoggerNames();
@@ -29026,7 +29026,7 @@ DESC BLOCK::: * {@description.open}
      * calls {@link LogManager#getLoggerNames} and returns a list
      * of the logger names.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public interface LoggingMXBean 
@@ -29070,7 +29070,7 @@ DESC BLOCK::: * {@description.open}
  *           <tt>java.util.logging:type=Logging</tt>}
  * </blockquote>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LogManager.java
 DIRECTORY: java/util/logging
@@ -29092,7 +29092,7 @@ DESC BLOCK::: * {@description.open}
      * the same event Listener results in multiple entries
      * in the property event listener table.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static synchronized LoggingMXBean  getLoggingMXBean() 
@@ -29112,7 +29112,7 @@ DESC BLOCK::: * {@description.open}
      * {@link java.lang.management.ManagementFactory#getPlatformMBeanServer
      * platform <tt>MBeanServer</tt>} method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static LogManager getLogManager() 
@@ -29131,7 +29131,7 @@ DESC BLOCK::: * {@description.open}
      * it is intended that there only be one LogManager object, whose value is
      * retrieved by calling Logmanager.getLogManager.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void addPropertyChangeListener(PropertyChangeListener l) throws SecurityException 
@@ -29144,7 +29144,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Return the global LogManager object.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void removePropertyChangeListener(PropertyChangeListener l) throws SecurityException 
@@ -29172,7 +29172,7 @@ DESC BLOCK::: * {@description.open}
      * <P>
      * Returns silently if the given listener is not found.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -29311,7 +29311,7 @@ r Loggers.  Thus "foo.level" defines a log level for
  * <p>
  * All methods on the LogManager object are multi-thread safe.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final static String LOGGING_MXBEAN_NAME
@@ -29329,7 +29329,7 @@ DESC BLOCK::: * {@description.open}
      * String representation of the
      * {@link javax.management.ObjectName} for {@link LoggingMXBean}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: StreamHandler.java
 DIRECTORY: java/util/logging
@@ -29354,7 +29354,7 @@ DESC BLOCK::: * {@description.open}
      * no output stream has been assigned yet or the LogRecord is Null.
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void close() throws SecurityException 
@@ -29378,7 +29378,7 @@ DESC BLOCK::: * {@description.open}
      * yet been written to the stream, it will be written before the
      * "tail" string.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -29438,7 +29438,7 @@ StreamHandler.filter
  *        the default platform encoding).
  * </ul>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected synchronized void setOutputStream(OutputStream out) throws SecurityException 
@@ -29460,7 +29460,7 @@ DESC BLOCK::: * {@description.open}
      * tail string is written and the stream is flushed and closed.
      * Then the output stream is replaced with the new output stream.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void publish(LogRecord record) 
@@ -29496,7 +29496,7 @@ DESC BLOCK::: * {@description.open}
      * <tt>OutputStream</tt>, the <tt>Formatter</tt>'s "head" string is
      * written to the stream before the <tt>LogRecord</tt> is written.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ZipConstants.java
 DIRECTORY: java/util/zip
@@ -29513,7 +29513,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new output stream with a default compressor and buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public DeflaterOutputStream(OutputStream out, Deflater def) 
@@ -29528,7 +29528,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new output stream with the specified compressor and
      * a default buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public DeflaterOutputStream(OutputStream out, Deflater def, int size) 
@@ -29543,7 +29543,7 @@ DESC BLOCK::: * {@description.open}
      * Creates a new output stream with the specified compressor and
      * buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CheckedOutputStream.java
 DIRECTORY: java/util/zip
@@ -29577,7 +29577,7 @@ DESC BLOCK::: * {@description.open}
      * This will prevent holding up system resources for an undetermined
      * length of time.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private Inflater getInflater() 
@@ -29631,7 +29631,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
  * A class that can be used to compute the CRC-32 of a data stream.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void update(byte[] b) 
@@ -29645,7 +29645,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updates checksum with specified array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void update(byte[] b, int off, int len) 
@@ -29658,7 +29658,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updates CRC-32 with specified byte.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void update(byte[] b) 
@@ -29671,7 +29671,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updates CRC-32 with specified array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Deflater.java
 DIRECTORY: java/util/zip
@@ -29749,7 +29749,7 @@ resser = new Inflater();
  * }
  * </pre></blockquote>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void end() 
@@ -29791,7 +29791,7 @@ DESC BLOCK::: * {@description.open}
      * Fills specified buffer with compressed data. Returns actual number
      * of bytes of compressed data.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setLevel(int level) 
@@ -29804,7 +29804,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Sets the current compression level to the specified value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setStrategy(int strategy) 
@@ -29817,7 +29817,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Sets the compression strategy to the specified value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Inflater.java
 DIRECTORY: java/util/zip
@@ -29850,7 +29850,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new output stream with a default buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public GZIPOutputStream(OutputStream out, int size) throws IOException 
@@ -29863,7 +29863,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new output stream with the specified buffer size.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: GZIPInputStream.java
 DIRECTORY: java/util/zip
@@ -29883,7 +29883,7 @@ DESC BLOCK::: * {@description.open}
      * Constructs an <code>ZipException</code> with <code>null</code>
      * as its error detail message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -29900,7 +29900,7 @@ DESC BLOCK::: * {@description.open}
      * Constructs an <code>ZipException</code> with the specified detail
      * message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ZipOutputStream.java
 DIRECTORY: java/util/zip
@@ -29927,7 +29927,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the CRC-32 checksum of the uncompressed entry data, or -1 if
      * not known.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public byte[] getExtra() 
@@ -29940,7 +29940,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the extra field data for the entry, or null if none.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getMethod() 
@@ -29953,7 +29953,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the compression method of the entry, or -1 if not specified.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long getSize() 
@@ -29966,7 +29966,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the uncompressed size of the entry data, or -1 if not known.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long getTime() 
@@ -29979,7 +29979,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the modification time of the entry, or -1 if not specified.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long getCompressedSize() 
@@ -29996,7 +29996,7 @@ DESC BLOCK::: * {@description.open}
      * In the case of a stored entry, the compressed size will be the same
      * as the uncompressed size of the entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setComment(String comment) 
@@ -30009,7 +30009,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Sets the optional comment string for the entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setTime(long time) 
@@ -30022,7 +30022,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Sets the modification time of the entry.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getComment() 
@@ -30035,7 +30035,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the comment string for the entry, or null if none.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CheckedInputStream.java
 DIRECTORY: java/util/zip
@@ -30054,7 +30054,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns checksum value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void update(byte[] b) 
@@ -30067,7 +30067,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updates checksum with specified array of bytes.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void update(int b) 
@@ -30081,7 +30081,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Updates checksum with specified byte.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public long getValue() 
@@ -30094,7 +30094,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Resets checksum to initial value.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public
@@ -30113,7 +30113,7 @@ DESC BLOCK::: * {@description.open}
  * stream. An Adler-32 checksum is almost as reliable as a CRC-32 but
  * can be computed much faster.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: BackingStoreException.java
 DIRECTORY: java/util/prefs
@@ -30226,7 +30226,7 @@ nces</tt> methods via the use of a
  * with each <tt>Preferences</tt> instance.  The latter behavior conflicts
  * with normal <tt>Preferences</tt> usage and would lead to great confusion.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String get(String key, String def) 
@@ -30258,7 +30258,7 @@ DESC BLOCK::: * {@description.open}
      * invocation returns <tt>null</tt> or throws an exception, in which case
      * this invocation returns <tt>def</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean nodeExists(String path)
@@ -30284,7 +30284,7 @@ DESC BLOCK::: * {@description.open}
      * except that {@link #getChild(String)} is used instead of {@link
      * #childSpi(String)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void removeNode() throws BackingStoreException 
@@ -30336,7 +30336,7 @@ od calls itself recursively on each node contained in its
      * <p>Note that the helper method is always invoked with all ancestors up
      * to the "closest non-removed ancestor" locked.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Base64.java
 DIRECTORY: java/util/prefs
@@ -30392,7 +30392,7 @@ e in conjunction with
      * as if implemented on top of the other public methods in this class,
      * notably {@link #node(String)} and {@link #put(String, String)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class Preferences 
@@ -30599,7 +30599,7 @@ n that file is taken.  If more than one such jar file is
  *
  * </ol>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract void exportSubtree(OutputStream os)
@@ -30650,7 +30650,7 @@ ption to the general rule that the results of
      * "fuzzy snapshot" of the subtree; some of the concurrent modifications
      * may be reflected in the exported data while others may not.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract void exportNode(OutputStream os)
@@ -30701,7 +30701,7 @@ DESC BLOCK::: * {@description.open}
      * preferences contained in the node; some of the concurrent modifications
      * may be reflected in the exported data while others may not.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract int getInt(String key, int def);
@@ -30741,7 +30741,7 @@ DESC BLOCK::: * {@description.open}
      * with <tt>Integer.parseInt</tt>, this int is returned in preference to
      * the specified default.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract void flush() throws BackingStoreException;
@@ -30760,7 +30760,7 @@ DESC BLOCK::: * {@description.open}
      * as if computed by the expression:<tt>(this.isUserNode() ? "User" :
      * "System") + " Preference Node: " + this.absolutePath()</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract long getLong(String key, long def);
@@ -30800,7 +30800,7 @@ DESC BLOCK::: * {@description.open}
      * with <tt>Long.parseLong</tt>, this long is returned in preference to
      * the specified default.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract void addPreferenceChangeListener(
@@ -30847,7 +30847,7 @@ he <tt>clear</tt>
      * when preferences are modified in descendants of this node; a caller
      * desiring such events must register with each descendant.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NodeChangeEvent.java
 DIRECTORY: java/util/prefs
@@ -30892,7 +30892,7 @@ DESC BLOCK::: * {@description.open}
      * (say, the provider does not have a Japanese name for Croatia),
      * this method returns null.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public abstract String getDisplayLanguage(String languageCode, Locale locale);
@@ -30921,7 +30921,7 @@ DESC BLOCK::: * {@description.open}
      * (say, the provider does not have a Japanese name for Croatian),
      * this method returns null.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LocaleServiceProvider.java
 DIRECTORY: java/util/spi
@@ -30937,7 +30937,7 @@ DESC BLOCK::: * {@description.open}
      * Returns an array of all locales for which this locale service provider
      * can provide localized objects or names.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class LocaleServiceProvider 
@@ -31049,7 +31049,7 @@ urn value for
  * provider returns null instead of a name, the lookup will proceed as
  * described above as if the locale was not supported.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CurrencyNameProvider.java
 DIRECTORY: java/util/spi
@@ -31176,7 +31176,7 @@ DESC BLOCK::: * {@description.open}
  * {@code synchronized} methods and statements, but with extended
  * capabilities.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>The constructor for this class accepts an optional
@@ -31198,7 +31198,7 @@ d guarantee lack of
  * honor the fairness setting. It will succeed if the lock
  * is available even if other threads are waiting.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>In addition to implementing the {@link Lock} interface, this
@@ -31215,7 +31215,7 @@ DESC BLOCK::: * {@description.open}
  * the same thread. Attempts to exceed this limit result in
  * {@link Error} throws from locking methods.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Condition newCondition() 
@@ -31288,7 +31288,7 @@ xception} will be thrown, and the thread's
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isHeldByCurrentThread() 
@@ -31372,7 +31372,7 @@ o be used to ensure that a reentrant lock is used
      * }
      * </pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void lockInterruptibly() throws InterruptedException 
@@ -31400,7 +31400,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Acquires the lock.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private void readObject(java.io.ObjectInputStream s)
@@ -31414,7 +31414,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Reconstitutes this lock instance from a stream.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Lock.java
 DIRECTORY: java/util/concurrent/locks
@@ -31572,7 +31572,7 @@ DESC BLOCK::: * {@description.open}
  * acquired first. However, some locks may allow concurrent access to
  * a shared resource, such as the read lock of a {@link ReadWriteLock}.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>While the scoping mechanism for {@code synchronized} methods
@@ -31594,7 +31594,7 @@ DESC BLOCK::: * {@description.open}
  * shown that the interrupt occurred after another action may have unblocked
  * the thread. An implementation should document this behavior.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: LockSupport.java
 DIRECTORY: java/util/concurrent/locks
@@ -31710,7 +31710,7 @@ eek() != current ||
  *   }
  * }}</pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractOwnableSynchronizer.java
 DIRECTORY: java/util/concurrent/locks
@@ -31819,7 +31819,7 @@ DESC BLOCK::: * {@description.open}
  * You should consider all of these things when evaluating the suitability
  * of a given implementation for your application.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ReentrantReadWriteLock.java
 DIRECTORY: java/util/concurrent/locks
@@ -31839,7 +31839,7 @@ DESC BLOCK::: * {@description.open}
          * Identical in effect to {@link
          * ReentrantReadWriteLock#isWriteLockedByCurrentThread}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         static final class ThreadLocalHoldCounter
@@ -31853,7 +31853,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
              * Decrement if positive; return previous value 
              * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 NEAREST SIGNATURE::: 
         public boolean tryLock( ) 
@@ -31899,7 +31899,7 @@ DESC BLOCK::: * {@description.open}
 ...
  lock, then use {@link
          * #tryLock(long, TimeUnit) tryLock(0, TimeUnit.SECONDS) }
-         * which is almost equivalent (it also detects interruption).
+         * which is almost equivaelnt (it also detects interruption).
          *
          * <p> If the current thread already holds this lock then the
          * hold count is incremented by one and the method returns
@@ -31908,7 +31908,7 @@ DESC BLOCK::: * {@description.open}
          * <p>If the lock is held by another thread then this method
          * will return immediately with the value {@code false}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public void lockInterruptibly() throws InterruptedException 
@@ -31939,7 +31939,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Acquires the write lock.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable  
@@ -32174,7 +32174,7 @@ ll be
  * <li><b>Reentrancy</b>
  *
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <li><b>Lock downgrading</b>
@@ -32208,7 +32208,7 @@ ring key, Data value) {
  * and 65535 read locks. Attempts to exceed these limits result in
  * {@link Error} throws from locking methods.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public Condition newCondition() 
@@ -32282,7 +32282,7 @@ DESC BLOCK::: * {@description.open}
          *
          * </ul>
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public void unlock() 
@@ -32308,7 +32308,7 @@ DESC BLOCK::: * {@description.open}
          * not the holder of this lock then {@link
          * IllegalMonitorStateException} is thrown.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         transient HoldCounter cachedHoldCounter;
@@ -32325,7 +32325,7 @@ DESC BLOCK::: * {@description.open}
          * The number of read locks held by current thread.
          * Initialized only in constructor and readObject.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private void readObject(java.io.ObjectInputStream s)
@@ -32339,7 +32339,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
          * Reconstitute this lock instance from a stream
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -32361,7 +32361,7 @@ DESC BLOCK::: * {@description.open}
          * acquire. This is non-volatile since it is just used
          * as a heuristic, and would be great for threads to cache.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         public boolean tryLock(long timeout, TimeUnit unit) throws InterruptedException 
@@ -32455,7 +32455,7 @@ DESC BLOCK::: * {@description.open}
          * the interrupt over normal or reentrant acquisition of the
          * lock, and over reporting the elapse of the waiting time.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractQueuedLongSynchronizer.java
 DIRECTORY: java/util/concurrent/locks
@@ -32483,7 +32483,7 @@ DESC BLOCK::: * {@description.open}
      * invoking {@link #tryAcquireShared} until success or the thread
      * is interrupted or the timeout elapses.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void acquire(long arg) 
@@ -32507,7 +32507,7 @@ DESC BLOCK::: * {@description.open}
      * #tryAcquire} until success.  This method can be used
      * to implement method {@link Lock#lock}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void acquireShared(long arg) 
@@ -32529,7 +32529,7 @@ DESC BLOCK::: * {@description.open}
      * repeatedly blocking and unblocking, invoking {@link
      * #tryAcquireShared} until success.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         for (;;) 
@@ -32546,7 +32546,7 @@ DESC BLOCK::: * {@description.open}
      * propagation. (Note: For exclusive mode, release just amounts
      * to calling unparkSuccessor of head if it needs signal.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public class ConditionObject implements Condition, java.io.Serializable 
@@ -32584,7 +32584,7 @@ DESC BLOCK::: * {@description.open}
      * <p>This class is Serializable, but all fields are transient,
      * so deserialized conditions have no waiters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected long tryAcquireShared(long arg) 
@@ -32618,7 +32618,7 @@ DESC BLOCK::: * {@description.open}
      * <p>The default implementation throws {@link
      * UnsupportedOperationException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final Collection<Thread> getWaitingThreads() 
@@ -32636,7 +32636,7 @@ DESC BLOCK::: * {@description.open}
          * waiting on this Condition.
          * Implements {@link AbstractQueuedLongSynchronizer#getWaitingThreads}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         static final Node SHARED = new Node();
@@ -32744,7 +32744,7 @@ accessed when exclusively held.  Upon await, a node is
      * expert group, for helpful ideas, discussions, and critiques
      * on the design of this class.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected boolean isHeldExclusively() 
@@ -32774,7 +32774,7 @@ DESC BLOCK::: * {@description.open}
      * internally only within {@link ConditionObject} methods, so need
      * not be defined if conditions are not used.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final boolean hasWaiters() 
@@ -32790,7 +32790,7 @@ DESC BLOCK::: * {@description.open}
          * Queries whether any threads are waiting on this condition.
          * Implements {@link AbstractQueuedLongSynchronizer#hasWaiters}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final boolean hasQueuedPredecessors() 
@@ -32866,7 +32866,7 @@ DESC BLOCK::: * {@description.open}
      *   }
      * }}</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final int getWaitQueueLength() 
@@ -32884,7 +32884,7 @@ DESC BLOCK::: * {@description.open}
          * this condition.
          * Implements {@link AbstractQueuedLongSynchronizer#getWaitQueueLength}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final boolean hasQueuedPredecessors() 
@@ -32909,7 +32909,7 @@ DESC BLOCK::: * {@description.open}
      * is not the first queued thread.  Used only as a heuristic in
      * ReentrantReadWriteLock.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final boolean tryAcquireNanos(long arg, long nanosTimeout) throws InterruptedException 
@@ -32937,7 +32937,7 @@ DESC BLOCK::: * {@description.open}
      * or the timeout elapses.  This method can be used to implement
      * method {@link Lock#tryLock(long, TimeUnit)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         volatile Node next;
@@ -32968,7 +32968,7 @@ DESC BLOCK::: * {@description.open}
          * cancelled thread never succeeds in acquiring, and a thread only
          * cancels itself, not any other node.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AbstractQueuedSynchronizer.java
 DIRECTORY: java/util/concurrent/locks
@@ -32996,7 +32996,7 @@ DESC BLOCK::: * {@description.open}
      * invoking {@link #tryAcquireShared} until success or the thread
      * is interrupted or the timeout elapses.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class AbstractQueuedSynchronizer
@@ -33293,7 +33293,7 @@ sis of a synchronizer, redefine the
  * Each of these methods by default throws {@link
  * UnsupportedOperationException}.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * Defining these methods is the <em>only</em> supported
@@ -33325,7 +33325,7 @@ ared(int ignore) {
  * }
  * </pre>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final Collection<Thread> getWaitingThreads() 
@@ -33343,7 +33343,7 @@ DESC BLOCK::: * {@description.open}
          * waiting on this Condition.
          * Implements {@link AbstractQueuedSynchronizer#getWaitingThreads}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void acquire(int arg) 
@@ -33367,7 +33367,7 @@ DESC BLOCK::: * {@description.open}
      * #tryAcquire} until success.  This method can be used
      * to implement method {@link Lock#lock}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final void acquireShared(int arg) 
@@ -33389,7 +33389,7 @@ DESC BLOCK::: * {@description.open}
      * repeatedly blocking and unblocking, invoking {@link
      * #tryAcquireShared} until success.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         for (;;) 
@@ -33406,7 +33406,7 @@ DESC BLOCK::: * {@description.open}
      * propagation. (Note: For exclusive mode, release just amounts
      * to calling unparkSuccessor of head if it needs signal.)
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final boolean hasWaiters() 
@@ -33422,7 +33422,7 @@ DESC BLOCK::: * {@description.open}
          * Queries whether any threads are waiting on this condition.
          * Implements {@link AbstractQueuedSynchronizer#hasWaiters}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected int tryAcquireShared(int arg) 
@@ -33456,7 +33456,7 @@ DESC BLOCK::: * {@description.open}
      * <p>The default implementation throws {@link
      * UnsupportedOperationException}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         static final Node SHARED = new Node();
@@ -33564,7 +33564,7 @@ accessed when exclusively held.  Upon await, a node is
      * expert group, for helpful ideas, discussions, and critiques
      * on the design of this class.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         protected final int getWaitQueueLength() 
@@ -33582,7 +33582,7 @@ DESC BLOCK::: * {@description.open}
          * this condition.
          * Implements {@link AbstractQueuedSynchronizer#getWaitQueueLength}.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected boolean isHeldExclusively() 
@@ -33612,7 +33612,7 @@ DESC BLOCK::: * {@description.open}
      * internally only within {@link ConditionObject} methods, so need
      * not be defined if conditions are not used.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final boolean hasQueuedPredecessors() 
@@ -33688,7 +33688,7 @@ DESC BLOCK::: * {@description.open}
      *   }
      * }}</pre>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final boolean hasQueuedPredecessors() 
@@ -33713,7 +33713,7 @@ DESC BLOCK::: * {@description.open}
      * is not the first queued thread.  Used only as a heuristic in
      * ReentrantReadWriteLock.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         private transient Node firstWaiter;
@@ -33751,7 +33751,7 @@ DESC BLOCK::: * {@description.open}
      * <p>This class is Serializable, but all fields are transient,
      * so deserialized conditions have no waiters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final boolean tryAcquireNanos(int arg, long nanosTimeout) throws InterruptedException 
@@ -33779,7 +33779,7 @@ DESC BLOCK::: * {@description.open}
      * or the timeout elapses.  This method can be used to implement
      * method {@link Lock#tryLock(long, TimeUnit)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
         volatile Node next;
@@ -33810,7 +33810,7 @@ DESC BLOCK::: * {@description.open}
          * cancelled thread never succeeds in acquiring, and a thread only
          * cancels itself, not any other node.
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Condition.java
 DIRECTORY: java/util/concurrent/locks
@@ -33931,7 +33931,7 @@ DESC BLOCK::: * {@description.open}
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>If the current thread:
@@ -33962,7 +33962,7 @@ lue indicates whether the deadline has elapsed,
      *
      * <p><b>Implementation Considerations</b>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>An implementation can favor responding to an interrupt over normal
@@ -33971,7 +33971,7 @@ DESC BLOCK::: * {@description.open}
      * must ensure that the signal is redirected to another waiting thread, if
      * there is one.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     long awaitNanos(long nanosTimeout) throws InterruptedException;
@@ -34101,7 +34101,7 @@ DESC BLOCK::: * {@description.open}
      * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>If the current thread:
@@ -34131,7 +34131,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p><b>Implementation Considerations</b>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>An implementation can favor responding to an interrupt over normal
@@ -34140,7 +34140,7 @@ DESC BLOCK::: * {@description.open}
      * must ensure that the signal is redirected to another waiting thread, if
      * there is one.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -34159,7 +34159,7 @@ DESC BLOCK::: * {@description.open}
      * all woken up. Each thread must re-acquire the lock before it can
      * return from {@code await}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 ORIG COMMENT::: /** {@collect.stats} 
      * {@description.open}
@@ -34178,7 +34178,7 @@ DESC BLOCK::: * {@description.open}
      * is selected for waking up. That thread must then re-acquire the
      * lock before returning from {@code await}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public interface Condition 
@@ -34366,7 +34366,7 @@ DESC BLOCK::: * {@description.open}
  * and statements, a {@code Condition} replaces the use of the Object
  * monitor methods.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>A {@code Condition} instance is intrinsically bound to a lock.
@@ -34390,7 +34390,7 @@ e
  *
  * <h3>Implementation Considerations</h3>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>The three forms of condition waiting
@@ -34413,7 +34413,7 @@ port interruption of
  * shown that the interrupt occurred after another action may have unblocked
  * the thread. An implementation should document this behavior.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: package-info.java
 DIRECTORY: java/util/concurrent/locks
@@ -34434,7 +34434,7 @@ DESC BLOCK::: * {@description.open}
  * java.util.concurrent.atomic} package specification for description
  * of the properties of atomic variables.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AtomicMarkableReference.java
 DIRECTORY: java/util/concurrent/atomic
@@ -34452,7 +34452,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically decrements by one the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final int getAndAdd(int i, int delta) 
@@ -34466,7 +34466,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically adds the given value to the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final int getAndIncrement(int i) 
@@ -34480,7 +34480,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically increments by one the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AtomicIntegerArray(int length) 
@@ -34494,7 +34494,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new AtomicIntegerArray of given length.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AtomicBoolean.java
 DIRECTORY: java/util/concurrent/atomic
@@ -34695,7 +34695,7 @@ DESC BLOCK::: * {@description.open}
  * {@link java.lang.Double#doubleToLongBits} and
  * {@link java.lang.Double#longBitsToDouble} conversions.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AtomicLongArray.java
 DIRECTORY: java/util/concurrent/atomic
@@ -34711,7 +34711,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically decrements by one the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final long getAndAdd(int i, long delta) 
@@ -34725,7 +34725,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically adds the given value to the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final long getAndIncrement(int i) 
@@ -34739,7 +34739,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Atomically increments by one the element at index {@code i}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public AtomicLongArray(int length) 
@@ -34753,7 +34753,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new AtomicLongArray of given length.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AtomicLong.java
 DIRECTORY: java/util/concurrent/atomic
@@ -34772,7 +34772,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Creates a new AtomicReferenceArray of given length.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: AtomicInteger.java
 DIRECTORY: java/util/concurrent/atomic

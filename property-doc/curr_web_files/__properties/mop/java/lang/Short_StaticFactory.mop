@@ -1,0 +1,26 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+
+/**
+ * Suggests if the constructor of Short is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Short.html#valueOf%28short%29
+ *
+ * @severity suggestion
+ */
+ 
+Short_StaticFactory() {
+    event constructor_create after() returning(Short l): 
+        call(Short+.new(short)) {
+            RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+            RVMLogging.out.println(Level.CRITICAL, "Using the constructor Short(short value) might be inefficient. Use valueOf(short) if it is appropriate.");
+        }
+    
+}
+

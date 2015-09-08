@@ -16,7 +16,7 @@ ORIG COMMENT::: /** {@collect.stats}
 ~
 DESC BLOCK::: * {@description.open}
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setRequestProperty(String key, String value) 
@@ -42,7 +42,7 @@ DESC BLOCK::: * {@description.open}
      * to use a comma-seperated list syntax which enables multiple
      * properties to be appended into a single property.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class URLConnection 
@@ -174,7 +174,7 @@ va.net.FileNameMap) setFileNameMap} are added
  * instance, unless particular protocol specifications specify different behaviours
  * for it.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static synchronized FileNameMap getFileNameMap() 
@@ -196,7 +196,7 @@ DESC BLOCK::: * {@description.open}
      * it tries to load the default built-in table at
      * lib/content-types.properties under java home.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Object getContent() throws IOException 
@@ -257,7 +257,7 @@ c
      *     <code>UnknownServiceException</code> is thrown.
      * </ol>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHeaderFieldKey(int n) 
@@ -273,7 +273,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the key for the <code>n</code><sup>th</sup> header field.
      * It returns <code>null</code> if there are fewer than <code>n+1</code> fields.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setConnectTimeout(int timeout) 
@@ -305,7 +305,7 @@ DESC BLOCK::: * {@description.open}
      * the specified timeout. To see the connect timeout set, please
      * call getConnectTimeout().
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getContentLength() 
@@ -319,7 +319,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the value of the <code>content-length</code> header field.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHeaderField(int n) 
@@ -345,7 +345,7 @@ DESC BLOCK::: * {@description.open}
      * {@link #getHeaderFieldKey(int) getHeaderFieldKey} method to iterate through all
      * the headers in the message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Authenticator.java
 DIRECTORY: yikes
@@ -402,7 +402,7 @@ DESC BLOCK::: * {@description.open}
  * authentication for a network connection.  Usually, it will do this
  * by prompting the user for information.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <p>
@@ -437,7 +437,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Gets the <code>hostname</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InetSocketAddress(String hostname, int port) 
@@ -481,14 +481,14 @@ DESC BLOCK::: * {@description.open}
      * is called with the host name as its argument to check the permissiom
      * to resolve it. This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * A port number of <code>zero</code> will let the system pick up an
      * ephemeral port in a <code>bind</code> operation.
      * <P>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     final String getHostString() 
@@ -506,7 +506,7 @@ DESC BLOCK::: * {@description.open}
      * doesn't have a hostname (it was created using a literal).
      * This has the benefit of <b>not</b> attemptimg a reverse lookup.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public final boolean equals(Object obj) 
@@ -538,7 +538,7 @@ DESC BLOCK::: * {@description.open}
      * If both addresses are unresolved, then the hostname & the port number
      * are compared.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Inet4AddressImpl.java
 DIRECTORY: yikes
@@ -581,7 +581,7 @@ DESC BLOCK::: * {@description.open}
      * <p>If a cookie corresponding to the given URI already exists,
      * then it is replaced with the new one.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocketPermission.java
 DIRECTORY: yikes
@@ -644,7 +644,7 @@ canonical name (the name without any preceding *)
      *
      * If none of the above are true, <code>implies</code> returns false.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -762,7 +762,7 @@ ocketPermission("localhost:1024-", "accept,connect,listen");
  * transfer and share confidential data among parties who may not
  * otherwise have access to the data.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: UnknownServiceException.java
 DIRECTORY: yikes
@@ -913,7 +913,7 @@ www.foo.com/bar/jar.jar!/</b>,
  *
  * </ul>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CacheRequest.java
 DIRECTORY: yikes
@@ -939,7 +939,7 @@ DESC BLOCK::: * {@description.open}
      * Only classes derived from URLStreamHandler are supposed to be able
      * to call the set method on a URL.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class URLStreamHandler 
@@ -973,7 +973,7 @@ DESC BLOCK::: * {@description.open}
  * <code>URL</code>, the appropriate stream protocol handler is
  * automatically loaded.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: IDN.java
 DIRECTORY: yikes
@@ -1015,7 +1015,7 @@ DESC BLOCK::: * {@description.open}
      * {@link #toASCII(String, int) toASCII}(input,&nbsp;0);
      * </tt></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * <p>ToASCII operation can fail as the other overloaded toAscii() can fail.
@@ -1048,7 +1048,7 @@ DESC BLOCK::: * {@description.open}
      * {@link #toUnicode(String, int) toUnicode}(input,&nbsp;0);
      * </tt></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocksConsts.java
 DIRECTORY: yikes
@@ -1066,7 +1066,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the port number on which this socket is listening.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ServerSocketChannel getChannel() 
@@ -1092,7 +1092,7 @@ DESC BLOCK::: * {@description.open}
      * java.nio.channels.ServerSocketChannel#open ServerSocketChannel.open}
      * method.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InetAddress getInetAddress() 
@@ -1106,7 +1106,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the local address of this server socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void bind(SocketAddress endpoint, int backlog) throws IOException 
@@ -1143,7 +1143,7 @@ DESC BLOCK::: * {@description.open}
      * If the address is <code>null</code>, then the system will pick up
      * an ephemeral port and a valid local address to bind the socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -1160,7 +1160,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setReuseAddress(boolean on) throws SocketException 
@@ -1227,7 +1227,7 @@ ress or port.
      * use {@link #getReuseAddress()} to determine the initial
      * setting of <tt>SO_REUSEADDR</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int getSoTimeout() throws IOException 
@@ -1242,7 +1242,7 @@ DESC BLOCK::: * {@description.open}
      * Retrieve setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean getReuseAddress() throws SocketException 
@@ -1256,7 +1256,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests if SO_REUSEADDR is enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ServerSocket(int port, int backlog) throws IOException 
@@ -1321,7 +1321,7 @@ DESC BLOCK::: * {@description.open}
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setSoTimeout(int timeout) throws SocketException 
@@ -1367,12 +1367,12 @@ DESC BLOCK::: * {@description.open}
      * a <B>java.net.SocketTimeoutException</B> is raised, though the
      * ServerSocket is still valid.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * A timeout of zero is interpreted as an infinite timeout.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ServerSocket(int port) throws IOException 
@@ -1418,7 +1418,7 @@ DESC BLOCK::: * {@description.open}
      * This could result in a SecurityException.
      *
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public ServerSocket(int port, int backlog, InetAddress bindAddr) throws IOException 
@@ -1472,7 +1472,7 @@ DESC BLOCK::: * {@description.open}
      * If <i>bindAddr</i> is null, it will default accepting
      * connections on any/all local addresses.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <P>If there is a security manager, this method
@@ -1481,7 +1481,7 @@ DESC BLOCK::: * {@description.open}
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -1497,7 +1497,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the implementation address and implementation port of
      * this socket as a <code>String</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
      public synchronized void setReceiveBufferSize (int size) throws SocketException 
@@ -1559,7 +1559,7 @@ DESC BLOCK::: * {@description.open}
      * It is possible to change the value subsequently, by calling
      * {@link Socket#setReceiveBufferSize(int)}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int getReceiveBufferSize()
@@ -1583,7 +1583,7 @@ DESC BLOCK::: * {@description.open}
      * <p>Note, the value actually set in the accepted socket is determined by
      * calling {@link Socket#getReceiveBufferSize()}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CookiePolicy.java
 DIRECTORY: yikes
@@ -1607,7 +1607,7 @@ DESC BLOCK::: * {@description.open}
  *
  * <p>See RFC 2965 sec. 3.3 & 7 for more detail.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: UnknownHostException.java
 DIRECTORY: yikes
@@ -1640,7 +1640,7 @@ DESC BLOCK::: * {@description.open}
      * on this {@code MulticastSocket} in order to control the
      * scope of the multicasts.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: URLClassLoader.java
 DIRECTORY: yikes
@@ -1658,7 +1658,7 @@ DESC BLOCK::: * {@description.open}
      * Appends the specified URL to the list of URLs to search for
      * classes and resources.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     protected PermissionCollection getPermissions(CodeSource codesource)
@@ -1704,7 +1704,7 @@ DESC BLOCK::: * {@description.open}
      * If the protocol is not "file", then permission
      * to connect to and accept connections from the URL's host is granted.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NetworkInterface.java
 DIRECTORY: yikes
@@ -1722,7 +1722,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the hardware address (usually MAC) of the interface if it
      * has one and if it can be accessed given the current privileges.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -1746,7 +1746,7 @@ DESC BLOCK::: * {@description.open}
      * NOTE: can use getNetworkInterfaces()+getInetAddresses()
      *       to obtain all IP addresses for this node
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     int getIndex() 
@@ -1760,7 +1760,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Get the index of this network interface.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Enumeration<InetAddress> getInetAddresses() 
@@ -1785,7 +1785,7 @@ DESC BLOCK::: * {@description.open}
      * the <code>checkConnect</code> doesn't throw a SecurityException
      * will be returned in the Enumeration.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: NoRouteToHostException.java
 DIRECTORY: yikes
@@ -1813,7 +1813,7 @@ DESC BLOCK::: * {@description.open}
      * If you read from a socket input stream after invoking
      * shutdownInput() on the socket, the stream will return EOF.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ProtocolException.java
 DIRECTORY: yikes
@@ -1859,7 +1859,7 @@ DESC BLOCK::: * {@description.open}
      *     for tcp client sockets connections</LI>
      * </UL>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class ProxySelector 
@@ -1908,7 +1908,7 @@ DESC BLOCK::: * {@description.open}
  * currently registered proxy selector can be retrieved by calling
  * {@link java.net.ProxySelector#getDefault getDefault} method.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * The {@link
@@ -1920,7 +1920,7 @@ DESC BLOCK::: * {@description.open}
  * {@link #connectFailed connectFailed} method to notify the proxy
  * selector that the proxy server is unavailable. </p>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: MalformedURLException.java
 DIRECTORY: yikes
@@ -1998,7 +1998,7 @@ cted, because there is no embedded dot.</li>
      *   host is example.local, and example.local domain-matches .local.</li>
      * </ul></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2013,7 +2013,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Return the port list attribute of the cookie
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2032,7 +2032,7 @@ DESC BLOCK::: * {@description.open}
      * only over a secure protocol, or <code>false</code> if the
      * browser can send cookies using any protocol.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2053,7 +2053,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p>The default value is <code>false</code>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2074,7 +2074,7 @@ DESC BLOCK::: * {@description.open}
      * The comment url is useful if the browser presents the cookie
      * to the user. Comment url is RFC 2965 only.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2089,7 +2089,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Return the discard attribute of the cookie
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean hasExpired() 
@@ -2103,7 +2103,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Reports whether this http cookie has expired or not.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object obj) 
@@ -2127,7 +2127,7 @@ DESC BLOCK::: * {@description.open}
      * have same name (case-insensitive),
      * and have same path (case-sensitive).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final class HttpCookie implements Cloneable 
@@ -2167,7 +2167,7 @@ DESC BLOCK::: * {@description.open}
  *
  * <p>HttpCookie class can accept all these 3 forms of syntax.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2184,7 +2184,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the comment url describing the purpose of this cookie, or
      * <code>null</code> if the cookie has no comment url.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int hashCode() 
@@ -2214,7 +2214,7 @@ DESC BLOCK::: * {@description.open}
      * + getPath().hashCode()
      * </blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: Socket.java
 DIRECTORY: yikes
@@ -2232,7 +2232,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address of the endpoint this socket is connected to, or
      * <code>null</code> if it is unconnected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -2249,7 +2249,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Socket(String host, int port, InetAddress localAddr,
@@ -2288,7 +2288,7 @@ DESC BLOCK::: * {@description.open}
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InetAddress getInetAddress() 
@@ -2302,7 +2302,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the address to which the socket is connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     @Deprecated
@@ -2366,7 +2366,7 @@ eates a datagram socket.
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getPort() 
@@ -2380,7 +2380,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the remote port number to which this socket is connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setKeepAlive(boolean on) throws SocketException 
@@ -2394,7 +2394,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Enable/disable SO_KEEPALIVE.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int getSendBufferSize() throws SocketException 
@@ -2411,7 +2411,7 @@ DESC BLOCK::: * {@description.open}
      * that is the buffer size used by the platform
      * for output on this <tt>Socket</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setOOBInline(boolean on) throws SocketException 
@@ -2445,7 +2445,7 @@ DESC BLOCK::: * {@description.open}
      * and there is no capability to distinguish between normal data and urgent
      * data unless provided by a higher level protocol.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setSoTimeout(int timeout) throws SocketException 
@@ -2491,12 +2491,12 @@ DESC BLOCK::: * {@description.open}
      *  a <B>java.net.SocketTimeoutException</B> is raised, though the
      *  Socket is still valid.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      *  A timeout of zero is interpreted as an infinite timeout.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getSoLinger() throws SocketException 
@@ -2516,7 +2516,7 @@ DESC BLOCK::: * {@description.open}
      *
      * The setting only affects socket close.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setSendBufferSize(int size)
@@ -2545,7 +2545,7 @@ DESC BLOCK::: * {@description.open}
      * verify what size the buffers were set to should call
      * {@link #getSendBufferSize()}.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean getTcpNoDelay() throws SocketException 
@@ -2559,7 +2559,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests if TCP_NODELAY is enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean getKeepAlive() throws SocketException 
@@ -2573,7 +2573,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests if SO_KEEPALIVE is enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setTrafficClass(int tc) throws SocketException 
@@ -2649,7 +2649,7 @@ DESC BLOCK::: * {@description.open}
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>Notes:
@@ -2665,7 +2665,7 @@ DESC BLOCK::: * {@description.open}
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -2680,7 +2680,7 @@ DESC BLOCK::: * {@description.open}
      * For Internet Protocol v6 <code>tc</code> is the value that
      * would be placed into the sin6_flowinfo field of the IP header.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Socket(String host, int port)
@@ -2726,7 +2726,7 @@ DESC BLOCK::: * {@description.open}
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int getSoTimeout() throws SocketException 
@@ -2741,7 +2741,7 @@ DESC BLOCK::: * {@description.open}
      * Returns setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized int getReceiveBufferSize()
@@ -2760,7 +2760,7 @@ DESC BLOCK::: * {@description.open}
      * that is the buffer size used by the platform for
      * input on this <tt>Socket</tt>.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InetAddress getLocalAddress() 
@@ -2774,7 +2774,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Gets the local address to which the socket is bound.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public Socket(InetAddress address, int port, InetAddress localAddr,
@@ -2803,7 +2803,7 @@ DESC BLOCK::: * {@description.open}
      * with the host address and <code>port</code>
      * as its arguments. This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isBound() 
@@ -2817,7 +2817,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the binding state of the socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public OutputStream getOutputStream() throws IOException 
@@ -2870,13 +2870,13 @@ DESC BLOCK::: * {@description.open}
      * <p> If this socket has an associated channel then the resulting output
      * stream delegates all of its operations to the channel.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p> Closing the returned {@link java.io.OutputStream OutputStream}
      * will close the associated socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * An output stream is unavailable if the socket is closed, is not connected,
@@ -2896,7 +2896,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests if OOBINLINE is enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setReceiveBufferSize(int size)
@@ -2966,7 +2966,7 @@ DESC BLOCK::: * {@description.open}
      * that is advertized to the remote peer. Generally, the window size
      * can be modified at any time when a socket is connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getLocalPort() 
@@ -2980,7 +2980,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the local port number to which this socket is bound.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InputStream getInputStream() throws IOException 
@@ -3056,7 +3056,7 @@ DESC BLOCK::: * {@description.open}
      * <p> If this socket has an associated channel then the resulting input
      * stream delegates all of its operations to the channel.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>Under abnormal conditions the underlying connection may be
@@ -3083,7 +3083,7 @@ link java.io.InputStream#read read} will throw an
      * <p> Closing the returned {@link java.io.InputStream InputStream}
      * will close the associated socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * An input stream is unavailable if the socket is closed, is not connected,
@@ -3117,7 +3117,7 @@ DESC BLOCK::: * {@description.open}
      * java.nio.channels.ServerSocketChannel#accept ServerSocketChannel.accept}
      * methods.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean getReuseAddress() throws SocketException 
@@ -3131,7 +3131,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Tests if SO_REUSEADDR is enabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void shutdownInput() throws IOException
@@ -3156,7 +3156,7 @@ DESC BLOCK::: * {@description.open}
      * If you read from a socket input stream after invoking
      * shutdownInput() on the socket, the stream will return EOF.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setReuseAddress(boolean on) throws SocketException 
@@ -3218,7 +3218,7 @@ DESC BLOCK::: * {@description.open}
      * When a <tt>Socket</tt> is created the initial setting
      * of <tt>SO_REUSEADDR</tt> is disabled.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setTcpNoDelay(boolean on) throws SocketException 
@@ -3232,7 +3232,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Enable/disable TCP_NODELAY (disable/enable Nagle's algorithm).
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setSoLinger(boolean on, int linger) throws SocketException 
@@ -3252,7 +3252,7 @@ DESC BLOCK::: * {@description.open}
      *
      * The setting only affects socket close.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isConnected() 
@@ -3266,7 +3266,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the connection state of the socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: DatagramSocket.java
 DIRECTORY: yikes
@@ -3284,7 +3284,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address of the endpoint this socket is connected to, or
      * <code>null</code> if it is unconnected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 
@@ -3301,7 +3301,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public DatagramSocket(int port) throws SocketException 
@@ -3345,12 +3345,12 @@ DESC BLOCK::: * {@description.open}
      * as its argument to ensure the operation is allowed.
      * This could result in a SecurityException.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * The local port must be between 0 and 65535 inclusive.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setBroadcast(boolean on) throws SocketException 
@@ -3363,7 +3363,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Enable/disable SO_BROADCAST.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void bind(SocketAddress addr) throws SocketException 
@@ -3384,7 +3384,7 @@ DESC BLOCK::: * {@description.open}
      * an ephemeral port and a valid local address to bind the socket.
      *<p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void disconnect() 
@@ -3400,7 +3400,7 @@ DESC BLOCK::: * {@description.open}
      * Disconnects the socket. This does nothing if the socket is not
      * connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void connect(SocketAddress addr) throws SocketException 
@@ -3415,7 +3415,7 @@ DESC BLOCK::: * {@description.open}
      * Connects this socket to a remote socket address (IP address + port number).
      * <p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public InetAddress getInetAddress() 
@@ -3431,7 +3431,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the address to which this socket is connected. Returns
      * <code>null</code> if the socket is not connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void connect(InetAddress address, int port) 
@@ -3481,7 +3481,7 @@ t time. When a socket
      * match, an IllegalArgumentException will be thrown. A socket
      * connected to a multicast address may only be used to send packets.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isBound() 
@@ -3495,7 +3495,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the binding state of the socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public synchronized void setTrafficClass(int tc) throws SocketException 
@@ -3563,7 +3563,7 @@ DESC BLOCK::: * {@description.open}
      * As the underlying network implementation may ignore this
      * value applications should consider it a hint.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>Notes:
@@ -3579,14 +3579,14 @@ DESC BLOCK::: * {@description.open}
      * <LI><CODE>IPTOS_LOWDELAY (0x10)</CODE></LI>
      * </UL>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
      * for Internet Protocol v6 <code>tc</code> is the value that
      * would be placed into the sin6_flowinfo field of the IP header.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public
@@ -3650,7 +3650,7 @@ DESC BLOCK::: * {@description.open}
  * Both cases will create a DatagramSocket able to receive broadcasts on
  * UDP port 8888.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int getPort() 
@@ -3666,7 +3666,7 @@ DESC BLOCK::: * {@description.open}
      * Returns the port number to which this socket is connected.
      * Returns <code>-1</code> if the socket is not connected.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isConnected() 
@@ -3680,7 +3680,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Returns the connection state of the socket.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: DatagramSocketImplFactory.java
 DIRECTORY: yikes
@@ -3779,7 +3779,7 @@ Address </h4>
  * Please refer to <a href="http://www.ietf.org/rfc/rfc2365.txt">
  * <i>RFC&nbsp;2365: Administratively Scoped IP Multicast</i></a>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: CookieHandler.java
 DIRECTORY: yikes
@@ -3814,7 +3814,7 @@ DESC BLOCK::: * {@description.open}
      * Gets all the applicable cookies from a cookie cache for the
      * specified uri in the request header.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public abstract class CookieHandler 
@@ -3854,7 +3854,7 @@ DESC BLOCK::: * {@description.open}
  * href="http://www.ietf.org/rfc/rfc2965.txt""><i>RFC&nbsp;2965: HTTP
  * State Management Mechanism</i></a>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocketOptions.java
 DIRECTORY: yikes
@@ -4025,7 +4025,7 @@ DESC BLOCK::: * {@description.open}
  * </dl>
  * </blockquote>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static InetAddress getByAddress(String host, byte[] addr)
@@ -4066,7 +4066,7 @@ DESC BLOCK::: * {@description.open}
      * <p> IPv4 address byte array must be 4 bytes long and IPv6 byte array
      * must be 16 bytes long
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean isReachable(NetworkInterface netif, int ttl,
@@ -4166,7 +4166,7 @@ rfc3330.txt">RFC&nbsp;3330</a>
      * with the hostname and <code>-1</code>
      * as its arguments to see if the operation is allowed.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static InetAddress getByName(String host)
@@ -4217,7 +4217,7 @@ ped addresses are also
      * section&nbsp;2 and <a href="http://www.ietf.org/rfc/rfc2373.txt">RFC&nbsp;2373</a>
      * section&nbsp;2.5.3. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
                     return -1;
@@ -4240,7 +4240,7 @@ DESC BLOCK::: * {@description.open}
      * %nn may also be a string that represents the displayName of
      * a currently available NetworkInterface.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocketTimeoutException.java
 DIRECTORY: yikes
@@ -4283,7 +4283,7 @@ DESC BLOCK::: * {@description.open}
      * supplied encoding scheme to obtain the bytes for unsafe
      * characters.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ResponseCache.java
 DIRECTORY: yikes
@@ -4344,7 +4344,7 @@ uld be cached, and for how long they should be cached. If a
  * href="http://www.ietf.org/rfc/rfc2616.txt""><i>RFC&nbsp;2616: Hypertext
  * Transfer Protocol -- HTTP/1.1</i></a>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ContentHandlerFactory.java
 DIRECTORY: yikes
@@ -4491,7 +4491,7 @@ DESC BLOCK::: * {@description.open}
  * no actions list; you either have the named permission
  * or you don't.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
  * <P>
@@ -4525,7 +4525,7 @@ DESC BLOCK::: * {@description.open}
  *
  * </table>
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocksSocketImpl.java
 DIRECTORY: yikes
@@ -4555,7 +4555,7 @@ DESC BLOCK::: * {@description.open}
          *   java.net.socks.password
          * - the user.name & no password (backward compatibility behavior).
          * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: ConnectException.java
 DIRECTORY: yikes
@@ -4720,7 +4720,7 @@ ed by
  * Note also, that the numeric <i>scope_id</i> can be retrieved from Inet6Address instances returned from the
  * NetworkInterface class. This can be used to find out the current scope ids configured on the system.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHostAddress() 
@@ -4740,7 +4740,7 @@ DESC BLOCK::: * {@description.open}
      * a "%" (per-cent) character. This can be either a numeric value or a string, depending on which
      * was used to createthe instance.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     private synchronized void writeObject(java.io.ObjectOutputStream s)
@@ -4755,7 +4755,7 @@ ORIG COMMENT::: /** {@collect.stats}
 DESC BLOCK::: * {@description.open}
      * Following field is only used during (de)/serialization
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [-]
 ---------
 FILE: URLDecoder.java
 DIRECTORY: yikes
@@ -4798,7 +4798,7 @@ DESC BLOCK::: * {@description.open}
      * what characters are represented by any consecutive sequences of the
      * form "<code>%<i>xy</i></code>".
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: SocketException.java
 DIRECTORY: yikes
@@ -5243,7 +5243,7 @@ DESC BLOCK::: * {@description.open}
  * opening a connection to the specified resource.
  *
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public boolean equals(Object ob) 
@@ -5307,7 +5307,7 @@ must be equal.
      * <p> This method satisfies the general contract of the {@link
      * java.lang.Object#equals(Object) Object.equals} method. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHost() 
@@ -5372,7 +5372,7 @@ DESC BLOCK::: * {@description.open}
      * The host component of a URI cannot contain escaped octets, hence this
      * method does not perform any decoding.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI(String str) throws URISyntaxException 
@@ -5464,7 +5464,7 @@ xpressible in the grammar. </p></li>
      *
      * </ul>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI(String scheme,
@@ -5548,7 +5548,7 @@ DESC BLOCK::: * {@description.open}
      * #parseServerAuthority()} method upon the result; this may cause a {@link
      * URISyntaxException} to be thrown.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String toString() 
@@ -5580,7 +5580,7 @@ DESC BLOCK::: * {@description.open}
      * href="http://www.ietf.org/rfc/rfc2396.txt">RFC&nbsp;2396</a>,
      * section&nbsp;5.2, step&nbsp;7. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public static URI create(String str) 
@@ -5620,7 +5620,7 @@ DESC BLOCK::: * {@description.open}
      * URI is being constructed from user input or from some other source that
      * may be prone to errors.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI resolve(String str) 
@@ -5644,7 +5644,7 @@ DESC BLOCK::: * {@description.open}
      * evaluating the expression <tt>{@link #resolve(java.net.URI)
      * resolve}(URI.{@link #create(String) create}(str))</tt>. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI(String scheme, String host, String path, String fragment)
@@ -5680,7 +5680,7 @@ DESC BLOCK::: * {@description.open}
      * URI}(scheme,&nbsp;null,&nbsp;host,&nbsp;-1,&nbsp;path,&nbsp;null,&nbsp;fragment);
      * </tt></blockquote>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI resolve(URI uri) 
@@ -5760,7 +5760,7 @@ en URI
      * <p> The result of this method is absolute if, and only if, either this
      * URI is absolute or the given URI is absolute.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI(String scheme,
@@ -5853,7 +5853,7 @@ DESC BLOCK::: * {@description.open}
      * #parseServerAuthority()} method upon the result; this may cause a {@link
      * URISyntaxException} to be thrown.  </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI normalize() 
@@ -5916,7 +5916,7 @@ DESC BLOCK::: * {@description.open}
      * segment if one was inserted by step 3 above.  Otherwise, a normalized
      * path will not contain any <tt>"."</tt> or <tt>".."</tt> segments. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URI parseServerAuthority()
@@ -5986,7 +5986,7 @@ I(str).parseServerAuthority();</tt>
      * appropriate diagnostic message can be issued based upon the exception
      * that is thrown. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public int compareTo(URI that) 
@@ -6074,7 +6074,7 @@ thority components are ordered according to the ordering of their
      * java.lang.Comparable#compareTo(Object) Comparable.compareTo}
      * method. </p>
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: URL.java
 DIRECTORY: yikes
@@ -6143,7 +6143,7 @@ DESC BLOCK::: * {@description.open}
      * <p>
      * For a more detailed description of URL parsing, refer to RFC2396.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URLConnection openConnection() throws java.io.IOException 
@@ -6183,7 +6183,7 @@ DESC BLOCK::: * {@description.open}
      * HttpURLConnection will be returned, and for JAR a
      * JarURLConnection will be returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URLConnection openConnection(Proxy proxy)
@@ -6210,7 +6210,7 @@ DESC BLOCK::: * {@description.open}
      * Calling this method preempts the system's default ProxySelector
      * settings.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
 public final class URL implements java.io.Serializable 
@@ -6334,7 +6334,7 @@ DESC BLOCK::: * {@description.open}
  * used, but only for HTML form encoding, which is not the same
  * as the encoding scheme defined in RFC2396.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public URL(String protocol, String host, int port, String file)
@@ -6436,7 +6436,7 @@ DESC BLOCK::: * {@description.open}
      *
      * <p>No validation of the inputs is performed by this constructor.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: HttpURLConnection.java
 DIRECTORY: yikes
@@ -6486,13 +6486,13 @@ DESC BLOCK::: * {@description.open}
      * </UL> are legal, subject to protocol restrictions.  The default
      * method is GET.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEW BLOCK:::* {@new.open}
      * <p>
      * This method must be called before the URLConnection is connected.
      * {@new.close}
-ADDRESSED NEW::: []
+ADDRESSED NEW::: [x]
 ---------
 NEAREST SIGNATURE::: 
 abstract public class HttpURLConnection extends URLConnection 
@@ -6530,7 +6530,7 @@ DESC BLOCK::: * {@description.open}
  * Calling the disconnect() method may close the underlying socket
  * if a persistent connection is otherwise idle at that time.
  * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHeaderField(int n) 
@@ -6558,7 +6558,7 @@ DESC BLOCK::: * {@description.open}
      * {@link #getHeaderFieldKey getHeaderFieldKey} method to iterate through all
      * the headers in the message.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public void setFixedLengthStreamingMode (int contentLength) 
@@ -6610,7 +6610,7 @@ DESC BLOCK::: * {@description.open}
      * without internal buffering, when the content length is known in
      * advance.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 DESC BLOCK::: * {@description.open}
      * <p>
@@ -6620,7 +6620,7 @@ DESC BLOCK::: * {@description.open}
      * the response if authentication or redirection are required.
      * This exception can be queried for the details of the error.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 NEAREST SIGNATURE::: 
     public String getHeaderFieldKey (int n) 
@@ -6642,7 +6642,7 @@ DESC BLOCK::: * {@description.open}
      * server. In this case, {@link #getHeaderField(int) getHeaderField(0)} returns the status
      * line, but <code>getHeaderFieldKey(0)</code> returns null.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: InterfaceAddress.java
 DIRECTORY: yikes
@@ -6666,7 +6666,7 @@ DESC BLOCK::: * {@description.open}
      * Only IPv4 networks have broadcast address therefore, in the case
      * of an IPv6 network, <code>null</code> will be returned.
      * {@description.close}
-ADDRESSED DESC::: []
+ADDRESSED DESC::: [x]
 ---------
 FILE: BindException.java
 DIRECTORY: yikes
