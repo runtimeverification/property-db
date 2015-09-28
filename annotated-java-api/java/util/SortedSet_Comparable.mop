@@ -27,23 +27,24 @@ import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
  * @severity error
  */
 
-SortedSet_Comparable() {
-	event add before(Object e) :
+SortedSet_Comparable(SortedSet s) {
+
+	event add before(SortedSet s, Object e) :
 		(
 			call(* Collection+.add*(..)) ||
 			call(* Queue+.offer*(..))
-		) && target(SortedSet) && args(e) {
-		if (!(e instanceof Comparable)) {
+		) && target(s) && args(e) {
+		if (s.comparator() == null && !(e instanceof Comparable)) {
 			RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 			RVMLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a SortedSet object.");
 		}
 	}
 
-	event addall before(Collection c) :
+	event addall before(SortedSet s, Collection c) :
 		call(* Collection+.addAll(Collection)) &&
-		target(SortedSet) && args(c) {
+		target(s) && args(c) {
 		for (Object elem : c) {
-			if (!(elem instanceof Comparable)) {
+			if (s.comparator() == null && !(elem instanceof Comparable)) {
 				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
 				RVMLogging.out.println(Level.CRITICAL, "A non-comparable object is being inserted into a SortedSet object.");
 			}
