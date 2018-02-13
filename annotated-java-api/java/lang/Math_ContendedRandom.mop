@@ -24,7 +24,7 @@ Math_ContendedRandom() {
 			this.th = t;
 		}
 	event otherthread_use before(Thread t) :
-		call(* Math.random(..)) && thread(t) && condition(this.th != t){
+		call(* Math.random(..)) && thread(t) && condition(this.th != null && this.th != t){
 		}
 
 	ere : onethread_use*
