@@ -34,7 +34,7 @@ BalloonConfig = function(balloon, set) {
     balloon.vOffset            = 10;                            //
     balloon.hOffset            = 10;                            //
     balloon.stem               = true;                          //
-    balloon.images             = docRoot + 'images/GBubble';              //
+    balloon.images             = './images/GBubble';              //
     balloon.ieImage            = 'balloon_ie.png';              //
     balloon.balloonImage       = 'balloon.png';                 //
     balloon.upLeftStem         = 'up_left.png';                 //
@@ -80,7 +80,7 @@ BalloonConfig = function(balloon, set) {
     // A simpler balloon
     case('GPlain') : 
       balloon.padding     = 5;  
-      balloon.images      = docRoot + 'images/GPlain';
+      balloon.images      = 'images/GPlain';
       balloon.ieImage     = null;
       balloon.shadow      = 0;  
       balloon.stemHeight  = 15;

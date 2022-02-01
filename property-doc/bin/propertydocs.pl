@@ -11,8 +11,10 @@ $imgsuffix = catfile("images","GBubble");
 #here we set up the path for the javascript we use to 
 #produce the popup balloons
 $jssuffix = "js";
+$logosuffix = "images";
 $imgpath = catfile(dirname($0), "..", catfile("resources",$imgsuffix));
 $jspath = catfile(dirname($0), "..", catfile("resources",$jssuffix));
+$logopath = catfile(dirname($0), "..", catfile("resources",$logosuffix));
 
 $tpackage="edu.uiuc.cs.fsl.propertydocs.taglets";
 
@@ -55,11 +57,11 @@ $header.="function toggleHighlights()";
 $header.="  {";
 $header.="  var highlighting=document.getElementsByName('highlighting');";
 $header.="    for(var i = 0; i < highlighting.length; i++){";
-$header.="      if(highlighting[i].getAttribute('class') == 'HLon'){";
-$header.="        highlighting[i].setAttribute('class','HLoff');";
+$header.="      if(highlighting[i].getAttribute('class') == ''){";
+$header.="        highlighting[i].setAttribute('class','navBarCell1RevNR');";
 $header.="      }";
 $header.="      else{";
-$header.="        highlighting[i].setAttribute('class','HLon');";
+$header.="        highlighting[i].setAttribute('class','');";
 $header.="      }";
 $header.="    }";
 
@@ -76,7 +78,6 @@ $header.="          divs[i].setAttribute('bak', divs[i].getAttribute('onmouseove
 $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
-
 $header.="      else if(divs[i].getAttribute('name') == 'brokenproperty'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','Red');";
@@ -113,10 +114,19 @@ $header.="      }";
 $header.="    }";
 $header.="  }";
 $header.="</script>";
-$header.=" <TD BGCOLOR='#FFFFFF' CLASS='NavBarCell'><A HREF='{\@docRoot}__properties/property-list.html'>";
-$header.="  <B>Properties</B></A></TD>";
-$header.=" <TD BGCOLOR='#FFFFFF' NAME='highlighting' CLASS='HLon'><SPAN ONCLICK='toggleHighlights()'>";
-$header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
+$header.="<DIV class=\"navBarRV\">";
+$header.=" <A TARGET=\"_top\" href=\"https://runtimeverification.com\">";
+$header.=" <IMG style=\"vertical-align:middle\" height=\"30\" width=\"30\" SRC=\"{\@docRoot}images/favicon.ico\">";
+$header.=" <TD> &nbsp;&nbsp; </TD>";
+$header.=" <TD BGCOLOR='#FFFFFF' ><A HREF='{\@docRoot}__properties/property-list.html'>";
+$header.=" PROPERTIES</A></TD>";
+$header.=" <TD> &nbsp;&nbsp; </TD>";
+$header.=" <TD BGCOLOR='#FFFFFF' >";
+$header.=" STATISTICS</A></TD>";
+$header.=" <TD> &nbsp;&nbsp; </TD>";
+$header.=" <TD BGCOLOR='#FFFFFF' ><SPAN NAME='highlighting' style=\"cursor:pointer\" ONCLICK='toggleHighlights()' CLASS=\"navBarCell1RevNR\">";
+$header.=" HIGHLIGHTING</FONT></SPAN></TD></DIV>\"";
+
 
 $taglets ="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
@@ -124,7 +134,7 @@ $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet "
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
 
 $docscmdPrefix = "java -Xmx1024m ";
-$docscmdSuffix = " -cp $srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
+$docscmdSuffix = " -cp $srcpath/../lib/tools.jar:$srcpath/../lib/classes.jar com.sun.tools.javadoc.Main -sourcepath . -header $header -tagletpath $srcpath $taglets";
 
 $dflag = 0;
 $pflag = 0;
@@ -182,7 +192,7 @@ $propertypagecmd = $docscmdPrefix . " -cp $srcpath $upackage.FinishUp ".$dir;
 
 $destjspath = catfile($dir, $jssuffix);
 $destimgpath = catfile($dir, $imgsuffix);
-
+$destlogopath = catfile($dir, $logosuffix);
 
 $docscmd = $docscmdPrefix .$docscmdSuffix;
 system $docscmd;
@@ -210,7 +220,9 @@ mkdir $destimgpath;
  copy(catfile($imgpath, "down_right.png"), catfile($destimgpath, "down_right.png"));
  copy(catfile($imgpath, "up_left.png"), catfile($destimgpath, "up_left.png"));
  copy(catfile($imgpath, "up_right.png"), catfile($destimgpath, "up_right.png"));
+ copy(catfile($logopath, "favicon.ico"), catfile($destlogopath, "favicon.ico"));
 system $propertypagecmd;
+
 
 sub print_help{
   print "the flags specific to properydocs are:\n";
