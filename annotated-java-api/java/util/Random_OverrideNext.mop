@@ -23,7 +23,7 @@ Random_OverrideNext() {
 
 		if (klass != null) {
 			try {
-				Method nextmethod = klass.getDeclaredMethod("next", Integer.class);
+				Method nextmethod = klass.getDeclaredMethod("next", int.class);
 			}
 			catch (NoSuchMethodException e) {
 				RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
